@@ -1,0 +1,9 @@
+{
+    "recommendations": [
+        "cfritz.sane-indentation",
+        "p-de-jong.vscode-html-scss",
+        "bradgashler.htmltagwrap",
+        "adrianwilczynski.format-selection-as-html",
+        "codamasoftware.set-auto-formatting"
+    ]
+}

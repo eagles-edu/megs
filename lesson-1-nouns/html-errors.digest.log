@@ -1,0 +1,65 @@
+### CSS: “mso-fareast-”: Parse Error. (1 file)
+- /home/eagles/dockerz/megs/lesson-1-nouns/./4-countable-and-uncountable-nouns.html
+  - Line 334:59
+  - Line 338:59
+  - Line 342:59
+  - Line 346:121
+  - Line 346:62
+  - Line 353:59
+  - Line 357:59
+  - Line 361:59
+  - Line 365:59
+  - Line 375:256
+  - Line 376:256
+  - Line 377:256
+  - Line 378:387
+  - Line 379:256
+  - Line 381:256
+  - Line 383:256
+  - Line 385:256
+  - Line 386:256
+
+### CSS: “mso-margin-top-alt”: Property “mso-margin-top-alt” doesn't exist. (1 file)
+- /home/eagles/dockerz/megs/lesson-1-nouns/./3-singular-and-plural-nouns.html
+  - Line 271:13
+
+### Element “ul” not allowed as child of element “ul” in this context. (Suppressing further errors from this subtree.) (1 file)
+- /home/eagles/dockerz/megs/lesson-1-nouns/./2-functions-of-a-noun.html
+  - Line 354:17
+  - Line 366:17
+
+### End tag “em” violates nesting rules. (1 file)
+- /home/eagles/dockerz/megs/lesson-1-nouns/./3-singular-and-plural-nouns.html
+  - Line 376:70
+
+### No “p” element in scope but a “p” end tag seen. (1 file)
+- /home/eagles/dockerz/megs/lesson-1-nouns/./2-functions-of-a-noun.html
+  - Line 333:19
+
+### Stray end tag “b”. (1 file)
+- /home/eagles/dockerz/megs/lesson-1-nouns/./3-singular-and-plural-nouns.html
+  - Line 392:40
+
+### Stray end tag “script”. (1 file)
+- /home/eagles/dockerz/megs/lesson-1-nouns/./2-functions-of-a-noun.html
+  - Line 960:1
+  - Line 961:1
+
+### Stray end tag “span”. (2 files)
+- /home/eagles/dockerz/megs/lesson-1-nouns/./2-functions-of-a-noun.html
+  - Line 294:227
+  - Line 350:205
+- /home/eagles/dockerz/megs/lesson-1-nouns/./5-collective-nouns.html
+  - Line 408:165
+
+### The “type” attribute on the “ul” element is obsolete. Use CSS instead. (1 file)
+- /home/eagles/dockerz/megs/lesson-1-nouns/./4-countable-and-uncountable-nouns.html
+  - Line 333:1
+  - Line 337:1
+  - Line 341:1
+  - Line 345:1
+  - Line 352:1
+  - Line 356:1
+  - Line 360:1
+  - Line 364:1
+
