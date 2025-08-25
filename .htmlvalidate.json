@@ -1,0 +1,21 @@
+{
+  "$schema": "https://html-validate.org/schemas/config.json",
+  "root": true,
+  "elements": ["html5"],
+  "plugins": ["html-validate-vue"],
+  "extends": [
+    "html-validate:recommended",
+    "html-validate:prettier",
+    "html-validate-vue:recommended"
+  ],
+  "transform": {
+    "^.*\\.vue$": "html-validate-vue"
+  },
+  "rules": {
+    "doctype-style": "error",
+    "void-style": "error",
+    "attr-quotes": "error",
+    "no-trailing-whitespace": "warn",
+    "no-inline-style": "off"
+  }
+}

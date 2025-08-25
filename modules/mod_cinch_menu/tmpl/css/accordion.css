@@ -1,46 +1,146 @@
-ul.accordion-menu{border:1px solid #888;margin:0px;padding:0px;overflow:hidden;line-height:normal;list-style:none !important;font-size:.85em;}
-ul.accordion-menu-left{text-align:left;}
-ul.accordion-menu-right{text-align:right;}
-ul.accordion-menu li{border-top:1px solid #888;}
+ul.accordion-menu {
+  border: 1px solid #888;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  line-height: normal;
+  list-style: none !important;
+  font-size: 0.85em;
+}
+
+ul.accordion-menu-left {
+  text-align: left;
+}
+
+ul.accordion-menu-right {
+  text-align: right;
+}
+
+ul.accordion-menu li {
+  border-top: 1px solid #888;
+}
+
 ul.accordion-menu > li.first,
-ul.accordion-menu > li:first-child{border-top:0px;}
+ul.accordion-menu > li:first-child {
+  border-top: 0;
+}
+
 ul.accordion-menu a,
 ul.accordion-menu a:hover,
 ul.accordion-menu a:visited,
 ul.accordion-menu a:active,
-ul.accordion-menu a:focus{font-family:'Roboto Condensed';background:none;}
+ul.accordion-menu a:focus {
+  font-family: 'Roboto Condensed';
+  background: none;
+}
+
 ul.accordion-menu.button-left li > .item-wrapper > .menu-button,
-ul.accordion-menu.button-right li > .item-wrapper > .menu-button{padding:12px 0px;line-height:10px;}
-ul.accordion-menu.button-left li > .item-wrapper > .menu-button{float:left;}
-ul.accordion-menu.button-right li > .item-wrapper > .menu-button{float:right;}
-ul.accordion-menu.button-left li > .item-wrapper > .menu-button > img{padding-left:10px;}
-ul.accordion-menu.button-right li > .item-wrapper > .menu-button > img{padding-right:10px;}
-ul.accordion-menu li > .item-wrapper > .menu-link{min-height:35px;overflow:hidden;}
+ul.accordion-menu.button-right li > .item-wrapper > .menu-button {
+  padding: 12px 0;
+  line-height: 10px;
+}
+
+ul.accordion-menu.button-left li > .item-wrapper > .menu-button {
+  float: left;
+}
+
+ul.accordion-menu.button-right li > .item-wrapper > .menu-button {
+  float: right;
+}
+
+ul.accordion-menu.button-left li > .item-wrapper > .menu-button > img {
+  padding-left: 10px;
+}
+
+ul.accordion-menu.button-right li > .item-wrapper > .menu-button > img {
+  padding-right: 10px;
+}
+
+ul.accordion-menu li > .item-wrapper > .menu-link {
+  min-height: 35px;
+  overflow: hidden;
+}
+
 ul.accordion-menu li > .item-wrapper > .menu-link > a,
-ul.accordion-menu li > .item-wrapper > .menu-link > p{display:inline-block;text-decoration:none;background:none;width:90%;padding:10px 10px 9px 10px;vertical-align:middle;}
+ul.accordion-menu li > .item-wrapper > .menu-link > p {
+  display: inline-block;
+  text-decoration: none;
+  background: none;
+  width: 90%;
+  padding: 10px 10px 9px;
+  vertical-align: middle;
+}
+
 ul.accordion-menu li > .item-wrapper > .menu-link > a > img,
-ul.accordion-menu li > .item-wrapper > .menu-link > p > img{vertical-align:middle;border:0 none;height:auto;max-width:100%;padding:0 5px 0 0;}
+ul.accordion-menu li > .item-wrapper > .menu-link > p > img {
+  vertical-align: middle;
+  border: 0 none;
+  height: auto;
+  max-width: 100%;
+  padding: 0 5px 0 0;
+}
+
 ul.accordion-menu-left li > .item-wrapper > .menu-link > a,
-ul.accordion-menu-left li > .item-wrapper > .menu-link > p{float:left;}
+ul.accordion-menu-left li > .item-wrapper > .menu-link > p {
+  float: left;
+}
+
 ul.accordion-menu-right li > .item-wrapper > .menu-link > a,
-ul.accordion-menu-right li > .item-wrapper > .menu-link > p{float:right;}
+ul.accordion-menu-right li > .item-wrapper > .menu-link > p {
+  float: right;
+}
+
 ul.accordion-menu > li > .item-wrapper > .menu-link > a,
-ul.accordion-menu > li > .item-wrapper > .menu-link > p{font-weight:bold;}
-ul.accordion-menu li > .ul-wrapper{display:none;}
-ul.accordion-menu li ul{margin:0px;padding:0px;}
+ul.accordion-menu > li > .item-wrapper > .menu-link > p {
+  font-weight: bold;
+}
+
+ul.accordion-menu li > .ul-wrapper {
+  display: none;
+}
+
+ul.accordion-menu li ul {
+  margin: 0;
+  padding: 0;
+}
+
 ul.accordion-menu.text-left li li > .item-wrapper > .menu-link > a,
-ul.accordion-menu.text-left li li > .item-wrapper > .menu-link > p{padding-left:20px;max-width:85%;}
+ul.accordion-menu.text-left li li > .item-wrapper > .menu-link > p {
+  padding-left: 20px;
+  max-width: 85%;
+}
+
 ul.accordion-menu.text-right li li > .item-wrapper > .menu-link > a,
-ul.accordion-menu.text-right li li > .item-wrapper > .menu-link > p{padding-right:20px;}
+ul.accordion-menu.text-right li li > .item-wrapper > .menu-link > p {
+  padding-right: 20px;
+}
+
 ul.accordion-menu.text-left li li li > .item-wrapper > .menu-link > a,
-ul.accordion-menu.text-left li li li > .item-wrapper > .menu-link > p{padding-left:30px;}
+ul.accordion-menu.text-left li li li > .item-wrapper > .menu-link > p {
+  padding-left: 30px;
+}
+
 ul.accordion-menu.text-right li li li > .item-wrapper > .menu-link > a,
-ul.accordion-menu.text-right li li li > .item-wrapper > .menu-link > p{padding-right:30px;}
+ul.accordion-menu.text-right li li li > .item-wrapper > .menu-link > p {
+  padding-right: 30px;
+}
+
 ul.accordion-menu.text-left li li li li > .item-wrapper > .menu-link > a,
-ul.accordion-menu.text-left li li li li > .item-wrapper > .menu-link > p{padding-left:40px;}
+ul.accordion-menu.text-left li li li li > .item-wrapper > .menu-link > p {
+  padding-left: 40px;
+}
+
 ul.accordion-menu.text-right li li li li > .item-wrapper > .menu-link > a,
-ul.accordion-menu.text-right li li li li > .item-wrapper > .menu-link > p{padding-right:40px;}
+ul.accordion-menu.text-right li li li li > .item-wrapper > .menu-link > p {
+  padding-right: 40px;
+}
+
 ul.accordion-menu.text-left li li li li li > .item-wrapper > .menu-link > a,
-ul.accordion-menu.text-left li li li li li > .item-wrapper > .menu-link > p{padding-left:50px;}
+ul.accordion-menu.text-left li li li li li > .item-wrapper > .menu-link > p {
+  padding-left: 50px;
+}
+
 ul.accordion-menu.text-right li li li li li > .item-wrapper > .menu-link > a,
-ul.accordion-menu.text-right li li li li li > .item-wrapper > .menu-link > p{padding-right:50px;}
+ul.accordion-menu.text-right li li li li li > .item-wrapper > .menu-link > p {
+  padding-right: 50px;
+}

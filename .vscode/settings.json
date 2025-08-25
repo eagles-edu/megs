@@ -1,0 +1,64 @@
+{
+  // Disable built-in HTML formatter so it can't fight Prettier
+  "html.format.enable": false,
+
+  // Prettier is THE formatter
+  "prettier.requireConfig": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
+  // Per-language default formatter (keeps things predictable)
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[vue]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[markdown]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[css]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[scss]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[less]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  // Lint-only on save (no auto-fix on save)
+  // Use an empty object or false values here. "never" is invalid.
+  "editor.codeActionsOnSave": {
+    "source.fixAll": "never",
+    "source.fixAll.eslint": "never",
+    "source.fixAll.stylelint": "never"
+  },
+  // ESLint shouldn't format (Prettier handles formatting)
+  "eslint.format.enable": false,
+  // Stylelint: lint these languages (no auto-fix unless you run it manually)
+  "stylelint.enable": true,
+  "stylelint.validate": [
+    "css",
+    "scss",
+    "less",
+    "vue",
+    "html"
+  ],
+  // html-validate extension
+  "html-validate.enable": true,
+  "html-validate.validate": [
+    "html",
+    "vue",
+    "vue-html" /*, "markdown" */
+  ],
+  // Live Server (unset root = workspace root). Set to "/public" or similar if needed.
+  // "liveServer.settings.root": "/public",
+  "liveServer.settings.port": 5500
+  // Debug if needed:
+  // "html-validate.trace.server": "messages"
+}

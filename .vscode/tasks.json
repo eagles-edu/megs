@@ -1,0 +1,47 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Format: Prettier (all)",
+      "type": "npm",
+      "script": "format",
+      "problemMatcher": []
+    },
+    {
+      "label": "Format: HTML (Prettier only)",
+      "type": "npm",
+      "script": "fmt:html",
+      "problemMatcher": []
+    },
+    {
+      "label": "Lint: HTML (html-validate)",
+      "type": "npm",
+      "script": "lint:html",
+      "problemMatcher": []
+    },
+    {
+      "label": "Lint: JS (ESLint)",
+      "type": "npm",
+      "script": "lint:js",
+      "problemMatcher": []
+    },
+    {
+      "label": "Fix: JS (ESLint --fix)",
+      "type": "npm",
+      "script": "lint:js:fix",
+      "problemMatcher": []
+    },
+    {
+      "label": "Lint: CSS (Stylelint)",
+      "type": "npm",
+      "script": "lint:css",
+      "problemMatcher": []
+    },
+    {
+      "label": "Fix: CSS (Stylelint --fix)",
+      "type": "npm",
+      "script": "lint:css:fix",
+      "problemMatcher": []
+    }
+  ]
+}

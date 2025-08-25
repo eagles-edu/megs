@@ -1,9 +1,12 @@
 {
-    "recommendations": [
-        "cfritz.sane-indentation",
-        "p-de-jong.vscode-html-scss",
-        "bradgashler.htmltagwrap",
-        "adrianwilczynski.format-selection-as-html",
-        "codamasoftware.set-auto-formatting"
-    ]
+  "recommendations": [
+    "esbenp.prettier-vscode",
+    "html-validate.vscode-html-validate",
+    "dbaeumer.vscode-eslint",
+    "stylelint.vscode-stylelint",
+    "postman.postman-for-vscode"
+  ],
+  "unwantedRecommendations": [
+    "octref.vetur"
+  ]
 }

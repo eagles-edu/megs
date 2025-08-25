@@ -1,0 +1,50 @@
+{
+  "name": "megs",
+  "version": "1.0.0",
+  "description": "legacy code update 2025",
+  "private": false,
+  "type": "module",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "engines": {
+    "node": "=20"
+  },
+  "scripts": {
+    "format": "prettier . --write",
+    "fmt:html": "prettier --parser html --write \"**/*.{html,htm}\"",
+    "lint": "npm run lint:js && npm run lint:css && npm run lint:html",
+    "lint:html-stylish": "html-validate --formatter stylish \"**/*.{html,htm,md,vue}\"",
+    "lint:html": "html-validate \"**/*.{html,htm,md,vue}\"",
+    "lint:js": "eslint .",
+    "lint:js:fix": "eslint . --fix",
+    "lint:css": "stylelint \"**/*.{css,scss,less,vue,html}\"",
+    "lint:css:fix": "stylelint \"**/*.{css,scss,less,vue,html}\" --fix"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eagles-edu/megs.git"
+  },
+  "keywords": [
+    "ESL, English, Grammar, Language, Learning, Education, Teaching, ESL Teaching, ESL Learning, English Grammar, English Language, English Learning, English Teaching, Education Technology, EdTech, Online Learning, Digital Education, Interactive Learning, Language Skills"
+  ],
+  "author": "Phan Mem Minh Son",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/eagles-edu/megs/issues"
+  },
+  "homepage": "https://github.com/eagles-edu/megs#readme",
+  "devDependencies": {
+    "@eslint/js": "^9.14.0",
+    "eslint": "^9.33.0",
+    "eslint-config-prettier": "^9.1.0",
+    "html-validate": "^10.0.0",
+    "html-validate-markdown": "^5.1.0",
+    "html-validate-vue": "^7.3.0",
+    "postcss-html": "^1.8.0",
+    "prettier": "^3.6.2",
+    "stylelint": "^16.23.1",
+    "stylelint-config-standard": "^36.0.0"
+  }
+}

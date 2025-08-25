@@ -1,0 +1,45 @@
+{
+  // ---------- Formatting: Prettier does formatting; linters only validate ----------
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[css]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[vue]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  // Do NOT auto-run any fixers on save
+  "editor.codeActionsOnSave": {},
+  // ESLint: validate, don't format or fix on save
+  "eslint.format.enable": false,
+  "eslint.codeActionsOnSave.mode": "problems",
+  // Stylelint: validate listed languages (no fix on save)
+  "stylelint.validate": [
+    "css",
+    "scss",
+    "less",
+    "vue",
+    "html"
+  ],
+  // html-validate extension: show diagnostics (no auto-fix)
+  "html-validate.enable": true,
+  "html-validate.validate": [
+    "html",
+    "vue",
+    "vue-html",
+    "markdown"
+  ],
+  // Optional: Live Server — remove this block if the extension isn't installed
+  // (VS Code will mark unknown settings if the extension isn't present)
+  "liveServer.settings.port": 5500,
+  "liveServer.settings.root": "/"
+}

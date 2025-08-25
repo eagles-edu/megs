@@ -1,5 +1,7 @@
 # Inline CSS Extractor
+
 ---
+
 ![node](https://img.shields.io/badge/runtime-Node.js%2016%2B-43853d?logo=node.js&logoColor=white)
 ![Linux](https://img.shields.io/badge/platform-Linux-blue?logo=linux)
 ![macOS](https://img.shields.io/badge/platform-macOS-blue?logo=apple)
@@ -19,7 +21,9 @@
 ---
 
 ## Table of Contents
+
 [Inline CSS Extractor](#inline-css-extractor)
+
 1. [Inline CSS Extractor](#inline-css-extractor)
    1. [Overview](#overview)
    2. [Table of Contents](#table-of-contents)
@@ -51,7 +55,9 @@
 ---
 
 ## Important
+
 ### Scope & file locations
+
 - Operates on `*.html` / `*.htm` files **in the current working directory only**.
   _It does **not** recurse into subdirectories._
 - Outputs/updates stylesheet at **`./css/inline.css`** (creating `./css/` if missing).
@@ -60,14 +66,17 @@
 - On `--apply`, creates `./backup_inline_<ISO-timestamp>.zip` containing all HTML/HTM files in the current directory.
 
 ### What is intentionally _not_ changed
+
 - Any element whose inline `style` contains **`display: none`** is **left untouched** (the entire `style` attribute is preserved).
 
 ---
 
 ## Program's Purpose
+
 Move styling from inline attributes to CSS classes in a safe, reviewable, and repeatable way—useful when modernizing legacy HTML, improving maintainability, and reducing duplication.
 
 ## Features
+
 - **Dry-run by default**: inspect changes safely.
 - **ZIP backup** before apply.
 - **Atomic writes** for HTML/CSS.
@@ -75,6 +84,7 @@ Move styling from inline attributes to CSS classes in a safe, reviewable, and re
 - **Per-directory CSS** to keep things local to each page folder.
 
 ## Requirements
+
 - **Node.js 16+** (Node 18+/20+ recommended).
 - Packages: `cheerio`, `archiver`.
   ```bash
@@ -82,11 +92,15 @@ Move styling from inline attributes to CSS classes in a safe, reviewable, and re
   ```
 
 ## Install
+
 Place the script in your project (e.g., `./scripts/inline-css-extractor.js`) and make it executable:
+
 ```bash
 chmod +x ./scripts/inline-css-extractor.js
 ```
+
 ### Optional add an npm script
+
 Add this block to your project’s **`package.json`**:
 
 ```json
@@ -99,42 +113,46 @@ Add this block to your project’s **`package.json`**:
 ```
 
 **How to run via npm script:**
-- ```npm run inline-css:dry```      # preview (no changes)
-- ```npm run inlines:apply```    # apply changes (with backup)
 
+- `npm run inline-css:dry` # preview (no changes)
+- `npm run inlines:apply` # apply changes (with backup)
 
 **Run passing extra flags via npm script:**
-- ```npm run inline-css:dry -- --log-only```
-  - use  **--**  to pass flags through npm to your script
 
+- `npm run inline-css:dry -- --log-only`
+  - use **--** to pass flags through npm to your script
 
 **Explanation**: What the `npm scripts` snippet does via npm script:
 
 1. inline-css:dry
-  - runs the extractor in dry-run mode (the default).
+
+- runs the extractor in dry-run mode (the default).
 - Use it to preview changes; it won’t modify files.
 
 2. inline-css:apply
--runs the extractor with --apply, which:
+   -runs the extractor with --apply, which:
+
 - creates the ZIP backup,
 - writes/updates to css/inline.css in same directory as html files it edits
 - updates the HTM files (then adds the <link> if needed).
 
 **How to run**
-- npm run inline-css:dry      # preview (no changes)
-- npm run inlines:apply    # apply changes (with backup)
+
+- npm run inline-css:dry # preview (no changes)
+- npm run inlines:apply # apply changes (with backup)
 
 **Run passing extra flags**
+
 - npm run inline-css:dry -- --log-only
 - use **--** to pass flags through npm to your script
-
 
 ### Paths & working dir
 
 > The path ./scripts/inline-css-extractor.js is relative to your package.json. Adjust it if your file lives elsewhere.
 
 The extractor operates on the current working directory only.
-- e.g., If your HTML is in public/, either ```cd public``` before running or wrap the script:
+
+- e.g., If your HTML is in public/, either `cd public` before running or wrap the script:
 
 ```json
 {
@@ -147,6 +165,7 @@ The extractor operates on the current working directory only.
 ## Quick start
 
 ### 1) Dry-run (default)
+
 ```bash
 # Run from the target directory (runs on current dir only)
 node ./scripts/inline-css-extractor.js
@@ -155,22 +174,27 @@ node ./scripts/inline-css-extractor.js
 ```
 
 ### 2) Apply changes (with ZIP backup)
+
 ```bash
 node ./scripts/inline-css-extractor.js --apply
 ```
 
 ### 3) CI-style preview (no prompt)
+
 ```bash
 node ./scripts/inline-css-extractor.js --log-only
 ```
 
 ## Help banner
+
 ```bash
 node ./scripts/inline-css-extractor.js --help
 # or
 node ./scripts/inline-css-extractor.js -h
 ```
+
 **Output:**
+
 ```text
 Usage: inline-css-extractor.js [--apply] [--log-only] [--help|-h]
 
@@ -201,6 +225,7 @@ Exit codes:
 ```
 
 ## How it works
+
 1. **Parse HTML** via Cheerio, scanning elements with a `style` attribute.
 2. **Skip** any element whose inline style contains `display: none`.
 3. **Normalize declarations** and generate a **composite class name** from property/value tokens.
@@ -212,7 +237,7 @@ Exit codes:
 ### Class naming scheme
 
 - Base form:
-   <br><br>
+  <br><br>
   ```txt
   .in-<prop1>-<val1>_<prop2>-<val2>__<hash>
   ```
@@ -228,18 +253,21 @@ Exit codes:
 - **Mode:** composite (multiple `prop-val` tokens joined by `_`) with a short stable `__hash` suffix.
 
 ### Shorthand value packing
+
 For `margin`, `padding`, and `box-shadow`:
+
 - If **all numeric values share the same unit**, the **first** token carries the unit and the rest **omit** it (`10px 20px` → `10px-20`).
 - If units **differ or include unitless values**, every numeric token retains its unit.
 
-### Deduplication and idempotency<sup>*</sup>
+### Deduplication and idempotency<sup>\*</sup>
+
 - **Per-file de-dup** within a single run: identical declaration sets on the same file share a class.
 - **Across files:** classes are generated independently; the script **naively appends** CSS. It does **not** diff against pre-existing `inline.css`, so repeated applies can accumulate duplicates if HTML still references the same inline styles.
 
-
-<sup>*</sup>Idempotency, in the context of computer systems, refers to the property of an operation where applying it multiple times has the same effect as applying it once.
+<sup>\*</sup>Idempotency, in the context of computer systems, refers to the property of an operation where applying it multiple times has the same effect as applying it once.
 
 ## Sample digest (dry-run)
+
 ```text
 DRY-RUN (composite; safe-writes:on; current-dir)
 ================================
@@ -263,13 +291,14 @@ Stats:
 
 ## Command-line flags & defaults
 
-| Flag           | Arg | Purpose                                                        | Default       |
-|----------------|-----|----------------------------------------------------------------|---------------|
-| `--apply`      | —   | Execute changes (creates ZIP backup, writes HTML & CSS).       | Off (dry-run) |
-| `--log-only`   | —   | Dry-run without interactive prompt (useful in CI).             | Off           |
-| `-h`, `--help` | —   | Show help and exit.                                            | —             |
+| Flag           | Arg | Purpose                                                  | Default       |
+| -------------- | --- | -------------------------------------------------------- | ------------- |
+| `--apply`      | —   | Execute changes (creates ZIP backup, writes HTML & CSS). | Off (dry-run) |
+| `--log-only`   | —   | Dry-run without interactive prompt (useful in CI).       | Off           |
+| `-h`, `--help` | —   | Show help and exit.                                      | —             |
 
 **Behavioral defaults (compiled in):**
+
 - **Scope:** current directory only.
 - **Output CSS:** `./css/inline.css`.
 - **Skip rule:** leave inline styles containing `display: none`.
@@ -278,6 +307,7 @@ Stats:
 - **Backup:** `backup_inline_<timestamp>.zip` (apply only).
 
 ## Best-practice workflow
+
 1. **Navigate** to the target folder (the one containing your HTML files).
 2. **Run a dry-run** and review the log:
    ```bash
@@ -292,6 +322,7 @@ Stats:
 5. **Verify pages** in a browser and review `./css/inline.css`.
 
 ## Troubleshooting
+
 - **“Backup failed” in apply mode**
   Ensure the process can write to the current directory and that no antivirus/FS policy blocks ZIP creation.
 - **“No HTML files changed (dry-run)” but you expected changes**
@@ -304,10 +335,12 @@ Stats:
   Unzip `backup_inline_<timestamp>.zip` in the same directory to revert the HTML files to their pre-apply state.
 
 ## Limitations & notes
+
 - **No subdirectory traversal.** To process a tree, run the tool per folder (or wrap it in a small shell loop).
 - **Selective skipping is all-or-nothing** for a given element: if `display: none` appears anywhere in the style, the element’s entire inline style is left in place.
 - **No awareness of pre-existing CSS**: the tool doesn’t diff or merge with handcrafted styles.
 - **Per-file class reuse only**: identical inline declarations in different files will generate separate class definitions (same or similar names) and each will be appended.
 
 ## License
+
 MIT License. See `LICENSE` for details. Enjoy! 😊

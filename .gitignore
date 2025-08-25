@@ -1,3 +1,13 @@
 # cache
 hts-cache/
 *.zip
+
+# node_modules
+node_modules/
+
+# logs
+logs/
+*.log
+npm-debug.log*
+.sto/
+sto/

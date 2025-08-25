@@ -571,16 +571,16 @@ megs/grammar-exercises.html	search-results.html
 megs/grammar-lessons.html	http://myengl<h3>This is the content for Layout H3 Tag</h3>ishgrammar.com/search-results.html
 megs/grammar-right-menu-1.html	file:///C|/Users/kimson/AppData/Local/Temp/Adobe/Dreamweaver 2020/4-nouns-as-modifiers.html
 megs/grammar-right-menu-1.html	file:///C|/Users/kimson/AppData/Local/Temp/Adobe/templates/protostar/favicon.ico
-megs/grammar-right-menu-1.html	file:///C|/Users/kimson/AppData/Local/Temp/Adobe/templates/protostar/css/template592f.css?e9b2b4386a057d98dc43fa6d2d1cd6a3
+megs/grammar-right-menu-1.html	file:///C|/Users/kimson/AppData/Local/Temp/Adobe/templates/protostar/css/template592f.css
 megs/grammar-right-menu-1.html	file:///C|/Users/kimson/AppData/Local/Temp/Adobe/cssd2d5.css?family=Open+Sans
 megs/grammar-right-menu-1.html	file:///C|/Users/kimson/AppData/Local/Temp/Adobe/modules/mod_cinch_menu/tmpl/css/flyout.css
 megs/grammar-right-menu-1.html	file:///C|/Users/kimson/AppData/Local/Temp/Adobe/modules/mod_cinch_menu/tmpl/css/accordion.css
-megs/grammar-right-menu-1.html	file:///C|/Users/kimson/AppData/Local/Temp/Adobe/media/jui/js/jquery.min592f.js?e9b2b4386a057d98dc43fa6d2d1cd6a3
-megs/grammar-right-menu-1.html	file:///C|/Users/kimson/AppData/Local/Temp/Adobe/media/jui/js/jquery-noconflict592f.js?e9b2b4386a057d98dc43fa6d2d1cd6a3
-megs/grammar-right-menu-1.html	file:///C|/Users/kimson/AppData/Local/Temp/Adobe/media/jui/js/jquery-migrate.min592f.js?e9b2b4386a057d98dc43fa6d2d1cd6a3
-megs/grammar-right-menu-1.html	file:///C|/Users/kimson/AppData/Local/Temp/Adobe/media/system/js/caption592f.js?e9b2b4386a057d98dc43fa6d2d1cd6a3
-megs/grammar-right-menu-1.html	file:///C|/Users/kimson/AppData/Local/Temp/Adobe/media/jui/js/bootstrap.min592f.js?e9b2b4386a057d98dc43fa6d2d1cd6a3
-megs/grammar-right-menu-1.html	file:///C|/Users/kimson/AppData/Local/Temp/Adobe/templates/protostar/js/template592f.js?e9b2b4386a057d98dc43fa6d2d1cd6a3
+megs/grammar-right-menu-1.html	file:///C|/Users/kimson/AppData/Local/Temp/Adobe/media/jui/js/jquery.min592f.js
+megs/grammar-right-menu-1.html	file:///C|/Users/kimson/AppData/Local/Temp/Adobe/media/jui/js/jquery-noconflict592f.js
+megs/grammar-right-menu-1.html	file:///C|/Users/kimson/AppData/Local/Temp/Adobe/media/jui/js/jquery-migrate.min592f.js
+megs/grammar-right-menu-1.html	file:///C|/Users/kimson/AppData/Local/Temp/Adobe/media/system/js/caption592f.js
+megs/grammar-right-menu-1.html	file:///C|/Users/kimson/AppData/Local/Temp/Adobe/media/jui/js/bootstrap.min592f.js
+megs/grammar-right-menu-1.html	file:///C|/Users/kimson/AppData/Local/Temp/Adobe/templates/protostar/js/template592f.js
 megs/grammar-right-menu-1.html	file:///C|/Users/kimson/AppData/Local/Temp/Adobe/modules/mod_cinch_menu/tmpl/js/jquery-1.8.2.min.js
 megs/grammar-right-menu-1.html	file:///C|/Users/kimson/AppData/Local/Temp/Adobe/modules/mod_cinch_menu/tmpl/js/jquery-noconflict.js
 megs/grammar-right-menu-1.html	file:///C|/Users/kimson/AppData/Local/Temp/Adobe/pagead/js/adsbygoogle.js
