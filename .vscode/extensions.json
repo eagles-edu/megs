@@ -4,7 +4,8 @@
     "html-validate.vscode-html-validate",
     "dbaeumer.vscode-eslint",
     "stylelint.vscode-stylelint",
-    "postman.postman-for-vscode"
+    "postman.postman-for-vscode",
+    "gptonce.codepilot-vscode"
   ],
   "unwantedRecommendations": [
     "octref.vetur"

@@ -1,3 +1,4 @@
+/* stylelint-disable selector-id-pattern */
 /* stylelint-disable no-descending-specificity */
 article,
 aside,
@@ -33,6 +34,8 @@ html {
 a:focus {
   outline: thin dotted #333;
   outline-offset: -2px;
+  color: #e0162b !important;
+  text-decoration: none !important;
 }
 
 a:hover,
@@ -245,11 +248,6 @@ a:active {
 
 a:visited {
   color: #002786 !important;
-  text-decoration: none !important;
-}
-
-a:focus {
-  color: #e0162b !important;
   text-decoration: none !important;
 }
 

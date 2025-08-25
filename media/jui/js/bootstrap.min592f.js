@@ -3,7 +3,7 @@
  * Copyright 2012 Twitter, Inc.
  * http://www.apache.org/licenses/LICENSE-2.0.txt
  *
- * Custom version for Joomla!
+ * Custom version for
  */
 ;(!(function (e) {
   'use strict'

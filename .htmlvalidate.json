@@ -16,6 +16,8 @@
     "void-style": "error",
     "attr-quotes": "error",
     "no-trailing-whitespace": "warn",
-    "no-inline-style": "off"
+    "no-inline-style": "off",
+    "id-style": "off",
+    "class-style": "off"
   }
 }

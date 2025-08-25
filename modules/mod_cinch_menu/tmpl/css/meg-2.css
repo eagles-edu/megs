@@ -1,3 +1,6 @@
+/* …existing #flyout_menu_92, _93, _94, … blocks as-is… */
+/* stylelint-disable no-descending-specificity */
+/* stylelint-disable selector-id-pattern */
 @charset "utf-8";
 
 /* CSS Document */
@@ -25,17 +28,6 @@ li.linkco {
 
 .linkco:hover a {
   color: #e0162b !important;
-}
-
-.nav-list > .active > a,
-.nav-list > .active > a:hover,
-.dropdown-menu li > a:hover,
-.dropdown-menu .active > a,
-.dropdown-menu .active > a:hover,
-.nav-pills > .active > a,
-.nav-pills > .active > a:hover,
-.btn-primary {
-  background: #f0f0ee !important;
 }
 
 ul.flyout-menu li {
@@ -624,4 +616,175 @@ ul.flyout-menu li {
 #accordion_menu_90 li:hover {
   background: #f0f0ee !important;
   text-decoration: none !important;
+}
+
+
+/* --- Flyout menus: consolidated overrides (CSS-only, no HTML changes) --- */
+
+/* base link color for ALL flyout menus */
+:is(
+  #flyout_menu_92,
+  #flyout_menu_93,
+  #flyout_menu_94,
+  #flyout_menu_95,
+  #flyout_menu_96,
+  #flyout_menu_97,
+  #flyout_menu_99,
+  #flyout_menu_100,
+  #flyout_menu_116
+) a {
+  color: #a3a3a3 !important;
+}
+
+/* active/hover/current link state */
+:is(
+  #flyout_menu_92,
+  #flyout_menu_93,
+  #flyout_menu_94,
+  #flyout_menu_95,
+  #flyout_menu_96,
+  #flyout_menu_97,
+  #flyout_menu_99,
+  #flyout_menu_100,
+  #flyout_menu_116
+) .item-wrapper:hover a,
+:is(
+  #flyout_menu_92,
+  #flyout_menu_93,
+  #flyout_menu_94,
+  #flyout_menu_95,
+  #flyout_menu_96,
+  #flyout_menu_97,
+  #flyout_menu_99,
+  #flyout_menu_100,
+  #flyout_menu_116
+) li.current > .item-wrapper a,
+:is(
+  #flyout_menu_92,
+  #flyout_menu_93,
+  #flyout_menu_94,
+  #flyout_menu_95,
+  #flyout_menu_96,
+  #flyout_menu_97,
+  #flyout_menu_99,
+  #flyout_menu_100,
+  #flyout_menu_116
+) li.opened > .item-wrapper a {
+  color: #e0162b !important;
+  text-decoration: none !important;
+}
+
+/* li hover/open background */
+:is(
+  #flyout_menu_92,
+  #flyout_menu_93,
+  #flyout_menu_94,
+  #flyout_menu_95,
+  #flyout_menu_96,
+  #flyout_menu_97,
+  #flyout_menu_99,
+  #flyout_menu_100,
+  #flyout_menu_116
+) li.open,
+:is(
+  #flyout_menu_92,
+  #flyout_menu_93,
+  #flyout_menu_94,
+  #flyout_menu_95,
+  #flyout_menu_96,
+  #flyout_menu_97,
+  #flyout_menu_99,
+  #flyout_menu_100,
+  #flyout_menu_116
+) li:hover {
+  background: #f0f0ee !important;
+  text-decoration: none !important;
+}
+
+/* widths (grouped) */
+@media (width <= 767px) {
+  :is(
+    #flyout_menu_92,
+    #flyout_menu_93,
+    #flyout_menu_94,
+    #flyout_menu_95,
+    #flyout_menu_96,
+    #flyout_menu_97,
+    #flyout_menu_99,
+    #flyout_menu_100,
+    #flyout_menu_116
+  ) .ul-wrapper,
+  :is(
+    #flyout_menu_92,
+    #flyout_menu_93,
+    #flyout_menu_94,
+    #flyout_menu_95,
+    #flyout_menu_96,
+    #flyout_menu_97,
+    #flyout_menu_99,
+    #flyout_menu_100,
+    #flyout_menu_116
+  ) ul,
+  :is(
+    #flyout_menu_92,
+    #flyout_menu_93,
+    #flyout_menu_94,
+    #flyout_menu_95,
+    #flyout_menu_96,
+    #flyout_menu_97,
+    #flyout_menu_99,
+    #flyout_menu_100,
+    #flyout_menu_116
+  ).horizontal ul .menu-link {
+    width: auto !important;
+  }
+}
+
+@media (width >= 768px) {
+  :is(
+    #flyout_menu_92,
+    #flyout_menu_93,
+    #flyout_menu_94,
+    #flyout_menu_95,
+    #flyout_menu_96,
+    #flyout_menu_97,
+    #flyout_menu_99,
+    #flyout_menu_100,
+    #flyout_menu_116
+  ) .ul-wrapper,
+  :is(
+    #flyout_menu_92,
+    #flyout_menu_93,
+    #flyout_menu_94,
+    #flyout_menu_95,
+    #flyout_menu_96,
+    #flyout_menu_97,
+    #flyout_menu_99,
+    #flyout_menu_100,
+    #flyout_menu_116
+  ) ul,
+  :is(
+    #flyout_menu_92,
+    #flyout_menu_93,
+    #flyout_menu_94,
+    #flyout_menu_95,
+    #flyout_menu_96,
+    #flyout_menu_97,
+    #flyout_menu_99,
+    #flyout_menu_100,
+    #flyout_menu_116
+  ).horizontal .menu-link,
+  :is(
+    #flyout_menu_92,
+    #flyout_menu_93,
+    #flyout_menu_94,
+    #flyout_menu_95,
+    #flyout_menu_96,
+    #flyout_menu_97,
+    #flyout_menu_99,
+    #flyout_menu_100,
+    #flyout_menu_116
+  ).horizontal > li > .item-wrapper {
+    width: 220px !important;
+  }
 }

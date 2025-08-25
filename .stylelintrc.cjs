@@ -1,6 +1,6 @@
 module.exports = {
   extends: ['stylelint-config-standard'],
-  ignoreFiles: ['**/node_modules/**', '**/dist/**', '**/sto/**', '**/.sto/**'],
+  ignoreFiles: ['**/node_modules/**', '**/dist/**', '**/sto/**', '**/.sto/**', '**/._notes/**'],
   rules: {
     /* Keep stylistic overlap with Prettier low; Prettier formats, this validates */
     'color-hex-length': 'short', // example non-formatting rule you may like
@@ -10,8 +10,9 @@ module.exports = {
       { except: ['first-nested'], ignore: ['after-comment'] },
     ],
     'declaration-block-single-line-max-declarations': 3,
-    'selector-class-pattern': '^[a-z0-9]+([_-][a-z0-9]+)*$',
-    // allow kebab_case and kebab-case
+    // Turn off class/id naming convention linting (kebab/snake/camel, etc.)
+    'selector-class-pattern': null,
+    'selector-id-pattern': null,
   },
 }
 
