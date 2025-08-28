@@ -1756,7 +1756,7 @@ megs/lists2/g-i.html	search-results.html
 megs/lists2/words-from-a-z.html	search-results.html
 megs/media/jui/js/jquery.min592f.js	/a
 megs/media/jui/js/jquery.min592f.js	/a
-megs/modules/mod_cinch_menu/tmpl/js/jquery-1.8.2.min.js	/a'>a</a><input type='checkbox'/>
+megs/modules/mod_cinch_menu/tmpl/js/jquery-1.8.2.min.js	/a'>a</a><input type='checkbox'>
 megs/vocabulary/passageway-a-way-allowing-passage.html	search-results.html
 megs/vocabulary/receptaclesobjects-that-are-used-to-hold-things.html	search-results.html
 megs/vocabulary/religious-homes-and-places-of-worship.html	search-results.html

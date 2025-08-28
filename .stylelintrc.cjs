@@ -1,9 +1,15 @@
 module.exports = {
   extends: ['stylelint-config-standard'],
-  ignoreFiles: ['**/node_modules/**', '**/dist/**', '**/sto/**', '**/.sto/**', '**/._notes/**'],
+  ignoreFiles: ['**/node_modules/**', '**/dist/**', '**/sto/**', '**/.sto/**', '**/._notes/**', '.env', '**/*.html', '**/*.htm'],
+  overrides: [
+    {
+      files: ['**/*.vue'],
+      customSyntax: 'postcss-html',
+    },
+  ],
   rules: {
     /* Keep stylistic overlap with Prettier low; Prettier formats, this validates */
-    'color-hex-length': 'short', // example non-formatting rule you may like
+    //'color-hex-length': 'null', // example non-formatting rule you may like
     // add or relax rules here as you prefer
     'at-rule-empty-line-before': [
       'always',
@@ -13,6 +19,18 @@ module.exports = {
     // Turn off class/id naming convention linting (kebab/snake/camel, etc.)
     'selector-class-pattern': null,
     'selector-id-pattern': null,
+    // Allow for higher precision numbers
+    'number-max-precision': null,
+    'at-rule-no-unknown': null,
+    'no-descending-specificity': null,
+    'property-disallowed-list': null,
+    'declaration-property-value-disallowed-list': null,
+    'declaration-block-no-duplicate-properties': [
+      true,
+      {
+        ignoreProperties: ['background', 'color', 'background-color', 'border-color', 'box-shadow']
+      }
+    ]
   },
 }
 

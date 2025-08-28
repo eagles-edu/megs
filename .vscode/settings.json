@@ -1,14 +1,14 @@
 {
   // Disable built-in HTML formatter so it can't fight Prettier
   "html.format.enable": false,
-
   // Prettier is THE formatter
   "prettier.requireConfig": true,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "editor.formatOnSave": true,
+  "editor.formatOnSave": false,
   // Per-language default formatter (keeps things predictable)
   "[html]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": false
   },
   "[vue]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
@@ -58,7 +58,75 @@
   ],
   // Live Server (unset root = workspace root). Set to "/public" or similar if needed.
   // "liveServer.settings.root": "/public",
-  "liveServer.settings.port": 5500
+  "liveServer.settings.port": 5500,
+  // Disable float lint warnings in VS Code (CSS/SCSS/LESS)
+  "css.lint.float": "ignore",
+  "scss.lint.float": "ignore",
+  "less.lint.float": "ignore",
+  // Emmet: generate HTML-style void tags (<br>, <meta>, <link>) without closing slash
+  "emmet.preferences": {
+    "output.selfClosingStyle": "html"
+  },
+  "emmet.syntaxProfiles": {
+    "html": {
+      "selfClosingStyle": "html"
+    }
+  },
+  // Help HTML/CSS validators/extensions resolve class definitions across workspace
+  "css-peek.includeGlobPatterns": ["**/*.css", "**/*.scss", "**/*.less"],
+  "html-css-class-completion.includeGlobPattern": "**/*.{css,scss,less}",
+  "cSpell.words": [
+    "boxhead",
+    "boxlist",
+    "checkedout",
+    "checkin",
+    "chzn",
+    "Distributives",
+    "downarrow",
+    "dropup",
+    "examplebox",
+    "hasimage",
+    "headerclass",
+    "helpsite",
+    "imich",
+    "Joomla",
+    "jviewport",
+    "leftarrow",
+    "linkco",
+    "listops",
+    "menuico",
+    "menuicon",
+    "modlgn",
+    "newsfeed",
+    "newstyle",
+    "noheader",
+    "Nonfinite",
+    "rcorners",
+    "redb",
+    "rightarrow",
+    "sectionlist",
+    "subform",
+    "tablesty",
+    "tabstytit",
+    "TOESL",
+    "unfeatured",
+    "uparrow",
+    "vcard",
+    "xlarge",
+    "xxlarge"
+  ],
+  "gemini-cli-vscode.magusCouncil.enabled": true,
+  "gemini-cli-vscode.magusCouncil.defaultAgents": [
+    "gemini",
+    "codex"
+  ],
+
+  // --- AI CLI Command Configuration ---
+  "gemini-cli-vscode.gemini.command": "/home/eagles/.nvm/versions/node/v20.19.4/bin/gemini",
+  "gemini-cli-vscode.gemini.args": [],
+  "gemini-cli-vscode.codex.command": "codex",
+  "gemini-cli-vscode.codex.args": [],
+
   // Debug if needed:
   // "html-validate.trace.server": "messages"
 }

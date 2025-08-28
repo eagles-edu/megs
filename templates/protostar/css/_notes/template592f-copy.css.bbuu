@@ -7369,7 +7369,6 @@ div.modal.jviewport-width100 {
   font-family: IcoMoon;
   src: url('../../../media/jui/fonts/IcoMoon.eot');
   src:
-    url('../../../media/jui/fonts/IcoMoond41d.eot?#iefix') format('embedded-opentype'),
     url('../../../media/jui/fonts/IcoMoon.woff') format('woff'),
     url('../../../media/jui/fonts/IcoMoon.ttf') format('truetype'),
     url('../../../media/jui/fonts/IcoMoon.svg#IcoMoon') format('svg');

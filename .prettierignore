@@ -2,7 +2,7 @@ node_modules
 dist
 build
 coverage
-.sto
-sto
+**/**/.sto
+**/**/sto
 .hts-cache
-**/**/_notes/*
+**/**/_notes

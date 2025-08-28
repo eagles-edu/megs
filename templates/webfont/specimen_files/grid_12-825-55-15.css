@@ -1,3 +1,6 @@
+/* stylelint-disable selector-class-pattern */
+/* stylelint-disable no-duplicate-selectors */
+
 /* Notes about grid:
 Columns:      12
 Grid Width:   825px
@@ -18,7 +21,7 @@ Gutter Width: 15px
 }
 
 .section {
-  *zoom: 1;
+  zoom: 1;
 }
 
 .section .firstcolumn,

@@ -4468,7 +4468,7 @@ eaglesvn.com/megs/lists2/g-i.html	search-results.html
 eaglesvn.com/megs/lists2/words-from-a-z.html	search-results.html
 eaglesvn.com/megs/media/jui/js/jquery.min592f.js	/a
 eaglesvn.com/megs/media/jui/js/jquery.min592f.js	/a
-eaglesvn.com/megs/modules/mod_cinch_menu/tmpl/js/jquery-1.8.2.min.js	/a'>a</a><input type='checkbox'/>
+eaglesvn.com/megs/modules/mod_cinch_menu/tmpl/js/jquery-1.8.2.min.js	/a'>a</a><input type='checkbox'>
 eaglesvn.com/megs/vocabulary/passageway-a-way-allowing-passage.html	search-results.html
 eaglesvn.com/megs/vocabulary/receptaclesobjects-that-are-used-to-hold-things.html	modules/mod_cinch_menu/tmpl/css/meg-2.css
 eaglesvn.com/megs/vocabulary/receptaclesobjects-that-are-used-to-hold-things.html	search-results.html

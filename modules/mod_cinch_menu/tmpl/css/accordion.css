@@ -1,10 +1,10 @@
 ul.accordion-menu {
-  border: 1px solid #888;
+  border: 1px solid var(--secondary-color);
   margin: 0;
   padding: 0;
   overflow: hidden;
   line-height: normal;
-  list-style: none !important;
+  list-style: none !important; /* stylelint-disable-line declaration-no-important */
   font-size: 0.85em;
 }
 
@@ -17,7 +17,7 @@ ul.accordion-menu-right {
 }
 
 ul.accordion-menu li {
-  border-top: 1px solid #888;
+  border-top: 1px solid var(--secondary-color);
 }
 
 ul.accordion-menu > li.first,
@@ -30,7 +30,7 @@ ul.accordion-menu a:hover,
 ul.accordion-menu a:visited,
 ul.accordion-menu a:active,
 ul.accordion-menu a:focus {
-  font-family: 'Roboto Condensed';
+  font-family: var(--font-header);
   background: none;
 }
 

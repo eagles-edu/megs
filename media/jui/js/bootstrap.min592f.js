@@ -384,7 +384,7 @@
         r()
         if ((!o && t.type != 'mouseover') || (a && t.type == 'mouseover'))
           ('ontouchstart' in document.documentElement &&
-            (e('<div class="dropdown-backdrop"/>').insertBefore(e(this)).on('click', r),
+            (e('<div class="dropdown-backdrop">').insertBefore(e(this)).on('click', r),
             n.on('hover', function () {
               e('.dropdown-backdrop').remove()
             })),

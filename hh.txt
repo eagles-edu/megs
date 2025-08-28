@@ -2551,7 +2551,7 @@ public_html/eaglesvn.com/megs/lists2/words-from-a-z.html	search-results.html
 public_html/eaglesvn.com/megs/lists2 - Copy/responsive-iframe-1.html	http://eaglesvn.com/megs/
 public_html/eaglesvn.com/megs/media/jui/js/jquery.min592f.js	/a
 public_html/eaglesvn.com/megs/media/jui/js/jquery.min592f.js	/a
-public_html/eaglesvn.com/megs/modules/mod_cinch_menu/tmpl/js/jquery-1.8.2.min.js	/a'>a</a><input type='checkbox'/>
+public_html/eaglesvn.com/megs/modules/mod_cinch_menu/tmpl/js/jquery-1.8.2.min.js	/a'>a</a><input type='checkbox'>
 public_html/eaglesvn.com/megs/vocabulary/passageway-a-way-allowing-passage.html	search-results.html
 public_html/eaglesvn.com/megs/vocabulary/receptaclesobjects-that-are-used-to-hold-things.html	search-results.html
 public_html/eaglesvn.com/megs/vocabulary/religious-homes-and-places-of-worship.html	search-results.html

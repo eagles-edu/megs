@@ -43,6 +43,89 @@ jQuery(function ($) {
   initButtonGroup()
   initTooltip()
 
+  // Ensure flyout menus (right sidebar) expand on hover even when
+  // page-level inline scripts ran before jQuery was available (defer).
+  function initFlyoutMenus() {
+    $('ul.flyout-menu').each(function () {
+      var $menu = $(this)
+      if ($menu.data('cinchFlyoutBound')) return
+      $menu.data('cinchFlyoutBound', true)
+
+      // Navigate on click, preserving target behavior
+      $menu.find('a').on('click.cinch', function (e) {
+        e.preventDefault()
+        var $a = $(this)
+        if ($a.attr('target') === '_blank') {
+          window.open($a.attr('href'))
+        } else {
+          location = $a.attr('href')
+        }
+      })
+
+      // Hover handlers for showing/hiding submenus
+      $menu
+        .find('li')
+        .on('mouseenter.cinch', function () {
+          var $li = $(this)
+          $li.addClass('opened')
+          $li.children('.ul-wrapper').stop(true, true).slideDown(300)
+        })
+        .on('mouseleave.cinch', function () {
+          var $li = $(this)
+          $li.removeClass('opened')
+          $li.children('.ul-wrapper').stop(true, true).slideUp(300)
+        })
+    })
+  }
+
+  // Run once on ready
+  initFlyoutMenus()
+
+  // Ensure left accordion menu expands on hover and navigates on click
+  function initAccordionMenus() {
+    $('ul.accordion-menu').each(function () {
+      var $menu = $(this)
+      if ($menu.data('cinchAccordionBound')) return
+      $menu.data('cinchAccordionBound', true)
+
+      // Respect existing "opened" state
+      $menu.find('li.opened > .ul-wrapper').css('display', 'block')
+
+      // Navigate on click, preserving target behavior
+      $menu.find('a').on('click.cinch', function (e) {
+        e.preventDefault()
+        var $a = $(this)
+        if ($a.attr('target') === '_blank') {
+          window.open($a.attr('href'))
+        } else {
+          location = $a.attr('href')
+        }
+      })
+
+      // Hover handlers for showing/hiding nested lists
+      $menu
+        .find('li')
+        .on('mouseenter.cinch', function () {
+          var $li = $(this)
+          var $ul = $li.children('.ul-wrapper')
+          if ($ul.length) {
+            $li.addClass('opened')
+            $ul.stop(true, true).slideDown(300)
+          }
+        })
+        .on('mouseleave.cinch', function () {
+          var $li = $(this)
+          var $ul = $li.children('.ul-wrapper')
+          if ($ul.length) {
+            $li.removeClass('opened')
+            $ul.stop(true, true).slideUp(300)
+          }
+        })
+    })
+  }
+
+  initAccordionMenus()
+
   // Called once on domready, again when a subform row is added
   function initTooltip(event, container) {
     $(container || document)

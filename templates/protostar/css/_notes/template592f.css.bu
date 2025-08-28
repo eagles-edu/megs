@@ -2235,7 +2235,7 @@ table th[class*='span'],
 }
 .well {
   min-height: 20px;
-  padding: 0px;
+  padding: 0;
   margin-bottom: 20px;
   background-color: #f5f5f5;
   border: 1px thin #b3b3b3;
@@ -6540,7 +6540,7 @@ fieldset.radio.btn-group {
   z-index: 100;
 }
 .page-header {
-  margin: 2px 0px 10px 0px;
+  margin: 2px 0 10px 0;
   padding-bottom: 5px;
 }
 .input-prepend > .add-on,
@@ -6832,7 +6832,7 @@ div.modal.jviewport-width100 {
 @font-face {
   font-family: 'IcoMoon';
   src: url('../../../media/jui/fonts/IcoMoon.eot');
-  src: url('../../../media/jui/fonts/IcoMoond41d.eot?#iefix')
+  
       format('embedded-opentype'),
     url('../../../media/jui/fonts/IcoMoon.woff') format('woff'),
     url('../../../media/jui/fonts/IcoMoon.ttf') format('truetype'),
@@ -7623,7 +7623,7 @@ body.site.fluid {
   margin-top: 14px;
 }
 .header .finder .btn {
-  margin-top: 0px;
+  margin-top: 0;
 }
 .navigation {
   padding: 5px 0;
@@ -7651,12 +7651,12 @@ body.site.fluid {
   border-radius: 4px;
   padding: 20px;
   border: 1px solid rgba(0 0 0 15%);
-  -moz-box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.05);
-  -webkit-box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.05);
-  box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.05);
+  -moz-box-shadow: 0 0 6px rgba(0, 0, 0, 0.05);
+  -webkit-box-shadow: 0 0 6px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.05);
 }
 .well .page-header {
-  margin: 0px 0px 5px 0px;
+  margin: 0 0 5px 0;
 }
 
 .module-header {
@@ -8017,7 +8017,7 @@ figcaption {
     display: none;
   }
   .well {
-    padding: 0px;
+    padding: 0;
   }
 }
 @media (max-width: 979px) {
@@ -8195,7 +8195,7 @@ ul.manager .height-50 .icon-folder-2 {
   font-size: 1em !important;
   color: #333333 !important;
   border: 2px solid #e0162b !important;
-  padding: 0px 5px 0px 15px !important;
+  padding: 0 5px 0 15px !important;
 }
 body {
   font-size: 1em !important;
@@ -8207,7 +8207,7 @@ div {
 
 .examplebox {
   margin: 2em 0 !important;
-  padding: 0px 10px !important;
+  padding: 0 10px !important;
 }
 
 .tablesty1 {
@@ -8254,7 +8254,7 @@ div {
 
 @media screen and (max-width: 640px) {
   p.boxhead4 {
-    text-shadow: 0px 0px 0px;
+    text-shadow: 0 0 0;
     font-weight: 400 !important;
   }
   div.boxlist5 {
@@ -8286,8 +8286,8 @@ div {
 .column22 {
   float: left;
   width: 50%;
-  padding: 0px;
-  margin: 0px;
+  padding: 0;
+  margin: 0;
   vertical-align: top;
 }
 
@@ -8301,8 +8301,8 @@ div {
 .column33 {
   float: left;
   width: 33.3%;
-  padding: 0px !important;
-  margin: 0px !important;
+  padding: 0 !important;
+  margin: 0 !important;
   vertical-align: top;
 }
 
@@ -8318,8 +8318,8 @@ div {
 .column22a {
   float: left;
   width: 50%;
-  padding: 0px;
-  margin: 0px;
+  padding: 0;
+  margin: 0;
   vertical-align: top;
 }
 
@@ -8353,7 +8353,7 @@ div {
   height: auto;
   box-shadow: 1px 1px 3px 1px #bbb;
   border-left: solid 7px #e0162b;
-  border-right: 0px solid #615550;
+  border-right: 0 solid #615550;
   margin-top: 1em;
   margin-right: auto;
   margin-bottom: 1em;
@@ -8378,7 +8378,7 @@ div {
   height: auto;
   box-shadow: 1px 1px 3px 1px #bbb;
   border-left: solid 10px #e0162b;
-  border-right: 0px solid #615550;
+  border-right: 0 solid #615550;
   margin-top: 1em;
   margin-right: 0;
   margin-left: 0;
@@ -8438,7 +8438,7 @@ div {
   /* box-shadow: 1px 2px 3px 1px #666;*/
   border-left: solid 2px #e0162b;
   border-right: solid 5px #e0162b;
-  margin-top: 0px;
+  margin-top: 0;
   margin-right: auto;
   margin-bottom: 1em;
   margin-left: auto;
@@ -8577,7 +8577,7 @@ li.listops {
 .rcorners2 {
   border-radius: 7px;
   border: 12px solid #f0f0ee;
-  padding: 0px;
+  padding: 0;
 }
 
 .wrapper1 {

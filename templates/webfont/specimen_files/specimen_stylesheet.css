@@ -1,3 +1,6 @@
+/* stylelint-disable declaration-block-no-shorthand-property-overrides */
+/* stylelint-disable no-duplicate-selectors */
+/* stylelint-disable selector-class-pattern */
 @import url('grid_12-825-55-15.css');
 
 /*  
@@ -183,7 +186,7 @@ h2 {
   display: block;
   color: #fff;
   text-decoration: none;
-  font: bold 11px/11px Arial;
+  font: bold 11px/11px Arial, sans-serif;
   text-transform: uppercase;
   padding: 10px 15px;
   border-right: 1px solid #fff;
@@ -199,6 +202,7 @@ h2 {
 }
 
 div.huge {
+  box-sizing: border-box;
   font-size: 300px;
   line-height: 1em;
   padding: 0;
@@ -335,6 +339,7 @@ div.glyph_range {
 }
 
 .sample_table td {
+  box-sizing: border-box;
   padding-top: 3px;
   padding-bottom: 5px;
   padding-left: 5px;
@@ -348,10 +353,7 @@ div.glyph_range {
   padding-right: 5px;
   padding-left: 0;
   padding: 5px;
-  font:
-    11px/12px 'Courier New',
-    Courier,
-    mono;
+  font: 11px/12px 'Courier New', Courier, monospace;
 }
 
 code {
@@ -391,6 +393,7 @@ code {
 }
 
 #bodycomparison div {
+  box-sizing: border-box;
   font-size: 72px;
   line-height: 90px;
   display: inline;
@@ -399,7 +402,7 @@ code {
 }
 
 #bodycomparison div span {
-  font: 10px Arial;
+  font: 10px Arial, segoeui, sans-serif;
   position: absolute;
   left: 0;
 }
@@ -417,17 +420,17 @@ code {
 }
 
 .arialbody {
-  font-family: Arial;
+  font-family: Arial, segoeui, sans-serif;
   position: relative;
 }
 
 .verdanabody {
-  font-family: Verdana;
+  font-family: Verdana, segoeui, sans-serif;
   position: relative;
 }
 
 .georgiabody {
-  font-family: Georgia;
+  font-family: Georgia,  segoeui, sans-serif;
   position: relative;
 }
 
@@ -490,6 +493,7 @@ code {
 /* @group Glyphs */
 
 #glyph_chart div {
+  box-sizing: border-box;
   background-color: #d9f3ff;
   color: black;
   float: left;
@@ -505,6 +509,7 @@ code {
 }
 
 #glyph_chart div p {
+  box-sizing: border-box;
   position: absolute;
   left: 0;
   top: 0;
@@ -557,6 +562,6 @@ code {
   font:
     11px 'Courier New',
     Courier,
-    mono;
+    monospace;
   vertical-align: middle;
 }

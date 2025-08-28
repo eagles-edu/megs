@@ -44,7 +44,7 @@
       }),
       'BackCompat' === document.compatMode &&
         d('jQuery is not compatible with Quirks Mode'))
-    var g = a('<input/>', { size: 1 }).attr('size') && a.attrFn,
+    var g = a('<input>', { size: 1 }).attr('size') && a.attrFn,
       h = a.attr,
       i =
         (a.attrHooks.value && a.attrHooks.value.get) ||

@@ -33,3 +33,5591 @@ npx html-validate --version   # should print 10.x
   --font-header:
     'Roboto Condensed', 'Arial Narrow', Roboto, 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', 'Helvetica Neue', Arial, 'Liberation Sans', 'Cantarell', 'Ubuntu', 'Oxygen', 'Fira Sans', 'Droid Sans', 'Apple Color Emoji', 'Segoe UI Emoji', 'Noto Color Emoji', sans-serif;
 }
+
+
+
+[{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "Stylelint",
+	"code": {
+		"value": "comment-empty-line-before",
+		"target": {
+			"$mid": 1,
+			"path": "/user-guide/rules/comment-empty-line-before",
+			"scheme": "https",
+			"authority": "stylelint.io"
+		}
+	},
+	"severity": 8,
+	"message": "Expected empty line before comment (comment-empty-line-before)",
+	"source": "Stylelint",
+	"startLineNumber": 44,
+	"startColumn": 3,
+	"endLineNumber": 44,
+	"endColumn": 28,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "Stylelint",
+	"code": {
+		"value": "function-linear-gradient-no-nonstandard-direction",
+		"target": {
+			"$mid": 1,
+			"path": "/user-guide/rules/function-linear-gradient-no-nonstandard-direction",
+			"scheme": "https",
+			"authority": "stylelint.io"
+		}
+	},
+	"severity": 8,
+	"message": "Unexpected nonstandard direction (function-linear-gradient-no-nonstandard-direction)",
+	"source": "Stylelint",
+	"startLineNumber": 2362,
+	"startColumn": 37,
+	"endLineNumber": 2362,
+	"endColumn": 40,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "Stylelint",
+	"code": {
+		"value": "declaration-block-no-duplicate-properties",
+		"target": {
+			"$mid": 1,
+			"path": "/user-guide/rules/declaration-block-no-duplicate-properties",
+			"scheme": "https",
+			"authority": "stylelint.io"
+		}
+	},
+	"severity": 8,
+	"message": "Unexpected duplicate \"background-image\" (declaration-block-no-duplicate-properties)",
+	"source": "Stylelint",
+	"startLineNumber": 2626,
+	"startColumn": 3,
+	"endLineNumber": 2626,
+	"endColumn": 19,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "Stylelint",
+	"code": {
+		"value": "function-linear-gradient-no-nonstandard-direction",
+		"target": {
+			"$mid": 1,
+			"path": "/user-guide/rules/function-linear-gradient-no-nonstandard-direction",
+			"scheme": "https",
+			"authority": "stylelint.io"
+		}
+	},
+	"severity": 8,
+	"message": "Unexpected nonstandard direction (function-linear-gradient-no-nonstandard-direction)",
+	"source": "Stylelint",
+	"startLineNumber": 2627,
+	"startColumn": 37,
+	"endLineNumber": 2627,
+	"endColumn": 40,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "Stylelint",
+	"code": {
+		"value": "declaration-block-no-shorthand-property-overrides",
+		"target": {
+			"$mid": 1,
+			"path": "/user-guide/rules/declaration-block-no-shorthand-property-overrides",
+			"scheme": "https",
+			"authority": "stylelint.io"
+		}
+	},
+	"severity": 8,
+	"message": "Unexpected shorthand \"border\" after \"border-color\" (declaration-block-no-shorthand-property-overrides)",
+	"source": "Stylelint",
+	"startLineNumber": 2631,
+	"startColumn": 3,
+	"endLineNumber": 2631,
+	"endColumn": 9,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "Stylelint",
+	"code": {
+		"value": "function-linear-gradient-no-nonstandard-direction",
+		"target": {
+			"$mid": 1,
+			"path": "/user-guide/rules/function-linear-gradient-no-nonstandard-direction",
+			"scheme": "https",
+			"authority": "stylelint.io"
+		}
+	},
+	"severity": 8,
+	"message": "Unexpected nonstandard direction (function-linear-gradient-no-nonstandard-direction)",
+	"source": "Stylelint",
+	"startLineNumber": 2752,
+	"startColumn": 37,
+	"endLineNumber": 2752,
+	"endColumn": 40,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "Stylelint",
+	"code": {
+		"value": "function-linear-gradient-no-nonstandard-direction",
+		"target": {
+			"$mid": 1,
+			"path": "/user-guide/rules/function-linear-gradient-no-nonstandard-direction",
+			"scheme": "https",
+			"authority": "stylelint.io"
+		}
+	},
+	"severity": 8,
+	"message": "Unexpected nonstandard direction (function-linear-gradient-no-nonstandard-direction)",
+	"source": "Stylelint",
+	"startLineNumber": 2802,
+	"startColumn": 37,
+	"endLineNumber": 2802,
+	"endColumn": 40,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "Stylelint",
+	"code": {
+		"value": "function-linear-gradient-no-nonstandard-direction",
+		"target": {
+			"$mid": 1,
+			"path": "/user-guide/rules/function-linear-gradient-no-nonstandard-direction",
+			"scheme": "https",
+			"authority": "stylelint.io"
+		}
+	},
+	"severity": 8,
+	"message": "Unexpected nonstandard direction (function-linear-gradient-no-nonstandard-direction)",
+	"source": "Stylelint",
+	"startLineNumber": 4024,
+	"startColumn": 37,
+	"endLineNumber": 4024,
+	"endColumn": 40,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "Stylelint",
+	"code": {
+		"value": "function-linear-gradient-no-nonstandard-direction",
+		"target": {
+			"$mid": 1,
+			"path": "/user-guide/rules/function-linear-gradient-no-nonstandard-direction",
+			"scheme": "https",
+			"authority": "stylelint.io"
+		}
+	},
+	"severity": 8,
+	"message": "Unexpected nonstandard direction (function-linear-gradient-no-nonstandard-direction)",
+	"source": "Stylelint",
+	"startLineNumber": 4155,
+	"startColumn": 37,
+	"endLineNumber": 4155,
+	"endColumn": 40,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "Stylelint",
+	"code": {
+		"value": "function-linear-gradient-no-nonstandard-direction",
+		"target": {
+			"$mid": 1,
+			"path": "/user-guide/rules/function-linear-gradient-no-nonstandard-direction",
+			"scheme": "https",
+			"authority": "stylelint.io"
+		}
+	},
+	"severity": 8,
+	"message": "Unexpected nonstandard direction (function-linear-gradient-no-nonstandard-direction)",
+	"source": "Stylelint",
+	"startLineNumber": 4906,
+	"startColumn": 37,
+	"endLineNumber": 4906,
+	"endColumn": 40,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "Stylelint",
+	"code": {
+		"value": "function-linear-gradient-no-nonstandard-direction",
+		"target": {
+			"$mid": 1,
+			"path": "/user-guide/rules/function-linear-gradient-no-nonstandard-direction",
+			"scheme": "https",
+			"authority": "stylelint.io"
+		}
+	},
+	"severity": 8,
+	"message": "Unexpected nonstandard direction (function-linear-gradient-no-nonstandard-direction)",
+	"source": "Stylelint",
+	"startLineNumber": 4923,
+	"startColumn": 37,
+	"endLineNumber": 4923,
+	"endColumn": 40,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "Stylelint",
+	"code": {
+		"value": "function-linear-gradient-no-nonstandard-direction",
+		"target": {
+			"$mid": 1,
+			"path": "/user-guide/rules/function-linear-gradient-no-nonstandard-direction",
+			"scheme": "https",
+			"authority": "stylelint.io"
+		}
+	},
+	"severity": 8,
+	"message": "Unexpected nonstandard direction (function-linear-gradient-no-nonstandard-direction)",
+	"source": "Stylelint",
+	"startLineNumber": 5002,
+	"startColumn": 37,
+	"endLineNumber": 5002,
+	"endColumn": 40,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "Stylelint",
+	"code": {
+		"value": "function-linear-gradient-no-nonstandard-direction",
+		"target": {
+			"$mid": 1,
+			"path": "/user-guide/rules/function-linear-gradient-no-nonstandard-direction",
+			"scheme": "https",
+			"authority": "stylelint.io"
+		}
+	},
+	"severity": 8,
+	"message": "Unexpected nonstandard direction (function-linear-gradient-no-nonstandard-direction)",
+	"source": "Stylelint",
+	"startLineNumber": 5068,
+	"startColumn": 37,
+	"endLineNumber": 5068,
+	"endColumn": 40,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "Stylelint",
+	"code": {
+		"value": "function-linear-gradient-no-nonstandard-direction",
+		"target": {
+			"$mid": 1,
+			"path": "/user-guide/rules/function-linear-gradient-no-nonstandard-direction",
+			"scheme": "https",
+			"authority": "stylelint.io"
+		}
+	},
+	"severity": 8,
+	"message": "Unexpected nonstandard direction (function-linear-gradient-no-nonstandard-direction)",
+	"source": "Stylelint",
+	"startLineNumber": 5134,
+	"startColumn": 37,
+	"endLineNumber": 5134,
+	"endColumn": 40,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "Stylelint",
+	"code": {
+		"value": "declaration-block-no-duplicate-properties",
+		"target": {
+			"$mid": 1,
+			"path": "/user-guide/rules/declaration-block-no-duplicate-properties",
+			"scheme": "https",
+			"authority": "stylelint.io"
+		}
+	},
+	"severity": 8,
+	"message": "Unexpected duplicate \"background-image\" (declaration-block-no-duplicate-properties)",
+	"source": "Stylelint",
+	"startLineNumber": 5199,
+	"startColumn": 3,
+	"endLineNumber": 5199,
+	"endColumn": 19,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "Stylelint",
+	"code": {
+		"value": "declaration-block-no-duplicate-properties",
+		"target": {
+			"$mid": 1,
+			"path": "/user-guide/rules/declaration-block-no-duplicate-properties",
+			"scheme": "https",
+			"authority": "stylelint.io"
+		}
+	},
+	"severity": 8,
+	"message": "Unexpected duplicate \"background-image\" (declaration-block-no-duplicate-properties)",
+	"source": "Stylelint",
+	"startLineNumber": 5200,
+	"startColumn": 3,
+	"endLineNumber": 5200,
+	"endColumn": 19,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "Stylelint",
+	"code": {
+		"value": "number-max-precision",
+		"target": {
+			"$mid": 1,
+			"path": "/user-guide/rules/number-max-precision",
+			"scheme": "https",
+			"authority": "stylelint.io"
+		}
+	},
+	"severity": 8,
+	"message": "Expected \"2.127659574\" to be \"2.1277\" (number-max-precision)",
+	"source": "Stylelint",
+	"startLineNumber": 5866,
+	"startColumn": 18,
+	"endLineNumber": 5866,
+	"endColumn": 29,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "Stylelint",
+	"code": {
+		"value": "number-max-precision",
+		"target": {
+			"$mid": 1,
+			"path": "/user-guide/rules/number-max-precision",
+			"scheme": "https",
+			"authority": "stylelint.io"
+		}
+	},
+	"severity": 8,
+	"message": "Expected \"2.127659574\" to be \"2.1277\" (number-max-precision)",
+	"source": "Stylelint",
+	"startLineNumber": 5874,
+	"startColumn": 18,
+	"endLineNumber": 5874,
+	"endColumn": 29,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "Stylelint",
+	"code": {
+		"value": "number-max-precision",
+		"target": {
+			"$mid": 1,
+			"path": "/user-guide/rules/number-max-precision",
+			"scheme": "https",
+			"authority": "stylelint.io"
+		}
+	},
+	"severity": 8,
+	"message": "Expected \"99.99999999\" to be \"100.0000\" (number-max-precision)",
+	"source": "Stylelint",
+	"startLineNumber": 5878,
+	"startColumn": 12,
+	"endLineNumber": 5878,
+	"endColumn": 23,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "Stylelint",
+	"code": {
+		"value": "number-max-precision",
+		"target": {
+			"$mid": 1,
+			"path": "/user-guide/rules/number-max-precision",
+			"scheme": "https",
+			"authority": "stylelint.io"
+		}
+	},
+	"severity": 8,
+	"message": "Expected \"91.489361693\" to be \"91.4894\" (number-max-precision)",
+	"source": "Stylelint",
+	"startLineNumber": 5882,
+	"startColumn": 12,
+	"endLineNumber": 5882,
+	"endColumn": 24,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "Stylelint",
+	"code": {
+		"value": "number-max-precision",
+		"target": {
+			"$mid": 1,
+			"path": "/user-guide/rules/number-max-precision",
+			"scheme": "https",
+			"authority": "stylelint.io"
+		}
+	},
+	"severity": 8,
+	"message": "Expected \"82.978723396\" to be \"82.9787\" (number-max-precision)",
+	"source": "Stylelint",
+	"startLineNumber": 5886,
+	"startColumn": 12,
+	"endLineNumber": 5886,
+	"endColumn": 24,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "Stylelint",
+	"code": {
+		"value": "number-max-precision",
+		"target": {
+			"$mid": 1,
+			"path": "/user-guide/rules/number-max-precision",
+			"scheme": "https",
+			"authority": "stylelint.io"
+		}
+	},
+	"severity": 8,
+	"message": "Expected \"74.468085099\" to be \"74.4681\" (number-max-precision)",
+	"source": "Stylelint",
+	"startLineNumber": 5890,
+	"startColumn": 12,
+	"endLineNumber": 5890,
+	"endColumn": 24,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "Stylelint",
+	"code": {
+		"value": "number-max-precision",
+		"target": {
+			"$mid": 1,
+			"path": "/user-guide/rules/number-max-precision",
+			"scheme": "https",
+			"authority": "stylelint.io"
+		}
+	},
+	"severity": 8,
+	"message": "Expected \"65.957446802\" to be \"65.9574\" (number-max-precision)",
+	"source": "Stylelint",
+	"startLineNumber": 5894,
+	"startColumn": 12,
+	"endLineNumber": 5894,
+	"endColumn": 24,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "Stylelint",
+	"code": {
+		"value": "number-max-precision",
+		"target": {
+			"$mid": 1,
+			"path": "/user-guide/rules/number-max-precision",
+			"scheme": "https",
+			"authority": "stylelint.io"
+		}
+	},
+	"severity": 8,
+	"message": "Expected \"57.446808505\" to be \"57.4468\" (number-max-precision)",
+	"source": "Stylelint",
+	"startLineNumber": 5898,
+	"startColumn": 12,
+	"endLineNumber": 5898,
+	"endColumn": 24,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "Stylelint",
+	"code": {
+		"value": "number-max-precision",
+		"target": {
+			"$mid": 1,
+			"path": "/user-guide/rules/number-max-precision",
+			"scheme": "https",
+			"authority": "stylelint.io"
+		}
+	},
+	"severity": 8,
+	"message": "Expected \"48.936170208\" to be \"48.9362\" (number-max-precision)",
+	"source": "Stylelint",
+	"startLineNumber": 5902,
+	"startColumn": 12,
+	"endLineNumber": 5902,
+	"endColumn": 24,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "Stylelint",
+	"code": {
+		"value": "number-max-precision",
+		"target": {
+			"$mid": 1,
+			"path": "/user-guide/rules/number-max-precision",
+			"scheme": "https",
+			"authority": "stylelint.io"
+		}
+	},
+	"severity": 8,
+	"message": "Expected \"40.425531911\" to be \"40.4255\" (number-max-precision)",
+	"source": "Stylelint",
+	"startLineNumber": 5906,
+	"startColumn": 12,
+	"endLineNumber": 5906,
+	"endColumn": 24,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "Stylelint",
+	"code": {
+		"value": "number-max-precision",
+		"target": {
+			"$mid": 1,
+			"path": "/user-guide/rules/number-max-precision",
+			"scheme": "https",
+			"authority": "stylelint.io"
+		}
+	},
+	"severity": 8,
+	"message": "Expected \"31.914893614\" to be \"31.9149\" (number-max-precision)",
+	"source": "Stylelint",
+	"startLineNumber": 5910,
+	"startColumn": 12,
+	"endLineNumber": 5910,
+	"endColumn": 24,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "Stylelint",
+	"code": {
+		"value": "number-max-precision",
+		"target": {
+			"$mid": 1,
+			"path": "/user-guide/rules/number-max-precision",
+			"scheme": "https",
+			"authority": "stylelint.io"
+		}
+	},
+	"severity": 8,
+	"message": "Expected \"23.404255317\" to be \"23.4043\" (number-max-precision)",
+	"source": "Stylelint",
+	"startLineNumber": 5914,
+	"startColumn": 12,
+	"endLineNumber": 5914,
+	"endColumn": 24,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "Stylelint",
+	"code": {
+		"value": "number-max-precision",
+		"target": {
+			"$mid": 1,
+			"path": "/user-guide/rules/number-max-precision",
+			"scheme": "https",
+			"authority": "stylelint.io"
+		}
+	},
+	"severity": 8,
+	"message": "Expected \"14.89361702\" to be \"14.8936\" (number-max-precision)",
+	"source": "Stylelint",
+	"startLineNumber": 5918,
+	"startColumn": 12,
+	"endLineNumber": 5918,
+	"endColumn": 23,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "Stylelint",
+	"code": {
+		"value": "number-max-precision",
+		"target": {
+			"$mid": 1,
+			"path": "/user-guide/rules/number-max-precision",
+			"scheme": "https",
+			"authority": "stylelint.io"
+		}
+	},
+	"severity": 8,
+	"message": "Expected \"6.382978723\" to be \"6.3830\" (number-max-precision)",
+	"source": "Stylelint",
+	"startLineNumber": 5922,
+	"startColumn": 12,
+	"endLineNumber": 5922,
+	"endColumn": 23,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "Stylelint",
+	"code": {
+		"value": "number-max-precision",
+		"target": {
+			"$mid": 1,
+			"path": "/user-guide/rules/number-max-precision",
+			"scheme": "https",
+			"authority": "stylelint.io"
+		}
+	},
+	"severity": 8,
+	"message": "Expected \"104.255319138\" to be \"104.2553\" (number-max-precision)",
+	"source": "Stylelint",
+	"startLineNumber": 5926,
+	"startColumn": 18,
+	"endLineNumber": 5926,
+	"endColumn": 31,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "Stylelint",
+	"code": {
+		"value": "number-max-precision",
+		"target": {
+			"$mid": 1,
+			"path": "/user-guide/rules/number-max-precision",
+			"scheme": "https",
+			"authority": "stylelint.io"
+		}
+	},
+	"severity": 8,
+	"message": "Expected \"102.127659564\" to be \"102.1277\" (number-max-precision)",
+	"source": "Stylelint",
+	"startLineNumber": 5930,
+	"startColumn": 18,
+	"endLineNumber": 5930,
+	"endColumn": 31,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "Stylelint",
+	"code": {
+		"value": "number-max-precision",
+		"target": {
+			"$mid": 1,
+			"path": "/user-guide/rules/number-max-precision",
+			"scheme": "https",
+			"authority": "stylelint.io"
+		}
+	},
+	"severity": 8,
+	"message": "Expected \"95.744680841\" to be \"95.7447\" (number-max-precision)",
+	"source": "Stylelint",
+	"startLineNumber": 5934,
+	"startColumn": 18,
+	"endLineNumber": 5934,
+	"endColumn": 30,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "Stylelint",
+	"code": {
+		"value": "number-max-precision",
+		"target": {
+			"$mid": 1,
+			"path": "/user-guide/rules/number-max-precision",
+			"scheme": "https",
+			"authority": "stylelint.io"
+		}
+	},
+	"severity": 8,
+	"message": "Expected \"93.617021267\" to be \"93.6170\" (number-max-precision)",
+	"source": "Stylelint",
+	"startLineNumber": 5938,
+	"startColumn": 18,
+	"endLineNumber": 5938,
+	"endColumn": 30,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "Stylelint",
+	"code": {
+		"value": "number-max-precision",
+		"target": {
+			"$mid": 1,
+			"path": "/user-guide/rules/number-max-precision",
+			"scheme": "https",
+			"authority": "stylelint.io"
+		}
+	},
+	"severity": 8,
+	"message": "Expected \"87.234042544\" to be \"87.2340\" (number-max-precision)",
+	"source": "Stylelint",
+	"startLineNumber": 5942,
+	"startColumn": 18,
+	"endLineNumber": 5942,
+	"endColumn": 30,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "Stylelint",
+	"code": {
+		"value": "number-max-precision",
+		"target": {
+			"$mid": 1,
+			"path": "/user-guide/rules/number-max-precision",
+			"scheme": "https",
+			"authority": "stylelint.io"
+		}
+	},
+	"severity": 8,
+	"message": "Expected \"85.10638297\" to be \"85.1064\" (number-max-precision)",
+	"source": "Stylelint",
+	"startLineNumber": 5946,
+	"startColumn": 18,
+	"endLineNumber": 5946,
+	"endColumn": 29,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "Stylelint",
+	"code": {
+		"value": "number-max-precision",
+		"target": {
+			"$mid": 1,
+			"path": "/user-guide/rules/number-max-precision",
+			"scheme": "https",
+			"authority": "stylelint.io"
+		}
+	},
+	"severity": 8,
+	"message": "Expected \"78.723404247\" to be \"78.7234\" (number-max-precision)",
+	"source": "Stylelint",
+	"startLineNumber": 5950,
+	"startColumn": 18,
+	"endLineNumber": 5950,
+	"endColumn": 30,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "Stylelint",
+	"code": {
+		"value": "number-max-precision",
+		"target": {
+			"$mid": 1,
+			"path": "/user-guide/rules/number-max-precision",
+			"scheme": "https",
+			"authority": "stylelint.io"
+		}
+	},
+	"severity": 8,
+	"message": "Expected \"76.595744673\" to be \"76.5957\" (number-max-precision)",
+	"source": "Stylelint",
+	"startLineNumber": 5954,
+	"startColumn": 18,
+	"endLineNumber": 5954,
+	"endColumn": 30,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "Stylelint",
+	"code": {
+		"value": "number-max-precision",
+		"target": {
+			"$mid": 1,
+			"path": "/user-guide/rules/number-max-precision",
+			"scheme": "https",
+			"authority": "stylelint.io"
+		}
+	},
+	"severity": 8,
+	"message": "Expected \"70.21276595\" to be \"70.2128\" (number-max-precision)",
+	"source": "Stylelint",
+	"startLineNumber": 5958,
+	"startColumn": 18,
+	"endLineNumber": 5958,
+	"endColumn": 29,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "Stylelint",
+	"code": {
+		"value": "number-max-precision",
+		"target": {
+			"$mid": 1,
+			"path": "/user-guide/rules/number-max-precision",
+			"scheme": "https",
+			"authority": "stylelint.io"
+		}
+	},
+	"severity": 8,
+	"message": "Expected \"68.085106376\" to be \"68.0851\" (number-max-precision)",
+	"source": "Stylelint",
+	"startLineNumber": 5962,
+	"startColumn": 18,
+	"endLineNumber": 5962,
+	"endColumn": 30,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "Stylelint",
+	"code": {
+		"value": "number-max-precision",
+		"target": {
+			"$mid": 1,
+			"path": "/user-guide/rules/number-max-precision",
+			"scheme": "https",
+			"authority": "stylelint.io"
+		}
+	},
+	"severity": 8,
+	"message": "Expected \"61.702127653\" to be \"61.7021\" (number-max-precision)",
+	"source": "Stylelint",
+	"startLineNumber": 5966,
+	"startColumn": 18,
+	"endLineNumber": 5966,
+	"endColumn": 30,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "Stylelint",
+	"code": {
+		"value": "number-max-precision",
+		"target": {
+			"$mid": 1,
+			"path": "/user-guide/rules/number-max-precision",
+			"scheme": "https",
+			"authority": "stylelint.io"
+		}
+	},
+	"severity": 8,
+	"message": "Expected \"59.574468079\" to be \"59.5745\" (number-max-precision)",
+	"source": "Stylelint",
+	"startLineNumber": 5970,
+	"startColumn": 18,
+	"endLineNumber": 5970,
+	"endColumn": 30,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "Stylelint",
+	"code": {
+		"value": "number-max-precision",
+		"target": {
+			"$mid": 1,
+			"path": "/user-guide/rules/number-max-precision",
+			"scheme": "https",
+			"authority": "stylelint.io"
+		}
+	},
+	"severity": 8,
+	"message": "Expected \"53.191489356\" to be \"53.1915\" (number-max-precision)",
+	"source": "Stylelint",
+	"startLineNumber": 5974,
+	"startColumn": 18,
+	"endLineNumber": 5974,
+	"endColumn": 30,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "Stylelint",
+	"code": {
+		"value": "number-max-precision",
+		"target": {
+			"$mid": 1,
+			"path": "/user-guide/rules/number-max-precision",
+			"scheme": "https",
+			"authority": "stylelint.io"
+		}
+	},
+	"severity": 8,
+	"message": "Expected \"51.063829782\" to be \"51.0638\" (number-max-precision)",
+	"source": "Stylelint",
+	"startLineNumber": 5978,
+	"startColumn": 18,
+	"endLineNumber": 5978,
+	"endColumn": 30,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "Stylelint",
+	"code": {
+		"value": "number-max-precision",
+		"target": {
+			"$mid": 1,
+			"path": "/user-guide/rules/number-max-precision",
+			"scheme": "https",
+			"authority": "stylelint.io"
+		}
+	},
+	"severity": 8,
+	"message": "Expected \"44.680851059\" to be \"44.6809\" (number-max-precision)",
+	"source": "Stylelint",
+	"startLineNumber": 5982,
+	"startColumn": 18,
+	"endLineNumber": 5982,
+	"endColumn": 30,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "Stylelint",
+	"code": {
+		"value": "number-max-precision",
+		"target": {
+			"$mid": 1,
+			"path": "/user-guide/rules/number-max-precision",
+			"scheme": "https",
+			"authority": "stylelint.io"
+		}
+	},
+	"severity": 8,
+	"message": "Expected \"42.553191485\" to be \"42.5532\" (number-max-precision)",
+	"source": "Stylelint",
+	"startLineNumber": 5986,
+	"startColumn": 18,
+	"endLineNumber": 5986,
+	"endColumn": 30,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "Stylelint",
+	"code": {
+		"value": "number-max-precision",
+		"target": {
+			"$mid": 1,
+			"path": "/user-guide/rules/number-max-precision",
+			"scheme": "https",
+			"authority": "stylelint.io"
+		}
+	},
+	"severity": 8,
+	"message": "Expected \"36.170212762\" to be \"36.1702\" (number-max-precision)",
+	"source": "Stylelint",
+	"startLineNumber": 5990,
+	"startColumn": 18,
+	"endLineNumber": 5990,
+	"endColumn": 30,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "Stylelint",
+	"code": {
+		"value": "number-max-precision",
+		"target": {
+			"$mid": 1,
+			"path": "/user-guide/rules/number-max-precision",
+			"scheme": "https",
+			"authority": "stylelint.io"
+		}
+	},
+	"severity": 8,
+	"message": "Expected \"34.042553188\" to be \"34.0426\" (number-max-precision)",
+	"source": "Stylelint",
+	"startLineNumber": 5994,
+	"startColumn": 18,
+	"endLineNumber": 5994,
+	"endColumn": 30,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "Stylelint",
+	"code": {
+		"value": "number-max-precision",
+		"target": {
+			"$mid": 1,
+			"path": "/user-guide/rules/number-max-precision",
+			"scheme": "https",
+			"authority": "stylelint.io"
+		}
+	},
+	"severity": 8,
+	"message": "Expected \"27.659574465\" to be \"27.6596\" (number-max-precision)",
+	"source": "Stylelint",
+	"startLineNumber": 5998,
+	"startColumn": 18,
+	"endLineNumber": 5998,
+	"endColumn": 30,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "Stylelint",
+	"code": {
+		"value": "number-max-precision",
+		"target": {
+			"$mid": 1,
+			"path": "/user-guide/rules/number-max-precision",
+			"scheme": "https",
+			"authority": "stylelint.io"
+		}
+	},
+	"severity": 8,
+	"message": "Expected \"25.531914891\" to be \"25.5319\" (number-max-precision)",
+	"source": "Stylelint",
+	"startLineNumber": 6002,
+	"startColumn": 18,
+	"endLineNumber": 6002,
+	"endColumn": 30,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "Stylelint",
+	"code": {
+		"value": "number-max-precision",
+		"target": {
+			"$mid": 1,
+			"path": "/user-guide/rules/number-max-precision",
+			"scheme": "https",
+			"authority": "stylelint.io"
+		}
+	},
+	"severity": 8,
+	"message": "Expected \"19.148936168\" to be \"19.1489\" (number-max-precision)",
+	"source": "Stylelint",
+	"startLineNumber": 6006,
+	"startColumn": 18,
+	"endLineNumber": 6006,
+	"endColumn": 30,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "Stylelint",
+	"code": {
+		"value": "number-max-precision",
+		"target": {
+			"$mid": 1,
+			"path": "/user-guide/rules/number-max-precision",
+			"scheme": "https",
+			"authority": "stylelint.io"
+		}
+	},
+	"severity": 8,
+	"message": "Expected \"17.021276594\" to be \"17.0213\" (number-max-precision)",
+	"source": "Stylelint",
+	"startLineNumber": 6010,
+	"startColumn": 18,
+	"endLineNumber": 6010,
+	"endColumn": 30,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "Stylelint",
+	"code": {
+		"value": "number-max-precision",
+		"target": {
+			"$mid": 1,
+			"path": "/user-guide/rules/number-max-precision",
+			"scheme": "https",
+			"authority": "stylelint.io"
+		}
+	},
+	"severity": 8,
+	"message": "Expected \"10.638297871\" to be \"10.6383\" (number-max-precision)",
+	"source": "Stylelint",
+	"startLineNumber": 6014,
+	"startColumn": 18,
+	"endLineNumber": 6014,
+	"endColumn": 30,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "Stylelint",
+	"code": {
+		"value": "number-max-precision",
+		"target": {
+			"$mid": 1,
+			"path": "/user-guide/rules/number-max-precision",
+			"scheme": "https",
+			"authority": "stylelint.io"
+		}
+	},
+	"severity": 8,
+	"message": "Expected \"8.510638297\" to be \"8.5106\" (number-max-precision)",
+	"source": "Stylelint",
+	"startLineNumber": 6018,
+	"startColumn": 18,
+	"endLineNumber": 6018,
+	"endColumn": 29,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "Stylelint",
+	"code": {
+		"value": "number-max-precision",
+		"target": {
+			"$mid": 1,
+			"path": "/user-guide/rules/number-max-precision",
+			"scheme": "https",
+			"authority": "stylelint.io"
+		}
+	},
+	"severity": 8,
+	"message": "Expected \"2.127659574\" to be \"2.1277\" (number-max-precision)",
+	"source": "Stylelint",
+	"startLineNumber": 6254,
+	"startColumn": 18,
+	"endLineNumber": 6254,
+	"endColumn": 29,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "Stylelint",
+	"code": {
+		"value": "number-max-precision",
+		"target": {
+			"$mid": 1,
+			"path": "/user-guide/rules/number-max-precision",
+			"scheme": "https",
+			"authority": "stylelint.io"
+		}
+	},
+	"severity": 8,
+	"message": "Expected \"2.127659574\" to be \"2.1277\" (number-max-precision)",
+	"source": "Stylelint",
+	"startLineNumber": 6262,
+	"startColumn": 18,
+	"endLineNumber": 6262,
+	"endColumn": 29,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "Stylelint",
+	"code": {
+		"value": "number-max-precision",
+		"target": {
+			"$mid": 1,
+			"path": "/user-guide/rules/number-max-precision",
+			"scheme": "https",
+			"authority": "stylelint.io"
+		}
+	},
+	"severity": 8,
+	"message": "Expected \"99.99999999\" to be \"100.0000\" (number-max-precision)",
+	"source": "Stylelint",
+	"startLineNumber": 6266,
+	"startColumn": 12,
+	"endLineNumber": 6266,
+	"endColumn": 23,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "Stylelint",
+	"code": {
+		"value": "number-max-precision",
+		"target": {
+			"$mid": 1,
+			"path": "/user-guide/rules/number-max-precision",
+			"scheme": "https",
+			"authority": "stylelint.io"
+		}
+	},
+	"severity": 8,
+	"message": "Expected \"91.489361693\" to be \"91.4894\" (number-max-precision)",
+	"source": "Stylelint",
+	"startLineNumber": 6270,
+	"startColumn": 12,
+	"endLineNumber": 6270,
+	"endColumn": 24,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "Stylelint",
+	"code": {
+		"value": "number-max-precision",
+		"target": {
+			"$mid": 1,
+			"path": "/user-guide/rules/number-max-precision",
+			"scheme": "https",
+			"authority": "stylelint.io"
+		}
+	},
+	"severity": 8,
+	"message": "Expected \"82.978723396\" to be \"82.9787\" (number-max-precision)",
+	"source": "Stylelint",
+	"startLineNumber": 6274,
+	"startColumn": 12,
+	"endLineNumber": 6274,
+	"endColumn": 24,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "Stylelint",
+	"code": {
+		"value": "number-max-precision",
+		"target": {
+			"$mid": 1,
+			"path": "/user-guide/rules/number-max-precision",
+			"scheme": "https",
+			"authority": "stylelint.io"
+		}
+	},
+	"severity": 8,
+	"message": "Expected \"74.468085099\" to be \"74.4681\" (number-max-precision)",
+	"source": "Stylelint",
+	"startLineNumber": 6278,
+	"startColumn": 12,
+	"endLineNumber": 6278,
+	"endColumn": 24,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "Stylelint",
+	"code": {
+		"value": "number-max-precision",
+		"target": {
+			"$mid": 1,
+			"path": "/user-guide/rules/number-max-precision",
+			"scheme": "https",
+			"authority": "stylelint.io"
+		}
+	},
+	"severity": 8,
+	"message": "Expected \"65.957446802\" to be \"65.9574\" (number-max-precision)",
+	"source": "Stylelint",
+	"startLineNumber": 6282,
+	"startColumn": 12,
+	"endLineNumber": 6282,
+	"endColumn": 24,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "Stylelint",
+	"code": {
+		"value": "number-max-precision",
+		"target": {
+			"$mid": 1,
+			"path": "/user-guide/rules/number-max-precision",
+			"scheme": "https",
+			"authority": "stylelint.io"
+		}
+	},
+	"severity": 8,
+	"message": "Expected \"57.446808505\" to be \"57.4468\" (number-max-precision)",
+	"source": "Stylelint",
+	"startLineNumber": 6286,
+	"startColumn": 12,
+	"endLineNumber": 6286,
+	"endColumn": 24,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "Stylelint",
+	"code": {
+		"value": "number-max-precision",
+		"target": {
+			"$mid": 1,
+			"path": "/user-guide/rules/number-max-precision",
+			"scheme": "https",
+			"authority": "stylelint.io"
+		}
+	},
+	"severity": 8,
+	"message": "Expected \"48.936170208\" to be \"48.9362\" (number-max-precision)",
+	"source": "Stylelint",
+	"startLineNumber": 6290,
+	"startColumn": 12,
+	"endLineNumber": 6290,
+	"endColumn": 24,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "Stylelint",
+	"code": {
+		"value": "number-max-precision",
+		"target": {
+			"$mid": 1,
+			"path": "/user-guide/rules/number-max-precision",
+			"scheme": "https",
+			"authority": "stylelint.io"
+		}
+	},
+	"severity": 8,
+	"message": "Expected \"40.425531911\" to be \"40.4255\" (number-max-precision)",
+	"source": "Stylelint",
+	"startLineNumber": 6294,
+	"startColumn": 12,
+	"endLineNumber": 6294,
+	"endColumn": 24,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "Stylelint",
+	"code": {
+		"value": "number-max-precision",
+		"target": {
+			"$mid": 1,
+			"path": "/user-guide/rules/number-max-precision",
+			"scheme": "https",
+			"authority": "stylelint.io"
+		}
+	},
+	"severity": 8,
+	"message": "Expected \"31.914893614\" to be \"31.9149\" (number-max-precision)",
+	"source": "Stylelint",
+	"startLineNumber": 6298,
+	"startColumn": 12,
+	"endLineNumber": 6298,
+	"endColumn": 24,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "Stylelint",
+	"code": {
+		"value": "number-max-precision",
+		"target": {
+			"$mid": 1,
+			"path": "/user-guide/rules/number-max-precision",
+			"scheme": "https",
+			"authority": "stylelint.io"
+		}
+	},
+	"severity": 8,
+	"message": "Expected \"23.404255317\" to be \"23.4043\" (number-max-precision)",
+	"source": "Stylelint",
+	"startLineNumber": 6302,
+	"startColumn": 12,
+	"endLineNumber": 6302,
+	"endColumn": 24,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "Stylelint",
+	"code": {
+		"value": "number-max-precision",
+		"target": {
+			"$mid": 1,
+			"path": "/user-guide/rules/number-max-precision",
+			"scheme": "https",
+			"authority": "stylelint.io"
+		}
+	},
+	"severity": 8,
+	"message": "Expected \"14.89361702\" to be \"14.8936\" (number-max-precision)",
+	"source": "Stylelint",
+	"startLineNumber": 6306,
+	"startColumn": 12,
+	"endLineNumber": 6306,
+	"endColumn": 23,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "Stylelint",
+	"code": {
+		"value": "number-max-precision",
+		"target": {
+			"$mid": 1,
+			"path": "/user-guide/rules/number-max-precision",
+			"scheme": "https",
+			"authority": "stylelint.io"
+		}
+	},
+	"severity": 8,
+	"message": "Expected \"6.382978723\" to be \"6.3830\" (number-max-precision)",
+	"source": "Stylelint",
+	"startLineNumber": 6310,
+	"startColumn": 12,
+	"endLineNumber": 6310,
+	"endColumn": 23,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "Stylelint",
+	"code": {
+		"value": "number-max-precision",
+		"target": {
+			"$mid": 1,
+			"path": "/user-guide/rules/number-max-precision",
+			"scheme": "https",
+			"authority": "stylelint.io"
+		}
+	},
+	"severity": 8,
+	"message": "Expected \"104.255319138\" to be \"104.2553\" (number-max-precision)",
+	"source": "Stylelint",
+	"startLineNumber": 6314,
+	"startColumn": 18,
+	"endLineNumber": 6314,
+	"endColumn": 31,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "Stylelint",
+	"code": {
+		"value": "number-max-precision",
+		"target": {
+			"$mid": 1,
+			"path": "/user-guide/rules/number-max-precision",
+			"scheme": "https",
+			"authority": "stylelint.io"
+		}
+	},
+	"severity": 8,
+	"message": "Expected \"102.127659564\" to be \"102.1277\" (number-max-precision)",
+	"source": "Stylelint",
+	"startLineNumber": 6318,
+	"startColumn": 18,
+	"endLineNumber": 6318,
+	"endColumn": 31,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "Stylelint",
+	"code": {
+		"value": "number-max-precision",
+		"target": {
+			"$mid": 1,
+			"path": "/user-guide/rules/number-max-precision",
+			"scheme": "https",
+			"authority": "stylelint.io"
+		}
+	},
+	"severity": 8,
+	"message": "Expected \"95.744680841\" to be \"95.7447\" (number-max-precision)",
+	"source": "Stylelint",
+	"startLineNumber": 6322,
+	"startColumn": 18,
+	"endLineNumber": 6322,
+	"endColumn": 30,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "Stylelint",
+	"code": {
+		"value": "number-max-precision",
+		"target": {
+			"$mid": 1,
+			"path": "/user-guide/rules/number-max-precision",
+			"scheme": "https",
+			"authority": "stylelint.io"
+		}
+	},
+	"severity": 8,
+	"message": "Expected \"93.617021267\" to be \"93.6170\" (number-max-precision)",
+	"source": "Stylelint",
+	"startLineNumber": 6326,
+	"startColumn": 18,
+	"endLineNumber": 6326,
+	"endColumn": 30,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "Stylelint",
+	"code": {
+		"value": "number-max-precision",
+		"target": {
+			"$mid": 1,
+			"path": "/user-guide/rules/number-max-precision",
+			"scheme": "https",
+			"authority": "stylelint.io"
+		}
+	},
+	"severity": 8,
+	"message": "Expected \"87.234042544\" to be \"87.2340\" (number-max-precision)",
+	"source": "Stylelint",
+	"startLineNumber": 6330,
+	"startColumn": 18,
+	"endLineNumber": 6330,
+	"endColumn": 30,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "Stylelint",
+	"code": {
+		"value": "number-max-precision",
+		"target": {
+			"$mid": 1,
+			"path": "/user-guide/rules/number-max-precision",
+			"scheme": "https",
+			"authority": "stylelint.io"
+		}
+	},
+	"severity": 8,
+	"message": "Expected \"85.10638297\" to be \"85.1064\" (number-max-precision)",
+	"source": "Stylelint",
+	"startLineNumber": 6334,
+	"startColumn": 18,
+	"endLineNumber": 6334,
+	"endColumn": 29,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "Stylelint",
+	"code": {
+		"value": "number-max-precision",
+		"target": {
+			"$mid": 1,
+			"path": "/user-guide/rules/number-max-precision",
+			"scheme": "https",
+			"authority": "stylelint.io"
+		}
+	},
+	"severity": 8,
+	"message": "Expected \"78.723404247\" to be \"78.7234\" (number-max-precision)",
+	"source": "Stylelint",
+	"startLineNumber": 6338,
+	"startColumn": 18,
+	"endLineNumber": 6338,
+	"endColumn": 30,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "Stylelint",
+	"code": {
+		"value": "number-max-precision",
+		"target": {
+			"$mid": 1,
+			"path": "/user-guide/rules/number-max-precision",
+			"scheme": "https",
+			"authority": "stylelint.io"
+		}
+	},
+	"severity": 8,
+	"message": "Expected \"76.595744673\" to be \"76.5957\" (number-max-precision)",
+	"source": "Stylelint",
+	"startLineNumber": 6342,
+	"startColumn": 18,
+	"endLineNumber": 6342,
+	"endColumn": 30,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "Stylelint",
+	"code": {
+		"value": "number-max-precision",
+		"target": {
+			"$mid": 1,
+			"path": "/user-guide/rules/number-max-precision",
+			"scheme": "https",
+			"authority": "stylelint.io"
+		}
+	},
+	"severity": 8,
+	"message": "Expected \"70.21276595\" to be \"70.2128\" (number-max-precision)",
+	"source": "Stylelint",
+	"startLineNumber": 6346,
+	"startColumn": 18,
+	"endLineNumber": 6346,
+	"endColumn": 29,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "Stylelint",
+	"code": {
+		"value": "number-max-precision",
+		"target": {
+			"$mid": 1,
+			"path": "/user-guide/rules/number-max-precision",
+			"scheme": "https",
+			"authority": "stylelint.io"
+		}
+	},
+	"severity": 8,
+	"message": "Expected \"68.085106376\" to be \"68.0851\" (number-max-precision)",
+	"source": "Stylelint",
+	"startLineNumber": 6350,
+	"startColumn": 18,
+	"endLineNumber": 6350,
+	"endColumn": 30,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "Stylelint",
+	"code": {
+		"value": "number-max-precision",
+		"target": {
+			"$mid": 1,
+			"path": "/user-guide/rules/number-max-precision",
+			"scheme": "https",
+			"authority": "stylelint.io"
+		}
+	},
+	"severity": 8,
+	"message": "Expected \"61.702127653\" to be \"61.7021\" (number-max-precision)",
+	"source": "Stylelint",
+	"startLineNumber": 6354,
+	"startColumn": 18,
+	"endLineNumber": 6354,
+	"endColumn": 30,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "Stylelint",
+	"code": {
+		"value": "number-max-precision",
+		"target": {
+			"$mid": 1,
+			"path": "/user-guide/rules/number-max-precision",
+			"scheme": "https",
+			"authority": "stylelint.io"
+		}
+	},
+	"severity": 8,
+	"message": "Expected \"59.574468079\" to be \"59.5745\" (number-max-precision)",
+	"source": "Stylelint",
+	"startLineNumber": 6358,
+	"startColumn": 18,
+	"endLineNumber": 6358,
+	"endColumn": 30,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "Stylelint",
+	"code": {
+		"value": "number-max-precision",
+		"target": {
+			"$mid": 1,
+			"path": "/user-guide/rules/number-max-precision",
+			"scheme": "https",
+			"authority": "stylelint.io"
+		}
+	},
+	"severity": 8,
+	"message": "Expected \"53.191489356\" to be \"53.1915\" (number-max-precision)",
+	"source": "Stylelint",
+	"startLineNumber": 6362,
+	"startColumn": 18,
+	"endLineNumber": 6362,
+	"endColumn": 30,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "Stylelint",
+	"code": {
+		"value": "number-max-precision",
+		"target": {
+			"$mid": 1,
+			"path": "/user-guide/rules/number-max-precision",
+			"scheme": "https",
+			"authority": "stylelint.io"
+		}
+	},
+	"severity": 8,
+	"message": "Expected \"51.063829782\" to be \"51.0638\" (number-max-precision)",
+	"source": "Stylelint",
+	"startLineNumber": 6366,
+	"startColumn": 18,
+	"endLineNumber": 6366,
+	"endColumn": 30,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "Stylelint",
+	"code": {
+		"value": "number-max-precision",
+		"target": {
+			"$mid": 1,
+			"path": "/user-guide/rules/number-max-precision",
+			"scheme": "https",
+			"authority": "stylelint.io"
+		}
+	},
+	"severity": 8,
+	"message": "Expected \"44.680851059\" to be \"44.6809\" (number-max-precision)",
+	"source": "Stylelint",
+	"startLineNumber": 6370,
+	"startColumn": 18,
+	"endLineNumber": 6370,
+	"endColumn": 30,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "Stylelint",
+	"code": {
+		"value": "number-max-precision",
+		"target": {
+			"$mid": 1,
+			"path": "/user-guide/rules/number-max-precision",
+			"scheme": "https",
+			"authority": "stylelint.io"
+		}
+	},
+	"severity": 8,
+	"message": "Expected \"42.553191485\" to be \"42.5532\" (number-max-precision)",
+	"source": "Stylelint",
+	"startLineNumber": 6374,
+	"startColumn": 18,
+	"endLineNumber": 6374,
+	"endColumn": 30,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "Stylelint",
+	"code": {
+		"value": "number-max-precision",
+		"target": {
+			"$mid": 1,
+			"path": "/user-guide/rules/number-max-precision",
+			"scheme": "https",
+			"authority": "stylelint.io"
+		}
+	},
+	"severity": 8,
+	"message": "Expected \"36.170212762\" to be \"36.1702\" (number-max-precision)",
+	"source": "Stylelint",
+	"startLineNumber": 6378,
+	"startColumn": 18,
+	"endLineNumber": 6378,
+	"endColumn": 30,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "Stylelint",
+	"code": {
+		"value": "number-max-precision",
+		"target": {
+			"$mid": 1,
+			"path": "/user-guide/rules/number-max-precision",
+			"scheme": "https",
+			"authority": "stylelint.io"
+		}
+	},
+	"severity": 8,
+	"message": "Expected \"34.042553188\" to be \"34.0426\" (number-max-precision)",
+	"source": "Stylelint",
+	"startLineNumber": 6382,
+	"startColumn": 18,
+	"endLineNumber": 6382,
+	"endColumn": 30,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "Stylelint",
+	"code": {
+		"value": "number-max-precision",
+		"target": {
+			"$mid": 1,
+			"path": "/user-guide/rules/number-max-precision",
+			"scheme": "https",
+			"authority": "stylelint.io"
+		}
+	},
+	"severity": 8,
+	"message": "Expected \"27.659574465\" to be \"27.6596\" (number-max-precision)",
+	"source": "Stylelint",
+	"startLineNumber": 6386,
+	"startColumn": 18,
+	"endLineNumber": 6386,
+	"endColumn": 30,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "Stylelint",
+	"code": {
+		"value": "number-max-precision",
+		"target": {
+			"$mid": 1,
+			"path": "/user-guide/rules/number-max-precision",
+			"scheme": "https",
+			"authority": "stylelint.io"
+		}
+	},
+	"severity": 8,
+	"message": "Expected \"25.531914891\" to be \"25.5319\" (number-max-precision)",
+	"source": "Stylelint",
+	"startLineNumber": 6390,
+	"startColumn": 18,
+	"endLineNumber": 6390,
+	"endColumn": 30,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "Stylelint",
+	"code": {
+		"value": "number-max-precision",
+		"target": {
+			"$mid": 1,
+			"path": "/user-guide/rules/number-max-precision",
+			"scheme": "https",
+			"authority": "stylelint.io"
+		}
+	},
+	"severity": 8,
+	"message": "Expected \"19.148936168\" to be \"19.1489\" (number-max-precision)",
+	"source": "Stylelint",
+	"startLineNumber": 6394,
+	"startColumn": 18,
+	"endLineNumber": 6394,
+	"endColumn": 30,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "Stylelint",
+	"code": {
+		"value": "number-max-precision",
+		"target": {
+			"$mid": 1,
+			"path": "/user-guide/rules/number-max-precision",
+			"scheme": "https",
+			"authority": "stylelint.io"
+		}
+	},
+	"severity": 8,
+	"message": "Expected \"17.021276594\" to be \"17.0213\" (number-max-precision)",
+	"source": "Stylelint",
+	"startLineNumber": 6398,
+	"startColumn": 18,
+	"endLineNumber": 6398,
+	"endColumn": 30,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "Stylelint",
+	"code": {
+		"value": "number-max-precision",
+		"target": {
+			"$mid": 1,
+			"path": "/user-guide/rules/number-max-precision",
+			"scheme": "https",
+			"authority": "stylelint.io"
+		}
+	},
+	"severity": 8,
+	"message": "Expected \"10.638297871\" to be \"10.6383\" (number-max-precision)",
+	"source": "Stylelint",
+	"startLineNumber": 6402,
+	"startColumn": 18,
+	"endLineNumber": 6402,
+	"endColumn": 30,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "Stylelint",
+	"code": {
+		"value": "number-max-precision",
+		"target": {
+			"$mid": 1,
+			"path": "/user-guide/rules/number-max-precision",
+			"scheme": "https",
+			"authority": "stylelint.io"
+		}
+	},
+	"severity": 8,
+	"message": "Expected \"8.510638297\" to be \"8.5106\" (number-max-precision)",
+	"source": "Stylelint",
+	"startLineNumber": 6406,
+	"startColumn": 18,
+	"endLineNumber": 6406,
+	"endColumn": 29,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "Stylelint",
+	"code": {
+		"value": "number-max-precision",
+		"target": {
+			"$mid": 1,
+			"path": "/user-guide/rules/number-max-precision",
+			"scheme": "https",
+			"authority": "stylelint.io"
+		}
+	},
+	"severity": 8,
+	"message": "Expected \"8.382978723\" to be \"8.3830\" (number-max-precision)",
+	"source": "Stylelint",
+	"startLineNumber": 6783,
+	"startColumn": 16,
+	"endLineNumber": 6783,
+	"endColumn": 27,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "Stylelint",
+	"code": {
+		"value": "number-max-precision",
+		"target": {
+			"$mid": 1,
+			"path": "/user-guide/rules/number-max-precision",
+			"scheme": "https",
+			"authority": "stylelint.io"
+		}
+	},
+	"severity": 8,
+	"message": "Expected \"16.89361702\" to be \"16.8936\" (number-max-precision)",
+	"source": "Stylelint",
+	"startLineNumber": 6787,
+	"startColumn": 16,
+	"endLineNumber": 6787,
+	"endColumn": 27,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "Stylelint",
+	"code": {
+		"value": "number-max-precision",
+		"target": {
+			"$mid": 1,
+			"path": "/user-guide/rules/number-max-precision",
+			"scheme": "https",
+			"authority": "stylelint.io"
+		}
+	},
+	"severity": 8,
+	"message": "Expected \"25.404255317\" to be \"25.4043\" (number-max-precision)",
+	"source": "Stylelint",
+	"startLineNumber": 6791,
+	"startColumn": 16,
+	"endLineNumber": 6791,
+	"endColumn": 28,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "Stylelint",
+	"code": {
+		"value": "number-max-precision",
+		"target": {
+			"$mid": 1,
+			"path": "/user-guide/rules/number-max-precision",
+			"scheme": "https",
+			"authority": "stylelint.io"
+		}
+	},
+	"severity": 8,
+	"message": "Expected \"33.914893614\" to be \"33.9149\" (number-max-precision)",
+	"source": "Stylelint",
+	"startLineNumber": 6795,
+	"startColumn": 16,
+	"endLineNumber": 6795,
+	"endColumn": 28,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "Stylelint",
+	"code": {
+		"value": "number-max-precision",
+		"target": {
+			"$mid": 1,
+			"path": "/user-guide/rules/number-max-precision",
+			"scheme": "https",
+			"authority": "stylelint.io"
+		}
+	},
+	"severity": 8,
+	"message": "Expected \"42.425531911\" to be \"42.4255\" (number-max-precision)",
+	"source": "Stylelint",
+	"startLineNumber": 6799,
+	"startColumn": 16,
+	"endLineNumber": 6799,
+	"endColumn": 28,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "Stylelint",
+	"code": {
+		"value": "number-max-precision",
+		"target": {
+			"$mid": 1,
+			"path": "/user-guide/rules/number-max-precision",
+			"scheme": "https",
+			"authority": "stylelint.io"
+		}
+	},
+	"severity": 8,
+	"message": "Expected \"50.93617020799999\" to be \"50.9362\" (number-max-precision)",
+	"source": "Stylelint",
+	"startLineNumber": 6803,
+	"startColumn": 16,
+	"endLineNumber": 6803,
+	"endColumn": 33,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "Stylelint",
+	"code": {
+		"value": "number-max-precision",
+		"target": {
+			"$mid": 1,
+			"path": "/user-guide/rules/number-max-precision",
+			"scheme": "https",
+			"authority": "stylelint.io"
+		}
+	},
+	"severity": 8,
+	"message": "Expected \"59.446808505\" to be \"59.4468\" (number-max-precision)",
+	"source": "Stylelint",
+	"startLineNumber": 6807,
+	"startColumn": 16,
+	"endLineNumber": 6807,
+	"endColumn": 28,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "Stylelint",
+	"code": {
+		"value": "number-max-precision",
+		"target": {
+			"$mid": 1,
+			"path": "/user-guide/rules/number-max-precision",
+			"scheme": "https",
+			"authority": "stylelint.io"
+		}
+	},
+	"severity": 8,
+	"message": "Expected \"67.95744680199999\" to be \"67.9574\" (number-max-precision)",
+	"source": "Stylelint",
+	"startLineNumber": 6811,
+	"startColumn": 16,
+	"endLineNumber": 6811,
+	"endColumn": 33,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "Stylelint",
+	"code": {
+		"value": "number-max-precision",
+		"target": {
+			"$mid": 1,
+			"path": "/user-guide/rules/number-max-precision",
+			"scheme": "https",
+			"authority": "stylelint.io"
+		}
+	},
+	"severity": 8,
+	"message": "Expected \"76.468085099\" to be \"76.4681\" (number-max-precision)",
+	"source": "Stylelint",
+	"startLineNumber": 6815,
+	"startColumn": 16,
+	"endLineNumber": 6815,
+	"endColumn": 28,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "Stylelint",
+	"code": {
+		"value": "number-max-precision",
+		"target": {
+			"$mid": 1,
+			"path": "/user-guide/rules/number-max-precision",
+			"scheme": "https",
+			"authority": "stylelint.io"
+		}
+	},
+	"severity": 8,
+	"message": "Expected \"84.97872339599999\" to be \"84.9787\" (number-max-precision)",
+	"source": "Stylelint",
+	"startLineNumber": 6819,
+	"startColumn": 16,
+	"endLineNumber": 6819,
+	"endColumn": 33,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "Stylelint",
+	"code": {
+		"value": "number-max-precision",
+		"target": {
+			"$mid": 1,
+			"path": "/user-guide/rules/number-max-precision",
+			"scheme": "https",
+			"authority": "stylelint.io"
+		}
+	},
+	"severity": 8,
+	"message": "Expected \"91.489361693\" to be \"91.4894\" (number-max-precision)",
+	"source": "Stylelint",
+	"startLineNumber": 6823,
+	"startColumn": 16,
+	"endLineNumber": 6823,
+	"endColumn": 28,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "Stylelint",
+	"code": {
+		"value": "font-family-no-missing-generic-family-keyword",
+		"target": {
+			"$mid": 1,
+			"path": "/user-guide/rules/font-family-no-missing-generic-family-keyword",
+			"scheme": "https",
+			"authority": "stylelint.io"
+		}
+	},
+	"severity": 8,
+	"message": "Unexpected missing generic font family (font-family-no-missing-generic-family-keyword)",
+	"source": "Stylelint",
+	"startLineNumber": 7411,
+	"startColumn": 16,
+	"endLineNumber": 7411,
+	"endColumn": 23,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "Stylelint",
+	"code": {
+		"value": "font-family-no-missing-generic-family-keyword",
+		"target": {
+			"$mid": 1,
+			"path": "/user-guide/rules/font-family-no-missing-generic-family-keyword",
+			"scheme": "https",
+			"authority": "stylelint.io"
+		}
+	},
+	"severity": 8,
+	"message": "Unexpected missing generic font family (font-family-no-missing-generic-family-keyword)",
+	"source": "Stylelint",
+	"startLineNumber": 7427,
+	"startColumn": 16,
+	"endLineNumber": 7427,
+	"endColumn": 23,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "Stylelint",
+	"code": {
+		"value": "function-linear-gradient-no-nonstandard-direction",
+		"target": {
+			"$mid": 1,
+			"path": "/user-guide/rules/function-linear-gradient-no-nonstandard-direction",
+			"scheme": "https",
+			"authority": "stylelint.io"
+		}
+	},
+	"severity": 8,
+	"message": "Unexpected nonstandard direction (function-linear-gradient-no-nonstandard-direction)",
+	"source": "Stylelint",
+	"startLineNumber": 8701,
+	"startColumn": 37,
+	"endLineNumber": 8701,
+	"endColumn": 40,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "Stylelint",
+	"code": {
+		"value": "block-no-empty",
+		"target": {
+			"$mid": 1,
+			"path": "/user-guide/rules/block-no-empty",
+			"scheme": "https",
+			"authority": "stylelint.io"
+		}
+	},
+	"severity": 8,
+	"message": "Unexpected empty block (block-no-empty)",
+	"source": "Stylelint",
+	"startLineNumber": 9247,
+	"startColumn": 37,
+	"endLineNumber": 9248,
+	"endColumn": 2,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "float",
+	"severity": 4,
+	"message": "Avoid using 'float'. Floats lead to fragile CSS that is easy to break if one aspect of the layout changes.",
+	"source": "css",
+	"startLineNumber": 338,
+	"startColumn": 3,
+	"endLineNumber": 338,
+	"endColumn": 14,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "float",
+	"severity": 4,
+	"message": "Avoid using 'float'. Floats lead to fragile CSS that is easy to break if one aspect of the layout changes.",
+	"source": "css",
+	"startLineNumber": 472,
+	"startColumn": 3,
+	"endLineNumber": 472,
+	"endColumn": 14,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "float",
+	"severity": 4,
+	"message": "Avoid using 'float'. Floats lead to fragile CSS that is easy to break if one aspect of the layout changes.",
+	"source": "css",
+	"startLineNumber": 635,
+	"startColumn": 3,
+	"endLineNumber": 635,
+	"endColumn": 15,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "float",
+	"severity": 4,
+	"message": "Avoid using 'float'. Floats lead to fragile CSS that is easy to break if one aspect of the layout changes.",
+	"source": "css",
+	"startLineNumber": 911,
+	"startColumn": 3,
+	"endLineNumber": 911,
+	"endColumn": 14,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "float",
+	"severity": 4,
+	"message": "Avoid using 'float'. Floats lead to fragile CSS that is easy to break if one aspect of the layout changes.",
+	"source": "css",
+	"startLineNumber": 966,
+	"startColumn": 3,
+	"endLineNumber": 966,
+	"endColumn": 15,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "boxModel",
+	"severity": 4,
+	"message": "Do not use width or height when using padding or border",
+	"source": "css",
+	"startLineNumber": 1139,
+	"startColumn": 3,
+	"endLineNumber": 1139,
+	"endColumn": 15,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "boxModel",
+	"severity": 4,
+	"message": "Do not use width or height when using padding or border",
+	"source": "css",
+	"startLineNumber": 1140,
+	"startColumn": 3,
+	"endLineNumber": 1140,
+	"endColumn": 19,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "duplicateProperties",
+	"severity": 4,
+	"message": "Do not use duplicate style definitions",
+	"source": "css",
+	"startLineNumber": 1200,
+	"startColumn": 3,
+	"endLineNumber": 1200,
+	"endColumn": 13,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "duplicateProperties",
+	"severity": 4,
+	"message": "Do not use duplicate style definitions",
+	"source": "css",
+	"startLineNumber": 1201,
+	"startColumn": 3,
+	"endLineNumber": 1201,
+	"endColumn": 26,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "boxModel",
+	"severity": 4,
+	"message": "Do not use width or height when using padding or border",
+	"source": "css",
+	"startLineNumber": 1231,
+	"startColumn": 3,
+	"endLineNumber": 1231,
+	"endColumn": 15,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "boxModel",
+	"severity": 4,
+	"message": "Do not use width or height when using padding or border",
+	"source": "css",
+	"startLineNumber": 1232,
+	"startColumn": 3,
+	"endLineNumber": 1232,
+	"endColumn": 25,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "duplicateProperties",
+	"severity": 4,
+	"message": "Do not use duplicate style definitions",
+	"source": "css",
+	"startLineNumber": 1245,
+	"startColumn": 3,
+	"endLineNumber": 1245,
+	"endColumn": 43,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "duplicateProperties",
+	"severity": 4,
+	"message": "Do not use duplicate style definitions",
+	"source": "css",
+	"startLineNumber": 1246,
+	"startColumn": 3,
+	"endLineNumber": 1246,
+	"endColumn": 45,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "float",
+	"severity": 4,
+	"message": "Avoid using 'float'. Floats lead to fragile CSS that is easy to break if one aspect of the layout changes.",
+	"source": "css",
+	"startLineNumber": 1284,
+	"startColumn": 3,
+	"endLineNumber": 1284,
+	"endColumn": 14,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "float",
+	"severity": 4,
+	"message": "Avoid using 'float'. Floats lead to fragile CSS that is easy to break if one aspect of the layout changes.",
+	"source": "css",
+	"startLineNumber": 1338,
+	"startColumn": 3,
+	"endLineNumber": 1338,
+	"endColumn": 14,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "float",
+	"severity": 4,
+	"message": "Avoid using 'float'. Floats lead to fragile CSS that is easy to break if one aspect of the layout changes.",
+	"source": "css",
+	"startLineNumber": 1453,
+	"startColumn": 3,
+	"endLineNumber": 1453,
+	"endColumn": 14,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "boxModel",
+	"severity": 4,
+	"message": "Do not use width or height when using padding or border",
+	"source": "css",
+	"startLineNumber": 1725,
+	"startColumn": 3,
+	"endLineNumber": 1725,
+	"endColumn": 14,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "boxModel",
+	"severity": 4,
+	"message": "Do not use width or height when using padding or border",
+	"source": "css",
+	"startLineNumber": 1726,
+	"startColumn": 3,
+	"endLineNumber": 1726,
+	"endColumn": 15,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "boxModel",
+	"severity": 4,
+	"message": "Do not use width or height when using padding or border",
+	"source": "css",
+	"startLineNumber": 1728,
+	"startColumn": 3,
+	"endLineNumber": 1728,
+	"endColumn": 19,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "boxModel",
+	"severity": 4,
+	"message": "Do not use width or height when using padding or border",
+	"source": "css",
+	"startLineNumber": 1728,
+	"startColumn": 3,
+	"endLineNumber": 1728,
+	"endColumn": 19,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "boxModel",
+	"severity": 4,
+	"message": "Do not use width or height when using padding or border",
+	"source": "css",
+	"startLineNumber": 1735,
+	"startColumn": 3,
+	"endLineNumber": 1735,
+	"endColumn": 25,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "boxModel",
+	"severity": 4,
+	"message": "Do not use width or height when using padding or border",
+	"source": "css",
+	"startLineNumber": 1735,
+	"startColumn": 3,
+	"endLineNumber": 1735,
+	"endColumn": 25,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "duplicateProperties",
+	"severity": 4,
+	"message": "Do not use duplicate style definitions",
+	"source": "css",
+	"startLineNumber": 1811,
+	"startColumn": 3,
+	"endLineNumber": 1811,
+	"endColumn": 22,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "duplicateProperties",
+	"severity": 4,
+	"message": "Do not use duplicate style definitions",
+	"source": "css",
+	"startLineNumber": 1812,
+	"startColumn": 3,
+	"endLineNumber": 1812,
+	"endColumn": 24,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "duplicateProperties",
+	"severity": 4,
+	"message": "Do not use duplicate style definitions",
+	"source": "css",
+	"startLineNumber": 1813,
+	"startColumn": 3,
+	"endLineNumber": 1813,
+	"endColumn": 21,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "duplicateProperties",
+	"severity": 4,
+	"message": "Do not use duplicate style definitions",
+	"source": "css",
+	"startLineNumber": 1814,
+	"startColumn": 3,
+	"endLineNumber": 1814,
+	"endColumn": 23,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "float",
+	"severity": 4,
+	"message": "Avoid using 'float'. Floats lead to fragile CSS that is easy to break if one aspect of the layout changes.",
+	"source": "css",
+	"startLineNumber": 1906,
+	"startColumn": 3,
+	"endLineNumber": 1906,
+	"endColumn": 14,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "float",
+	"severity": 4,
+	"message": "Avoid using 'float'. Floats lead to fragile CSS that is easy to break if one aspect of the layout changes.",
+	"source": "css",
+	"startLineNumber": 1938,
+	"startColumn": 3,
+	"endLineNumber": 1938,
+	"endColumn": 14,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "float",
+	"severity": 4,
+	"message": "Avoid using 'float'. Floats lead to fragile CSS that is easy to break if one aspect of the layout changes.",
+	"source": "css",
+	"startLineNumber": 1987,
+	"startColumn": 5,
+	"endLineNumber": 1987,
+	"endColumn": 16,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "float",
+	"severity": 4,
+	"message": "Avoid using 'float'. Floats lead to fragile CSS that is easy to break if one aspect of the layout changes.",
+	"source": "css",
+	"startLineNumber": 2143,
+	"startColumn": 3,
+	"endLineNumber": 2143,
+	"endColumn": 14,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "float",
+	"severity": 4,
+	"message": "Avoid using 'float'. Floats lead to fragile CSS that is easy to break if one aspect of the layout changes.",
+	"source": "css",
+	"startLineNumber": 2149,
+	"startColumn": 3,
+	"endLineNumber": 2149,
+	"endColumn": 14,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "float",
+	"severity": 4,
+	"message": "Avoid using 'float'. Floats lead to fragile CSS that is easy to break if one aspect of the layout changes.",
+	"source": "css",
+	"startLineNumber": 2156,
+	"startColumn": 3,
+	"endLineNumber": 2156,
+	"endColumn": 14,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "float",
+	"severity": 4,
+	"message": "Avoid using 'float'. Floats lead to fragile CSS that is easy to break if one aspect of the layout changes.",
+	"source": "css",
+	"startLineNumber": 2163,
+	"startColumn": 3,
+	"endLineNumber": 2163,
+	"endColumn": 14,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "float",
+	"severity": 4,
+	"message": "Avoid using 'float'. Floats lead to fragile CSS that is easy to break if one aspect of the layout changes.",
+	"source": "css",
+	"startLineNumber": 2170,
+	"startColumn": 3,
+	"endLineNumber": 2170,
+	"endColumn": 14,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "float",
+	"severity": 4,
+	"message": "Avoid using 'float'. Floats lead to fragile CSS that is easy to break if one aspect of the layout changes.",
+	"source": "css",
+	"startLineNumber": 2177,
+	"startColumn": 3,
+	"endLineNumber": 2177,
+	"endColumn": 14,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "float",
+	"severity": 4,
+	"message": "Avoid using 'float'. Floats lead to fragile CSS that is easy to break if one aspect of the layout changes.",
+	"source": "css",
+	"startLineNumber": 2184,
+	"startColumn": 3,
+	"endLineNumber": 2184,
+	"endColumn": 14,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "float",
+	"severity": 4,
+	"message": "Avoid using 'float'. Floats lead to fragile CSS that is easy to break if one aspect of the layout changes.",
+	"source": "css",
+	"startLineNumber": 2191,
+	"startColumn": 3,
+	"endLineNumber": 2191,
+	"endColumn": 14,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "float",
+	"severity": 4,
+	"message": "Avoid using 'float'. Floats lead to fragile CSS that is easy to break if one aspect of the layout changes.",
+	"source": "css",
+	"startLineNumber": 2198,
+	"startColumn": 3,
+	"endLineNumber": 2198,
+	"endColumn": 14,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "float",
+	"severity": 4,
+	"message": "Avoid using 'float'. Floats lead to fragile CSS that is easy to break if one aspect of the layout changes.",
+	"source": "css",
+	"startLineNumber": 2205,
+	"startColumn": 3,
+	"endLineNumber": 2205,
+	"endColumn": 14,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "float",
+	"severity": 4,
+	"message": "Avoid using 'float'. Floats lead to fragile CSS that is easy to break if one aspect of the layout changes.",
+	"source": "css",
+	"startLineNumber": 2212,
+	"startColumn": 3,
+	"endLineNumber": 2212,
+	"endColumn": 14,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "float",
+	"severity": 4,
+	"message": "Avoid using 'float'. Floats lead to fragile CSS that is easy to break if one aspect of the layout changes.",
+	"source": "css",
+	"startLineNumber": 2219,
+	"startColumn": 3,
+	"endLineNumber": 2219,
+	"endColumn": 14,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "float",
+	"severity": 4,
+	"message": "Avoid using 'float'. Floats lead to fragile CSS that is easy to break if one aspect of the layout changes.",
+	"source": "css",
+	"startLineNumber": 2226,
+	"startColumn": 3,
+	"endLineNumber": 2226,
+	"endColumn": 14,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "boxModel",
+	"severity": 4,
+	"message": "Do not use width or height when using padding or border",
+	"source": "css",
+	"startLineNumber": 2285,
+	"startColumn": 3,
+	"endLineNumber": 2285,
+	"endColumn": 11,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "boxModel",
+	"severity": 4,
+	"message": "Do not use width or height when using padding or border",
+	"source": "css",
+	"startLineNumber": 2286,
+	"startColumn": 3,
+	"endLineNumber": 2286,
+	"endColumn": 12,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "boxModel",
+	"severity": 4,
+	"message": "Do not use width or height when using padding or border",
+	"source": "css",
+	"startLineNumber": 2288,
+	"startColumn": 3,
+	"endLineNumber": 2288,
+	"endColumn": 29,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "boxModel",
+	"severity": 4,
+	"message": "Do not use width or height when using padding or border",
+	"source": "css",
+	"startLineNumber": 2289,
+	"startColumn": 3,
+	"endLineNumber": 2289,
+	"endColumn": 38,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "boxModel",
+	"severity": 4,
+	"message": "Do not use width or height when using padding or border",
+	"source": "css",
+	"startLineNumber": 2290,
+	"startColumn": 3,
+	"endLineNumber": 2290,
+	"endColumn": 37,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "float",
+	"severity": 4,
+	"message": "Avoid using 'float'. Floats lead to fragile CSS that is easy to break if one aspect of the layout changes.",
+	"source": "css",
+	"startLineNumber": 2305,
+	"startColumn": 3,
+	"endLineNumber": 2305,
+	"endColumn": 14,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "duplicateProperties",
+	"severity": 4,
+	"message": "Do not use duplicate style definitions",
+	"source": "css",
+	"startLineNumber": 2311,
+	"startColumn": 3,
+	"endLineNumber": 2311,
+	"endColumn": 25,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "duplicateProperties",
+	"severity": 4,
+	"message": "Do not use duplicate style definitions",
+	"source": "css",
+	"startLineNumber": 2312,
+	"startColumn": 3,
+	"endLineNumber": 2312,
+	"endColumn": 36,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "duplicateProperties",
+	"severity": 4,
+	"message": "Do not use duplicate style definitions",
+	"source": "css",
+	"startLineNumber": 2315,
+	"startColumn": 3,
+	"endLineNumber": 2315,
+	"endColumn": 27,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "duplicateProperties",
+	"severity": 4,
+	"message": "Do not use duplicate style definitions",
+	"source": "css",
+	"startLineNumber": 2316,
+	"startColumn": 3,
+	"endLineNumber": 2316,
+	"endColumn": 31,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "boxModel",
+	"severity": 4,
+	"message": "Do not use width or height when using padding or border",
+	"source": "css",
+	"startLineNumber": 2325,
+	"startColumn": 3,
+	"endLineNumber": 2325,
+	"endColumn": 14,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "boxModel",
+	"severity": 4,
+	"message": "Do not use width or height when using padding or border",
+	"source": "css",
+	"startLineNumber": 2329,
+	"startColumn": 3,
+	"endLineNumber": 2329,
+	"endColumn": 32,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "duplicateProperties",
+	"severity": 4,
+	"message": "Do not use duplicate style definitions",
+	"source": "css",
+	"startLineNumber": 2362,
+	"startColumn": 3,
+	"endLineNumber": 2362,
+	"endColumn": 59,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "duplicateProperties",
+	"severity": 4,
+	"message": "Do not use duplicate style definitions",
+	"source": "css",
+	"startLineNumber": 2363,
+	"startColumn": 3,
+	"endLineNumber": 2363,
+	"endColumn": 65,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "float",
+	"severity": 4,
+	"message": "Avoid using 'float'. Floats lead to fragile CSS that is easy to break if one aspect of the layout changes.",
+	"source": "css",
+	"startLineNumber": 2453,
+	"startColumn": 3,
+	"endLineNumber": 2453,
+	"endColumn": 15,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "float",
+	"severity": 4,
+	"message": "Avoid using 'float'. Floats lead to fragile CSS that is easy to break if one aspect of the layout changes.",
+	"source": "css",
+	"startLineNumber": 2467,
+	"startColumn": 3,
+	"endLineNumber": 2467,
+	"endColumn": 14,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "duplicateProperties",
+	"severity": 4,
+	"message": "Do not use duplicate style definitions",
+	"source": "css",
+	"startLineNumber": 2498,
+	"startColumn": 3,
+	"endLineNumber": 2498,
+	"endColumn": 21,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "duplicateProperties",
+	"severity": 4,
+	"message": "Do not use duplicate style definitions",
+	"source": "css",
+	"startLineNumber": 2499,
+	"startColumn": 3,
+	"endLineNumber": 2499,
+	"endColumn": 32,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "propertyIgnoredDueToDisplay",
+	"severity": 4,
+	"message": "inline-block is ignored due to the float. If 'float' has a value other than 'none', the box is floated and 'display' is treated as 'block'",
+	"source": "css",
+	"startLineNumber": 2534,
+	"startColumn": 3,
+	"endLineNumber": 2534,
+	"endColumn": 15,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "float",
+	"severity": 4,
+	"message": "Avoid using 'float'. Floats lead to fragile CSS that is easy to break if one aspect of the layout changes.",
+	"source": "css",
+	"startLineNumber": 2534,
+	"startColumn": 3,
+	"endLineNumber": 2534,
+	"endColumn": 15,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "float",
+	"severity": 4,
+	"message": "Avoid using 'float'. Floats lead to fragile CSS that is easy to break if one aspect of the layout changes.",
+	"source": "css",
+	"startLineNumber": 2597,
+	"startColumn": 3,
+	"endLineNumber": 2597,
+	"endColumn": 15,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "duplicateProperties",
+	"severity": 4,
+	"message": "Do not use duplicate style definitions",
+	"source": "css",
+	"startLineNumber": 2626,
+	"startColumn": 3,
+	"endLineNumber": 2626,
+	"endColumn": 62,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "duplicateProperties",
+	"severity": 4,
+	"message": "Do not use duplicate style definitions",
+	"source": "css",
+	"startLineNumber": 2626,
+	"startColumn": 3,
+	"endLineNumber": 2626,
+	"endColumn": 62,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "duplicateProperties",
+	"severity": 4,
+	"message": "Do not use duplicate style definitions",
+	"source": "css",
+	"startLineNumber": 2627,
+	"startColumn": 3,
+	"endLineNumber": 2627,
+	"endColumn": 56,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "duplicateProperties",
+	"severity": 4,
+	"message": "Do not use duplicate style definitions",
+	"source": "css",
+	"startLineNumber": 2627,
+	"startColumn": 3,
+	"endLineNumber": 2627,
+	"endColumn": 56,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "duplicateProperties",
+	"severity": 4,
+	"message": "Do not use duplicate style definitions",
+	"source": "css",
+	"startLineNumber": 2628,
+	"startColumn": 3,
+	"endLineNumber": 2628,
+	"endColumn": 62,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "duplicateProperties",
+	"severity": 4,
+	"message": "Do not use duplicate style definitions",
+	"source": "css",
+	"startLineNumber": 2628,
+	"startColumn": 3,
+	"endLineNumber": 2628,
+	"endColumn": 62,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "duplicateProperties",
+	"severity": 4,
+	"message": "Do not use duplicate style definitions",
+	"source": "css",
+	"startLineNumber": 2665,
+	"startColumn": 3,
+	"endLineNumber": 2665,
+	"endColumn": 43,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "duplicateProperties",
+	"severity": 4,
+	"message": "Do not use duplicate style definitions",
+	"source": "css",
+	"startLineNumber": 2666,
+	"startColumn": 3,
+	"endLineNumber": 2666,
+	"endColumn": 45,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "duplicateProperties",
+	"severity": 4,
+	"message": "Do not use duplicate style definitions",
+	"source": "css",
+	"startLineNumber": 2752,
+	"startColumn": 3,
+	"endLineNumber": 2752,
+	"endColumn": 59,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "duplicateProperties",
+	"severity": 4,
+	"message": "Do not use duplicate style definitions",
+	"source": "css",
+	"startLineNumber": 2753,
+	"startColumn": 3,
+	"endLineNumber": 2753,
+	"endColumn": 65,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "duplicateProperties",
+	"severity": 4,
+	"message": "Do not use duplicate style definitions",
+	"source": "css",
+	"startLineNumber": 2802,
+	"startColumn": 3,
+	"endLineNumber": 2802,
+	"endColumn": 59,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "duplicateProperties",
+	"severity": 4,
+	"message": "Do not use duplicate style definitions",
+	"source": "css",
+	"startLineNumber": 2803,
+	"startColumn": 3,
+	"endLineNumber": 2803,
+	"endColumn": 65,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "float",
+	"severity": 4,
+	"message": "Avoid using 'float'. Floats lead to fragile CSS that is easy to break if one aspect of the layout changes.",
+	"source": "css",
+	"startLineNumber": 3144,
+	"startColumn": 3,
+	"endLineNumber": 3144,
+	"endColumn": 14,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "float",
+	"severity": 4,
+	"message": "Avoid using 'float'. Floats lead to fragile CSS that is easy to break if one aspect of the layout changes.",
+	"source": "css",
+	"startLineNumber": 3263,
+	"startColumn": 3,
+	"endLineNumber": 3263,
+	"endColumn": 15,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "boxModel",
+	"severity": 4,
+	"message": "Do not use width or height when using padding or border",
+	"source": "css",
+	"startLineNumber": 3312,
+	"startColumn": 3,
+	"endLineNumber": 3312,
+	"endColumn": 14,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "boxModel",
+	"severity": 4,
+	"message": "Do not use width or height when using padding or border",
+	"source": "css",
+	"startLineNumber": 3316,
+	"startColumn": 3,
+	"endLineNumber": 3316,
+	"endColumn": 32,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "float",
+	"severity": 4,
+	"message": "Avoid using 'float'. Floats lead to fragile CSS that is easy to break if one aspect of the layout changes.",
+	"source": "css",
+	"startLineNumber": 3339,
+	"startColumn": 3,
+	"endLineNumber": 3339,
+	"endColumn": 14,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "float",
+	"severity": 4,
+	"message": "Avoid using 'float'. Floats lead to fragile CSS that is easy to break if one aspect of the layout changes.",
+	"source": "css",
+	"startLineNumber": 3397,
+	"startColumn": 3,
+	"endLineNumber": 3397,
+	"endColumn": 14,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "float",
+	"severity": 4,
+	"message": "Avoid using 'float'. Floats lead to fragile CSS that is easy to break if one aspect of the layout changes.",
+	"source": "css",
+	"startLineNumber": 3564,
+	"startColumn": 3,
+	"endLineNumber": 3564,
+	"endColumn": 14,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "float",
+	"severity": 4,
+	"message": "Avoid using 'float'. Floats lead to fragile CSS that is easy to break if one aspect of the layout changes.",
+	"source": "css",
+	"startLineNumber": 3575,
+	"startColumn": 3,
+	"endLineNumber": 3575,
+	"endColumn": 14,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "float",
+	"severity": 4,
+	"message": "Avoid using 'float'. Floats lead to fragile CSS that is easy to break if one aspect of the layout changes.",
+	"source": "css",
+	"startLineNumber": 3597,
+	"startColumn": 3,
+	"endLineNumber": 3597,
+	"endColumn": 15,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "float",
+	"severity": 4,
+	"message": "Avoid using 'float'. Floats lead to fragile CSS that is easy to break if one aspect of the layout changes.",
+	"source": "css",
+	"startLineNumber": 3666,
+	"startColumn": 3,
+	"endLineNumber": 3666,
+	"endColumn": 14,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "float",
+	"severity": 4,
+	"message": "Avoid using 'float'. Floats lead to fragile CSS that is easy to break if one aspect of the layout changes.",
+	"source": "css",
+	"startLineNumber": 3766,
+	"startColumn": 3,
+	"endLineNumber": 3766,
+	"endColumn": 14,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "float",
+	"severity": 4,
+	"message": "Avoid using 'float'. Floats lead to fragile CSS that is easy to break if one aspect of the layout changes.",
+	"source": "css",
+	"startLineNumber": 3842,
+	"startColumn": 3,
+	"endLineNumber": 3842,
+	"endColumn": 14,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "float",
+	"severity": 4,
+	"message": "Avoid using 'float'. Floats lead to fragile CSS that is easy to break if one aspect of the layout changes.",
+	"source": "css",
+	"startLineNumber": 3847,
+	"startColumn": 3,
+	"endLineNumber": 3847,
+	"endColumn": 15,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "float",
+	"severity": 4,
+	"message": "Avoid using 'float'. Floats lead to fragile CSS that is easy to break if one aspect of the layout changes.",
+	"source": "css",
+	"startLineNumber": 3852,
+	"startColumn": 3,
+	"endLineNumber": 3852,
+	"endColumn": 14,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "float",
+	"severity": 4,
+	"message": "Avoid using 'float'. Floats lead to fragile CSS that is easy to break if one aspect of the layout changes.",
+	"source": "css",
+	"startLineNumber": 3856,
+	"startColumn": 3,
+	"endLineNumber": 3856,
+	"endColumn": 14,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "float",
+	"severity": 4,
+	"message": "Avoid using 'float'. Floats lead to fragile CSS that is easy to break if one aspect of the layout changes.",
+	"source": "css",
+	"startLineNumber": 3889,
+	"startColumn": 3,
+	"endLineNumber": 3889,
+	"endColumn": 15,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "duplicateProperties",
+	"severity": 4,
+	"message": "Do not use duplicate style definitions",
+	"source": "css",
+	"startLineNumber": 4024,
+	"startColumn": 3,
+	"endLineNumber": 4024,
+	"endColumn": 53,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "duplicateProperties",
+	"severity": 4,
+	"message": "Do not use duplicate style definitions",
+	"source": "css",
+	"startLineNumber": 4025,
+	"startColumn": 3,
+	"endLineNumber": 4025,
+	"endColumn": 59,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "duplicateProperties",
+	"severity": 4,
+	"message": "Do not use duplicate style definitions",
+	"source": "css",
+	"startLineNumber": 4155,
+	"startColumn": 3,
+	"endLineNumber": 4155,
+	"endColumn": 59,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "duplicateProperties",
+	"severity": 4,
+	"message": "Do not use duplicate style definitions",
+	"source": "css",
+	"startLineNumber": 4156,
+	"startColumn": 3,
+	"endLineNumber": 4156,
+	"endColumn": 65,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "float",
+	"severity": 4,
+	"message": "Avoid using 'float'. Floats lead to fragile CSS that is easy to break if one aspect of the layout changes.",
+	"source": "css",
+	"startLineNumber": 4220,
+	"startColumn": 3,
+	"endLineNumber": 4220,
+	"endColumn": 14,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "float",
+	"severity": 4,
+	"message": "Avoid using 'float'. Floats lead to fragile CSS that is easy to break if one aspect of the layout changes.",
+	"source": "css",
+	"startLineNumber": 4374,
+	"startColumn": 3,
+	"endLineNumber": 4374,
+	"endColumn": 15,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "float",
+	"severity": 4,
+	"message": "Avoid using 'float'. Floats lead to fragile CSS that is easy to break if one aspect of the layout changes.",
+	"source": "css",
+	"startLineNumber": 4379,
+	"startColumn": 3,
+	"endLineNumber": 4379,
+	"endColumn": 14,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "boxModel",
+	"severity": 4,
+	"message": "Do not use width or height when using padding or border",
+	"source": "css",
+	"startLineNumber": 4422,
+	"startColumn": 3,
+	"endLineNumber": 4422,
+	"endColumn": 13,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "boxModel",
+	"severity": 4,
+	"message": "Do not use width or height when using padding or border",
+	"source": "css",
+	"startLineNumber": 4425,
+	"startColumn": 3,
+	"endLineNumber": 4425,
+	"endColumn": 14,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "boxModel",
+	"severity": 4,
+	"message": "Do not use width or height when using padding or border",
+	"source": "css",
+	"startLineNumber": 4520,
+	"startColumn": 3,
+	"endLineNumber": 4520,
+	"endColumn": 11,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "boxModel",
+	"severity": 4,
+	"message": "Do not use width or height when using padding or border",
+	"source": "css",
+	"startLineNumber": 4521,
+	"startColumn": 3,
+	"endLineNumber": 4521,
+	"endColumn": 12,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "boxModel",
+	"severity": 4,
+	"message": "Do not use width or height when using padding or border",
+	"source": "css",
+	"startLineNumber": 4523,
+	"startColumn": 3,
+	"endLineNumber": 4523,
+	"endColumn": 22,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "boxModel",
+	"severity": 4,
+	"message": "Do not use width or height when using padding or border",
+	"source": "css",
+	"startLineNumber": 4523,
+	"startColumn": 3,
+	"endLineNumber": 4523,
+	"endColumn": 22,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "duplicateProperties",
+	"severity": 4,
+	"message": "Do not use duplicate style definitions",
+	"source": "css",
+	"startLineNumber": 4568,
+	"startColumn": 3,
+	"endLineNumber": 4568,
+	"endColumn": 27,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "duplicateProperties",
+	"severity": 4,
+	"message": "Do not use duplicate style definitions",
+	"source": "css",
+	"startLineNumber": 4569,
+	"startColumn": 3,
+	"endLineNumber": 4569,
+	"endColumn": 31,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "duplicateProperties",
+	"severity": 4,
+	"message": "Do not use duplicate style definitions",
+	"source": "css",
+	"startLineNumber": 4570,
+	"startColumn": 3,
+	"endLineNumber": 4570,
+	"endColumn": 25,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "duplicateProperties",
+	"severity": 4,
+	"message": "Do not use duplicate style definitions",
+	"source": "css",
+	"startLineNumber": 4571,
+	"startColumn": 3,
+	"endLineNumber": 4571,
+	"endColumn": 36,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "boxModel",
+	"severity": 4,
+	"message": "Do not use width or height when using padding or border",
+	"source": "css",
+	"startLineNumber": 4616,
+	"startColumn": 3,
+	"endLineNumber": 4616,
+	"endColumn": 11,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "boxModel",
+	"severity": 4,
+	"message": "Do not use width or height when using padding or border",
+	"source": "css",
+	"startLineNumber": 4617,
+	"startColumn": 3,
+	"endLineNumber": 4617,
+	"endColumn": 12,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "boxModel",
+	"severity": 4,
+	"message": "Do not use width or height when using padding or border",
+	"source": "css",
+	"startLineNumber": 4619,
+	"startColumn": 3,
+	"endLineNumber": 4619,
+	"endColumn": 22,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "boxModel",
+	"severity": 4,
+	"message": "Do not use width or height when using padding or border",
+	"source": "css",
+	"startLineNumber": 4619,
+	"startColumn": 3,
+	"endLineNumber": 4619,
+	"endColumn": 22,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "duplicateProperties",
+	"severity": 4,
+	"message": "Do not use duplicate style definitions",
+	"source": "css",
+	"startLineNumber": 4635,
+	"startColumn": 3,
+	"endLineNumber": 4635,
+	"endColumn": 39,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "duplicateProperties",
+	"severity": 4,
+	"message": "Do not use duplicate style definitions",
+	"source": "css",
+	"startLineNumber": 4636,
+	"startColumn": 3,
+	"endLineNumber": 4636,
+	"endColumn": 37,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "duplicateProperties",
+	"severity": 4,
+	"message": "Do not use duplicate style definitions",
+	"source": "css",
+	"startLineNumber": 4652,
+	"startColumn": 3,
+	"endLineNumber": 4652,
+	"endColumn": 41,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "duplicateProperties",
+	"severity": 4,
+	"message": "Do not use duplicate style definitions",
+	"source": "css",
+	"startLineNumber": 4653,
+	"startColumn": 3,
+	"endLineNumber": 4653,
+	"endColumn": 39,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "duplicateProperties",
+	"severity": 4,
+	"message": "Do not use duplicate style definitions",
+	"source": "css",
+	"startLineNumber": 4667,
+	"startColumn": 3,
+	"endLineNumber": 4667,
+	"endColumn": 42,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "duplicateProperties",
+	"severity": 4,
+	"message": "Do not use duplicate style definitions",
+	"source": "css",
+	"startLineNumber": 4668,
+	"startColumn": 3,
+	"endLineNumber": 4668,
+	"endColumn": 40,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "duplicateProperties",
+	"severity": 4,
+	"message": "Do not use duplicate style definitions",
+	"source": "css",
+	"startLineNumber": 4684,
+	"startColumn": 3,
+	"endLineNumber": 4684,
+	"endColumn": 40,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "duplicateProperties",
+	"severity": 4,
+	"message": "Do not use duplicate style definitions",
+	"source": "css",
+	"startLineNumber": 4685,
+	"startColumn": 3,
+	"endLineNumber": 4685,
+	"endColumn": 38,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "float",
+	"severity": 4,
+	"message": "Avoid using 'float'. Floats lead to fragile CSS that is easy to break if one aspect of the layout changes.",
+	"source": "css",
+	"startLineNumber": 4718,
+	"startColumn": 3,
+	"endLineNumber": 4718,
+	"endColumn": 14,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "duplicateProperties",
+	"severity": 4,
+	"message": "Do not use duplicate style definitions",
+	"source": "css",
+	"startLineNumber": 4906,
+	"startColumn": 3,
+	"endLineNumber": 4906,
+	"endColumn": 59,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "duplicateProperties",
+	"severity": 4,
+	"message": "Do not use duplicate style definitions",
+	"source": "css",
+	"startLineNumber": 4907,
+	"startColumn": 3,
+	"endLineNumber": 4907,
+	"endColumn": 65,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "float",
+	"severity": 4,
+	"message": "Avoid using 'float'. Floats lead to fragile CSS that is easy to break if one aspect of the layout changes.",
+	"source": "css",
+	"startLineNumber": 4917,
+	"startColumn": 3,
+	"endLineNumber": 4917,
+	"endColumn": 14,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "duplicateProperties",
+	"severity": 4,
+	"message": "Do not use duplicate style definitions",
+	"source": "css",
+	"startLineNumber": 4923,
+	"startColumn": 3,
+	"endLineNumber": 4923,
+	"endColumn": 59,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "duplicateProperties",
+	"severity": 4,
+	"message": "Do not use duplicate style definitions",
+	"source": "css",
+	"startLineNumber": 4924,
+	"startColumn": 3,
+	"endLineNumber": 4924,
+	"endColumn": 65,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "duplicateProperties",
+	"severity": 4,
+	"message": "Do not use duplicate style definitions",
+	"source": "css",
+	"startLineNumber": 4951,
+	"startColumn": 3,
+	"endLineNumber": 4960,
+	"endColumn": 4,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "duplicateProperties",
+	"severity": 4,
+	"message": "Do not use duplicate style definitions",
+	"source": "css",
+	"startLineNumber": 4951,
+	"startColumn": 3,
+	"endLineNumber": 4960,
+	"endColumn": 4,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "duplicateProperties",
+	"severity": 4,
+	"message": "Do not use duplicate style definitions",
+	"source": "css",
+	"startLineNumber": 4951,
+	"startColumn": 3,
+	"endLineNumber": 4960,
+	"endColumn": 4,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "duplicateProperties",
+	"severity": 4,
+	"message": "Do not use duplicate style definitions",
+	"source": "css",
+	"startLineNumber": 4961,
+	"startColumn": 3,
+	"endLineNumber": 4970,
+	"endColumn": 4,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "duplicateProperties",
+	"severity": 4,
+	"message": "Do not use duplicate style definitions",
+	"source": "css",
+	"startLineNumber": 4961,
+	"startColumn": 3,
+	"endLineNumber": 4970,
+	"endColumn": 4,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "duplicateProperties",
+	"severity": 4,
+	"message": "Do not use duplicate style definitions",
+	"source": "css",
+	"startLineNumber": 4961,
+	"startColumn": 3,
+	"endLineNumber": 4970,
+	"endColumn": 4,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "duplicateProperties",
+	"severity": 4,
+	"message": "Do not use duplicate style definitions",
+	"source": "css",
+	"startLineNumber": 4971,
+	"startColumn": 3,
+	"endLineNumber": 4980,
+	"endColumn": 4,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "duplicateProperties",
+	"severity": 4,
+	"message": "Do not use duplicate style definitions",
+	"source": "css",
+	"startLineNumber": 4971,
+	"startColumn": 3,
+	"endLineNumber": 4980,
+	"endColumn": 4,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "duplicateProperties",
+	"severity": 4,
+	"message": "Do not use duplicate style definitions",
+	"source": "css",
+	"startLineNumber": 4971,
+	"startColumn": 3,
+	"endLineNumber": 4980,
+	"endColumn": 4,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "duplicateProperties",
+	"severity": 4,
+	"message": "Do not use duplicate style definitions",
+	"source": "css",
+	"startLineNumber": 4981,
+	"startColumn": 3,
+	"endLineNumber": 4990,
+	"endColumn": 4,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "duplicateProperties",
+	"severity": 4,
+	"message": "Do not use duplicate style definitions",
+	"source": "css",
+	"startLineNumber": 4981,
+	"startColumn": 3,
+	"endLineNumber": 4990,
+	"endColumn": 4,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "duplicateProperties",
+	"severity": 4,
+	"message": "Do not use duplicate style definitions",
+	"source": "css",
+	"startLineNumber": 4981,
+	"startColumn": 3,
+	"endLineNumber": 4990,
+	"endColumn": 4,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "duplicateProperties",
+	"severity": 4,
+	"message": "Do not use duplicate style definitions",
+	"source": "css",
+	"startLineNumber": 5002,
+	"startColumn": 3,
+	"endLineNumber": 5002,
+	"endColumn": 59,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "duplicateProperties",
+	"severity": 4,
+	"message": "Do not use duplicate style definitions",
+	"source": "css",
+	"startLineNumber": 5003,
+	"startColumn": 3,
+	"endLineNumber": 5003,
+	"endColumn": 65,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "duplicateProperties",
+	"severity": 4,
+	"message": "Do not use duplicate style definitions",
+	"source": "css",
+	"startLineNumber": 5022,
+	"startColumn": 3,
+	"endLineNumber": 5031,
+	"endColumn": 4,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "duplicateProperties",
+	"severity": 4,
+	"message": "Do not use duplicate style definitions",
+	"source": "css",
+	"startLineNumber": 5022,
+	"startColumn": 3,
+	"endLineNumber": 5031,
+	"endColumn": 4,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "duplicateProperties",
+	"severity": 4,
+	"message": "Do not use duplicate style definitions",
+	"source": "css",
+	"startLineNumber": 5022,
+	"startColumn": 3,
+	"endLineNumber": 5031,
+	"endColumn": 4,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "duplicateProperties",
+	"severity": 4,
+	"message": "Do not use duplicate style definitions",
+	"source": "css",
+	"startLineNumber": 5032,
+	"startColumn": 3,
+	"endLineNumber": 5041,
+	"endColumn": 4,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "duplicateProperties",
+	"severity": 4,
+	"message": "Do not use duplicate style definitions",
+	"source": "css",
+	"startLineNumber": 5032,
+	"startColumn": 3,
+	"endLineNumber": 5041,
+	"endColumn": 4,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "duplicateProperties",
+	"severity": 4,
+	"message": "Do not use duplicate style definitions",
+	"source": "css",
+	"startLineNumber": 5032,
+	"startColumn": 3,
+	"endLineNumber": 5041,
+	"endColumn": 4,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "duplicateProperties",
+	"severity": 4,
+	"message": "Do not use duplicate style definitions",
+	"source": "css",
+	"startLineNumber": 5042,
+	"startColumn": 3,
+	"endLineNumber": 5051,
+	"endColumn": 4,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "duplicateProperties",
+	"severity": 4,
+	"message": "Do not use duplicate style definitions",
+	"source": "css",
+	"startLineNumber": 5042,
+	"startColumn": 3,
+	"endLineNumber": 5051,
+	"endColumn": 4,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "duplicateProperties",
+	"severity": 4,
+	"message": "Do not use duplicate style definitions",
+	"source": "css",
+	"startLineNumber": 5042,
+	"startColumn": 3,
+	"endLineNumber": 5051,
+	"endColumn": 4,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "duplicateProperties",
+	"severity": 4,
+	"message": "Do not use duplicate style definitions",
+	"source": "css",
+	"startLineNumber": 5052,
+	"startColumn": 3,
+	"endLineNumber": 5061,
+	"endColumn": 4,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "duplicateProperties",
+	"severity": 4,
+	"message": "Do not use duplicate style definitions",
+	"source": "css",
+	"startLineNumber": 5052,
+	"startColumn": 3,
+	"endLineNumber": 5061,
+	"endColumn": 4,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "duplicateProperties",
+	"severity": 4,
+	"message": "Do not use duplicate style definitions",
+	"source": "css",
+	"startLineNumber": 5052,
+	"startColumn": 3,
+	"endLineNumber": 5061,
+	"endColumn": 4,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "duplicateProperties",
+	"severity": 4,
+	"message": "Do not use duplicate style definitions",
+	"source": "css",
+	"startLineNumber": 5068,
+	"startColumn": 3,
+	"endLineNumber": 5068,
+	"endColumn": 59,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "duplicateProperties",
+	"severity": 4,
+	"message": "Do not use duplicate style definitions",
+	"source": "css",
+	"startLineNumber": 5069,
+	"startColumn": 3,
+	"endLineNumber": 5069,
+	"endColumn": 65,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "duplicateProperties",
+	"severity": 4,
+	"message": "Do not use duplicate style definitions",
+	"source": "css",
+	"startLineNumber": 5088,
+	"startColumn": 3,
+	"endLineNumber": 5097,
+	"endColumn": 4,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "duplicateProperties",
+	"severity": 4,
+	"message": "Do not use duplicate style definitions",
+	"source": "css",
+	"startLineNumber": 5088,
+	"startColumn": 3,
+	"endLineNumber": 5097,
+	"endColumn": 4,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "duplicateProperties",
+	"severity": 4,
+	"message": "Do not use duplicate style definitions",
+	"source": "css",
+	"startLineNumber": 5088,
+	"startColumn": 3,
+	"endLineNumber": 5097,
+	"endColumn": 4,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "duplicateProperties",
+	"severity": 4,
+	"message": "Do not use duplicate style definitions",
+	"source": "css",
+	"startLineNumber": 5098,
+	"startColumn": 3,
+	"endLineNumber": 5107,
+	"endColumn": 4,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "duplicateProperties",
+	"severity": 4,
+	"message": "Do not use duplicate style definitions",
+	"source": "css",
+	"startLineNumber": 5098,
+	"startColumn": 3,
+	"endLineNumber": 5107,
+	"endColumn": 4,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "duplicateProperties",
+	"severity": 4,
+	"message": "Do not use duplicate style definitions",
+	"source": "css",
+	"startLineNumber": 5098,
+	"startColumn": 3,
+	"endLineNumber": 5107,
+	"endColumn": 4,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "duplicateProperties",
+	"severity": 4,
+	"message": "Do not use duplicate style definitions",
+	"source": "css",
+	"startLineNumber": 5108,
+	"startColumn": 3,
+	"endLineNumber": 5117,
+	"endColumn": 4,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "duplicateProperties",
+	"severity": 4,
+	"message": "Do not use duplicate style definitions",
+	"source": "css",
+	"startLineNumber": 5108,
+	"startColumn": 3,
+	"endLineNumber": 5117,
+	"endColumn": 4,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "duplicateProperties",
+	"severity": 4,
+	"message": "Do not use duplicate style definitions",
+	"source": "css",
+	"startLineNumber": 5108,
+	"startColumn": 3,
+	"endLineNumber": 5117,
+	"endColumn": 4,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "duplicateProperties",
+	"severity": 4,
+	"message": "Do not use duplicate style definitions",
+	"source": "css",
+	"startLineNumber": 5118,
+	"startColumn": 3,
+	"endLineNumber": 5127,
+	"endColumn": 4,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "duplicateProperties",
+	"severity": 4,
+	"message": "Do not use duplicate style definitions",
+	"source": "css",
+	"startLineNumber": 5118,
+	"startColumn": 3,
+	"endLineNumber": 5127,
+	"endColumn": 4,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "duplicateProperties",
+	"severity": 4,
+	"message": "Do not use duplicate style definitions",
+	"source": "css",
+	"startLineNumber": 5118,
+	"startColumn": 3,
+	"endLineNumber": 5127,
+	"endColumn": 4,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "duplicateProperties",
+	"severity": 4,
+	"message": "Do not use duplicate style definitions",
+	"source": "css",
+	"startLineNumber": 5134,
+	"startColumn": 3,
+	"endLineNumber": 5134,
+	"endColumn": 59,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "duplicateProperties",
+	"severity": 4,
+	"message": "Do not use duplicate style definitions",
+	"source": "css",
+	"startLineNumber": 5135,
+	"startColumn": 3,
+	"endLineNumber": 5135,
+	"endColumn": 65,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "duplicateProperties",
+	"severity": 4,
+	"message": "Do not use duplicate style definitions",
+	"source": "css",
+	"startLineNumber": 5154,
+	"startColumn": 3,
+	"endLineNumber": 5163,
+	"endColumn": 4,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "duplicateProperties",
+	"severity": 4,
+	"message": "Do not use duplicate style definitions",
+	"source": "css",
+	"startLineNumber": 5154,
+	"startColumn": 3,
+	"endLineNumber": 5163,
+	"endColumn": 4,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "duplicateProperties",
+	"severity": 4,
+	"message": "Do not use duplicate style definitions",
+	"source": "css",
+	"startLineNumber": 5154,
+	"startColumn": 3,
+	"endLineNumber": 5163,
+	"endColumn": 4,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "duplicateProperties",
+	"severity": 4,
+	"message": "Do not use duplicate style definitions",
+	"source": "css",
+	"startLineNumber": 5164,
+	"startColumn": 3,
+	"endLineNumber": 5173,
+	"endColumn": 4,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "duplicateProperties",
+	"severity": 4,
+	"message": "Do not use duplicate style definitions",
+	"source": "css",
+	"startLineNumber": 5164,
+	"startColumn": 3,
+	"endLineNumber": 5173,
+	"endColumn": 4,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "duplicateProperties",
+	"severity": 4,
+	"message": "Do not use duplicate style definitions",
+	"source": "css",
+	"startLineNumber": 5164,
+	"startColumn": 3,
+	"endLineNumber": 5173,
+	"endColumn": 4,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "duplicateProperties",
+	"severity": 4,
+	"message": "Do not use duplicate style definitions",
+	"source": "css",
+	"startLineNumber": 5174,
+	"startColumn": 3,
+	"endLineNumber": 5183,
+	"endColumn": 4,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "duplicateProperties",
+	"severity": 4,
+	"message": "Do not use duplicate style definitions",
+	"source": "css",
+	"startLineNumber": 5174,
+	"startColumn": 3,
+	"endLineNumber": 5183,
+	"endColumn": 4,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "duplicateProperties",
+	"severity": 4,
+	"message": "Do not use duplicate style definitions",
+	"source": "css",
+	"startLineNumber": 5174,
+	"startColumn": 3,
+	"endLineNumber": 5183,
+	"endColumn": 4,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "duplicateProperties",
+	"severity": 4,
+	"message": "Do not use duplicate style definitions",
+	"source": "css",
+	"startLineNumber": 5184,
+	"startColumn": 3,
+	"endLineNumber": 5193,
+	"endColumn": 4,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "duplicateProperties",
+	"severity": 4,
+	"message": "Do not use duplicate style definitions",
+	"source": "css",
+	"startLineNumber": 5184,
+	"startColumn": 3,
+	"endLineNumber": 5193,
+	"endColumn": 4,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "duplicateProperties",
+	"severity": 4,
+	"message": "Do not use duplicate style definitions",
+	"source": "css",
+	"startLineNumber": 5184,
+	"startColumn": 3,
+	"endLineNumber": 5193,
+	"endColumn": 4,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "duplicateProperties",
+	"severity": 4,
+	"message": "Do not use duplicate style definitions",
+	"source": "css",
+	"startLineNumber": 5199,
+	"startColumn": 3,
+	"endLineNumber": 5199,
+	"endColumn": 65,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "duplicateProperties",
+	"severity": 4,
+	"message": "Do not use duplicate style definitions",
+	"source": "css",
+	"startLineNumber": 5199,
+	"startColumn": 3,
+	"endLineNumber": 5199,
+	"endColumn": 65,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "duplicateProperties",
+	"severity": 4,
+	"message": "Do not use duplicate style definitions",
+	"source": "css",
+	"startLineNumber": 5200,
+	"startColumn": 3,
+	"endLineNumber": 5200,
+	"endColumn": 65,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "duplicateProperties",
+	"severity": 4,
+	"message": "Do not use duplicate style definitions",
+	"source": "css",
+	"startLineNumber": 5200,
+	"startColumn": 3,
+	"endLineNumber": 5200,
+	"endColumn": 65,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "duplicateProperties",
+	"severity": 4,
+	"message": "Do not use duplicate style definitions",
+	"source": "css",
+	"startLineNumber": 5201,
+	"startColumn": 3,
+	"endLineNumber": 5201,
+	"endColumn": 65,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "duplicateProperties",
+	"severity": 4,
+	"message": "Do not use duplicate style definitions",
+	"source": "css",
+	"startLineNumber": 5201,
+	"startColumn": 3,
+	"endLineNumber": 5201,
+	"endColumn": 65,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "duplicateProperties",
+	"severity": 4,
+	"message": "Do not use duplicate style definitions",
+	"source": "css",
+	"startLineNumber": 5220,
+	"startColumn": 3,
+	"endLineNumber": 5229,
+	"endColumn": 4,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "duplicateProperties",
+	"severity": 4,
+	"message": "Do not use duplicate style definitions",
+	"source": "css",
+	"startLineNumber": 5220,
+	"startColumn": 3,
+	"endLineNumber": 5229,
+	"endColumn": 4,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "duplicateProperties",
+	"severity": 4,
+	"message": "Do not use duplicate style definitions",
+	"source": "css",
+	"startLineNumber": 5220,
+	"startColumn": 3,
+	"endLineNumber": 5229,
+	"endColumn": 4,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "duplicateProperties",
+	"severity": 4,
+	"message": "Do not use duplicate style definitions",
+	"source": "css",
+	"startLineNumber": 5230,
+	"startColumn": 3,
+	"endLineNumber": 5239,
+	"endColumn": 4,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "duplicateProperties",
+	"severity": 4,
+	"message": "Do not use duplicate style definitions",
+	"source": "css",
+	"startLineNumber": 5230,
+	"startColumn": 3,
+	"endLineNumber": 5239,
+	"endColumn": 4,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "duplicateProperties",
+	"severity": 4,
+	"message": "Do not use duplicate style definitions",
+	"source": "css",
+	"startLineNumber": 5230,
+	"startColumn": 3,
+	"endLineNumber": 5239,
+	"endColumn": 4,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "duplicateProperties",
+	"severity": 4,
+	"message": "Do not use duplicate style definitions",
+	"source": "css",
+	"startLineNumber": 5240,
+	"startColumn": 3,
+	"endLineNumber": 5249,
+	"endColumn": 4,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "duplicateProperties",
+	"severity": 4,
+	"message": "Do not use duplicate style definitions",
+	"source": "css",
+	"startLineNumber": 5240,
+	"startColumn": 3,
+	"endLineNumber": 5249,
+	"endColumn": 4,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "duplicateProperties",
+	"severity": 4,
+	"message": "Do not use duplicate style definitions",
+	"source": "css",
+	"startLineNumber": 5240,
+	"startColumn": 3,
+	"endLineNumber": 5249,
+	"endColumn": 4,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "duplicateProperties",
+	"severity": 4,
+	"message": "Do not use duplicate style definitions",
+	"source": "css",
+	"startLineNumber": 5250,
+	"startColumn": 3,
+	"endLineNumber": 5259,
+	"endColumn": 4,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "duplicateProperties",
+	"severity": 4,
+	"message": "Do not use duplicate style definitions",
+	"source": "css",
+	"startLineNumber": 5250,
+	"startColumn": 3,
+	"endLineNumber": 5259,
+	"endColumn": 4,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "duplicateProperties",
+	"severity": 4,
+	"message": "Do not use duplicate style definitions",
+	"source": "css",
+	"startLineNumber": 5250,
+	"startColumn": 3,
+	"endLineNumber": 5259,
+	"endColumn": 4,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "boxModel",
+	"severity": 4,
+	"message": "Do not use width or height when using padding or border",
+	"source": "css",
+	"startLineNumber": 5356,
+	"startColumn": 3,
+	"endLineNumber": 5356,
+	"endColumn": 14,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "boxModel",
+	"severity": 4,
+	"message": "Do not use width or height when using padding or border",
+	"source": "css",
+	"startLineNumber": 5357,
+	"startColumn": 3,
+	"endLineNumber": 5357,
+	"endColumn": 15,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "boxModel",
+	"severity": 4,
+	"message": "Do not use width or height when using padding or border",
+	"source": "css",
+	"startLineNumber": 5365,
+	"startColumn": 3,
+	"endLineNumber": 5365,
+	"endColumn": 25,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "boxModel",
+	"severity": 4,
+	"message": "Do not use width or height when using padding or border",
+	"source": "css",
+	"startLineNumber": 5365,
+	"startColumn": 3,
+	"endLineNumber": 5365,
+	"endColumn": 25,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "float",
+	"severity": 4,
+	"message": "Avoid using 'float'. Floats lead to fragile CSS that is easy to break if one aspect of the layout changes.",
+	"source": "css",
+	"startLineNumber": 5393,
+	"startColumn": 3,
+	"endLineNumber": 5393,
+	"endColumn": 14,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "duplicateProperties",
+	"severity": 4,
+	"message": "Do not use duplicate style definitions",
+	"source": "css",
+	"startLineNumber": 5398,
+	"startColumn": 3,
+	"endLineNumber": 5398,
+	"endColumn": 25,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "duplicateProperties",
+	"severity": 4,
+	"message": "Do not use duplicate style definitions",
+	"source": "css",
+	"startLineNumber": 5399,
+	"startColumn": 3,
+	"endLineNumber": 5399,
+	"endColumn": 43,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "float",
+	"severity": 4,
+	"message": "Avoid using 'float'. Floats lead to fragile CSS that is easy to break if one aspect of the layout changes.",
+	"source": "css",
+	"startLineNumber": 5455,
+	"startColumn": 3,
+	"endLineNumber": 5455,
+	"endColumn": 15,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "float",
+	"severity": 4,
+	"message": "Avoid using 'float'. Floats lead to fragile CSS that is easy to break if one aspect of the layout changes.",
+	"source": "css",
+	"startLineNumber": 5459,
+	"startColumn": 3,
+	"endLineNumber": 5459,
+	"endColumn": 14,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "float",
+	"severity": 4,
+	"message": "Avoid using 'float'. Floats lead to fragile CSS that is easy to break if one aspect of the layout changes.",
+	"source": "css",
+	"startLineNumber": 5571,
+	"startColumn": 5,
+	"endLineNumber": 5571,
+	"endColumn": 16,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "float",
+	"severity": 4,
+	"message": "Avoid using 'float'. Floats lead to fragile CSS that is easy to break if one aspect of the layout changes.",
+	"source": "css",
+	"startLineNumber": 5600,
+	"startColumn": 5,
+	"endLineNumber": 5600,
+	"endColumn": 16,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "float",
+	"severity": 4,
+	"message": "Avoid using 'float'. Floats lead to fragile CSS that is easy to break if one aspect of the layout changes.",
+	"source": "css",
+	"startLineNumber": 5607,
+	"startColumn": 5,
+	"endLineNumber": 5607,
+	"endColumn": 16,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "float",
+	"severity": 4,
+	"message": "Avoid using 'float'. Floats lead to fragile CSS that is easy to break if one aspect of the layout changes.",
+	"source": "css",
+	"startLineNumber": 5665,
+	"startColumn": 5,
+	"endLineNumber": 5665,
+	"endColumn": 16,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "float",
+	"severity": 4,
+	"message": "Avoid using 'float'. Floats lead to fragile CSS that is easy to break if one aspect of the layout changes.",
+	"source": "css",
+	"startLineNumber": 5696,
+	"startColumn": 5,
+	"endLineNumber": 5696,
+	"endColumn": 16,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "float",
+	"severity": 4,
+	"message": "Avoid using 'float'. Floats lead to fragile CSS that is easy to break if one aspect of the layout changes.",
+	"source": "css",
+	"startLineNumber": 5735,
+	"startColumn": 5,
+	"endLineNumber": 5735,
+	"endColumn": 16,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "float",
+	"severity": 4,
+	"message": "Avoid using 'float'. Floats lead to fragile CSS that is easy to break if one aspect of the layout changes.",
+	"source": "css",
+	"startLineNumber": 5865,
+	"startColumn": 5,
+	"endLineNumber": 5865,
+	"endColumn": 16,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "float",
+	"severity": 4,
+	"message": "Avoid using 'float'. Floats lead to fragile CSS that is easy to break if one aspect of the layout changes.",
+	"source": "css",
+	"startLineNumber": 6123,
+	"startColumn": 5,
+	"endLineNumber": 6123,
+	"endColumn": 16,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "float",
+	"severity": 4,
+	"message": "Avoid using 'float'. Floats lead to fragile CSS that is easy to break if one aspect of the layout changes.",
+	"source": "css",
+	"startLineNumber": 6253,
+	"startColumn": 5,
+	"endLineNumber": 6253,
+	"endColumn": 16,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "float",
+	"severity": 4,
+	"message": "Avoid using 'float'. Floats lead to fragile CSS that is easy to break if one aspect of the layout changes.",
+	"source": "css",
+	"startLineNumber": 6543,
+	"startColumn": 5,
+	"endLineNumber": 6543,
+	"endColumn": 16,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "float",
+	"severity": 4,
+	"message": "Avoid using 'float'. Floats lead to fragile CSS that is easy to break if one aspect of the layout changes.",
+	"source": "css",
+	"startLineNumber": 6548,
+	"startColumn": 5,
+	"endLineNumber": 6548,
+	"endColumn": 16,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "float",
+	"severity": 4,
+	"message": "Avoid using 'float'. Floats lead to fragile CSS that is easy to break if one aspect of the layout changes.",
+	"source": "css",
+	"startLineNumber": 6610,
+	"startColumn": 5,
+	"endLineNumber": 6610,
+	"endColumn": 16,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "float",
+	"severity": 4,
+	"message": "Avoid using 'float'. Floats lead to fragile CSS that is easy to break if one aspect of the layout changes.",
+	"source": "css",
+	"startLineNumber": 6641,
+	"startColumn": 5,
+	"endLineNumber": 6641,
+	"endColumn": 16,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "float",
+	"severity": 4,
+	"message": "Avoid using 'float'. Floats lead to fragile CSS that is easy to break if one aspect of the layout changes.",
+	"source": "css",
+	"startLineNumber": 6658,
+	"startColumn": 5,
+	"endLineNumber": 6658,
+	"endColumn": 16,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "boxModel",
+	"severity": 4,
+	"message": "Do not use width or height when using padding or border",
+	"source": "css",
+	"startLineNumber": 6742,
+	"startColumn": 3,
+	"endLineNumber": 6742,
+	"endColumn": 15,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "boxModel",
+	"severity": 4,
+	"message": "Do not use width or height when using padding or border",
+	"source": "css",
+	"startLineNumber": 6743,
+	"startColumn": 3,
+	"endLineNumber": 6743,
+	"endColumn": 13,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "boxModel",
+	"severity": 4,
+	"message": "Do not use width or height when using padding or border",
+	"source": "css",
+	"startLineNumber": 7118,
+	"startColumn": 3,
+	"endLineNumber": 7118,
+	"endColumn": 14,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "boxModel",
+	"severity": 4,
+	"message": "Do not use width or height when using padding or border",
+	"source": "css",
+	"startLineNumber": 7119,
+	"startColumn": 3,
+	"endLineNumber": 7119,
+	"endColumn": 15,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "boxModel",
+	"severity": 4,
+	"message": "Do not use width or height when using padding or border",
+	"source": "css",
+	"startLineNumber": 7123,
+	"startColumn": 3,
+	"endLineNumber": 7123,
+	"endColumn": 15,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "boxModel",
+	"severity": 4,
+	"message": "Do not use width or height when using padding or border",
+	"source": "css",
+	"startLineNumber": 7123,
+	"startColumn": 3,
+	"endLineNumber": 7123,
+	"endColumn": 15,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "float",
+	"severity": 4,
+	"message": "Avoid using 'float'. Floats lead to fragile CSS that is easy to break if one aspect of the layout changes.",
+	"source": "css",
+	"startLineNumber": 7127,
+	"startColumn": 3,
+	"endLineNumber": 7127,
+	"endColumn": 14,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "boxModel",
+	"severity": 4,
+	"message": "Do not use width or height when using padding or border",
+	"source": "css",
+	"startLineNumber": 7245,
+	"startColumn": 3,
+	"endLineNumber": 7245,
+	"endColumn": 13,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "boxModel",
+	"severity": 4,
+	"message": "Do not use width or height when using padding or border",
+	"source": "css",
+	"startLineNumber": 7248,
+	"startColumn": 3,
+	"endLineNumber": 7248,
+	"endColumn": 39,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "duplicateProperties",
+	"severity": 4,
+	"message": "Do not use duplicate style definitions",
+	"source": "css",
+	"startLineNumber": 7248,
+	"startColumn": 3,
+	"endLineNumber": 7248,
+	"endColumn": 39,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "boxModel",
+	"severity": 4,
+	"message": "Do not use width or height when using padding or border",
+	"source": "css",
+	"startLineNumber": 7249,
+	"startColumn": 3,
+	"endLineNumber": 7249,
+	"endColumn": 37,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "duplicateProperties",
+	"severity": 4,
+	"message": "Do not use duplicate style definitions",
+	"source": "css",
+	"startLineNumber": 7249,
+	"startColumn": 3,
+	"endLineNumber": 7249,
+	"endColumn": 37,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "float",
+	"severity": 4,
+	"message": "Avoid using 'float'. Floats lead to fragile CSS that is easy to break if one aspect of the layout changes.",
+	"source": "css",
+	"startLineNumber": 8531,
+	"startColumn": 3,
+	"endLineNumber": 8531,
+	"endColumn": 14,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "float",
+	"severity": 4,
+	"message": "Avoid using 'float'. Floats lead to fragile CSS that is easy to break if one aspect of the layout changes.",
+	"source": "css",
+	"startLineNumber": 8536,
+	"startColumn": 3,
+	"endLineNumber": 8536,
+	"endColumn": 15,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "float",
+	"severity": 4,
+	"message": "Avoid using 'float'. Floats lead to fragile CSS that is easy to break if one aspect of the layout changes.",
+	"source": "css",
+	"startLineNumber": 8585,
+	"startColumn": 3,
+	"endLineNumber": 8585,
+	"endColumn": 14,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "duplicateProperties",
+	"severity": 4,
+	"message": "Do not use duplicate style definitions",
+	"source": "css",
+	"startLineNumber": 8591,
+	"startColumn": 3,
+	"endLineNumber": 8591,
+	"endColumn": 25,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "duplicateProperties",
+	"severity": 4,
+	"message": "Do not use duplicate style definitions",
+	"source": "css",
+	"startLineNumber": 8592,
+	"startColumn": 3,
+	"endLineNumber": 8592,
+	"endColumn": 36,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "duplicateProperties",
+	"severity": 4,
+	"message": "Do not use duplicate style definitions",
+	"source": "css",
+	"startLineNumber": 8594,
+	"startColumn": 3,
+	"endLineNumber": 8594,
+	"endColumn": 41,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "duplicateProperties",
+	"severity": 4,
+	"message": "Do not use duplicate style definitions",
+	"source": "css",
+	"startLineNumber": 8595,
+	"startColumn": 3,
+	"endLineNumber": 8595,
+	"endColumn": 42,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "duplicateProperties",
+	"severity": 4,
+	"message": "Do not use duplicate style definitions",
+	"source": "css",
+	"startLineNumber": 8596,
+	"startColumn": 3,
+	"endLineNumber": 8596,
+	"endColumn": 27,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "duplicateProperties",
+	"severity": 4,
+	"message": "Do not use duplicate style definitions",
+	"source": "css",
+	"startLineNumber": 8597,
+	"startColumn": 3,
+	"endLineNumber": 8597,
+	"endColumn": 31,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "boxModel",
+	"severity": 4,
+	"message": "Do not use width or height when using padding or border",
+	"source": "css",
+	"startLineNumber": 8606,
+	"startColumn": 3,
+	"endLineNumber": 8606,
+	"endColumn": 14,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "boxModel",
+	"severity": 4,
+	"message": "Do not use width or height when using padding or border",
+	"source": "css",
+	"startLineNumber": 8610,
+	"startColumn": 3,
+	"endLineNumber": 8610,
+	"endColumn": 32,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "duplicateProperties",
+	"severity": 4,
+	"message": "Do not use duplicate style definitions",
+	"source": "css",
+	"startLineNumber": 8701,
+	"startColumn": 3,
+	"endLineNumber": 8701,
+	"endColumn": 59,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "duplicateProperties",
+	"severity": 4,
+	"message": "Do not use duplicate style definitions",
+	"source": "css",
+	"startLineNumber": 8702,
+	"startColumn": 3,
+	"endLineNumber": 8702,
+	"endColumn": 65,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "float",
+	"severity": 4,
+	"message": "Avoid using 'float'. Floats lead to fragile CSS that is easy to break if one aspect of the layout changes.",
+	"source": "css",
+	"startLineNumber": 8721,
+	"startColumn": 5,
+	"endLineNumber": 8721,
+	"endColumn": 16,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "float",
+	"severity": 4,
+	"message": "Avoid using 'float'. Floats lead to fragile CSS that is easy to break if one aspect of the layout changes.",
+	"source": "css",
+	"startLineNumber": 8736,
+	"startColumn": 5,
+	"endLineNumber": 8736,
+	"endColumn": 16,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "float",
+	"severity": 4,
+	"message": "Avoid using 'float'. Floats lead to fragile CSS that is easy to break if one aspect of the layout changes.",
+	"source": "css",
+	"startLineNumber": 8743,
+	"startColumn": 5,
+	"endLineNumber": 8743,
+	"endColumn": 16,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "float",
+	"severity": 4,
+	"message": "Avoid using 'float'. Floats lead to fragile CSS that is easy to break if one aspect of the layout changes.",
+	"source": "css",
+	"startLineNumber": 8781,
+	"startColumn": 5,
+	"endLineNumber": 8781,
+	"endColumn": 16,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "float",
+	"severity": 4,
+	"message": "Avoid using 'float'. Floats lead to fragile CSS that is easy to break if one aspect of the layout changes.",
+	"source": "css",
+	"startLineNumber": 8819,
+	"startColumn": 5,
+	"endLineNumber": 8819,
+	"endColumn": 16,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "float",
+	"severity": 4,
+	"message": "Avoid using 'float'. Floats lead to fragile CSS that is easy to break if one aspect of the layout changes.",
+	"source": "css",
+	"startLineNumber": 8836,
+	"startColumn": 5,
+	"endLineNumber": 8836,
+	"endColumn": 16,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "float",
+	"severity": 4,
+	"message": "Avoid using 'float'. Floats lead to fragile CSS that is easy to break if one aspect of the layout changes.",
+	"source": "css",
+	"startLineNumber": 8879,
+	"startColumn": 3,
+	"endLineNumber": 8879,
+	"endColumn": 14,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "float",
+	"severity": 4,
+	"message": "Avoid using 'float'. Floats lead to fragile CSS that is easy to break if one aspect of the layout changes.",
+	"source": "css",
+	"startLineNumber": 8884,
+	"startColumn": 3,
+	"endLineNumber": 8884,
+	"endColumn": 14,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "float",
+	"severity": 4,
+	"message": "Avoid using 'float'. Floats lead to fragile CSS that is easy to break if one aspect of the layout changes.",
+	"source": "css",
+	"startLineNumber": 8935,
+	"startColumn": 3,
+	"endLineNumber": 8935,
+	"endColumn": 15,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "float",
+	"severity": 4,
+	"message": "Avoid using 'float'. Floats lead to fragile CSS that is easy to break if one aspect of the layout changes.",
+	"source": "css",
+	"startLineNumber": 9058,
+	"startColumn": 3,
+	"endLineNumber": 9058,
+	"endColumn": 14,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "float",
+	"severity": 4,
+	"message": "Avoid using 'float'. Floats lead to fragile CSS that is easy to break if one aspect of the layout changes.",
+	"source": "css",
+	"startLineNumber": 9171,
+	"startColumn": 3,
+	"endLineNumber": 9171,
+	"endColumn": 14,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "float",
+	"severity": 4,
+	"message": "Avoid using 'float'. Floats lead to fragile CSS that is easy to break if one aspect of the layout changes.",
+	"source": "css",
+	"startLineNumber": 9186,
+	"startColumn": 3,
+	"endLineNumber": 9186,
+	"endColumn": 14,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "float",
+	"severity": 4,
+	"message": "Avoid using 'float'. Floats lead to fragile CSS that is easy to break if one aspect of the layout changes.",
+	"source": "css",
+	"startLineNumber": 9203,
+	"startColumn": 3,
+	"endLineNumber": 9203,
+	"endColumn": 14,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "boxModel",
+	"severity": 4,
+	"message": "Do not use width or height when using padding or border",
+	"source": "css",
+	"startLineNumber": 9235,
+	"startColumn": 3,
+	"endLineNumber": 9235,
+	"endColumn": 29,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "boxModel",
+	"severity": 4,
+	"message": "Do not use width or height when using padding or border",
+	"source": "css",
+	"startLineNumber": 9235,
+	"startColumn": 3,
+	"endLineNumber": 9235,
+	"endColumn": 29,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "boxModel",
+	"severity": 4,
+	"message": "Do not use width or height when using padding or border",
+	"source": "css",
+	"startLineNumber": 9236,
+	"startColumn": 3,
+	"endLineNumber": 9236,
+	"endColumn": 24,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "boxModel",
+	"severity": 4,
+	"message": "Do not use width or height when using padding or border",
+	"source": "css",
+	"startLineNumber": 9238,
+	"startColumn": 3,
+	"endLineNumber": 9238,
+	"endColumn": 15,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "boxModel",
+	"severity": 4,
+	"message": "Do not use width or height when using padding or border",
+	"source": "css",
+	"startLineNumber": 9240,
+	"startColumn": 3,
+	"endLineNumber": 9240,
+	"endColumn": 46,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "boxModel",
+	"severity": 4,
+	"message": "Do not use width or height when using padding or border",
+	"source": "css",
+	"startLineNumber": 9258,
+	"startColumn": 3,
+	"endLineNumber": 9258,
+	"endColumn": 29,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "boxModel",
+	"severity": 4,
+	"message": "Do not use width or height when using padding or border",
+	"source": "css",
+	"startLineNumber": 9258,
+	"startColumn": 3,
+	"endLineNumber": 9258,
+	"endColumn": 29,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "boxModel",
+	"severity": 4,
+	"message": "Do not use width or height when using padding or border",
+	"source": "css",
+	"startLineNumber": 9259,
+	"startColumn": 3,
+	"endLineNumber": 9259,
+	"endColumn": 24,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "boxModel",
+	"severity": 4,
+	"message": "Do not use width or height when using padding or border",
+	"source": "css",
+	"startLineNumber": 9261,
+	"startColumn": 3,
+	"endLineNumber": 9261,
+	"endColumn": 15,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "boxModel",
+	"severity": 4,
+	"message": "Do not use width or height when using padding or border",
+	"source": "css",
+	"startLineNumber": 9263,
+	"startColumn": 3,
+	"endLineNumber": 9263,
+	"endColumn": 47,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "boxModel",
+	"severity": 4,
+	"message": "Do not use width or height when using padding or border",
+	"source": "css",
+	"startLineNumber": 9285,
+	"startColumn": 5,
+	"endLineNumber": 9285,
+	"endColumn": 31,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "boxModel",
+	"severity": 4,
+	"message": "Do not use width or height when using padding or border",
+	"source": "css",
+	"startLineNumber": 9285,
+	"startColumn": 5,
+	"endLineNumber": 9285,
+	"endColumn": 31,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "boxModel",
+	"severity": 4,
+	"message": "Do not use width or height when using padding or border",
+	"source": "css",
+	"startLineNumber": 9286,
+	"startColumn": 5,
+	"endLineNumber": 9286,
+	"endColumn": 26,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "boxModel",
+	"severity": 4,
+	"message": "Do not use width or height when using padding or border",
+	"source": "css",
+	"startLineNumber": 9288,
+	"startColumn": 5,
+	"endLineNumber": 9288,
+	"endColumn": 17,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "boxModel",
+	"severity": 4,
+	"message": "Do not use width or height when using padding or border",
+	"source": "css",
+	"startLineNumber": 9290,
+	"startColumn": 5,
+	"endLineNumber": 9290,
+	"endColumn": 48,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "boxModel",
+	"severity": 4,
+	"message": "Do not use width or height when using padding or border",
+	"source": "css",
+	"startLineNumber": 9291,
+	"startColumn": 5,
+	"endLineNumber": 9291,
+	"endColumn": 49,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "boxModel",
+	"severity": 4,
+	"message": "Do not use width or height when using padding or border",
+	"source": "css",
+	"startLineNumber": 9310,
+	"startColumn": 5,
+	"endLineNumber": 9310,
+	"endColumn": 31,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "boxModel",
+	"severity": 4,
+	"message": "Do not use width or height when using padding or border",
+	"source": "css",
+	"startLineNumber": 9310,
+	"startColumn": 5,
+	"endLineNumber": 9310,
+	"endColumn": 31,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "boxModel",
+	"severity": 4,
+	"message": "Do not use width or height when using padding or border",
+	"source": "css",
+	"startLineNumber": 9311,
+	"startColumn": 5,
+	"endLineNumber": 9311,
+	"endColumn": 26,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "boxModel",
+	"severity": 4,
+	"message": "Do not use width or height when using padding or border",
+	"source": "css",
+	"startLineNumber": 9313,
+	"startColumn": 5,
+	"endLineNumber": 9313,
+	"endColumn": 17,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "boxModel",
+	"severity": 4,
+	"message": "Do not use width or height when using padding or border",
+	"source": "css",
+	"startLineNumber": 9314,
+	"startColumn": 5,
+	"endLineNumber": 9314,
+	"endColumn": 48,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "boxModel",
+	"severity": 4,
+	"message": "Do not use width or height when using padding or border",
+	"source": "css",
+	"startLineNumber": 9315,
+	"startColumn": 5,
+	"endLineNumber": 9315,
+	"endColumn": 49,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "boxModel",
+	"severity": 4,
+	"message": "Do not use width or height when using padding or border",
+	"source": "css",
+	"startLineNumber": 9352,
+	"startColumn": 5,
+	"endLineNumber": 9352,
+	"endColumn": 23,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "boxModel",
+	"severity": 4,
+	"message": "Do not use width or height when using padding or border",
+	"source": "css",
+	"startLineNumber": 9356,
+	"startColumn": 5,
+	"endLineNumber": 9356,
+	"endColumn": 17,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "boxModel",
+	"severity": 4,
+	"message": "Do not use width or height when using padding or border",
+	"source": "css",
+	"startLineNumber": 9379,
+	"startColumn": 5,
+	"endLineNumber": 9379,
+	"endColumn": 20,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "boxModel",
+	"severity": 4,
+	"message": "Do not use width or height when using padding or border",
+	"source": "css",
+	"startLineNumber": 9380,
+	"startColumn": 5,
+	"endLineNumber": 9380,
+	"endColumn": 18,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "float",
+	"severity": 4,
+	"message": "Avoid using 'float'. Floats lead to fragile CSS that is easy to break if one aspect of the layout changes.",
+	"source": "css",
+	"startLineNumber": 9443,
+	"startColumn": 5,
+	"endLineNumber": 9443,
+	"endColumn": 16,
+	"origin": "extHost1"
+},{
+	"resource": "/home/eagles/dockerz/megs/templates/protostar/css/template592f.css",
+	"owner": "_generated_diagnostic_collection_name_#0",
+	"code": "float",
+	"severity": 4,
+	"message": "Avoid using 'float'. Floats lead to fragile CSS that is easy to break if one aspect of the layout changes.",
+	"source": "css",
+	"startLineNumber": 9486,
+	"startColumn": 5,
+	"endLineNumber": 9486,
+	"endColumn": 27,
+	"origin": "extHost1"
+}]

@@ -16,8 +16,8 @@ var JCaption = function (c) {
         f = h.attr('title'),
         j = h.attr('width') || i.width,
         l = h.attr('align') || h.css('float') || i.style.styleFloat || 'none',
-        g = e('<p/>', { text: f, class: b.replace('.', '_') }),
-        k = e('<div/>', {
+        g = e('<p>', { text: f, class: b.replace('.', '_') }),
+        k = e('<div>', {
           class: b.replace('.', '_') + ' ' + l,
           css: { float: l, width: j },
         })

@@ -1372,7 +1372,7 @@
       })),
       se(function (e) {
         return (
-          (e.innerHTML = "<a href='#'></a>"),
+          (e.innerHTML = "<a href="#'></a>"),
           '#' === e.firstChild.getAttribute('href')
         )
       }) ||
@@ -1382,7 +1382,7 @@
       (n.attributes &&
         se(function (e) {
           return (
-            (e.innerHTML = '<input/>'),
+            (e.innerHTML = '<input>'),
             e.firstChild.setAttribute('value', ''),
             '' === e.firstChild.getAttribute('value')
           )
@@ -2232,7 +2232,7 @@
     (G = r.createDocumentFragment()),
     (Q = r.createElement('input')),
     (J.innerHTML =
-      "  <link/><table></table><a href='/a'>a</a><input type='checkbox'/>"),
+      "  <link><table></table><a href="/a'>a</a><input type='checkbox'>"),
     (f.leadingWhitespace = 3 === J.firstChild.nodeType),
     (f.tbody = !J.getElementsByTagName('tbody').length),
     (f.htmlSerialize = !!J.getElementsByTagName('link').length),
@@ -2949,8 +2949,8 @@
       },
     }))
   var we = / jQuery\d+="(?:null|\d+)"/g,
-    Te = new RegExp('<(?:' + re + ')[\\s/>]', 'i'),
-    Ce = /<(?!area|br|col|embed|hr|img|input|link|meta|param)(([\w:-]+)[^>]*)\/>/gi,
+    Te = new RegExp('<(?:' + re + ')[\\s>]', 'i'),
+    Ce = /<(?!area|br|col|embed|hr|img|input|link|meta|param)(([\w:-]+)[^>]*)\>/gi,
     Ee = /<script|<style|<link/i,
     Ne = /checked\s*(?:[^=]|=\s*.checked.)/i,
     ke = /^true\/(.*)/,
@@ -3257,7 +3257,7 @@
       n ||
         (('none' !== (n = Re(e, t)) && n) ||
           ((t = (
-            (Me = (Me || p("<iframe frameborder='0' width='0' height='0'/>")).appendTo(
+            (Me = (Me || p("<iframe frameborder='0' width='0' height='0'>")).appendTo(
               t.documentElement
             ))[0].contentWindow || Me[0].contentDocument
           ).document).write(),
@@ -4131,7 +4131,7 @@
     (ht = pt.appendChild(r.createElement('option'))),
     (dt = r.createElement('div')).setAttribute('className', 't'),
     (dt.innerHTML =
-      "  <link/><table></table><a href='/a'>a</a><input type='checkbox'/>"),
+      "  <link><table></table><a href="/a'>a</a><input type='checkbox'>"),
     (ct = dt.getElementsByTagName('a')[0]),
     ft.setAttribute('type', 'checkbox'),
     dt.appendChild(ft),
