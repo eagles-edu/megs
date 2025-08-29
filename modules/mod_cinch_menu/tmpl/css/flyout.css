@@ -106,6 +106,10 @@ ul.flyout-menu .ul-wrapper {
   z-index: 1000;
 }
 
+ul.flyout-menu li:hover > .ul-wrapper {
+  display: block;
+}
+
 /* Removed legacy IE-specific selectors for positioning (.msie6/.msie7/.msie8) */
 
 @media screen and (width <= 767px) {

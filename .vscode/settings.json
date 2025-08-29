@@ -32,7 +32,6 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   // Lint-only on save (no auto-fix on save)
-  // Use an empty object or false values here. "never" is invalid.
   "editor.codeActionsOnSave": {
     "source.fixAll": "never",
     "source.fixAll.eslint": "never",
@@ -46,8 +45,6 @@
     "css",
     "scss",
     "less",
-    "vue",
-    "html"
   ],
   // html-validate extension
   "html-validate.enable": true,
