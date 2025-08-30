@@ -15,7 +15,7 @@
     "element-required-content": "off",
     "empty-title": "off",
     "empty-heading": "off",
-    "no-conditional-comment": "off",
+    "no-conditional-comment": "warn",
     "id-pattern": "off",
     "attr-quotes": "error",
     "no-trailing-whitespace": "warn",
