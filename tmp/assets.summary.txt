@@ -1,0 +1,10 @@
+Sampled pages: 68 directories
+Pages sampled total: 135
+CSS local: 8 | external: 4
+JS  local: 10 | external: 4
+Fonts local: 3 | external: 0
+CSS local examples: media/sliders/css/style.min.css, modules/mod_cinch_menu/tmpl/css/accordion.css, modules/mod_cinch_menu/tmpl/css/flyout.css, modules/mod_cinch_menu/tmpl/css/meg-2.css, templates/protostar/css/template592f.css
+CSS external examples: http://eaglesvn.com/css/resposivetest.css, http://eaglesvn.com/css/tablesaw/dist/tablesaw.css, https://eaglesvn.com/megs/modules/mod_cinch_menu/tmpl/css/meg-2.css, https://fonts.googleapis.com/css2?family=Inconsolata:wght@200;300;400;500;700&family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400&family=Roboto+Condensed:ital,wght@0,300;0,400;0,700;1,300;1,400&display=swap
+JS local examples: media/jui/js/bootstrap.min592f.js, media/jui/js/jquery-migrate.min592f.js, media/jui/js/jquery-noconflict592f.js, media/jui/js/jquery.min592f.js, media/sliders/js/script.min.js
+JS external examples: http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js, http://eaglesvn.com/css/tablesaw/dist/tablesaw-init.js, http://eaglesvn.com/css/tablesaw/dist/tablesaw.js, http://www.google.com/coop/cse/brand?form=cse-search-box&lang=en
+FONTS local examples: media/jui/fonts/IcoMoon.eot, media/jui/fonts/IcoMoon.ttf, media/jui/fonts/IcoMoon.woff

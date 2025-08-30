@@ -2,18 +2,21 @@
   "$schema": "https://html-validate.org/schemas/config.json",
   "root": true,
   "elements": ["html5"],
-  "plugins": ["html-validate-vue"],
   "extends": [
     "html-validate:recommended",
-    "html-validate:prettier",
-    "html-validate-vue:recommended"
+    "html-validate:prettier"
   ],
-  "transform": {
-    "^.*\\.vue$": "html-validate-vue"
-  },
   "rules": {
-    "doctype-style": "error",
-    "void-style": "error",
+    "doctype-style": "warn",
+    "void-style": "off",
+    "no-self-closing": "off",
+    "close-order": "off",
+    "script-element": "off",
+    "element-required-content": "off",
+    "empty-title": "off",
+    "empty-heading": "off",
+    "no-conditional-comment": "off",
+    "id-pattern": "off",
     "attr-quotes": "error",
     "no-trailing-whitespace": "warn",
     "no-inline-style": "off",

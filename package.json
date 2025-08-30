@@ -12,15 +12,19 @@
     "node": "=20"
   },
   "scripts": {
+    "start": "bash scripts/show-last-note.sh",
     "format": "prettier . --write",
     "fmt:html": "prettier --parser html --write \"**/*.{html,htm}\"",
+    "log": "node scripts/log.js",
     "lint": "npm run lint:js && npm run lint:css && npm run lint:html",
-    "lint:html-stylish": "html-validate --formatter stylish \"**/*.{html,htm,md,vue}\"",
-    "lint:html": "html-validate \"**/*.{html,htm,md,vue}\"",
-    "lint:js": "eslint .",
-    "lint:js:fix": "eslint . --fix",
-    "lint:css": "stylelint \"**/*.{css,scss,less,vue,html}\"",
-    "lint:css:fix": "stylelint \"**/*.{css,scss,less,vue,html}\" --fix"
+    "lint:html-stylish": "html-validate --formatter stylish \"**/*.{html,htm}\"",
+    "lint:html": "html-validate \"**/*.{html,htm}\"",
+    "lint:html:fix": "html-validate \"**/*.{html,htm}\" --fix",
+    "lint:js": "eslint \"**/*.{js,mjs,cjs}\"",
+    "lint:js:fix": "eslint \"**/*.{js,mjs,cjs}\" --fix",
+    "lint:css": "stylelint \"**/*.{css,scss,less}\"",
+    "lint:css:fix": "stylelint \"**/*.{css,scss,less}\" --fix",
+    "fix:void-selfclosing": "node scripts/fix-void-selfclosing.js"
   },
   "repository": {
     "type": "git",

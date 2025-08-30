@@ -42,6 +42,28 @@
       "type": "npm",
       "script": "lint:css:fix",
       "problemMatcher": []
+    },
+    {
+      "label": "Show: Last CODEx Note",
+      "type": "npm",
+      "script": "start",
+      "problemMatcher": [],
+      "runOptions": { "runOn": "folderOpen" }
+    },
+    {
+      "label": "Log: Append CODEx Note",
+      "type": "npm",
+      "script": "log",
+      "problemMatcher": [],
+      "args": ["${input:logMessage}"]
+    }
+  ],
+  "inputs": [
+    {
+      "id": "logMessage",
+      "type": "promptString",
+      "description": "Message to append to docs/codex-working.txt",
+      "default": "Update notes"
     }
   ]
 }

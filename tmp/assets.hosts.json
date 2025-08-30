@@ -1,0 +1,12 @@
+{
+  "css": [
+    "thuvien.eagles.edu.vn", // replaced eaglesvn.com
+    "fonts.googleapis.com"
+  ],
+  "js": [
+    "ajax.googleapis.com",
+    "thuvien.eagles.edu.vn", // replaced eaglesvn.com
+    "www.google.com"
+  ],
+  "fonts": []
+}

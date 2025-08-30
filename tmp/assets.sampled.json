@@ -1,0 +1,2463 @@
+{
+  "pages_sampled": {
+    ".": [
+      "a-b.html",
+      "c-d.html"
+    ],
+    "list-20-gender": [
+      "list-20-gender/common-gender-people-a-creatures.html",
+      "list-20-gender/masculine-and-feminine-gender-creatures.html"
+    ],
+    "lists": [
+      "lists/67-prepositions.html",
+      "lists/grammar-lessons.html"
+    ],
+    "lists/68-grammar-lists": [
+      "lists/68-grammar-lists/616-list-9-adverbs-sharing-same-words-as-adjectives.html",
+      "lists/68-grammar-lists/617-list-10-pronouns.html"
+    ],
+    "lists2 - Copy": [
+      "lists2 - Copy/responsive-iframe-1.html"
+    ],
+    "list-17-proverbs-and-sayings": [
+      "list-17-proverbs-and-sayings/proverbs-and-sayings-001-100.html",
+      "list-17-proverbs-and-sayings/proverbs-and-sayings-101-200.html"
+    ],
+    "templates/webfont": [
+      "templates/webfont/opensans-bold-demo.html",
+      "templates/webfont/opensans-bolditalic-demo.html"
+    ],
+    "lesson-4-adverbs": [
+      "lesson-4-adverbs/1-types-of-adverbs.html",
+      "lesson-4-adverbs/2-comparison-of-adverbs.html"
+    ],
+    "list-9-adverbs-sharing-same-words-as-adjectives": [
+      "list-9-adverbs-sharing-same-words-as-adjectives/alone-first.html",
+      "list-9-adverbs-sharing-same-words-as-adjectives/hard-near.html"
+    ],
+    "vocabulary": [
+      "vocabulary/passageway-a-way-allowing-passage.html",
+      "vocabulary/receptaclesobjects-that-are-used-to-hold-things.html"
+    ],
+    "vocabulary/places": [
+      "vocabulary/places/places-abattoir-cavern.html",
+      "vocabulary/places/places-cellar--haunt.html"
+    ],
+    "list-15-idioms": [
+      "list-15-idioms/698-idioms-001-100-about-time-beyond-words.html",
+      "list-15-idioms/698-idioms-001-100-about-time-beyond-wordsA.html"
+    ],
+    "list-8-adverbs": [
+      "list-8-adverbs/Untitled-1.html",
+      "list-8-adverbs/adverbs-with-two-adverbial-forms.html"
+    ],
+    "list-8-adverbs/adverbs-with-two-adverbial-forms": [
+      "list-8-adverbs/adverbs-with-two-adverbial-forms/cheap-cheaply-last-lastly.html",
+      "list-8-adverbs/adverbs-with-two-adverbial-forms/late-lately-wrong-wrongly.html"
+    ],
+    "lesson-9-articles": [
+      "lesson-9-articles/1-definite-article-the.html",
+      "lesson-9-articles/2-indefinite-article-a-an.html"
+    ],
+    "lesson-5-pronouns": [
+      "lesson-5-pronouns/1-personal-pronouns.html",
+      "lesson-5-pronouns/2-reflexive-pronouns.html"
+    ],
+    "list-4-verbs": [
+      "list-4-verbs/different-verb-types.html",
+      "list-4-verbs/forming-verbs.html"
+    ],
+    "list-4-verbs/different-verb-types": [
+      "list-4-verbs/different-verb-types/auxiliary-verb.html",
+      "list-4-verbs/different-verb-types/linking-verbs.html"
+    ],
+    "lesson-7-conjunctions": [
+      "lesson-7-conjunctions/1-coordinating-conjunctions.html",
+      "lesson-7-conjunctions/2-subordinating-conjunctions.html"
+    ],
+    "list-3-collective-nouns": [
+      "list-3-collective-nouns/650-collective-nouns-people.html",
+      "list-3-collective-nouns/651-collective-nouns-things.html"
+    ],
+    "list-6-adjectives": [
+      "list-6-adjectives/Untitled-1.html",
+      "list-6-adjectives/Untitled-2.html"
+    ],
+    "list-7-comparison-of-adjectives": [
+      "list-7-comparison-of-adjectives/659-comparatives-and-superlatives-that-are-formed-irregularly.html",
+      "list-7-comparison-of-adjectives/660-comparatives-and-superlatives-using-more-and-most.html"
+    ],
+    "writing": [
+      "writing/1-what-is-a-sentence.html",
+      "writing/10-writing-paragraph-sentence-connecters.html"
+    ],
+    "writing/writing-resources": [
+      "writing/writing-resources/12-common-usage-mistakes-1.html",
+      "writing/writing-resources/13-abreviations-vs-acronyms.html"
+    ],
+    "lesson-6-prepositions": [
+      "lesson-6-prepositions/1-prepositions-of-time.html",
+      "lesson-6-prepositions/2-prepositions-of-place.html"
+    ],
+    "lists2": [
+      "lists2/1-a-c.html",
+      "lists2/2-d-f.html"
+    ],
+    "list-5-irregular-verbs": [
+      "list-5-irregular-verbs/all-three-forms-are-different.html",
+      "list-5-irregular-verbs/all-three-forms-are-the-same.html"
+    ],
+    "list-16-phrases-and-idioms": [
+      "list-16-phrases-and-idioms/phrases-and-idioms-001-100-acid-call.html",
+      "list-16-phrases-and-idioms/phrases-and-idioms-101-200-call-crime.html"
+    ],
+    "list-11-prepositions": [
+      "list-11-prepositions/list-of-prepositions.html",
+      "list-11-prepositions/prepositions-after-adjectives.html"
+    ],
+    "list-11-prepositions/sentences-examples": [
+      "list-11-prepositions/sentences-examples/ccc.html",
+      "list-11-prepositions/sentences-examples/prepositions-after-verbs-abandon-to-cry-over.html"
+    ],
+    "list-1-singular-and-plural-nouns": [
+      "list-1-singular-and-plural-nouns/by-adding-es-to-nouns-ending-in-ch-s-sh-ss-x-and-z.html",
+      "list-1-singular-and-plural-nouns/by-adding-es-to-nouns-ending-in-o.html"
+    ],
+    "list-2-uncountable-nouns-made-countable": [
+      "list-2-uncountable-nouns-made-countable/1.activity-cynicism.html",
+      "list-2-uncountable-nouns-made-countable/2.danger-fruit.html"
+    ],
+    "list-14-phrasal-verbs": [
+      "list-14-phrasal-verbs/phrasal-verbs-accede-to-buy-up.html",
+      "list-14-phrasal-verbs/phrasal-verbs-call-back-cut-up.html"
+    ],
+    "lesson-8-subject-verb-agreement": [
+      "lesson-8-subject-verb-agreement/1-the-verb-must-agree-with-the-subject.html",
+      "lesson-8-subject-verb-agreement/2-compound-subjects-and-the-verbs.html"
+    ],
+    "lesson-1-nouns": [
+      "lesson-1-nouns/1-types-of-nouns.html",
+      "lesson-1-nouns/2-functions-of-a-noun.html"
+    ],
+    "lesson-11-conditionals": [
+      "lesson-11-conditionals/1-the-first-conditional.html",
+      "lesson-11-conditionals/2-the-second-conditional.html"
+    ],
+    "lesson-18-verb-ing": [
+      "lesson-18-verb-ing/1-the-verb-ing-used-as-the-present-participle.html",
+      "lesson-18-verb-ing/2-the-verb-ing-used-as-an-adjective.html"
+    ],
+    "lesson-17-clauses": [
+      "lesson-17-clauses/1-independent-clause-main-clause.html",
+      "lesson-17-clauses/2-dependent-clause-subordinate-clause.html"
+    ],
+    "lesson-14-either-neither": [
+      "lesson-14-either-neither/1-used-as-a-pronoun.html",
+      "lesson-14-either-neither/2-used-as-a-determiner.html"
+    ],
+    "lesson-10-modal-verb": [
+      "lesson-10-modal-verb/1-can-and-could.html",
+      "lesson-10-modal-verb/2-may-and-might.html"
+    ],
+    "lesson-20-phrasal-verbs": [
+      "lesson-20-phrasal-verbs/1-separable-and-non-separable-phrasal-verbs.html",
+      "lesson-20-phrasal-verbs/2-separable-transitive-phrasal-verb.html"
+    ],
+    "lesson-13-indirect-speech": [
+      "lesson-13-indirect-speech/1-direct-speech-or-quoted-speech.html",
+      "lesson-13-indirect-speech/2-indirect-speech-or-reported-speech.html"
+    ],
+    "lesson-12-modifiers": [
+      "lesson-12-modifiers/1-adjectives-and-adverbs-as-modifiers.html",
+      "lesson-12-modifiers/2-comparatives-and-superlatives-as-modifiers.html"
+    ],
+    "lesson-19-determiners-and-quantifiers": [
+      "lesson-19-determiners-and-quantifiers/1-definite-article.html",
+      "lesson-19-determiners-and-quantifiers/2-demonstratives.html"
+    ],
+    "exercise-22-test-your-vocabulary": [
+      "exercise-22-test-your-vocabulary/2211-test-your-vocabulary-adjective.html",
+      "exercise-22-test-your-vocabulary/2221-test-your-vocabulary-verb.html"
+    ],
+    "lesson-21-phrases": [
+      "lesson-21-phrases/1-absolute-phrase.html",
+      "lesson-21-phrases/1-absolute-phrase2.html"
+    ],
+    "exercise-6-prepositions": [
+      "exercise-6-prepositions/611-prepositions-in-on.html",
+      "exercise-6-prepositions/612-prepositions-at-from-of-to-with.html"
+    ],
+    "lesson-16-punctuation": [
+      "lesson-16-punctuation/1-full-stopperiod.html",
+      "lesson-16-punctuation/10-parentheses-brackets.html"
+    ],
+    "exercise-4-adverbs": [
+      "exercise-4-adverbs/411-using-adverbs-part-1.html",
+      "exercise-4-adverbs/412-using-adverbs-part-2.html"
+    ],
+    "exercise-8-agreement": [
+      "exercise-8-agreement/811-agreement-1.html",
+      "exercise-8-agreement/812-agreement-2.html"
+    ],
+    "exercise-5-pronouns": [
+      "exercise-5-pronouns/511-personal-pronoun-i.html",
+      "exercise-5-pronouns/512-personal-pronoun-ii.html"
+    ],
+    "exercise-3-adjectives": [
+      "exercise-3-adjectives/311-kinds-of-adjectives.html",
+      "exercise-3-adjectives/321-comparing-adjectives.html"
+    ],
+    "exercise-2-verbs": [
+      "exercise-2-verbs/211-transitive-and-intransitive-verbs.html",
+      "exercise-2-verbs/221-linking-verbs.html"
+    ],
+    "exercise-19-determiners-and-quantifiers": [
+      "exercise-19-determiners-and-quantifiers/1911-determiners-a-an-the.html",
+      "exercise-19-determiners-and-quantifiers/1912-determiners-a-an-the-some.html"
+    ],
+    "exercise-7-conjunctions": [
+      "exercise-7-conjunctions/711-coordinating-conjunction-and-but.html",
+      "exercise-7-conjunctions/712-coordinating-conjunction-and-but.html"
+    ],
+    "exercise-21-general": [
+      "exercise-21-general/2111-part-of-speech-i.html",
+      "exercise-21-general/2112-part-of-speech-ii.html"
+    ],
+    "exercise-9-articles": [
+      "exercise-9-articles/911-article-a-an-the-i.html",
+      "exercise-9-articles/912-articles-a-an-the-ii.html"
+    ],
+    "lesson-2-verbs": [
+      "lesson-2-verbs/1-principal-parts-of-a-verb.html",
+      "lesson-2-verbs/10-conjugation-of-verb-p2.html"
+    ],
+    "lesson-3-adjectives": [
+      "lesson-3-adjectives/1-types-of-adjectives.html",
+      "lesson-3-adjectives/1a-types-of-adjectives.html"
+    ],
+    "lesson-22-participles": [
+      "lesson-22-participles/1-participle-and-verb-tenses.html",
+      "lesson-22-participles/1-participle-and-verb-tenses2.html"
+    ],
+    "exercise-12-modifiers": [
+      "exercise-12-modifiers/1211-adjectives-as-modifiers.html",
+      "exercise-12-modifiers/1212-adverbs-as-modifiers.html"
+    ],
+    "exercise-18-verb-ing-gerunds-and-particles": [
+      "exercise-18-verb-ing-gerunds-and-particles/1811-verb-ing-gerund.html",
+      "exercise-18-verb-ing-gerunds-and-particles/1812-verb-ing-gerund-and-present-participle.html"
+    ],
+    "exercise-17-clauses": [
+      "exercise-17-clauses/1721-adjective-clauses.html",
+      "exercise-17-clauses/1731-adverbial-clauses.html"
+    ],
+    "exercise-13-indirect-speech": [
+      "exercise-13-indirect-speech/1311-direct-to-indirect-speech-i.html",
+      "exercise-13-indirect-speech/1312-direct-to-indirect-speech-ii.html"
+    ],
+    "exercise-15-passive-voice": [
+      "exercise-15-passive-voice/1511-passive-voice-simple-present-tense.html",
+      "exercise-15-passive-voice/1521-passive-voice-present-perfect-tense.html"
+    ],
+    "lesson-15-active-and-passive-voice": [
+      "lesson-15-active-and-passive-voice/1-active-and-passive-voice.html",
+      "lesson-15-active-and-passive-voice/2-tenses-in-the-passive-voice.html"
+    ],
+    "exercise-11-conditionals": [
+      "exercise-11-conditionals/1111-first-conditional.html",
+      "exercise-11-conditionals/1112-second-conditional.html"
+    ],
+    "exercise-1-nouns": [
+      "exercise-1-nouns/111-common-nouns.html",
+      "exercise-1-nouns/112-proper-nouns.html"
+    ]
+  },
+  "by_page": {
+    "a-b.html": {
+      "css": [
+        "modules/mod_cinch_menu/tmpl/css/accordion.css",
+        "modules/mod_cinch_menu/tmpl/css/flyout.css",
+        "modules/mod_cinch_menu/tmpl/css/meg-2.css",
+        "templates/protostar/css/template592f.css"
+      ],
+      "js": [
+        "media/jui/js/bootstrap.min592f.js",
+        "media/jui/js/jquery-migrate.min592f.js",
+        "media/jui/js/jquery-noconflict592f.js",
+        "media/jui/js/jquery.min592f.js",
+        "media/system/js/caption592f.js",
+        "modules/mod_cinch_menu/tmpl/js/jquery-1.8.2.min.js",
+        "modules/mod_cinch_menu/tmpl/js/jquery-noconflict.js",
+        "templates/protostar/js/template592f.js"
+      ]
+    },
+    "c-d.html": {
+      "css": [
+        "modules/mod_cinch_menu/tmpl/css/accordion.css",
+        "modules/mod_cinch_menu/tmpl/css/flyout.css",
+        "modules/mod_cinch_menu/tmpl/css/meg-2.css",
+        "templates/protostar/css/template592f.css"
+      ],
+      "js": [
+        "media/jui/js/bootstrap.min592f.js",
+        "media/jui/js/jquery-migrate.min592f.js",
+        "media/jui/js/jquery-noconflict592f.js",
+        "media/jui/js/jquery.min592f.js",
+        "media/system/js/caption592f.js",
+        "templates/protostar/js/template592f.js"
+      ]
+    },
+    "list-20-gender/common-gender-people-a-creatures.html": {
+      "css": [
+        "modules/mod_cinch_menu/tmpl/css/accordion.css",
+        "modules/mod_cinch_menu/tmpl/css/flyout.css",
+        "templates/protostar/css/template592f.css"
+      ],
+      "js": [
+        "media/jui/js/bootstrap.min592f.js",
+        "media/jui/js/jquery-migrate.min592f.js",
+        "media/jui/js/jquery-noconflict592f.js",
+        "media/jui/js/jquery.min592f.js",
+        "media/system/js/caption592f.js",
+        "templates/protostar/js/template592f.js"
+      ]
+    },
+    "list-20-gender/masculine-and-feminine-gender-creatures.html": {
+      "css": [
+        "modules/mod_cinch_menu/tmpl/css/accordion.css",
+        "modules/mod_cinch_menu/tmpl/css/flyout.css",
+        "templates/protostar/css/template592f.css"
+      ],
+      "js": [
+        "media/jui/js/bootstrap.min592f.js",
+        "media/jui/js/jquery-migrate.min592f.js",
+        "media/jui/js/jquery-noconflict592f.js",
+        "media/jui/js/jquery.min592f.js",
+        "media/system/js/caption592f.js",
+        "templates/protostar/js/template592f.js"
+      ]
+    },
+    "lists/67-prepositions.html": {
+      "css": [
+        "modules/mod_cinch_menu/tmpl/css/accordion.css",
+        "modules/mod_cinch_menu/tmpl/css/meg-2.css",
+        "templates/protostar/css/template592f.css"
+      ],
+      "js": [
+        "media/jui/js/bootstrap.min592f.js",
+        "media/jui/js/jquery-migrate.min592f.js",
+        "media/jui/js/jquery-noconflict592f.js",
+        "media/jui/js/jquery.min592f.js",
+        "media/system/js/caption592f.js",
+        "media/system/js/core592f.js",
+        "templates/protostar/js/template592f.js"
+      ]
+    },
+    "lists/grammar-lessons.html": {
+      "css": [
+        "modules/mod_cinch_menu/tmpl/css/accordion.css",
+        "modules/mod_cinch_menu/tmpl/css/flyout.css",
+        "modules/mod_cinch_menu/tmpl/css/meg-2.css",
+        "templates/protostar/css/template592f.css"
+      ],
+      "js": [
+        "media/jui/js/bootstrap.min592f.js",
+        "media/jui/js/jquery-migrate.min592f.js",
+        "media/jui/js/jquery-noconflict592f.js",
+        "media/jui/js/jquery.min592f.js",
+        "media/system/js/caption592f.js",
+        "templates/protostar/js/template592f.js"
+      ]
+    },
+    "lists/68-grammar-lists/616-list-9-adverbs-sharing-same-words-as-adjectives.html": {
+      "css": [
+        "modules/mod_cinch_menu/tmpl/css/accordion.css",
+        "templates/protostar/css/template592f.css"
+      ],
+      "js": [
+        "media/jui/js/bootstrap.min592f.js",
+        "media/jui/js/jquery-migrate.min592f.js",
+        "media/jui/js/jquery-noconflict592f.js",
+        "media/jui/js/jquery.min592f.js",
+        "media/system/js/caption592f.js",
+        "templates/protostar/js/template592f.js"
+      ]
+    },
+    "lists/68-grammar-lists/617-list-10-pronouns.html": {
+      "css": [
+        "modules/mod_cinch_menu/tmpl/css/accordion.css",
+        "modules/mod_cinch_menu/tmpl/css/meg-2.css",
+        "templates/protostar/css/template592f.css"
+      ],
+      "js": [
+        "media/jui/js/bootstrap.min592f.js",
+        "media/jui/js/jquery-migrate.min592f.js",
+        "media/jui/js/jquery-noconflict592f.js",
+        "media/jui/js/jquery.min592f.js",
+        "media/system/js/caption592f.js",
+        "templates/protostar/js/template592f.js"
+      ]
+    },
+    "lists2 - Copy/responsive-iframe-1.html": {
+      "css": [],
+      "js": []
+    },
+    "list-17-proverbs-and-sayings/proverbs-and-sayings-001-100.html": {
+      "css": [
+        "modules/mod_cinch_menu/tmpl/css/accordion.css",
+        "modules/mod_cinch_menu/tmpl/css/flyout.css",
+        "modules/mod_cinch_menu/tmpl/css/meg-2.css",
+        "templates/protostar/css/template592f.css"
+      ],
+      "js": [
+        "media/jui/js/bootstrap.min592f.js",
+        "media/jui/js/jquery-migrate.min592f.js",
+        "media/jui/js/jquery-noconflict592f.js",
+        "media/jui/js/jquery.min592f.js",
+        "media/system/js/caption592f.js",
+        "templates/protostar/js/template592f.js"
+      ]
+    },
+    "list-17-proverbs-and-sayings/proverbs-and-sayings-101-200.html": {
+      "css": [
+        "modules/mod_cinch_menu/tmpl/css/accordion.css",
+        "modules/mod_cinch_menu/tmpl/css/flyout.css",
+        "templates/protostar/css/template592f.css"
+      ],
+      "js": [
+        "media/jui/js/bootstrap.min592f.js",
+        "media/jui/js/jquery-migrate.min592f.js",
+        "media/jui/js/jquery-noconflict592f.js",
+        "media/jui/js/jquery.min592f.js",
+        "media/system/js/caption592f.js",
+        "templates/protostar/js/template592f.js"
+      ]
+    },
+    "templates/webfont/opensans-bold-demo.html": {
+      "css": [
+        "templates/webfont/specimen_files/specimen_stylesheet.css",
+        "templates/webfont/stylesheet.css"
+      ],
+      "js": []
+    },
+    "templates/webfont/opensans-bolditalic-demo.html": {
+      "css": [
+        "templates/webfont/specimen_files/specimen_stylesheet.css",
+        "templates/webfont/stylesheet.css"
+      ],
+      "js": []
+    },
+    "lesson-4-adverbs/1-types-of-adverbs.html": {
+      "css": [
+        "modules/mod_cinch_menu/tmpl/css/accordion.css",
+        "modules/mod_cinch_menu/tmpl/css/flyout.css",
+        "modules/mod_cinch_menu/tmpl/css/meg-2.css",
+        "templates/protostar/css/template592f.css"
+      ],
+      "js": [
+        "media/jui/js/bootstrap.min592f.js",
+        "media/jui/js/jquery-migrate.min592f.js",
+        "media/jui/js/jquery-noconflict592f.js",
+        "media/jui/js/jquery.min592f.js",
+        "media/system/js/caption592f.js",
+        "modules/mod_cinch_menu/tmpl/js/jquery-1.8.2.min.js",
+        "modules/mod_cinch_menu/tmpl/js/jquery-noconflict.js",
+        "templates/protostar/js/template592f.js"
+      ]
+    },
+    "lesson-4-adverbs/2-comparison-of-adverbs.html": {
+      "css": [
+        "modules/mod_cinch_menu/tmpl/css/accordion.css",
+        "modules/mod_cinch_menu/tmpl/css/flyout.css",
+        "modules/mod_cinch_menu/tmpl/css/meg-2.css",
+        "templates/protostar/css/template592f.css"
+      ],
+      "js": [
+        "media/jui/js/bootstrap.min592f.js",
+        "media/jui/js/jquery-migrate.min592f.js",
+        "media/jui/js/jquery-noconflict592f.js",
+        "media/jui/js/jquery.min592f.js",
+        "media/system/js/caption592f.js",
+        "templates/protostar/js/template592f.js"
+      ]
+    },
+    "list-9-adverbs-sharing-same-words-as-adjectives/alone-first.html": {
+      "css": [
+        "modules/mod_cinch_menu/tmpl/css/accordion.css",
+        "modules/mod_cinch_menu/tmpl/css/meg-2.css",
+        "templates/protostar/css/template592f.css"
+      ],
+      "js": [
+        "media/jui/js/bootstrap.min592f.js",
+        "media/jui/js/jquery-migrate.min592f.js",
+        "media/jui/js/jquery-noconflict592f.js",
+        "media/jui/js/jquery.min592f.js",
+        "media/system/js/caption592f.js",
+        "templates/protostar/js/template592f.js"
+      ]
+    },
+    "list-9-adverbs-sharing-same-words-as-adjectives/hard-near.html": {
+      "css": [
+        "modules/mod_cinch_menu/tmpl/css/accordion.css",
+        "modules/mod_cinch_menu/tmpl/css/meg-2.css",
+        "templates/protostar/css/template592f.css"
+      ],
+      "js": [
+        "media/jui/js/bootstrap.min592f.js",
+        "media/jui/js/jquery-migrate.min592f.js",
+        "media/jui/js/jquery-noconflict592f.js",
+        "media/jui/js/jquery.min592f.js",
+        "media/system/js/caption592f.js",
+        "templates/protostar/js/template592f.js"
+      ]
+    },
+    "vocabulary/passageway-a-way-allowing-passage.html": {
+      "css": [
+        "modules/mod_cinch_menu/tmpl/css/accordion.css",
+        "modules/mod_cinch_menu/tmpl/css/flyout.css",
+        "modules/mod_cinch_menu/tmpl/css/meg-2.css",
+        "templates/protostar/css/template592f.css"
+      ],
+      "js": [
+        "media/jui/js/bootstrap.min592f.js",
+        "media/jui/js/jquery-migrate.min592f.js",
+        "media/jui/js/jquery-noconflict592f.js",
+        "media/jui/js/jquery.min592f.js",
+        "media/system/js/caption592f.js",
+        "templates/protostar/js/template592f.js"
+      ]
+    },
+    "vocabulary/receptaclesobjects-that-are-used-to-hold-things.html": {
+      "css": [
+        "modules/mod_cinch_menu/tmpl/css/accordion.css",
+        "modules/mod_cinch_menu/tmpl/css/flyout.css",
+        "modules/mod_cinch_menu/tmpl/css/meg-2.css",
+        "templates/protostar/css/template592f.css"
+      ],
+      "js": [
+        "media/jui/js/bootstrap.min592f.js",
+        "media/jui/js/jquery-migrate.min592f.js",
+        "media/jui/js/jquery-noconflict592f.js",
+        "media/jui/js/jquery.min592f.js",
+        "media/system/js/caption592f.js",
+        "templates/protostar/js/template592f.js"
+      ]
+    },
+    "vocabulary/places/places-abattoir-cavern.html": {
+      "css": [
+        "modules/mod_cinch_menu/tmpl/css/accordion.css",
+        "modules/mod_cinch_menu/tmpl/css/flyout.css",
+        "modules/mod_cinch_menu/tmpl/css/meg-2.css",
+        "templates/protostar/css/template592f.css"
+      ],
+      "js": [
+        "media/jui/js/bootstrap.min592f.js",
+        "media/jui/js/jquery-migrate.min592f.js",
+        "media/jui/js/jquery-noconflict592f.js",
+        "media/jui/js/jquery.min592f.js",
+        "media/system/js/caption592f.js",
+        "templates/protostar/js/template592f.js"
+      ]
+    },
+    "vocabulary/places/places-cellar--haunt.html": {
+      "css": [
+        "modules/mod_cinch_menu/tmpl/css/accordion.css",
+        "modules/mod_cinch_menu/tmpl/css/flyout.css",
+        "modules/mod_cinch_menu/tmpl/css/meg-2.css",
+        "templates/protostar/css/template592f.css"
+      ],
+      "js": [
+        "media/jui/js/bootstrap.min592f.js",
+        "media/jui/js/jquery-migrate.min592f.js",
+        "media/jui/js/jquery-noconflict592f.js",
+        "media/jui/js/jquery.min592f.js",
+        "media/system/js/caption592f.js",
+        "templates/protostar/js/template592f.js"
+      ]
+    },
+    "list-15-idioms/698-idioms-001-100-about-time-beyond-words.html": {
+      "css": [
+        "modules/mod_cinch_menu/tmpl/css/accordion.css",
+        "modules/mod_cinch_menu/tmpl/css/flyout.css",
+        "templates/protostar/css/template592f.css"
+      ],
+      "js": [
+        "media/jui/js/bootstrap.min592f.js",
+        "media/jui/js/jquery-migrate.min592f.js",
+        "media/jui/js/jquery-noconflict592f.js",
+        "media/jui/js/jquery.min592f.js",
+        "media/system/js/caption592f.js",
+        "templates/protostar/js/template592f.js"
+      ]
+    },
+    "list-15-idioms/698-idioms-001-100-about-time-beyond-wordsA.html": {
+      "css": [
+        "modules/mod_cinch_menu/tmpl/css/accordion.css",
+        "modules/mod_cinch_menu/tmpl/css/flyout.css",
+        "templates/protostar/css/template592f.css"
+      ],
+      "js": [
+        "media/jui/js/bootstrap.min592f.js",
+        "media/jui/js/jquery-migrate.min592f.js",
+        "media/jui/js/jquery-noconflict592f.js",
+        "media/jui/js/jquery.min592f.js",
+        "media/system/js/caption592f.js",
+        "templates/protostar/js/template592f.js"
+      ]
+    },
+    "list-8-adverbs/Untitled-1.html": {
+      "css": [
+        "modules/mod_cinch_menu/tmpl/css/accordion.css",
+        "modules/mod_cinch_menu/tmpl/css/flyout.css",
+        "modules/mod_cinch_menu/tmpl/css/meg-2.css",
+        "templates/protostar/css/template592f.css"
+      ],
+      "js": [
+        "media/jui/js/bootstrap.min592f.js",
+        "media/jui/js/jquery-migrate.min592f.js",
+        "media/jui/js/jquery-noconflict592f.js",
+        "media/jui/js/jquery.min592f.js",
+        "media/system/js/caption592f.js",
+        "templates/protostar/js/template592f.js"
+      ]
+    },
+    "list-8-adverbs/adverbs-with-two-adverbial-forms.html": {
+      "css": [
+        "modules/mod_cinch_menu/tmpl/css/accordion.css",
+        "modules/mod_cinch_menu/tmpl/css/flyout.css",
+        "templates/protostar/css/template592f.css"
+      ],
+      "js": [
+        "media/jui/js/bootstrap.min592f.js",
+        "media/jui/js/jquery-migrate.min592f.js",
+        "media/jui/js/jquery-noconflict592f.js",
+        "media/jui/js/jquery.min592f.js",
+        "media/system/js/caption592f.js",
+        "templates/protostar/js/template592f.js"
+      ]
+    },
+    "list-8-adverbs/adverbs-with-two-adverbial-forms/cheap-cheaply-last-lastly.html": {
+      "css": [
+        "modules/mod_cinch_menu/tmpl/css/accordion.css",
+        "modules/mod_cinch_menu/tmpl/css/meg-2.css",
+        "templates/protostar/css/template592f.css"
+      ],
+      "js": [
+        "media/jui/js/bootstrap.min592f.js",
+        "media/jui/js/jquery-migrate.min592f.js",
+        "media/jui/js/jquery-noconflict592f.js",
+        "media/jui/js/jquery.min592f.js",
+        "media/system/js/caption592f.js",
+        "templates/protostar/js/template592f.js"
+      ]
+    },
+    "list-8-adverbs/adverbs-with-two-adverbial-forms/late-lately-wrong-wrongly.html": {
+      "css": [
+        "modules/mod_cinch_menu/tmpl/css/accordion.css",
+        "modules/mod_cinch_menu/tmpl/css/meg-2.css",
+        "templates/protostar/css/template592f.css"
+      ],
+      "js": [
+        "media/jui/js/bootstrap.min592f.js",
+        "media/jui/js/jquery-migrate.min592f.js",
+        "media/jui/js/jquery-noconflict592f.js",
+        "media/jui/js/jquery.min592f.js",
+        "media/system/js/caption592f.js",
+        "templates/protostar/js/template592f.js"
+      ]
+    },
+    "lesson-9-articles/1-definite-article-the.html": {
+      "css": [
+        "modules/mod_cinch_menu/tmpl/css/accordion.css",
+        "modules/mod_cinch_menu/tmpl/css/flyout.css",
+        "modules/mod_cinch_menu/tmpl/css/meg-2.css"
+      ],
+      "js": [
+        "media/jui/js/bootstrap.min592f.js",
+        "media/jui/js/jquery-migrate.min592f.js",
+        "media/jui/js/jquery-noconflict592f.js",
+        "media/jui/js/jquery.min592f.js",
+        "media/system/js/caption592f.js",
+        "templates/protostar/js/template592f.js"
+      ]
+    },
+    "lesson-9-articles/2-indefinite-article-a-an.html": {
+      "css": [
+        "modules/mod_cinch_menu/tmpl/css/accordion.css",
+        "modules/mod_cinch_menu/tmpl/css/flyout.css",
+        "modules/mod_cinch_menu/tmpl/css/meg-2.css",
+        "templates/protostar/css/template592f.css"
+      ],
+      "js": [
+        "media/jui/js/bootstrap.min592f.js",
+        "media/jui/js/jquery-migrate.min592f.js",
+        "media/jui/js/jquery-noconflict592f.js",
+        "media/jui/js/jquery.min592f.js",
+        "media/system/js/caption592f.js",
+        "templates/protostar/js/template592f.js"
+      ]
+    },
+    "lesson-5-pronouns/1-personal-pronouns.html": {
+      "css": [
+        "modules/mod_cinch_menu/tmpl/css/accordion.css",
+        "modules/mod_cinch_menu/tmpl/css/flyout.css",
+        "modules/mod_cinch_menu/tmpl/css/meg-2.css",
+        "templates/protostar/css/template592f.css"
+      ],
+      "js": [
+        "media/jui/js/bootstrap.min592f.js",
+        "media/jui/js/jquery-migrate.min592f.js",
+        "media/jui/js/jquery-noconflict592f.js",
+        "media/jui/js/jquery.min592f.js",
+        "media/system/js/caption592f.js",
+        "templates/protostar/js/template592f.js"
+      ]
+    },
+    "lesson-5-pronouns/2-reflexive-pronouns.html": {
+      "css": [
+        "modules/mod_cinch_menu/tmpl/css/accordion.css",
+        "modules/mod_cinch_menu/tmpl/css/flyout.css",
+        "modules/mod_cinch_menu/tmpl/css/meg-2.css",
+        "templates/protostar/css/template592f.css"
+      ],
+      "js": [
+        "media/jui/js/bootstrap.min592f.js",
+        "media/jui/js/jquery-migrate.min592f.js",
+        "media/jui/js/jquery-noconflict592f.js",
+        "media/jui/js/jquery.min592f.js",
+        "media/system/js/caption592f.js",
+        "templates/protostar/js/template592f.js"
+      ]
+    },
+    "list-4-verbs/different-verb-types.html": {
+      "css": [
+        "modules/mod_cinch_menu/tmpl/css/accordion.css",
+        "modules/mod_cinch_menu/tmpl/css/flyout.css",
+        "modules/mod_cinch_menu/tmpl/css/meg-2.css",
+        "templates/protostar/css/template592f.css"
+      ],
+      "js": [
+        "media/jui/js/bootstrap.min592f.js",
+        "media/jui/js/jquery-migrate.min592f.js",
+        "media/jui/js/jquery-noconflict592f.js",
+        "media/jui/js/jquery.min592f.js",
+        "media/system/js/caption592f.js",
+        "templates/protostar/js/template592f.js"
+      ]
+    },
+    "list-4-verbs/forming-verbs.html": {
+      "css": [
+        "modules/mod_cinch_menu/tmpl/css/accordion.css",
+        "modules/mod_cinch_menu/tmpl/css/flyout.css",
+        "modules/mod_cinch_menu/tmpl/css/meg-2.css",
+        "templates/protostar/css/template592f.css"
+      ],
+      "js": [
+        "media/jui/js/bootstrap.min592f.js",
+        "media/jui/js/jquery-migrate.min592f.js",
+        "media/jui/js/jquery-noconflict592f.js",
+        "media/jui/js/jquery.min592f.js",
+        "media/system/js/caption592f.js",
+        "templates/protostar/js/template592f.js"
+      ]
+    },
+    "list-4-verbs/different-verb-types/auxiliary-verb.html": {
+      "css": [
+        "modules/mod_cinch_menu/tmpl/css/accordion.css",
+        "modules/mod_cinch_menu/tmpl/css/meg-2.css",
+        "templates/protostar/css/template592f.css"
+      ],
+      "js": [
+        "media/jui/js/bootstrap.min592f.js",
+        "media/jui/js/jquery-migrate.min592f.js",
+        "media/jui/js/jquery-noconflict592f.js",
+        "media/jui/js/jquery.min592f.js",
+        "media/system/js/caption592f.js",
+        "templates/protostar/js/template592f.js"
+      ]
+    },
+    "list-4-verbs/different-verb-types/linking-verbs.html": {
+      "css": [
+        "modules/mod_cinch_menu/tmpl/css/accordion.css",
+        "modules/mod_cinch_menu/tmpl/css/meg-2.css",
+        "templates/protostar/css/template592f.css"
+      ],
+      "js": [
+        "media/jui/js/bootstrap.min592f.js",
+        "media/jui/js/jquery-migrate.min592f.js",
+        "media/jui/js/jquery-noconflict592f.js",
+        "media/jui/js/jquery.min592f.js",
+        "media/system/js/caption592f.js",
+        "templates/protostar/js/template592f.js"
+      ]
+    },
+    "lesson-7-conjunctions/1-coordinating-conjunctions.html": {
+      "css": [
+        "modules/mod_cinch_menu/tmpl/css/accordion.css",
+        "modules/mod_cinch_menu/tmpl/css/flyout.css",
+        "modules/mod_cinch_menu/tmpl/css/meg-2.css",
+        "templates/protostar/css/template592f.css"
+      ],
+      "js": [
+        "media/jui/js/bootstrap.min592f.js",
+        "media/jui/js/jquery-migrate.min592f.js",
+        "media/jui/js/jquery-noconflict592f.js",
+        "media/jui/js/jquery.min592f.js",
+        "media/system/js/caption592f.js",
+        "templates/protostar/js/template592f.js"
+      ]
+    },
+    "lesson-7-conjunctions/2-subordinating-conjunctions.html": {
+      "css": [
+        "modules/mod_cinch_menu/tmpl/css/accordion.css",
+        "modules/mod_cinch_menu/tmpl/css/flyout.css",
+        "modules/mod_cinch_menu/tmpl/css/meg-2.css",
+        "templates/protostar/css/template592f.css"
+      ],
+      "js": [
+        "media/jui/js/bootstrap.min592f.js",
+        "media/jui/js/jquery-migrate.min592f.js",
+        "media/jui/js/jquery-noconflict592f.js",
+        "media/jui/js/jquery.min592f.js",
+        "media/system/js/caption592f.js",
+        "templates/protostar/js/template592f.js"
+      ]
+    },
+    "list-3-collective-nouns/650-collective-nouns-people.html": {
+      "css": [
+        "modules/mod_cinch_menu/tmpl/css/accordion.css",
+        "modules/mod_cinch_menu/tmpl/css/flyout.css",
+        "templates/protostar/css/template592f.css"
+      ],
+      "js": [
+        "media/jui/js/bootstrap.min592f.js",
+        "media/jui/js/jquery-migrate.min592f.js",
+        "media/jui/js/jquery-noconflict592f.js",
+        "media/jui/js/jquery.min592f.js",
+        "media/system/js/caption592f.js",
+        "templates/protostar/js/template592f.js"
+      ]
+    },
+    "list-3-collective-nouns/651-collective-nouns-things.html": {
+      "css": [
+        "modules/mod_cinch_menu/tmpl/css/accordion.css",
+        "modules/mod_cinch_menu/tmpl/css/flyout.css",
+        "templates/protostar/css/template592f.css"
+      ],
+      "js": [
+        "media/jui/js/bootstrap.min592f.js",
+        "media/jui/js/jquery-migrate.min592f.js",
+        "media/jui/js/jquery-noconflict592f.js",
+        "media/jui/js/jquery.min592f.js",
+        "media/system/js/caption592f.js",
+        "templates/protostar/js/template592f.js"
+      ]
+    },
+    "list-6-adjectives/Untitled-1.html": {
+      "css": [
+        "templates/protostar/css/template592f.css"
+      ],
+      "js": []
+    },
+    "list-6-adjectives/Untitled-2.html": {
+      "css": [
+        "templates/protostar/css/template592f.css"
+      ],
+      "js": []
+    },
+    "list-7-comparison-of-adjectives/659-comparatives-and-superlatives-that-are-formed-irregularly.html": {
+      "css": [
+        "modules/mod_cinch_menu/tmpl/css/accordion.css",
+        "modules/mod_cinch_menu/tmpl/css/flyout.css",
+        "templates/protostar/css/template592f.css"
+      ],
+      "js": [
+        "media/jui/js/bootstrap.min592f.js",
+        "media/jui/js/jquery-migrate.min592f.js",
+        "media/jui/js/jquery-noconflict592f.js",
+        "media/jui/js/jquery.min592f.js",
+        "media/system/js/caption592f.js",
+        "templates/protostar/js/template592f.js"
+      ]
+    },
+    "list-7-comparison-of-adjectives/660-comparatives-and-superlatives-using-more-and-most.html": {
+      "css": [
+        "modules/mod_cinch_menu/tmpl/css/accordion.css",
+        "modules/mod_cinch_menu/tmpl/css/flyout.css",
+        "templates/protostar/css/template592f.css"
+      ],
+      "js": [
+        "media/jui/js/bootstrap.min592f.js",
+        "media/jui/js/jquery-migrate.min592f.js",
+        "media/jui/js/jquery-noconflict592f.js",
+        "media/jui/js/jquery.min592f.js",
+        "media/system/js/caption592f.js",
+        "templates/protostar/js/template592f.js"
+      ]
+    },
+    "writing/1-what-is-a-sentence.html": {
+      "css": [
+        "modules/mod_cinch_menu/tmpl/css/accordion.css",
+        "modules/mod_cinch_menu/tmpl/css/flyout.css",
+        "modules/mod_cinch_menu/tmpl/css/meg-2.css",
+        "templates/protostar/css/template592f.css"
+      ],
+      "js": [
+        "media/jui/js/bootstrap.min592f.js",
+        "media/jui/js/jquery-migrate.min592f.js",
+        "media/jui/js/jquery-noconflict592f.js",
+        "media/jui/js/jquery.min592f.js",
+        "media/system/js/caption592f.js",
+        "templates/protostar/js/template592f.js"
+      ]
+    },
+    "writing/10-writing-paragraph-sentence-connecters.html": {
+      "css": [
+        "modules/mod_cinch_menu/tmpl/css/accordion.css",
+        "modules/mod_cinch_menu/tmpl/css/flyout.css",
+        "modules/mod_cinch_menu/tmpl/css/meg-2.css",
+        "templates/protostar/css/template592f.css"
+      ],
+      "js": [
+        "media/jui/js/bootstrap.min592f.js",
+        "media/jui/js/jquery-migrate.min592f.js",
+        "media/jui/js/jquery-noconflict592f.js",
+        "media/jui/js/jquery.min592f.js",
+        "media/system/js/caption592f.js",
+        "templates/protostar/js/template592f.js"
+      ]
+    },
+    "writing/writing-resources/12-common-usage-mistakes-1.html": {
+      "css": [
+        "modules/mod_cinch_menu/tmpl/css/accordion.css",
+        "modules/mod_cinch_menu/tmpl/css/flyout.css",
+        "modules/mod_cinch_menu/tmpl/css/meg-2.css",
+        "templates/protostar/css/template592f.css"
+      ],
+      "js": [
+        "media/jui/js/bootstrap.min592f.js",
+        "media/jui/js/jquery-migrate.min592f.js",
+        "media/jui/js/jquery-noconflict592f.js",
+        "media/jui/js/jquery.min592f.js",
+        "media/system/js/caption592f.js",
+        "templates/protostar/js/template592f.js"
+      ]
+    },
+    "writing/writing-resources/13-abreviations-vs-acronyms.html": {
+      "css": [
+        "modules/mod_cinch_menu/tmpl/css/accordion.css",
+        "modules/mod_cinch_menu/tmpl/css/flyout.css",
+        "modules/mod_cinch_menu/tmpl/css/meg-2.css",
+        "templates/protostar/css/template592f.css"
+      ],
+      "js": [
+        "media/jui/js/bootstrap.min592f.js",
+        "media/jui/js/jquery-migrate.min592f.js",
+        "media/jui/js/jquery-noconflict592f.js",
+        "media/jui/js/jquery.min592f.js",
+        "media/system/js/caption592f.js",
+        "templates/protostar/js/template592f.js"
+      ]
+    },
+    "lesson-6-prepositions/1-prepositions-of-time.html": {
+      "css": [
+        "modules/mod_cinch_menu/tmpl/css/accordion.css",
+        "modules/mod_cinch_menu/tmpl/css/flyout.css",
+        "modules/mod_cinch_menu/tmpl/css/meg-2.css",
+        "templates/protostar/css/template592f.css"
+      ],
+      "js": [
+        "media/jui/js/bootstrap.min592f.js",
+        "media/jui/js/jquery-migrate.min592f.js",
+        "media/jui/js/jquery-noconflict592f.js",
+        "media/jui/js/jquery.min592f.js",
+        "media/system/js/caption592f.js",
+        "templates/protostar/js/template592f.js"
+      ]
+    },
+    "lesson-6-prepositions/2-prepositions-of-place.html": {
+      "css": [
+        "modules/mod_cinch_menu/tmpl/css/accordion.css",
+        "modules/mod_cinch_menu/tmpl/css/flyout.css",
+        "modules/mod_cinch_menu/tmpl/css/meg-2.css",
+        "templates/protostar/css/template592f.css"
+      ],
+      "js": [
+        "media/jui/js/bootstrap.min592f.js",
+        "media/jui/js/jquery-migrate.min592f.js",
+        "media/jui/js/jquery-noconflict592f.js",
+        "media/jui/js/jquery.min592f.js",
+        "media/system/js/caption592f.js",
+        "modules/mod_cinch_menu/tmpl/js/jquery-1.8.2.min.js",
+        "modules/mod_cinch_menu/tmpl/js/jquery-noconflict.js",
+        "templates/protostar/js/template592f.js"
+      ]
+    },
+    "lists2/1-a-c.html": {
+      "css": [
+        "modules/mod_cinch_menu/tmpl/css/accordion.css",
+        "modules/mod_cinch_menu/tmpl/css/flyout.css",
+        "modules/mod_cinch_menu/tmpl/css/meg-2.css",
+        "templates/protostar/css/template592f.css"
+      ],
+      "js": [
+        "media/jui/js/bootstrap.min592f.js",
+        "media/jui/js/jquery-migrate.min592f.js",
+        "media/jui/js/jquery-noconflict592f.js",
+        "media/jui/js/jquery.min592f.js",
+        "media/system/js/caption592f.js",
+        "templates/protostar/js/template592f.js"
+      ]
+    },
+    "lists2/2-d-f.html": {
+      "css": [
+        "modules/mod_cinch_menu/tmpl/css/accordion.css",
+        "modules/mod_cinch_menu/tmpl/css/flyout.css",
+        "modules/mod_cinch_menu/tmpl/css/meg-2.css",
+        "templates/protostar/css/template592f.css"
+      ],
+      "js": [
+        "media/jui/js/bootstrap.min592f.js",
+        "media/jui/js/jquery-migrate.min592f.js",
+        "media/jui/js/jquery-noconflict592f.js",
+        "media/jui/js/jquery.min592f.js",
+        "media/system/js/caption592f.js",
+        "templates/protostar/js/template592f.js"
+      ]
+    },
+    "list-5-irregular-verbs/all-three-forms-are-different.html": {
+      "css": [
+        "modules/mod_cinch_menu/tmpl/css/accordion.css",
+        "modules/mod_cinch_menu/tmpl/css/flyout.css",
+        "modules/mod_cinch_menu/tmpl/css/meg-2.css",
+        "templates/protostar/css/template592f.css"
+      ],
+      "js": [
+        "media/jui/js/bootstrap.min592f.js",
+        "media/jui/js/jquery-migrate.min592f.js",
+        "media/jui/js/jquery-noconflict592f.js",
+        "media/jui/js/jquery.min592f.js",
+        "media/system/js/caption592f.js",
+        "templates/protostar/js/template592f.js"
+      ]
+    },
+    "list-5-irregular-verbs/all-three-forms-are-the-same.html": {
+      "css": [
+        "modules/mod_cinch_menu/tmpl/css/accordion.css",
+        "modules/mod_cinch_menu/tmpl/css/flyout.css",
+        "modules/mod_cinch_menu/tmpl/css/meg-2.css",
+        "templates/protostar/css/template592f.css"
+      ],
+      "js": [
+        "media/jui/js/bootstrap.min592f.js",
+        "media/jui/js/jquery-migrate.min592f.js",
+        "media/jui/js/jquery-noconflict592f.js",
+        "media/jui/js/jquery.min592f.js",
+        "media/system/js/caption592f.js",
+        "templates/protostar/js/template592f.js"
+      ]
+    },
+    "list-16-phrases-and-idioms/phrases-and-idioms-001-100-acid-call.html": {
+      "css": [
+        "modules/mod_cinch_menu/tmpl/css/accordion.css",
+        "modules/mod_cinch_menu/tmpl/css/flyout.css",
+        "modules/mod_cinch_menu/tmpl/css/meg-2.css",
+        "templates/protostar/css/template592f.css"
+      ],
+      "js": [
+        "media/jui/js/bootstrap.min592f.js",
+        "media/jui/js/jquery-migrate.min592f.js",
+        "media/jui/js/jquery-noconflict592f.js",
+        "media/jui/js/jquery.min592f.js",
+        "media/system/js/caption592f.js",
+        "templates/protostar/js/template592f.js"
+      ]
+    },
+    "list-16-phrases-and-idioms/phrases-and-idioms-101-200-call-crime.html": {
+      "css": [
+        "modules/mod_cinch_menu/tmpl/css/accordion.css",
+        "modules/mod_cinch_menu/tmpl/css/flyout.css",
+        "modules/mod_cinch_menu/tmpl/css/meg-2.css",
+        "templates/protostar/css/template592f.css"
+      ],
+      "js": [
+        "media/jui/js/bootstrap.min592f.js",
+        "media/jui/js/jquery-migrate.min592f.js",
+        "media/jui/js/jquery-noconflict592f.js",
+        "media/jui/js/jquery.min592f.js",
+        "media/system/js/caption592f.js",
+        "templates/protostar/js/template592f.js"
+      ]
+    },
+    "list-11-prepositions/list-of-prepositions.html": {
+      "css": [
+        "modules/mod_cinch_menu/tmpl/css/accordion.css",
+        "modules/mod_cinch_menu/tmpl/css/flyout.css",
+        "modules/mod_cinch_menu/tmpl/css/meg-2.css",
+        "templates/protostar/css/template592f.css"
+      ],
+      "js": [
+        "media/jui/js/bootstrap.min592f.js",
+        "media/jui/js/jquery-migrate.min592f.js",
+        "media/jui/js/jquery-noconflict592f.js",
+        "media/jui/js/jquery.min592f.js",
+        "media/system/js/caption592f.js",
+        "templates/protostar/js/template592f.js"
+      ]
+    },
+    "list-11-prepositions/prepositions-after-adjectives.html": {
+      "css": [
+        "modules/mod_cinch_menu/tmpl/css/accordion.css",
+        "modules/mod_cinch_menu/tmpl/css/flyout.css",
+        "modules/mod_cinch_menu/tmpl/css/meg-2.css",
+        "templates/protostar/css/template592f.css"
+      ],
+      "js": [
+        "media/jui/js/bootstrap.min592f.js",
+        "media/jui/js/jquery-migrate.min592f.js",
+        "media/jui/js/jquery-noconflict592f.js",
+        "media/jui/js/jquery.min592f.js",
+        "media/system/js/caption592f.js",
+        "templates/protostar/js/template592f.js"
+      ]
+    },
+    "list-11-prepositions/sentences-examples/ccc.html": {
+      "css": [
+        "modules/mod_cinch_menu/tmpl/css/accordion.css",
+        "modules/mod_cinch_menu/tmpl/css/flyout.css",
+        "modules/mod_cinch_menu/tmpl/css/meg-2.css",
+        "templates/protostar/css/template592f.css"
+      ],
+      "js": [
+        "media/jui/js/bootstrap.min592f.js",
+        "media/jui/js/jquery-migrate.min592f.js",
+        "media/jui/js/jquery-noconflict592f.js",
+        "media/jui/js/jquery.min592f.js",
+        "media/system/js/caption592f.js",
+        "templates/protostar/js/template592f.js"
+      ]
+    },
+    "list-11-prepositions/sentences-examples/prepositions-after-verbs-abandon-to-cry-over.html": {
+      "css": [
+        "modules/mod_cinch_menu/tmpl/css/accordion.css",
+        "modules/mod_cinch_menu/tmpl/css/flyout.css",
+        "modules/mod_cinch_menu/tmpl/css/meg-2.css",
+        "templates/protostar/css/template592f.css"
+      ],
+      "js": [
+        "media/jui/js/bootstrap.min592f.js",
+        "media/jui/js/jquery-migrate.min592f.js",
+        "media/jui/js/jquery-noconflict592f.js",
+        "media/jui/js/jquery.min592f.js",
+        "media/system/js/caption592f.js",
+        "templates/protostar/js/template592f.js"
+      ]
+    },
+    "list-1-singular-and-plural-nouns/by-adding-es-to-nouns-ending-in-ch-s-sh-ss-x-and-z.html": {
+      "css": [
+        "modules/mod_cinch_menu/tmpl/css/accordion.css",
+        "modules/mod_cinch_menu/tmpl/css/flyout.css",
+        "modules/mod_cinch_menu/tmpl/css/meg-2.css",
+        "templates/protostar/css/template592f.css"
+      ],
+      "js": [
+        "media/jui/js/bootstrap.min592f.js",
+        "media/jui/js/jquery-migrate.min592f.js",
+        "media/jui/js/jquery-noconflict592f.js",
+        "media/jui/js/jquery.min592f.js",
+        "media/system/js/caption592f.js",
+        "templates/protostar/js/template592f.js"
+      ]
+    },
+    "list-1-singular-and-plural-nouns/by-adding-es-to-nouns-ending-in-o.html": {
+      "css": [
+        "modules/mod_cinch_menu/tmpl/css/accordion.css",
+        "modules/mod_cinch_menu/tmpl/css/flyout.css",
+        "modules/mod_cinch_menu/tmpl/css/meg-2.css",
+        "templates/protostar/css/template592f.css"
+      ],
+      "js": [
+        "media/jui/js/bootstrap.min592f.js",
+        "media/jui/js/jquery-migrate.min592f.js",
+        "media/jui/js/jquery-noconflict592f.js",
+        "media/jui/js/jquery.min592f.js",
+        "media/system/js/caption592f.js",
+        "templates/protostar/js/template592f.js"
+      ]
+    },
+    "list-2-uncountable-nouns-made-countable/1.activity-cynicism.html": {
+      "css": [
+        "modules/mod_cinch_menu/tmpl/css/accordion.css",
+        "modules/mod_cinch_menu/tmpl/css/flyout.css",
+        "modules/mod_cinch_menu/tmpl/css/meg-2.css",
+        "templates/protostar/css/template592f.css"
+      ],
+      "js": [
+        "media/jui/js/bootstrap.min592f.js",
+        "media/jui/js/jquery-migrate.min592f.js",
+        "media/jui/js/jquery-noconflict592f.js",
+        "media/jui/js/jquery.min592f.js",
+        "media/system/js/caption592f.js",
+        "templates/protostar/js/template592f.js"
+      ]
+    },
+    "list-2-uncountable-nouns-made-countable/2.danger-fruit.html": {
+      "css": [
+        "modules/mod_cinch_menu/tmpl/css/accordion.css",
+        "modules/mod_cinch_menu/tmpl/css/flyout.css",
+        "modules/mod_cinch_menu/tmpl/css/meg-2.css",
+        "templates/protostar/css/template592f.css"
+      ],
+      "js": [
+        "media/jui/js/bootstrap.min592f.js",
+        "media/jui/js/jquery-migrate.min592f.js",
+        "media/jui/js/jquery-noconflict592f.js",
+        "media/jui/js/jquery.min592f.js",
+        "media/system/js/caption592f.js",
+        "templates/protostar/js/template592f.js"
+      ]
+    },
+    "list-14-phrasal-verbs/phrasal-verbs-accede-to-buy-up.html": {
+      "css": [
+        "modules/mod_cinch_menu/tmpl/css/accordion.css",
+        "modules/mod_cinch_menu/tmpl/css/flyout.css",
+        "modules/mod_cinch_menu/tmpl/css/meg-2.css",
+        "templates/protostar/css/template592f.css"
+      ],
+      "js": [
+        "media/jui/js/bootstrap.min592f.js",
+        "media/jui/js/jquery-migrate.min592f.js",
+        "media/jui/js/jquery-noconflict592f.js",
+        "media/jui/js/jquery.min592f.js",
+        "media/system/js/caption592f.js",
+        "templates/protostar/js/template592f.js"
+      ]
+    },
+    "list-14-phrasal-verbs/phrasal-verbs-call-back-cut-up.html": {
+      "css": [
+        "modules/mod_cinch_menu/tmpl/css/accordion.css",
+        "modules/mod_cinch_menu/tmpl/css/flyout.css",
+        "modules/mod_cinch_menu/tmpl/css/meg-2.css",
+        "templates/protostar/css/template592f.css"
+      ],
+      "js": [
+        "media/jui/js/bootstrap.min592f.js",
+        "media/jui/js/jquery-migrate.min592f.js",
+        "media/jui/js/jquery-noconflict592f.js",
+        "media/jui/js/jquery.min592f.js",
+        "media/system/js/caption592f.js",
+        "templates/protostar/js/template592f.js"
+      ]
+    },
+    "lesson-8-subject-verb-agreement/1-the-verb-must-agree-with-the-subject.html": {
+      "css": [
+        "modules/mod_cinch_menu/tmpl/css/accordion.css",
+        "modules/mod_cinch_menu/tmpl/css/flyout.css",
+        "modules/mod_cinch_menu/tmpl/css/meg-2.css",
+        "templates/protostar/css/template592f.css"
+      ],
+      "js": [
+        "media/jui/js/bootstrap.min592f.js",
+        "media/jui/js/jquery-migrate.min592f.js",
+        "media/jui/js/jquery-noconflict592f.js",
+        "media/jui/js/jquery.min592f.js",
+        "media/system/js/caption592f.js",
+        "templates/protostar/js/template592f.js"
+      ]
+    },
+    "lesson-8-subject-verb-agreement/2-compound-subjects-and-the-verbs.html": {
+      "css": [
+        "modules/mod_cinch_menu/tmpl/css/accordion.css",
+        "modules/mod_cinch_menu/tmpl/css/flyout.css",
+        "modules/mod_cinch_menu/tmpl/css/meg-2.css",
+        "templates/protostar/css/template592f.css"
+      ],
+      "js": [
+        "media/jui/js/bootstrap.min592f.js",
+        "media/jui/js/jquery-migrate.min592f.js",
+        "media/jui/js/jquery-noconflict592f.js",
+        "media/jui/js/jquery.min592f.js",
+        "media/system/js/caption592f.js",
+        "templates/protostar/js/template592f.js"
+      ]
+    },
+    "lesson-1-nouns/1-types-of-nouns.html": {
+      "css": [
+        "modules/mod_cinch_menu/tmpl/css/accordion.css",
+        "modules/mod_cinch_menu/tmpl/css/flyout.css",
+        "templates/protostar/css/template592f.css"
+      ],
+      "js": [
+        "media/jui/js/bootstrap.min592f.js",
+        "media/jui/js/jquery-migrate.min592f.js",
+        "media/jui/js/jquery-noconflict592f.js",
+        "media/jui/js/jquery.min592f.js",
+        "media/system/js/caption592f.js",
+        "templates/protostar/js/template592f.js"
+      ]
+    },
+    "lesson-1-nouns/2-functions-of-a-noun.html": {
+      "css": [
+        "modules/mod_cinch_menu/tmpl/css/accordion.css",
+        "modules/mod_cinch_menu/tmpl/css/flyout.css",
+        "templates/protostar/css/template592f.css"
+      ],
+      "js": [
+        "media/jui/js/bootstrap.min592f.js",
+        "media/jui/js/jquery-migrate.min592f.js",
+        "media/jui/js/jquery-noconflict592f.js",
+        "media/jui/js/jquery.min592f.js",
+        "media/system/js/caption592f.js",
+        "modules/mod_cinch_menu/tmpl/js/jquery-1.8.2.min.js",
+        "modules/mod_cinch_menu/tmpl/js/jquery-noconflict.js",
+        "templates/protostar/js/template592f.js"
+      ]
+    },
+    "lesson-11-conditionals/1-the-first-conditional.html": {
+      "css": [
+        "modules/mod_cinch_menu/tmpl/css/accordion.css",
+        "modules/mod_cinch_menu/tmpl/css/flyout.css",
+        "modules/mod_cinch_menu/tmpl/css/meg-2.css",
+        "templates/protostar/css/template592f.css"
+      ],
+      "js": [
+        "media/jui/js/bootstrap.min592f.js",
+        "media/jui/js/jquery-migrate.min592f.js",
+        "media/jui/js/jquery-noconflict592f.js",
+        "media/jui/js/jquery.min592f.js",
+        "media/system/js/caption592f.js",
+        "templates/protostar/js/template592f.js"
+      ]
+    },
+    "lesson-11-conditionals/2-the-second-conditional.html": {
+      "css": [
+        "modules/mod_cinch_menu/tmpl/css/accordion.css",
+        "modules/mod_cinch_menu/tmpl/css/flyout.css",
+        "modules/mod_cinch_menu/tmpl/css/meg-2.css",
+        "templates/protostar/css/template592f.css"
+      ],
+      "js": [
+        "media/jui/js/bootstrap.min592f.js",
+        "media/jui/js/jquery-migrate.min592f.js",
+        "media/jui/js/jquery-noconflict592f.js",
+        "media/jui/js/jquery.min592f.js",
+        "media/system/js/caption592f.js",
+        "templates/protostar/js/template592f.js"
+      ]
+    },
+    "lesson-18-verb-ing/1-the-verb-ing-used-as-the-present-participle.html": {
+      "css": [
+        "modules/mod_cinch_menu/tmpl/css/accordion.css",
+        "modules/mod_cinch_menu/tmpl/css/flyout.css",
+        "modules/mod_cinch_menu/tmpl/css/meg-2.css",
+        "templates/protostar/css/template592f.css"
+      ],
+      "js": [
+        "media/jui/js/bootstrap.min592f.js",
+        "media/jui/js/jquery-migrate.min592f.js",
+        "media/jui/js/jquery-noconflict592f.js",
+        "media/jui/js/jquery.min592f.js",
+        "media/system/js/caption592f.js",
+        "modules/mod_cinch_menu/tmpl/js/jquery-1.8.2.min.js",
+        "modules/mod_cinch_menu/tmpl/js/jquery-noconflict.js",
+        "templates/protostar/js/template592f.js"
+      ]
+    },
+    "lesson-18-verb-ing/2-the-verb-ing-used-as-an-adjective.html": {
+      "css": [
+        "modules/mod_cinch_menu/tmpl/css/accordion.css",
+        "modules/mod_cinch_menu/tmpl/css/flyout.css",
+        "modules/mod_cinch_menu/tmpl/css/meg-2.css",
+        "templates/protostar/css/template592f.css"
+      ],
+      "js": [
+        "media/jui/js/bootstrap.min592f.js",
+        "media/jui/js/jquery-migrate.min592f.js",
+        "media/jui/js/jquery-noconflict592f.js",
+        "media/jui/js/jquery.min592f.js",
+        "media/system/js/caption592f.js",
+        "templates/protostar/js/template592f.js"
+      ]
+    },
+    "lesson-17-clauses/1-independent-clause-main-clause.html": {
+      "css": [
+        "modules/mod_cinch_menu/tmpl/css/accordion.css",
+        "modules/mod_cinch_menu/tmpl/css/flyout.css",
+        "modules/mod_cinch_menu/tmpl/css/meg-2.css",
+        "templates/protostar/css/template592f.css"
+      ],
+      "js": [
+        "media/jui/js/bootstrap.min592f.js",
+        "media/jui/js/jquery-migrate.min592f.js",
+        "media/jui/js/jquery-noconflict592f.js",
+        "media/jui/js/jquery.min592f.js",
+        "media/system/js/caption592f.js",
+        "templates/protostar/js/template592f.js"
+      ]
+    },
+    "lesson-17-clauses/2-dependent-clause-subordinate-clause.html": {
+      "css": [
+        "modules/mod_cinch_menu/tmpl/css/accordion.css",
+        "modules/mod_cinch_menu/tmpl/css/flyout.css",
+        "modules/mod_cinch_menu/tmpl/css/meg-2.css",
+        "templates/protostar/css/template592f.css"
+      ],
+      "js": [
+        "media/jui/js/bootstrap.min592f.js",
+        "media/jui/js/jquery-migrate.min592f.js",
+        "media/jui/js/jquery-noconflict592f.js",
+        "media/jui/js/jquery.min592f.js",
+        "media/system/js/caption592f.js",
+        "templates/protostar/js/template592f.js"
+      ]
+    },
+    "lesson-14-either-neither/1-used-as-a-pronoun.html": {
+      "css": [
+        "modules/mod_cinch_menu/tmpl/css/accordion.css",
+        "modules/mod_cinch_menu/tmpl/css/flyout.css",
+        "modules/mod_cinch_menu/tmpl/css/meg-2.css",
+        "templates/protostar/css/template592f.css"
+      ],
+      "js": [
+        "media/jui/js/bootstrap.min592f.js",
+        "media/jui/js/jquery-migrate.min592f.js",
+        "media/jui/js/jquery-noconflict592f.js",
+        "media/jui/js/jquery.min592f.js",
+        "media/system/js/caption592f.js",
+        "templates/protostar/js/template592f.js"
+      ]
+    },
+    "lesson-14-either-neither/2-used-as-a-determiner.html": {
+      "css": [
+        "modules/mod_cinch_menu/tmpl/css/accordion.css",
+        "modules/mod_cinch_menu/tmpl/css/flyout.css",
+        "templates/protostar/css/template592f.css"
+      ],
+      "js": [
+        "media/jui/js/bootstrap.min592f.js",
+        "media/jui/js/jquery-migrate.min592f.js",
+        "media/jui/js/jquery-noconflict592f.js",
+        "media/jui/js/jquery.min592f.js",
+        "media/system/js/caption592f.js",
+        "templates/protostar/js/template592f.js"
+      ]
+    },
+    "lesson-10-modal-verb/1-can-and-could.html": {
+      "css": [
+        "modules/mod_cinch_menu/tmpl/css/accordion.css",
+        "modules/mod_cinch_menu/tmpl/css/flyout.css",
+        "modules/mod_cinch_menu/tmpl/css/meg-2.css",
+        "templates/protostar/css/template592f.css"
+      ],
+      "js": [
+        "media/jui/js/bootstrap.min592f.js",
+        "media/jui/js/jquery-migrate.min592f.js",
+        "media/jui/js/jquery-noconflict592f.js",
+        "media/jui/js/jquery.min592f.js",
+        "media/system/js/caption592f.js",
+        "templates/protostar/js/template592f.js"
+      ]
+    },
+    "lesson-10-modal-verb/2-may-and-might.html": {
+      "css": [
+        "modules/mod_cinch_menu/tmpl/css/accordion.css",
+        "modules/mod_cinch_menu/tmpl/css/flyout.css",
+        "modules/mod_cinch_menu/tmpl/css/meg-2.css",
+        "templates/protostar/css/template592f.css"
+      ],
+      "js": [
+        "media/jui/js/bootstrap.min592f.js",
+        "media/jui/js/jquery-migrate.min592f.js",
+        "media/jui/js/jquery-noconflict592f.js",
+        "media/jui/js/jquery.min592f.js",
+        "media/system/js/caption592f.js",
+        "templates/protostar/js/template592f.js"
+      ]
+    },
+    "lesson-20-phrasal-verbs/1-separable-and-non-separable-phrasal-verbs.html": {
+      "css": [
+        "modules/mod_cinch_menu/tmpl/css/accordion.css",
+        "modules/mod_cinch_menu/tmpl/css/flyout.css",
+        "modules/mod_cinch_menu/tmpl/css/meg-2.css",
+        "templates/protostar/css/template592f.css"
+      ],
+      "js": [
+        "media/jui/js/bootstrap.min592f.js",
+        "media/jui/js/jquery-migrate.min592f.js",
+        "media/jui/js/jquery-noconflict592f.js",
+        "media/jui/js/jquery.min592f.js",
+        "media/system/js/caption592f.js",
+        "templates/protostar/js/template592f.js"
+      ]
+    },
+    "lesson-20-phrasal-verbs/2-separable-transitive-phrasal-verb.html": {
+      "css": [
+        "modules/mod_cinch_menu/tmpl/css/accordion.css",
+        "modules/mod_cinch_menu/tmpl/css/flyout.css",
+        "modules/mod_cinch_menu/tmpl/css/meg-2.css",
+        "templates/protostar/css/template592f.css"
+      ],
+      "js": [
+        "media/jui/js/bootstrap.min592f.js",
+        "media/jui/js/jquery-migrate.min592f.js",
+        "media/jui/js/jquery-noconflict592f.js",
+        "media/jui/js/jquery.min592f.js",
+        "media/system/js/caption592f.js",
+        "templates/protostar/js/template592f.js"
+      ]
+    },
+    "lesson-13-indirect-speech/1-direct-speech-or-quoted-speech.html": {
+      "css": [
+        "modules/mod_cinch_menu/tmpl/css/accordion.css",
+        "modules/mod_cinch_menu/tmpl/css/flyout.css",
+        "modules/mod_cinch_menu/tmpl/css/meg-2.css",
+        "templates/protostar/css/template592f.css"
+      ],
+      "js": [
+        "media/jui/js/bootstrap.min592f.js",
+        "media/jui/js/jquery-migrate.min592f.js",
+        "media/jui/js/jquery-noconflict592f.js",
+        "media/jui/js/jquery.min592f.js",
+        "media/system/js/caption592f.js",
+        "templates/protostar/js/template592f.js"
+      ]
+    },
+    "lesson-13-indirect-speech/2-indirect-speech-or-reported-speech.html": {
+      "css": [
+        "modules/mod_cinch_menu/tmpl/css/accordion.css",
+        "modules/mod_cinch_menu/tmpl/css/flyout.css",
+        "modules/mod_cinch_menu/tmpl/css/meg-2.css",
+        "templates/protostar/css/template592f.css"
+      ],
+      "js": [
+        "media/jui/js/bootstrap.min592f.js",
+        "media/jui/js/jquery-migrate.min592f.js",
+        "media/jui/js/jquery-noconflict592f.js",
+        "media/jui/js/jquery.min592f.js",
+        "media/system/js/caption592f.js",
+        "templates/protostar/js/template592f.js"
+      ]
+    },
+    "lesson-12-modifiers/1-adjectives-and-adverbs-as-modifiers.html": {
+      "css": [
+        "modules/mod_cinch_menu/tmpl/css/accordion.css",
+        "modules/mod_cinch_menu/tmpl/css/flyout.css",
+        "modules/mod_cinch_menu/tmpl/css/meg-2.css",
+        "templates/protostar/css/template592f.css"
+      ],
+      "js": [
+        "media/jui/js/bootstrap.min592f.js",
+        "media/jui/js/jquery-migrate.min592f.js",
+        "media/jui/js/jquery-noconflict592f.js",
+        "media/jui/js/jquery.min592f.js",
+        "media/system/js/caption592f.js",
+        "templates/protostar/js/template592f.js"
+      ]
+    },
+    "lesson-12-modifiers/2-comparatives-and-superlatives-as-modifiers.html": {
+      "css": [
+        "modules/mod_cinch_menu/tmpl/css/accordion.css",
+        "modules/mod_cinch_menu/tmpl/css/flyout.css",
+        "modules/mod_cinch_menu/tmpl/css/meg-2.css",
+        "templates/protostar/css/template592f.css"
+      ],
+      "js": [
+        "media/jui/js/bootstrap.min592f.js",
+        "media/jui/js/jquery-migrate.min592f.js",
+        "media/jui/js/jquery-noconflict592f.js",
+        "media/jui/js/jquery.min592f.js",
+        "media/system/js/caption592f.js",
+        "templates/protostar/js/template592f.js"
+      ]
+    },
+    "lesson-19-determiners-and-quantifiers/1-definite-article.html": {
+      "css": [
+        "modules/mod_cinch_menu/tmpl/css/accordion.css",
+        "modules/mod_cinch_menu/tmpl/css/flyout.css",
+        "modules/mod_cinch_menu/tmpl/css/meg-2.css",
+        "templates/protostar/css/template592f.css"
+      ],
+      "js": [
+        "media/jui/js/bootstrap.min592f.js",
+        "media/jui/js/jquery-migrate.min592f.js",
+        "media/jui/js/jquery-noconflict592f.js",
+        "media/jui/js/jquery.min592f.js",
+        "media/system/js/caption592f.js",
+        "templates/protostar/js/template592f.js"
+      ]
+    },
+    "lesson-19-determiners-and-quantifiers/2-demonstratives.html": {
+      "css": [
+        "modules/mod_cinch_menu/tmpl/css/accordion.css",
+        "modules/mod_cinch_menu/tmpl/css/flyout.css",
+        "modules/mod_cinch_menu/tmpl/css/meg-2.css",
+        "templates/protostar/css/template592f.css"
+      ],
+      "js": [
+        "media/jui/js/bootstrap.min592f.js",
+        "media/jui/js/jquery-migrate.min592f.js",
+        "media/jui/js/jquery-noconflict592f.js",
+        "media/jui/js/jquery.min592f.js",
+        "media/system/js/caption592f.js",
+        "modules/mod_cinch_menu/tmpl/js/jquery-1.8.2.min.js",
+        "modules/mod_cinch_menu/tmpl/js/jquery-noconflict.js",
+        "templates/protostar/js/template592f.js"
+      ]
+    },
+    "exercise-22-test-your-vocabulary/2211-test-your-vocabulary-adjective.html": {
+      "css": [
+        "media/sliders/css/style.min.css",
+        "modules/mod_cinch_menu/tmpl/css/accordion.css",
+        "modules/mod_cinch_menu/tmpl/css/flyout.css",
+        "modules/mod_cinch_menu/tmpl/css/meg-2.css",
+        "templates/protostar/css/template592f.css"
+      ],
+      "js": [
+        "media/jui/js/bootstrap.min592f.js",
+        "media/jui/js/jquery-migrate.min592f.js",
+        "media/jui/js/jquery-noconflict592f.js",
+        "media/jui/js/jquery.min592f.js",
+        "media/system/js/caption592f.js",
+        "templates/protostar/js/template592f.js"
+      ]
+    },
+    "exercise-22-test-your-vocabulary/2221-test-your-vocabulary-verb.html": {
+      "css": [
+        "media/sliders/css/style.min.css",
+        "modules/mod_cinch_menu/tmpl/css/accordion.css",
+        "modules/mod_cinch_menu/tmpl/css/flyout.css",
+        "modules/mod_cinch_menu/tmpl/css/meg-2.css",
+        "templates/protostar/css/template592f.css"
+      ],
+      "js": [
+        "media/jui/js/bootstrap.min592f.js",
+        "media/jui/js/jquery-migrate.min592f.js",
+        "media/jui/js/jquery-noconflict592f.js",
+        "media/jui/js/jquery.min592f.js",
+        "media/system/js/caption592f.js",
+        "templates/protostar/js/template592f.js"
+      ]
+    },
+    "lesson-21-phrases/1-absolute-phrase.html": {
+      "css": [
+        "modules/mod_cinch_menu/tmpl/css/accordion.css",
+        "modules/mod_cinch_menu/tmpl/css/flyout.css",
+        "modules/mod_cinch_menu/tmpl/css/meg-2.css",
+        "templates/protostar/css/template592f.css"
+      ],
+      "js": [
+        "media/jui/js/bootstrap.min592f.js",
+        "media/jui/js/jquery-migrate.min592f.js",
+        "media/jui/js/jquery-noconflict592f.js",
+        "media/jui/js/jquery.min592f.js",
+        "media/system/js/caption592f.js",
+        "templates/protostar/js/template592f.js"
+      ]
+    },
+    "lesson-21-phrases/1-absolute-phrase2.html": {
+      "css": [
+        "modules/mod_cinch_menu/tmpl/css/accordion.css",
+        "modules/mod_cinch_menu/tmpl/css/flyout.css",
+        "modules/mod_cinch_menu/tmpl/css/meg-2.css",
+        "templates/protostar/css/template592f.css"
+      ],
+      "js": [
+        "media/jui/js/bootstrap.min592f.js",
+        "media/jui/js/jquery-migrate.min592f.js",
+        "media/jui/js/jquery-noconflict592f.js",
+        "media/jui/js/jquery.min592f.js",
+        "media/system/js/caption592f.js",
+        "templates/protostar/js/template592f.js"
+      ]
+    },
+    "exercise-6-prepositions/611-prepositions-in-on.html": {
+      "css": [
+        "media/sliders/css/style.min.css",
+        "modules/mod_cinch_menu/tmpl/css/accordion.css",
+        "modules/mod_cinch_menu/tmpl/css/flyout.css",
+        "modules/mod_cinch_menu/tmpl/css/meg-2.css",
+        "templates/protostar/css/template592f.css"
+      ],
+      "js": [
+        "media/jui/js/bootstrap.min592f.js",
+        "media/jui/js/jquery-migrate.min592f.js",
+        "media/jui/js/jquery-noconflict592f.js",
+        "media/jui/js/jquery.min592f.js",
+        "media/system/js/caption592f.js",
+        "templates/protostar/js/template592f.js"
+      ]
+    },
+    "exercise-6-prepositions/612-prepositions-at-from-of-to-with.html": {
+      "css": [
+        "media/sliders/css/style.min.css",
+        "modules/mod_cinch_menu/tmpl/css/accordion.css",
+        "modules/mod_cinch_menu/tmpl/css/flyout.css",
+        "modules/mod_cinch_menu/tmpl/css/meg-2.css",
+        "templates/protostar/css/template592f.css"
+      ],
+      "js": [
+        "media/jui/js/bootstrap.min592f.js",
+        "media/jui/js/jquery-migrate.min592f.js",
+        "media/jui/js/jquery-noconflict592f.js",
+        "media/jui/js/jquery.min592f.js",
+        "media/system/js/caption592f.js",
+        "templates/protostar/js/template592f.js"
+      ]
+    },
+    "lesson-16-punctuation/1-full-stopperiod.html": {
+      "css": [
+        "modules/mod_cinch_menu/tmpl/css/accordion.css",
+        "modules/mod_cinch_menu/tmpl/css/flyout.css",
+        "modules/mod_cinch_menu/tmpl/css/meg-2.css",
+        "templates/protostar/css/template592f.css"
+      ],
+      "js": [
+        "media/jui/js/bootstrap.min592f.js",
+        "media/jui/js/jquery-migrate.min592f.js",
+        "media/jui/js/jquery-noconflict592f.js",
+        "media/jui/js/jquery.min592f.js",
+        "media/system/js/caption592f.js",
+        "templates/protostar/js/template592f.js"
+      ]
+    },
+    "lesson-16-punctuation/10-parentheses-brackets.html": {
+      "css": [
+        "modules/mod_cinch_menu/tmpl/css/accordion.css",
+        "modules/mod_cinch_menu/tmpl/css/flyout.css",
+        "modules/mod_cinch_menu/tmpl/css/meg-2.css",
+        "templates/protostar/css/template592f.css"
+      ],
+      "js": [
+        "media/jui/js/bootstrap.min592f.js",
+        "media/jui/js/jquery-migrate.min592f.js",
+        "media/jui/js/jquery-noconflict592f.js",
+        "media/jui/js/jquery.min592f.js",
+        "media/system/js/caption592f.js",
+        "templates/protostar/js/template592f.js"
+      ]
+    },
+    "exercise-4-adverbs/411-using-adverbs-part-1.html": {
+      "css": [
+        "media/sliders/css/style.min.css",
+        "modules/mod_cinch_menu/tmpl/css/accordion.css",
+        "modules/mod_cinch_menu/tmpl/css/flyout.css",
+        "templates/protostar/css/template592f.css"
+      ],
+      "js": [
+        "media/jui/js/bootstrap.min592f.js",
+        "media/jui/js/jquery-migrate.min592f.js",
+        "media/jui/js/jquery-noconflict592f.js",
+        "media/jui/js/jquery.min592f.js",
+        "media/system/js/caption592f.js",
+        "templates/protostar/js/template592f.js"
+      ]
+    },
+    "exercise-4-adverbs/412-using-adverbs-part-2.html": {
+      "css": [
+        "media/sliders/css/style.min.css",
+        "modules/mod_cinch_menu/tmpl/css/accordion.css",
+        "modules/mod_cinch_menu/tmpl/css/flyout.css",
+        "modules/mod_cinch_menu/tmpl/css/meg-2.css",
+        "templates/protostar/css/template592f.css"
+      ],
+      "js": [
+        "media/jui/js/bootstrap.min592f.js",
+        "media/jui/js/jquery-migrate.min592f.js",
+        "media/jui/js/jquery-noconflict592f.js",
+        "media/jui/js/jquery.min592f.js",
+        "media/system/js/caption592f.js",
+        "templates/protostar/js/template592f.js"
+      ]
+    },
+    "exercise-8-agreement/811-agreement-1.html": {
+      "css": [
+        "media/sliders/css/style.min.css",
+        "modules/mod_cinch_menu/tmpl/css/accordion.css",
+        "modules/mod_cinch_menu/tmpl/css/flyout.css",
+        "modules/mod_cinch_menu/tmpl/css/meg-2.css",
+        "templates/protostar/css/template592f.css"
+      ],
+      "js": [
+        "media/jui/js/bootstrap.min592f.js",
+        "media/jui/js/jquery-migrate.min592f.js",
+        "media/jui/js/jquery-noconflict592f.js",
+        "media/jui/js/jquery.min592f.js",
+        "media/system/js/caption592f.js",
+        "templates/protostar/js/template592f.js"
+      ]
+    },
+    "exercise-8-agreement/812-agreement-2.html": {
+      "css": [
+        "media/sliders/css/style.min.css",
+        "modules/mod_cinch_menu/tmpl/css/accordion.css",
+        "modules/mod_cinch_menu/tmpl/css/flyout.css",
+        "modules/mod_cinch_menu/tmpl/css/meg-2.css",
+        "templates/protostar/css/template592f.css"
+      ],
+      "js": [
+        "media/jui/js/bootstrap.min592f.js",
+        "media/jui/js/jquery-migrate.min592f.js",
+        "media/jui/js/jquery-noconflict592f.js",
+        "media/jui/js/jquery.min592f.js",
+        "media/system/js/caption592f.js",
+        "templates/protostar/js/template592f.js"
+      ]
+    },
+    "exercise-5-pronouns/511-personal-pronoun-i.html": {
+      "css": [
+        "media/sliders/css/style.min.css",
+        "modules/mod_cinch_menu/tmpl/css/accordion.css",
+        "modules/mod_cinch_menu/tmpl/css/flyout.css",
+        "modules/mod_cinch_menu/tmpl/css/meg-2.css",
+        "templates/protostar/css/template592f.css"
+      ],
+      "js": [
+        "media/jui/js/bootstrap.min592f.js",
+        "media/jui/js/jquery-migrate.min592f.js",
+        "media/jui/js/jquery-noconflict592f.js",
+        "media/jui/js/jquery.min592f.js",
+        "media/system/js/caption592f.js",
+        "templates/protostar/js/template592f.js"
+      ]
+    },
+    "exercise-5-pronouns/512-personal-pronoun-ii.html": {
+      "css": [
+        "media/sliders/css/style.min.css",
+        "modules/mod_cinch_menu/tmpl/css/accordion.css",
+        "modules/mod_cinch_menu/tmpl/css/flyout.css",
+        "modules/mod_cinch_menu/tmpl/css/meg-2.css",
+        "templates/protostar/css/template592f.css"
+      ],
+      "js": [
+        "media/jui/js/bootstrap.min592f.js",
+        "media/jui/js/jquery-migrate.min592f.js",
+        "media/jui/js/jquery-noconflict592f.js",
+        "media/jui/js/jquery.min592f.js",
+        "media/system/js/caption592f.js",
+        "templates/protostar/js/template592f.js"
+      ]
+    },
+    "exercise-3-adjectives/311-kinds-of-adjectives.html": {
+      "css": [
+        "media/sliders/css/style.min.css",
+        "modules/mod_cinch_menu/tmpl/css/accordion.css",
+        "modules/mod_cinch_menu/tmpl/css/flyout.css",
+        "modules/mod_cinch_menu/tmpl/css/meg-2.css",
+        "templates/protostar/css/template592f.css"
+      ],
+      "js": [
+        "media/jui/js/bootstrap.min592f.js",
+        "media/jui/js/jquery-migrate.min592f.js",
+        "media/jui/js/jquery-noconflict592f.js",
+        "media/jui/js/jquery.min592f.js",
+        "media/system/js/caption592f.js",
+        "templates/protostar/js/template592f.js"
+      ]
+    },
+    "exercise-3-adjectives/321-comparing-adjectives.html": {
+      "css": [
+        "media/sliders/css/style.min.css",
+        "modules/mod_cinch_menu/tmpl/css/accordion.css",
+        "modules/mod_cinch_menu/tmpl/css/flyout.css",
+        "modules/mod_cinch_menu/tmpl/css/meg-2.css",
+        "templates/protostar/css/template592f.css"
+      ],
+      "js": [
+        "media/jui/js/bootstrap.min592f.js",
+        "media/jui/js/jquery-migrate.min592f.js",
+        "media/jui/js/jquery-noconflict592f.js",
+        "media/jui/js/jquery.min592f.js",
+        "media/system/js/caption592f.js",
+        "templates/protostar/js/template592f.js"
+      ]
+    },
+    "exercise-2-verbs/211-transitive-and-intransitive-verbs.html": {
+      "css": [
+        "media/sliders/css/style.min.css",
+        "modules/mod_cinch_menu/tmpl/css/accordion.css",
+        "modules/mod_cinch_menu/tmpl/css/flyout.css",
+        "modules/mod_cinch_menu/tmpl/css/meg-2.css",
+        "templates/protostar/css/template592f.css"
+      ],
+      "js": [
+        "media/jui/js/bootstrap.min592f.js",
+        "media/jui/js/jquery-migrate.min592f.js",
+        "media/jui/js/jquery-noconflict592f.js",
+        "media/jui/js/jquery.min592f.js",
+        "media/system/js/caption592f.js",
+        "templates/protostar/js/template592f.js"
+      ]
+    },
+    "exercise-2-verbs/221-linking-verbs.html": {
+      "css": [
+        "media/sliders/css/style.min.css",
+        "modules/mod_cinch_menu/tmpl/css/accordion.css",
+        "modules/mod_cinch_menu/tmpl/css/flyout.css",
+        "modules/mod_cinch_menu/tmpl/css/meg-2.css",
+        "templates/protostar/css/template592f.css"
+      ],
+      "js": [
+        "media/jui/js/bootstrap.min592f.js",
+        "media/jui/js/jquery-migrate.min592f.js",
+        "media/jui/js/jquery-noconflict592f.js",
+        "media/jui/js/jquery.min592f.js",
+        "media/system/js/caption592f.js",
+        "templates/protostar/js/template592f.js"
+      ]
+    },
+    "exercise-19-determiners-and-quantifiers/1911-determiners-a-an-the.html": {
+      "css": [
+        "media/sliders/css/style.min.css",
+        "modules/mod_cinch_menu/tmpl/css/accordion.css",
+        "modules/mod_cinch_menu/tmpl/css/flyout.css",
+        "modules/mod_cinch_menu/tmpl/css/meg-2.css",
+        "templates/protostar/css/template592f.css"
+      ],
+      "js": [
+        "media/jui/js/bootstrap.min592f.js",
+        "media/jui/js/jquery-migrate.min592f.js",
+        "media/jui/js/jquery-noconflict592f.js",
+        "media/jui/js/jquery.min592f.js",
+        "media/system/js/caption592f.js",
+        "templates/protostar/js/template592f.js"
+      ]
+    },
+    "exercise-19-determiners-and-quantifiers/1912-determiners-a-an-the-some.html": {
+      "css": [
+        "media/sliders/css/style.min.css",
+        "modules/mod_cinch_menu/tmpl/css/accordion.css",
+        "modules/mod_cinch_menu/tmpl/css/flyout.css",
+        "modules/mod_cinch_menu/tmpl/css/meg-2.css",
+        "templates/protostar/css/template592f.css"
+      ],
+      "js": [
+        "media/jui/js/bootstrap.min592f.js",
+        "media/jui/js/jquery-migrate.min592f.js",
+        "media/jui/js/jquery-noconflict592f.js",
+        "media/jui/js/jquery.min592f.js",
+        "media/system/js/caption592f.js",
+        "templates/protostar/js/template592f.js"
+      ]
+    },
+    "exercise-7-conjunctions/711-coordinating-conjunction-and-but.html": {
+      "css": [
+        "media/sliders/css/style.min.css",
+        "modules/mod_cinch_menu/tmpl/css/accordion.css",
+        "modules/mod_cinch_menu/tmpl/css/flyout.css",
+        "modules/mod_cinch_menu/tmpl/css/meg-2.css",
+        "templates/protostar/css/template592f.css"
+      ],
+      "js": [
+        "media/jui/js/bootstrap.min592f.js",
+        "media/jui/js/jquery-migrate.min592f.js",
+        "media/jui/js/jquery-noconflict592f.js",
+        "media/jui/js/jquery.min592f.js",
+        "media/system/js/caption592f.js",
+        "templates/protostar/js/template592f.js"
+      ]
+    },
+    "exercise-7-conjunctions/712-coordinating-conjunction-and-but.html": {
+      "css": [
+        "media/sliders/css/style.min.css",
+        "modules/mod_cinch_menu/tmpl/css/accordion.css",
+        "modules/mod_cinch_menu/tmpl/css/flyout.css",
+        "modules/mod_cinch_menu/tmpl/css/meg-2.css",
+        "templates/protostar/css/template592f.css"
+      ],
+      "js": [
+        "media/jui/js/bootstrap.min592f.js",
+        "media/jui/js/jquery-migrate.min592f.js",
+        "media/jui/js/jquery-noconflict592f.js",
+        "media/jui/js/jquery.min592f.js",
+        "media/system/js/caption592f.js",
+        "templates/protostar/js/template592f.js"
+      ]
+    },
+    "exercise-21-general/2111-part-of-speech-i.html": {
+      "css": [
+        "media/sliders/css/style.min.css",
+        "modules/mod_cinch_menu/tmpl/css/accordion.css",
+        "modules/mod_cinch_menu/tmpl/css/flyout.css",
+        "modules/mod_cinch_menu/tmpl/css/meg-2.css",
+        "templates/protostar/css/template592f.css"
+      ],
+      "js": [
+        "media/jui/js/bootstrap.min592f.js",
+        "media/jui/js/jquery-migrate.min592f.js",
+        "media/jui/js/jquery-noconflict592f.js",
+        "media/jui/js/jquery.min592f.js",
+        "media/system/js/caption592f.js",
+        "templates/protostar/js/template592f.js"
+      ]
+    },
+    "exercise-21-general/2112-part-of-speech-ii.html": {
+      "css": [
+        "media/sliders/css/style.min.css",
+        "modules/mod_cinch_menu/tmpl/css/accordion.css",
+        "modules/mod_cinch_menu/tmpl/css/flyout.css",
+        "modules/mod_cinch_menu/tmpl/css/meg-2.css",
+        "templates/protostar/css/template592f.css"
+      ],
+      "js": [
+        "media/jui/js/bootstrap.min592f.js",
+        "media/jui/js/jquery-migrate.min592f.js",
+        "media/jui/js/jquery-noconflict592f.js",
+        "media/jui/js/jquery.min592f.js",
+        "media/system/js/caption592f.js",
+        "templates/protostar/js/template592f.js"
+      ]
+    },
+    "exercise-9-articles/911-article-a-an-the-i.html": {
+      "css": [
+        "media/sliders/css/style.min.css",
+        "modules/mod_cinch_menu/tmpl/css/accordion.css",
+        "modules/mod_cinch_menu/tmpl/css/flyout.css",
+        "templates/protostar/css/template592f.css"
+      ],
+      "js": [
+        "media/jui/js/bootstrap.min592f.js",
+        "media/jui/js/jquery-migrate.min592f.js",
+        "media/jui/js/jquery-noconflict592f.js",
+        "media/jui/js/jquery.min592f.js",
+        "media/system/js/caption592f.js",
+        "templates/protostar/js/template592f.js"
+      ]
+    },
+    "exercise-9-articles/912-articles-a-an-the-ii.html": {
+      "css": [
+        "media/sliders/css/style.min.css",
+        "modules/mod_cinch_menu/tmpl/css/accordion.css",
+        "modules/mod_cinch_menu/tmpl/css/flyout.css",
+        "templates/protostar/css/template592f.css"
+      ],
+      "js": [
+        "media/jui/js/bootstrap.min592f.js",
+        "media/jui/js/jquery-migrate.min592f.js",
+        "media/jui/js/jquery-noconflict592f.js",
+        "media/jui/js/jquery.min592f.js",
+        "media/system/js/caption592f.js",
+        "templates/protostar/js/template592f.js"
+      ]
+    },
+    "lesson-2-verbs/1-principal-parts-of-a-verb.html": {
+      "css": [
+        "modules/mod_cinch_menu/tmpl/css/accordion.css",
+        "modules/mod_cinch_menu/tmpl/css/flyout.css",
+        "modules/mod_cinch_menu/tmpl/css/meg-2.css",
+        "templates/protostar/css/template592f.css"
+      ],
+      "js": [
+        "media/jui/js/bootstrap.min592f.js",
+        "media/jui/js/jquery-migrate.min592f.js",
+        "media/jui/js/jquery-noconflict592f.js",
+        "media/jui/js/jquery.min592f.js",
+        "media/system/js/caption592f.js",
+        "templates/protostar/js/template592f.js"
+      ]
+    },
+    "lesson-2-verbs/10-conjugation-of-verb-p2.html": {
+      "css": [
+        "modules/mod_cinch_menu/tmpl/css/accordion.css",
+        "modules/mod_cinch_menu/tmpl/css/flyout.css",
+        "modules/mod_cinch_menu/tmpl/css/meg-2.css",
+        "templates/protostar/css/template592f.css"
+      ],
+      "js": [
+        "media/jui/js/bootstrap.min592f.js",
+        "media/jui/js/jquery-migrate.min592f.js",
+        "media/jui/js/jquery-noconflict592f.js",
+        "media/jui/js/jquery.min592f.js",
+        "media/system/js/caption592f.js",
+        "templates/protostar/js/template592f.js"
+      ]
+    },
+    "lesson-3-adjectives/1-types-of-adjectives.html": {
+      "css": [
+        "modules/mod_cinch_menu/tmpl/css/accordion.css",
+        "modules/mod_cinch_menu/tmpl/css/flyout.css",
+        "templates/protostar/css/template592f.css"
+      ],
+      "js": [
+        "media/jui/js/bootstrap.min592f.js",
+        "media/jui/js/jquery-migrate.min592f.js",
+        "media/jui/js/jquery-noconflict592f.js",
+        "media/jui/js/jquery.min592f.js",
+        "media/system/js/caption592f.js",
+        "modules/mod_cinch_menu/tmpl/js/jquery-1.8.2.min.js",
+        "modules/mod_cinch_menu/tmpl/js/jquery-noconflict.js",
+        "templates/protostar/js/template592f.js"
+      ]
+    },
+    "lesson-3-adjectives/1a-types-of-adjectives.html": {
+      "css": [
+        "modules/mod_cinch_menu/tmpl/css/accordion.css",
+        "modules/mod_cinch_menu/tmpl/css/flyout.css",
+        "modules/mod_cinch_menu/tmpl/css/meg-2.css",
+        "templates/protostar/css/template592f.css"
+      ],
+      "js": [
+        "media/jui/js/bootstrap.min592f.js",
+        "media/jui/js/jquery-migrate.min592f.js",
+        "media/jui/js/jquery-noconflict592f.js",
+        "media/jui/js/jquery.min592f.js",
+        "media/system/js/caption592f.js",
+        "templates/protostar/js/template592f.js"
+      ]
+    },
+    "lesson-22-participles/1-participle-and-verb-tenses.html": {
+      "css": [
+        "modules/mod_cinch_menu/tmpl/css/accordion.css",
+        "modules/mod_cinch_menu/tmpl/css/flyout.css",
+        "modules/mod_cinch_menu/tmpl/css/meg-2.css",
+        "templates/protostar/css/template592f.css"
+      ],
+      "js": [
+        "media/jui/js/bootstrap.min592f.js",
+        "media/jui/js/jquery-migrate.min592f.js",
+        "media/jui/js/jquery-noconflict592f.js",
+        "media/jui/js/jquery.min592f.js",
+        "media/system/js/caption592f.js",
+        "modules/mod_cinch_menu/tmpl/js/jquery-1.8.2.min.js",
+        "modules/mod_cinch_menu/tmpl/js/jquery-noconflict.js",
+        "templates/protostar/js/template592f.js"
+      ]
+    },
+    "lesson-22-participles/1-participle-and-verb-tenses2.html": {
+      "css": [
+        "modules/mod_cinch_menu/tmpl/css/accordion.css",
+        "modules/mod_cinch_menu/tmpl/css/flyout.css",
+        "modules/mod_cinch_menu/tmpl/css/meg-2.css",
+        "templates/protostar/css/template592f.css"
+      ],
+      "js": [
+        "media/jui/js/bootstrap.min592f.js",
+        "media/jui/js/jquery-migrate.min592f.js",
+        "media/jui/js/jquery-noconflict592f.js",
+        "media/jui/js/jquery.min592f.js",
+        "media/system/js/caption592f.js",
+        "modules/mod_cinch_menu/tmpl/js/jquery-1.8.2.min.js",
+        "modules/mod_cinch_menu/tmpl/js/jquery-noconflict.js",
+        "templates/protostar/js/template592f.js"
+      ]
+    },
+    "exercise-12-modifiers/1211-adjectives-as-modifiers.html": {
+      "css": [
+        "media/sliders/css/style.min.css",
+        "modules/mod_cinch_menu/tmpl/css/accordion.css",
+        "modules/mod_cinch_menu/tmpl/css/flyout.css",
+        "modules/mod_cinch_menu/tmpl/css/meg-2.css",
+        "templates/protostar/css/template592f.css"
+      ],
+      "js": [
+        "media/jui/js/bootstrap.min592f.js",
+        "media/jui/js/jquery-migrate.min592f.js",
+        "media/jui/js/jquery-noconflict592f.js",
+        "media/jui/js/jquery.min592f.js",
+        "media/system/js/caption592f.js",
+        "templates/protostar/js/template592f.js"
+      ]
+    },
+    "exercise-12-modifiers/1212-adverbs-as-modifiers.html": {
+      "css": [
+        "media/sliders/css/style.min.css",
+        "modules/mod_cinch_menu/tmpl/css/accordion.css",
+        "modules/mod_cinch_menu/tmpl/css/flyout.css",
+        "modules/mod_cinch_menu/tmpl/css/meg-2.css",
+        "templates/protostar/css/template592f.css"
+      ],
+      "js": [
+        "media/jui/js/bootstrap.min592f.js",
+        "media/jui/js/jquery-migrate.min592f.js",
+        "media/jui/js/jquery-noconflict592f.js",
+        "media/jui/js/jquery.min592f.js",
+        "media/system/js/caption592f.js",
+        "templates/protostar/js/template592f.js"
+      ]
+    },
+    "exercise-18-verb-ing-gerunds-and-particles/1811-verb-ing-gerund.html": {
+      "css": [
+        "media/sliders/css/style.min.css",
+        "modules/mod_cinch_menu/tmpl/css/accordion.css",
+        "modules/mod_cinch_menu/tmpl/css/flyout.css",
+        "modules/mod_cinch_menu/tmpl/css/meg-2.css",
+        "templates/protostar/css/template592f.css"
+      ],
+      "js": [
+        "media/jui/js/bootstrap.min592f.js",
+        "media/jui/js/jquery-migrate.min592f.js",
+        "media/jui/js/jquery-noconflict592f.js",
+        "media/jui/js/jquery.min592f.js",
+        "media/system/js/caption592f.js",
+        "templates/protostar/js/template592f.js"
+      ]
+    },
+    "exercise-18-verb-ing-gerunds-and-particles/1812-verb-ing-gerund-and-present-participle.html": {
+      "css": [
+        "media/sliders/css/style.min.css",
+        "modules/mod_cinch_menu/tmpl/css/accordion.css",
+        "modules/mod_cinch_menu/tmpl/css/flyout.css",
+        "modules/mod_cinch_menu/tmpl/css/meg-2.css",
+        "templates/protostar/css/template592f.css"
+      ],
+      "js": [
+        "media/jui/js/bootstrap.min592f.js",
+        "media/jui/js/jquery-migrate.min592f.js",
+        "media/jui/js/jquery-noconflict592f.js",
+        "media/jui/js/jquery.min592f.js",
+        "media/system/js/caption592f.js",
+        "templates/protostar/js/template592f.js"
+      ]
+    },
+    "exercise-17-clauses/1721-adjective-clauses.html": {
+      "css": [
+        "media/sliders/css/style.min.css",
+        "modules/mod_cinch_menu/tmpl/css/accordion.css",
+        "modules/mod_cinch_menu/tmpl/css/flyout.css",
+        "modules/mod_cinch_menu/tmpl/css/meg-2.css",
+        "templates/protostar/css/template592f.css"
+      ],
+      "js": [
+        "media/jui/js/bootstrap.min592f.js",
+        "media/jui/js/jquery-migrate.min592f.js",
+        "media/jui/js/jquery-noconflict592f.js",
+        "media/jui/js/jquery.min592f.js",
+        "media/system/js/caption592f.js",
+        "templates/protostar/js/template592f.js"
+      ]
+    },
+    "exercise-17-clauses/1731-adverbial-clauses.html": {
+      "css": [
+        "media/sliders/css/style.min.css",
+        "modules/mod_cinch_menu/tmpl/css/accordion.css",
+        "modules/mod_cinch_menu/tmpl/css/flyout.css",
+        "modules/mod_cinch_menu/tmpl/css/meg-2.css",
+        "templates/protostar/css/template592f.css"
+      ],
+      "js": [
+        "media/jui/js/bootstrap.min592f.js",
+        "media/jui/js/jquery-migrate.min592f.js",
+        "media/jui/js/jquery-noconflict592f.js",
+        "media/jui/js/jquery.min592f.js",
+        "media/system/js/caption592f.js",
+        "templates/protostar/js/template592f.js"
+      ]
+    },
+    "exercise-13-indirect-speech/1311-direct-to-indirect-speech-i.html": {
+      "css": [
+        "media/sliders/css/style.min.css",
+        "modules/mod_cinch_menu/tmpl/css/accordion.css",
+        "modules/mod_cinch_menu/tmpl/css/flyout.css",
+        "modules/mod_cinch_menu/tmpl/css/meg-2.css",
+        "templates/protostar/css/template592f.css"
+      ],
+      "js": [
+        "media/jui/js/bootstrap.min592f.js",
+        "media/jui/js/jquery-migrate.min592f.js",
+        "media/jui/js/jquery-noconflict592f.js",
+        "media/jui/js/jquery.min592f.js",
+        "media/system/js/caption592f.js",
+        "templates/protostar/js/template592f.js"
+      ]
+    },
+    "exercise-13-indirect-speech/1312-direct-to-indirect-speech-ii.html": {
+      "css": [
+        "media/sliders/css/style.min.css",
+        "modules/mod_cinch_menu/tmpl/css/accordion.css",
+        "modules/mod_cinch_menu/tmpl/css/flyout.css",
+        "modules/mod_cinch_menu/tmpl/css/meg-2.css",
+        "templates/protostar/css/template592f.css"
+      ],
+      "js": [
+        "media/jui/js/bootstrap.min592f.js",
+        "media/jui/js/jquery-migrate.min592f.js",
+        "media/jui/js/jquery-noconflict592f.js",
+        "media/jui/js/jquery.min592f.js",
+        "media/system/js/caption592f.js",
+        "templates/protostar/js/template592f.js"
+      ]
+    },
+    "exercise-15-passive-voice/1511-passive-voice-simple-present-tense.html": {
+      "css": [
+        "media/sliders/css/style.min.css",
+        "modules/mod_cinch_menu/tmpl/css/accordion.css",
+        "modules/mod_cinch_menu/tmpl/css/flyout.css",
+        "modules/mod_cinch_menu/tmpl/css/meg-2.css",
+        "templates/protostar/css/template592f.css"
+      ],
+      "js": [
+        "media/jui/js/bootstrap.min592f.js",
+        "media/jui/js/jquery-migrate.min592f.js",
+        "media/jui/js/jquery-noconflict592f.js",
+        "media/jui/js/jquery.min592f.js",
+        "media/system/js/caption592f.js",
+        "templates/protostar/js/template592f.js"
+      ]
+    },
+    "exercise-15-passive-voice/1521-passive-voice-present-perfect-tense.html": {
+      "css": [
+        "media/sliders/css/style.min.css",
+        "modules/mod_cinch_menu/tmpl/css/accordion.css",
+        "modules/mod_cinch_menu/tmpl/css/flyout.css",
+        "modules/mod_cinch_menu/tmpl/css/meg-2.css",
+        "templates/protostar/css/template592f.css"
+      ],
+      "js": [
+        "media/jui/js/bootstrap.min592f.js",
+        "media/jui/js/jquery-migrate.min592f.js",
+        "media/jui/js/jquery-noconflict592f.js",
+        "media/jui/js/jquery.min592f.js",
+        "media/system/js/caption592f.js",
+        "templates/protostar/js/template592f.js"
+      ]
+    },
+    "lesson-15-active-and-passive-voice/1-active-and-passive-voice.html": {
+      "css": [
+        "modules/mod_cinch_menu/tmpl/css/accordion.css",
+        "modules/mod_cinch_menu/tmpl/css/flyout.css",
+        "modules/mod_cinch_menu/tmpl/css/meg-2.css",
+        "templates/protostar/css/template592f.css"
+      ],
+      "js": [
+        "media/jui/js/bootstrap.min592f.js",
+        "media/jui/js/jquery-migrate.min592f.js",
+        "media/jui/js/jquery-noconflict592f.js",
+        "media/jui/js/jquery.min592f.js",
+        "media/system/js/caption592f.js",
+        "modules/mod_cinch_menu/tmpl/js/jquery-1.8.2.min.js",
+        "modules/mod_cinch_menu/tmpl/js/jquery-noconflict.js",
+        "templates/protostar/js/template592f.js"
+      ]
+    },
+    "lesson-15-active-and-passive-voice/2-tenses-in-the-passive-voice.html": {
+      "css": [
+        "modules/mod_cinch_menu/tmpl/css/accordion.css",
+        "modules/mod_cinch_menu/tmpl/css/flyout.css",
+        "modules/mod_cinch_menu/tmpl/css/meg-2.css",
+        "templates/protostar/css/template592f.css"
+      ],
+      "js": [
+        "media/jui/js/bootstrap.min592f.js",
+        "media/jui/js/jquery-migrate.min592f.js",
+        "media/jui/js/jquery-noconflict592f.js",
+        "media/jui/js/jquery.min592f.js",
+        "media/system/js/caption592f.js",
+        "templates/protostar/js/template592f.js"
+      ]
+    },
+    "exercise-11-conditionals/1111-first-conditional.html": {
+      "css": [
+        "media/sliders/css/style.min.css",
+        "modules/mod_cinch_menu/tmpl/css/accordion.css",
+        "modules/mod_cinch_menu/tmpl/css/flyout.css",
+        "modules/mod_cinch_menu/tmpl/css/meg-2.css",
+        "templates/protostar/css/template592f.css"
+      ],
+      "js": [
+        "media/jui/js/bootstrap.min592f.js",
+        "media/jui/js/jquery-migrate.min592f.js",
+        "media/jui/js/jquery-noconflict592f.js",
+        "media/jui/js/jquery.min592f.js",
+        "media/system/js/caption592f.js",
+        "templates/protostar/js/template592f.js"
+      ]
+    },
+    "exercise-11-conditionals/1112-second-conditional.html": {
+      "css": [
+        "media/sliders/css/style.min.css",
+        "modules/mod_cinch_menu/tmpl/css/accordion.css",
+        "modules/mod_cinch_menu/tmpl/css/flyout.css",
+        "modules/mod_cinch_menu/tmpl/css/meg-2.css",
+        "templates/protostar/css/template592f.css"
+      ],
+      "js": [
+        "media/jui/js/bootstrap.min592f.js",
+        "media/jui/js/jquery-migrate.min592f.js",
+        "media/jui/js/jquery-noconflict592f.js",
+        "media/jui/js/jquery.min592f.js",
+        "media/system/js/caption592f.js",
+        "templates/protostar/js/template592f.js"
+      ]
+    },
+    "exercise-1-nouns/111-common-nouns.html": {
+      "css": [
+        "media/sliders/css/style.min.css",
+        "modules/mod_cinch_menu/tmpl/css/accordion.css",
+        "modules/mod_cinch_menu/tmpl/css/flyout.css",
+        "modules/mod_cinch_menu/tmpl/css/meg-2.css",
+        "templates/protostar/css/template592f.css"
+      ],
+      "js": [
+        "media/jui/js/bootstrap.min592f.js",
+        "media/jui/js/jquery-migrate.min592f.js",
+        "media/jui/js/jquery-noconflict592f.js",
+        "media/jui/js/jquery.min592f.js",
+        "media/system/js/caption592f.js",
+        "templates/protostar/js/template592f.js"
+      ]
+    },
+    "exercise-1-nouns/112-proper-nouns.html": {
+      "css": [
+        "media/sliders/css/style.min.css",
+        "modules/mod_cinch_menu/tmpl/css/accordion.css",
+        "modules/mod_cinch_menu/tmpl/css/flyout.css",
+        "modules/mod_cinch_menu/tmpl/css/meg-2.css",
+        "templates/protostar/css/template592f.css"
+      ],
+      "js": [
+        "media/jui/js/bootstrap.min592f.js",
+        "media/jui/js/jquery-migrate.min592f.js",
+        "media/jui/js/jquery-noconflict592f.js",
+        "media/jui/js/jquery.min592f.js",
+        "media/sliders/js/script.min.js",
+        "media/system/js/caption592f.js",
+        "templates/protostar/js/template592f.js"
+      ]
+    }
+  },
+  "css": {
+    "local": [
+      "media/sliders/css/style.min.css",
+      "modules/mod_cinch_menu/tmpl/css/accordion.css",
+      "modules/mod_cinch_menu/tmpl/css/flyout.css",
+      "modules/mod_cinch_menu/tmpl/css/meg-2.css",
+      "templates/protostar/css/template592f.css",
+      "templates/webfont/specimen_files/grid_12-825-55-15.css",
+      "templates/webfont/specimen_files/specimen_stylesheet.css",
+      "templates/webfont/stylesheet.css"
+    ],
+    "external": [
+      "http://eaglesvn.com/css/resposivetest.css",
+      "http://eaglesvn.com/css/tablesaw/dist/tablesaw.css",
+      "https://eaglesvn.com/megs/modules/mod_cinch_menu/tmpl/css/meg-2.css",
+      "https://fonts.googleapis.com/css2?family=Inconsolata:wght@200;300;400;500;700&family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400&family=Roboto+Condensed:ital,wght@0,300;0,400;0,700;1,300;1,400&display=swap"
+    ]
+  },
+  "js": {
+    "local": [
+      "media/jui/js/bootstrap.min592f.js",
+      "media/jui/js/jquery-migrate.min592f.js",
+      "media/jui/js/jquery-noconflict592f.js",
+      "media/jui/js/jquery.min592f.js",
+      "media/sliders/js/script.min.js",
+      "media/system/js/caption592f.js",
+      "media/system/js/core592f.js",
+      "modules/mod_cinch_menu/tmpl/js/jquery-1.8.2.min.js",
+      "modules/mod_cinch_menu/tmpl/js/jquery-noconflict.js",
+      "templates/protostar/js/template592f.js"
+    ],
+    "external": [
+      "http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js",
+      "http://eaglesvn.com/css/tablesaw/dist/tablesaw-init.js",
+      "http://eaglesvn.com/css/tablesaw/dist/tablesaw.js",
+      "http://www.google.com/coop/cse/brand?form=cse-search-box&lang=en"
+    ]
+  },
+  "fonts": {
+    "local": [
+      "media/jui/fonts/IcoMoon.eot",
+      "media/jui/fonts/IcoMoon.ttf",
+      "media/jui/fonts/IcoMoon.woff"
+    ],
+    "external": []
+  }
+}

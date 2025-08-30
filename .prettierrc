@@ -12,7 +12,10 @@
   "htmlWhitespaceSensitivity": "ignore",
   "overrides": [
     {
-      "files": "*.html",
+      "files": [
+        "*.html",
+        "*.htm"
+      ],
       "options": {
         "printWidth": 140,
         "bracketSameLine": true,

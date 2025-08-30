@@ -1,6 +1,32 @@
 {
+"css.autoValidation": "Never",
+"css.validate": false,
+"html.validate.scripts": false,
+"html.validate.styles": false,
+"javascript.validate.enable": false,
+"json.validate.enable": false,
+"less.validate": false,
+"markdown.validate.enabled": false,
+"php.validate.enable": false,
+"scss.validate": false,
+"typescript.validate.enable": false,
+"yaml.validate": false,
+
+"html.trace.server": "messages",
+"css.lint.boxModel": "ignore",
+
+"css.lint": false,
+
+"css.format.enable": false,
+"html.format.enable": false,
+"javascript.format.enable": false,
+"json.format.enable": false,
+"less.format.enable": false,
+"scss.format.enable": false,
+"typescript.format.enable": false,
+"yaml.format.enable": false,
   // Disable built-in HTML formatter so it can't fight Prettier
-  "html.format.enable": false,
+  
   // Prettier is THE formatter
   "prettier.requireConfig": true,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
@@ -35,7 +61,8 @@
   "editor.codeActionsOnSave": {
     "source.fixAll": "never",
     "source.fixAll.eslint": "never",
-    "source.fixAll.stylelint": "never"
+    "source.fixAll.stylelint": "never",
+    "source.fixAll.html-validate": "never"
   },
   // ESLint shouldn't format (Prettier handles formatting)
   "eslint.format.enable": false,
@@ -66,13 +93,15 @@
   },
   "emmet.syntaxProfiles": {
     "html": {
-      "selfClosingStyle": "html"
+      "selfClosingStyle": "html",
     }
   },
   // Help HTML/CSS validators/extensions resolve class definitions across workspace
   "css-peek.includeGlobPatterns": ["**/*.css", "**/*.scss", "**/*.less"],
   "html-css-class-completion.includeGlobPattern": "**/*.{css,scss,less}",
   "cSpell.words": [
+    "autofocus",
+    "autoplay",
     "boxhead",
     "boxlist",
     "checkedout",

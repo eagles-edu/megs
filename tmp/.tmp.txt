@@ -1,0 +1,20 @@
+- Prettier: prettier.config.(m)js with 2025 defaults + overrides; ensure it’s the only
+formatter; no lint responsibility. yes
+- ESLint: Flat config (eslint.config.js) current + rules blocks:
+    - Enforce: no-undef, no-unused-vars (tuned), no-console off.  yes
+    - Disable: any stylistic rules conflicting with Prettier via eslint-config-prettier. yes
+blocks:
+    - Enforce: doctype-style, void-style, attr-quotes, no-trailing-whitespace. yes
+    - Disable: id-style, class-style, any project-specific allowances.   ??
+- Stylelint: stylelint.config.(c)js:
+    - Extends stylelint-config-standard  yes.       (and optionally *-scss), customSyntax for SCSS/LESS. no need
+    - Enforce: e.g., color-hex-case, number-leading-zero, describe behavior more granularly
+declaration-block-trailing-semicolon.
+    - Disable: class naming patterns if not relevant; HTML/Vue handling off to prevent
+cross-reporting.
+- Scripts: each script should have short names like 'stylelint lint css' (lint all css stylesheets, that are linked to content pages, not demos for fonts, not stored backups -bu and copies), 'stylelint fix css' (fix all css stylesheets, that are linked to content pages, not demos for fonts, not stored backups -bu and copies, *****should identify these first and scope configs accordingly*********), 'stylelint lint css-html' (lint between all head-based <style> tags in html pages, that are content pages proper , not demos for fonts, not stored backups -bu and copies), 'eslint lint js-html' (lint between all page-based <script> tags in html pages, that are content pages proper , not demos for fonts, not stored backups -bu and copies), 'eslint lint js' (lint all link-based <script> tags in html pages , noting deprecations,conflicts, package currency, loading order, that are content pages proper , not demos for fonts, not stored backups -bu and copies), 'html-validate lint html' (lint  html pages, that are content pages proper , not demos for fonts, not stored backups -bu and copies), 'html-validate fix html' (fix  html pages, that are content pages proper , not demos for fonts, not stored backups -bu and copies), 'prettier format open' (format   recognized files in open editors, that are content pages proper , not demos for fonts, not stored backups -bu and copies), 'prettier format all css' (format   scoped css files, that are linked to content pages proper , not demos for fonts, not stored backups -bu and copies)
+    - lint: lint:js && lint:css && lint:html (no fixes).'prettier format all js' (format   scoped js files, that are linked to content pages proper , not demos for fonts, not stored backups -bu and copies), 'prettier format all md' (format all scoped md files, that are linked to content pages proper , not demos for fonts, not stored backups -bu and copies)
+    - lint: lint:js && lint:css && lint:html (no fixes).
+    - lint: lint:js && lint:css && lint:html (no fixes).
+    - lint:js|css|html and fix:js|css|html, plus a top-level fix.
+- Optional: .editorconfig and .vscode/settings.json to codify editor behavior. yes

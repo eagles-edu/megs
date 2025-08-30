@@ -1,11 +1,14 @@
 module.exports = {
   extends: ['stylelint-config-standard'],
-  ignoreFiles: ['**/node_modules/**', '**/dist/**', '**/sto/**', '**/.sto/**', '**/._notes/**', '.env', '**/*.html', '**/*.htm'],
-  overrides: [
-    {
-      files: ['**/*.vue'],
-      customSyntax: 'postcss-html',
-    },
+  ignoreFiles: [
+    '**/node_modules/**',
+    '**/dist/**',
+    '**/sto/**',
+    '**/.sto/**',
+    '**/._notes/**',
+    '.env',
+    '**/*.html',
+    '**/*.htm'
   ],
   rules: {
     /* Keep stylistic overlap with Prettier low; Prettier formats, this validates */
