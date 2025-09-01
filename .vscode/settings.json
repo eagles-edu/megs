@@ -160,6 +160,11 @@
   "gemini-cli-vscode.gemini.args": [],
   "gemini-cli-vscode.codex.command": "codex",
   "gemini-cli-vscode.codex.args": [],
+  "checkpoints.showActiveFileOnly": false,
+  "checkpoints.addCheckpointOnSave": true,
+  "checkpoints.locale": "vi-VN",
+  "checkpoints.location": "scm",
+  "checkpoints.askForCheckpointName": false,
 
   // Debug if needed:
   // "html-validate.trace.server": "messages"

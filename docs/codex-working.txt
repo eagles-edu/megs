@@ -2108,14 +2108,14 @@ this html-validate version uses id-pattern/class-pattern instead—so there’s 
            ent-colours-in-the-rainbow"
     428                            class="accordion-toggle nn_sliders-toggle"
     429                            data-toggle="collapse"
-    430   -                        data-id="2-we-counted-only-six-different-colours-in-the-rain
+    430   -                        data-id="q2-we-counted-only-six-different-colours-in-the-rain
            bow"
     430   +                        data-id="sec-2-we-counted-only-six-different-colours-in-the-
            rainbow"
     431                            data-parent="#set-nn_sliders-2">
     ⋮
     434                        </div>
-    435   -                    <div class="accordion-body nn_sliders-body collapse" id="2-we-co
+    435   -                    <div class="accordion-body nn_sliders-body collapse" id="q2-we-co
            unted-only-six-different-colours-in-the-rainbow">
     435   +                    <div class="accordion-body nn_sliders-body collapse" id="sec-2-w
            e-counted-only-six-different-colours-in-the-rainbow">
@@ -2156,13 +2156,13 @@ this html-validate version uses id-pattern/class-pattern instead—so there’s 
            to-see-the-black-sheep"
     494                            class="accordion-toggle nn_sliders-toggle"
     495                            data-toggle="collapse"
-    496   -                        data-id="4-they-have-gone-to-the-zoo-to-see-the-black-sheep"
+    496   -                        data-id="q4-they-have-gone-to-the-zoo-to-see-the-black-sheep"
     496   +                        data-id="sec-4-they-have-gone-to-the-zoo-to-see-the-black-sh
            eep"
     497                            data-parent="#set-nn_sliders-4">
     ⋮
     500                        </div>
-    501   -                    <div class="accordion-body nn_sliders-body collapse" id="4-they-
+    501   -                    <div class="accordion-body nn_sliders-body collapse" id="q4-they-
            have-gone-to-the-zoo-to-see-the-black-sheep">
     501   +                    <div class="accordion-body nn_sliders-body collapse" id="sec-4-t
            hey-have-gone-to-the-zoo-to-see-the-black-sheep">
@@ -2186,13 +2186,13 @@ this html-validate version uses id-pattern/class-pattern instead—so there’s 
            ms-and-cried-loudly"
     523                            class="accordion-toggle nn_sliders-toggle"
     524                            data-toggle="collapse"
-    525   -                        data-id="5-she-put-her-head-on-her-arms-and-cried-loudly"
+    525   -                        data-id="q5-she-put-her-head-on-her-arms-and-cried-loudly"
     525   +                        data-id="sec-5-she-put-her-head-on-her-arms-and-cried-loudly
            "
     526                            data-parent="#set-nn_sliders-5">
     ⋮
     529                        </div>
-    530   -                    <div class="accordion-body nn_sliders-body collapse" id="5-she-p
+    530   -                    <div class="accordion-body nn_sliders-body collapse" id="q5-she-p
            ut-her-head-on-her-arms-and-cried-loudly">
     530   +                    <div class="accordion-body nn_sliders-body collapse" id="sec-5-s
            he-put-her-head-on-her-arms-and-cried-loudly">
@@ -2231,12 +2231,12 @@ this html-validate version uses id-pattern/class-pattern instead—so there’s 
            to-the-monkeys"
     583                            class="accordion-toggle nn_sliders-toggle"
     584                            data-toggle="collapse"
-    585   -                        data-id="7-he-threw-some-salted-nuts-to-the-monkeys"
+    585   -                        data-id="q7-he-threw-some-salted-nuts-to-the-monkeys"
     585   +                        data-id="sec-7-he-threw-some-salted-nuts-to-the-monkeys"
     586                            data-parent="#set-nn_sliders-7">
     ⋮
     589                        </div>
-    590   -                    <div class="accordion-body nn_sliders-body collapse" id="7-he-th
+    590   -                    <div class="accordion-body nn_sliders-body collapse" id="q7-he-th
            rew-some-salted-nuts-to-the-monkeys">
     590   +                    <div class="accordion-body nn_sliders-body collapse" id="sec-7-h
            e-threw-some-salted-nuts-to-the-monkeys">
@@ -2260,14 +2260,14 @@ this html-validate version uses id-pattern/class-pattern instead—so there’s 
            -ball-around-in-the-field"
     612                            class="accordion-toggle nn_sliders-toggle"
     613                            data-toggle="collapse"
-    614   -                        data-id="8-the-children-are-kicking-a-ball-around-in-the-fie
+    614   -                        data-id="q8-the-children-are-kicking-a-ball-around-in-the-fie
            ld"
     614   +                        data-id="sec-8-the-children-are-kicking-a-ball-around-in-the
            -field"
     615                            data-parent="#set-nn_sliders-8">
     ⋮
     618                        </div>
-    619   -                    <div class="accordion-body nn_sliders-body collapse" id="8-the-c
+    619   -                    <div class="accordion-body nn_sliders-body collapse" id="q8-the-c
            hildren-are-kicking-a-ball-around-in-the-field">
     619   +                    <div class="accordion-body nn_sliders-body collapse" id="sec-8-t
            he-children-are-kicking-a-ball-around-in-the-field">
@@ -2291,14 +2291,14 @@ this html-validate version uses id-pattern/class-pattern instead—so there’s 
     665                    <div class="nn_sliders accordion panel-group" id="set-nn_sliders-10"
            >                       class="accordion-toggle nn_sliders-toggle"
     666   -                  <a id="nn_sliders-scrollto_10" class="anchor nn_sliders-scroll"></
-           a>                      data-id="9-that-temple-was-built-before-my-grandfather-was-b
+           a>                      data-id="q9-that-temple-was-built-before-my-grandfather-was-b
     666   +                  <span id="nn_sliders-scrollto_10" class="anchor nn_sliders-scroll"
            ></span>                data-id="sec-9-that-temple-was-built-before-my-grandfather-w
     667                      <div class="accordion-group panel nn_sliders-group">
     668   -                    <a  data-parent="#set-nn_sliders-9">
     668   +                    <span
     669                          id="nn_sliders-scrollto_10-he-bought-balloons-for-his-children
-           -and-their-friends" <div class="accordion-body nn_sliders-body collapse" id="9-that-
+           -and-their-friends" <div class="accordion-body nn_sliders-body collapse" id="q9-that-
     670   -                      class="anchor nn_sliders-scroll"></a>
     670   +                      class="anchor nn_sliders-scroll"></span> collapse" id="sec-9-t
     671                        <div class="accordion-heading panel-heading">
@@ -2594,3 +2594,43 @@ causing these fictitious lint errors  [{
 
 
 
+
+
+===== CODEx NOTE @ 2025-08-31T16:08:12+07:00 =====
+Session start
+
+
+===== CODEx NOTE @ 2025-08-31T09:08:21.886Z =====
+Memory system updated: added scripts/startup.sh (marks session, prints last 'CODEx NOTE' or tail -n 300, whichever greater); updated scripts/show-last-note.sh to 300 lines; package.json start -> scripts/startup.sh.
+
+
+===== CODEx NOTE @ 2025-08-31T09:12:26.651Z =====
+Updated startup scripts: comments now read 'last 300 lines or the last CODEx date-stamped SESSION'.
+
+
+===== CODEx NOTE @ 2025-08-31T16:14:25+07:00 =====
+Session start
+
+
+===== CODEx NOTE @ 2025-08-31T16:25:32+07:00 =====
+Session start
+
+
+===== CODEx NOTE @ 2025-08-31T16:30:16+07:00 =====
+Session start
+
+
+===== CODEx NOTE @ 2025-08-31T16:34:18+07:00 =====
+Session start
+
+
+===== CODEx NOTE @ 2025-08-31T19:14:03+07:00 =====
+Session start
+
+
+===== CODEx NOTE @ 2025-08-31T19:15:17+07:00 =====
+Session start
+
+
+===== CODEx NOTE @ 2025-08-31T20:27:12+07:00 =====
+Session start

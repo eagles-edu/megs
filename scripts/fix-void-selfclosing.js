@@ -8,7 +8,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 
-const DEFAULT_GLOBS = ["**/*.html", "**/*.htm"]; 
+const DEFAULT_GLOBS = ["**/*.html", "**/*.htm"];
 
 // simple glob walker (no deps): recurse and filter by extensions
 function* walk(dir) {

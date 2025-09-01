@@ -1,5 +1,7 @@
-\n--- NEW SESSION --- Sat Aug 30 05:33:41 PM +07 2025 ---\n
-\n--- BEGIN SESSION HISTORY LOG ---\n
+--- NEW SESSION --- Sat Aug 30 05:33:41 PM +07 2025 ---
+
+--- BEGIN SESSION HISTORY LOG ---
+
 USER: review on lint, format, and fix status = who lints, fixes, formats which file types, be specifc
 MODEL: Based on the configuration files in your project, here is a specific breakdown of who lints, formats, and fixes which file types.
 I will first read the relevant configuration files to give you a precise summary.
@@ -36,12 +38,14 @@ Okay, after reviewing your configuration files, here is the detailed breakdown.
     *   `npm run lint:html` (to find issues)
     *   `npm run lint:html:fix` (to automatically fix what it can
 ### Summary Table
+```
 | Tool | Task | File Types | Configuration | Run Command |
 | :--- | :--- | :--- | :--- | :--- |
 | **Prettier** | Formatting | `.js`, `.html`, `.css`, `.json`... | `.prettierrc` | `npm run format` |
 | **ESLint** | Linting & Fixing | `.js`, `.mjs`, `.cjs` | `eslint.config.js` | `npm run lint:js:fix` |
 | **Stylelint** | Linting & Fixing | `.css`, `.scss`, `.less` | `.stylelintrc.cjs` | `npm run lint:css:fix` |
 | **HTML-Validate**| Linting | `.html`, `.htm` | `.htmlvalidate.json`| `npm run lint:html` |
+```
 USER: add enforced and disabled rules for each linter
 MODEL: Of course. Here is a more detailed breakdown of the rules for each linter based on your configuration files.
 ### 1. ESLint (`eslint.config.js`)
@@ -107,5 +111,59 @@ Now, I will begin logging this session as requested.
 The logging directive is now active. I have permanently stored your instructions and have started logging this session.
 
 From this point forward, all my shell command interactions will be logged to `docs/gemini.log`. In future sessions, I will begin by reviewing that log file to ensure continuity.
-\n--- END SESSION HISTORY LOG ---
-\n --- NEW SESSION --- Sat Aug 30 07:37:24 PM +07 2025
+
+--- END SESSION HISTORY LOG ---
+
+ --- NEW SESSION --- Sat Aug 30 07:37:24 PM +07 2025
+Command: find . -type f -name "*.html" -exec sed -i 's|media/sliders/jquery.min592f.js|media/sliders/js/script.min.js|g' {} +
+Directory: (root)
+Stdout: (empty)
+Stderr: (none)
+Exit Code: 0
+
+--- NEW SESSION ---
+Sun Aug 31 04:32:49 PM +07 2025
+Command: (echo "--- NEW SESSION ---" && date) >> /home/eagles/dockerz/megs/docs/gemini.md
+Directory: (root)
+Stdout: (empty)
+Stderr: (none)
+Exit Code: 0
+
+Command: tail -n 300 /home/eagles/dockerz/megs/docs/gemini.md
+Directory: (root)
+Stdout: <see above>
+Stderr: (none)
+Exit Code: 0
+
+---
+
+### Updating the Gemini CLI
+
+To ensure you have the latest features and security updates, you should periodically update the Gemini CLI and other Google Cloud components.
+
+The standard command to check for and install updates is:
+
+```bash
+gcloud components update
+```
+
+**How it works:**
+
+1.  This command checks for new versions of all your installed `gcloud` components.
+2.  If updates are available, it will list them and ask for your confirmation before proceeding with the installation.
+3.  If everything is already up-to-date, it will simply inform you of that.
+
+---
+
+--- BEGIN LOG CORRECTION NOTICE ---
+At this point in the session, a series of shell commands were executed to install, update, and subsequently uninstall the Google Cloud CLI using 'apt-get'.
+Due to a failure in my logging process, the verbatim, unabridged output (stdout/stderr) from these commands was not captured and is permanently lost.
+This is a violation of my core instructions. The log is now accurate in acknowledging this gap.
+All subsequent shell commands will be logged in full.
+--- END LOG CORRECTION NOTICE ---
+
+---
+
+# NEW SESSION: Monday, September 1, 2025
+
+---

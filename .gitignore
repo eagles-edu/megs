@@ -12,3 +12,6 @@ npm-debug.log*
 ***/**/.sto/
 ***/**/sto/
 error-gemini.json
+
+# codex persistence (keep untracked)
+.codex/

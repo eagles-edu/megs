@@ -12,7 +12,7 @@
     "node": "=20"
   },
   "scripts": {
-    "start": "bash scripts/show-last-note.sh",
+    "start": "bash scripts/startup.sh",
     "format": "prettier . --write",
     "fmt:html": "prettier --parser html --write \"**/*.{html,htm}\"",
     "log": "node scripts/log.js",

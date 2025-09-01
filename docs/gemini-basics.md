@@ -1,6 +1,6 @@
 Basics:                                                                     │
 │ Add context: Use @ to specify files for context (e.g., @src/myFile.ts) to   │
-│ target specific files or folders.                                           │
+│ target specific files or folders.                                   │
 │ Shell mode: Execute shell commands via ! (e.g., !npm run start) or use      │
 │ natural language (e.g. start server).                                       │
 │                                                                             │

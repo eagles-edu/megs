@@ -34,10 +34,12 @@ Live Server “unknown setting”: if you don’t have that extension installed,
 
 ## Logging
 
-- Command: `npm run log -- "your message"` (appends to `docs/codex-working.txt`).
-- Pipe stdin: `echo "multi-line\nmessage" | npm run log`.
-- View last entry: `npm start` (prints the latest CODEx note or last 200 lines).
-- Script location: `scripts/log.js` (appender) and `scripts/show-last-note.sh` (viewer).
+- Source of truth: `docs/codex-log.md` (no summaries or extra logs).
+- Session header: `===== CODEx SESSION START @ 2025-08-31T13:45:22Z =====`
+- Append a note: `npm run log -- "your message"` (writes to `docs/codex-log.md`).
+- Startup ingest: `npm start` silently reads either the latest session block or a 300-line tail; if the current log has <300 lines, it backfills from the most recent archives until 300 are gathered; only a one-line status summary is printed.
+- Rotation: archives to `docs/codex-archive/` when file > ~5MB, and weekly at Mon 08:00 (+07). Archived filenames include local +07 timestamp.
+- Scripts: `scripts/log.js` (appender), `scripts/show-last-note.sh` (viewer), `scripts/startup.sh` (startup + rotation + ingest).
 
 ## Startup Tasks
 

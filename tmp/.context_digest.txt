@@ -1,0 +1,17 @@
+    876                    <div class="nn_sliders accordion panel-group" id="set-nn_sliders-17"
+           >
+    877   -                  <a id="nn_sliders-scrollto_17" class="anchor nn_sliders-scroll"></
+           a>
+    877   +                  <span id="nn_sliders-scrollto_17" class="anchor nn_sliders-scroll"
+           ></span>
+    878                      <div class="accordion-group panel nn_sliders-group">
+    879   -                    <a id="nn_sliders-scrollto_17-let-me-look-at-your-puppies-and-ki
+           ttens" class="anchor nn_sliders-scroll"></a>
+    879   +                    <span id="nn_sliders-scrollto_17-let-me-look-at-your-puppies-and
+           -kittens" class="anchor nn_sliders-scroll"></span>
+    880                        <div class="accordion-heading panel-heading">
+    881                          <a
+    882   -                        href="111-common-nouns.html#17-let-me-look-at-your-puppies-a
+           nd-kittens"
+    882   +                        href="
+…[truncated]
