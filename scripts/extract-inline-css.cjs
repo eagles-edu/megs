@@ -4,6 +4,7 @@
 
 /**
  * Inline CSS extractor -> stylesheet classes.
+ *./scripts/extract-inline-css.js -r
  *
  * Modes & scope:
  * - Default: processes .html/.htm in the **current directory only** (not subdirs)

@@ -1,4 +1,4 @@
-Broken Links: 
+Broken Links:
 
 public_html/eaglesvn.com/megs/exercise-11-conditionals.html	exercise-11-conditionalsdcab.feed?type=rss
 public_html/eaglesvn.com/megs/exercise-11-conditionals.html	exercise-11-conditionalsb550.feed?type=atom
@@ -1294,7 +1294,7 @@ public_html/eaglesvn.com/megs/writing/writing-resources/14-figuative-language-1.
 public_html/eaglesvn.com/megs/writing/writing-resources/14-figuative-language-1.html	../../list-15-idiomsb550.feed?type=atom
 
 
-External Links: 
+External Links:
 
 public_html/eaglesvn.com/megs/a-b.html	search-results.html
 public_html/eaglesvn.com/megs/c-d.html	modules/mod_cinch_menu/tmpl/css/meg-2.css
@@ -2615,7 +2615,7 @@ public_html/eaglesvn.com/megs/writing/writing-resources/13-abreviations-vs-acron
 public_html/eaglesvn.com/megs/writing/writing-resources/14-figuative-language-1.html	search-results.html
 
 
-Orphaned Files: 
+Orphaned Files:
 
 public_html/eaglesvn.com/megs/backblue.gif
 public_html/eaglesvn.com/megs/cookies.txt

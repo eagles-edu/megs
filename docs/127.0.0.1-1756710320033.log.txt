@@ -1,0 +1,18 @@
+14:04:58.106 jquery.min592f.js:1375 Uncaught SyntaxError: Invalid or unexpected token
+14:04:58.106 jquery-noconflict592f.js:1 Uncaught ReferenceError: jQuery is not defined
+    at jquery-noconflict592f.js:1:1
+14:04:58.106 jquery-migrate.min592f.js:2 Uncaught ReferenceError: jQuery is not defined
+    at jquery-migrate.min592f.js:2:2
+14:04:58.107 111-common-nouns.html:107 Uncaught ReferenceError: jQuery is not defined
+    at 111-common-nouns.html:107:1
+14:04:58.107 111-common-nouns.html:141 Uncaught ReferenceError: jQuery is not defined
+    at 111-common-nouns.html:141:13
+14:04:58.110 111-common-nouns.html:1064 Uncaught ReferenceError: jQuery is not defined
+    at 111-common-nouns.html:1064:11
+14:04:58.171 bootstrap.min592f.js:10 Uncaught TypeError: e is not a function
+    at bootstrap.min592f.js:10:3
+    at bootstrap.min592f.js:26:3
+14:04:58.172 script.min.js:306 Uncaught ReferenceError: jQuery is not defined
+    at script.min.js:306:4
+14:04:58.172 template592f.js:9 Uncaught ReferenceError: jQuery is not defined
+    at template592f.js:9:1

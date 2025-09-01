@@ -486,7 +486,7 @@
           "text": "info .caret,\n.btn-success .caret,\n.btn-inverse .caret {\n  border-top-color: #fff;\n  border-bottom-color: #fff;\n}\n\n.btn-group-vertical {\n  display: inline-block;\n\n  /* removed legacy"
         },
         {
-          "text": " IE6/7 hasLayout hack: *zoom:1; */\n}\n\n.btn-group-vertical > .btn {\n  display: block;\n  float: none;\n  width: 100%;\n  border-radius: 0;\n}\n\n.btn-group-vertical >"
+          "text": " IE6/7 hasLayout hack: *zoom:1; */\n}\n\n.btn-group-vertical > .btn {\n  display: block;\n  float: none;\n  width: 100%;\n  border-radius: 0;\n}\n\n.btn-group-vertical --"
         },
         {
           "text": " .btn + .btn {\n  margin-top: -1px;\n  margin-left: 0;\n}\n\n.btn-group-vertical > .btn:first-child {\n  border-radius: 4px 4px 0 0;\n}\n\n.btn-"
@@ -594,7 +594,7 @@
           "text": "\n\n.tabs-below > .nav-tabs > li > a:hover,\n.tabs-below > .nav-tabs > li > a:focus {\n  border-top-color: #ddd;\n  border-bottom-color: transparent;\n}\n\n.tabs-below > ."
         },
         {
-          "text": "nav-tabs > .active > a,\n.tabs-below > .nav-tabs > .active > a:hover,\n.tabs-below > .nav-tabs > .active > a:focus {\n  border-color: transparent #ddd #ddd;\n}\n\n.tabs-left >"
+          "text": "nav-tabs > .active > a,\n.tabs-below > .nav-tabs > .active > a:hover,\n.tabs-below > .nav-tabs > .active > a:focus {\n  border-color: transparent #ddd #ddd;\n}\n\n.tabs-left --"
         },
         {
           "text": " .nav-tabs > li,\n.tabs-right > .nav-tabs > li {\n  float: none;\n}\n\n.tabs-left > .nav-tabs > li > a,\n.tabs-right > .nav-tabs > li > a {\n  min-width: "
@@ -687,7 +687,7 @@
           "text": "\n  content: '';\n  display: inline-block;\n  border-right: 6px solid transparent;\n  border-bottom: 6px solid #fff;\n  border-left: 6px solid transparent;\n  position: absolute;\n  top: -6px;"
         },
         {
-          "text": "\n  left: 10px;\n}\n\n.navbar-fixed-bottom .nav > li > .dropdown-menu::before {\n  border-top: 7px solid #ccc;\n  border-bottom: 0;\n}\n\n.navbar-fixed-bottom .nav > li >"
+          "text": "\n  left: 10px;\n}\n\n.navbar-fixed-bottom .nav > li > .dropdown-menu::before {\n  border-top: 7px solid #ccc;\n  border-bottom: 0;\n}\n\n.navbar-fixed-bottom .nav > li --"
         },
         {
           "text": " .dropdown-menu::after {\n  border-top: 6px solid #fff;\n  border-bottom: 0;\n}\n\n.navbar .nav li.dropdown > a:hover .caret,\n.navbar .nav li.dropdown > a:focus .caret {\n  opacity"
@@ -702,7 +702,7 @@
           "text": " li.dropdown.open > .dropdown-toggle .caret,\n.navbar .nav li.dropdown.active > .dropdown-toggle .caret,\n.navbar .nav li.dropdown.open.active > .dropdown-toggle .caret {\n  border-top-color: #fff;\n  "
         },
         {
-          "text": "border-bottom-color: #fff;\n}\n\n.navbar .pull-right > li > .dropdown-menu,\n.navbar .nav > li > .dropdown-menu.pull-right {\n  right: 0;\n  left: auto;\n}\n\n.navbar .pull-right >"
+          "text": "border-bottom-color: #fff;\n}\n\n.navbar .pull-right > li > .dropdown-menu,\n.navbar .nav > li > .dropdown-menu.pull-right {\n  right: 0;\n  left: auto;\n}\n\n.navbar .pull-right --"
         },
         {
           "text": " li > .dropdown-menu::before,\n.navbar .nav > li > .dropdown-menu.pull-right::before {\n  right: 12px;\n  left: auto;\n}\n\n.navbar .pull-right > li > .dropdown-menu::after,\n.navbar ."

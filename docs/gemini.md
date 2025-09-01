@@ -2,7 +2,7 @@
 
 --- BEGIN SESSION HISTORY LOG ---
 
-USER: review on lint, format, and fix status = who lints, fixes, formats which file types, be specifc
+USER: review on lint, format, and fix status = who lints, fixes, formats which file types, be specific
 MODEL: Based on the configuration files in your project, here is a specific breakdown of who lints, formats, and fixes which file types.
 I will first read the relevant configuration files to give you a precise summary.
 [TOOL CALL: read_many_files]
@@ -167,3 +167,17 @@ All subsequent shell commands will be logged in full.
 # NEW SESSION: Monday, September 1, 2025
 
 ---
+
+# Command Log: cp copies of exercise files
+Command: cp /home/eagles/dockerz/megs/exercise-1-nouns/111-common-nouns.html /home/eagles/dockerz/megs/exercise-1-nouns/111-common-nouns-gemini.html && cp /home/eagles/dockerz/megs/exercise-1-nouns/112-proper-nouns.html /home/eagles/dockerz/megs/exercise-1-nouns/112-proper-nouns-gemini.html && cp /home/eagles/dockerz/megs/exercise-1-nouns/113-abstract-nouns.html /home/eagles/dockerz/megs/exercise-1-nouns/113-abstract-nouns-gemini.html
+Directory: (root)
+Stdout: (empty)
+Stderr: (none)
+Exit Code: 0
+---
+--- NEW SESSION ---
+Mon Sep  1 02:12:03 PM +07 2025
+--- NEW SESSION ---
+Mon Sep  1 06:43:19 PM +07 2025
+--- NEW SESSION ---
+Tue Sep  2 02:32:35 AM +07 2025

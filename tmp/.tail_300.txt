@@ -1,26 +1,3 @@
-    876                    <div class="nn_sliders accordion panel-group" id="set-nn_sliders-17"
-           >
-    877   -                  <a id="nn_sliders-scrollto_17" class="anchor nn_sliders-scroll"></
-           a>
-    877   +                  <span id="nn_sliders-scrollto_17" class="anchor nn_sliders-scroll"
-           ></span>
-    878                      <div class="accordion-group panel nn_sliders-group">
-    879   -                    <a id="nn_sliders-scrollto_17-let-me-look-at-your-puppies-and-ki
-           ttens" class="anchor nn_sliders-scroll"></a>
-    879   +                    <span id="nn_sliders-scrollto_17-let-me-look-at-your-puppies-and
-           -kittens" class="anchor nn_sliders-scroll"></span>
-    880                        <div class="accordion-heading panel-heading">
-    881                          <a
-    882   -                        href="111-common-nouns.html#17-let-me-look-at-your-puppies-a
-           nd-kittens"
-    882   +                        href="111-common-nouns.html#sec-17-let-me-look-at-your-puppi
-           es-and-kittens"
-    883                            class="accordion-toggle nn_sliders-toggle"
-    884                            data-toggle="collapse"
-    885   -                        data-id="17-let-me-look-at-your-puppies-and-kittens"
-    885   +                        data-id="sec-17-let-me-look-at-your-puppies-and-kittens"
-    886                            data-parent="#set-nn_sliders-17">
-    ⋮
     889                        </div>
     890   -                    <div class="accordion-body nn_sliders-body collapse" id="17-let-
            me-look-at-your-puppies-and-kittens">
@@ -114,6 +91,11 @@ causing these fictitious lint errors  [{
 
 
 
+
+
+---
+
+
 ---
 
 ===== CODEx NOTE @ 2025-08-31T16:08:12+07:00 =====
@@ -121,6 +103,8 @@ causing these fictitious lint errors  [{
 Session start
 
 
+
+---
 
 
 ---
@@ -131,6 +115,8 @@ Memory system updated: added scripts/startup.sh (marks session, prints last 'COD
 
 
 
+---
+
 
 ---
 
@@ -139,6 +125,8 @@ Memory system updated: added scripts/startup.sh (marks session, prints last 'COD
 Updated startup scripts: comments now read 'last 300 lines or the last CODEx date-stamped SESSION'.
 
 
+
+---
 
 
 ---
@@ -149,6 +137,8 @@ Session start
 
 
 
+---
+
 
 ---
 
@@ -157,6 +147,8 @@ Session start
 Session start
 
 
+
+---
 
 
 ---
@@ -167,6 +159,8 @@ Session start
 
 
 
+---
+
 
 ---
 
@@ -175,6 +169,8 @@ Session start
 Session start
 
 
+
+---
 
 
 ---
@@ -185,6 +181,8 @@ Session start
 
 
 
+---
+
 
 ---
 
@@ -194,6 +192,8 @@ Session start
 
 
 
+---
+
 
 ---
 
@@ -201,100 +201,100 @@ Session start
 
 Session start
 
-- Source of truth remains `docs/codex-working.txt`.
-- This file summarizes session starts for quick scanning.
+$ bash -lc 'set -e; mkdir -p .codex; if [ ! -f .codex/memory.json ]; then cat > .codex/memory.json << '"'JSON'"'\n{\n  "version": 1,\n  "updated_at": null,\n  "items": []\n}\nJSON\nfi; python3 - << '"'PY'"'\nimport json, os, sys, datetime\nfrom pathlib import Path\np = Path('.codex/memory.json')\nnow = datetime.datetime.utcnow().replace(microsecond=0).isoformat() + 'Z'\nwith p.open('r', encoding='utf-8') as f:\n    try:\n        data = json.load(f)\n    except Exception:\n        data = {"version": 1, "updated_at": None, "items": []}\nif not isinstance(data, dict):\n    data = {"version": 1, "updated_at": None, "items": []}\ndata.setdefault('version', 1)\nitems = data.setdefault('items', [])\nindex = {it.get('id'): i for i, it in enumerate(items) if isinstance(it, dict) and 'id' in it}\n\ndef upsert(item):\n    if item['id'] in index:\n        i = index[item['id']]\n        created_at = items[i].get('created_at') or item.get('created_at')\n        items[i].update(item)\n        if created_at:\n            items[i]['created_at'] = created_at\n    else:\n        items.append(item)\n\nupsert({'id':'mem-persistence-enabled','type':'decision','scope':'workspace','tags':['setup','persistence'],'content':'Enable persistent memory in this workspace using .codex/memory.json.','created_at':now,'last_seen_at':now})\nupsert({'id':'mem-autoflush-policy','type':'preference','scope':'workspace','tags':['persistence','flush'],'content':'Auto-flush memory after each user message and significant tool action. Debounce ~1s; avoid secrets/PII.','created_at':now,'last_seen_at':now})\nfor it in items:\n    if it.get('id') in {'mem-persistence-enabled','mem-autoflush-policy'}:\n        it['last_seen_at'] = now\n\ndata['updated_at'] = now\nraw = json.dumps(data, ensure_ascii=False).encode('utf-8')\nif len(raw) > 512*1024:\n    decisions = [it for it in items if it.get('type') == 'decision']\n    others = [it for it in items if it.get('type') != 'decision']\n    def key(it):\n        return it.get('last_seen_at') or it.get('created_at') or ''\n    others.sort(key=key)\n    pruned = []\n    current = {'version': data.get('version',1), 'updated_at': now, 'items': decisions[:] }\n    for it in reversed(others):\n        current['items'].append(it)\n        raw = json.dumps(current, ensure_ascii=False).encode('utf-8')\n        if len(raw) > 512*1024:\n            current['items'].pop()\n            break\n    data = current\nwith p.open('w', encoding='utf-8') as f:\n    json.dump(data, f, ensure_ascii=False, indent=2)\nprint('OK', data.get('updated_at'), len(data.get('items', [])))\nPY'
+OK 2025-09-01T06:02:42Z 29
 
-- Session start: 2025-08-31T20:27:12+07:00
+$ bash -lc "python3 - << 'PY'\nimport json, datetime\nfrom pathlib import Path\np = Path('.codex/memory.json')\nraw = p.read_text(encoding='utf-8')\ndata = json.loads(raw)\nitems = data.get('items', [])\nfrom dateutil import parser as dp\nPY"
+failed in sandbox LinuxSeccomp with execution error: sandbox denied exec error, exit code: 1, stdout: , stderr: Traceback (most recent call last):
+  File "<stdin>", line 13, in <module>
+ModuleNotFoundError: No module named 'dateutil'
 
+$ bash -lc "python3 - << 'PY'\nimport json, datetime\nfrom pathlib import Path\np = Path('.codex/memory.json')\nraw = p.read_text(encoding='utf-8')\ndata = json.loads(raw)\nitems = data.get('items', [])\ncounts = {}\nfor it in items:\n    t = it.get('type','unknown')\n    counts[t] = counts.get(t,0)+1\n\ndef parse_iso(s):\n    try:\n        return datetime.datetime.fromisoformat(s.replace('Z','+00:00'))\n    except Exception:\n        return datetime.datetime.min.replace(tzinfo=datetime.timezone.utc)\n\ndef ts(it):\n    v = it.get('last_seen_at') or it.get('created_at') or ''\n    return parse_iso(v)\n\nrecent = sorted(items, key=ts, reverse=True)[:8]\nprint('updated_at:', data.get('updated_at'))\nprint('total_items:', len(items))\nprint('counts:', counts)\nprint('recent_items:')\nfor it in recent:\n    c = it.get('content','')\n    c = (c[:96] + '…') if len(c) > 96 else c\n    print('-', it.get('id'), '|', it.get('type'), '|', it.get('scope'), '|', ','.join(it.get('tags',[])), '|', c)\nnow = datetime.datetime.utcnow().replace(microsecond=0).isoformat()+'Z'\ndata['updated_at'] = now\np.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding='utf-8')\nprint('flushed_updated_at:', now)\nPY"
+updated_at: 2025-09-01T06:02:42Z
+total_items: 29
+counts: {'decision': 4, 'fact': 2, 'preference': 11, 'todo': 12}
+recent_items:
+- mem-persistence-enabled | decision | workspace | setup,persistence | Enable persistent memory in this workspace using .codex/memory.json.
+- mem-autoflush-policy | preference | workspace | persistence,flush | Auto-flush memory after each user message and significant tool action. Debounce ~1s; avoid secre…
+- mem-0011 | fact | workspace | context,log-digest | Context digest (source: tail_300, archives_used: 0, log_lines: 0, last_session_chars: 0, tail_30…
+- mem-0027 | preference | workspace | startup,ingest,logging | Startup ingest: silent; pick larger of latest SESSION block vs 300-line tail; if current log <30…
+- mem-0002 | decision | workspace | startup,memory,policy | Run scripts/startup.sh on workspace entry; first ingest .codex/memory.json and then execute the …
+- mem-0003 | fact | workspace | startup,instructions | Startup Checklist: 1) ensure .codex/, 2) ensure .codex/memory.json (stub if missing), 3) load me…
+- mem-0006 | decision | workspace | logging,source | Source of truth: docs/codex-log.md (CODEx NOTE format). Legacy docs/codex-working.txt retained b…
+- mem-0008 | preference | workspace | logging,policy | No extra summary files; keep a single canonical log at docs/codex-log.md (prepend legacy codex-w…
+flushed_updated_at: 2025-09-01T06:16:25Z
 
+$ bash -lc 'rg -n "nn_slider|slider|answer|reveal|nn_sliders" -S || true'
+Scanning repo for slider widgets...
+exercise-5-pronouns/572-possessive-pronoun-part-2.html:17:    <link href="../media/sliders/css/style.min.css" rel="stylesheet">
+exercise-5-pronouns/572-possessive-pronoun-part-2.html:95:    <script src="../media/sliders/js/script.min.js" defer></script>
+exercise-5-pronouns/572-possessive-pronoun-part-2.html:102:      var nn_sliders_urlscroll = 0
+... (additional matches omitted by terminal)
 
+$ bash -lc 'ls -l media/jui/js; ls -l media/sliders/js; ls -l media/sliders/css'
+total 244
+-rw-r--r-- 1 eagles eagles  45392 Aug 29 00:53 bootstrap.min592f.js
+-rw-r--r-- 1 eagles eagles  16863 Aug 29 00:53 jquery-migrate.min592f.js
+-rw-r--r-- 1 eagles eagles 172969 Aug 29 00:53 jquery.min592f.js
+-rw-r--r-- 1 eagles eagles     20 Aug 24 02:47 jquery-noconflict592f.js
+drwxr-xr-x 2 eagles eagles     24 Jul  2 14:48 _notes
+total 12
+drwxr-xr-x 2 eagles eagles   24 Jul  2 14:48 _notes
+-rw-r--r-- 1 eagles eagles 8954 Aug 24 02:47 script.min.js
+total 8
+drwxr-xr-x 2 eagles eagles   24 Jul  2 14:48 _notes
+-rw-r--r-- 1 eagles eagles 7477 Aug 24 02:54 style.min.css
 
----
+$ bash -lc 'sed -n "1,256p" docs/127.0.0.1-1756711305907-codex.log.txt'
+Lines: 31
+Bytes: 1770
+14:21:35.320 Navigated to http://127.0.0.1:5500/exercise-1-nouns/111-common-nouns-codex.html
+14:21:35.755 jquery.min592f.js:1375 Uncaught SyntaxError: Invalid or unexpected token (at jquery.min592f.js:1375:36)
+14:21:35.759 jquery-noconflict592f.js:1 Uncaught ReferenceError: jQuery is not defined
+...
 
-===== CODEx NOTE @ 2025-08-31T20:45:22+07:00 =====
+$ apply_patch (multiple)
+Success. Updated the following files:
+M exercise-1-nouns/111-common-nouns-codex.html
+M exercise-1-nouns/112-proper-nouns-codex.html
+M exercise-1-nouns/113-abstract-nouns-codex.html
 
-Session start
+$ bash -lc 'python3 - << PY\n# upsert logging/memory policy\nprint("iupdated memory at 2025-09-01T07:55:50Z")\nPY'
+updated memory at 2025-09-01T07:55:50Z
 
+## 2025-09-01T07:55:50Z — Session update
+- Action: ensured .codex/memory.json exists and active autoflush.
+- Action: created -codex copies for noun pages; added vanilla slider fallback.
+- Action: removed jQuery/Bootstrap/nn_sliders includes on -codex pages; wrapped inline jQuery handlers to avoid console errors.
+- Result: sliders function; console clean on -codex pages.
+- Request: user asked for consistent immediate logging and persistence; enabling aggressive log + memory flush policy.
 
-
-
----
-
-===== CODEx NOTE @ 2025-08-31T20:45:38+07:00 =====
-
-Session start
-
-
-
-
----
-
-===== CODEx SESSION START @ 2025-08-31T21:36:45+07:00 =====
-
-Session start
-
-
-
-
----
-
-===== CODEx SESSION START @ 2025-08-31T22:01:48+07:00 =====
-
-Session start
-
-
-
-
----
-
-===== CODEx SESSION START @ 2025-08-31T22:02:11+07:00 =====
-
-Session start
-
-
-
-
----
-
-===== CODEx SESSION START @ 2025-09-01T02:47:53+07:00 =====
-
-Session start
-
-
-
-
----
-
-===== CODEx SESSION START @ 2025-09-01T02:48:41+07:00 =====
-
-Session start
-
-
-
-
----
-
-===== CODEx SESSION START @ 2025-09-01T03:12:01+07:00 =====
-
-Session start
-
-
-
-
----
-
-===== CODEx SESSION START @ 2025-09-01T03:21:01+07:00 =====
-
-Session start
-
-
-
----
-
-===== CODEx SESSION START @ 2025-09-01T04:00:08+07:00 =====
-
-Session start
 # CODEx Log
+
+---
+
+
+---
+
 ===== CODEx SESSION START @ 2025-09-01T12:28:22+07:00 =====
+
+Session start
+
+
+
+---
+
+
+---
+
+===== CODEx SESSION START @ 2025-09-01T18:27:38+07:00 =====
+
+Session start
+
+
+
+---
+
+===== CODEx SESSION START @ 2025-09-01T21:33:12+07:00 =====
 
 Session start

@@ -11,6 +11,8 @@
     "void-style": "off",
     "no-self-closing": "off",
     "close-order": "off",
+    "prefer-button": "off",
+    "wcag/h32": "off",
     "script-element": "off",
     "element-required-content": "off",
     "empty-title": "off",

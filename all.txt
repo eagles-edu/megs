@@ -1,4 +1,4 @@
-Broken Links: 
+Broken Links:
 
 megs/exercise-11-conditionals.html	exercise-11-conditionalsdcab.feed?type=rss
 megs/exercise-11-conditionals.html	exercise-11-conditionalsb550.feed?type=atom
@@ -532,7 +532,7 @@ megs/vocabulary/places/places-pizzeria-zoo.html	../../places/places-haven--pit.h
 megs/vocabulary/places/places-pizzeria-zoo.html	../index-2.html
 
 
-External Links: 
+External Links:
 
 megs/a-b.html	search-results.html
 megs/c-d.html	modules/mod_cinch_menu/tmpl/css/meg-2.css
@@ -1820,7 +1820,7 @@ megs/writing/writing-resources/13-abreviations-vs-acronyms.html	https://abbrevia
 megs/writing/writing-resources/14-figuative-language-1.html	search-results.html
 
 
-Orphaned Files: 
+Orphaned Files:
 
 megs/backblue.gif
 megs/cookies.txt

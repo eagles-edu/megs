@@ -1,4 +1,4 @@
-Broken Links: 
+Broken Links:
 
 eaglesvn.com/megs/exercise-1-nouns.html	exercise-1-nounsdcab.feed?type=rss
 eaglesvn.com/megs/exercise-1-nouns.html	exercise-1-nounsb550.feed?type=atom
@@ -2094,7 +2094,7 @@ eaglesvn.com/megs/writing/writing-resources/13-abreviations-vs-acronyms.html	../
 eaglesvn.com/megs/writing/writing-resources/13-abreviations-vs-acronyms.html	../../writing/passageway-a-way-allowing-passage/61-vocabulary/places.html
 
 
-External Links: 
+External Links:
 
 eaglesvn.com/megs/a-b.html	search-results.html
 eaglesvn.com/megs/c-d.html	modules/mod_cinch_menu/tmpl/css/meg-2.css
@@ -4520,7 +4520,7 @@ eaglesvn.com/megs/writing/writing-resources/13-abreviations-vs-acronyms.html	htt
 eaglesvn.com/megs/writing/writing-resources/13-abreviations-vs-acronyms.html	https://abbreviations.yourdictionary.com/articles/common-accronyms.html
 
 
-Orphaned Files: 
+Orphaned Files:
 
 eaglesvn.com/megs/backblue.gif
 eaglesvn.com/megs/cookies.txt

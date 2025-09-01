@@ -25,8 +25,8 @@ This workspace expects Codex CLI to enable and execute memory persistence immedi
   "items": [
     {
       "id": "mem-0001",
-      "type": "fact",        
-      "scope": "workspace",  
+      "type": "fact",
+      "scope": "workspace",
       "tags": ["setup", "conventions"],
       "content": "Example: Use .codex/memory.json for persistence.",
       "created_at": "2025-01-01T00:00:00Z",
