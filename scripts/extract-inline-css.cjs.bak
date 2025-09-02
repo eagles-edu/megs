@@ -148,7 +148,7 @@ function sanitizeValueToken(raw) {
     '.': 'pt',
     '%': 'pct',
     '/': '',
-    '\': '',
+    '\\': '',
     '+': '',
     '&': 'amp',
     '@': '',
@@ -176,7 +176,7 @@ function sanitizeValueToken(raw) {
   }
   let s = String(raw)
   s = s.trim().replace(/\s+/g, ' ')
-  s = s.replace(/[\s.%/\\+&@:;,=|~^!?#"'`()[\\]{}<>]/g, (ch) => CHAR_MAP[ch] ?? '')
+  s = s.replace(/[\s.%/\\+&@:;,=|~^!?#"'`()[\]{}<>]/g, (ch) => CHAR_MAP[ch] ?? '')
   s = s.replace(/-+/g, '-')
   if (s.startsWith('-')) s = 'n' + s.slice(1)
   s = s.toLowerCase().replace(/[^a-z0-9_-]/g, '')
@@ -325,9 +325,7 @@ function listHtmlFiles(startDir, recursive) {
 ;(async function run() {
   // banner lines & stats
   const bannerMode = DRY ? 'DRY-RUN' : 'APPLY'
-  const header = `${bannerMode} (${CLASS_MODE}; safe-writes:${SAFE_WRITES ? 'on' : 'off'}; ${RECURSIVE ? 'recursive' : 'current-dir'})
-================================
-`
+  const header = `${bannerMode} (${CLASS_MODE}; safe-writes:${SAFE_WRITES ? 'on' : 'off'}; ${RECURSIVE ? 'recursive' : 'current-dir'})\n================================\n`
 
   // collect target files
   const files = listHtmlFiles(RUN_DIR, RECURSIVE)
@@ -469,38 +467,18 @@ function listHtmlFiles(startDir, recursive) {
 
   // PHASE 2: Write (if Apply)
   if (APPLY) {
-    // Aggregate unique CSS rules for each target file.
-    const aggregatedCss = new Map() // Map<cssPath, Set<cssRule>>
+    // Write CSS appends first
     for (const item of plan) {
       if (!item.cssAppend) continue
-      if (!aggregatedCss.has(item.cssTargetAbs)) {
-        aggregatedCss.set(item.cssTargetAbs, new Set())
-      }
-      // cssAppend can have multiple rules, separated by a newline.
-      const rules = item.cssAppend.trim().split(/(?<=\}\\)\s*\\n/);
-      rules.forEach(rule => {
-        if (rule) aggregatedCss.get(item.cssTargetAbs).add(rule.trim());
-      });
-    }
-
-    // Write aggregated CSS.
-    for (const [cssPath, ruleSet] of aggregatedCss.entries()) {
+      const cssPath = item.cssTargetAbs
       const cssDir = path.dirname(cssPath)
       ensureDir(cssDir)
       const existing = fs.existsSync(cssPath) ? fs.readFileSync(cssPath, 'utf8') : ''
-      const newRules = Array.from(ruleSet).filter(rule => !existing.includes(rule));
-
-      if (newRules.length > 0) {
-        const contentToAppend = newRules.join('  \n')
-        const next =
-          existing +
-          (existing && !existing.trim().endsWith('  \n') ? '  \n' : '') +
-          contentToAppend +
-          '\n'
-        SAFE_WRITES
-          ? writeFileAtomic(cssPath, next)
-          : fs.writeFileSync(cssPath, next, 'utf8')
-      }
+      const next =
+        existing + (existing && !existing.endsWith('\n') ? '\n' : '') + item.cssAppend
+      SAFE_WRITES
+        ? writeFileAtomic(cssPath, next)
+        : fs.writeFileSync(cssPath, next, 'utf8')
     }
     // Then write HTML
     for (const item of plan) {
@@ -580,4 +558,18 @@ Other:
   -h, --help          Show this help and exit.
 
 Behavior:
-  - Leaves inline styles containing
+  - Leaves inline styles containing "display: none" untouched
+  - Extracts other inline styles into classes; removes the style attribute
+  - CSS filename: css/<dir-name>_new.css (per rules above)
+  - Ensures <link rel="stylesheet" href="<relative css path>"> exists
+  - Safe writes (temp file + rename)
+
+Examples:
+  ${binName} -d
+  ${binName} -A
+  ${binName} -A -r -o
+  ${binName} -A -r -m
+
+Exit codes:
+  0 on success; 1 on unexpected error.`
+}
