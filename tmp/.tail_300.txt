@@ -1,50 +1,3 @@
-    889                        </div>
-    890   -                    <div class="accordion-body nn_sliders-body collapse" id="17-let-
-           me-look-at-your-puppies-and-kittens">
-    890   +                    <div class="accordion-body nn_sliders-body collapse" id="sec-17-
-           let-me-look-at-your-puppies-and-kittens">
-    891                          <div class="accordion-inner panel-body">
-    ⋮
-    905                    <div class="nn_sliders accordion panel-group" id="set-nn_sliders-18"
-           >
-    906   -                  <a id="nn_sliders-scrollto_18" class="anchor nn_sliders-scroll"></
-           a>
-    906   +                  <span id="nn_sliders-scrollto_18" class="anchor nn_sliders-scroll"
-           ></span>
-    907                      <div class="accordion-group panel nn_sliders-group">
-    908   -                    <a id="nn_sliders-scrollto_18-the-taxi-broke-down-in-front-of-my
-           -gate" class="anchor nn_sliders-scroll"></a>
-    908   +                    <span id="nn_sliders-scrollto_18-the-taxi-broke-down-in-front-of
-           -my-gate" class="anchor nn_sliders-scroll"></span>
-    909                        <div class="accordion-heading panel-heading">
-    910                          <a
-    911   -                        href="111-common-nouns.html#18-the-taxi-broke-down-in-front-
-           of-my-gate"
-    911   +                        href="111-common-nouns.html#sec-18-the-taxi-broke-down-in-fr
-           ont-of-my-gate"
-    912                            class="accordion-toggle nn_sliders-toggle"
-    913                            data-toggle="collapse"
-    914   -                        data-id="18-the-taxi-broke-down-in-front-of-my-gate"
-    914   +                        data-id="sec-18-the-taxi-broke-down-in-front-of-my-gate"
-    915                            data-parent="#set-nn_sliders-18">
-    ⋮
-    918                        </div>
-    919   -                    <div class="accordion-body nn_sliders-body collapse" id="18-the-
-           taxi-broke-down-in-front-of-my-gate">
-    919   +                    <div class="accordion-body nn_sliders-body collapse" id="sec-18-
-           the-taxi-broke-down-in-front-of-my-gate">
-    920                          <div class="accordion-inner panel-body">
-    ⋮
-    934                    <div class="nn_sliders accordion panel-group" id="set-nn_sliders-19"
-           >
-    935   -                  <a id="nn_sliders-scrollto_19" class="anchor nn_sliders-scroll"></
-           a>
-    935   +                  <span id="nn_sliders-scrollto_19" class="anchor nn_sliders-scroll"
-           ></span>
-    936                      <div class="accordion-group panel nn_sliders-group">
-    937   -                    <a id="nn_sliders-scrollto_19-the-boys-are-quarrelling-noisily-o
-           n-the-beach" class="anchor nn_sliders-scroll"></a>
-    937   +                    <span id="nn_sliders-scrollto_19-the-boys-are-quarrelling-noisil
            y-on-the-beach" class="anchor nn_sliders-scroll"></span>
     938                        <div class="accordion-heading panel-heading">
     939                          <a
@@ -98,10 +51,16 @@ causing these fictitious lint errors  [{
 
 ---
 
+
+---
+
 ===== CODEx NOTE @ 2025-08-31T16:08:12+07:00 =====
 
 Session start
 
+
+
+---
 
 
 ---
@@ -120,10 +79,16 @@ Memory system updated: added scripts/startup.sh (marks session, prints last 'COD
 
 ---
 
+
+---
+
 ===== CODEx NOTE @ 2025-08-31T09:12:26.651Z =====
 
 Updated startup scripts: comments now read 'last 300 lines or the last CODEx date-stamped SESSION'.
 
+
+
+---
 
 
 ---
@@ -142,10 +107,16 @@ Session start
 
 ---
 
+
+---
+
 ===== CODEx NOTE @ 2025-08-31T16:25:32+07:00 =====
 
 Session start
 
+
+
+---
 
 
 ---
@@ -164,10 +135,16 @@ Session start
 
 ---
 
+
+---
+
 ===== CODEx NOTE @ 2025-08-31T16:34:18+07:00 =====
 
 Session start
 
+
+
+---
 
 
 ---
@@ -186,10 +163,16 @@ Session start
 
 ---
 
+
+---
+
 ===== CODEx NOTE @ 2025-08-31T19:15:17+07:00 =====
 
 Session start
 
+
+
+---
 
 
 ---
@@ -276,10 +259,16 @@ updated memory at 2025-09-01T07:55:50Z
 
 ---
 
+
+---
+
 ===== CODEx SESSION START @ 2025-09-01T12:28:22+07:00 =====
 
 Session start
 
+
+
+---
 
 
 ---
@@ -295,6 +284,17 @@ Session start
 
 ---
 
+
+---
+
 ===== CODEx SESSION START @ 2025-09-01T21:33:12+07:00 =====
+
+Session start
+
+
+
+---
+
+===== CODEx SESSION START @ 2025-09-03T21:22:06+07:00 =====
 
 Session start

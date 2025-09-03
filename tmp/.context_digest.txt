@@ -1,18 +1,18 @@
-    889                        </div>
-    890   -                    <div class="accordion-body nn_sliders-body collapse" id="17-let-
-           me-look-at-your-puppies-and-kittens">
-    890   +                    <div class="accordion-body nn_sliders-body collapse" id="sec-17-
-           let-me-look-at-your-puppies-and-kittens">
-    891                          <div class="accordion-inner panel-body">
+           y-on-the-beach" class="anchor nn_sliders-scroll"></span>
+    938                        <div class="accordion-heading panel-heading">
+    939                          <a
+    940   -                        href="111-common-nouns.html#19-the-boys-are-quarrelling-nois
+           ily-on-the-beach"
+    940   +                        href="111-common-nouns.html#sec-19-the-boys-are-quarrelling-
+           noisily-on-the-beach"
+    941                            class="accordion-toggle nn_sliders-toggle"
+    942                            data-toggle="collapse"
+    943   -                        data-id="19-the-boys-are-quarrelling-noisily-on-the-beach"
+    943   +                        data-id="sec-19-the-boys-are-quarrelling-noisily-on-the-beac
+           h"
+    944                            data-parent="#set-nn_sliders-19">
     ⋮
-    905                    <div class="nn_sliders accordion panel-group" id="set-nn_sliders-18"
-           >
-    906   -                  <a id="nn_sliders-scrollto_18" class="anchor nn_sliders-scroll"></
-           a>
-    906   +                  <span id="nn_sliders-scrollto_18" class="anchor nn_sliders-scroll"
-           ></span>
-    907                      <div class="accordion-group panel nn_sliders-group">
-    908   -                    <a id="nn_sliders-scrollto_18-the-taxi-broke-down-in-front-of-my
-           -gate" class="anchor nn_sliders-scroll"></a>
-    908   +
+    947                        </div>
+    948   -                    <div class="accordion-body nn_sliders-body collapse" id="19-the-
+           boy
 …[truncated]

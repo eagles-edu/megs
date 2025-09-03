@@ -4,7 +4,6 @@
 
 /**
  * Inline CSS extractor -> stylesheet classes.
- *./scripts/extract-inline-css.js -r
  *
  * Modes & scope:
  * - Default: processes .html/.htm in the **current directory only** (not subdirs)
@@ -176,7 +175,7 @@ function sanitizeValueToken(raw) {
   }
   let s = String(raw)
   s = s.trim().replace(/\s+/g, ' ')
-  s = s.replace(/[\s.%/\\+&@:;,=|~^!?#"'`()[\\]{}<>]/g, (ch) => CHAR_MAP[ch] ?? '')
+  s = s.replace(/[\s.%/\\+&@:;,=|~^!?#"'\`()[\\\]{}<>]/g, (ch) => CHAR_MAP[ch] ?? '')
   s = s.replace(/-+/g, '-')
   if (s.startsWith('-')) s = 'n' + s.slice(1)
   s = s.toLowerCase().replace(/[^a-z0-9_-]/g, '')
@@ -469,38 +468,18 @@ function listHtmlFiles(startDir, recursive) {
 
   // PHASE 2: Write (if Apply)
   if (APPLY) {
-    // Aggregate unique CSS rules for each target file.
-    const aggregatedCss = new Map() // Map<cssPath, Set<cssRule>>
+    // Write CSS appends first
     for (const item of plan) {
       if (!item.cssAppend) continue
-      if (!aggregatedCss.has(item.cssTargetAbs)) {
-        aggregatedCss.set(item.cssTargetAbs, new Set())
-      }
-      // cssAppend can have multiple rules, separated by a newline.
-      const rules = item.cssAppend.trim().split(/(?<=\}\\)\s*\\n/);
-      rules.forEach(rule => {
-        if (rule) aggregatedCss.get(item.cssTargetAbs).add(rule.trim());
-      });
-    }
-
-    // Write aggregated CSS.
-    for (const [cssPath, ruleSet] of aggregatedCss.entries()) {
+      const cssPath = item.cssTargetAbs
       const cssDir = path.dirname(cssPath)
       ensureDir(cssDir)
       const existing = fs.existsSync(cssPath) ? fs.readFileSync(cssPath, 'utf8') : ''
-      const newRules = Array.from(ruleSet).filter(rule => !existing.includes(rule));
-
-      if (newRules.length > 0) {
-        const contentToAppend = newRules.join('  \n')
-        const next =
-          existing +
-          (existing && !existing.trim().endsWith('  \n') ? '  \n' : '') +
-          contentToAppend +
-          '\n'
-        SAFE_WRITES
-          ? writeFileAtomic(cssPath, next)
-          : fs.writeFileSync(cssPath, next, 'utf8')
-      }
+      const next = 
+        existing + (existing && !existing.endsWith('\n') ? '\n' : '') + item.cssAppend
+      SAFE_WRITES
+        ? writeFileAtomic(cssPath, next)
+        : fs.writeFileSync(cssPath, next, 'utf8')
     }
     // Then write HTML
     for (const item of plan) {
@@ -514,13 +493,7 @@ function listHtmlFiles(startDir, recursive) {
   const filesLen = files.length
   const changed = changedFiles.size
   const avg = changed ? (sumConversions / changed).toFixed(2) : '0.00'
-  const stats = `Stats:
-  Files (scanned): ${filesLen}
-  Files (changed): ${changed}
-  Conversions (sum): ${sumConversions}
-  New classes: ${newClasses}
-  Avg changes/file (changed only): ${avg}
-  Errors: ${errors}`
+  const stats = `Stats:\n  Files (scanned): ${filesLen}\n  Files (changed): ${changed}\n  Conversions (sum): ${sumConversions}\n  New classes: ${newClasses}\n  Avg changes/file (changed only): ${avg}\n  Errors: ${errors}`
 
   const logText = [header, ...logLines, '', stats, ''].join('\n')
   console.log(logText)
@@ -553,8 +526,7 @@ function buildHelpText(binName) {
   const RUN_DIR = process.cwd()
   const path = require('path')
   const workDirName = path.basename(RUN_DIR)
-  return `Usage: ${binName} [options]
-
+  return `Usage: ${binName} [options]\n
 Inline CSS extractor -> stylesheet classes.
 Processes *.html / *.htm in the current directory by default.
 Use --recursive to include subdirectories.
@@ -581,3 +553,5 @@ Other:
 
 Behavior:
   - Leaves inline styles containing
+`
+}
