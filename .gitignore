@@ -15,3 +15,27 @@ error-gemini.json
 
 # codex persistence (keep untracked)
 .codex/
+
+# secrets and environment
+.env
+.env.*
+!.env.example
+.envrc
+
+# credentials & keys
+.git-credentials
+*.pem
+*.key
+*.p12
+*.p8
+*.pfx
+*.crt
+*.cert
+*.der
+*.keystore
+
+# local-only configs
+.npmrc
+config.local.*
+secrets.*
+credentials.*
