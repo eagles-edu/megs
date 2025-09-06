@@ -12,10 +12,11 @@
     "node": "=20"
   },
   "scripts": {
-    "start": "bash scripts/startup.sh",
+    "start": "bash scripts/startup-new.sh",
+    "migrate:legacy": "node scripts/migrate-legacy-to-persistence.js --apply",
+    "migrate:legacy:dry": "node scripts/migrate-legacy-to-persistence.js",
     "format": "prettier . --write",
     "fmt:html": "prettier --parser html --write \"**/*.{html,htm}\"",
-    "log": "node scripts/log.js",
     "lint": "npm run lint:js && npm run lint:css && npm run lint:html",
     "lint:html-stylish": "html-validate --formatter stylish \"**/*.{html,htm}\"",
     "lint:html": "html-validate \"**/*.{html,htm}\"",
@@ -24,7 +25,14 @@
     "lint:js:fix": "eslint \"**/*.{js,mjs,cjs}\" --fix",
     "lint:css": "stylelint \"**/*.{css,scss,less}\"",
     "lint:css:fix": "stylelint \"**/*.{css,scss,less}\" --fix",
-    "fix:void-selfclosing": "node scripts/fix-void-selfclosing.js"
+    "fix:void-selfclosing": "node scripts/fix-void-selfclosing.js",
+    "heartbeat:start": "node scripts/session-heartbeat.js --start",
+    "heartbeat:stop": "node scripts/session-heartbeat.js --stop",
+    "log:history": "node scripts/log-history.js note",
+    "log:decision": "node scripts/log-history.js decision",
+    "log:error": "node scripts/log-history.js error",
+    "log:close": "node scripts/log-history.js close",
+    "diagnose": "node scripts/diagnose.js"
   },
   "repository": {
     "type": "git",

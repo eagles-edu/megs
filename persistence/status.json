@@ -1,0 +1,46 @@
+{
+  "version": 1,
+  "updated_at": "2025-09-06T08:29:15.766Z",
+  "policy": {
+    "autoflush": true,
+    "debounce_ms": 1000,
+    "max_bytes": 524288,
+    "prune": {
+      "preserve_types": [
+        "decision"
+      ],
+      "order": "last_seen_at_asc"
+    }
+  },
+  "summary": {
+    "dos": 8,
+    "donts": 5,
+    "focus_count": 4,
+    "next_tasks_count": 8,
+    "open_questions_count": 4,
+    "lessons_count": 4,
+    "great_modules_count": 2,
+    "sop_count": 3,
+    "history_entries": 629
+  },
+  "highlights": {
+    "current_focus": [
+      "All-new Zencoder persistence: persistence/remember.json + history.jsonl + status.json only.",
+      "Startup (npm start) must: purge legacy, seed history if missing, ingest remember+history, update status, enforce 15-day FIFO.",
+      "HTML validation and cleanup: fix legacy HTML patterns incrementally with html-validate; no auto-fix on save."
+    ],
+    "next_tasks": [
+      "Populate mission-critical operations SOPs and decisions into remember.json (this file).",
+      "Audit high-traffic HTML pages (index.html, index-2.html, grammar pages) and log per-file issues to history.jsonl.",
+      "Implement focused fixes for repeated HTML issues (attr quotes, void/self-closing, invalid nesting)."
+    ]
+  },
+  "context": {
+    "last_6_days_entries": 527,
+    "last_session_close": {
+      "ts": "2025-09-06T08:29:15.715Z",
+      "note": null,
+      "type": "heartbeat"
+    }
+  }
+}

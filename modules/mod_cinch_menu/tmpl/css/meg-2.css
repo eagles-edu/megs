@@ -90,7 +90,7 @@ ul.flyout-menu li {
   }
 }
 
-/*        flyout_menu_93            */
+/*        flyout_menu_93
 
 #flyout_menu_93 {
   background: #fff !important;
@@ -107,7 +107,7 @@ ul.flyout-menu li {
 
 /* #flyout_menu_93 a:active {
 		color: #e0162b!important;
-	} */
+	}
 #flyout_menu_93 .item-wrapper:hover a,
 #flyout_menu_93 li.current > .item-wrapper a,
 #flyout_menu_93 li.opened > .item-wrapper a {
@@ -138,6 +138,7 @@ ul.flyout-menu li {
     width: 220px !important;
   }
 }
+
 
 /*        flyout_menu_94            */
 
@@ -442,7 +443,7 @@ ul.flyout-menu li {
 
 /* Removed legacy MS IE-specific selectors for #flyout_menu_116 */
 
-/*       accordion_menu_90           */
+/*       accordion_menu_90
 .menuicon {
   float: right !important;
   padding: 0 10px 0 0 !important;
@@ -468,6 +469,7 @@ ul.flyout-menu li {
   background: #f0f0ee !important;
   text-decoration: none !important;
 }
+   */
 
 /* --- Flyout menus: consolidated overrides (CSS-only, no HTML changes) --- */
 
@@ -662,4 +664,264 @@ ul.flyout-menu li {
 
 .nodisplay {
   display: none !important;
+}
+
+/**
+ * MEGS2 - Modern Educational Grammar System
+ * Main stylesheet for the MEGS educational platform
+ * 2025 Update - Replaces inline styles with a centralized stylesheet
+ */
+
+a {
+  color: #004c75;
+}
+
+/* Navigation Styles */
+.nav-list > .active > a,
+.nav-list > .active > a:hover,
+.dropdown-menu li > a:hover,
+.dropdown-menu .active > a,
+.dropdown-menu .active > a:hover,
+.nav-pills > .active > a,
+.nav-pills > .active > a:hover,
+.btn-primary {
+  background: #004c75;
+}
+
+/* Flyout Menu Styles */
+#flyout_menu_93 {
+  background: #fff;
+}
+
+#flyout_menu_93 ul {
+  background: #fff;
+}
+
+#flyout_menu_93 a {
+  color: #553f32;
+}
+
+#flyout_menu_93 .item-wrapper:hover a,
+#flyout_menu_93 li.current > .item-wrapper a,
+#flyout_menu_93 li.opened > .item-wrapper a {
+  color: #ff8b2f;
+}
+
+#flyout_menu_93 li.open,
+#flyout_menu_93 li:hover {
+  background: #aa6b39;
+}
+
+/* Accordion Menu Styles */
+#accordion_menu_90 {
+  background: #fff;
+}
+
+#accordion_menu_90 a {
+  color: #000;
+}
+
+#accordion_menu_90 .item-wrapper:hover a,
+#accordion_menu_90 li.current > .item-wrapper a {
+  color: #000d4d;
+}
+
+#accordion_menu_90 li.open,
+#accordion_menu_90 li:hover {
+  background: #6e92ff;
+}
+
+/* Responsive Adjustments */
+@media screen and (width <= 767px) {
+  #flyout_menu_93 .ul-wrapper,
+  #flyout_menu_93 ul {
+    width: auto;
+  }
+
+  #flyout_menu_93.horizontal ul .menu-link {
+    width: auto;
+  }
+}
+
+@media screen and (width >= 768px) {
+  #flyout_menu_93 .ul-wrapper,
+  #flyout_menu_93 ul {
+    width: 250px;
+  }
+}
+
+/* Content Styles */
+.highlight {
+  color: maroon;
+  font-weight: bold;
+}
+
+/* Accordion Styles - Integrated from modern-accordion.css */
+.accordion {
+  margin-bottom: 1.5rem;
+}
+
+.accordion-group {
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  margin-bottom: 0.5rem;
+  overflow: hidden;
+}
+
+.accordion-heading {
+  background-color: #f8f9fa;
+  border-bottom: 1px solid transparent;
+  transition: background-color 0.2s ease;
+}
+
+.accordion-heading:hover {
+  background-color: #f0f0f0;
+}
+
+.accordion-toggle {
+  display: block;
+  padding: 0.75rem 1rem;
+  color: #333;
+  text-decoration: none;
+  position: relative;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+}
+
+.accordion-toggle:hover,
+.accordion-toggle:focus {
+  text-decoration: none;
+  color: #000;
+  outline: none;
+}
+
+.accordion-toggle:focus {
+  box-shadow: 0 0 0 2px rgb(0 123 255 / 25%);
+}
+
+.accordion-toggle::after {
+  content: '';
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%) rotate(0deg);
+  width: 10px;
+  height: 10px;
+  border-right: 2px solid #666;
+  border-bottom: 2px solid #666;
+  transition: transform 0.3s ease;
+}
+
+.accordion-toggle[aria-expanded='true']::after {
+  transform: translateY(-50%) rotate(45deg);
+}
+
+.accordion-toggle[aria-expanded='false']::after {
+  transform: translateY(-50%) rotate(-45deg);
+}
+
+.accordion-body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+.accordion-body.show {
+  max-height: 1000px;
+}
+
+.accordion-inner {
+  padding: 1rem;
+  background-color: #fff;
+}
+
+/* Menu Styles - Integrated from meg-2.css */
+.accordion-menu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.accordion-menu li {
+  position: relative;
+}
+
+.accordion-menu .item-wrapper {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #eee;
+}
+
+.accordion-menu .menu-button {
+  flex: 0 0 30px;
+  text-align: center;
+}
+
+.accordion-menu .menu-link {
+  flex: 1;
+  padding: 8px 0;
+}
+
+.accordion-menu .menu-link a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.accordion-menu .menu-link img {
+  margin-right: 8px;
+  width: 20px;
+  height: 20px;
+}
+
+.flyout-menu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.flyout-menu li {
+  position: relative;
+}
+
+.flyout-menu .item-wrapper {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #eee;
+}
+
+.flyout-menu .menu-button {
+  flex: 0 0 30px;
+  text-align: center;
+}
+
+.flyout-menu .menu-link {
+  flex: 1;
+  padding: 8px 0;
+}
+
+.flyout-menu .menu-link a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.flyout-menu .menu-link img {
+  margin-right: 8px;
+  width: 20px;
+  height: 20px;
+}
+
+.flyout-menu .ul-wrapper {
+  position: absolute;
+  top: 0;
+  left: 100%;
+  z-index: 100;
+  display: none;
+}
+
+.flyout-menu.flyout-left .ul-wrapper {
+  left: auto;
+  right: 100%;
 }

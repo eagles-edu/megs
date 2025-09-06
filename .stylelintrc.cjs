@@ -19,7 +19,7 @@ module.exports = {
       { except: ['first-nested'], ignore: ['after-comment'] },
     ],
     'declaration-block-single-line-max-declarations': 3,
-    // Turn off class/id naming convention linting (kebab/snake/camel, etc.)
+    // Turn off class/id naming convention linting (kebab/snake/camel, etc.) — project policy: NO KEBAB-CASE ENFORCEMENT
     'selector-class-pattern': null,
     'selector-id-pattern': null,
     // Allow for higher precision numbers

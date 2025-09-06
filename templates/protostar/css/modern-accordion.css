@@ -1,0 +1,107 @@
+/**
+ * Modern Accordion Styles
+ * Clean, accessible styling for accordions
+ */
+
+/* Accordion container */
+.accordion {
+  margin-bottom: 1.5rem;
+}
+
+/* Accordion item */
+.accordion-group {
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  margin-bottom: 0.5rem;
+  overflow: hidden;
+}
+
+/* Accordion header */
+.accordion-heading {
+  background-color: #f8f9fa;
+  border-bottom: 1px solid transparent;
+  transition: background-color 0.2s ease;
+}
+
+.accordion-heading:hover {
+  background-color: #f0f0f0;
+}
+
+/* Accordion toggle button */
+.accordion-toggle {
+  display: block;
+  padding: 0.75rem 1rem;
+  color: #333;
+  text-decoration: none;
+  position: relative;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+}
+
+.accordion-toggle:hover,
+.accordion-toggle:focus {
+  text-decoration: none;
+  color: #000;
+  outline: none;
+}
+
+.accordion-toggle:focus {
+  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+}
+
+/* Accordion toggle indicator */
+.accordion-toggle::after {
+  content: '';
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%) rotate(0deg);
+  width: 10px;
+  height: 10px;
+  border-right: 2px solid #666;
+  border-bottom: 2px solid #666;
+  transition: transform 0.3s ease;
+}
+
+.accordion-toggle[aria-expanded="true"]::after {
+  transform: translateY(-50%) rotate(45deg);
+}
+
+.accordion-toggle[aria-expanded="false"]::after {
+  transform: translateY(-50%) rotate(-45deg);
+}
+
+/* Accordion content */
+.accordion-body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+.accordion-body.show {
+  max-height: 1000px; /* Large enough to contain content */
+}
+
+.accordion-inner {
+  padding: 1rem;
+  background-color: #fff;
+}
+
+/* Highlighted text in answers */
+.highlight {
+  text-decoration: underline;
+  font-weight: bold;
+  color: #004c75;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .accordion-toggle {
+    padding: 0.5rem 0.75rem;
+  }
+  
+  .accordion-inner {
+    padding: 0.75rem;
+  }
+}

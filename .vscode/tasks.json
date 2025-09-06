@@ -44,26 +44,71 @@
       "problemMatcher": []
     },
     {
-      "label": "Show: Last CODEx Note",
+      "label": "Startup: Ingest + Heartbeat",
       "type": "npm",
       "script": "start",
       "problemMatcher": [],
       "runOptions": { "runOn": "folderOpen" }
     },
     {
-      "label": "Log: Append CODEx Note",
-      "type": "npm",
-      "script": "log",
+      "label": "Shutdown: Stop Heartbeat (auto)",
+      "type": "shell",
+      "command": "node scripts/vscode-watchdog.js",
       "problemMatcher": [],
-      "args": ["${input:logMessage}"]
+      "runOptions": { "runOn": "folderClose" }
+    },
+    {
+      "label": "Log: Decision",
+      "type": "npm",
+      "script": "log:decision",
+      "problemMatcher": [],
+      "args": ["${input:decisionSummary}", "${input:decisionDetails}"]
+    },
+    {
+      "label": "Log: Error",
+      "type": "npm",
+      "script": "log:error",
+      "problemMatcher": [],
+      "args": ["${input:errorSummary}", "${input:errorDetails}"]
+    },
+    {
+      "label": "Log: Close Session",
+      "type": "npm",
+      "script": "log:close",
+      "problemMatcher": [],
+      "args": ["${input:closeSummary}"]
     }
   ],
   "inputs": [
     {
-      "id": "logMessage",
+      "id": "decisionSummary",
       "type": "promptString",
-      "description": "Message to append to docs/codex-working.txt",
-      "default": "Update notes"
+      "description": "Decision summary",
+      "default": "Set policy"
+    },
+    {
+      "id": "decisionDetails",
+      "type": "promptString",
+      "description": "Decision details (JSON)",
+      "default": "{\"rationale\":\"...\"}"
+    },
+    {
+      "id": "errorSummary",
+      "type": "promptString",
+      "description": "Error summary",
+      "default": "Unexpected failure"
+    },
+    {
+      "id": "errorDetails",
+      "type": "promptString",
+      "description": "Error details (JSON)",
+      "default": "{\"code\":0}"
+    },
+    {
+      "id": "closeSummary",
+      "type": "promptString",
+      "description": "Session close summary",
+      "default": "Session ended"
     }
   ]
 }

@@ -1,18 +1,119 @@
-           y-on-the-beach" class="anchor nn_sliders-scroll"></span>
-    938                        <div class="accordion-heading panel-heading">
-    939                          <a
-    940   -                        href="111-common-nouns.html#19-the-boys-are-quarrelling-nois
-           ily-on-the-beach"
-    940   +                        href="111-common-nouns.html#sec-19-the-boys-are-quarrelling-
-           noisily-on-the-beach"
-    941                            class="accordion-toggle nn_sliders-toggle"
-    942                            data-toggle="collapse"
-    943   -                        data-id="19-the-boys-are-quarrelling-noisily-on-the-beach"
-    943   +                        data-id="sec-19-the-boys-are-quarrelling-noisily-on-the-beac
-           h"
-    944                            data-parent="#set-nn_sliders-19">
-    ⋮
-    947                        </div>
-    948   -                    <div class="accordion-body nn_sliders-body collapse" id="19-the-
-           boy
+Session start
+
+
+
+---
+
+
+---
+
+
+---
+
+
+---
+
+
+---
+
+
+---
+
+===== CODEx NOTE @ 2025-08-31T16:30:16+07:00 =====
+
+Session start
+
+
+
+---
+
+
+---
+
+
+---
+
+
+---
+
+
+---
+
+
+---
+
+===== CODEx NOTE @ 2025-08-31T16:34:18+07:00 =====
+
+Session start
+
+
+
+---
+
+
+---
+
+
+---
+
+
+---
+
+
+---
+
+
+---
+
+===== CODEx NOTE @ 2025-08-31T19:14:03+07:00 =====
+
+Session start
+
+
+
+---
+
+
+---
+
+
+---
+
+
+---
+
+
+---
+
+
+---
+
+===== CODEx NOTE @ 2025-08-31T19:15:17+07:00 =====
+
+Session start
+
+
+
+---
+
+
+---
+
+
+---
+
+
+---
+
+
+---
+
+
+---
+
+===== CODEx NOTE @ 2025-08-31T20:27:12+07:00 =====
+
+Session start
+
+$ bash -lc 'set -e; mkdir -p .codex; if [ ! -f .codex/memory.json ]; then cat > .codex/memory.json << '"'JSON'"'\n{\n  "version": 1,\n  "updated_at": null,\n  "items": []\n}\nJSON\nfi; python3 - << '"'PY'"'\nimport json, os, sys, datetime\nfrom pathlib import Path\np = Path('.codex/memory.json')\nnow = datetime.datetime.utcnow().replace(microsecond=0).isoformat() + 'Z'\nwith p.open('r', encoding='utf-8') as f:\n    try:\n        data = json.load(f)\n    except 
 …[truncated]

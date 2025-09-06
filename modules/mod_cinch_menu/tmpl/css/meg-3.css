@@ -1,0 +1,129 @@
+/* stylelint-disable value-keyword-case */
+/* stylelint-disable selector-id-pattern */
+:root {
+  /* Original variables (kept for backward compatibility) */
+  --primary-color: #e0162b;
+  --secondary-color: #ddd;
+  --text-color: #212121;
+  --background-color: #f5f5f5;
+  
+  /* New semantic color variables */
+  --red-primary: #e0162b;       /* Primary brand color (red) */
+  --ltgray-secondary: #ddd;     /* Light gray for secondary elements */
+  --dkgray-text: #212121;       /* Dark gray (85%) for body text */
+  --offwhite-bg: #f5f5f5;       /* Off-white for page background */
+  --white-panel: #fff;          /* White for panel backgrounds */
+  --gray-menutext: #a3a3a3;     /* Gray (64%) for menu text */
+  --ltgray-hover: #f0f0ee;      /* Light gray for hover states */
+  
+  /* Font stacks */
+  --font-base:
+    'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Noto Sans', 'Helvetica Neue', Arial, 'Liberation Sans', 'Cantarell', 'Ubuntu', 'Oxygen', 'Fira Sans', 'Droid Sans', 'Apple Color Emoji', 'Segoe UI Emoji', 'Noto Color Emoji', sans-serif;
+  --font-header:
+    'Roboto Condensed', 'Arial Narrow', Roboto, 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', 'Helvetica Neue', Arial, 'Liberation Sans', 'Cantarell', 'Ubuntu',     'Oxygen', 'Fira Sans', 'Droid Sans', 'Apple Color Emoji', 'Segoe UI Emoji', 'Noto Color Emoji',
+    sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.site-title {
+  font-family: var(--font-header) !important;
+}
+
+body.site {
+  border-top: 3px solid var(--red-primary) !important;
+  background-color: var(--offwhite-bg) !important;
+  font-family: var(--font-base) !important;
+}
+
+li.linkco {
+  line-height: 1.6em !important;
+  font-weight: normal !important;
+}
+
+.linkco:hover a {
+  color: var(--red-primary) !important;
+}
+
+ul.flyout-menu li {
+  list-style-type: none !important;
+}
+
+/* --- Consolidated Flyout Menu Styles --- */
+
+/* This targets all flyout menus (92, 93, 94, 95, 96, 97, 99, 100, 116) */
+[id^="flyout_menu_"] {
+  background: var(--white-panel) !important;
+  font-family: var(--font-header) !important;
+}
+
+[id^="flyout_menu_"] ul {
+  background: var(--white-panel) !important;
+}
+
+[id^="flyout_menu_"] a {
+  color: var(--gray-menutext) !important;
+}
+
+[id^="flyout_menu_"] .item-wrapper:hover a,
+[id^="flyout_menu_"] li.current > .item-wrapper a,
+[id^="flyout_menu_"] li.opened > .item-wrapper a {
+  color: var(--red-primary) !important;
+  text-decoration: none !important;
+}
+
+[id^="flyout_menu_"] li.open,
+[id^="flyout_menu_"] li:hover {
+  background: var(--ltgray-hover) !important;
+  text-decoration: none !important;
+}
+
+/* Responsive styles for all flyout menus */
+@media screen and (width <= 767px) {
+  [id^="flyout_menu_"] .ul-wrapper,
+  [id^="flyout_menu_"] ul {
+    width: auto !important;
+  }
+
+  [id^="flyout_menu_"].horizontal ul .menu-link {
+    width: auto !important;
+  }
+}
+
+@media screen and (width >= 768px) {
+  [id^="flyout_menu_"] .ul-wrapper,
+  [id^="flyout_menu_"] ul {
+    width: 220px !important;
+  }
+}
+
+/* Accordion menu styles */
+.menuicon {
+  float: right !important;
+  padding: 0 10px 0 0 !important;
+}
+
+#accordion_menu_90 {
+  background: var(--white-panel) !important;
+  font-family: var(--font-header) !important;
+}
+
+#accordion_menu_90 a {
+  color: var(--gray-menutext) !important;
+}
+
+#accordion_menu_90 .item-wrapper:hover a,
+#accordion_menu_90 li.current > .item-wrapper a {
+  color: var(--red-primary) !important;
+  text-decoration: none !important;
+}
+
+#accordion_menu_90 li.open,
+#accordion_menu_90 li:hover {
+  background: var(--ltgray-hover) !important;
+  text-decoration: none !important;
+}

@@ -1,61 +1,3 @@
-           y-on-the-beach" class="anchor nn_sliders-scroll"></span>
-    938                        <div class="accordion-heading panel-heading">
-    939                          <a
-    940   -                        href="111-common-nouns.html#19-the-boys-are-quarrelling-nois
-           ily-on-the-beach"
-    940   +                        href="111-common-nouns.html#sec-19-the-boys-are-quarrelling-
-           noisily-on-the-beach"
-    941                            class="accordion-toggle nn_sliders-toggle"
-    942                            data-toggle="collapse"
-    943   -                        data-id="19-the-boys-are-quarrelling-noisily-on-the-beach"
-    943   +                        data-id="sec-19-the-boys-are-quarrelling-noisily-on-the-beac
-           h"
-    944                            data-parent="#set-nn_sliders-19">
-    ⋮
-    947                        </div>
-    948   -                    <div class="accordion-body nn_sliders-body collapse" id="19-the-
-           boys-are-quarrelling-noisily-on-the-beach">
-    948   +                    <div class="accordion-body nn_sliders-body collapse" id="sec-19-
-           the-boys-are-quarrelling-noisily-on-the-beach">
-    949                          <div class="accordion-inner panel-body">
-    ⋮
-    963                    <div class="nn_sliders accordion panel-group" id="set-nn_sliders-20"
-           >
-    964   -                  <a id="nn_sliders-scrollto_20" class="anchor nn_sliders-scroll"></
-           a>
-    964   +                  <span id="nn_sliders-scrollto_20" class="anchor nn_sliders-scroll"
-           ></span>
-    965                      <div class="accordion-group panel nn_sliders-group">
-    966   -                    <a id="nn_sliders-scrollto_20-the-monkey-was-hanging-by-its-tail
-           -from-a-branch" class="anchor nn_sliders-scroll"></a>
-    966   +                    <span id="nn_sliders-scrollto_20-the-monkey-was-hanging-by-its-t
-           ail-from-a-branch" class="anchor nn_sliders-scroll"></span>
-    967                        <div class="accordion-heading panel-heading">
-
-
-user
-docs/codex-working.txt review latest entry, these are representative of the 287 errors in
-111-common.  but anchor link ... are the the only legitamite errorsthe rest are not real
-errors, headings have text, nothing is 'empty', image tags dont require closing nor are closed
-with />         no edits yet in html-validate to to troubleshoot and research whichsettings are
-causing these fictitious lint errors  [{
-        "resource": "/home/eagles/dockerz/megs/exercise-1-nouns/111-common-nouns.html",
-
-
-
-
-
-
----
-
-
----
-
-
----
-
-===== CODEx NOTE @ 2025-08-31T16:08:12+07:00 =====
-
 Session start
 
 
@@ -67,53 +9,6 @@ Session start
 
 
 ---
-
-===== CODEx NOTE @ 2025-08-31T09:08:21.886Z =====
-
-Memory system updated: added scripts/startup.sh (marks session, prints last 'CODEx NOTE' or tail -n 300, whichever greater); updated scripts/show-last-note.sh to 300 lines; package.json start -> scripts/startup.sh.
-
-
-
----
-
-
----
-
-
----
-
-===== CODEx NOTE @ 2025-08-31T09:12:26.651Z =====
-
-Updated startup scripts: comments now read 'last 300 lines or the last CODEx date-stamped SESSION'.
-
-
-
----
-
-
----
-
-
----
-
-===== CODEx NOTE @ 2025-08-31T16:14:25+07:00 =====
-
-Session start
-
-
-
----
-
-
----
-
-
----
-
-===== CODEx NOTE @ 2025-08-31T16:25:32+07:00 =====
-
-Session start
-
 
 
 ---
@@ -138,10 +33,28 @@ Session start
 
 ---
 
+
+---
+
+
+---
+
+
+---
+
 ===== CODEx NOTE @ 2025-08-31T16:34:18+07:00 =====
 
 Session start
 
+
+
+---
+
+
+---
+
+
+---
 
 
 ---
@@ -166,10 +79,28 @@ Session start
 
 ---
 
+
+---
+
+
+---
+
+
+---
+
 ===== CODEx NOTE @ 2025-08-31T19:15:17+07:00 =====
 
 Session start
 
+
+
+---
+
+
+---
+
+
+---
 
 
 ---
@@ -262,10 +193,28 @@ updated memory at 2025-09-01T07:55:50Z
 
 ---
 
+
+---
+
+
+---
+
+
+---
+
 ===== CODEx SESSION START @ 2025-09-01T12:28:22+07:00 =====
 
 Session start
 
+
+
+---
+
+
+---
+
+
+---
 
 
 ---
@@ -287,6 +236,15 @@ Session start
 
 ---
 
+
+---
+
+
+---
+
+
+---
+
 ===== CODEx SESSION START @ 2025-09-01T21:33:12+07:00 =====
 
 Session start
@@ -295,6 +253,48 @@ Session start
 
 ---
 
+
+---
+
+
+---
+
+
+---
+
 ===== CODEx SESSION START @ 2025-09-03T21:22:06+07:00 =====
+
+Session start
+
+
+
+---
+
+
+---
+
+
+---
+
+===== CODEx SESSION START @ 2025-09-05T13:48:55+07:00 =====
+
+Session start
+
+
+
+---
+
+
+---
+
+===== CODEx SESSION START @ 2025-09-05T17:48:07+07:00 =====
+
+Session start
+
+
+
+---
+
+===== CODEx SESSION START @ 2025-09-05T21:08:50+07:00 =====
 
 Session start
