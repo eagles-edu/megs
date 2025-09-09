@@ -1,5 +1,7 @@
 # Manual commands you’ll use (no auto-fixing on save)
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/bff050e86a174d83b4bba4b866d9487f)](https://app.codacy.com/gh/eagles-edu/megs?utm_source=github.com&utm_medium=referral&utm_content=eagles-edu/megs&utm_campaign=Badge_Grade)
+
 See problems as you type: extensions surface diagnostics automatically.
 
 Format everything: npm run format
