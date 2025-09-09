@@ -9226,11 +9226,13 @@ div {
   transition: opacity var(--flyout-anim-duration) var(--flyout-anim-ease);
   width: 100%;
   z-index: 1040;
+  pointer-events: none;
 }
 
 .mobile-nav-overlay.active {
   display: block;
   opacity: 1;
+  pointer-events: auto;
 }
 
 /* Show hamburger on tablet and below to match legacy grid */
@@ -9257,18 +9259,19 @@ div {
     border-right: 1px solid var(--border-color);
     box-shadow: var(--flyout-shadow-panel);
     height: 100vh;
-    left: -240px;
+    left: -200px;
     overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
     padding: 60px 0 20px;
     position: fixed;
     top: 0;
     transition: transform var(--flyout-anim-duration) var(--flyout-anim-ease);
-    width: 240px;
+    width: 200px;
     z-index: 1045;
   }
 
   body.mobile-nav-enabled #sidebar.mobile-nav-open {
-    transform: translateX(240px);
+    transform: translateX(200px);
   }
 
   /* Content spans full width when nav is off-canvas */
@@ -9287,20 +9290,28 @@ div {
   /* Tighter vertical rhythm for mobile menu items */
   body.mobile-nav-enabled #sidebar .accordion-menu a,
   body.mobile-nav-enabled #sidebar .flyout-menu a {
-    min-height: 40px;
-    padding: 8px 12px;
-    line-height: 1.2;
+    min-height: 36px;
+    padding: 6px 10px;
+    line-height: 1.15;
+    font-size: 0.9em !important;
   }
 
   body.mobile-nav-enabled #sidebar .menu-button {
-    height: 40px;
-    width: 40px;
+    height: 32px;
+    width: 32px;
   }
+
+  /* Reduce gaps and hide icons to compact menu further */
+  body.mobile-nav-enabled #sidebar .item-wrapper { gap: 4px; }
+  body.mobile-nav-enabled #sidebar .menu-link img { display: none; }
 }
 
 /* Prevent scroll when menu open */
 body.mobile-nav-open {
   overflow: hidden;
+  height: 100vh;
+  overscroll-behavior: none;
+  touch-action: none;
 }
 
 /* Hide right sidebar/asides below 980px */
