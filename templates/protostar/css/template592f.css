@@ -9304,6 +9304,57 @@ div {
   /* Reduce gaps and hide icons to compact menu further */
   body.mobile-nav-enabled #sidebar .item-wrapper { gap: 4px; }
   body.mobile-nav-enabled #sidebar .menu-link img { display: none; }
+
+  /* Themed stacked mobile menu buttons */
+  body.mobile-nav-enabled #sidebar .accordion-menu {
+    border: 0;
+    padding: 8px 10px 16px;
+    background: var(--surface-color);
+  }
+
+  body.mobile-nav-enabled #sidebar .accordion-menu > li {
+    border: 0;
+    margin: 6px 0;
+  }
+
+  body.mobile-nav-enabled #sidebar .accordion-menu .menu-link > a {
+    background: var(--surface-1);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius);
+    box-shadow: 0 1px 2px rgba(0 0 0 / 8%);
+    transition:
+      background-color var(--flyout-anim-duration) var(--flyout-anim-ease),
+      border-color var(--flyout-anim-duration) var(--flyout-anim-ease),
+      transform var(--flyout-anim-duration) var(--flyout-anim-ease),
+      box-shadow var(--flyout-anim-duration) var(--flyout-anim-ease);
+  }
+
+  body.mobile-nav-enabled #sidebar .accordion-menu .item-wrapper:hover .menu-link > a,
+  body.mobile-nav-enabled #sidebar .accordion-menu .menu-link > a:hover,
+  body.mobile-nav-enabled #sidebar .accordion-menu .menu-link > a:focus {
+    background: var(--surface-soft);
+    border-color: var(--primary-color);
+    text-decoration: none;
+    box-shadow: 0 0 0 2px rgba(224 22 43 / 15%), 0 2px 6px rgba(0 0 0 / 10%);
+  }
+
+  body.mobile-nav-enabled #sidebar .accordion-menu .menu-link > a:active {
+    transform: translateY(1px);
+    background: var(--surface-warm);
+    box-shadow: 0 1px 2px rgba(0 0 0 / 8%);
+  }
+
+  body.mobile-nav-enabled #sidebar .accordion-menu li.current > .item-wrapper .menu-link > a,
+  body.mobile-nav-enabled #sidebar .accordion-menu li.opened > .item-wrapper .menu-link > a {
+    border-color: var(--primary-color);
+    background: var(--surface-soft);
+  }
+
+  /* Focus ring for keyboard users */
+  body.mobile-nav-enabled #sidebar .accordion-menu .menu-link > a:focus-visible {
+    outline: 2px solid var(--info-color);
+    outline-offset: 2px;
+  }
 }
 
 /* Prevent scroll when menu open */
