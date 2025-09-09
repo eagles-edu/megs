@@ -9257,18 +9257,18 @@ div {
     border-right: 1px solid var(--border-color);
     box-shadow: var(--flyout-shadow-panel);
     height: 100vh;
-    left: -280px;
+    left: -240px;
     overflow-y: auto;
     padding: 60px 0 20px;
     position: fixed;
     top: 0;
     transition: transform var(--flyout-anim-duration) var(--flyout-anim-ease);
-    width: 280px;
+    width: 240px;
     z-index: 1045;
   }
 
   body.mobile-nav-enabled #sidebar.mobile-nav-open {
-    transform: translateX(280px);
+    transform: translateX(240px);
   }
 
   /* Content spans full width when nav is off-canvas */
@@ -9283,9 +9283,29 @@ div {
     padding-right: 60px; /* space for hamburger */
     z-index: 1001;
   }
+
+  /* Tighter vertical rhythm for mobile menu items */
+  body.mobile-nav-enabled #sidebar .accordion-menu a,
+  body.mobile-nav-enabled #sidebar .flyout-menu a {
+    min-height: 40px;
+    padding: 8px 12px;
+    line-height: 1.2;
+  }
+
+  body.mobile-nav-enabled #sidebar .menu-button {
+    height: 40px;
+    width: 40px;
+  }
 }
 
 /* Prevent scroll when menu open */
 body.mobile-nav-open {
   overflow: hidden;
+}
+
+/* Hide right sidebar/asides below 980px */
+@media (width <= 980px) {
+  #aside {
+    display: none !important;
+  }
 }
