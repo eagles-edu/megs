@@ -147,7 +147,7 @@ function sanitizeValueToken(raw) {
     '.': 'pt',
     '%': 'pct',
     '/': '',
-    '\\': '',
+    '\': '',
     '+': '',
     '&': 'amp',
     '@': '',

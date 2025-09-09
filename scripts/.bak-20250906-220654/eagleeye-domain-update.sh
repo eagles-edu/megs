@@ -402,13 +402,7 @@ execute_replacements() {
   [[ -s "$MATCHES_TSV" ]] || return 0
   while IFS= read -r f; do
     [[ -f "$f" ]] || continue
-    mapfile -t pairs < <(
-      awk -F'\t' -v file="$f" '$1==file{print $4 "\t" $5}' "$MATCHES_TSV" \
-        | sort -u \
-        | awk -F'\t' '{ print length($1) "\t" $0 }' \
-        | sort -rn \
-        | cut -f2-
-    )
+    mapfile -t pairs < <(awk -F'\t' -v file="$f" '$1==file{print $4 "\t" $5}' "$MATCHES_TSV" | sort -u)
     [[ ${#pairs[@]} -eq 0 ]] && continue
 
     if [[ -n "$BACKUP_EXT" && ! -e "${f}${BACKUP_EXT}" ]]; then
@@ -480,8 +474,7 @@ write_digest() {
 
     if (( ${#FILE_HITS[@]} > 0 )); then
       while IFS= read -r f; do
-        local firstloc="${FILE_FIRST_LOC[$f]-}"
-        if [[ -z "$firstloc" ]]; then firstloc="1:1"; fi
+        local firstloc="${FILE_FIRST_LOC[$f]-1:1}"
         echo "--------------------------------------------------------------------------------"
         echo "$f:${firstloc}  — ${FILE_HITS[$f]} replacement(s)"
         awk -F'\t' -v file="$f" '$1==file { printf "  %s:%s %s --> %s\n", $2, $3, $4, $5 }' "$MATCHES_TSV"

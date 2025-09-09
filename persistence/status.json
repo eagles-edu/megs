@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2025-09-06T08:29:15.766Z",
+  "updated_at": "2025-09-09T17:56:40.196Z",
   "policy": {
     "autoflush": true,
     "debounce_ms": 1000,
@@ -21,7 +21,7 @@
     "lessons_count": 4,
     "great_modules_count": 2,
     "sop_count": 3,
-    "history_entries": 629
+    "history_entries": 2883
   },
   "highlights": {
     "current_focus": [
@@ -36,9 +36,9 @@
     ]
   },
   "context": {
-    "last_6_days_entries": 527,
+    "last_6_days_entries": 2609,
     "last_session_close": {
-      "ts": "2025-09-06T08:29:15.715Z",
+      "ts": "2025-09-09T17:56:40.130Z",
       "note": null,
       "type": "heartbeat"
     }

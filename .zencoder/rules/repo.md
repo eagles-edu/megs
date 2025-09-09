@@ -91,20 +91,45 @@ npm run lint:html:fix
 - [ ] Task 3
 
 ## Recent Decisions
-- Decision: …  
-  Context: …  
-  Options: …  
-  Rationale: …  
+- Decision: …
+  Context: …
+  Options: …
+  Rationale: …
   Impact: …
 
 ## Known Risks
 - …
 
 ## Versions/Tooling (Snapshot)
-- Node: v20  
-- ESLint: see eslint.config.js  
-- Stylelint: see .stylelintrc.cjs  
+- Node: v20
+- ESLint: see eslint.config.js
+- Stylelint: see .stylelintrc.cjs
 - Prettier: see .prettierrc
+
+## Standard Operating Procedures (SOPs)
+
+### CSS Property Organization
+**SOP**: Always alphabetize CSS properties within each selector block.
+
+**Rationale**: Alphabetical ordering of CSS properties improves code maintainability, reduces merge conflicts, and enhances readability by providing a consistent, predictable structure.
+
+**Implementation**: When writing or editing CSS files, properties within each selector should be arranged in alphabetical order (A-Z).
+
+**Example**:
+```css
+.example {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  color: #333;
+  display: flex;
+  margin: 10px;
+  padding: 20px;
+  width: 100%;
+}
+```
+
+## Testing Framework
+targetFramework: Playwright
 
 ## Open Questions
 - …

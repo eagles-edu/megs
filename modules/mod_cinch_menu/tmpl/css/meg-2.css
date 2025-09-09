@@ -1,36 +1,33 @@
-/* stylelint-disable value-keyword-case */
+/**
+ * ========================================================================
+ * MEGS-2 UNIFIED CSS LOADER
+ * ========================================================================
+ * 
+ * This file coordinates loading of three separate navigation/accordion systems:
+ * 
+ * SYSTEM 1: FLYOUT NAVIGATION MENU
+ *   - File: flyout.css
+ *   - Purpose: Hover-based dropdown navigation
+ *   - Scope: ul.flyout-menu in #sidebar
+ * 
+ * SYSTEM 2: NAVIGATION ACCORDION MENU  
+ *   - File: accordion.css
+ *   - Purpose: Collapsible navigation items (e.g., "Lists")
+ *   - Scope: ul.accordion-menu in #sidebar (#accordion_menu_90)
+ * 
+ * SYSTEM 3: EXERCISE CONTENT ACCORDION
+ *   - File: content-accordion.css (imported below)
+ *   - Purpose: Q&A expandable sections in exercise content
+ *   - Scope: .accordion elements in #content area
+ * 
+ * This separation prevents CSS conflicts between these distinct systems.
+ * ========================================================================
+ */
+
+@import url("../../../../media/css/theme-vars.css");
 /* stylelint-disable selector-id-pattern */
-:root {
-  --primary-color: #e0162b;
-  --secondary-color: #ddd;
-  --text-color: #212121;
-  --background-color: #f5f5f5;
-  --font-base:
-    'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Noto Sans',
-    'Helvetica Neue', Arial, 'Liberation Sans', 'Cantarell', 'Ubuntu', 'Oxygen', 'Fira Sans',
-    'Droid Sans', 'Apple Color Emoji', 'Segoe UI Emoji', 'Noto Color Emoji', sans-serif;
-  --font-header:
-    'Roboto Condensed', 'Arial Narrow', Roboto, 'Open Sans', -apple-system, BlinkMacSystemFont,
-    'Segoe UI', 'Noto Sans', 'Helvetica Neue', Arial, 'Liberation Sans', 'Cantarell', 'Ubuntu',
-    'Oxygen', 'Fira Sans', 'Droid Sans', 'Apple Color Emoji', 'Segoe UI Emoji', 'Noto Color Emoji',
-    sans-serif;
-}
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-.site-title {
-  font-family: var(--font-header) !important;
-}
-
-body.site {
-  border-top: 3px solid var(--primary-color) !important;
-  background-color: var(--background-color) !important;
-  font-family: var(--font-base) !important;
-}
+/* Module-specific styles only; global typography handled by template */
 
 li.linkco {
   line-height: 1.6em !important;
@@ -45,622 +42,27 @@ ul.flyout-menu li {
   list-style-type: none !important;
 }
 
-/*        flyout_menu_92            */
-#flyout_menu_92 {
-  background: #fff !important;
-  font-family: var(--font-header) !important;
-}
+/* flyout menus are styled in flyout.css (SSOT) */
 
-#flyout_menu_92 ul {
-  background: #fff !important;
-}
-
-#flyout_menu_92 a {
-  color: #a3a3a3 !important;
-}
-
-#flyout_menu_92 .item-wrapper:hover a,
-#flyout_menu_92 li.current > .item-wrapper a,
-#flyout_menu_92 li.opened > .item-wrapper a {
-  color: var(--primary-color) !important;
-  text-decoration: none !important;
-}
-
-#flyout_menu_92 li.open,
-#flyout_menu_92 li:hover {
-  background: #f0f0ee !important;
-  text-decoration: none !important;
-}
-
-@media screen and (width <= 767px) {
-  #flyout_menu_92 .ul-wrapper,
-  #flyout_menu_92 ul {
-    width: auto !important;
-  }
-
-  #flyout_menu_92.horizontal ul .menu-link {
-    width: auto !important;
-  }
-}
-
-@media screen and (width >= 768px) {
-  #flyout_menu_92 .ul-wrapper,
-  #flyout_menu_92 ul {
-    width: 220px !important;
-  }
-}
-
-/*        flyout_menu_93
-
-#flyout_menu_93 {
-  background: #fff !important;
-  font-family: var(--font-header) !important;
-}
-
-#flyout_menu_93 ul {
-  background: #fff !important;
-}
-
-#flyout_menu_93 a {
-  color: #a3a3a3 !important;
-}
-
-/* #flyout_menu_93 a:active {
-		color: #e0162b!important;
-	}
-#flyout_menu_93 .item-wrapper:hover a,
-#flyout_menu_93 li.current > .item-wrapper a,
-#flyout_menu_93 li.opened > .item-wrapper a {
-  color: var(--primary-color) !important;
-  text-decoration: none !important;
-}
-
-#flyout_menu_93 li.open,
-#flyout_menu_93 li:hover {
-  background: #f0f0ee !important;
-  text-decoration: none !important;
-}
-
-@media screen and (width <= 767px) {
-  #flyout_menu_93 .ul-wrapper,
-  #flyout_menu_93 ul {
-    width: auto !important;
-  }
-
-  #flyout_menu_93.horizontal ul .menu-link {
-    width: auto !important;
-  }
-}
-
-@media screen and (width >= 768px) {
-  #flyout_menu_93 .ul-wrapper,
-  #flyout_menu_93 ul {
-    width: 220px !important;
-  }
-}
-
-
-/*        flyout_menu_94            */
-
-#flyout_menu_94 {
-  background: #fff !important;
-  font-family: var(--font-header) !important;
-}
-
-#flyout_menu_94 ul {
-  background: #fff !important;
-}
-
-#flyout_menu_94 a {
-  color: #a3a3a3 !important;
-}
-
-#flyout_menu_94 .item-wrapper:hover a,
-#flyout_menu_94 li.current > .item-wrapper a,
-#flyout_menu_94 li.opened > .item-wrapper a {
-  color: var(--primary-color) !important;
-  text-decoration: none !important;
-}
-
-#flyout_menu_94 li.open,
-#flyout_menu_94 li:hover {
-  background: #f0f0ee !important;
-  text-decoration: none !important;
-}
-
-@media screen and (width <= 767px) {
-  #flyout_menu_94 .ul-wrapper,
-  #flyout_menu_94 ul {
-    width: auto !important;
-  }
-
-  #flyout_menu_94.horizontal ul .menu-link {
-    width: auto !important;
-  }
-}
-
-@media screen and (width >= 768px) {
-  #flyout_menu_94 .ul-wrapper,
-  #flyout_menu_94 ul {
-    width: 220px !important;
-  }
-}
-
-#flyout_menu_95 {
-  background: #fff !important;
-  font-family: var(--font-header) !important;
-}
-
-#flyout_menu_95 ul {
-  background: #fff !important;
-}
-
-#flyout_menu_95 a {
-  color: #a3a3a3 !important;
-}
-
-#flyout_menu_95 .item-wrapper:hover a,
-#flyout_menu_95 li.current > .item-wrapper a,
-#flyout_menu_95 li.opened > .item-wrapper a {
-  color: var(--primary-color) !important;
-  text-decoration: none !important;
-}
-
-#flyout_menu_95 li.open,
-#flyout_menu_95 li:hover {
-  background: #f0f0ee !important;
-  text-decoration: none !important;
-}
-
-@media screen and (width <= 767px) {
-  #flyout_menu_95 .ul-wrapper,
-  #flyout_menu_95 ul {
-    width: auto !important;
-  }
-
-  #flyout_menu_95.horizontal ul .menu-link {
-    width: auto !important;
-  }
-}
-
-@media screen and (width >= 768px) {
-  #flyout_menu_95 .ul-wrapper,
-  #flyout_menu_95 ul {
-    width: 220px !important;
-  }
-}
+/* Legacy per-menu overrides removed for clarity; consolidated rules follow */
 
 /*        flyout_menu_99           */
 
-#flyout_menu_97 {
-  background: #fff !important;
-  font-family: var(--font-header) !important;
-}
-
-#flyout_menu_97 ul {
-  background: #fff !important;
-}
-
-#flyout_menu_97 a {
-  color: #a3a3a3 !important;
-}
-
-#flyout_menu_97 .item-wrapper:hover a,
-#flyout_menu_97 li.current > .item-wrapper a,
-#flyout_menu_97 li.opened > .item-wrapper a {
-  color: var(--primary-color) !important;
-  text-decoration: none !important;
-}
-
-#flyout_menu_97 li.open,
-#flyout_menu_97 li:hover {
-  background: #f0f0ee !important;
-  text-decoration: none !important;
-}
-
-@media screen and (width <= 767px) {
-  #flyout_menu_97 .ul-wrapper,
-  #flyout_menu_97 ul {
-    width: auto !important;
-  }
-
-  #flyout_menu_97.horizontal ul .menu-link {
-    width: auto !important;
-  }
-}
-
-@media screen and (width >= 768px) {
-  #flyout_menu_97 .ul-wrapper,
-  #flyout_menu_97 ul {
-    width: 220px !important;
-  }
-}
+ 
 
 /*        flyout_menu_96           */
 
-#flyout_menu_96 {
-  background: #fff !important;
-  font-family: var(--font-header) !important;
-}
-
-#flyout_menu_96 ul {
-  background: #fff !important;
-}
-
-#flyout_menu_96 a {
-  color: #a3a3a3 !important;
-}
-
-#flyout_menu_96 .item-wrapper:hover a,
-#flyout_menu_96 li.current > .item-wrapper a,
-#flyout_menu_96 li.opened > .item-wrapper a {
-  color: var(--primary-color) !important;
-  text-decoration: none !important;
-}
-
-#flyout_menu_96 li.open,
-#flyout_menu_96 li:hover {
-  background: #f0f0ee !important;
-  text-decoration: none !important;
-}
-
-@media screen and (width <= 767px) {
-  #flyout_menu_96 .ul-wrapper,
-  #flyout_menu_96 ul {
-    width: auto !important;
-  }
-
-  #flyout_menu_96.horizontal ul .menu-link {
-    width: auto !important;
-  }
-}
-
-@media screen and (width >= 768px) {
-  #flyout_menu_96 .ul-wrapper,
-  #flyout_menu_96 ul {
-    width: 220px !important;
-  }
-}
+ 
 
 /*        flyout_menu_99           */
 
-#flyout_menu_99 {
-  background: #fff !important;
-  font-family: var(--font-header) !important;
-}
+ 
 
-#flyout_menu_99 ul {
-  background: #fff !important;
-}
+ 
 
-#flyout_menu_99 a {
-  color: #a3a3a3 !important;
-}
+/* --- Flyout menus: consolidated overrides moved to flyout.css (SSOT) --- */
 
-#flyout_menu_99 .item-wrapper:hover a,
-#flyout_menu_99 li.current > .item-wrapper a,
-#flyout_menu_99 li.opened > .item-wrapper a {
-  color: var(--primary-color) !important;
-  text-decoration: none !important;
-}
-
-#flyout_menu_99 li.open,
-#flyout_menu_99 li:hover {
-  background: #f0f0ee !important;
-  text-decoration: none !important;
-}
-
-@media screen and (width <= 767px) {
-  #flyout_menu_99 .ul-wrapper,
-  #flyout_menu_99 ul {
-    width: auto !important;
-  }
-
-  #flyout_menu_99.horizontal ul .menu-link {
-    width: auto !important;
-  }
-}
-
-@media screen and (width >= 768px) {
-  #flyout_menu_99 .ul-wrapper,
-  #flyout_menu_99 ul {
-    width: 220px !important;
-  }
-}
-
-#flyout_menu_100 {
-  background: #fff !important;
-  font-family: var(--font-header) !important;
-}
-
-#flyout_menu_100 ul {
-  background: #fff !important;
-}
-
-#flyout_menu_100 a {
-  color: #a3a3a3 !important;
-}
-
-#flyout_menu_100 .item-wrapper:hover a,
-#flyout_menu_100 li.current > .item-wrapper a,
-#flyout_menu_100 li.opened > .item-wrapper a {
-  color: var(--primary-color) !important;
-  text-decoration: none !important;
-}
-
-#flyout_menu_100 li.open,
-#flyout_menu_100 li:hover {
-  background: #f0f0ee !important;
-  text-decoration: none !important;
-}
-
-@media screen and (width <= 767px) {
-  #flyout_menu_100 .ul-wrapper,
-  #flyout_menu_100 ul {
-    width: auto !important;
-  }
-
-  #flyout_menu_100.horizontal ul .menu-link {
-    width: auto !important;
-  }
-}
-
-@media screen and (width >= 768px) {
-  #flyout_menu_100 .ul-wrapper,
-  #flyout_menu_100 ul {
-    width: 220px !important;
-  }
-}
-
-#flyout_menu_116 {
-  background: #fff !important;
-  font-family: var(--font-header) !important;
-}
-
-#flyout_menu_116 ul {
-  background: #fff !important;
-}
-
-#flyout_menu_116 a {
-  color: #a3a3a3 !important;
-}
-
-#flyout_menu_116 .item-wrapper:hover a,
-#flyout_menu_116 li.current > .item-wrapper a,
-#flyout_menu_116 li.opened > .item-wrapper a {
-  color: var(--primary-color) !important;
-  text-decoration: none !important;
-}
-
-#flyout_menu_116 li.open,
-#flyout_menu_116 li:hover {
-  background: #f0f0ee !important;
-}
-
-#flyout_menu_116.horizontal ul .menu-link {
-  width: auto !important;
-}
-
-/* Removed legacy MS IE-specific selectors for #flyout_menu_116 */
-
-/*       accordion_menu_90
-.menuicon {
-  float: right !important;
-  padding: 0 10px 0 0 !important;
-}
-
-#accordion_menu_90 {
-  background: #fff !important;
-  font-family: var(--font-header) !important;
-}
-
-#accordion_menu_90 a {
-  color: #a3a3a3 !important;
-}
-
-#accordion_menu_90 .item-wrapper:hover a,
-#accordion_menu_90 li.current > .item-wrapper a {
-  color: var(--primary-color) !important;
-  text-decoration: none !important;
-}
-
-#accordion_menu_90 li.open,
-#accordion_menu_90 li:hover {
-  background: #f0f0ee !important;
-  text-decoration: none !important;
-}
-   */
-
-/* --- Flyout menus: consolidated overrides (CSS-only, no HTML changes) --- */
-
-/* base link color for ALL flyout menus */
-:is(
-    #flyout_menu_92,
-    #flyout_menu_93,
-    #flyout_menu_94,
-    #flyout_menu_95,
-    #flyout_menu_96,
-    #flyout_menu_97,
-    #flyout_menu_99,
-    #flyout_menu_100,
-    #flyout_menu_116
-  )
-  a {
-  color: #a3a3a3 !important;
-}
-
-/* active/hover/current link state */
-:is(
-    #flyout_menu_92,
-    #flyout_menu_93,
-    #flyout_menu_94,
-    #flyout_menu_95,
-    #flyout_menu_96,
-    #flyout_menu_97,
-    #flyout_menu_99,
-    #flyout_menu_100,
-    #flyout_menu_116
-  )
-  .item-wrapper:hover
-  a,
-:is(
-    #flyout_menu_92,
-    #flyout_menu_93,
-    #flyout_menu_94,
-    #flyout_menu_95,
-    #flyout_menu_96,
-    #flyout_menu_97,
-    #flyout_menu_99,
-    #flyout_menu_100,
-    #flyout_menu_116
-  )
-  li.current
-  > .item-wrapper
-  a,
-:is(
-    #flyout_menu_92,
-    #flyout_menu_93,
-    #flyout_menu_94,
-    #flyout_menu_95,
-    #flyout_menu_96,
-    #flyout_menu_97,
-    #flyout_menu_99,
-    #flyout_menu_100,
-    #flyout_menu_116
-  )
-  li.opened
-  > .item-wrapper
-  a {
-  color: var(--primary-color) !important;
-  text-decoration: none !important;
-}
-
-/* li hover/open background */
-:is(
-    #flyout_menu_92,
-    #flyout_menu_93,
-    #flyout_menu_94,
-    #flyout_menu_95,
-    #flyout_menu_96,
-    #flyout_menu_97,
-    #flyout_menu_99,
-    #flyout_menu_100,
-    #flyout_menu_116
-  )
-  li.open,
-:is(
-    #flyout_menu_92,
-    #flyout_menu_93,
-    #flyout_menu_94,
-    #flyout_menu_95,
-    #flyout_menu_96,
-    #flyout_menu_97,
-    #flyout_menu_99,
-    #flyout_menu_100,
-    #flyout_menu_116
-  )
-  li:hover {
-  background: #f0f0ee !important;
-  text-decoration: none !important;
-}
-
-/* widths (grouped) */
-@media (width <= 767px) {
-  :is(
-      #flyout_menu_92,
-      #flyout_menu_93,
-      #flyout_menu_94,
-      #flyout_menu_95,
-      #flyout_menu_96,
-      #flyout_menu_97,
-      #flyout_menu_99,
-      #flyout_menu_100,
-      #flyout_menu_116
-    )
-    .ul-wrapper,
-  :is(
-      #flyout_menu_92,
-      #flyout_menu_93,
-      #flyout_menu_94,
-      #flyout_menu_95,
-      #flyout_menu_96,
-      #flyout_menu_97,
-      #flyout_menu_99,
-      #flyout_menu_100,
-      #flyout_menu_116
-    )
-    ul,
-  :is(
-      #flyout_menu_92,
-      #flyout_menu_93,
-      #flyout_menu_94,
-      #flyout_menu_95,
-      #flyout_menu_96,
-      #flyout_menu_97,
-      #flyout_menu_99,
-      #flyout_menu_100,
-      #flyout_menu_116
-    ).horizontal
-    ul
-    .menu-link {
-    width: auto !important;
-  }
-}
-
-@media (width >= 768px) {
-  :is(
-      #flyout_menu_92,
-      #flyout_menu_93,
-      #flyout_menu_94,
-      #flyout_menu_95,
-      #flyout_menu_96,
-      #flyout_menu_97,
-      #flyout_menu_99,
-      #flyout_menu_100,
-      #flyout_menu_116
-    )
-    .ul-wrapper,
-  :is(
-      #flyout_menu_92,
-      #flyout_menu_93,
-      #flyout_menu_94,
-      #flyout_menu_95,
-      #flyout_menu_96,
-      #flyout_menu_97,
-      #flyout_menu_99,
-      #flyout_menu_100,
-      #flyout_menu_116
-    )
-    ul,
-  :is(
-      #flyout_menu_92,
-      #flyout_menu_93,
-      #flyout_menu_94,
-      #flyout_menu_95,
-      #flyout_menu_96,
-      #flyout_menu_97,
-      #flyout_menu_99,
-      #flyout_menu_100,
-      #flyout_menu_116
-    ).horizontal
-    .menu-link,
-  :is(
-      #flyout_menu_92,
-      #flyout_menu_93,
-      #flyout_menu_94,
-      #flyout_menu_95,
-      #flyout_menu_96,
-      #flyout_menu_97,
-      #flyout_menu_99,
-      #flyout_menu_100,
-      #flyout_menu_116
-    )
-    .horizontal
-    > li
-    > .item-wrapper {
-    width: 220px !important;
-  }
-}
+/* widths handled generically in flyout.css (fluid) */
 
 .nodisplay {
   display: none !important;
@@ -672,256 +74,35 @@ ul.flyout-menu li {
  * 2025 Update - Replaces inline styles with a centralized stylesheet
  */
 
-a {
-  color: #004c75;
-}
+/* Use template link colors; avoid global overrides here */
 
 /* Navigation Styles */
-.nav-list > .active > a,
-.nav-list > .active > a:hover,
-.dropdown-menu li > a:hover,
-.dropdown-menu .active > a,
-.dropdown-menu .active > a:hover,
-.nav-pills > .active > a,
-.nav-pills > .active > a:hover,
-.btn-primary {
-  background: #004c75;
-}
+
+/* Avoid overriding site-wide nav/button styles from module CSS */
 
 /* Flyout Menu Styles */
-#flyout_menu_93 {
-  background: #fff;
-}
 
-#flyout_menu_93 ul {
-  background: #fff;
-}
-
-#flyout_menu_93 a {
-  color: #553f32;
-}
-
-#flyout_menu_93 .item-wrapper:hover a,
-#flyout_menu_93 li.current > .item-wrapper a,
-#flyout_menu_93 li.opened > .item-wrapper a {
-  color: #ff8b2f;
-}
-
-#flyout_menu_93 li.open,
-#flyout_menu_93 li:hover {
-  background: #aa6b39;
-}
+/* flyout menus use shared tokens in flyout.css */
 
 /* Accordion Menu Styles */
-#accordion_menu_90 {
-  background: #fff;
-}
 
-#accordion_menu_90 a {
-  color: #000;
-}
-
-#accordion_menu_90 .item-wrapper:hover a,
-#accordion_menu_90 li.current > .item-wrapper a {
-  color: #000d4d;
-}
-
-#accordion_menu_90 li.open,
-#accordion_menu_90 li:hover {
-  background: #6e92ff;
-}
+/* accordion_menu_90 styles delegated to accordion.css */
 
 /* Responsive Adjustments */
-@media screen and (width <= 767px) {
-  #flyout_menu_93 .ul-wrapper,
-  #flyout_menu_93 ul {
-    width: auto;
-  }
 
-  #flyout_menu_93.horizontal ul .menu-link {
-    width: auto;
-  }
-}
-
-@media screen and (width >= 768px) {
-  #flyout_menu_93 .ul-wrapper,
-  #flyout_menu_93 ul {
-    width: 250px;
-  }
-}
+/* per-ID responsive width overrides removed; handled by flyout.css */
 
 /* Content Styles */
 .highlight {
-  color: maroon;
+  color: var(--primary-color);
   font-weight: bold;
 }
 
-/* Accordion Styles - Integrated from modern-accordion.css */
-.accordion {
-  margin-bottom: 1.5rem;
-}
+/* System 3: Exercise Content Accordion - imported from separate file */
+@import url("../../../../media/css/content-accordion.css");
 
-.accordion-group {
-  border: 1px solid #e0e0e0;
-  border-radius: 4px;
-  margin-bottom: 0.5rem;
-  overflow: hidden;
-}
-
-.accordion-heading {
-  background-color: #f8f9fa;
-  border-bottom: 1px solid transparent;
-  transition: background-color 0.2s ease;
-}
-
-.accordion-heading:hover {
-  background-color: #f0f0f0;
-}
-
-.accordion-toggle {
-  display: block;
-  padding: 0.75rem 1rem;
-  color: #333;
-  text-decoration: none;
-  position: relative;
-  width: 100%;
-  text-align: left;
-  cursor: pointer;
-}
-
-.accordion-toggle:hover,
-.accordion-toggle:focus {
-  text-decoration: none;
-  color: #000;
-  outline: none;
-}
-
-.accordion-toggle:focus {
-  box-shadow: 0 0 0 2px rgb(0 123 255 / 25%);
-}
-
-.accordion-toggle::after {
-  content: '';
-  position: absolute;
-  right: 1rem;
-  top: 50%;
-  transform: translateY(-50%) rotate(0deg);
-  width: 10px;
-  height: 10px;
-  border-right: 2px solid #666;
-  border-bottom: 2px solid #666;
-  transition: transform 0.3s ease;
-}
-
-.accordion-toggle[aria-expanded='true']::after {
-  transform: translateY(-50%) rotate(45deg);
-}
-
-.accordion-toggle[aria-expanded='false']::after {
-  transform: translateY(-50%) rotate(-45deg);
-}
-
-.accordion-body {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.3s ease;
-}
-
-.accordion-body.show {
-  max-height: 1000px;
-}
-
-.accordion-inner {
-  padding: 1rem;
-  background-color: #fff;
-}
-
-/* Menu Styles - Integrated from meg-2.css */
-.accordion-menu {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.accordion-menu li {
-  position: relative;
-}
-
-.accordion-menu .item-wrapper {
-  display: flex;
-  align-items: center;
-  border-bottom: 1px solid #eee;
-}
-
-.accordion-menu .menu-button {
-  flex: 0 0 30px;
-  text-align: center;
-}
-
-.accordion-menu .menu-link {
-  flex: 1;
-  padding: 8px 0;
-}
-
-.accordion-menu .menu-link a {
-  display: flex;
-  align-items: center;
-  text-decoration: none;
-}
-
-.accordion-menu .menu-link img {
-  margin-right: 8px;
-  width: 20px;
-  height: 20px;
-}
-
-.flyout-menu {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.flyout-menu li {
-  position: relative;
-}
-
-.flyout-menu .item-wrapper {
-  display: flex;
-  align-items: center;
-  border-bottom: 1px solid #eee;
-}
-
-.flyout-menu .menu-button {
-  flex: 0 0 30px;
-  text-align: center;
-}
-
-.flyout-menu .menu-link {
-  flex: 1;
-  padding: 8px 0;
-}
-
-.flyout-menu .menu-link a {
-  display: flex;
-  align-items: center;
-  text-decoration: none;
-}
-
-.flyout-menu .menu-link img {
-  margin-right: 8px;
-  width: 20px;
-  height: 20px;
-}
-
-.flyout-menu .ul-wrapper {
-  position: absolute;
-  top: 0;
-  left: 100%;
-  z-index: 100;
-  display: none;
-}
-
-.flyout-menu.flyout-left .ul-wrapper {
-  left: auto;
-  right: 100%;
-}
+/* Legacy duplicate styles removed - handled by system-specific files:
+ * - flyout-menu styles: see flyout.css (System 1)
+ * - accordion-menu styles: see accordion.css (System 2)  
+ * - content accordion styles: see content-accordion.css (System 3)
+ */

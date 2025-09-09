@@ -1,11 +1,29 @@
+
+/**
+ * ========================================================================
+ * SYSTEM 2: NAVIGATION ACCORDION MENU
+ * ========================================================================
+ * 
+ * Handles the collapsible accordion functionality in the left navigation.
+ * This system manages expandable menu items like "Lists" that push other
+ * items down when opened.
+ * 
+ * Usage: Applied to ul.accordion-menu elements (e.g., #accordion_menu_90)
+ * Scope: #sidebar navigation area
+ * ========================================================================
+ */
+
+@import url("../../../../media/css/theme-vars.css");
+
 ul.accordion-menu {
-  border: 1px solid var(--secondary-color);
+  border: 1px solid var(--border-color);
   margin: 0;
   padding: 0;
   overflow: hidden;
   line-height: normal;
   list-style: none !important; /* stylelint-disable-line declaration-no-important */
   font-size: 0.85em;
+  max-width: 100%;
 }
 
 ul.accordion-menu-left {
@@ -16,8 +34,38 @@ ul.accordion-menu-right {
   text-align: right;
 }
 
+
+
 ul.accordion-menu li {
-  border-top: 1px solid var(--secondary-color);
+  border-top: 1px solid var(--divider-color);
+}
+
+/* Layout: icon and text left-aligned, responsive */
+ul.accordion-menu .item-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+ul.accordion-menu .menu-button {
+  flex: 0 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+ul.accordion-menu .menu-link {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+ul.accordion-menu .menu-link > a,
+ul.accordion-menu .menu-link > p {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  white-space: normal;
+  overflow-wrap: anywhere;
 }
 
 ul.accordion-menu > li.first,
@@ -32,6 +80,24 @@ ul.accordion-menu a:active,
 ul.accordion-menu a:focus {
   font-family: var(--font-header);
   background: none;
+}
+
+/* Unified accordion link colors (accessible, themed) */
+ul.accordion-menu a {
+  color: var(--menu-text);
+}
+
+ul.accordion-menu li > .item-wrapper:hover a,
+ul.accordion-menu li.current > .item-wrapper a,
+ul.accordion-menu li.opened > .item-wrapper a {
+  color: var(--primary-color);
+  text-decoration: none;
+}
+
+/* Subtle hover/open background to guide focus */
+ul.accordion-menu li.open,
+ul.accordion-menu li:hover {
+  background: var(--surface-warm);
 }
 
 ul.accordion-menu.button-left li > .item-wrapper > .menu-button,

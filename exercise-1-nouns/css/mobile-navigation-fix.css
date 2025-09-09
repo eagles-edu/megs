@@ -1,0 +1,305 @@
+/* Mobile Navigation Fix for MEGS Educational Platform
+ * Addresses responsive navigation stacking behavior
+ * Ensures sidebar accessibility across all screen sizes
+ * Aligned with theme-vars.css root variables
+ */
+
+@import url("../../media/css/theme-vars.css");
+
+/* === Mobile Navigation Enhancement === */
+
+/* Hamburger Menu Button - Initially hidden */
+.mobile-menu-toggle {
+  background: var(--primary-color);
+  border: none;
+  border-radius: var(--radius);
+  box-shadow: 0 2px 6px var(--shadow-color);
+  color: var(--secondary-color);
+  cursor: pointer;
+  display: none;
+  font-size: 18px;
+  height: 44px;
+  padding: 0;
+  position: fixed;
+  right: 20px;
+  top: 15px;
+  transition: all var(--flyout-anim-duration) var(--flyout-anim-ease);
+  width: 44px;
+  z-index: 1050;
+}
+
+.mobile-menu-toggle:hover {
+  background: var(--link-hover);
+  transform: scale(1.05);
+}
+
+.mobile-menu-toggle:focus {
+  outline: 2px solid var(--info-color);
+  outline-offset: 2px;
+}
+
+/* Hamburger icon styling */
+.mobile-menu-toggle::before {
+  content: '☰';
+  display: block;
+  line-height: 1;
+}
+
+.mobile-menu-toggle.open::before {
+  content: '✕';
+}
+
+/* Mobile Overlay for navigation */
+.mobile-nav-overlay {
+  background: var(--flyout-border);
+  display: none;
+  height: 100%;
+  left: 0;
+  opacity: 0;
+  position: fixed;
+  top: 0;
+  transition: opacity var(--flyout-anim-duration) var(--flyout-anim-ease);
+  width: 100%;
+  z-index: 1040;
+}
+
+.mobile-nav-overlay.active {
+  opacity: 1;
+}
+
+/* === Responsive Navigation Behavior === */
+
+/* Tablet and small desktop adjustments (768px - 979px) */
+@media (width >= 768px) and (width <= 979px) {
+  #sidebar {
+    width: 180px;
+  }
+
+  #sidebar .span2 {
+    width: 100%;
+  }
+
+  #content {
+    margin-left: 200px;
+    width: calc(100% - 220px);
+  }
+}
+
+/* Mobile devices (767px and below) */
+@media (width <= 767px) {
+  /* Show mobile menu button */
+  .mobile-menu-toggle {
+    display: block;
+  }
+
+  /* Hide navigation icons */
+  .icons {
+    display: none !important;
+  }
+
+  /* Transform sidebar into slide-out menu */
+  #sidebar {
+    background: var(--surface-color);
+    border-right: 1px solid var(--border-color);
+    box-shadow: var(--flyout-shadow-panel);
+    height: 100vh;
+    left: -280px;
+    overflow-y: auto;
+    padding: 60px 0 20px;
+    position: fixed;
+    top: 0;
+    transition: transform var(--flyout-anim-duration) var(--flyout-anim-ease);
+    width: 280px;
+    z-index: 1045;
+}
+
+  #sidebar.mobile-nav-open {
+    transform: translateX(280px);
+  }
+
+  /* Make main content full width on mobile */
+  #content {
+    margin-left: 0;
+    padding: 20px 15px;
+    width: 100%;
+  }
+
+  /* Fix row-fluid behavior on mobile */
+  .row-fluid {
+    display: block;
+  }
+
+  .row-fluid [class*='span'] {
+    display: block;
+    float: none;
+    margin-bottom: 20px;
+    margin-left: 0;
+    width: 100%;
+}
+
+  /* Header adjustments for mobile menu */
+  .header {
+    position: relative;
+    padding-right: 60px; /* Make space for hamburger button */
+  }
+
+  /* Ensure navigation menu items are touch-friendly */
+  #sidebar .accordion-menu a {
+    border-bottom: 1px solid var(--divider-color);
+    color: var(--menu-text);
+    display: block;
+    font-family: var(--font-base);
+    line-height: 1.4;
+    min-height: 44px;
+    padding: var(--flyout-item-padding-y) var(--flyout-item-padding-x);
+    text-decoration: none;
+    transition: color var(--flyout-anim-duration) var(--flyout-anim-ease);
+  }
+
+  #sidebar .accordion-menu a:hover {
+    background: var(--hover-surface-overlay);
+    color: var(--menu-text-hover);
+  }
+
+  #sidebar .accordion-menu li {
+    margin: 0;
+  }
+
+  /* Improve touch targets for accordion buttons */
+  #sidebar .menu-button {
+    align-items: center;
+    display: flex;
+    height: 44px;
+    justify-content: center;
+    width: 44px;
+}
+
+  /* Accessibility improvements */
+  #sidebar .menu-link a:focus {
+    background: var(--surface-1);
+    outline: 2px solid var(--info-color);
+    outline-offset: -2px;
+  }
+}
+
+/* Very small mobile devices (480px and below) */
+@media (width <= 480px) {
+  .mobile-menu-toggle {
+    font-size: 16px;
+    height: 40px;
+    right: 15px;
+    top: 10px;
+    width: 40px;
+  }
+
+  /* Hide navigation icons */
+  .icons {
+    display: none !important;
+  }
+
+  #sidebar {
+    left: -100%;
+    width: 100%;
+  }
+
+  #sidebar.mobile-nav-open {
+    transform: translateX(100%);
+  }
+
+  .header .brand {
+    max-width: calc(100% - 60px);
+  }
+
+  #content {
+    padding: 15px 10px;
+  }
+}
+
+/* Prevent body scroll when mobile menu is open */
+body.mobile-nav-open {
+  overflow: hidden;
+}
+
+/* Enhanced accessibility for screen readers */
+.mobile-menu-toggle[aria-expanded="true"] + .mobile-nav-overlay {
+  display: block;
+}
+
+/* Focus trap for mobile navigation */
+#sidebar.mobile-nav-open .accordion-menu a:first-child {
+  /* Focus will be programmatically set to first menu item */
+}
+
+/* Enhanced mobile navigation positioning */
+@media (width <= 991px) {
+  /* Ensure proper header stacking on smaller tablets */
+  .header {
+    position: relative;
+    z-index: 1000;
+  }
+  
+  .header-inner {
+    position: relative;
+  }
+}
+
+/* Improved hamburger positioning for different screen sizes */
+@media (width <= 1024px) and (width > 767px) {
+  .mobile-menu-toggle {
+    display: block;
+    font-size: 16px;
+    height: 40px;
+    right: 15px;
+    top: 12px;
+    width: 40px;
+  }
+  
+  /* Hide desktop-only elements when hamburger is shown */
+  .visible-desktop,
+  .header-search,
+  .icons {
+    display: none !important;
+  }
+}
+
+/* Enhanced sidebar stacking behavior */
+@media (width <= 767px) {
+  /* Prevent content shifting during navigation transitions */
+  .container {
+    overflow-x: hidden;
+    position: relative;
+  }
+  
+  /* Ensure proper z-index stacking */
+  .header {
+    position: relative;
+    z-index: 1001;
+  }
+  
+  #content {
+    position: relative;
+    z-index: 1;
+  }
+  
+  /* Improved mobile navigation state management */
+  #sidebar {
+    will-change: transform;
+  }
+  
+  #sidebar.mobile-nav-open {
+    will-change: auto;
+  }
+}
+
+/* Animation performance optimizations */
+@media (prefers-reduced-motion: reduce) {
+  .mobile-menu-toggle,
+  #sidebar,
+  .mobile-nav-overlay {
+    transition: none;
+  }
+  
+  .mobile-menu-toggle:hover {
+    transform: none;
+  }
+}

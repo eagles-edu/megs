@@ -10,7 +10,7 @@ permissions:
 jobs:
   build-and-analyze:
     name: Lint & Codacy
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     environment:
       name: megs_env
     steps:

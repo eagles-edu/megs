@@ -1,15 +1,15 @@
 /* modernized btn-warning */
 .btn-warning {
-  color: #fff;
+  color: var(--secondary-color);
   text-shadow: 0 -1px 0 rgb(0 0 0 / 25%);
 
   /* fallback solid color */
-  background-color: #f89406;
+  background-color: var(--btn-warning);
 
   /* modern gradient */
-  background-image: linear-gradient(to bottom, #fbb450, #f89406);
+  background-image: linear-gradient(to bottom, var(--btn-warning), var(--btn-warning));
 
   /* keep darker bottom border like the original */
-  border-color: #f89406;
-  border-bottom-color: #ad6704;
+  border-color: var(--btn-warning);
+  border-bottom-color: var(--btn-warning);
 }
