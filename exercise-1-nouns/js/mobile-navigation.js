@@ -32,13 +32,17 @@ class MobileNavigation {
       console.warn('Sidebar element not found');
       return;
     }
+    // Ensure semantic navigation semantics for the left sidebar
+    this.sidebar.setAttribute('role', 'navigation');
+    this.sidebar.setAttribute('aria-label', 'Main menu');
     
     // Create hamburger menu button
     this.toggleButton = document.createElement('button');
     this.toggleButton.className = 'mobile-menu-toggle';
-    this.toggleButton.setAttribute('aria-label', 'Toggle navigation menu');
+    this.toggleButton.setAttribute('aria-label', 'Main menu');
     this.toggleButton.setAttribute('aria-expanded', 'false');
     this.toggleButton.setAttribute('aria-controls', 'sidebar');
+    this.toggleButton.setAttribute('aria-haspopup', 'true');
     this.toggleButton.type = 'button';
     
     // Create overlay for mobile menu
