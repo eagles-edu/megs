@@ -3,11 +3,11 @@
  * ========================================================================
  * SYSTEM 2: NAVIGATION ACCORDION MENU
  * ========================================================================
- * 
+ *
  * Handles the collapsible accordion functionality in the left navigation.
  * This system manages expandable menu items like "Lists" that push other
  * items down when opened.
- * 
+ *
  * Usage: Applied to ul.accordion-menu elements (e.g., #accordion_menu_90)
  * Scope: #sidebar navigation area
  * ========================================================================

@@ -9168,3 +9168,124 @@ div {
 .nodisplay {
   display: none !important;
 }
+
+/* -------------------------------------------------------------------------
+   Mobile Navigation (global)
+   - Works with exercise-1-nouns/js/mobile-navigation.js
+   - Scoped via body.mobile-nav-enabled so untouched pages keep legacy layout
+   ------------------------------------------------------------------------- */
+
+/* Hamburger button + overlay base (hidden by default) */
+.mobile-menu-toggle {
+  background: var(--primary-color);
+  border: none;
+  border-radius: var(--radius);
+  box-shadow: 0 2px 6px var(--shadow-color);
+  color: var(--secondary-color);
+  cursor: pointer;
+  display: none;
+  font-size: 18px;
+  height: 44px;
+  padding: 0;
+  position: fixed;
+  right: 20px;
+  top: 15px;
+  transition: all var(--flyout-anim-duration) var(--flyout-anim-ease);
+  width: 44px;
+  z-index: 1050;
+}
+
+.mobile-menu-toggle:hover {
+  background: var(--link-hover);
+  transform: scale(1.05);
+}
+
+.mobile-menu-toggle:focus {
+  outline: 2px solid var(--info-color);
+  outline-offset: 2px;
+}
+
+.mobile-menu-toggle::before {
+  content: '☰';
+  display: block;
+  line-height: 1;
+}
+
+.mobile-menu-toggle.open::before {
+  content: '✕';
+}
+
+.mobile-nav-overlay {
+  background: var(--flyout-border);
+  display: none;
+  height: 100%;
+  left: 0;
+  opacity: 0;
+  position: fixed;
+  top: 0;
+  transition: opacity var(--flyout-anim-duration) var(--flyout-anim-ease);
+  width: 100%;
+  z-index: 1040;
+}
+
+.mobile-nav-overlay.active {
+  display: block;
+  opacity: 1;
+}
+
+/* Show hamburger on tablet and below to match legacy grid */
+@media (width <= 1024px) {
+  .mobile-menu-toggle {
+    display: block;
+    font-size: 16px;
+    height: 40px;
+    right: 15px;
+    top: 12px;
+    width: 40px;
+  }
+  .visible-desktop,
+  .header-search,
+  .icons {
+    display: none !important;
+  }
+}
+
+/* Off-canvas left nav only when JS enables it */
+@media (width <= 767px) {
+  body.mobile-nav-enabled #sidebar {
+    background: var(--surface-color);
+    border-right: 1px solid var(--border-color);
+    box-shadow: var(--flyout-shadow-panel);
+    height: 100vh;
+    left: -280px;
+    overflow-y: auto;
+    padding: 60px 0 20px;
+    position: fixed;
+    top: 0;
+    transition: transform var(--flyout-anim-duration) var(--flyout-anim-ease);
+    width: 280px;
+    z-index: 1045;
+  }
+
+  body.mobile-nav-enabled #sidebar.mobile-nav-open {
+    transform: translateX(280px);
+  }
+
+  /* Content spans full width when nav is off-canvas */
+  body.mobile-nav-enabled #content {
+    margin-left: 0;
+    padding: 20px 15px;
+    width: 100%;
+  }
+
+  .header {
+    position: relative;
+    padding-right: 60px; /* space for hamburger */
+    z-index: 1001;
+  }
+}
+
+/* Prevent scroll when menu open */
+body.mobile-nav-open {
+  overflow: hidden;
+}

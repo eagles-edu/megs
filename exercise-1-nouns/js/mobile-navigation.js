@@ -17,6 +17,8 @@ class MobileNavigation {
   
   init() {
     this.createMobileElements();
+    // Mark page as mobile-nav enabled so global CSS can scope safely
+    document.body.classList.add('mobile-nav-enabled');
     this.bindEvents();
     this.handleResize();
     
@@ -100,11 +102,14 @@ class MobileNavigation {
   
   openMenu() {
     if (!this.mediaQuery.matches) return;
-    
+
     this.isOpen = true;
     document.body.classList.add('mobile-nav-open');
     this.sidebar?.classList.add('mobile-nav-open');
-    this.overlay?.classList.add('active');
+    if (this.overlay) {
+      this.overlay.style.display = 'block';
+      this.overlay.classList.add('active');
+    }
     this.toggleButton?.classList.add('open');
     
     // Update ARIA attributes
@@ -119,7 +124,10 @@ class MobileNavigation {
     this.isOpen = false;
     document.body.classList.remove('mobile-nav-open');
     this.sidebar?.classList.remove('mobile-nav-open');
-    this.overlay?.classList.remove('active');
+    if (this.overlay) {
+      this.overlay.classList.remove('active');
+      this.overlay.style.display = 'none';
+    }
     this.toggleButton?.classList.remove('open');
     
     // Update ARIA attributes

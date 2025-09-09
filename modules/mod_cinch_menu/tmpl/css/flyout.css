@@ -3,11 +3,11 @@
  * ========================================================================
  * SYSTEM 1: FLYOUT NAVIGATION MENU
  * ========================================================================
- * 
+ *
  * Handles the main navigation flyout functionality in the left sidebar.
  * This system manages hover-based dropdown menus for desktop navigation.
- * 
- * Usage: Applied to ul.flyout-menu elements 
+ *
+ * Usage: Applied to ul.flyout-menu elements
  * Scope: #sidebar navigation area
  * ========================================================================
  */

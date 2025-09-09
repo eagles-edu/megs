@@ -2,10 +2,10 @@
  * ========================================================================
  * SYSTEM 3: EXERCISE CONTENT ACCORDION
  * ========================================================================
- * 
+ *
  * Handles the Q&A accordion functionality used within exercise content areas.
  * This is separate from navigation accordions and flyout menus.
- * 
+ *
  * Usage: Applied to .accordion elements in exercise pages
  * Scope: #content area only (exercises, lessons, etc.)
  * ========================================================================
