@@ -71,7 +71,6 @@ config.local.*
 secrets.*
 credentials.*
  
- 
 # keep essential tracked files/folders despite broad ignores above
 !.gitignore
 !.github/
