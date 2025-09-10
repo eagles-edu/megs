@@ -12,8 +12,8 @@ node_modules/
 logs/
 *.log
 npm-debug.log*
-***/**/.sto/
-***/**/sto/
+**/**/.sto/
+**/**/sto/
 
 # codex persistence (keep untracked)
 .codex/
@@ -70,7 +70,9 @@ TODO.md
 config.local.*
 secrets.*
 credentials.*
- 
+settings.*
+
+
 # keep essential tracked files/folders despite broad ignores above
 !.gitignore
 !.github/
