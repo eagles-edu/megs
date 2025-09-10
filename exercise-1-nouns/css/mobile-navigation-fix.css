@@ -71,17 +71,21 @@
 
 /* Tablet and small desktop adjustments (768px - 979px) */
 @media (width >= 768px) and (width <= 979px) {
-  #sidebar {
-    width: 180px;
+  /* Keep left menu and content side-by-side without wrapping */
+  .grid-modern .row-fluid {
+    flex-wrap: nowrap;
   }
 
-  #sidebar .span2 {
-    width: 100%;
+  /* Fixed left menu width; let content fill remaining space */
+  .grid-modern #sidebar {
+    flex: 0 0 200px;
+    max-width: 200px;
   }
 
-  #content {
-    margin-left: 200px;
-    width: calc(100% - 220px);
+  .grid-modern #content {
+    flex: 1 1 auto;
+    max-width: none;
+    min-width: 0; /* prevent overflow from forcing a wrap */
   }
 }
 
@@ -244,17 +248,13 @@ body.mobile-nav-open {
 }
 
 /* Improved hamburger positioning for different screen sizes */
+/*
+  Show the hamburger only below 767px as requested. Keep the
+  desktop-only element overrides for tablet sizes without forcing
+  the hamburger to appear on 768–1024px.
+*/
 @media (width <= 1024px) and (width > 767px) {
-  .mobile-menu-toggle {
-    display: block;
-    font-size: 16px;
-    height: 40px;
-    right: 15px;
-    top: 12px;
-    width: 40px;
-  }
-  
-  /* Hide desktop-only elements when hamburger is shown */
+  /* Hide desktop-only elements on tablets */
   .visible-desktop,
   .header-search,
   .icons {

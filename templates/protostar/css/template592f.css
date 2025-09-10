@@ -1,6 +1,19 @@
 /* Theme variables */
 @import url("../../../media/css/theme-vars.css");
 
+
+@font-face {
+  font-family:  IcoMoon, 'Segoe UI Symbol', 'Apple Color Emoji', 'Noto Color Emoji', sans-serif; /* fallback with symbol/emoji support + generic */
+  src:
+    url('../../../media/jui/fonts/IcoMoon.svg');
+  src:
+    url('../../../media/jui/fonts/IcoMoon.eot') format('svg'),
+    url('../../../media/jui/fonts/IcoMoon.woff') format('woff'),
+    url('../../../media/jui/fonts/IcoMoon.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 /* stylelint-disable value-keyword-case */
 
 /* stylelint-disable no-descending-specificity */
@@ -5231,7 +5244,7 @@ a.badge:focus {
   }
 
   .container-fluid {
-    padding: 0;
+    padding: 8px; /* small, mirrored padding around the menu */
   }
 
   .dl-horizontal dt {
@@ -9170,10 +9183,82 @@ div {
 }
 
 /* -------------------------------------------------------------------------
-   Mobile Navigation (global)
-   - Works with exercise-1-nouns/js/mobile-navigation.js
-   - Scoped via body.mobile-nav-enabled so untouched pages keep legacy layout
+    Mobile Navigation (global)
+    - Works with exercise-1-nouns/js/mobile-navigation.js
+    - Scoped via body.mobile-nav-enabled so untouched pages keep legacy layout
    ------------------------------------------------------------------------- */
+
+/* -------------------------------------------------------------------------
+    Self-hosted webfonts (fast + resilient)
+    - Serve WOFF2 with WOFF fallback
+    - Use local() to prefer installed system fonts
+    - font-display: swap to avoid FOIT
+   ------------------------------------------------------------------------- */
+
+/* Open Sans (Regular 400) */
+@font-face {
+  font-family: 'Open Sans';
+  src:
+    local('Open Sans Regular'),
+    local('OpenSans-Regular'),
+    url('../webfont/opensans-regular-webfont.woff2') format('woff2'),
+    url('../webfont/opensans-regular-webfont.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Open Sans (Semibold 600) */
+@font-face {
+  font-family: 'Open Sans';
+  src:
+    local('Open Sans Semibold'),
+    local('OpenSans-Semibold'),
+    url('../webfont/opensans-semibold-webfont.woff2') format('woff2'),
+    url('../webfont/opensans-semibold-webfont.woff') format('woff');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Open Sans (Bold 700) */
+@font-face {
+  font-family: 'Open Sans';
+  src:
+    local('Open Sans Bold'),
+    local('OpenSans-Bold'),
+    url('../webfont/opensans-bold-webfont.woff2') format('woff2'),
+    url('../webfont/opensans-bold-webfont.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Roboto Condensed (Regular 400) */
+@font-face {
+  font-family: 'Roboto Condensed';
+  src:
+    local('Roboto Condensed'),
+    local('RobotoCondensed-Regular'),
+    url('../webfont/robotocondensed-regular-webfont.woff2') format('woff2'),
+    url('../webfont/robotocondensed-regular-webfont.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Roboto Condensed (Bold 700) */
+@font-face {
+  font-family: 'Roboto Condensed';
+  src:
+    local('Roboto Condensed Bold'),
+    local('RobotoCondensed-Bold'),
+    url('../webfont/robotocondensed-bold-webfont.woff2') format('woff2'),
+    url('../webfont/robotocondensed-bold-webfont.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
 
 /* Hamburger button + overlay base (hidden by default) */
 .mobile-menu-toggle {
@@ -9235,8 +9320,8 @@ div {
   pointer-events: auto;
 }
 
-/* Show hamburger on tablet and below to match legacy grid */
-@media (width <= 1024px) {
+/* Show hamburger only on phones (<= 766px) */
+@media (width <= 766px) {
   .mobile-menu-toggle {
     display: block;
     font-size: 16px;
@@ -9253,21 +9338,27 @@ div {
 }
 
 /* Off-canvas left nav only when JS enables it */
-@media (width <= 767px) {
+@media (width <= 766px) {
+  /* Fallback: hide sidebar on phones when JS isn't loaded */
+  #sidebar { display: none; }
+
   body.mobile-nav-enabled #sidebar {
     background: var(--surface-color);
     border-right: 1px solid var(--border-color);
     box-shadow: var(--flyout-shadow-panel);
-    height: 100vh;
+    height: auto;
+    max-height: 100vh;
     left: -200px;
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
-    padding: 60px 0 20px;
+    padding: 0;
     position: fixed;
     top: 0;
     transition: transform var(--flyout-anim-duration) var(--flyout-anim-ease);
     width: 200px;
     z-index: 1045;
+    display: block; /* override fallback when enabled */
+    will-change: transform;
   }
 
   body.mobile-nav-enabled #sidebar.mobile-nav-open {
@@ -9281,79 +9372,92 @@ div {
     width: 100%;
   }
 
-  .header {
-    position: relative;
-    padding-right: 60px; /* space for hamburger */
-    z-index: 1001;
-  }
+  .header { position: relative; z-index: 1001; }
 
-  /* Tighter vertical rhythm for mobile menu items */
-  body.mobile-nav-enabled #sidebar .accordion-menu a,
-  body.mobile-nav-enabled #sidebar .flyout-menu a {
-    min-height: 36px;
-    padding: 6px 10px;
-    line-height: 1.15;
-    font-size: 0.9em !important;
-  }
-
-  body.mobile-nav-enabled #sidebar .menu-button {
-    height: 32px;
-    width: 32px;
-  }
-
-  /* Reduce gaps and hide icons to compact menu further */
-  body.mobile-nav-enabled #sidebar .item-wrapper { gap: 4px; }
+  /* Minimal, stacked button-style menu on phones */
   body.mobile-nav-enabled #sidebar .menu-link img { display: none; }
+  body.mobile-nav-enabled #sidebar .menu-button { display: none !important; }
+  body.mobile-nav-enabled #sidebar .item-wrapper { gap: 0; }
 
-  /* Themed stacked mobile menu buttons */
-  body.mobile-nav-enabled #sidebar .accordion-menu {
-    border: 0;
-    padding: 8px 10px 16px;
-    background: var(--surface-color);
-  }
+  /* Sidebar: show only top-level list items (hide nested sub-items) */
+  body.mobile-nav-enabled #sidebar #accordion_menu_90 .ul-wrapper { display: none !important; }
 
-  body.mobile-nav-enabled #sidebar .accordion-menu > li {
-    border: 0;
-    margin: 6px 0;
-  }
+  body.mobile-nav-enabled #sidebar .accordion-menu { border: 0; padding: 0; background: var(--surface-color); }
+
+  body.mobile-nav-enabled #sidebar .accordion-menu > li { border: 0; margin: 0; }
+  body.mobile-nav-enabled #sidebar .ul-wrapper { display: block !important; }
 
   body.mobile-nav-enabled #sidebar .accordion-menu .menu-link > a {
-    background: var(--surface-1);
-    border: 1px solid var(--border-color);
-    border-radius: var(--radius);
-    box-shadow: 0 1px 2px rgba(0 0 0 / 8%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    padding: 6px 10px; /* mirrored small padding top/bottom and sides */
+    margin: 0;
+    text-align: center;
+    font-size: 1.12em !important; /* slight bump for readability */
+    font-weight: 600; /* medium weight for better emphasis */
+    font-family: var(--font-base);
+    letter-spacing: 0.2px; /* subtle for legibility */
+    line-height: 1;
+    color: var(--text-color);
+    background: var(--surface-color); /* themed surface */
+    border: 1px solid var(--color-strong); /* stronger border for contrast */
+    border-radius: 0;
+    box-shadow: none;
+    text-decoration: none;
+    opacity: 0;
+    transform: translateY(6px);
     transition:
-      background-color var(--flyout-anim-duration) var(--flyout-anim-ease),
-      border-color var(--flyout-anim-duration) var(--flyout-anim-ease),
-      transform var(--flyout-anim-duration) var(--flyout-anim-ease),
-      box-shadow var(--flyout-anim-duration) var(--flyout-anim-ease);
+      opacity calc(var(--flyout-anim-duration) * 0.7) var(--flyout-anim-ease),
+      transform calc(var(--flyout-anim-duration) * 0.7) var(--flyout-anim-ease),
+      background-color 160ms ease-in-out,
+      color 160ms ease-in-out;
+    will-change: opacity, transform;
   }
 
+  /* Reveal buttons with a soft slide/fade when the menu opens */
+  body.mobile-nav-enabled #sidebar.mobile-nav-open .accordion-menu .menu-link > a {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Optional stagger for first few items for a richer effect */
+  body.mobile-nav-enabled #sidebar.mobile-nav-open .accordion-menu > li:nth-child(1) .menu-link > a { transition-delay: 40ms; }
+  body.mobile-nav-enabled #sidebar.mobile-nav-open .accordion-menu > li:nth-child(2) .menu-link > a { transition-delay: 80ms; }
+  body.mobile-nav-enabled #sidebar.mobile-nav-open .accordion-menu > li:nth-child(3) .menu-link > a { transition-delay: 120ms; }
+  body.mobile-nav-enabled #sidebar.mobile-nav-open .accordion-menu > li:nth-child(4) .menu-link > a { transition-delay: 160ms; }
+  body.mobile-nav-enabled #sidebar.mobile-nav-open .accordion-menu > li:nth-child(5) .menu-link > a { transition-delay: 200ms; }
+
+  /* Theme continuity: highlight current page link */
+  body.mobile-nav-enabled #sidebar .accordion-menu li.current > .item-wrapper .menu-link > a,
+  body.mobile-nav-enabled #sidebar .accordion-menu .menu-link > a[aria-current="page"] {
+    color: var(--primary-color);
+    border-color: var(--primary-color);
+    font-weight: 700;
+  }
+
+  /* No hover color change on mobile; only click (active) changes */
+  /* No background hover effect; keep padding stable on hover/focus */
   body.mobile-nav-enabled #sidebar .accordion-menu .item-wrapper:hover .menu-link > a,
   body.mobile-nav-enabled #sidebar .accordion-menu .menu-link > a:hover,
   body.mobile-nav-enabled #sidebar .accordion-menu .menu-link > a:focus {
-    background: var(--surface-soft);
-    border-color: var(--primary-color);
+    background: var(--surface-color);
+    padding: 6px 10px;
     text-decoration: none;
-    box-shadow: 0 0 0 2px rgba(224 22 43 / 15%), 0 2px 6px rgba(0 0 0 / 10%);
   }
 
+  /* On click: darken the button text/border, keep background themed */
   body.mobile-nav-enabled #sidebar .accordion-menu .menu-link > a:active {
-    transform: translateY(1px);
-    background: var(--surface-warm);
-    box-shadow: 0 1px 2px rgba(0 0 0 / 8%);
-  }
-
-  body.mobile-nav-enabled #sidebar .accordion-menu li.current > .item-wrapper .menu-link > a,
-  body.mobile-nav-enabled #sidebar .accordion-menu li.opened > .item-wrapper .menu-link > a {
+    background: var(--surface-color);
+    color: var(--primary-color);
     border-color: var(--primary-color);
-    background: var(--surface-soft);
   }
 
-  /* Focus ring for keyboard users */
+  /* Optional: keep focus ring accessible without padding */
   body.mobile-nav-enabled #sidebar .accordion-menu .menu-link > a:focus-visible {
     outline: 2px solid var(--info-color);
-    outline-offset: 2px;
+    outline-offset: -2px;
   }
 }
 
@@ -9369,5 +9473,31 @@ body.mobile-nav-open {
 @media (width <= 980px) {
   #aside {
     display: none !important;
+  }
+}
+
+/* Tablet layout: keep left menu (#sidebar) and content (#content) side-by-side
+   without wrapping until the mobile breakpoint (767px) */
+@media (width >= 768px) and (width <= 979px) {
+  /* Smooth, fluid container width to avoid abrupt jump at 980px */
+  .grid-modern .container {
+    width: calc(100% - 40px); /* keep ~20px side gutters */
+    max-width: 940px;         /* match desktop max for continuity */
+    box-sizing: border-box;   /* include padding/border to avoid overflow */
+  }
+
+  .grid-modern .row-fluid {
+    flex-wrap: nowrap;
+  }
+
+  .grid-modern #sidebar {
+    flex: 0 0 200px;
+    max-width: 200px;
+  }
+
+  .grid-modern #content {
+    flex: 1 1 auto;
+    max-width: none;
+    min-width: 0;
   }
 }

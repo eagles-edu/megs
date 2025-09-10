@@ -6,7 +6,7 @@
  * @since       3.2
  */
 
-jQuery(function ($) {
+if (window.jQuery) jQuery(function ($) {
   'use strict'
 
   $(document)
@@ -154,3 +154,124 @@ jQuery(function ($) {
     })
   }
 })
+
+// Global Mobile Navigation (no HTML edits required)
+;(function () {
+  class MobileNavigation {
+    constructor() {
+      this.sidebar = null
+      this.toggleButton = null
+      this.overlay = null
+      this.isOpen = false
+      this.mediaQuery = window.matchMedia('(max-width: 766px)')
+      this.init()
+    }
+
+    init() {
+      this.createMobileElements()
+      if (!this.sidebar || !this.toggleButton || !this.overlay) return
+      document.body.classList.add('mobile-nav-enabled')
+      this.bindEvents()
+      this.handleResize()
+      this.mediaQuery.addEventListener('change', () => this.handleResize())
+    }
+
+    createMobileElements() {
+      this.sidebar = document.getElementById('sidebar')
+      if (!this.sidebar) return
+      this.sidebar.setAttribute('role', 'navigation')
+      this.sidebar.setAttribute('aria-label', 'Main menu')
+
+      // Reuse existing elements if a page already created them
+      this.toggleButton = document.querySelector('.mobile-menu-toggle')
+      this.overlay = document.querySelector('.mobile-nav-overlay')
+
+      if (!this.toggleButton) {
+        this.toggleButton = document.createElement('button')
+        this.toggleButton.className = 'mobile-menu-toggle'
+        this.toggleButton.setAttribute('aria-label', 'Main menu')
+        this.toggleButton.setAttribute('aria-expanded', 'false')
+        this.toggleButton.setAttribute('aria-controls', 'sidebar')
+        this.toggleButton.setAttribute('aria-haspopup', 'true')
+        this.toggleButton.type = 'button'
+        document.body.appendChild(this.toggleButton)
+      }
+
+      if (!this.overlay) {
+        this.overlay = document.createElement('div')
+        this.overlay.className = 'mobile-nav-overlay'
+        this.overlay.setAttribute('aria-hidden', 'true')
+        document.body.appendChild(this.overlay)
+      }
+    }
+
+    bindEvents() {
+      this.toggleButton.addEventListener('click', (e) => {
+        e.preventDefault()
+        this.toggleMenu()
+      })
+
+      this.overlay.addEventListener('click', () => this.closeMenu())
+
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && this.isOpen) {
+          this.closeMenu()
+          this.toggleButton.focus()
+        }
+      })
+
+      this.sidebar.addEventListener('click', (e) => {
+        if (this.mediaQuery.matches && e.target.tagName === 'A') {
+          setTimeout(() => this.closeMenu(), 150)
+        }
+      })
+
+      window.addEventListener('resize', () => {
+        if (!this.mediaQuery.matches && this.isOpen) this.closeMenu()
+      })
+    }
+
+    toggleMenu() {
+      this.isOpen ? this.closeMenu() : this.openMenu()
+    }
+
+    openMenu() {
+      if (!this.mediaQuery.matches) return
+      this.isOpen = true
+      document.body.classList.add('mobile-nav-open')
+      this.sidebar.classList.add('mobile-nav-open')
+      this.overlay.style.display = 'block'
+      this.overlay.classList.add('active')
+      this.toggleButton.classList.add('open')
+      this.toggleButton.setAttribute('aria-expanded', 'true')
+      this.overlay.setAttribute('aria-hidden', 'false')
+      const firstLink = this.sidebar.querySelector('.accordion-menu a, .flyout-menu a')
+      if (firstLink) firstLink.focus()
+    }
+
+    closeMenu() {
+      this.isOpen = false
+      document.body.classList.remove('mobile-nav-open')
+      this.sidebar.classList.remove('mobile-nav-open')
+      this.overlay.classList.remove('active')
+      this.overlay.style.display = 'none'
+      this.toggleButton.classList.remove('open')
+      this.toggleButton.setAttribute('aria-expanded', 'false')
+      this.overlay.setAttribute('aria-hidden', 'true')
+    }
+
+    handleResize() {
+      if (!this.mediaQuery.matches && this.isOpen) this.closeMenu()
+    }
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', () => {
+      try { new MobileNavigation() } catch (e) {}
+    })
+  } else {
+    try { new MobileNavigation() } catch (e) {}
+  }
+})()
+
+// SOP loader removed: avoid fetching non-website resources

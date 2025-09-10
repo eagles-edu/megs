@@ -1,114 +1,59 @@
 {
+  // VS Code tasks to run bulk cleanup safely. Run in order.
   "version": "2.0.0",
   "tasks": [
     {
-      "label": "Format: Prettier (all)",
-      "type": "npm",
-      "script": "format",
-      "problemMatcher": []
-    },
-    {
-      "label": "Format: HTML (Prettier only)",
-      "type": "npm",
-      "script": "fmt:html",
-      "problemMatcher": []
-    },
-    {
-      "label": "Lint: HTML (html-validate)",
-      "type": "npm",
-      "script": "lint:html",
-      "problemMatcher": []
-    },
-    {
-      "label": "Lint: JS (ESLint)",
-      "type": "npm",
-      "script": "lint:js",
-      "problemMatcher": []
-    },
-    {
-      "label": "Fix: JS (ESLint --fix)",
-      "type": "npm",
-      "script": "lint:js:fix",
-      "problemMatcher": []
-    },
-    {
-      "label": "Lint: CSS (Stylelint)",
-      "type": "npm",
-      "script": "lint:css",
-      "problemMatcher": []
-    },
-    {
-      "label": "Fix: CSS (Stylelint --fix)",
-      "type": "npm",
-      "script": "lint:css:fix",
-      "problemMatcher": []
-    },
-    {
-      "label": "Startup: Ingest + Heartbeat",
-      "type": "npm",
-      "script": "start",
-      "problemMatcher": [],
-      "runOptions": { "runOn": "folderOpen" }
-    },
-    {
-      "label": "Shutdown: Stop Heartbeat (auto)",
+      "label": "backup-html",
       "type": "shell",
-      "command": "node scripts/vscode-watchdog.js",
+      "command": "set -e; for f in $(rg -l --type-add html:*.html); do [ -f \"$f.bak\" ] || cp \"$f\" \"$f.bak\"; done; echo 'Backups created (*.bak)'",
+      "problemMatcher": []
+    },
+    {
+      "label": "remove-feed-links",
+      "type": "shell",
+      "command": "set -e; for f in $(rg -l --type-add html:*.html '<link[^>]+feed\\?type=(rss|atom)'); do perl -0777 -pe 's/\\n?\\s*<link[^>]*feed\\?type=(?:rss|atom)[^>]*>\\s*\\r?\\n?//g' -i \"$f\"; done; echo 'Removed RSS/Atom feed links'",
       "problemMatcher": [],
-      "runOptions": { "runOn": "folderClose" }
+      "dependsOn": ["backup-html"]
     },
     {
-      "label": "Log: Decision",
-      "type": "npm",
-      "script": "log:decision",
+      "label": "remove-google-fonts-cssd2d5",
+      "type": "shell",
+      "command": "set -e; for f in $(rg -l --type-add html:*.html 'cssd2d5'); do perl -0777 -pe 's/\\n?\\s*<link[^>]*href=\\\"[^\\\"]*cssd2d5[^\\\"]*\\\"[^>]*>\\s*\\r?\\n?//g' -i \"$f\"; done; echo 'Removed cssd2d5 (Google Fonts) links'",
       "problemMatcher": [],
-      "args": ["${input:decisionSummary}", "${input:decisionDetails}"]
+      "dependsOn": ["backup-html"]
     },
     {
-      "label": "Log: Error",
-      "type": "npm",
-      "script": "log:error",
+      "label": "remove-head-style-blocks",
+      "type": "shell",
+      "command": "set -e; for f in $(rg -l --type-add html:*.html '<style'); do perl -0777 -pe 's/(<head[\s\S]*?)(<style[\s\S]*?<\\/style>)/$1/g' -i \"$f\"; done; echo 'Removed <style> blocks inside <head>'",
       "problemMatcher": [],
-      "args": ["${input:errorSummary}", "${input:errorDetails}"]
+      "dependsOn": ["backup-html"]
     },
     {
-      "label": "Log: Close Session",
-      "type": "npm",
-      "script": "log:close",
+      "label": "async-sliders-css",
+      "type": "shell",
+      "command": "set -e; for f in $(rg -l --type-add html:*.html 'media/sliders/css/style.min.css'); do perl -0777 -pe 's#<link[^>]*href=\"[^\"]*/media/sliders/css/style\.min\.css\"[^>]*>#<link rel=\"preload\" href=\"../media/sliders/css/style.min.css\" as=\"style\">\\\n<link rel=\"stylesheet\" href=\"../media/sliders/css/style.min.css\" media=\"print\" onload=\"this.media=\'all\'\">\\\n<noscript><link rel=\"stylesheet\" href=\"../media/sliders/css/style.min.css\"></noscript>#g' -i \"$f\"; done; echo 'Converted sliders CSS to async'",
+      "problemMatcher": []
+    },
+    {
+      "label": "async-content-accordion-css",
+      "type": "shell",
+      "command": "set -e; for f in $(rg -l --type-add html:*.html 'media/css/content-accordion.css'); do perl -0777 -pe 's#<link[^>]*href=\"[^\"]*/media/css/content-accordion\.css\"[^>]*>#<link rel=\"preload\" href=\"../media/css/content-accordion.css\" as=\"style\">\\\n<link rel=\"stylesheet\" href=\"../media/css/content-accordion.css\" media=\"print\" onload=\"this.media=\'all\'\">\\\n<noscript><link rel=\"stylesheet\" href=\"../media/css/content-accordion.css\"></noscript>#g' -i \"$f\"; done; echo 'Converted content-accordion CSS to async'",
+      "problemMatcher": []
+    },
+    {
+      "label": "report-inline-hex-html",
+      "type": "shell",
+      "command": "rg -n --type-add html:*.html '#[0-9a-fA-F]{3,8}\\b' | head -n 200",
+      "problemMatcher": []
+    },
+    {
+      "label": "map-safe-theme-hex-html",
+      "type": "shell",
+      "command": "set -e; for f in $(rg -l --type-add html:*.html '#[0-9a-fA-F]{3,8}'); do perl -0777 -pe 's/#(?:E0162B|e0162b)\b/var(--primary-color)/g; s/#(?:004c75|000d4d)\b/var(--link-color)/g; s/#(?:f4f6f7|F4F6F7|f0f0ee|F0F0EE)\b/var(--surface-1)/g; s/#(?:fff|FFF|ffffff|FFFFFF)\b/var(--surface-color)/g; s/#(?:000|000000)\b/var(--text-color)/g; s/#333333\b/var(--color-strong)/g' -i \"$f\"; done; echo 'Applied safe theme mappings to inline colors'",
       "problemMatcher": [],
-      "args": ["${input:closeSummary}"]
-    }
-  ],
-  "inputs": [
-    {
-      "id": "decisionSummary",
-      "type": "promptString",
-      "description": "Decision summary",
-      "default": "Set policy"
-    },
-    {
-      "id": "decisionDetails",
-      "type": "promptString",
-      "description": "Decision details (JSON)",
-      "default": "{\"rationale\":\"...\"}"
-    },
-    {
-      "id": "errorSummary",
-      "type": "promptString",
-      "description": "Error summary",
-      "default": "Unexpected failure"
-    },
-    {
-      "id": "errorDetails",
-      "type": "promptString",
-      "description": "Error details (JSON)",
-      "default": "{\"code\":0}"
-    },
-    {
-      "id": "closeSummary",
-      "type": "promptString",
-      "description": "Session close summary",
-      "default": "Session ended"
+      "dependsOn": ["backup-html"]
     }
   ]
 }
+

@@ -10,7 +10,7 @@ class MobileNavigation {
     this.toggleButton = null;
     this.overlay = null;
     this.isOpen = false;
-    this.mediaQuery = window.matchMedia('(max-width: 767px)');
+    this.mediaQuery = window.matchMedia('(max-width: 766px)');
     
     this.init();
   }

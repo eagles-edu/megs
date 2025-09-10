@@ -11,7 +11,7 @@
  * ========================================================================
  */
 
-@import url("theme-vars.css");
+@import url('theme-vars.css');
 
 /* Scoped to content area to avoid conflicts with navigation systems */
 #content .accordion {
@@ -54,7 +54,7 @@
 }
 
 #content .accordion-toggle:focus {
-  box-shadow: 0 0 0 2px rgb(0 123 255 / 25%);
+  box-shadow: var(--focus-ring-shadow);
 }
 
 /* Arrow indicator for content accordions */
@@ -92,5 +92,5 @@
 
 #content .accordion-inner {
   padding: 1rem;
-  background-color: var(--surface-color);
+
 }

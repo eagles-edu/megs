@@ -1,17 +1,7 @@
 /* CSS */
 
-@import url("../../css/theme-vars.css");
+@import url("../../../css/theme-vars.css");
 
-@font-face {
-  font-family:  IcoMoon, 'Segoe UI Symbol', 'Apple Color Emoji', 'Noto Color Emoji', sans-serif; /* fallback with symbol/emoji support + generic */
-  src: url('../../jui/fonts/IcoMoon.eot');
-  src:
-    url('../../jui/fonts/IcoMoon.svg#IcoMoon') format('svg'),
-    url('../../jui/fonts/IcoMoon.woff') format('woff'),
-    url('../../jui/fonts/IcoMoon.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-}
 
 .nn_sliders .fade {
   opacity: 0;
@@ -27,9 +17,9 @@
 }
 
 .nn_sliders .collapse {
-  position: relative;
   height: 0;
   overflow: hidden;
+  position: relative;
   transition: height 1ms ease;
 }
 
@@ -46,9 +36,9 @@
 }
 
 .nn_sliders.accordion > .accordion-group {
-  margin-bottom: 2px;
   border: 1px solid var(--divider-color);
   border-radius: 0.25rem;
+  margin-bottom: 2px;
   transition-duration: 0.2s
 }
 
@@ -57,14 +47,14 @@
 }
 
 .nn_sliders.accordion > .accordion-group .accordion-heading .accordion-toggle {
+  cursor: pointer;
   display: block;
   padding: 8px 15px;
-  cursor: pointer;
 }
 
 .nn_sliders.accordion > .accordion-group > .accordion-body > .accordion-inner {
-  padding: 9px 15px;
   border-top: 1px solid var(--divider-color);
+  padding: 9px 15px;
 }
 
 .nn_sliders.accordion > .accordion-group > .accordion-body.in:hover {
@@ -98,8 +88,8 @@
 
 .nn_sliders.accordion > .accordion-group > div > a:focus,
 .nn_sliders.accordion > .accordion-group.active > div > a:focus {
-  outline: 0;
   box-shadow: inset 0 0 2px var(--btn-warning);
+  outline: 0;
 }
 
 .nn_sliders.accordion > .accordion-group span.nn_sliders-title-inactive {
@@ -120,16 +110,16 @@
 
 /* stylelint-disable-next-line no-duplicate-selectors */
 .nn_sliders.accordion > .accordion-group > .accordion-body > .accordion-inner {
-  padding: 15px;
-  overflow-y: hidden !important;
   overflow-x: auto;
+  overflow-y: hidden !important;
+  padding: 15px;
   zoom: 1;
 }
 
 .nn_sliders.accordion > .accordion-group > .accordion-body > .accordion-inner::before,
 .nn_sliders.accordion > .accordion-group > .accordion-body > .accordion-inner::after {
-  display: table;
   content: '';
+  display: table;
   line-height: 0;
 }
 
@@ -183,8 +173,8 @@
 }
 
 .nn_sliders.accordion > .accordion-group.blue {
-  border-top: 5px solid var(--divider-color);
   border-radius: 5px 5px 4px 4px;
+  border-top: 5px solid var(--divider-color);
   border-top-color: var(--link-color);
 }
 
@@ -194,8 +184,8 @@
 }
 
 .nn_sliders.accordion > .accordion-group.primary {
-  border-top: 5px solid var(--divider-color);
   border-radius: 5px 5px 4px 4px;
+  border-top: 5px solid var(--divider-color);
   border-top-color: var(--link-color);
 }
 
@@ -205,8 +195,8 @@
 }
 
 .nn_sliders.accordion > .accordion-group.info {
-  border-top: 5px solid var(--divider-color);
   border-radius: 5px 5px 4px 4px;
+  border-top: 5px solid var(--divider-color);
   border-top-color: var(--btn-info);
 }
 
@@ -216,8 +206,8 @@
 }
 
 .nn_sliders.accordion > .accordion-group.green {
-  border-top: 5px solid var(--divider-color);
   border-radius: 5px 5px 4px 4px;
+  border-top: 5px solid var(--divider-color);
   border-top-color: var(--btn-success);
 }
 
@@ -227,8 +217,8 @@
 }
 
 .nn_sliders.accordion > .accordion-group.success {
-  border-top: 5px solid var(--divider-color);
   border-radius: 5px 5px 4px 4px;
+  border-top: 5px solid var(--divider-color);
   border-top-color: var(--btn-success);
 }
 
@@ -238,8 +228,8 @@
 }
 
 .nn_sliders.accordion > .accordion-group.orange {
-  border-top: 5px solid var(--divider-color);
   border-radius: 5px 5px 4px 4px;
+  border-top: 5px solid var(--divider-color);
   border-top-color: var(--btn-warning);
 }
 
@@ -249,8 +239,8 @@
 }
 
 .nn_sliders.accordion > .accordion-group.warning {
-  border-top: 5px solid var(--divider-color);
   border-radius: 5px 5px 4px 4px;
+  border-top: 5px solid var(--divider-color);
   border-top-color: var(--btn-warning);
 }
 
@@ -260,8 +250,8 @@
 }
 
 .nn_sliders.accordion > .accordion-group.red {
-  border-top: 5px solid var(--divider-color);
   border-radius: 5px 5px 4px 4px;
+  border-top: 5px solid var(--divider-color);
   border-top-color: var(--btn-danger);
 }
 
@@ -271,8 +261,8 @@
 }
 
 .nn_sliders.accordion > .accordion-group.danger {
-  border-top: 5px solid var(--divider-color);
   border-radius: 5px 5px 4px 4px;
+  border-top: 5px solid var(--divider-color);
   border-top-color: var(--btn-danger);
 }
 
@@ -282,8 +272,8 @@
 }
 
 .nn_sliders.accordion > .accordion-group.error {
-  border-top: 5px solid var(--divider-color);
   border-radius: 5px 5px 4px 4px;
+  border-top: 5px solid var(--divider-color);
   border-top-color: var(--btn-danger);
 }
 
@@ -293,8 +283,8 @@
 }
 
 .nn_sliders.accordion > .accordion-group.grey {
-  border-top: 5px solid var(--divider-color);
   border-radius: 5px 5px 4px 4px;
+  border-top: 5px solid var(--divider-color);
   border-top-color: var(--border-subtle);
 }
 
@@ -304,8 +294,8 @@
 }
 
 .nn_sliders.accordion > .accordion-group.gray {
-  border-top: 5px solid var(--divider-color);
   border-radius: 5px 5px 4px 4px;
+  border-top: 5px solid var(--divider-color);
   border-top-color: var(--border-subtle);
 }
 
@@ -315,25 +305,23 @@
 }
 
 .nn_sliders.accordion .nn_sliders-scroll {
+  padding: 0;
   position: relative;
   visibility: hidden;
-  padding: 0;
 }
 
 .panel-body {
 background-color: var(--surface-1);
-border-left-width: medium;
-border-right-width: medium;
+border-left-width: .0625rem;
+border-right-width: .0625rem;
 padding: 7px;
 margin-bottom: -1px;
 }
 
 div.accordion-inner > p {
-color: forestgreen;
+background-color: var(--answer-bgcolor);
+border: 1px solid var(--answer-border);
+color: var(--answer-txtcolor);
 font-weight: bold;
 }
 
-div.panel-body {
-background-color: var(--answer-bgcolor);
-
-}

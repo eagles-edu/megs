@@ -1,25 +1,27 @@
+/* CSS Document UTF-8  */
 /* Theme variables */
 /* stylelint-disable value-keyword-case */
+
 :root {
   /* Brand core */
   --primary-color: #e0162b; /* locked */
-  --secondary-color: #fff; /* white */
+  --secondary-color: #F5F8FF; /* white */
   --tertiary-color: #002786; /* locked */
   --text-color: #212121; /* locked */
 
   /* Layout surfaces */
-  --background-color: #0f172a; /* page background behind light content */
-  --body-bgcolor: #b1b1b1; /* body background */
-  --surface-color: #fff; /* cards/content surface */
-  --surface-muted: #f7f7f9; /* light alt surface */
-  --surface-soft: #f5f5f5; /* neutral soft background */
-  --surface-warm: #f0f0ee; /* warm neutral alt */
-  --surface-1: #f9f9f9; /* very light gray surface */
-  --surface-2: #e6e6e6; /* medium light surface */
+  --background-color: #505050; /* page background behind light content */
+  --body-bgcolor: #f0f0ee; /* body background */
+  --surface-color: #F5F8FF; /* cards/content surface */
+  --surface-muted: #b5b5b5; /* light alt surface */
+  --surface-soft: #c5c5c5cc; /* neutral soft background */
+  --surface-warm: #eee; /* warm neutral alt */
+  --surface-1: #f0f0ee; /* very light gray surface */
+  --surface-2: #f0f0ee; /* medium light surface */
 
   /* Links */
   --link-color: #005e8d; /* derived from brand blue */
-  --link-hover: #004d74;
+  --link-hover: var(--primary-color);
 
   /* Semantic states */
   --success-color: #0f6d2a;
@@ -49,10 +51,11 @@
   --btn-info: #49afcd;
 
   /* Answers (current + suggested alternates) */
-  --answer-bgcolor: #acffbf; /* current */
+  --answer-bgcolor: #65ffad; /* current */
   --answer-txtcolor: #0f6924; /* current */
-  --answer-bgcolor-alt: #e6f7ee; /* suggested themed */
+  --answer-bgcolor-alt: #acffbf ; /* suggested themed */
   --answer-txtcolor-alt: #0f6d2a; /* suggested themed */
+  --answer-border: #76a882 ; /* suggested themed */
 
   /* Typography stacks */
   --font-base:
@@ -66,10 +69,10 @@
     sans-serif;
 
   /* Neutrals and utility */
-  --color-strong: #333;
-  --color-muted: #999;
-  --color-subtle: #bbb;
-  --border-color: #ddd;
+  --color-strong: #444;
+  --color-muted: #666;
+  --color-subtle: #888;
+  --border-color: #aaa;
   --border-subtle: #ccc;
   --divider-color: #eee;
   --shadow-color: rgb(0 0 0 / 20%);
@@ -83,6 +86,13 @@
   --hover-surface-overlay: rgba(0 0 0 / 2%);
   --flyout-anim-duration: 0.18s;
   --flyout-anim-ease: ease;
+
+  /* Focus ring shadow (for accessibility states) */
+  --focus-ring-shadow: 0 0 0 2px rgba(0 94 141 / 25%);
+
+  /* Basic whites/blacks for legacy mappings */
+  --white: #fff;
+  --black: #000;
 
   /* Flyout item spacing */
   --flyout-item-padding-x: 8px;

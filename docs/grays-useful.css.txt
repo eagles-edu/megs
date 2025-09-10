@@ -1,0 +1,29 @@
+Gainsboro 	#DCDCDC
+LightGray 	#D3D3D3
+Silver 	#C0C0C0
+DarkGray 	#A9A9A9
+DimGray 	#696969
+Gray 	#808080
+LightSlateGray 	#778899
+SlateGray 	#708090
+DarkSlateGray 	#2F4F4F
+Black 	#000000
+
+
+
+
+
+
+
+
+
+
+
+
+
+/home/eagles/dockerz/megs/templates/protostar/css/modern-accordion.css
+
+
+
+
+
