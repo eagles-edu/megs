@@ -1,6 +1,9 @@
 # cache
 hts-cache/
 *.zip
+.htaccess
+.DS_Store
+Thumbs.db
 
 # node_modules
 node_modules/
@@ -11,16 +14,44 @@ logs/
 npm-debug.log*
 ***/**/.sto/
 ***/**/sto/
-error-gemini.json
 
 # codex persistence (keep untracked)
 .codex/
+.codacy/
+.continue/
+.github/
+.history-memo/
+.zencoder/
+docs/
+tmp/
+persistence/
+scripts/
+lists2 - Copy/
+.stylelintignore
+127.0.0.1-1757075204385.log.txt
 
 # secrets and environment
 .env
 .env.*
 !.env.example
 .envrc
+all.txt
+all.xlsx
+error-gemini.json
+cookies.txt
+debug.log
+fhgggg
+GEMINI-MINDSET.md
+GEMINI.md
+gg.txt
+gitOp.v0.0.1.md
+hh.txt
+HTML-Validate.log
+scratch-1.txt
+startup-plan-draft.md
+tatus
+TODO.md
+
 
 # credentials & keys
 .git-credentials
@@ -39,3 +70,9 @@ error-gemini.json
 config.local.*
 secrets.*
 credentials.*
+ 
+ 
+# keep essential tracked files/folders despite broad ignores above
+!.gitignore
+!.github/
+!.github/**
