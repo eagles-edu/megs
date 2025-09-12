@@ -1,0 +1,114 @@
+/**
+ * ========================================================================
+ * SYSTEM 3: EXERCISE CONTENT ACCORDION
+ * ========================================================================
+ *
+ * Handles the Q&A accordion functionality used within exercise content areas.
+ * This is separate from navigation accordions and flyout menus.
+ *
+ * Usage: Applied to .accordion elements in exercise pages
+ * Scope: #content area only (exercises, lessons, etc.)
+ * ========================================================================
+ */
+
+@import url('theme-vars.css');
+
+/* Scoped to content area to avoid conflicts with navigation systems */
+#content .accordion {
+  margin-bottom: 1.5rem;
+}
+
+#content .accordion-group {
+  /* Preserve NN Sliders colored top border (e.g., .green/.info/.warning) */
+  border-left: 1px solid var(--border-color);
+  border-right: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  margin-bottom: 0.5rem;
+  overflow: hidden;
+}
+
+#content .accordion-heading {
+  background-color: var(--surface-1);
+  border-bottom: 1px solid transparent;
+  transition: background-color 0.2s ease;
+}
+
+#content .accordion-heading:hover {
+  background-color: var(--surface-soft);
+}
+
+#content .accordion-toggle {
+  display: block;
+  padding: 0.75rem 1rem;
+  color: var(--color-strong);
+  text-decoration: none;
+  position: relative;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+}
+
+#content .accordion-toggle:hover,
+#content .accordion-toggle:focus {
+  text-decoration: none;
+  color: var(--text-color);
+  outline: none;
+}
+
+#content .accordion-toggle:focus {
+  box-shadow: var(--focus-ring-shadow);
+}
+
+/* Arrow indicator for content accordions */
+#content .accordion-toggle::after {
+  content: '';
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%) rotate(0deg);
+  width: 10px;
+  height: 10px;
+  border-right: 2px solid var(--color-muted);
+  border-bottom: 2px solid var(--color-muted);
+  transition: transform 0.3s ease;
+}
+
+#content .accordion-toggle[aria-expanded='true']::after {
+  transform: translateY(-50%) rotate(45deg);
+}
+
+#content .accordion-toggle[aria-expanded='false']::after {
+  transform: translateY(-50%) rotate(-45deg);
+}
+
+/* Content area accordion animation */
+#content .accordion-body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+#content .accordion-body.show {
+  max-height: 1000px;
+}
+
+#content .accordion-inner {
+background-color: var(--answer-bgcolor);
+border: 1px solid var(--answer-border);
+color: var(--answer-txtcolor);font-weight: 500;
+padding: 1rem;
+}
+
+/* Answer block styling (mirrors legacy NN Sliders, but scoped)
+#content .accordion-inner > p {
+  background-color: var(--answer-bgcolor);
+  border: 1px solid var(--answer-border);
+  color: var(--answer-txtcolor);
+  font-weight: bold;
+}
+ */
+/* Hide duplicated title inside the answer panel (legacy NN Sliders markup) */
+#content .nn_sliders.accordion > .accordion-group > .accordion-body > .accordion-inner .nn_sliders-title {
+  display: none !important;
+}

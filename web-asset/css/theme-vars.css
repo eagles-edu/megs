@@ -1,0 +1,106 @@
+/* CSS Document UTF-8  */
+
+/* Theme variables */
+/* stylelint-disable value-keyword-case */
+
+:root {
+  /* Brand core */
+  --primary-color: #e0162b; /* locked */
+  --secondary-color: #F5F8FF; /* white */
+  --tertiary-color: #002786; /* locked */
+  --text-color: #212121; /* locked */
+
+  /* Layout surfaces */
+  --background-color: #505050; /* page background behind light content */
+  --body-bgcolor: #f0f0ee; /* body background */
+  --surface-color: #F5F8FF; /* cards/content surface */
+  --surface-muted: #b5b5b5; /* light alt surface */
+  --surface-soft: #c5c5c5cc; /* neutral soft background */
+  --surface-warm: #eee; /* warm neutral alt */
+  --surface-1: #f0f0ee; /* very light gray surface */
+  --surface-2: #f0f0ee; /* medium light surface */
+
+  /* Links */
+  --link-color: #005e8d; /* derived from brand blue */
+  --link-hover: var(--primary-color);
+
+  /* Semantic states */
+  --success-color: #0f6d2a;
+  --success-bg: #e6f7ee;
+  --success-border: #2f7d51;
+  --danger-color: #e0162b; /* align with primary */
+  --danger-bg: #fce9e9;
+  --danger-border: #870200;
+  --warning-color: #e194ff;
+  --warning-bg: #630094;
+  --warning-border: #6330da;
+  --info-color: #005e8d;
+  --info-bg: #d9edf7;
+  --info-border: #3a87ad;
+
+  /* Navigation/menu */
+  --menu-text: #616978; /* accessible muted slate on white */
+  --menu-text-hover: var(--primary-color);
+
+  /* Shape */
+  --radius: 3px;
+
+  /* Legacy button accents (for older components) */
+  --btn-warning: #f89406;
+  --btn-danger: #bd362f;
+  --btn-success: #51a351;
+  --btn-info: #49afcd;
+
+  /* Answers (current + suggested alternates) */
+  --answer-bgcolor: #65ffad; /* current */
+  --answer-txtcolor: #0f6924; /* current */
+  --answer-bgcolor-alt: #acffbf ; /* suggested themed */
+  --answer-txtcolor-alt: #0f6d2a; /* suggested themed */
+  --answer-border: #76a882 ; /* suggested themed */
+
+  /* Typography stacks */
+  --font-base:
+    'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Noto Sans',
+    'Helvetica Neue', Arial, 'Liberation Sans', 'Cantarell', 'Ubuntu', 'Oxygen', 'Fira Sans',
+    'Droid Sans', 'Apple Color Emoji', 'Segoe UI Emoji', 'Noto Color Emoji', sans-serif;
+  --font-header:
+    'Roboto Condensed', 'Arial Narrow', Roboto, 'Open Sans', -apple-system, BlinkMacSystemFont,
+    'Segoe UI', 'Noto Sans', 'Helvetica Neue', Arial, 'Liberation Sans', 'Cantarell', 'Ubuntu',
+    'Oxygen', 'Fira Sans', 'Droid Sans', 'Apple Color Emoji', 'Segoe UI Emoji', 'Noto Color Emoji',
+    sans-serif;
+
+  /* Neutrals and utility */
+  --color-strong: #444;
+  --color-muted: #666;
+  --color-subtle: #888;
+  --border-color: #aaa;
+  --border-subtle: #ccc;
+  --divider-color: #eee;
+  --shadow-color: rgb(0 0 0 / 20%);
+
+  /* Flyout/Menu theming */
+  --flyout-width-desktop: 250px;
+  --flyout-border: rgba(0 0 0 / 22%);
+  --flyout-divider: rgba(0 0 0 / 15%);
+  --flyout-shadow-menu: 0 2px 10px rgba(0 0 0 / 6%);
+  --flyout-shadow-panel: 0 8px 24px rgba(0 0 0 / 12%);
+  --hover-surface-overlay: rgba(0 0 0 / 2%);
+  --flyout-anim-duration: 0.18s;
+  --flyout-anim-ease: ease;
+
+  /* Focus ring shadow (for accessibility states) */
+  --focus-ring-shadow: 0 0 0 2px rgba(0 94 141 / 25%);
+
+  /* Basic whites/blacks for legacy mappings */
+  --white: #fff;
+  --black: #000;
+
+  /* Flyout item spacing */
+  --flyout-item-padding-x: 8px;
+  --flyout-item-padding-y: 6px;
+  --flyout-item-gap: 6px;
+  --flyout-icon-size: 20px;
+  --flyout-item-min-width: 16ch;
+  --flyout-item-min-width-left: 140px;
+  --flyout-item-min-width-right: 155px;
+}

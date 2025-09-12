@@ -24,7 +24,7 @@ h6,
 
 body.site {
   border-top: 3px solid var(--red-primary) !important;
-  background-color: var(--offwhite-bg) !important;
+  background-color: var(--background-color) !important;
   font-family: var(--font-base) !important;
 }
 

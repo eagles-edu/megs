@@ -1,0 +1,106 @@
+/* Codex QA Slider overrides: single source of truth for Q&A */
+@import url("theme-vars.css");
+
+/* Scope: only affect codex QA pages */
+
+/* Scope strictly to the content area */
+#content .nn_sliders.accordion {
+  margin-bottom: 1.5rem;
+}
+
+/* Preserve themed top border (e.g., .green/.info) and control other borders */
+#content .nn_sliders.accordion > .accordion-group {
+  background: var(--surface-color);
+  border-bottom: 1px solid var(--border-color);
+  border-left: 1px solid var(--border-color);
+  border-radius: 4px;
+  border-right: 1px solid var(--border-color);
+  overflow: hidden;
+}
+
+#content .accordion-heading {
+  background-color: var(--surface-1);
+  transition: background-color 0.2s ease;
+}
+
+#content .accordion-heading:hover {
+  background-color: var(--surface-soft);
+}
+
+#content .accordion-heading > a.accordion-toggle {
+  color: var(--color-strong);
+  display: block;
+  padding: 0.75rem 1rem;
+  position: relative;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Arrow indicator controlled via aria-expanded */
+#content .accordion-heading > a.accordion-toggle::after {
+  border-bottom: 2px solid var(--color-muted);
+  border-right: 2px solid var(--color-muted);
+  content: '';
+  height: 10px;
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%) rotate(0deg);
+  transition: transform 0.25s ease;
+  width: 10px;
+}
+
+#content .accordion-heading > a.accordion-toggle[aria-expanded='true']::after {
+  transform: translateY(-50%) rotate(45deg);
+}
+
+#content .accordion-heading > a.accordion-toggle[aria-expanded='false']::after {
+  transform: translateY(-50%) rotate(-45deg);
+}
+
+/* Body: support both legacy .in and modern .show */
+#content .accordion-body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+#content .accordion-body.in,
+#content .accordion-body.show {
+  max-height: 1000px;
+}
+
+#content .accordion-inner {
+  border-top: 1px solid var(--divider-color);
+  padding: 1rem;
+}
+
+/* Answer highlight (green) */
+.panel-body {
+background-color: var(--answer-bgcolor);
+border: .0625rem solid var(--answer-border);
+margin-bottom: -1px;
+padding: 7px;
+}
+
+div.accordion-inner > p {
+color: var(--answer-txtcolor);
+font-weight: bold;
+}
+
+/* Hide duplicated legacy heading inside body
+#content .nn_sliders-title {
+  display: none !important;
+}
+*/
+
+/* Harmonize with legacy .nn_sliders collapse rules to avoid dupe transitions */
+#content .nn_sliders .collapse {
+  height: 0;
+  overflow: hidden;
+}
+
+#content .nn_sliders .collapse.in,
+#content .nn_sliders .collapse.show {
+  height: auto;
+}

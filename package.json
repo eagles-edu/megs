@@ -32,7 +32,10 @@
     "log:decision": "node scripts/log-history.js decision",
     "log:error": "node scripts/log-history.js error",
     "log:close": "node scripts/log-history.js close",
-    "diagnose": "node scripts/diagnose.js"
+    "diagnose": "node scripts/diagnose.js",
+    "verify:prototype": "node scripts/verify-prototype.js",
+    "verify:live": "node scripts/verify-live.js",
+    "smoke:pages": "node scripts/smoke-pages.js"
   },
   "repository": {
     "type": "git",
@@ -57,7 +60,8 @@
     "postcss-html": "^1.8.0",
     "prettier": "^3.6.2",
     "stylelint": "^16.23.1",
-    "stylelint-config-standard": "^36.0.0"
+    "stylelint-config-standard": "^36.0.0",
+    "jsdom": "^24.1.0"
   },
   "dependencies": {
     "archiver": "^7.0.1",

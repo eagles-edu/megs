@@ -1,0 +1,217 @@
+
+/**
+ * ========================================================================
+ * SYSTEM 2: LEFT MENU (NAVIGATION ACCORDION)
+ * ========================================================================
+ *
+ * Handles the collapsible accordion functionality in the left navigation.
+ * This system manages expandable menu items like "Lists" that push other
+ * items down when opened.
+ *
+ * Usage: Applied to ul.accordion-menu elements (e.g., #accordion_menu_90)
+ * Scope: #sidebar navigation area
+ * ========================================================================
+ */
+
+@import url("theme-vars.css");
+
+ul.accordion-menu {
+  border: 1px solid var(--border-color);
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  line-height: normal;
+  list-style: none !important; /* stylelint-disable-line declaration-no-important */
+  font-size: 0.85em;
+  max-width: 100%;
+}
+
+ul.accordion-menu-left {
+  text-align: left;
+}
+
+ul.accordion-menu-right {
+  text-align: right;
+}
+
+
+
+ul.accordion-menu li {
+  border-top: 1px solid var(--divider-color);
+}
+
+/* Layout: icon and text left-aligned, responsive */
+ul.accordion-menu .item-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+ul.accordion-menu .menu-button {
+  flex: 0 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+ul.accordion-menu .menu-link {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+ul.accordion-menu .menu-link > a,
+ul.accordion-menu .menu-link > p {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+
+ul.accordion-menu > li.first,
+ul.accordion-menu > li:first-child {
+  border-top: 0;
+}
+
+ul.accordion-menu a,
+ul.accordion-menu a:hover,
+ul.accordion-menu a:visited,
+ul.accordion-menu a:active,
+ul.accordion-menu a:focus {
+  font-family: var(--font-header);
+  background: none;
+}
+
+/* Unified accordion link colors (accessible, themed) */
+ul.accordion-menu a {
+  color: var(--menu-text);
+}
+
+ul.accordion-menu li > .item-wrapper:hover a,
+ul.accordion-menu li.current > .item-wrapper a,
+ul.accordion-menu li.opened > .item-wrapper a {
+  color: var(--primary-color);
+  text-decoration: none;
+}
+
+/* Subtle hover/open background to guide focus */
+ul.accordion-menu li.open,
+ul.accordion-menu li:hover {
+  background: var(--surface-warm);
+}
+
+ul.accordion-menu.button-left li > .item-wrapper > .menu-button,
+ul.accordion-menu.button-right li > .item-wrapper > .menu-button {
+  padding: 12px 0;
+  line-height: 10px;
+}
+
+ul.accordion-menu.button-left li > .item-wrapper > .menu-button {
+  float: left;
+}
+
+ul.accordion-menu.button-right li > .item-wrapper > .menu-button {
+  float: right;
+}
+
+ul.accordion-menu.button-left li > .item-wrapper > .menu-button > img {
+  padding-left: 10px;
+}
+
+ul.accordion-menu.button-right li > .item-wrapper > .menu-button > img {
+  padding-right: 10px;
+}
+
+ul.accordion-menu li > .item-wrapper > .menu-link {
+  min-height: 35px;
+  overflow: hidden;
+}
+
+ul.accordion-menu li > .item-wrapper > .menu-link > a,
+ul.accordion-menu li > .item-wrapper > .menu-link > p {
+  display: inline-block;
+  text-decoration: none;
+  background: none;
+  width: 90%;
+  padding: 10px 10px 9px;
+  vertical-align: middle;
+}
+
+ul.accordion-menu li > .item-wrapper > .menu-link > a > img,
+ul.accordion-menu li > .item-wrapper > .menu-link > p > img {
+  vertical-align: middle;
+  border: 0 none;
+  height: auto;
+  max-width: 100%;
+  padding: 0 5px 0 0;
+}
+
+ul.accordion-menu-left li > .item-wrapper > .menu-link > a,
+ul.accordion-menu-left li > .item-wrapper > .menu-link > p {
+  float: left;
+}
+
+ul.accordion-menu-right li > .item-wrapper > .menu-link > a,
+ul.accordion-menu-right li > .item-wrapper > .menu-link > p {
+  float: right;
+}
+
+ul.accordion-menu > li > .item-wrapper > .menu-link > a,
+ul.accordion-menu > li > .item-wrapper > .menu-link > p {
+  font-weight: bold;
+}
+
+ul.accordion-menu li > .ul-wrapper {
+  display: none;
+}
+
+/* When a menu item is marked opened (by JS), reveal nested list */
+ul.accordion-menu li.opened > .ul-wrapper {
+  display: block;
+}
+
+ul.accordion-menu li ul {
+  margin: 0;
+  padding: 0;
+}
+
+ul.accordion-menu.text-left li li > .item-wrapper > .menu-link > a,
+ul.accordion-menu.text-left li li > .item-wrapper > .menu-link > p {
+  padding-left: 20px;
+  max-width: 85%;
+}
+
+ul.accordion-menu.text-right li li > .item-wrapper > .menu-link > a,
+ul.accordion-menu.text-right li li > .item-wrapper > .menu-link > p {
+  padding-right: 20px;
+}
+
+ul.accordion-menu.text-left li li li > .item-wrapper > .menu-link > a,
+ul.accordion-menu.text-left li li li > .item-wrapper > .menu-link > p {
+  padding-left: 30px;
+}
+
+ul.accordion-menu.text-right li li li > .item-wrapper > .menu-link > a,
+ul.accordion-menu.text-right li li li > .item-wrapper > .menu-link > p {
+  padding-right: 30px;
+}
+
+ul.accordion-menu.text-left li li li li > .item-wrapper > .menu-link > a,
+ul.accordion-menu.text-left li li li li > .item-wrapper > .menu-link > p {
+  padding-left: 40px;
+}
+
+ul.accordion-menu.text-right li li li li > .item-wrapper > .menu-link > a,
+ul.accordion-menu.text-right li li li li > .item-wrapper > .menu-link > p {
+  padding-right: 40px;
+}
+
+ul.accordion-menu.text-left li li li li li > .item-wrapper > .menu-link > a,
+ul.accordion-menu.text-left li li li li li > .item-wrapper > .menu-link > p {
+  padding-left: 50px;
+}
+
+ul.accordion-menu.text-right li li li li li > .item-wrapper > .menu-link > a,
+ul.accordion-menu.text-right li li li li li > .item-wrapper > .menu-link > p {
+  padding-right: 50px;
+}

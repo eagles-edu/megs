@@ -1,0 +1,312 @@
+/* CSS */
+
+@import url("theme-vars.css");
+
+
+.nn_sliders .fade {
+  opacity: 0;
+  transition: opacity 1ms linear;
+}
+
+.nn_sliders .fade.in {
+  opacity: 1;
+}
+
+.nn_sliders.has_effects .fade {
+  transition: opacity 0.15s linear;
+}
+
+.nn_sliders .collapse {
+  height: 0;
+  overflow: hidden;
+  position: relative;
+  transition: height 1ms ease;
+}
+
+.nn_sliders .collapse.in {
+  height: auto;
+}
+
+.nn_sliders.has_effects .collapse {
+  transition: height 0.35s ease;
+}
+
+.nn_sliders.accordion {
+  margin-bottom: 18px;
+}
+
+.nn_sliders.accordion > .accordion-group {
+  border: 1px solid var(--divider-color);
+  border-radius: 0.25rem;
+  margin-bottom: 2px;
+  transition-duration: 0.2s
+}
+
+.nn_sliders.accordion > .accordion-group .accordion-heading {
+  border-bottom: 0;
+}
+
+.nn_sliders.accordion > .accordion-group .accordion-heading .accordion-toggle {
+  cursor: pointer;
+  display: block;
+  padding: 8px 15px;
+}
+
+.nn_sliders.accordion > .accordion-group > .accordion-body > .accordion-inner {
+  border-top: 1px solid var(--divider-color);
+  padding: 9px 15px;
+}
+
+.nn_sliders.accordion > .accordion-group > .accordion-body.in:hover {
+  overflow: visible;
+}
+
+.nn_sliders.accordion > .accordion-group .panel-heading {
+  padding: 0;
+}
+
+.nn_sliders.accordion > .accordion-group > .accordion-heading > a.accordion-toggle {
+  transition-duration: 0.2s;
+}
+
+.nn_sliders.accordion
+  > .accordion-group
+  > .accordion-heading
+  > a.accordion-toggle:hover {
+  background-color: var(--divider-color);
+  color: var(--link-hover);
+  text-decoration: none !important;
+}
+
+.nn_sliders.accordion
+  > .accordion-group.active
+  > .accordion-heading
+  > a.accordion-toggle {
+  background-color: var(--surface-1);
+  color: var(--link-color);
+}
+
+.nn_sliders.accordion > .accordion-group > div > a:focus,
+.nn_sliders.accordion > .accordion-group.active > div > a:focus {
+  box-shadow: inset 0 0 2px var(--btn-warning);
+  outline: 0;
+}
+
+.nn_sliders.accordion > .accordion-group span.nn_sliders-title-inactive {
+  display: inherit;
+}
+
+.nn_sliders.accordion > .accordion-group span.nn_sliders-title-active {
+  display: none;
+}
+
+.nn_sliders.accordion > .accordion-group.active span.nn_sliders-title-inactive {
+  display: none;
+}
+
+.nn_sliders.accordion > .accordion-group.active span.nn_sliders-title-active {
+  display: inherit;
+}
+
+/* stylelint-disable-next-line no-duplicate-selectors */
+.nn_sliders.accordion > .accordion-group > .accordion-body > .accordion-inner {
+  overflow-x: auto;
+  overflow-y: hidden !important;
+  padding: 15px;
+  zoom: 1;
+}
+
+.nn_sliders.accordion > .accordion-group > .accordion-body > .accordion-inner::before,
+.nn_sliders.accordion > .accordion-group > .accordion-body > .accordion-inner::after {
+  content: '';
+  display: table;
+  line-height: 0;
+}
+
+.nn_sliders.accordion > .accordion-group > .accordion-body > .accordion-inner::after {
+  clear: both;
+}
+
+.nn_sliders.accordion
+  > .accordion-group
+  > .accordion-body
+  > .accordion-inner
+  > :first-child {
+  margin-top: 0;
+}
+
+.nn_sliders.accordion
+  > .accordion-group
+  > .accordion-body
+  > .accordion-inner
+  > :last-child {
+  margin-bottom: 0;
+}
+
+.nn_sliders.accordion
+  > .accordion-group
+  > .accordion-body
+  > .accordion-inner
+  .nn_sliders-title {
+  display: none;
+}
+
+.nn_sliders.accordion
+  > .accordion-group.icon
+  > .accordion-heading
+  > a.accordion-toggle
+  span.nn_sliders-toggle-inner::before {
+  content: '\2a';
+  display: inline-block;
+  font-family: IcoMoon, 'Segoe UI Symbol', 'Apple Color Emoji', 'Noto Color Emoji', sans-serif; /* fallback with symbol/emoji support + generic */
+  font-style: normal;
+  margin-right: 0.3em;
+  speak-as: none;
+}
+
+.nn_sliders.accordion
+  > .accordion-group.icon.active
+  > .accordion-heading
+  > a.accordion-toggle
+  span.nn_sliders-toggle-inner::before {
+  content: '\4b';
+}
+
+.nn_sliders.accordion > .accordion-group.blue {
+  border-radius: 5px 5px 4px 4px;
+  border-top: 5px solid var(--divider-color);
+  border-top-color: var(--link-color);
+}
+
+.nn_sliders.accordion > .accordion-group.blue:hover,
+.nn_sliders.accordion > .accordion-group.blue.active {
+  border-top-color: var(--link-color);
+}
+
+.nn_sliders.accordion > .accordion-group.primary {
+  border-radius: 5px 5px 4px 4px;
+  border-top: 5px solid var(--divider-color);
+  border-top-color: var(--link-color);
+}
+
+.nn_sliders.accordion > .accordion-group.primary:hover,
+.nn_sliders.accordion > .accordion-group.primary.active {
+  border-top-color: var(--link-color);
+}
+
+.nn_sliders.accordion > .accordion-group.info {
+  border-radius: 5px 5px 4px 4px;
+  border-top: 5px solid var(--divider-color);
+  border-top-color: var(--btn-info);
+}
+
+.nn_sliders.accordion > .accordion-group.info:hover,
+.nn_sliders.accordion > .accordion-group.info.active {
+  border-top-color: var(--btn-info);
+}
+
+.nn_sliders.accordion > .accordion-group.green {
+  border-radius: 5px 5px 4px 4px;
+  border-top: 5px solid var(--divider-color);
+  border-top-color: var(--btn-success);
+}
+
+.nn_sliders.accordion > .accordion-group.green:hover,
+.nn_sliders.accordion > .accordion-group.green.active {
+  border-top-color: var(--btn-success);
+}
+
+.nn_sliders.accordion > .accordion-group.success {
+  border-radius: 5px 5px 4px 4px;
+  border-top: 5px solid var(--divider-color);
+  border-top-color: var(--btn-success);
+}
+
+.nn_sliders.accordion > .accordion-group.success:hover,
+.nn_sliders.accordion > .accordion-group.success.active {
+  border-top-color: var(--btn-success);
+}
+
+.nn_sliders.accordion > .accordion-group.orange {
+  border-radius: 5px 5px 4px 4px;
+  border-top: 5px solid var(--divider-color);
+  border-top-color: var(--btn-warning);
+}
+
+.nn_sliders.accordion > .accordion-group.orange:hover,
+.nn_sliders.accordion > .accordion-group.orange.active {
+  border-top-color: var(--btn-warning);
+}
+
+.nn_sliders.accordion > .accordion-group.warning {
+  border-radius: 5px 5px 4px 4px;
+  border-top: 5px solid var(--divider-color);
+  border-top-color: var(--btn-warning);
+}
+
+.nn_sliders.accordion > .accordion-group.warning:hover,
+.nn_sliders.accordion > .accordion-group.warning.active {
+  border-top-color: var(--btn-warning);
+}
+
+.nn_sliders.accordion > .accordion-group.red {
+  border-radius: 5px 5px 4px 4px;
+  border-top: 5px solid var(--divider-color);
+  border-top-color: var(--btn-danger);
+}
+
+.nn_sliders.accordion > .accordion-group.red:hover,
+.nn_sliders.accordion > .accordion-group.red.active {
+  border-top-color: var(--btn-danger);
+}
+
+.nn_sliders.accordion > .accordion-group.danger {
+  border-radius: 5px 5px 4px 4px;
+  border-top: 5px solid var(--divider-color);
+  border-top-color: var(--btn-danger);
+}
+
+.nn_sliders.accordion > .accordion-group.danger:hover,
+.nn_sliders.accordion > .accordion-group.danger.active {
+  border-top-color: var(--btn-danger);
+}
+
+.nn_sliders.accordion > .accordion-group.error {
+  border-radius: 5px 5px 4px 4px;
+  border-top: 5px solid var(--divider-color);
+  border-top-color: var(--btn-danger);
+}
+
+.nn_sliders.accordion > .accordion-group.error:hover,
+.nn_sliders.accordion > .accordion-group.error.active {
+  border-top-color: var(--btn-danger);
+}
+
+.nn_sliders.accordion > .accordion-group.grey {
+  border-radius: 5px 5px 4px 4px;
+  border-top: 5px solid var(--divider-color);
+  border-top-color: var(--border-subtle);
+}
+
+.nn_sliders.accordion > .accordion-group.grey:hover,
+.nn_sliders.accordion > .accordion-group.grey.active {
+  border-top-color: gray;
+}
+
+.nn_sliders.accordion > .accordion-group.gray {
+  border-radius: 5px 5px 4px 4px;
+  border-top: 5px solid var(--divider-color);
+  border-top-color: var(--border-subtle);
+}
+
+.nn_sliders.accordion > .accordion-group.gray:hover,
+.nn_sliders.accordion > .accordion-group.gray.active {
+  border-top-color: gray;
+}
+
+.nn_sliders.accordion .nn_sliders-scroll {
+  padding: 0;
+  position: relative;
+  visibility: hidden;
+}
+

@@ -1,0 +1,362 @@
+
+/**
+ * ========================================================================
+ * SYSTEM 1: FLYOUT NAVIGATION MENU
+ * ========================================================================
+ *
+ * Handles the main navigation flyout functionality in the left sidebar.
+ * This system manages hover-based dropdown menus for desktop navigation.
+ *
+ * Usage: Applied to ul.flyout-menu elements
+ * Scope: #sidebar navigation area
+ * ========================================================================
+ */
+
+@import url("theme-vars.css");
+
+#sidebar {
+  overflow: visible;
+  position: relative;
+  z-index: 5000;
+  
+  /* Enforce left nav min width at all viewports */
+  min-width: var(--flyout-item-min-width-left);
+}
+
+#aside {
+  position: relative;
+  z-index: 1500;
+  overflow: visible;
+}
+
+/* Contrast + animation enhancements (root-controlled) */
+ul.flyout-menu {
+  border: 1px solid var(--border-color);
+  box-shadow: var(--flyout-shadow-menu);
+  line-height: 0;
+  list-style: none;
+  margin: 0;
+  max-width: 100%;
+  padding: 0;
+  position: relative;
+  z-index: 6000; /* above main content */
+
+  /* establishes stacking context for z-index */
+}
+
+/* Component base background */
+ul.flyout-menu,
+ul.flyout-menu ul {
+  background-color: var(--surface-color);
+}
+
+/* Default flyout widths (legacy-compatible) */
+@media screen and (width <= 767px) {
+  ul.flyout-menu .ul-wrapper,
+  ul.flyout-menu ul {
+    width: auto;
+  }
+}
+
+ul.flyout-menu li {
+  border-bottom-color: var(--flyout-divider);
+}
+
+ul.flyout-menu li.open,
+ul.flyout-menu li:hover {
+  /* keep base warm surface, add subtle overlay for clearer contrast */
+  box-shadow: inset 0 0 0 9999px var(--hover-surface-overlay);
+}
+
+@media screen and (width >= 768px) {
+  ul.flyout-menu .ul-wrapper,
+  ul.flyout-menu ul {
+    background-color: var(--surface-color);
+    border-color: var(--flyout-border);
+    box-shadow: var(--flyout-shadow-panel);
+    width: var(--flyout-width-desktop);
+  }
+
+  /* Smooth dropdown reveal */
+  ul.flyout-menu .ul-wrapper {
+    background-color: var(--surface-color);
+    border-color: var(--flyout-border);
+    box-shadow: var(--flyout-shadow-panel);
+    display: block;
+    opacity: 0;
+    transform: translateY(6px);
+    visibility: hidden;
+    transition: opacity var(--flyout-anim-duration) var(--flyout-anim-ease),
+      transform var(--flyout-anim-duration) var(--flyout-anim-ease),
+      visibility 0s linear var(--flyout-anim-duration);
+  }
+
+  ul.flyout-menu li:hover > .ul-wrapper,
+  ul.flyout-menu li.open > .ul-wrapper,
+  ul.flyout-menu li.opened > .ul-wrapper {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    transition-delay: 0s;
+  }
+
+  /* Elevation for panels */
+  /* stylelint-disable-next-line no-duplicate-selectors */
+  ul.flyout-menu ul,
+  ul.flyout-menu .ul-wrapper {
+    font-family: inherit;
+  }
+}
+
+ul.flyout-menu.text-right {
+  text-align: right;
+}
+
+ul.flyout-menu.text-left {
+  text-align: left;
+}
+
+ul.flyout-menu.horizontal {
+  width: 100%;
+  float: left;
+}
+
+/* stylelint-disable-next-line no-duplicate-selectors */
+ul.flyout-menu li {
+  border-bottom: 1px solid var(--divider-color);
+  overflow: visible;
+  position: relative;
+  vertical-align: middle;
+
+  /* allow submenus to escape li bounds */
+}
+
+ul.flyout-menu li.last,
+ul.flyout-menu li:last-of-type {
+  border: none;
+}
+
+ul.flyout-menu.horizontal > li.first,
+ul.flyout-menu.horizontal > li:first-child {
+  margin-left: 0;
+}
+
+ul.flyout-menu .item-wrapper {
+  align-items: center;
+  display: flex;
+  gap: 4px; /* tighter overall spacing */
+  min-height: 32px;
+  overflow: visible;
+  padding: 4px 6px; /* reduced padding for compact layout */
+
+  /* prevent clipping on hover */
+}
+
+ul.flyout-menu.vertical .item-wrapper {
+  width: 100%;
+}
+
+ul.flyout-menu .menu-button {
+  align-items: center;
+  cursor: pointer;
+  display: flex;
+  flex: 0 0 16px; /* tighter icon slot */
+  justify-content: center;
+  line-height: 1;
+  min-height: 14px;
+  padding: 0;
+}
+
+ul.flyout-menu.button-right .menu-button {
+  float: right;
+}
+
+ul.flyout-menu.button-left .menu-button {
+  float: left;
+}
+
+ul.flyout-menu.button-right .menu-button img,
+ul.flyout-menu.button-left .menu-button img {
+  padding: 0; /* compact spacing, icon hugged left of text */
+}
+
+ul.flyout-menu > li > .item-wrapper > .menu-link > a {
+  font-weight: normal;
+}
+
+/* Compact margins and enforced min-widths per alignment */
+ul.flyout-menu.text-left .menu-link,
+ul.flyout-menu.text-right .menu-link {
+  flex: 1 1 auto;
+  margin: 0;
+}
+
+/* Limit menu min-width rules to sidebar navigation only */
+#sidebar ul.flyout-menu.text-left .menu-link {
+  min-width: var(--flyout-item-min-width-left);
+}
+
+#sidebar ul.flyout-menu.text-right .menu-link {
+  min-width: var(--flyout-item-min-width-right);
+}
+
+  ul.flyout-menu .menu-link a,
+  ul.flyout-menu .menu-link p {
+    align-items: center;
+    box-sizing: border-box;
+    display: flex;
+    font-family: var(--font-header);
+    font-size: 0.85em !important;
+    gap: 6px; /* tighten icon-text gap */
+    line-height: 1.2;
+    min-height: 18px;
+    overflow-wrap: anywhere;
+    padding: 6px 6px; /* reduce outer padding */
+    text-decoration: none;
+    white-space: normal;
+
+    /* stylelint-disable-line declaration-no-important */
+  }
+
+/* Component link colors + states (SSOT) */
+ul.flyout-menu a {
+  color: var(--menu-text);
+}
+
+ul.flyout-menu .item-wrapper:hover a,
+ul.flyout-menu li.current > .item-wrapper a,
+ul.flyout-menu li.opened > .item-wrapper a {
+  color: var(--primary-color);
+  text-decoration: none;
+}
+
+/* Hover/open background to guide focus */
+/* stylelint-disable-next-line no-duplicate-selectors */
+ul.flyout-menu li.open,
+ul.flyout-menu li:hover {
+  background: var(--surface-warm);
+}
+
+ul.flyout-menu .menu-link img {
+  border: 0 none;
+  height: auto;
+  max-width: 100%;
+  padding-right: 5px;
+  vertical-align: middle;
+}
+
+ul.flyout-menu .ul-wrapper {
+  display: none;
+  position: relative; /* ensure z-index takes effect when shown; fixes validator warning */
+  z-index: 2001; /* above dropdowns/modals used elsewhere */
+}
+
+ul.flyout-menu li:hover > .ul-wrapper {
+  display: block;
+}
+
+@media screen and (width <= 767px) {
+  ul.flyout-menu.vertical li,
+  ul.flyout-menu.horizontal li {
+    border-bottom: 1px solid var(--text-color);
+    border-right: none;
+    display: block;
+    margin-left: 0;
+  }
+
+  ul.flyout-menu.vertical li.last,
+  ul.flyout-menu.horizontal li.last,
+  ul.flyout-menu.vertical li:last-of-type,
+  ul.flyout-menu.horizontal li:last-of-type {
+    border-bottom: none;
+    margin-bottom: 1px;
+  }
+
+  ul.flyout-menu.horizontal .item-wrapper {
+    width: 100%;
+  }
+
+  ul.flyout-menu .ul-wrapper {
+    position: relative;
+    top: 0;
+  }
+
+  ul.flyout-menu.horizontal > li > .ul-wrapper {
+    left: auto;
+  }
+
+  ul.flyout-menu.vertical ul,
+  ul.flyout-menu.horizontal ul {
+    border-bottom: 0;
+    border-left: 0;
+    border-right: 0;
+    border-top: 1px solid var(--text-color);
+  }
+
+  ul.flyout-menu.flyout-right .ul-wrapper,
+  ul.flyout-menu.flyout-left .ul-wrapper {
+    left: auto;
+    right: auto;
+  }
+
+  ul.flyout-menu.text-left li li > .item-wrapper > .menu-link > a,
+  ul.flyout-menu.text-left li li > .item-wrapper > .menu-link > p {
+    padding-left: 20px;
+  }
+
+  ul.flyout-menu.text-left li li li > .item-wrapper > .menu-link > a,
+  ul.flyout-menu.text-left li li li > .item-wrapper > .menu-link > p {
+    padding-left: 30px;
+  }
+
+  ul.flyout-menu.text-left li li li li > .item-wrapper > .menu-link > a,
+  ul.flyout-menu.text-left li li li li > .item-wrapper > .menu-link > p {
+    padding-left: 40px;
+  }
+
+  ul.flyout-menu.text-left li li li li li > .item-wrapper > .menu-link > a,
+  ul.flyout-menu.text-left li li li li li > .item-wrapper > .menu-link > p {
+    padding-left: 50px;
+  }
+}
+
+@media screen and (width >= 768px) {
+  ul.flyout-menu.horizontal > li {
+    border-bottom: none;
+    border-right: 1px solid var(--secondary-color);
+    display: inline-block;
+    float: none;
+  }
+
+  ul.flyout-menu .ul-wrapper {
+    position: absolute;
+    top: -1px;
+  }
+
+  ul.flyout-menu.horizontal > li > .ul-wrapper {
+    left: -1px;
+    top: auto;
+  }
+
+  ul.flyout-menu.vertical ul,
+  ul.flyout-menu.horizontal ul {
+    border: 1px solid var(--secondary-color);
+    margin: 0;
+    padding: 0;
+  }
+
+  ul.flyout-menu.flyout-right .ul-wrapper {
+    left: 100%;
+  }
+
+  ul.flyout-menu.flyout-left .ul-wrapper {
+    right: 100%;
+  }
+
+  ul.flyout-menu.text-left li li > .item-wrapper > .menu-link > a,
+  ul.flyout-menu.text-left li li li > .item-wrapper > .menu-link > a,
+  ul.flyout-menu.text-left li li li li > .item-wrapper > .menu-link > a,
+  ul.flyout-menu.text-left li li li li li > .item-wrapper > .menu-link > a {
+    padding-left: 9px;
+  }
+}

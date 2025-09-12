@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
   <!-- /exercise-1-nouns/111-common-nouns.html, Tue, 24 Nov 2020 12:32:10 GMT -->
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,48 +12,47 @@
 
 <title>1.1.1 Common Nouns</title>
 
-<link href="../templates/protostar/favicon.ico" rel="shortcut icon" type="image/vnd.microsoft.icon">
+<link href="../web-asset/icons/favicon.ico" rel="shortcut icon" type="image/vnd.microsoft.icon">
 
 <!-- Non-critical CSS: preload + async load to avoid render blocking -->
-<link rel="preload" href="../media/sliders/css/style.min.css" as="style">
-<link rel="stylesheet" href="../media/sliders/css/style.min.css" media="print" onload="this.media='all'">
-<noscript><link rel="stylesheet" href="../media/sliders/css/style.min.css"></noscript>
-<link href="../templates/protostar/css/template592f.css" rel="stylesheet">
+<link rel="preload" href="../web-asset/css/style.min.css" as="style">
+<link rel="stylesheet" href="../web-asset/css/style.min.css" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="../web-asset/css/style.min.css"></noscript>
+<link href="../web-asset/css/template592f.css" rel="stylesheet">
 <!-- Preload critical self-hosted fonts for faster LCP -->
-<link rel="preload" href="../templates/webfont/robotocondensed-regular-webfont.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="../templates/webfont/opensans-regular-webfont.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="../templates/webfont/robotocondensed-bold-webfont.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="../templates/webfont/opensans-bold-webfont.woff2" as="font" type="font/woff2" crossorigin>
-<link href="../modules/mod_cinch_menu/tmpl/css/flyout.css" rel="stylesheet">
-<link href="../modules/mod_cinch_menu/tmpl/css/accordion.css" rel="stylesheet">
-<link rel="preload" href="../media/css/content-accordion.css" as="style">
-<link rel="stylesheet" href="../media/css/content-accordion.css" media="print" onload="this.media='all'">
-<noscript><link rel="stylesheet" href="../media/css/content-accordion.css"></noscript>
+<link rel="preload" href="../web-asset/fonts/robotocondensed-regular-webfont.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../web-asset/fonts/opensans-regular-webfont.woff2" as="font" type="font/woff2" crossorigin>
 
-<style>.clearfix:before,.clearfix:after{content:" ";display:table}.clearfix:after{clear:both}</style>
-<style>#nn_sliders_scroll_to_top{position:fixed;bottom:.5em;right:.5em;z-index:999;display:none}#nn_sliders_scroll_to_top:hover{text-decoration:none!important}</style>
-
+<link href="../web-asset/css/flyout-menu.css" rel="stylesheet">
+<link href="../web-asset/css/left-menu.css" rel="stylesheet">
+<link href="../web-asset/css/page-classes.css" rel="stylesheet">
+<!--
+<link rel="preload" href="../web-asset/css/content-accordion.css" as="style">
+<link rel="stylesheet" href="../web-asset/css/content-accordion.css" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="../web-asset/css/content-accordion.css"></noscript>
+-->
 <!-- Removed jQuery/Bootstrap/nn_sliders/template scripts on codex variant to keep console clean -->
-<script>
-(function () {
-  if (window.jQuery && typeof window.JCaption !== 'undefined') {
-    jQuery(function () {
-      try { new JCaption('img.caption') } catch (e) {}
-    })
-  }
-})()
-var nn_sliders_urlscroll = 0
-var nn_sliders_use_hash = 1
-var nn_sliders_reload_iframes = 0
-</script>
 
-<link rel="stylesheet" href="../modules/mod_cinch_menu/tmpl/css/meg-2.css">
-<link rel="stylesheet" href="css/exercise-1-nouns_new.css">
+<link rel="stylesheet" href="../web-asset/css/meg-2.css">
+<link rel="stylesheet" href="../web-asset/css/exercise-1-nouns_new.css">
+<!-- Codex QA slider scoped overrides (must load last) -->
+<link rel="stylesheet" href="../web-asset/css/qa-accordion.css">
+<!-- No-JS fallback: show all answers if scripting is disabled -->
+<noscript>
+  <style>
+    #content .accordion-body { max-height: none !important; height: auto !important; overflow: visible !important; }
+  </style>
+  
+</noscript>
 <!-- Mobile navigation styles provided globally by template CSS -->
 <!-- Global template JS (injects hamburger at <= 766px) -->
-<script src="../templates/protostar/js/template592f.js" defer></script>
+<script src="../web-asset/js/template592f.js" defer></script>
+<script src="../web-asset/js/left-menu.js" defer></script>
+<script src="../web-asset/js/flyout-menu.js" defer></script>
+<!-- Codex QA accordion script: SSOT behavior for Q&A panels -->
+<script src="../web-asset/js/qa-accordion.js" defer></script>
 </head>
-<body class="site com_content view-article no-layout no-task itemid-3540">
+<body class="base exercize">
 <!-- Body -->
 <div class="body grid-modern" id="top">
 <div class="container">
@@ -98,7 +98,7 @@ var nn_sliders_reload_iframes = 0
               $('#accordion_menu_90 li.opened > .ul-wrapper').css('display', 'block')
               $('#accordion_menu_90 li.opened > .item-wrapper .menu-button img').attr(
                 'src',
-                '../modules/mod_cinch_menu/tmpl/images/minus.png'
+                '../web-asset/icons/svg/minus3.svg'
               )
 
               acMenu
@@ -113,7 +113,7 @@ var nn_sliders_reload_iframes = 0
                       .children('.item-wrapper')
                       .children('.menu-button')
                       .children('img')
-                      .attr('src', '../modules/mod_cinch_menu/tmpl/images/minus.png')
+                      .attr('src', '../web-asset/icons/svg/minus.svg')
                     ul.slideDown(300, function () {
                       onProcess = false
                     })
@@ -127,7 +127,7 @@ var nn_sliders_reload_iframes = 0
                       .children('.item-wrapper')
                       .children('.menu-button')
                       .children('img')
-                      .attr('src', '../modules/mod_cinch_menu/tmpl/images/plus.png')
+                      .attr('src', '../web-asset/icons/svg/plus.svg')
                     $(this)
                       .children('.ul-wrapper')
                       .slideUp(300, function () {
@@ -209,7 +209,7 @@ var nn_sliders_reload_iframes = 0
             <li>
               <div class="item-wrapper">
                 <div class="menu-button">
-                  <img class="menuicon" alt="" src="../modules/mod_cinch_menu/tmpl/images/plus.png">
+                  <img class="menuicon" alt="" src="../web-asset/icons/svg/plus1.svg">
                 </div>
                 <div class="menu-link">
                   <a href="../lists.html" aria-label="Lists">
@@ -275,28 +275,6 @@ var nn_sliders_reload_iframes = 0
         <div class="page-header">
           <h2 itemprop="headline">1.1.1 Common Nouns</h2>
         </div>
-
-        <div class="icons">
-          <div class="nodisplay btn-group pull-right">
-            <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton-450" aria-label="User tools" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <span class="icon-cog" aria-hidden="true"></span>
-              <span class="caret" aria-hidden="true"></span>
-            </button>
-            <ul class="hide" aria-labelledby="dropdownMenuButton-450">
-              <li class="print-icon">
-                <a href="111-common-nouns87e8.html?tmpl=component&amp;print=1" aria-label="p" title="Print article -- 1.1.1 Common Nouns --" onclick="window.open(this.href,'win2','status=no,toolbar=no,scrollbars=yes,titlebar=no,menubar=no,resizable=yes,width=640,height=480,directories=no,location=no'); return false;" rel="nofollow">
-                  Print
-                </a>
-              </li>
-              <li class="email-icon">
-                <a href="../component/mailto/index87a1.html?tmpl=component&amp;template=protostar&amp;link=4c74358afedf11aa5cfcf948034084f50c3be323" aria-label="e" title="Email this link to a friend" onclick="window.open(this.href,'win2','width=400,height=450,menubar=yes,resizable=yes'); return false;" rel="nofollow">
-                  Email
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
-
         <div itemprop="articleBody">
           <ul class="pager pagenav">
             <li class="previous">
@@ -894,7 +872,7 @@ var nn_sliders_reload_iframes = 0
           <li class="current first">
             <div class="item-wrapper">
               <div class="menu-button">
-                <img class="menuicon" alt="" src="../modules/mod_cinch_menu/tmpl/images/plus.png">
+                <img class="menuicon" alt="" src="../web-asset/icons/svg/plus3.svg">
               </div>
               <div class="menu-link">
                 <a href="../exercise-1-nouns.html" aria-label="Nouns">Nouns</a>
@@ -964,7 +942,7 @@ var nn_sliders_reload_iframes = 0
           <li>
             <div class="item-wrapper">
               <div class="menu-button">
-                <img class="menuicon" alt="" src="../modules/mod_cinch_menu/tmpl/images/plus.png">
+                <img class="menuicon" alt="open menu" src="../web-asset/icons/svg/plus3.svg">
               </div>
               <div class="menu-link">
                 <a href="../exercise-2-verbs.html" aria-label="Verbs">Verbs</a>
@@ -1015,7 +993,7 @@ var nn_sliders_reload_iframes = 0
           <li>
             <div class="item-wrapper">
               <div class="menu-button">
-                <img class="menuicon" alt="" src="../modules/mod_cinch_menu/tmpl/images/plus.png">
+                <img class="menuicon" alt="" src="../web-asset/icons/svg/plus3.svg">
               </div>
               <div class="menu-link">
                 <a href="../exercise-3-adjectives.html" aria-label="Adjectives"> Adjectives</a>
@@ -1085,7 +1063,7 @@ var nn_sliders_reload_iframes = 0
           <li>
             <div class="item-wrapper">
               <div class="menu-button">
-                <img class="menuicon" alt="" src="../modules/mod_cinch_menu/tmpl/images/plus.png">
+                <img class="menuicon" alt="" src="../web-asset/icons/svg/plus3.svg">
               </div>
               <div class="menu-link">
                 <a href="../exercise-4-adverbs.html" aria-label="Menu Link"> Adverbs</a>
@@ -1162,7 +1140,7 @@ var nn_sliders_reload_iframes = 0
           <li>
             <div class="item-wrapper">
               <div class="menu-button">
-                <img class="menuicon" alt="" src="../modules/mod_cinch_menu/tmpl/images/plus.png">
+                <img class="menuicon" alt="" src="../web-asset/icons/svg/plus3.svg">
               </div>
               <div class="menu-link">
                 <a href="../exercise-5-pronouns.html" aria-label="Menu Link"> Pronouns</a>
@@ -1317,7 +1295,7 @@ var nn_sliders_reload_iframes = 0
           <li>
             <div class="item-wrapper">
               <div class="menu-button">
-                <img class="menuicon" alt="" src="../modules/mod_cinch_menu/tmpl/images/plus.png">
+                <img class="menuicon" alt="" src="../web-asset/icons/svg/plus3.svg">
               </div>
               <div class="menu-link">
                 <a href="../exercise-6-prepositions.html" aria-label="Menu Link"> Prepositions</a>
@@ -1403,7 +1381,7 @@ var nn_sliders_reload_iframes = 0
           <li>
             <div class="item-wrapper">
               <div class="menu-button">
-                <img class="menuicon" alt="" src="../modules/mod_cinch_menu/tmpl/images/plus.png">
+                <img class="menuicon" alt="" src="../web-asset/icons/svg/plus3.svg">
               </div>
               <div class="menu-link">
                 <a href="../exercise-7-conjunctions.html" aria-label="Menu Link"> Conjunctions</a>
@@ -1474,7 +1452,7 @@ var nn_sliders_reload_iframes = 0
           <li>
             <div class="item-wrapper">
               <div class="menu-button">
-                <img class="menuicon" alt="" src="../modules/mod_cinch_menu/tmpl/images/plus.png">
+                <img class="menuicon" alt="" src="../web-asset/icons/svg/plus3.svg">
               </div>
               <div class="menu-link">
                 <a href="../exercise-8-agreement.html" aria-label="Menu Link"> S+V Agreement</a>
@@ -1509,7 +1487,7 @@ var nn_sliders_reload_iframes = 0
           <li>
             <div class="item-wrapper">
               <div class="menu-button">
-                <img class="menuicon" alt="" src="../modules/mod_cinch_menu/tmpl/images/plus.png">
+                <img class="menuicon" alt="" src="../web-asset/icons/svg/plus3.svg">
               </div>
               <div class="menu-link">
                 <a href="../exercise-9-articles.html" aria-label="Menu Link"> Articles</a>
@@ -1544,7 +1522,7 @@ var nn_sliders_reload_iframes = 0
           <li>
             <div class="item-wrapper">
               <div class="menu-button">
-                <img class="menuicon" alt="" src="../modules/mod_cinch_menu/tmpl/images/plus.png">
+                <img class="menuicon" alt="" src="../web-asset/icons/svg/plus3.svg">
               </div>
               <div class="menu-link">
                 <a href="../exercise-11-conditionals.html" aria-label="Menu Link"> Conditionals</a>
@@ -1579,7 +1557,7 @@ var nn_sliders_reload_iframes = 0
           <li>
             <div class="item-wrapper">
               <div class="menu-button">
-                <img class="menuicon" alt="" src="../modules/mod_cinch_menu/tmpl/images/plus.png">
+                <img class="menuicon" alt="" src="../web-asset/icons/svg/plus3.svg">
               </div>
               <div class="menu-link">
                 <a href="../exercise-12-modifiers.html" aria-label="Menu Link"> Modifiers</a>
@@ -1634,7 +1612,7 @@ var nn_sliders_reload_iframes = 0
           <li>
             <div class="item-wrapper">
               <div class="menu-button">
-                <img class="menuicon" alt="" src="../modules/mod_cinch_menu/tmpl/images/plus.png">
+                <img class="menuicon" alt="" src="../web-asset/icons/svg/plus3.svg">
               </div>
               <div class="menu-link">
                 <a href="../exercise-13-indirect-speech.html" aria-label="Menu Link"> Speech Direction</a>
@@ -1709,7 +1687,7 @@ var nn_sliders_reload_iframes = 0
           <li>
             <div class="item-wrapper">
               <div class="menu-button">
-                <img class="menuicon" alt="" src="../modules/mod_cinch_menu/tmpl/images/plus.png">
+                <img class="menuicon" alt="" src="../web-asset/icons/svg/plus3.svg">
               </div>
               <div class="menu-link">
                 <a href="../exercise-15-passive-voice.html" aria-label="Menu Link"> Active-Passive</a>
@@ -1785,7 +1763,7 @@ var nn_sliders_reload_iframes = 0
           <li>
             <div class="item-wrapper">
               <div class="menu-button">
-                <img class="menuicon" alt="" src="../modules/mod_cinch_menu/tmpl/images/plus.png">
+                <img class="menuicon" alt="" src="../web-asset/icons/svg/plus3.svg">
               </div>
               <div class="menu-link">
                 <a href="../exercise-17-clauses.html" aria-label="Menu Link"> Clauses</a>
@@ -1820,7 +1798,7 @@ var nn_sliders_reload_iframes = 0
           <li>
             <div class="item-wrapper">
               <div class="menu-button">
-                <img class="menuicon" alt="" src="../modules/mod_cinch_menu/tmpl/images/plus.png">
+                <img class="menuicon" alt="" src="../web-asset/icons/svg/plus3.svg">
               </div>
               <div class="menu-link">
                 <a href="../exercise-18-verb-ing-gerunds-and-particles.html" aria-label="Menu Link"> Verb-ing</a>
@@ -1879,7 +1857,7 @@ var nn_sliders_reload_iframes = 0
           <li>
             <div class="item-wrapper">
               <div class="menu-button">
-                <img class="menuicon" alt="" src="../modules/mod_cinch_menu/tmpl/images/plus.png">
+                <img class="menuicon" alt="" src="../web-asset/icons/svg/plus3.svg">
               </div>
               <div class="menu-link">
                 <a href="../exercise-19-determiners-and-quantifiers.html" aria-label="Menu Link"> Determiners</a>
@@ -1918,7 +1896,7 @@ var nn_sliders_reload_iframes = 0
           <li>
             <div class="item-wrapper">
               <div class="menu-button">
-                <img class="menuicon" alt="" src="../modules/mod_cinch_menu/tmpl/images/plus.png">
+                <img class="menuicon" alt="" src="../web-asset/icons/svg/plus3.svg">
               </div>
               <div class="menu-link">
                 <a href="../exercise-21-general.html" aria-label="Menu Link"> Part-of-Speech</a>
@@ -1962,7 +1940,7 @@ var nn_sliders_reload_iframes = 0
           <li class="last">
             <div class="item-wrapper">
               <div class="menu-button">
-                <img class="menuicon" alt="" src="../modules/mod_cinch_menu/tmpl/images/plus.png">
+                <img class="menuicon" alt="" src="../web-asset/icons/svg/plus3.svg">
               </div>
               <div class="menu-link">
                 <a href="../exercise-22-test-your-vocabulary.html" aria-label="Vocabulary">Vocabulary</a>
@@ -2012,7 +1990,7 @@ var nn_sliders_reload_iframes = 0
 <script>
 // nn_sliders fallback: enable toggles without jQuery/Bootstrap
 (function () {
-  if (typeof window.jQuery === 'undefined') {
+  if (typeof window.jQuery === 'undefined' && !window._qaAccordionBound) {
     try {
       var toggles = document.querySelectorAll('.nn_sliders-toggle');
       function onToggle(e) {
@@ -2044,7 +2022,7 @@ var nn_sliders_reload_iframes = 0
         var id = toggles[i].getAttribute('data-id');
         if (id) toggles[i].setAttribute('aria-controls', id);
       }
-    } catch (e) { }
+    } catch (e) { /* no-op */ }
   }
 })();
 </script>

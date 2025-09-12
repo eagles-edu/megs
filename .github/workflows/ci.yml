@@ -29,6 +29,12 @@ jobs:
       - name: Lint (JS/CSS/HTML)
         run: npm run lint
 
+      - name: Verify Prototype (QA/menus)
+        run: npm run verify:prototype
+
+      - name: Smoke Test Multiple Pages
+        run: npm run smoke:pages
+
       - name: Codacy Analysis
         uses: codacy/codacy-analysis-cli-action@v4
         with:

@@ -1,0 +1,354 @@
+@font-face {
+  font-family: icomoon, sans-serif;
+  src:
+    url('../fonts/icomoon.ttf?i28e79') format('truetype'),
+    url('../fonts/icomoon.woff?i28e79') format('woff'),
+    url('../fonts/icomoon.svg?i28e79#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+.icomoon- {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: icomoon, sans-serif !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
+.icomoon-chevron-left::before {
+  content: '\e900';
+}
+
+.icomoon-chevron-left3::before {
+  content: '\e902';
+}
+
+.icomoon-chevron-left2::before {
+  content: '\e911';
+}
+
+.icomoon-chevron-thin-left::before {
+  content: '\e901';
+}
+
+.icomoon-minus6::before {
+  content: '\e903';
+}
+
+.icomoon-plus4::before {
+  content: '\e904';
+}
+
+.icomoon-rewind::before {
+  content: '\e905';
+}
+
+.icomoon-subtract::before {
+  content: '\e906';
+}
+
+.icomoon-calculate::before {
+  content: '\e906';
+}
+
+.icomoon-remove::before {
+  content: '\e906';
+}
+
+.icomoon-withdraw::before {
+  content: '\e906';
+}
+
+.icomoon-deduct::before {
+  content: '\e906';
+}
+
+.icomoon-minus::before {
+  content: '\e907';
+}
+
+.icomoon-subtract1::before {
+  content: '\e907';
+}
+
+.icomoon-minus1::before {
+  content: '\e908';
+}
+
+.icomoon-remove1::before {
+  content: '\e908';
+}
+
+.icomoon-delete::before {
+  content: '\e908';
+}
+
+.icomoon-plus::before {
+  content: '\e909';
+}
+
+.icomoon-add::before {
+  content: '\e909';
+}
+
+.icomoon-office::before {
+  content: '\e90a';
+}
+
+.icomoon-pencil::before {
+  content: '\e90b';
+}
+
+.icomoon-headphones::before {
+  content: '\e910';
+}
+
+.icomoon-bullhorn::before {
+  content: '\e91a';
+}
+
+.icomoon-book::before {
+  content: '\e91f';
+}
+
+.icomoon-books::before {
+  content: '\e920';
+}
+
+.icomoon-library::before {
+  content: '\e921';
+}
+
+.icomoon-file-picture::before {
+  content: '\e927';
+}
+
+.icomoon-folder-upload::before {
+  content: '\e934';
+}
+
+.icomoon-lifebuoy::before {
+  content: '\e941';
+}
+
+.icomoon-display::before {
+  content: '\e956';
+}
+
+.icomoon-laptop::before {
+  content: '\e957';
+}
+
+.icomoon-mobile::before {
+  content: '\e958';
+}
+
+.icomoon-mobile2::before {
+  content: '\e959';
+}
+
+.icomoon-tablet::before {
+  content: '\e95a';
+}
+
+.icomoon-cloud-download::before {
+  content: '\e9c2';
+}
+
+.icomoon-download3::before {
+  content: '\e9c7';
+}
+
+.icomoon-contrast::before {
+  content: '\e9d5';
+}
+
+.icomoon-star-empty::before {
+  content: '\e9d7';
+}
+
+.icomoon-star-half::before {
+  content: '\e9d8';
+}
+
+.icomoon-star-full::before {
+  content: '\e9d9';
+}
+
+.icomoon-heart::before {
+  content: '\e9da';
+}
+
+.icomoon-plus1::before {
+  content: '\ea0a';
+}
+
+.icomoon-minus2::before {
+  content: '\ea0b';
+}
+
+.icomoon-cross::before {
+  content: '\ea0f';
+}
+
+.icomoon-checkmark::before {
+  content: '\ea10';
+}
+
+.icomoon-arrow-up-left2::before {
+  content: '\ea39';
+}
+
+.icomoon-arrow-up2::before {
+  content: '\ea3a';
+}
+
+.icomoon-arrow-up-right2::before {
+  content: '\ea3b';
+}
+
+.icomoon-arrow-right2::before {
+  content: '\ea3c';
+}
+
+.icomoon-arrow-down-right2::before {
+  content: '\ea3d';
+}
+
+.icomoon-arrow-down2::before {
+  content: '\ea3e';
+}
+
+.icomoon-arrow-down-left2::before {
+  content: '\ea3f';
+}
+
+.icomoon-arrow-left2::before {
+  content: '\ea40';
+}
+
+.icomoon-checkbox-checked::before {
+  content: '\ea52';
+}
+
+.icomoon-google2::before {
+  content: '\ea89';
+}
+
+.icomoon-youtube::before {
+  content: '\ea9d';
+}
+
+.icomoon-youtube2::before {
+  content: '\ea9e';
+}
+
+.icomoon-tux::before {
+  content: '\eabd';
+}
+
+.icomoon-appleinc::before {
+  content: '\eabe';
+}
+
+.icomoon-finder::before {
+  content: '\eabf';
+}
+
+.icomoon-android::before {
+  content: '\eac0';
+}
+
+.icomoon-chrome::before {
+  content: '\ead9';
+}
+
+.icomoon-firefox::before {
+  content: '\eada';
+}
+
+.icomoon-file-pdf::before {
+  content: '\eadf';
+}
+
+.icomoon-html-five::before {
+  content: '\eae4';
+}
+
+.icomoon-html-five2::before {
+  content: '\eae5';
+}
+
+.icomoon-angle-left::before {
+  content: '\e90c';
+}
+
+.icomoon-chevron-left1::before {
+  content: '\e90d';
+}
+
+.icomoon-angle-right::before {
+  content: '\e90e';
+}
+
+.icomoon-minus3::before {
+  content: '\e90f';
+}
+
+.icomoon-chevron-right-outline::before {
+  content: '\e912';
+}
+
+.icomoon-chevron-right::before {
+  content: '\e913';
+}
+
+.icomoon-minus4::before {
+  content: '\e914';
+}
+
+.icomoon-plus2::before {
+  content: '\e915';
+}
+
+.icomoon-keyboard_arrow_left::before {
+  content: '\e916';
+}
+
+.icomoon-navigate_next::before {
+  content: '\e917';
+}
+
+.icomoon-chevron_right::before {
+  content: '\e917';
+}
+
+.icomoon-minimize::before {
+  content: '\e918';
+}
+
+.icomoon-add1::before {
+  content: '\e919';
+}
+
+.icomoon-chevron-right1::before {
+  content: '\e91b';
+}
+
+.icomoon-minus5::before {
+  content: '\e91c';
+}
+
+.icomoon-plus3::before {
+  content: '\e91d';
+}
