@@ -24,10 +24,13 @@
  * ========================================================================
  */
 
-@import url("theme-vars.css");
 /* stylelint-disable selector-id-pattern */
 
 /* Module-specific styles only; global typography handled by template */
+
+/* System 3: Exercise Content Accordion - imported from separate file */
+@import url("content-accordion.css");
+
 
 li.linkco {
   line-height: 1.6em !important;
@@ -97,9 +100,6 @@ ul.flyout-menu li {
   color: var(--primary-color);
   font-weight: bold;
 }
-
-/* System 3: Exercise Content Accordion - imported from separate file */
-@import url("content-accordion.css");
 
 /* Legacy duplicate styles removed - handled by system-specific files:
  * - flyout-menu styles: see flyout.css (System 1)

@@ -1,0 +1,348 @@
+/* Base CSS (SSOT) — shared across all pages
+ * - Mobile-first, progressive, minimal specificity
+ * - Relies on theme variables from theme-vars.css (load that first)
+ */
+
+/* 1) Global resets and defaults */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  text-size-adjust: 100%;
+}
+
+body {
+  /* Revert: use body background token (light) */
+  background: var(--body-bgcolor);
+  color: var(--text-color);
+  font-family: var(--font-base);
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* 1b) Structural container */
+.container {
+  margin: 0 auto;
+  max-width: 1100px;
+  padding: 0 16px;
+}
+
+/* 2) Typography */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--text-color);
+  font-family: var(--font-header);
+  margin: 0 0 0.5rem;
+}
+
+h1 {
+  font-size: clamp(1.6rem, 1.2rem + 2vw, 2.2rem);
+}
+
+h2 {
+  font-size: clamp(1.4rem, 1.1rem + 1.5vw, 2rem);
+}
+
+h3 {
+  font-size: clamp(1.2rem, 1.05rem + 1vw, 1.6rem);
+}
+
+h4 {
+  font-size: 1.125rem;
+}
+
+h5 {
+  font-size: 1rem;
+}
+
+h6 {
+  font-size: 0.95rem;
+}
+
+p {
+  margin: 0 0 1rem;
+}
+
+small {
+  font-size: 0.875em;
+}
+
+/* 3) Links and focus */
+a {
+  color: var(--link-color);
+  text-decoration: none;
+}
+
+a:hover,
+a:focus {
+  color: var(--link-hover);
+}
+
+a:focus-visible {
+  box-shadow: var(--focus-ring-shadow);
+  outline: none;
+}
+
+/* 4) Media */
+img,
+video {
+  height: auto;
+  max-width: 100%;
+}
+
+svg {
+  height: auto;
+  max-width: 100%;
+}
+
+/* 5) Lists, tables, code */
+ul,
+ol {
+  margin: 0 0 1rem 1.25rem;
+  padding: 0;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th,
+td {
+  border: 1px solid var(--divider-color);
+  padding: 0.5rem;
+  text-align: left;
+}
+
+code,
+pre {
+  font-family:
+    ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+}
+
+pre {
+  background: var(--surface-1);
+  padding: 0.75rem;
+  overflow: auto;
+}
+
+/* 6) Utilities */
+.clearfix::before,
+.clearfix::after {
+  content: '';
+  display: table;
+}
+
+.clearfix::after {
+  clear: both;
+}
+
+.visually-hidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute !important;
+  white-space: nowrap;
+  width: 1px;
+}
+
+/* Legacy float utilities still used in markup */
+.pull-left { float: left; }
+
+.pull-right { float: right; }
+
+/* 7) Grid (mobile-first, minimal) */
+.row-fluid {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: -8px;
+  margin-right: -8px;
+}
+
+.row-fluid > [class*='span'] {
+  box-sizing: border-box;
+  flex: 0 0 100%;
+  max-width: 100%;
+  padding-left: 8px;
+  padding-right: 8px;
+}
+
+@media (width >= 768px) {
+  .row-fluid > .span2 {
+    flex: 0 0 16.6667%;
+    max-width: 16.6667%;
+  }
+
+  .row-fluid > .span8 {
+    flex: 0 0 66.6667%;
+    max-width: 66.6667%;
+  }
+}
+
+/* Content band: span the three-column region with a light surface */
+.grid-modern .row-fluid {
+  background: var(--secondary-color);
+  border-radius: 6px;
+  margin-block: 12px; /* small gap above/below band */
+  padding-block: 8px; /* breathing room inside band */
+}
+
+/* 8) Header basics */
+.header {
+  margin-bottom: 1rem;
+}
+
+.header .brand img {
+  display: block;
+  height: auto;
+  max-width: 100%;
+}
+
+/* 9) Pager */
+.pager {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  list-style: none;
+  margin: 1rem 0;
+  padding: 0;
+}
+
+.pager li {
+  align-items: center;
+  display: inline-flex;
+}
+
+.pager li > a {
+  align-items: center;
+  color: var(--link-color);
+  display: inline-flex;
+  text-decoration: none;
+}
+
+.pager li > a:hover {
+  color: var(--link-hover);
+  text-decoration: none;
+}
+
+/* 10) Breadcrumb */
+.breadcrumb {
+  align-items: center;
+  color: var(--color-muted);
+  display: flex;
+  gap: 8px;
+  list-style: none;
+  margin: 1rem 0;
+  padding: 0;
+}
+
+.breadcrumb > li {
+  display: inline;
+}
+
+/* 11) Mobile navigation (works with template592f.js) */
+.mobile-menu-toggle {
+  background: var(--primary-color);
+  border: 1px solid var(--primary-color);
+  border-radius: 4px;
+  height: 40px;
+  left: auto;
+  position: fixed;
+  right: 12px;
+  top: 12px;
+  width: 40px;
+  z-index: 1200;
+
+  /* place on the right */
+}
+
+/* Ensure toggle is visible on small viewports */
+@media (width <= 767px) {
+  .mobile-menu-toggle { display: block; }
+}
+
+.mobile-menu-toggle::before {
+  color: var(--white);
+  content: '\2261';
+  display: block;
+  font-size: 22px;
+  line-height: 40px;
+  text-align: center;
+
+  /* primary on button, white icon */
+}
+
+.mobile-menu-toggle.open::before {
+  content: '\00D7';
+}
+
+/* Interaction states */
+.mobile-menu-toggle:hover,
+.mobile-menu-toggle:focus {
+  box-shadow: var(--focus-ring-shadow);
+  outline: none;
+}
+
+.mobile-nav-overlay {
+  background: rgb(0 0 0 / 40%);
+  display: none;
+  inset: 0;
+  position: fixed;
+  z-index: 1100;
+}
+
+.mobile-nav-overlay.active {
+  display: block;
+}
+
+body.mobile-nav-enabled #sidebar {
+  background: var(--surface-color);
+  height: 100vh;
+  left: -260px;
+  overflow: auto;
+  position: fixed;
+  top: 0;
+  transition: left 0.2s ease;
+  width: 260px;
+  z-index: 1201;
+}
+
+body.mobile-nav-enabled #sidebar.mobile-nav-open {
+  left: 0;
+}
+
+@media (width >= 768px) {
+  .mobile-menu-toggle,
+  .mobile-nav-overlay {
+    display: none !important;
+  }
+
+  body.mobile-nav-enabled #sidebar {
+    height: auto;
+    left: 0;
+    position: static;
+    width: auto;
+  }
+}
+
+/* 7) Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.001ms !important;
+  }
+}

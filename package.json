@@ -36,6 +36,8 @@
     "verify:prototype": "node scripts/verify-prototype.js",
     "verify:live": "node scripts/verify-live.js",
     "smoke:pages": "node scripts/smoke-pages.js"
+    "lh:codex": "lighthouse ${LH_URL:-http://127.0.0.1:8080/exercise-1-nouns/111-common-nouns-codex.html} --preset=mobile --output=json --output-path=docs/lighthouse.json",
+    "critical:inline": "node scripts/generate-critical.js exercise-1-nouns/111-common-nouns-codex.html"
   },
   "repository": {
     "type": "git",
@@ -62,6 +64,8 @@
     "stylelint": "^16.23.1",
     "stylelint-config-standard": "^36.0.0",
     "jsdom": "^24.1.0"
+    "lighthouse": "^12.8.1",
+    "critical": "^6.0.1"
   },
   "dependencies": {
     "archiver": "^7.0.1",

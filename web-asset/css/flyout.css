@@ -12,13 +12,11 @@
  * ========================================================================
  */
 
-@import url("theme-vars.css");
-
 #sidebar {
   overflow: visible;
   position: relative;
   z-index: 5000;
-  
+
   /* Enforce left nav min width at all viewports */
   min-width: var(--flyout-item-min-width-left);
 }
@@ -211,7 +209,7 @@ ul.flyout-menu.text-right .menu-link {
     line-height: 1.2;
     min-height: 18px;
     overflow-wrap: anywhere;
-    padding: 6px 6px; /* reduce outer padding */
+    padding: 6px; /* reduce outer padding */
     text-decoration: none;
     white-space: normal;
 

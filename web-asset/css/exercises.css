@@ -1,0 +1,177 @@
+/* Exercises overrides and page-specific tweaks (base.css provides shared layout + mobile nav) */
+
+/* Utilities */
+.clearfix::before,
+.clearfix::after {
+  content: '';
+  display: table;
+}
+
+.clearfix::after {
+  clear: both;
+}
+
+.pull-left { float: left; }
+
+.pull-right { float: right; }
+
+/* Container */
+.container {
+  margin: 0 auto;
+  max-width: 1100px;
+  padding: 0 16px;
+}
+
+.item-page {
+  background-color: var(--secondary-color);
+}
+
+/* Grid (mobile-first) */
+.row-fluid {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: -8px;
+  margin-right: -8px;
+}
+
+.row-fluid > [class*='span'] {
+  box-sizing: border-box;
+  flex: 0 0 100%;
+  max-width: 100%;
+  padding-left: 8px;
+  padding-right: 8px;
+}
+
+@media (width >= 768px) {
+  .row-fluid > .span2 {
+    flex: 0 0 16.6667%;
+    max-width: 16.6667%;
+  }
+
+  .row-fluid > .span8 {
+    flex: 0 0 66.6667%;
+    max-width: 66.6667%;
+  }
+}
+
+/* Header basics */
+.header {
+  margin-bottom: 1rem;
+}
+
+.header .brand img {
+  display: block;
+  height: auto;
+  max-width: 100%;
+}
+
+/* Pager */
+.pager {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  list-style: none;
+  margin: 1rem 0;
+  padding: 0;
+}
+
+.pager li {
+  align-items: center;
+  display: inline-flex;
+}
+
+.pager li > a {
+  align-items: center;
+  color: var(--link-color);
+  display: inline-flex;
+  text-decoration: none;
+}
+
+.pager li > a:hover {
+  color: var(--link-hover);
+  text-decoration: none;
+}
+
+/* Breadcrumb */
+.breadcrumb {
+  align-items: center;
+  color: var(--color-muted);
+  display: flex;
+  gap: 8px;
+  list-style: none;
+  margin: 1rem 0;
+  padding: 0;
+}
+
+.breadcrumb > li {
+  display: inline;
+}
+
+/* Mobile navigation (integrates with template592f.js) */
+.mobile-menu-toggle {
+  position: fixed;
+  top: 12px;
+  right: 12px;
+  left: auto;
+  width: 40px;
+  height: 40px;
+  border-radius: 4px;
+  background: var(--primary-color);
+  border: 1px solid var(--primary-color);
+  z-index: 1200;
+}
+
+.mobile-menu-toggle::before {
+  content: '\2261';
+  display: block;
+  font-size: 22px;
+  line-height: 40px;
+  text-align: center;
+  color: var(--white);
+}
+
+.mobile-menu-toggle.open::before {
+  content: '\00D7';
+}
+
+.mobile-nav-overlay {
+  background: rgb(0 0 0 / 40%);
+  display: none;
+  inset: 0;
+  position: fixed;
+  z-index: 1100;
+}
+
+.mobile-nav-overlay.active {
+  display: block;
+}
+
+body.mobile-nav-enabled #sidebar {
+  background: var(--surface-color);
+  height: 100vh;
+  left: -260px;
+  overflow: auto;
+  position: fixed;
+  top: 0;
+  transition: left 0.2s ease;
+  width: 260px;
+  z-index: 1201;
+}
+
+body.mobile-nav-enabled #sidebar.mobile-nav-open {
+  left: 0;
+}
+
+@media (width >= 768px) {
+  .mobile-menu-toggle,
+  .mobile-nav-overlay {
+    display: none !important;
+  }
+
+  body.mobile-nav-enabled #sidebar {
+    height: auto;
+    left: 0;
+    position: static;
+    width: auto;
+  }
+}

@@ -1,14 +1,10 @@
-/* Theme variables */
-@import url("theme-vars.css");
-
-
 @font-face {
-  font-family: IcoMoon;
-  src: url('../fonts/icomoon.svg') format('svg');
+  font-family: icomoon, sans-serif;
+  src: url('../fonts/icomoon.woff') format('woff');
   src:
-    url('../fonts/icomoon.woff') format('woff'),
     url('../fonts/icomoon.ttf') format('truetype'),
-    url('../fonts/icomoon.eot');
+    url('../fonts/icomoon.svg') format('svg'),
+    url('../fonts/icomoon.eot') format('eot');
   font-weight: normal;
   font-style: normal;
 }
@@ -7007,26 +7003,7 @@ div.modal.jviewport-width100 {
   speak-as: none;
 }
 
-[class^='icon-'],
-[class*=' icon-'] {
-  display: inline-block;
-  height: 14px;
-  line-height: 14px;
-  margin-right: 0.25em;
-  width: 14px;
-}
-
-[class^='icon-']::before,
-[class*=' icon-']::before {
-  font-family: IcoMoon, sans-serif;
-  font-style: normal;
-  speak-as: none;
-}
-
-[class^='icon-'].disabled,
-[class*=' icon-'].disabled {
-  font-weight: normal;
-}
+/* Removed global icon-* sizing to avoid overriding app icon utilities */
 
 .icon-joomla::before {
   content: '\e200';
@@ -8645,7 +8622,7 @@ div {
 }
 
 .tablesty1 tr:hover {
-  background-color: rgba(255 214 98 0.5) !important;
+  background-color: rgb(255 214 98 / 50%) !important;
   color: var(--color-strong) !important;
 }
 
@@ -8672,8 +8649,8 @@ div {
 
 @media screen and (width <= 640px) {
   p.boxhead4 {
-    text-shadow: 0 0 0;
     font-weight: 400 !important;
+    text-shadow: 0 0 0;
   }
 
   div.boxlist5 {
@@ -8685,8 +8662,8 @@ div {
   }
 
   .column22 {
-    width: 96% !important;
     vertical-align: top;
+    width: 96% !important;
   }
 
   .column33 {
@@ -9015,29 +8992,32 @@ div {
 
   /* Opt in per page/section by wrapping legacy markup in .grid-modern */
   .grid-modern .row-fluid {
+    box-sizing: border-box;
     display: flex;
     flex-wrap: wrap;
+    line-height: normal;
+    margin-left: calc(var(--gutter-x) * -0.5);
+    margin-right: calc(var(--gutter-x) * -0.5);
     width: 100%;
-    box-sizing: border-box;
-    line-height: normal; /* prevent inherited 0 from legacy rules */
 
     --gutter-x: 20px;
     --gutter-y: 0;
-
-    margin-left: calc(var(--gutter-x) * -0.5);
-    margin-right: calc(var(--gutter-x) * -0.5);
   }
 
+    /* prevent inherited 0 from legacy rules */
+
   .grid-modern .row-fluid > [class*='span'] {
-    float: none !important;
-    margin-left: 0 !important;
     box-sizing: border-box;
+    flex: 0 0 auto;
+    float: none !important;
+    line-height: normal;
+    margin-left: 0 !important;
+    max-width: 100%;
+    min-height: 1px;
     padding-left: calc(var(--gutter-x) * 0.5);
     padding-right: calc(var(--gutter-x) * 0.5);
-    min-height: 1px;
-    flex: 0 0 auto;
-    max-width: 100%;
-    line-height: normal; /* ensure text uses natural line height */
+
+    /* ensure text uses natural line height */
   }
 
   /* 12-col widths (same names, modern behavior) */
@@ -9305,12 +9285,12 @@ div {
   height: 100%;
   left: 0;
   opacity: 0;
+  pointer-events: none;
   position: fixed;
   top: 0;
   transition: opacity var(--flyout-anim-duration) var(--flyout-anim-ease);
   width: 100%;
   z-index: 1040;
-  pointer-events: none;
 }
 
 .mobile-nav-overlay.active {
@@ -9329,6 +9309,7 @@ div {
     top: 12px;
     width: 40px;
   }
+
   .visible-desktop,
   .header-search,
   .icons {
@@ -9437,6 +9418,7 @@ div {
   }
 
   /* No hover color change on mobile; only click (active) changes */
+
   /* No background hover effect; keep padding stable on hover/focus */
   body.mobile-nav-enabled #sidebar .accordion-menu .item-wrapper:hover .menu-link > a,
   body.mobile-nav-enabled #sidebar .accordion-menu .menu-link > a:hover,
@@ -9480,9 +9462,15 @@ body.mobile-nav-open {
 @media (width >= 768px) and (width <= 979px) {
   /* Smooth, fluid container width to avoid abrupt jump at 980px */
   .grid-modern .container {
-    width: calc(100% - 40px); /* keep ~20px side gutters */
-    max-width: 940px;         /* match desktop max for continuity */
-    box-sizing: border-box;   /* include padding/border to avoid overflow */
+    box-sizing: border-box;
+    max-width: 940px;
+    width: calc(100% - 40px);
+
+   /* include padding/border to avoid overflow */
+
+    /* keep ~20px side gutters */
+
+    /* match desktop max for continuity */
   }
 
   .grid-modern .row-fluid {
@@ -9499,4 +9487,9 @@ body.mobile-nav-open {
     max-width: none;
     min-width: 0;
   }
+}
+
+.icom {
+    color:slategray!important;
+    font-size: .8rem !important;
 }

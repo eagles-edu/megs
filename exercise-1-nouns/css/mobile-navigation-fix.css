@@ -241,13 +241,14 @@ body.mobile-nav-open {
     position: relative;
     z-index: 1000;
   }
-  
+
   .header-inner {
     position: relative;
   }
 }
 
 /* Improved hamburger positioning for different screen sizes */
+
 /*
   Show the hamburger only below 767px as requested. Keep the
   desktop-only element overrides for tablet sizes without forcing
@@ -269,23 +270,23 @@ body.mobile-nav-open {
     overflow-x: hidden;
     position: relative;
   }
-  
+
   /* Ensure proper z-index stacking */
   .header {
     position: relative;
     z-index: 1001;
   }
-  
+
   #content {
     position: relative;
     z-index: 1;
   }
-  
+
   /* Improved mobile navigation state management */
   #sidebar {
     will-change: transform;
   }
-  
+
   #sidebar.mobile-nav-open {
     will-change: auto;
   }
@@ -298,7 +299,7 @@ body.mobile-nav-open {
   .mobile-nav-overlay {
     transition: none;
   }
-  
+
   .mobile-menu-toggle:hover {
     transform: none;
   }

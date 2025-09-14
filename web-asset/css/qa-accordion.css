@@ -1,5 +1,4 @@
 /* Codex QA Slider overrides: single source of truth for Q&A */
-@import url("theme-vars.css");
 
 /* Scope: only affect codex QA pages */
 
@@ -77,7 +76,7 @@
 
 /* Answer highlight (green) */
 .panel-body {
-background-color: var(--answer-bgcolor);
+background-color: var(--answer-bgcolor-alt);
 border: .0625rem solid var(--answer-border);
 margin-bottom: -1px;
 padding: 7px;

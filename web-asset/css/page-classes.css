@@ -8,8 +8,6 @@
  *
  * Backward compatible: keep body.site in selectors so legacy pages continue to work.
  */
-@import url("theme-vars.css");
-
 
 /* Base shell (padding, top border, background) */
 body.base,

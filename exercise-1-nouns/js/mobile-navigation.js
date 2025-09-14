@@ -11,31 +11,32 @@ class MobileNavigation {
     this.overlay = null;
     this.isOpen = false;
     this.mediaQuery = window.matchMedia('(max-width: 766px)');
-    
+
     this.init();
   }
-  
+
   init() {
     this.createMobileElements();
     // Mark page as mobile-nav enabled so global CSS can scope safely
     document.body.classList.add('mobile-nav-enabled');
     this.bindEvents();
     this.handleResize();
-    
+
     // Listen for screen size changes
     this.mediaQuery.addEventListener('change', () => this.handleResize());
   }
-  
+
   createMobileElements() {
     this.sidebar = document.getElementById('sidebar');
     if (!this.sidebar) {
+      // eslint-disable-next-line no-undef
       console.warn('Sidebar element not found');
       return;
     }
     // Ensure semantic navigation semantics for the left sidebar
     this.sidebar.setAttribute('role', 'navigation');
     this.sidebar.setAttribute('aria-label', 'Main menu');
-    
+
     // Create hamburger menu button
     this.toggleButton = document.createElement('button');
     this.toggleButton.className = 'mobile-menu-toggle';
@@ -44,31 +45,31 @@ class MobileNavigation {
     this.toggleButton.setAttribute('aria-controls', 'sidebar');
     this.toggleButton.setAttribute('aria-haspopup', 'true');
     this.toggleButton.type = 'button';
-    
+
     // Create overlay for mobile menu
     this.overlay = document.createElement('div');
     this.overlay.className = 'mobile-nav-overlay';
     this.overlay.setAttribute('aria-hidden', 'true');
-    
+
     // Insert elements into DOM
     document.body.appendChild(this.toggleButton);
     document.body.appendChild(this.overlay);
   }
-  
+
   bindEvents() {
     if (!this.toggleButton || !this.overlay) return;
-    
+
     // Toggle button click
     this.toggleButton.addEventListener('click', (e) => {
       e.preventDefault();
       this.toggleMenu();
     });
-    
+
     // Overlay click to close menu
     this.overlay.addEventListener('click', () => {
       this.closeMenu();
     });
-    
+
     // Escape key to close menu
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape' && this.isOpen) {
@@ -76,26 +77,27 @@ class MobileNavigation {
         this.toggleButton.focus();
       }
     });
-    
+
     // Close menu when clicking on a navigation link (on mobile)
     this.sidebar?.addEventListener('click', (e) => {
       if (this.mediaQuery.matches && e.target.tagName === 'A') {
         // Small delay to allow navigation to start before closing menu
+        // eslint-disable-next-line no-undef
         setTimeout(() => this.closeMenu(), 150);
       }
     });
-    
+
     // Prevent menu from staying open when resizing to desktop
     window.addEventListener('resize', () => {
       if (!this.mediaQuery.matches && this.isOpen) {
         this.closeMenu();
       }
     });
-    
+
     // Focus management for accessibility
     this.setupFocusTrap();
   }
-  
+
   toggleMenu() {
     if (this.isOpen) {
       this.closeMenu();
@@ -103,7 +105,7 @@ class MobileNavigation {
       this.openMenu();
     }
   }
-  
+
   openMenu() {
     if (!this.mediaQuery.matches) return;
 
@@ -115,15 +117,15 @@ class MobileNavigation {
       this.overlay.classList.add('active');
     }
     this.toggleButton?.classList.add('open');
-    
+
     // Update ARIA attributes
     this.toggleButton?.setAttribute('aria-expanded', 'true');
     this.overlay?.setAttribute('aria-hidden', 'false');
-    
+
     // Focus first menu item for accessibility
     this.focusFirstMenuItem();
   }
-  
+
   closeMenu() {
     this.isOpen = false;
     document.body.classList.remove('mobile-nav-open');
@@ -133,38 +135,38 @@ class MobileNavigation {
       this.overlay.style.display = 'none';
     }
     this.toggleButton?.classList.remove('open');
-    
+
     // Update ARIA attributes
     this.toggleButton?.setAttribute('aria-expanded', 'false');
     this.overlay?.setAttribute('aria-hidden', 'true');
   }
-  
+
   handleResize() {
     // Ensure proper state when switching between mobile and desktop
     if (!this.mediaQuery.matches && this.isOpen) {
       this.closeMenu();
     }
   }
-  
+
   focusFirstMenuItem() {
     const firstLink = this.sidebar?.querySelector('.accordion-menu a');
     if (firstLink) {
       firstLink.focus();
     }
   }
-  
+
   setupFocusTrap() {
     if (!this.sidebar) return;
-    
+
     const focusableElements = 'a, button, [tabindex]:not([tabindex="-1"])';
-    
+
     this.sidebar.addEventListener('keydown', (e) => {
       if (!this.isOpen || e.key !== 'Tab') return;
-      
+
       const focusableEls = this.sidebar.querySelectorAll(focusableElements);
       const firstFocusable = focusableEls[0];
       const lastFocusable = focusableEls[focusableEls.length - 1];
-      
+
       if (e.shiftKey) {
         // Shift + Tab
         if (document.activeElement === firstFocusable) {

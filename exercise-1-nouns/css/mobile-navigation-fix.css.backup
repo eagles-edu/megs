@@ -48,7 +48,7 @@
 
 /* Mobile Overlay for navigation */
 .mobile-nav-overlay {
-  background: rgba(0 0 0 / 50%);
+  background: rgb(0 0 0 / 50%);
   display: none;
   height: 100%;
   left: 0;

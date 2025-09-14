@@ -1,8 +1,5 @@
 /* CSS */
 
-@import url("theme-vars.css");
-
-
 .nn_sliders .fade {
   opacity: 0;
   transition: opacity 1ms linear;

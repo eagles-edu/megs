@@ -14,6 +14,8 @@ document.body.addEventListener("click", function(e) {
     var fontSize = document.getElementById('fontSize'),
         testDrive = document.getElementById('testDrive'),
         testText = document.getElementById('testText');
+    // Guard: demo controls are optional in this page variant
+    if (!fontSize || !testDrive || !testText) return;
     function updateTest() {
         testDrive.innerHTML = testText.value || String.fromCharCode(160);
         if (window.icomoonLiga) {
