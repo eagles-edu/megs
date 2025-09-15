@@ -22,7 +22,8 @@ npm-debug.log*
 .github/
 .history-memo/
 .zencoder/
-docs/
+docs/*
+!docs/STYLE_GUIDE.md
 tmp/
 persistence/
 scripts/
