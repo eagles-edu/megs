@@ -2,10 +2,7 @@
   "$schema": "https://html-validate.org/schemas/config.json",
   "root": true,
   "elements": ["html5"],
-  "extends": [
-    "html-validate:recommended",
-    "html-validate:prettier"
-  ],
+  "extends": ["html-validate:recommended", "html-validate:prettier"],
   "rules": {
     "doctype-style": "warn",
     "void-style": "off",

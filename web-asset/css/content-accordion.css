@@ -93,10 +93,11 @@
 }
 
 #content .accordion-inner {
-background-color: var(--answer-bgcolor);
-border: 1px solid var(--answer-border);
-color: var(--answer-txtcolor);font-weight: 500;
-padding: 1rem;
+  background-color: var(--answer-bgcolor);
+  border: 1px solid var(--answer-border);
+  color: var(--answer-txtcolor);
+  font-weight: 500;
+  padding: 1rem;
 }
 
 /* Answer block styling (mirrors legacy NN Sliders, but scoped)
@@ -110,6 +111,11 @@ padding: 1rem;
 
 /* Hide duplicated title inside the answer panel (legacy NN Sliders markup) */
 
-#content .nn_sliders.accordion > .accordion-group > .accordion-body > .accordion-inner .nn_sliders-title {
+#content
+  .nn_sliders.accordion
+  > .accordion-group
+  > .accordion-body
+  > .accordion-inner
+  .nn_sliders-title {
   display: none !important;
 }

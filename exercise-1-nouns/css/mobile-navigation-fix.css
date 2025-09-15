@@ -4,7 +4,7 @@
  * Aligned with theme-vars.css root variables
  */
 
-@import url("../../media/css/theme-vars.css");
+@import url('../../media/css/theme-vars.css');
 
 /* === Mobile Navigation Enhancement === */
 
@@ -115,7 +115,7 @@
     transition: transform var(--flyout-anim-duration) var(--flyout-anim-ease);
     width: 280px;
     z-index: 1045;
-}
+  }
 
   #sidebar.mobile-nav-open {
     transform: translateX(280px);
@@ -139,7 +139,7 @@
     margin-bottom: 20px;
     margin-left: 0;
     width: 100%;
-}
+  }
 
   /* Header adjustments for mobile menu */
   .header {
@@ -176,7 +176,7 @@
     height: 44px;
     justify-content: center;
     width: 44px;
-}
+  }
 
   /* Accessibility improvements */
   #sidebar .menu-link a:focus {
@@ -225,7 +225,7 @@ body.mobile-nav-open {
 }
 
 /* Enhanced accessibility for screen readers */
-.mobile-menu-toggle[aria-expanded="true"] + .mobile-nav-overlay {
+.mobile-menu-toggle[aria-expanded='true'] + .mobile-nav-overlay {
   display: block;
 }
 

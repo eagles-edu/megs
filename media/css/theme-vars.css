@@ -5,14 +5,14 @@
 :root {
   /* Brand core */
   --primary-color: #e0162b; /* locked */
-  --secondary-color: #F5F8FF; /* white */
+  --secondary-color: #f5f8ff; /* white */
   --tertiary-color: #002786; /* locked */
   --text-color: #212121; /* locked */
 
   /* Layout surfaces */
   --background-color: #505050; /* page background behind light content */
   --body-bgcolor: #f0f0ee; /* body background */
-  --surface-color: #F5F8FF; /* cards/content surface */
+  --surface-color: #f5f8ff; /* cards/content surface */
   --surface-muted: #b5b5b5; /* light alt surface */
   --surface-soft: #c5c5c5cc; /* neutral soft background */
   --surface-warm: #eee; /* warm neutral alt */
@@ -53,9 +53,9 @@
   /* Answers (current + suggested alternates) */
   --answer-bgcolor: #65ffad; /* current */
   --answer-txtcolor: #0f6924; /* current */
-  --answer-bgcolor-alt: #acffbf ; /* suggested themed */
+  --answer-bgcolor-alt: #acffbf; /* suggested themed */
   --answer-txtcolor-alt: #0f6d2a; /* suggested themed */
-  --answer-border: #76a882 ; /* suggested themed */
+  --answer-border: #76a882; /* suggested themed */
 
   /* Typography stacks */
   --font-base:

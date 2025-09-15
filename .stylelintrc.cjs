@@ -8,7 +8,7 @@ module.exports = {
     '**/._notes/**',
     '.env',
     '**/*.html',
-    '**/*.htm'
+    '**/*.htm',
   ],
   rules: {
     /* Keep stylistic overlap with Prettier low; Prettier formats, this validates */
@@ -17,6 +17,11 @@ module.exports = {
     'at-rule-empty-line-before': [
       'always',
       { except: ['first-nested'], ignore: ['after-comment'] },
+    ],
+    // Ensure exactly one blank line between multi-line rule blocks
+    'rule-empty-line-before': [
+      'always-multi-line',
+      { except: ['first-nested'], ignore: ['after-comment', 'inside-block'] },
     ],
     'declaration-block-single-line-max-declarations': 3,
     // Turn off class/id naming convention linting (kebab/snake/camel, etc.) — project policy: NO KEBAB-CASE ENFORCEMENT
@@ -31,9 +36,9 @@ module.exports = {
     'declaration-block-no-duplicate-properties': [
       true,
       {
-        ignoreProperties: ['background', 'color', 'background-color', 'border-color', 'box-shadow']
-      }
-    ]
+        ignoreProperties: ['background', 'color', 'background-color', 'border-color', 'box-shadow'],
+      },
+    ],
   },
 }
 

@@ -11,10 +11,7 @@
           ? o.hasAttribute('novalidate') && o.removeAttribute('novalidate')
           : o.setAttribute('novalidate', ''))
       var r = t.createElement('input')
-      ;((r.style.display = 'none'),
-        (r.type = 'submit'),
-        o.appendChild(r).click(),
-        o.removeChild(r))
+      ;((r.style.display = 'none'), (r.type = 'submit'), o.appendChild(r).click(), o.removeChild(r))
     }),
       (e.submitbutton = function (t) {
         e.submitform(t)
@@ -72,10 +69,7 @@
             r,
             a = t.getElementsByTagName('input')
           for (o = 0, r = a.length; o < r; o++)
-            'hidden' == (n = a[o]).type &&
-              '1' == n.value &&
-              32 == n.name.length &&
-              (n.name = e)
+            'hidden' == (n = a[o]).type && '1' == n.value && 32 == n.name.length && (n.name = e)
         }
       }),
       (e.isEmail = function (e) {
@@ -141,8 +135,7 @@
         if ('parsererror' === o) {
           for (var a = t.responseText.trim(), i = [], s = a.length - 1; s >= 0; s--)
             i.unshift(['&#', a[s].charCodeAt(), ';'].join(''))
-          ;((a = i.join('')),
-            (r.error = [e.JText._('JLIB_JS_AJAX_ERROR_PARSE').replace('%s', a)]))
+          ;((a = i.join('')), (r.error = [e.JText._('JLIB_JS_AJAX_ERROR_PARSE').replace('%s', a)]))
         } else
           'nocontent' === o
             ? (r.error = [e.JText._('JLIB_JS_AJAX_ERROR_NO_CONTENT')])
@@ -164,9 +157,7 @@
                           t.statusText +
                           '</em>',
                       ])
-                    : (r.error = [
-                        e.JText._('JLIB_JS_AJAX_ERROR_OTHER').replace('%s', t.status),
-                      ])
+                    : (r.error = [e.JText._('JLIB_JS_AJAX_ERROR_OTHER').replace('%s', t.status)])
         return r
       }),
       (e.isChecked = function (e, o) {
@@ -251,10 +242,7 @@
       }),
       (window.radioGetCheckedValue = function (e) {
         if (
-          (console.warn(
-            'window.radioGetCheckedValue() is deprecated without a replacement!'
-          ),
-          !e)
+          (console.warn('window.radioGetCheckedValue() is deprecated without a replacement!'), !e)
         )
           return ''
         var t,
@@ -271,9 +259,7 @@
       }),
       (window.listItemTask = function (t, o) {
         return (
-          console.warn(
-            'window.listItemTask() is deprecated use Joomla.listItemTask() instead'
-          ),
+          console.warn('window.listItemTask() is deprecated use Joomla.listItemTask() instead'),
           e.listItemTask(t, o)
         )
       }),
@@ -287,15 +273,11 @@
         return ((i.checked = !0), (r.boxchecked.value = 1), window.submitform(o), !1)
       }),
       (window.submitbutton = function (t) {
-        ;(console.warn(
-          'window.submitbutton() is deprecated use Joomla.submitbutton() instead'
-        ),
+        ;(console.warn('window.submitbutton() is deprecated use Joomla.submitbutton() instead'),
           e.submitbutton(t))
       }),
       (window.submitform = function (t) {
-        ;(console.warn(
-          'window.submitform() is deprecated use Joomla.submitform() instead'
-        ),
+        ;(console.warn('window.submitform() is deprecated use Joomla.submitform() instead'),
           e.submitform(t))
       }),
       (window.saveorder = function (e, t) {
@@ -335,16 +317,14 @@
             (a.style['z-index'] = '10000'),
             (a.style.display = 'none'),
             (a.style['background-color'] = '#fff'),
-            (a.style['background-image'] =
-              'url("' + r + '/media/jui/images/ajax-loader.gif")'),
+            (a.style['background-image'] = 'url("' + r + '/media/jui/images/ajax-loader.gif")'),
             (a.style['background-position'] = 'center'),
             (a.style['background-repeat'] = 'no-repeat'),
             (a.style['background-attachment'] = 'fixed'),
             n.appendChild(a))
         } else
           (t.getElementById('loading-logo') || e.loadingLayer('load', n),
-            (t.getElementById('loading-logo').style.display =
-              'show' == o ? 'block' : 'none'))
+            (t.getElementById('loading-logo').style.display = 'show' == o ? 'block' : 'none'))
         return t.getElementById('loading-logo')
       }),
       (e.extend = function (e, t) {
@@ -352,8 +332,9 @@
         return e
       }),
       (e.request = function (t) {
-        ;(t = e.extend({ url: '', method: 'GET', data: null, perform: !0 }, t)).method =
-          t.data ? 'POST' : t.method.toUpperCase()
+        ;(t = e.extend({ url: '', method: 'GET', data: null, perform: !0 }, t)).method = t.data
+          ? 'POST'
+          : t.method.toUpperCase()
         try {
           var o = window.XMLHttpRequest
             ? new XMLHttpRequest()

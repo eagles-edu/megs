@@ -1,4 +1,4 @@
-@import url("../../../../media/css/theme-vars.css");
+@import url('../../../../media/css/theme-vars.css');
 /* stylelint-disable value-keyword-case */
 /* stylelint-disable selector-id-pattern */
 :root {
@@ -44,47 +44,47 @@ ul.flyout-menu li {
 /* --- Consolidated Flyout Menu Styles --- */
 
 /* This targets all flyout menus (92, 93, 94, 95, 96, 97, 99, 100, 116) */
-[id^="flyout_menu_"] {
+[id^='flyout_menu_'] {
   background: var(--white-panel) !important;
   font-family: var(--font-header) !important;
 }
 
-[id^="flyout_menu_"] ul {
+[id^='flyout_menu_'] ul {
   background: var(--white-panel) !important;
 }
 
-[id^="flyout_menu_"] a {
+[id^='flyout_menu_'] a {
   color: var(--gray-menutext) !important;
 }
 
-[id^="flyout_menu_"] .item-wrapper:hover a,
-[id^="flyout_menu_"] li.current > .item-wrapper a,
-[id^="flyout_menu_"] li.opened > .item-wrapper a {
+[id^='flyout_menu_'] .item-wrapper:hover a,
+[id^='flyout_menu_'] li.current > .item-wrapper a,
+[id^='flyout_menu_'] li.opened > .item-wrapper a {
   color: var(--red-primary) !important;
   text-decoration: none !important;
 }
 
-[id^="flyout_menu_"] li.open,
-[id^="flyout_menu_"] li:hover {
+[id^='flyout_menu_'] li.open,
+[id^='flyout_menu_'] li:hover {
   background: var(--ltgray-hover) !important;
   text-decoration: none !important;
 }
 
 /* Responsive styles for all flyout menus */
 @media screen and (width <= 767px) {
-  [id^="flyout_menu_"] .ul-wrapper,
-  [id^="flyout_menu_"] ul {
+  [id^='flyout_menu_'] .ul-wrapper,
+  [id^='flyout_menu_'] ul {
     width: auto !important;
   }
 
-  [id^="flyout_menu_"].horizontal ul .menu-link {
+  [id^='flyout_menu_'].horizontal ul .menu-link {
     width: auto !important;
   }
 }
 
 @media screen and (width >= 768px) {
-  [id^="flyout_menu_"] .ul-wrapper,
-  [id^="flyout_menu_"] ul {
+  [id^='flyout_menu_'] .ul-wrapper,
+  [id^='flyout_menu_'] ul {
     width: 220px !important;
   }
 }

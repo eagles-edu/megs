@@ -1,5 +1,5 @@
 runtimes:
-    - node@20
+  - node@20
 
 tools:
-    - eslint@9.33.0
+  - eslint@9.33.0

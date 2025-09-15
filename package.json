@@ -1,6 +1,6 @@
 {
   "name": "megs",
-  "version": "1.0.0",
+  "version": "2.0.1",
   "description": "legacy code update 2025",
   "private": false,
   "type": "module",
@@ -15,7 +15,7 @@
     "start": "bash scripts/startup-new.sh",
     "migrate:legacy": "node scripts/migrate-legacy-to-persistence.js --apply",
     "migrate:legacy:dry": "node scripts/migrate-legacy-to-persistence.js",
-    "format": "prettier . --write",
+    "format": "prettier . --write && npm run lint:css:fix",
     "fmt:html": "prettier --parser html --write \"**/*.{html,htm}\"",
     "lint": "npm run lint:js && npm run lint:css && npm run lint:html",
     "lint:html-stylish": "html-validate --formatter stylish \"**/*.{html,htm}\"",
@@ -35,8 +35,8 @@
     "diagnose": "node scripts/diagnose.js",
     "verify:prototype": "node scripts/verify-prototype.js",
     "verify:live": "node scripts/verify-live.js",
-    "smoke:pages": "node scripts/smoke-pages.js"
-    "lh:codex": "lighthouse ${LH_URL:-http://127.0.0.1:8080/exercise-1-nouns/111-common-nouns-codex.html} --preset=mobile --output=json --output-path=docs/lighthouse.json",
+    "smoke:pages": "node scripts/smoke-pages.js",
+    "lh:codex": "lighthouse ${LH_URL:-http://127.0.0.1:8080/exercise-1-nouns/111-common-nouns-codex.html} --preset=perf --form-factor=mobile --no-enable-error-reporting --output=json --output-path=docs/lighthouse.json",
     "critical:inline": "node scripts/generate-critical.js exercise-1-nouns/111-common-nouns-codex.html"
   },
   "repository": {
@@ -63,7 +63,7 @@
     "prettier": "^3.6.2",
     "stylelint": "^16.23.1",
     "stylelint-config-standard": "^36.0.0",
-    "jsdom": "^24.1.0"
+    "jsdom": "^24.1.0",
     "lighthouse": "^12.8.1",
     "critical": "^6.0.1"
   },

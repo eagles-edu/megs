@@ -7,7 +7,5 @@
     "postman.postman-for-vscode",
     "gptonce.codepilot-vscode"
   ],
-  "unwantedRecommendations": [
-    "octref.vetur"
-  ]
+  "unwantedRecommendations": ["octref.vetur"]
 }

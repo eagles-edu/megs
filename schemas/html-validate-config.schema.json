@@ -7,10 +7,7 @@
   "properties": {
     "$schema": { "type": "string" },
     "extends": {
-      "oneOf": [
-        { "type": "string" },
-        { "type": "array", "items": { "type": "string" } }
-      ]
+      "oneOf": [{ "type": "string" }, { "type": "array", "items": { "type": "string" } }]
     },
     "elements": {
       "oneOf": [
@@ -31,10 +28,7 @@
           {
             "type": "array",
             "minItems": 1,
-            "items": [
-              { "type": "string", "enum": ["off", "warn", "error"] },
-              { "type": "object" }
-            ],
+            "items": [{ "type": "string", "enum": ["off", "warn", "error"] }, { "type": "object" }],
             "additionalItems": true
           }
         ]

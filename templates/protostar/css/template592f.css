@@ -1,11 +1,10 @@
 /* Theme variables */
-@import url("../../../media/css/theme-vars.css");
-
+@import url('../../../media/css/theme-vars.css');
 
 @font-face {
-  font-family:  IcoMoon, 'Segoe UI Symbol', 'Apple Color Emoji', 'Noto Color Emoji', sans-serif; /* fallback with symbol/emoji support + generic */
-  src:
-    url('../../../media/jui/fonts/IcoMoon.svg');
+  font-family:
+    IcoMoon, 'Segoe UI Symbol', 'Apple Color Emoji', 'Noto Color Emoji', sans-serif; /* fallback with symbol/emoji support + generic */
+  src: url('../../../media/jui/fonts/IcoMoon.svg');
   src:
     url('../../../media/jui/fonts/IcoMoon.eot') format('svg'),
     url('../../../media/jui/fonts/IcoMoon.woff') format('woff'),
@@ -5601,7 +5600,7 @@ a.badge:focus {
   }
 
   .row-fluid .span1 {
-    width: 6.3830%;
+    width: 6.383%;
   }
 
   .row-fluid .offset12 {
@@ -5617,11 +5616,11 @@ a.badge:focus {
   }
 
   .row-fluid .offset11:first-child {
-    margin-left: 93.6170%;
+    margin-left: 93.617%;
   }
 
   .row-fluid .offset10 {
-    margin-left: 87.2340%;
+    margin-left: 87.234%;
   }
 
   .row-fluid .offset10:first-child {
@@ -6978,7 +6977,7 @@ div.modal.jviewport-width100 {
     right: 20px;
     top: 20px;
     width: auto;
-}
+  }
 
   div.modal.fade {
     top: -100px;
@@ -9340,7 +9339,9 @@ div {
 /* Off-canvas left nav only when JS enables it */
 @media (width <= 766px) {
   /* Fallback: hide sidebar on phones when JS isn't loaded */
-  #sidebar { display: none; }
+  #sidebar {
+    display: none;
+  }
 
   body.mobile-nav-enabled #sidebar {
     background: var(--surface-color);
@@ -9372,20 +9373,40 @@ div {
     width: 100%;
   }
 
-  .header { position: relative; z-index: 1001; }
+  .header {
+    position: relative;
+    z-index: 1001;
+  }
 
   /* Minimal, stacked button-style menu on phones */
-  body.mobile-nav-enabled #sidebar .menu-link img { display: none; }
-  body.mobile-nav-enabled #sidebar .menu-button { display: none !important; }
-  body.mobile-nav-enabled #sidebar .item-wrapper { gap: 0; }
+  body.mobile-nav-enabled #sidebar .menu-link img {
+    display: none;
+  }
+  body.mobile-nav-enabled #sidebar .menu-button {
+    display: none !important;
+  }
+  body.mobile-nav-enabled #sidebar .item-wrapper {
+    gap: 0;
+  }
 
   /* Sidebar: show only top-level list items (hide nested sub-items) */
-  body.mobile-nav-enabled #sidebar #accordion_menu_90 .ul-wrapper { display: none !important; }
+  body.mobile-nav-enabled #sidebar #accordion_menu_90 .ul-wrapper {
+    display: none !important;
+  }
 
-  body.mobile-nav-enabled #sidebar .accordion-menu { border: 0; padding: 0; background: var(--surface-color); }
+  body.mobile-nav-enabled #sidebar .accordion-menu {
+    border: 0;
+    padding: 0;
+    background: var(--surface-color);
+  }
 
-  body.mobile-nav-enabled #sidebar .accordion-menu > li { border: 0; margin: 0; }
-  body.mobile-nav-enabled #sidebar .ul-wrapper { display: block !important; }
+  body.mobile-nav-enabled #sidebar .accordion-menu > li {
+    border: 0;
+    margin: 0;
+  }
+  body.mobile-nav-enabled #sidebar .ul-wrapper {
+    display: block !important;
+  }
 
   body.mobile-nav-enabled #sidebar .accordion-menu .menu-link > a {
     display: flex;
@@ -9423,15 +9444,50 @@ div {
   }
 
   /* Optional stagger for first few items for a richer effect */
-  body.mobile-nav-enabled #sidebar.mobile-nav-open .accordion-menu > li:nth-child(1) .menu-link > a { transition-delay: 40ms; }
-  body.mobile-nav-enabled #sidebar.mobile-nav-open .accordion-menu > li:nth-child(2) .menu-link > a { transition-delay: 80ms; }
-  body.mobile-nav-enabled #sidebar.mobile-nav-open .accordion-menu > li:nth-child(3) .menu-link > a { transition-delay: 120ms; }
-  body.mobile-nav-enabled #sidebar.mobile-nav-open .accordion-menu > li:nth-child(4) .menu-link > a { transition-delay: 160ms; }
-  body.mobile-nav-enabled #sidebar.mobile-nav-open .accordion-menu > li:nth-child(5) .menu-link > a { transition-delay: 200ms; }
+  body.mobile-nav-enabled
+    #sidebar.mobile-nav-open
+    .accordion-menu
+    > li:nth-child(1)
+    .menu-link
+    > a {
+    transition-delay: 40ms;
+  }
+  body.mobile-nav-enabled
+    #sidebar.mobile-nav-open
+    .accordion-menu
+    > li:nth-child(2)
+    .menu-link
+    > a {
+    transition-delay: 80ms;
+  }
+  body.mobile-nav-enabled
+    #sidebar.mobile-nav-open
+    .accordion-menu
+    > li:nth-child(3)
+    .menu-link
+    > a {
+    transition-delay: 120ms;
+  }
+  body.mobile-nav-enabled
+    #sidebar.mobile-nav-open
+    .accordion-menu
+    > li:nth-child(4)
+    .menu-link
+    > a {
+    transition-delay: 160ms;
+  }
+  body.mobile-nav-enabled
+    #sidebar.mobile-nav-open
+    .accordion-menu
+    > li:nth-child(5)
+    .menu-link
+    > a {
+    transition-delay: 200ms;
+  }
 
   /* Theme continuity: highlight current page link */
   body.mobile-nav-enabled #sidebar .accordion-menu li.current > .item-wrapper .menu-link > a,
-  body.mobile-nav-enabled #sidebar .accordion-menu .menu-link > a[aria-current="page"] {
+  body.mobile-nav-enabled #sidebar .accordion-menu .menu-link > a[aria-current='page'] {
     color: var(--primary-color);
     border-color: var(--primary-color);
     font-weight: 700;
@@ -9482,8 +9538,8 @@ body.mobile-nav-open {
   /* Smooth, fluid container width to avoid abrupt jump at 980px */
   .grid-modern .container {
     width: calc(100% - 40px); /* keep ~20px side gutters */
-    max-width: 940px;         /* match desktop max for continuity */
-    box-sizing: border-box;   /* include padding/border to avoid overflow */
+    max-width: 940px; /* match desktop max for continuity */
+    box-sizing: border-box; /* include padding/border to avoid overflow */
   }
 
   .grid-modern .row-fluid {

@@ -11,9 +11,13 @@
   clear: both;
 }
 
-.pull-left { float: left; }
+.pull-left {
+  float: left;
+}
 
-.pull-right { float: right; }
+.pull-right {
+  float: right;
+}
 
 /* Container */
 .container {
@@ -23,7 +27,7 @@
 }
 
 .item-page {
-  background-color: var(--secondary-color);
+  background-color: transparent;
 }
 
 /* Grid (mobile-first) */

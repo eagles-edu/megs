@@ -44,9 +44,7 @@
         i.trigger((t = e.Event('close'))))
       if (t.isDefaultPrevented()) return
       ;(i.removeClass('in'),
-        e.support.transition && i.hasClass('fade')
-          ? i.on(e.support.transition.end, s)
-          : s())
+        e.support.transition && i.hasClass('fade') ? i.on(e.support.transition.end, s) : s())
     }
     var r = e.fn.alert
     ;((e.fn.alert = function (t) {
@@ -81,8 +79,7 @@
     }),
       (t.prototype.toggle = function () {
         var e = this.$element.closest('[data-toggle="buttons-radio"]')
-        ;(e && e.find('.active').removeClass('active'),
-          this.$element.toggleClass('active'))
+        ;(e && e.find('.active').removeClass('active'), this.$element.toggleClass('active'))
       }))
     var n = e.fn.button
     ;((e.fn.button = function (n) {
@@ -122,10 +119,7 @@
           this.interval && clearInterval(this.interval),
           this.options.interval &&
             !this.paused &&
-            (this.interval = setInterval(
-              e.proxy(this.next, this),
-              this.options.interval
-            )),
+            (this.interval = setInterval(e.proxy(this.next, this), this.options.interval)),
           this
         )
       },
@@ -228,23 +222,16 @@
       (e.fn.carousel.noConflict = function () {
         return ((e.fn.carousel = n), this)
       }),
-      e(document).on(
-        'click.carousel.data-api',
-        '[data-slide], [data-slide-to]',
-        function (t) {
-          var n = e(this),
-            r,
-            i = e(
-              n.attr('data-target') ||
-                ((r = n.attr('href')) && r.replace(/.*(?=#[^\s]+$)/, ''))
-            ),
-            s = e.extend({}, i.data(), n.data()),
-            o
-          ;(i.carousel(s),
-            (o = n.attr('data-slide-to')) && i.data('carousel').pause().to(o).cycle(),
-            t.preventDefault())
-        }
-      ))
+      e(document).on('click.carousel.data-api', '[data-slide], [data-slide-to]', function (t) {
+        var n = e(this),
+          r,
+          i = e(n.attr('data-target') || ((r = n.attr('href')) && r.replace(/.*(?=#[^\s]+$)/, ''))),
+          s = e.extend({}, i.data(), n.data()),
+          o
+        ;(i.carousel(s),
+          (o = n.attr('data-slide-to')) && i.data('carousel').pause().to(o).cycle(),
+          t.preventDefault())
+      }))
   })(window.jQuery),
   !(function (e) {
     'use strict'
@@ -294,9 +281,7 @@
       transition: function (t, n, r) {
         var i = this,
           s = function () {
-            ;(n.type == 'show' && i.reset(),
-              (i.transitioning = 0),
-              i.$element.trigger(r))
+            ;(n.type == 'show' && i.reset(), (i.transitioning = 0), i.$element.trigger(r))
           }
         this.$element.trigger(n)
         if (n.isDefaultPrevented()) return
@@ -332,8 +317,7 @@
             t.preventDefault() ||
             ((r = n.attr('href')) && r.replace(/.*(?=#[^\s]+$)/, '')),
           s = e(i).data('collapse') ? 'toggle' : n.data()
-        ;(n[e(i).hasClass('in') ? 'addClass' : 'removeClass']('collapsed'),
-          e(i).collapse(s))
+        ;(n[e(i).hasClass('in') ? 'addClass' : 'removeClass']('collapsed'), e(i).collapse(s))
       }))
   })(window.jQuery),
   !(function (e) {
@@ -348,9 +332,7 @@
     function i(t) {
       var n = t.attr('data-target'),
         r
-      ;(n ||
-        ((n = t.attr('href')),
-        (n = n && /#/.test(n) && n.replace(/.*(?=#[^\s]*$)/, ''))),
+      ;(n || ((n = t.attr('href')), (n = n && /#/.test(n) && n.replace(/.*(?=#[^\s]*$)/, ''))),
         (r = n && e(n)))
       if (!r || !r.length) r = t.parent()
       return r
@@ -361,8 +343,7 @@
           .on('click.dropdown.data-api', this.toggle)
           .on('mouseover.dropdown.data-api', this.toggle)
         e('html').on('click.dropdown.data-api', function () {
-          ;(n.parent().parent().removeClass('nav-hover'),
-            n.parent().removeClass('open'))
+          ;(n.parent().parent().removeClass('nav-hover'), n.parent().removeClass('open'))
         })
       }
     n.prototype = {
@@ -398,8 +379,7 @@
         ;((r = e(this)), n.preventDefault(), n.stopPropagation())
         if (r.is('.disabled, :disabled')) return
         ;((u = i(r)), (a = u.hasClass('open')))
-        if (!a || (a && n.keyCode == 27))
-          return (n.which == 27 && u.find(t).focus(), r.click())
+        if (!a || (a && n.keyCode == 27)) return (n.which == 27 && u.find(t).focus(), r.click())
         s = e('[role=menu] li:not(.divider):visible a', u)
         if (!s.length) return
         ;((f = s.index(s.filter(':focus'))),
@@ -414,8 +394,7 @@
       return this.each(function () {
         var r = e(this),
           i = r.data('dropdown')
-        ;(i || r.data('dropdown', (i = new n(this))),
-          typeof t == 'string' && i[t].call(r))
+        ;(i || r.data('dropdown', (i = new n(this))), typeof t == 'string' && i[t].call(r))
       })
     }),
       (e.fn.dropdown.Constructor = n),
@@ -440,8 +419,7 @@
           'click.dismiss.modal',
           e.proxy(this.hide, this)
         )),
-        this.options.remote &&
-          this.$element.find('.modal-body').load(this.options.remote))
+        this.options.remote && this.$element.find('.modal-body').load(this.options.remote))
     }
     t.prototype = {
       constructor: t,
@@ -485,9 +463,7 @@
       enforceFocus: function () {
         var t = this
         e(document).on('focusin.modal', function (e) {
-          t.$element[0] !== e.target &&
-            !t.$element.has(e.target).length &&
-            t.$element.focus()
+          t.$element[0] !== e.target && !t.$element.has(e.target).length && t.$element.focus()
         })
       },
       escape: function () {
@@ -522,9 +498,7 @@
           r = this.$element.hasClass('fade') ? 'fade' : ''
         if (this.isShown && this.options.backdrop) {
           var i = e.support.transition && r
-          ;((this.$backdrop = e('<div class="modal-backdrop ' + r + '">').appendTo(
-            document.body
-          )),
+          ;((this.$backdrop = e('<div class="modal-backdrop ' + r + '">').appendTo(document.body)),
             this.$backdrop.click(
               this.options.backdrop == 'static'
                 ? e.proxy(this.$element[0].focus, this.$element[0])
@@ -616,9 +590,7 @@
       getOptions: function (t) {
         return (
           (t = e.extend({}, e.fn[this.type].defaults, this.$element.data(), t)),
-          t.delay &&
-            typeof t.delay == 'number' &&
-            (t.delay = { show: t.delay, hide: t.delay }),
+          t.delay && typeof t.delay == 'number' && (t.delay = { show: t.delay, hide: t.delay }),
           t
         )
       },
@@ -782,8 +754,7 @@
         return (this.$arrow = this.$arrow || this.tip().find('.tooltip-arrow'))
       },
       validate: function () {
-        this.$element[0].parentNode ||
-          (this.hide(), (this.$element = null), (this.options = null))
+        this.$element[0].parentNode || (this.hide(), (this.$element = null), (this.options = null))
       },
       enable: function () {
         this.enabled = !0
@@ -923,8 +894,7 @@
                   i.length && [
                     [
                       i.position().top +
-                        (!e.isWindow(t.$scrollElement.get(0)) &&
-                          t.$scrollElement.scrollTop()),
+                        (!e.isWindow(t.$scrollElement.get(0)) && t.$scrollElement.scrollTop()),
                       r,
                     ],
                   ]) ||
@@ -954,18 +924,9 @@
         var n, r
         ;((this.activeTarget = t),
           e(this.selector).parent('.active').removeClass('active'),
-          (r =
-            this.selector +
-            '[data-target="' +
-            t +
-            '"],' +
-            this.selector +
-            '[href="' +
-            t +
-            '"]'),
+          (r = this.selector + '[data-target="' + t + '"],' + this.selector + '[href="' + t + '"]'),
           (n = e(r).parent('li').addClass('active')),
-          n.parent('.dropdown-menu').length &&
-            (n = n.closest('li.dropdown').addClass('active')),
+          n.parent('.dropdown-menu').length && (n = n.closest('li.dropdown').addClass('active')),
           n.trigger('activate'))
       },
     }
@@ -975,8 +936,7 @@
         var r = e(this),
           i = r.data('scrollspy'),
           s = typeof n == 'object' && n
-        ;(i || r.data('scrollspy', (i = new t(this, s))),
-          typeof n == 'string' && i[n]())
+        ;(i || r.data('scrollspy', (i = new t(this, s))), typeof n == 'string' && i[n]())
       })
     }),
       (e.fn.scrollspy.Constructor = t),
@@ -1019,10 +979,7 @@
       },
       activate: function (t, n, r) {
         function o() {
-          ;(i
-            .removeClass('active')
-            .find('> .dropdown-menu > .active')
-            .removeClass('active'),
+          ;(i.removeClass('active').find('> .dropdown-menu > .active').removeClass('active'),
             t.addClass('active'),
             s ? (t[0].offsetWidth, t.addClass('in')) : t.removeClass('fade'),
             t.parent('.dropdown-menu') && t.closest('li.dropdown').addClass('active'),
@@ -1184,8 +1141,7 @@
         var t = e in this.$element
         return (
           t ||
-            (this.$element.setAttribute(e, 'return;'),
-            (t = typeof this.$element[e] == 'function')),
+            (this.$element.setAttribute(e, 'return;'), (t = typeof this.$element[e] == 'function')),
           t
         )
       },
@@ -1206,8 +1162,7 @@
         e.stopPropagation()
       },
       keydown: function (t) {
-        ;((this.suppressKeyPressRepeat = ~e.inArray(t.keyCode, [40, 38, 9, 13, 27])),
-          this.move(t))
+        ;((this.suppressKeyPressRepeat = ~e.inArray(t.keyCode, [40, 38, 9, 13, 27])), this.move(t))
       },
       keypress: function (e) {
         if (this.suppressKeyPressRepeat) return
@@ -1259,8 +1214,7 @@
         var r = e(this),
           i = r.data('typeahead'),
           s = typeof n == 'object' && n
-        ;(i || r.data('typeahead', (i = new t(this, s))),
-          typeof n == 'string' && i[n]())
+        ;(i || r.data('typeahead', (i = new t(this, s))), typeof n == 'string' && i[n]())
       })
     }),
       (e.fn.typeahead.defaults = {
@@ -1274,15 +1228,11 @@
       (e.fn.typeahead.noConflict = function () {
         return ((e.fn.typeahead = n), this)
       }),
-      e(document).on(
-        'focus.typeahead.data-api',
-        '[data-provide="typeahead"]',
-        function (t) {
-          var n = e(this)
-          if (n.data('typeahead')) return
-          n.typeahead(n.data())
-        }
-      ))
+      e(document).on('focus.typeahead.data-api', '[data-provide="typeahead"]', function (t) {
+        var n = e(this)
+        if (n.data('typeahead')) return
+        n.typeahead(n.data())
+      }))
   })(window.jQuery),
   !(function (e) {
     'use strict'

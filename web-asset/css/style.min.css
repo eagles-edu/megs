@@ -36,7 +36,7 @@
   border: 1px solid var(--divider-color);
   border-radius: 0.25rem;
   margin-bottom: 2px;
-  transition-duration: 0.2s
+  transition-duration: 0.2s;
 }
 
 .nn_sliders.accordion > .accordion-group .accordion-heading {
@@ -66,19 +66,13 @@
   transition-duration: 0.2s;
 }
 
-.nn_sliders.accordion
-  > .accordion-group
-  > .accordion-heading
-  > a.accordion-toggle:hover {
+.nn_sliders.accordion > .accordion-group > .accordion-heading > a.accordion-toggle:hover {
   background-color: var(--divider-color);
   color: var(--link-hover);
   text-decoration: none !important;
 }
 
-.nn_sliders.accordion
-  > .accordion-group.active
-  > .accordion-heading
-  > a.accordion-toggle {
+.nn_sliders.accordion > .accordion-group.active > .accordion-heading > a.accordion-toggle {
   background-color: var(--surface-1);
   color: var(--link-color);
 }
@@ -124,27 +118,15 @@
   clear: both;
 }
 
-.nn_sliders.accordion
-  > .accordion-group
-  > .accordion-body
-  > .accordion-inner
-  > :first-child {
+.nn_sliders.accordion > .accordion-group > .accordion-body > .accordion-inner > :first-child {
   margin-top: 0;
 }
 
-.nn_sliders.accordion
-  > .accordion-group
-  > .accordion-body
-  > .accordion-inner
-  > :last-child {
+.nn_sliders.accordion > .accordion-group > .accordion-body > .accordion-inner > :last-child {
   margin-bottom: 0;
 }
 
-.nn_sliders.accordion
-  > .accordion-group
-  > .accordion-body
-  > .accordion-inner
-  .nn_sliders-title {
+.nn_sliders.accordion > .accordion-group > .accordion-body > .accordion-inner .nn_sliders-title {
   display: none;
 }
 
@@ -155,7 +137,8 @@
   span.nn_sliders-toggle-inner::before {
   content: '\2a';
   display: inline-block;
-  font-family: IcoMoon, 'Segoe UI Symbol', 'Apple Color Emoji', 'Noto Color Emoji', sans-serif; /* fallback with symbol/emoji support + generic */
+  font-family:
+    IcoMoon, 'Segoe UI Symbol', 'Apple Color Emoji', 'Noto Color Emoji', sans-serif; /* fallback with symbol/emoji support + generic */
   font-style: normal;
   margin-right: 0.3em;
   speak-as: none;
@@ -306,4 +289,3 @@
   position: relative;
   visibility: hidden;
 }
-

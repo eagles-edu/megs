@@ -42,8 +42,7 @@
       (a.migrateReset = function () {
         ;((f = {}), (a.migrateWarnings.length = 0))
       }),
-      'BackCompat' === document.compatMode &&
-        d('jQuery is not compatible with Quirks Mode'))
+      'BackCompat' === document.compatMode && d('jQuery is not compatible with Quirks Mode'))
     var g = a('<input>', { size: 1 }).attr('size') && a.attrFn,
       h = a.attr,
       i =
@@ -81,9 +80,7 @@
                   var e,
                     f = a.prop(b, d)
                   return f === !0 ||
-                    ('boolean' != typeof f &&
-                      (e = b.getAttributeNode(d)) &&
-                      e.nodeValue !== !1)
+                    ('boolean' != typeof f && (e = b.getAttributeNode(d)) && e.nodeValue !== !1)
                     ? d.toLowerCase()
                     : c
                 },
@@ -100,9 +97,7 @@
                 },
               }),
               n.test(j) &&
-                d(
-                  "jQuery.fn.attr('" + j + "') might use property instead of attribute"
-                )),
+                d("jQuery.fn.attr('" + j + "') might use property instead of attribute")),
             h.call(a, b, e, f))
       }),
       (a.attrHooks.value = {
@@ -148,12 +143,7 @@
           a.error('JQMIGRATE: Invalid selector string (XSS)')),
         e && e.context && e.context.nodeType && (e = e.context),
         a.parseHTML)
-        ? q.call(
-            this,
-            a.parseHTML(g[2], (e && e.ownerDocument) || e || document, !0),
-            e,
-            f
-          )
+        ? q.call(this, a.parseHTML(g[2], (e && e.ownerDocument) || e || document, !0), e, f)
         : ((h = q.apply(this, arguments)),
           b && b.selector !== c
             ? ((h.selector = b.selector), (h.context = b.context))
@@ -208,12 +198,7 @@
       e(a, 'browser', a.browser, 'jQuery.browser is deprecated'),
       (a.boxModel = a.support.boxModel = 'CSS1Compat' === document.compatMode),
       e(a, 'boxModel', a.boxModel, 'jQuery.boxModel is deprecated'),
-      e(
-        a.support,
-        'boxModel',
-        a.support.boxModel,
-        'jQuery.support.boxModel is deprecated'
-      ),
+      e(a.support, 'boxModel', a.support.boxModel, 'jQuery.support.boxModel is deprecated'),
       (a.sub = function () {
         function b(a, c) {
           return new b.fn.init(a, c)
@@ -232,10 +217,7 @@
         return (d('jQuery.sub() is deprecated'), b)
       }),
       (a.fn.size = function () {
-        return (
-          d('jQuery.fn.size() is deprecated; use the .length property'),
-          this.length
-        )
+        return (d('jQuery.fn.size() is deprecated; use the .length property'), this.length)
       }))
     var y = !1
     ;(a.swap &&
@@ -316,8 +298,7 @@
       L = function (b) {
         return 'string' != typeof b || a.event.special.hover
           ? b
-          : (K.test(b) &&
-              d("'hover' pseudo-event is deprecated, use 'mouseenter mouseleave'"),
+          : (K.test(b) && d("'hover' pseudo-event is deprecated, use 'mouseenter mouseleave'"),
             b && b.replace(K, 'mouseenter$1 mouseleave$1'))
       }
     ;(a.event.props &&
@@ -331,9 +312,7 @@
           'jQuery.event.handle is undocumented and deprecated'
         ),
       (a.event.add = function (a, b, c, e, f) {
-        ;(a !== document &&
-          J.test(b) &&
-          d('AJAX events should be attached to document: ' + b),
+        ;(a !== document && J.test(b) && d('AJAX events should be attached to document: ' + b),
           B.call(this, a, L(b || ''), c, e, f))
       }),
       (a.event.remove = function (a, b, c, d, e) {
@@ -371,17 +350,13 @@
       (a.fn.live = function (b, c, e) {
         return (
           d('jQuery.fn.live() is deprecated'),
-          F
-            ? F.apply(this, arguments)
-            : (a(this.context).on(b, this.selector, c, e), this)
+          F ? F.apply(this, arguments) : (a(this.context).on(b, this.selector, c, e), this)
         )
       }),
       (a.fn.die = function (b, c) {
         return (
           d('jQuery.fn.die() is deprecated'),
-          G
-            ? G.apply(this, arguments)
-            : (a(this.context).off(b, this.selector || '**', c), this)
+          G ? G.apply(this, arguments) : (a(this.context).off(b, this.selector || '**', c), this)
         )
       }),
       (a.event.trigger = function (a, b, c, e) {
@@ -404,10 +379,7 @@
             )
           },
           teardown: function () {
-            return (
-              this !== document && a.event.remove(document, c + '.' + a._data(this, c)),
-              !1
-            )
+            return (this !== document && a.event.remove(document, c + '.' + a._data(this, c)), !1)
           },
         }
       }),
@@ -420,10 +392,7 @@
       N = a.fn.find
     if (
       ((a.fn.andSelf = function () {
-        return (
-          d('jQuery.fn.andSelf() replaced by jQuery.fn.addBack()'),
-          M.apply(this, arguments)
-        )
+        return (d('jQuery.fn.andSelf() replaced by jQuery.fn.addBack()'), M.apply(this, arguments))
       }),
       (a.fn.find = function (a) {
         var b = N.apply(this, arguments)
@@ -437,20 +406,8 @@
     ) {
       var O = a.Deferred,
         P = [
-          [
-            'resolve',
-            'done',
-            a.Callbacks('once memory'),
-            a.Callbacks('once memory'),
-            'resolved',
-          ],
-          [
-            'reject',
-            'fail',
-            a.Callbacks('once memory'),
-            a.Callbacks('once memory'),
-            'rejected',
-          ],
+          ['resolve', 'done', a.Callbacks('once memory'), a.Callbacks('once memory'), 'resolved'],
+          ['reject', 'fail', a.Callbacks('once memory'), a.Callbacks('once memory'), 'rejected'],
           ['notify', 'progress', a.Callbacks('memory'), a.Callbacks('memory')],
         ]
       a.Deferred = function (b) {
@@ -469,15 +426,8 @@
                       c[g[1]](function () {
                         var b = h && h.apply(this, arguments)
                         b && a.isFunction(b.promise)
-                          ? b
-                              .promise()
-                              .done(d.resolve)
-                              .fail(d.reject)
-                              .progress(d.notify)
-                          : d[g[0] + 'With'](
-                              this === e ? d.promise() : this,
-                              h ? [b] : arguments
-                            )
+                          ? b.promise().done(d.resolve).fail(d.reject).progress(d.notify)
+                          : d[g[0] + 'With'](this === e ? d.promise() : this, h ? [b] : arguments)
                       })
                     }),
                       (b = null))

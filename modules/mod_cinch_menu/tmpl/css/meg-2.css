@@ -24,7 +24,7 @@
  * ========================================================================
  */
 
-@import url("../../../../media/css/theme-vars.css");
+@import url('../../../../media/css/theme-vars.css');
 /* stylelint-disable selector-id-pattern */
 
 /* Module-specific styles only; global typography handled by template */
@@ -48,17 +48,9 @@ ul.flyout-menu li {
 
 /*        flyout_menu_99           */
 
- 
-
 /*        flyout_menu_96           */
 
- 
-
 /*        flyout_menu_99           */
-
- 
-
- 
 
 /* --- Flyout menus: consolidated overrides moved to flyout.css (SSOT) --- */
 
@@ -99,7 +91,7 @@ ul.flyout-menu li {
 }
 
 /* System 3: Exercise Content Accordion - imported from separate file */
-@import url("../../../../media/css/content-accordion.css");
+@import url('../../../../media/css/content-accordion.css');
 
 /* Legacy duplicate styles removed - handled by system-specific files:
  * - flyout-menu styles: see flyout.css (System 1)

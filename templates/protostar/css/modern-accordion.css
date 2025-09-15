@@ -1,4 +1,4 @@
-@import url("../../../media/css/theme-vars.css");
+@import url('../../../media/css/theme-vars.css');
 /**
  * Modern Accordion Styles
  * Clean, accessible styling for accordions
@@ -65,11 +65,11 @@
   transition: transform 0.3s ease;
 }
 
-.accordion-toggle[aria-expanded="true"]::after {
+.accordion-toggle[aria-expanded='true']::after {
   transform: translateY(-50%) rotate(45deg);
 }
 
-.accordion-toggle[aria-expanded="false"]::after {
+.accordion-toggle[aria-expanded='false']::after {
   transform: translateY(-50%) rotate(-45deg);
 }
 

@@ -2,7 +2,7 @@
 /* stylelint-disable no-duplicate-selectors */
 /* stylelint-disable selector-class-pattern */
 @import url('grid_12-825-55-15.css');
-@import url("../../../media/css/theme-vars.css");
+@import url('../../../media/css/theme-vars.css');
 
 /*
 	CSS Reset by Eric Meyer - Released under Public Domain
@@ -151,7 +151,9 @@ h2 {
   color: var(--secondary-color);
 }
 
-#header span { color: var(--color-strong); }
+#header span {
+  color: var(--color-strong);
+}
 
 #main_content {
   background-color: var(--secondary-color);
@@ -185,13 +187,17 @@ h2 {
   display: block;
   color: var(--secondary-color);
   text-decoration: none;
-  font: bold 11px/11px Arial, sans-serif;
+  font:
+    bold 11px/11px Arial,
+    sans-serif;
   text-transform: uppercase;
   padding: 10px 15px;
   border-right: 1px solid var(--secondary-color);
 }
 
-.tabs li a:hover { background-color: var(--btn-info); }
+.tabs li a:hover {
+  background-color: var(--btn-info);
+}
 
 .tabs li.active a {
   color: var(--text-color);
@@ -350,7 +356,10 @@ div.glyph_range {
   padding-right: 5px;
   padding-left: 0;
   padding: 5px;
-  font: 11px/12px 'Courier New', Courier, monospace;
+  font:
+    11px/12px 'Courier New',
+    Courier,
+    monospace;
 }
 
 code {
@@ -399,7 +408,10 @@ code {
 }
 
 #bodycomparison div span {
-  font: 10px Arial, segoeui, sans-serif;
+  font:
+    10px Arial,
+    segoeui,
+    sans-serif;
   position: absolute;
   left: 0;
 }
@@ -427,7 +439,7 @@ code {
 }
 
 .georgiabody {
-  font-family: Georgia,  segoeui, sans-serif;
+  font-family: Georgia, segoeui, sans-serif;
   position: relative;
 }
 

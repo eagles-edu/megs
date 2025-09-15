@@ -1,4 +1,3 @@
-
 /**
  * ========================================================================
  * SYSTEM 2: NAVIGATION ACCORDION MENU
@@ -13,7 +12,7 @@
  * ========================================================================
  */
 
-@import url("../../../../media/css/theme-vars.css");
+@import url('../../../../media/css/theme-vars.css');
 
 ul.accordion-menu {
   border: 1px solid var(--border-color);
@@ -33,8 +32,6 @@ ul.accordion-menu-left {
 ul.accordion-menu-right {
   text-align: right;
 }
-
-
 
 ul.accordion-menu li {
   border-top: 1px solid var(--divider-color);
