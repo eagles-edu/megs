@@ -37,7 +37,9 @@
     "verify:live": "node scripts/verify-live.js",
     "smoke:pages": "node scripts/smoke-pages.js",
     "lh:codex": "lighthouse ${LH_URL:-http://127.0.0.1:8080/exercise-1-nouns/111-common-nouns-codex.html} --preset=perf --form-factor=mobile --no-enable-error-reporting --output=json --output-path=docs/lighthouse.json",
-    "critical:inline": "node scripts/generate-critical.js exercise-1-nouns/111-common-nouns-codex.html"
+    "critical:inline": "node scripts/generate-critical.js exercise-1-nouns/111-common-nouns-codex.html",
+    "mcp:context7": "npx --no-update-notifier -y @upstash/context7-mcp",
+    "mcp:seq-think": "npx --no-update-notifier -y @modelcontextprotocol/sequential-thinking-mcp"
   },
   "repository": {
     "type": "git",

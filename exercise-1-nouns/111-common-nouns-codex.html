@@ -192,27 +192,15 @@
     </noscript>
     <!-- Mobile navigation styles provided globally by template CSS -->
     <!-- No inline @font-face; system stacks are used (see base.css variables) -->
-    <!-- Global template JS (injects hamburger at <= 766px) -->
-    <script src="../web-asset/js/template592f.js" defer></script>
-    <script src="../web-asset/js/left-menu.js" defer></script>
-    <script src="../web-asset/js/flyout-menu.js" defer></script>
-    <!-- Codex QA accordion script: SSOT behavior for Q&A panels -->
-    <script src="../web-asset/js/qa-accordion.js" defer></script>
+    <!-- Bundled JavaScript: Modern module + legacy fallback (4 requests → 1) -->
+    <script type="module" src="../web-asset/js/main.bundle.js"></script>
+    <script nomodule src="../web-asset/js/main.legacy.js" defer></script>
   </head>
   <body class="base exercize">
     <!-- Body -->
     <div class="body grid-modern" id="top">
       <div class="container">
-        <!-- Header -->
-        <header class="nodisplay header">
-          <div class="header-inner clearfix">
-            <a class="brand pull-left" href="../index-2.html" aria-label="link to home page">
-              <img src="../images/banner.png" alt="The Eagles Club logo" width="650" height="120" loading="eager" decoding="sync" fetchpriority="high">
-              <div class="site-description">Serious English</div>
-            </a>
-          </div>
-        </header>
-
+        <!-- Header removed on Codex variant to avoid load-time CLS. See ../web-asset/js/template.js for details-->
         <div class="row-fluid padme1">
           <!-- Begin Sidebar -->
           <div id="sidebar" class="span2">
