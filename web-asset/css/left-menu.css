@@ -148,6 +148,7 @@ ul.accordion-menu li > .item-wrapper > .menu-link > p > img {
 }
 
 /* Prevent CLS: reserve consistent space for menu icons */
+
 /* Prefer width + aspect-ratio so SVGs scale correctly without distortion */
 ul.accordion-menu .menu-button > img {
   height: var(--icon-size);
@@ -155,6 +156,7 @@ ul.accordion-menu .menu-button > img {
   aspect-ratio: 1 / 1;
   object-fit: contain;
 }
+
 ul.accordion-menu .menu-link img {
   height: var(--icon-size);
   width: auto;

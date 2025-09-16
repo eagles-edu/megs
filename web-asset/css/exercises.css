@@ -113,15 +113,15 @@
 
 /* Mobile navigation (integrates with template592f.js) */
 .mobile-menu-toggle {
-  position: fixed;
-  top: 12px;
-  right: 12px;
-  left: auto;
-  width: 40px;
-  height: 40px;
-  border-radius: 4px;
   background: var(--primary-color);
   border: 1px solid var(--primary-color);
+  border-radius: 4px;
+  height: 40px;
+  left: auto;
+  position: fixed;
+  right: 12px;
+  top: 12px;
+  width: 40px;
   z-index: 1200;
 }
 

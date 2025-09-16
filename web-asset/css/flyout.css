@@ -237,14 +237,14 @@ ul.flyout-menu li:hover {
 }
 
 ul.flyout-menu .menu-link img {
+  aspect-ratio: 1 / 1;
   border: 0 none;
   height: var(--icon-size);
-  width: auto;
-  aspect-ratio: 1 / 1;
-  object-fit: contain;
   max-width: 100%;
+  object-fit: contain;
   padding-right: 5px;
   vertical-align: -0.125em;
+  width: auto;
 }
 
 /* Prevent CLS: reserve space for button/link icons */

@@ -3,39 +3,24 @@
   "servers": {
     "sequential-thinking": {
       "command": "npm",
-      "args": [
-        "run",
-        "mcp:seq-think"
-      ]
+      "args": ["run", "mcp:seq-think"]
     },
     "context7": {
       "command": "npm",
-      "args": [
-        "run",
-        "mcp:context7"
-      ]
+      "args": ["run", "mcp:context7"]
     },
     "git": {
       "command": "uvx",
-      "args": [
-        "mcp-server-git",
-        "--repository",
-        "${workspaceFolder}"
-      ],
+      "args": ["mcp-server-git", "--repository", "${workspaceFolder}"],
       "type": "stdio"
     },
     "github": {
       "command": "uvx",
-      "args": [
-        "mcp-server-github"
-      ]
+      "args": ["mcp-server-github"]
     },
     "github-remote": {
       "command": "uvx",
-      "args": [
-        "mcp-server-github",
-        "--remote"
-      ]
+      "args": ["mcp-server-github", "--remote"]
     }
   }
 }
