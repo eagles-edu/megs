@@ -116,7 +116,7 @@
     })
   }
 
-  // QA Accordion Module
+  // QA Accordion Module system
   function initQAAccordion() {
     var content = document.getElementById('content')
     if (!content) return

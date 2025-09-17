@@ -1,4 +1,4 @@
-/* Codex QA Slider overrides: single source of truth for Q&A */
+/* Codex QA Sliders' CSS overrides: single source of truth for Q&A */
 
 /* Scope: only affect codex QA pages */
 
@@ -9,7 +9,7 @@
 
 /* Preserve themed top border (e.g., .green/.info) and control other borders */
 #content .nn_sliders.accordion > .accordion-group {
-  background: var(--surface-color);
+  background: var(--answer-bgcolor);
   border-bottom: 1px solid var(--border-color);
   border-left: 1px solid var(--border-color);
   border-radius: 4px;
@@ -27,7 +27,6 @@
 }
 
 #content .accordion-heading > a.accordion-toggle {
-  color: var(--color-strong);
   display: block;
   padding: 0.75rem 1rem;
   position: relative;

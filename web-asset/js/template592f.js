@@ -52,7 +52,7 @@ if (window.jQuery)
         if ($menu.data('cinchFlyoutBound')) return
         $menu.data('cinchFlyoutBound', true)
 
-        // Navigate on click, preserving target behavior
+        // Navigate on click, preserving target's behavior
         $menu.find('a').on('click.cinch', function (e) {
           e.preventDefault()
           var $a = $(this)
@@ -310,6 +310,7 @@ if (window.jQuery)
             })
           })
         }
+      // eslint-disable-next-line no-unused-vars
       } catch (e) {
         // no-op; some pages may not use templates
       }

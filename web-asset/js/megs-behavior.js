@@ -1,4 +1,4 @@
-// Deprecated: moved to left-menu.js. Keep as stub for compatibility.
+// Deprecated:  moved to left-menu.js. Keep as stub for compatibility.
 ;(function () {
   try {
     var d = document

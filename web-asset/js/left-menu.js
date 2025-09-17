@@ -10,7 +10,7 @@
     }
   }
 
-  // (helpers removed; left-menu only needs simple hover handlers)
+  // (helpers removed; left-menu  only needs simple hover handlers)
 
   function initLeftMenuHover() {
     var menu = document.getElementById('accordion_menu_90')

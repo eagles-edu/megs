@@ -17,7 +17,7 @@ body.site {
   background-color: var(--background-color);
 }
 
-/* Page-type hooks (no-op yet; define as needed) */
+/* Page-type hooks (no-op yet | define as needed)
 body.exercize {
 }
 
@@ -26,3 +26,4 @@ body.lesson {
 
 body.list {
 }
+*/

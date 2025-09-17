@@ -81,7 +81,7 @@
   transform: translateY(-50%) rotate(-45deg);
 }
 
-/* Content area accordion animation */
+/* Content area - accordion animation */
 #content .accordion-body {
   max-height: 0;
   overflow: hidden;

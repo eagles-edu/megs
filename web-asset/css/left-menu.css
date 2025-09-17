@@ -183,7 +183,7 @@ ul.accordion-menu li > .ul-wrapper {
   display: none;
 }
 
-/* When a menu item is marked opened (by JS), reveal nested list */
+/* When menu item is marked opened (by JS), reveal nested list */
 ul.accordion-menu li.opened > .ul-wrapper {
   display: block;
 }

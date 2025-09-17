@@ -28,7 +28,11 @@ persistence/
 scripts/
 lists2 - Copy/
 .stylelintignore
-127.0.0.1-1757075204385.log.txt
+*.log.txt
+
+web-asset/icons/demo-files/*
+**/**/demo.html
+**/**/demo2.html
 
 # secrets and environment
 .env

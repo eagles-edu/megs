@@ -121,6 +121,7 @@
               if (tgl) tgl.setAttribute('aria-expanded', 'false')
             })
           }
+        // eslint-disable-next-line no-unused-vars
         } catch (_) {}
       }
       if (isOpen) {
@@ -150,7 +151,7 @@
       handleToggleClick(e, null)
     })
 
-    // Keyboard support for toggles
+    // Keyboard's support for toggles
     content.addEventListener('keydown', function (e) {
       var key = e.key || e.code
       if (key !== 'Enter' && key !== ' ' && key !== 'Space') return
@@ -165,6 +166,7 @@
     initQAAccordions()
     try {
       window._qaAccordionBound = true
+    // eslint-disable-next-line no-unused-vars
     } catch (_) {}
   })
 })()

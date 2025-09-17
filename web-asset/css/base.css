@@ -1,4 +1,4 @@
-/* Base CSS (SSOT) — shared across all pages
+/* Base CSS (SSOT) — shared across all html pages
  * - Mobile-first, progressive, minimal specificity
  * - Contains theme variables (:root) directly; no separate theme-vars.css required
  */
@@ -16,12 +16,12 @@
   /* Layout surfaces */
   --background-color: #505050; /* page background behind light content */
   --body-bgcolor: var(--secondary-color); /* body background */
-  --surface-color: #2b2b2b; /* cards/content surface */
-  --surface-muted: #4c4c4c; /* light alt surface */
-  --surface-soft: #6d6d6d; /* neutral soft background */
-  --surface-warm: #8e8e8e; /* warm neutral alt */
-  --surface-1: #afafaf; /* medium light surface */
-  --surface-2: #cfcfcf; /* very light gray surface */
+  --surface-color: #eee; /* menu/content surface */
+  --surface-muted: #f0f0ee; /* light alt surface */
+  --surface-soft: #fff; /* neutral soft background */
+  --surface-warm: #fff; /* hover menu warm neutral alt */
+  --surface-1: #fffffa; /* medium light surface */
+  --surface-2: #fffaf0; /* very light gray surface */
 
   /* Links */
   --link-color: #205fff; /* derived from brand blue */
@@ -360,7 +360,7 @@ pre {
 .pager li > a:hover {
   color: var(--link-hover);
   text-decoration: none;
-  background-color: var(--surface-soft);
+  background-color: var(--white);
 }
 
 /* Ensure inline SVG icons don't shrink and remain visible */

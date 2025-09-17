@@ -41,7 +41,7 @@ ul.flyout-menu {
   /* establishes stacking context for z-index */
 }
 
-/* Component base background */
+/* Component's base background */
 ul.flyout-menu,
 ul.flyout-menu ul {
   background-color: var(--surface-color);

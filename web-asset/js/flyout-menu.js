@@ -1,4 +1,4 @@
-// Flyout Menu behavior (vanilla JS)
+// Flyout Menus behavior (vanilla JS)
 // - Hover expand/collapse for ul.flyout-menu in #aside/#sidebar
 /* eslint-env browser */
 ;(function () {

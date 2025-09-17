@@ -220,7 +220,7 @@ const QAAccordion = {
       }
     }
 
-    // Event listeners
+    // Event listener
     forEachNodeList(allToggles, (a) => {
       a.addEventListener('click', (ev) => {
         handleToggleClick(ev, a)
