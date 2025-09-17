@@ -288,7 +288,6 @@ span.nn_tabs-title-active {
 .nn_tabs.align_center > ul.nav-tabs > li {
   float: none;
   display: inline-block;
-  *display: inline;
   *zoom: 1;
   margin-left: -1px;
   margin-right: -3px;

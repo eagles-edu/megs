@@ -434,6 +434,7 @@ pre {
 }
 
 /* 11) Mobile navigation (works with template592f.js) */
+
 .mobile-nav-enabled #sidebar,
 #sidebar {
   /* Reduce rendering cost and isolate layout; sidebar is offscreen on mobile */

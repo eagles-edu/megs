@@ -4,6 +4,7 @@
 @font-face {
   font-family:
     IcoMoon, 'Segoe UI Symbol', 'Apple Color Emoji', 'Noto Color Emoji', sans-serif; /* fallback with symbol/emoji support + generic */
+
   src: url('../../../media/jui/fonts/IcoMoon.svg');
   src:
     url('../../../media/jui/fonts/IcoMoon.eot') format('svg'),
@@ -9494,6 +9495,7 @@ div {
   }
 
   /* No hover color change on mobile; only click (active) changes */
+  
   /* No background hover effect; keep padding stable on hover/focus */
   body.mobile-nav-enabled #sidebar .accordion-menu .item-wrapper:hover .menu-link > a,
   body.mobile-nav-enabled #sidebar .accordion-menu .menu-link > a:hover,
