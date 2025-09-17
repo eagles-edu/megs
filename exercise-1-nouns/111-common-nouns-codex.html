@@ -165,13 +165,7 @@
     <link rel="preload" href="../web-asset/css/page-classes.css" as="style">
     <link rel="stylesheet" href="../web-asset/css/page-classes.css" media="print" onload="this.media='all'">
     <noscript><link rel="stylesheet" href="../web-asset/css/page-classes.css"></noscript>
-    <!--
-<link rel="preload" href="../web-asset/css/content-accordion.css" as="style">
-<link rel="stylesheet" href="../web-asset/css/content-accordion.css" media="print" onload="this.media='all'">
-<noscript><link rel="stylesheet" href="../web-asset/css/content-accordion.css"></noscript>
--->
     <!-- Removed jQuery/Bootstrap/nn_sliders/template scripts on codex variant to keep console clean -->
-
     <link rel="preload" href="../web-asset/css/meg-2.css" as="style">
     <link rel="stylesheet" href="../web-asset/css/meg-2.css" media="print" onload="this.media='all'">
     <noscript><link rel="stylesheet" href="../web-asset/css/meg-2.css"></noscript>
@@ -190,7 +184,7 @@
         }
       </style>
     </noscript>
-    <!-- Mobile navigation styles provided globally by template CSS -->
+    <!-- Mobile navigation styles provided globally by base CSS -->
     <!-- No inline @font-face; system stacks are used (see base.css variables) -->
     <!-- Bundled JavaScript: Modern module + legacy fallback (4 requests → 1) -->
     <script type="module" src="../web-asset/js/main.bundle.js"></script>
@@ -215,8 +209,7 @@
                       <div class="menu-button"></div>
                       <div class="menu-link">
                         <a href="../index-2.html" aria-label="Home">
-                          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-                            <path d="M8 2L2 7v7h3v-4h6v4h3V7l-6-5z" fill="currentColor">
+                          <svg class="icon-office"><use xlink:href="#icon-office"></use></svg>
                           </svg>
                           Home
                         </a>
@@ -228,10 +221,9 @@
                       <div class="menu-button"></div>
                       <div class="menu-link">
                         <a href="../grammar-lessons.html" aria-label="Lessons">
-                          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                            <path d="M3 3h10c.5 0 1 .5 1 1v8c0 .5-.5 1-1 1H3c-.5 0-1-.5-1-1V4c0-.5.5-1 1-1z" stroke="currentColor" stroke-width="1" fill="none">
-                            <path d="M6 6h4M6 8h4M6 10h2" stroke="currentColor" stroke-width="1">
-                          </svg>
+                          <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="#000" aria-hidden="true">
+<path d="M0 48h24v-48h-24v48zM15 6h6v6h-6v-6zM15 18h6v6h-6v-6zM15 30h6v6h-6v-6zM3 6h6v6h-6v-6zM3 18h6v6h-6v-6zM3 30h6v6h-6v-6zM27 15h21v3h-21zM27 48h6v-12h9v12h6v-27h-21z"></path>
+</svg>
                           Lessons
                         </a>
                       </div>

@@ -102,15 +102,12 @@ ul.accordion-menu.button-left li > .item-wrapper > .menu-button,
 ul.accordion-menu.button-right li > .item-wrapper > .menu-button {
   padding: 12px 0;
   line-height: 10px;
+  float: none
 }
 
-ul.accordion-menu.button-left li > .item-wrapper > .menu-button {
-  float: left;
-}
 
-ul.accordion-menu.button-right li > .item-wrapper > .menu-button {
-  float: right;
-}
+
+
 
 ul.accordion-menu.button-left li > .item-wrapper > .menu-button > img {
   padding-left: 0;
@@ -127,10 +124,12 @@ ul.accordion-menu li > .item-wrapper > .menu-link {
 
 ul.accordion-menu li > .item-wrapper > .menu-link > a,
 ul.accordion-menu li > .item-wrapper > .menu-link > p {
-  display: inline-block;
+  display: flex;
+  align-items: center;
+  gap: var(--icon-gap);
   text-decoration: none;
   background: none;
-  width: 90%;
+  width: auto;
   padding: 10px 10px 9px;
   vertical-align: middle;
 }
@@ -157,6 +156,7 @@ ul.accordion-menu .menu-button > img {
   object-fit: contain;
 }
 
+
 ul.accordion-menu .menu-link img {
   height: var(--icon-size);
   width: auto;
@@ -165,13 +165,10 @@ ul.accordion-menu .menu-link img {
 }
 
 ul.accordion-menu-left li > .item-wrapper > .menu-link > a,
-ul.accordion-menu-left li > .item-wrapper > .menu-link > p {
-  float: left;
-}
-
+ul.accordion-menu-left li > .item-wrapper > .menu-link > p,
 ul.accordion-menu-right li > .item-wrapper > .menu-link > a,
 ul.accordion-menu-right li > .item-wrapper > .menu-link > p {
-  float: right;
+  float: none;
 }
 
 ul.accordion-menu > li > .item-wrapper > .menu-link > a,
