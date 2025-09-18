@@ -99,9 +99,11 @@
   "cSpell.words": [
     "Abrahamic",
     "actus",
+    "ador",
     "autofocus",
     "autoplay",
     "Ballmer",
+    "beauti",
     "blanco",
     "boxhead",
     "boxlist",
@@ -135,6 +137,7 @@
     "firstloc",
     "firstrow",
     "furnitures",
+    "hairdress",
     "hasimage",
     "headerclass",
     "helpsite",
@@ -252,4 +255,106 @@
       ]
     }
   },
+  "highlight.decorations": { "rangeBehavior": 3 },
+  "highlight.regexFlags": "gim",
+  "highlight.maxMatches": 1000,
+  "highlight.regexes": {
+    // ---------- TABLE TAG PAIRS ----------
+    "(<table\\b[^>]*?>)|(</table>)": [
+      { "overviewRulerColor": "#fff1b8", "backgroundColor": "#fff1b8", "color": "#1f1f1f", "fontWeight": "bold" },
+      { "overviewRulerColor": "#f0c240", "backgroundColor": "#f0c240", "color": "#1f1f1f" }
+    ],
+    "(<caption\\b[^>]*?>)|(</caption>)": [
+      { "overviewRulerColor": "#e8d1ff", "backgroundColor": "#e8d1ff", "color": "#1f1f1f", "fontWeight": "bold" },
+      { "overviewRulerColor": "#c19bff", "backgroundColor": "#c19bff", "color": "#1f1f1f" }
+    ],
+    "(<thead\\b[^>]*?>)|(</thead>)": [
+      { "overviewRulerColor": "#bee3f8", "backgroundColor": "#bee3f8", "color": "#1f1f1f", "fontWeight": "bold" },
+      { "overviewRulerColor": "#63b3ed", "backgroundColor": "#63b3ed", "color": "#1f1f1f" }
+    ],
+    "(<tbody\\b[^>]*?>)|(</tbody>)": [
+      { "overviewRulerColor": "#c6f6d5", "backgroundColor": "#c6f6d5", "color": "#1f1f1f", "fontWeight": "bold" },
+      { "overviewRulerColor": "#68d391", "backgroundColor": "#68d391", "color": "#1f1f1f" }
+    ],
+    "(<tfoot\\b[^>]*?>)|(</tfoot>)": [
+      { "overviewRulerColor": "#fed7d7", "backgroundColor": "#fed7d7", "color": "#1f1f1f", "fontWeight": "bold" },
+      { "overviewRulerColor": "#f56565", "backgroundColor": "#f56565", "color": "#1f1f1f" }
+    ],
+    "(<tr\\b[^>]*?>)|(</tr>)": [
+      { "overviewRulerColor": "#fbd38d", "backgroundColor": "#fbd38d", "color": "#1f1f1f", "fontWeight": "bold" },
+      { "overviewRulerColor": "#ce752c", "backgroundColor": "#ce752c", "color": "#1f1f1f" }
+    ],
+    "(<th\\b[^>]*?>)|(</th>)": [
+      { "overviewRulerColor": "#d6bcfa", "backgroundColor": "#d6bcfa", "color": "#1f1f1f", "fontWeight": "bold" },
+      { "overviewRulerColor": "#9f7aea", "backgroundColor": "#9f7aea", "color": "#1f1f1f" }
+    ],
+    "(<td\\b[^>]*?>)|(</td>)": [
+      { "overviewRulerColor": "#c6f6f6", "backgroundColor": "#c6f6f6", "color": "#1f1f1f", "fontWeight": "bold" },
+      { "overviewRulerColor": "#76e4e4", "backgroundColor": "#76e4e4", "color": "#1f1f1f" }
+    ],
+    "(<colgroup\\b[^>]*?>)|(</colgroup>)": [
+      { "overviewRulerColor": "#b2f5ea", "backgroundColor": "#b2f5ea", "color": "#1f1f1f", "fontWeight": "bold" },
+      { "overviewRulerColor": "#38b2ac", "backgroundColor": "#38b2ac", "color": "#1f1f1f" }
+    ],
+    "(<col\\b[^>]*?/?\\s*>)": [
+      { "overviewRulerColor": "#81e6d9", "backgroundColor": "#81e6d9", "color": "#1f1f1f", "fontWeight": "bold" }
+    ],
+
+    // ---------- TABLE ATTRIBUTES (restricted to cells/headers) ----------
+    // Groups: 1=prefix (unstyled), 2=name, 3='=', 4=value
+    "(<t[dh]\\b[^>]*?\\s)(rowspan)(\\s*=\\s*)(\"[^\"]*\"|'[^']*'|[^\\s>]+)": [
+      {},
+      { "overviewRulerColor": "#a7f3d0", "backgroundColor": "#a7f3d0", "color": "#1f1f1f", "fontWeight": "bold" },
+      { "backgroundColor": "#a7f3d0", "color": "#1f1f1f" },
+      { "borderWidth": "1px", "borderStyle": "solid", "borderColor": "#48bb78", "color": "#1f1f1f" }
+    ],
+    "(<t[dh]\\b[^>]*?\\s)(colspan)(\\s*=\\s*)(\"[^\"]*\"|'[^']*'|[^\\s>]+)": [
+      {},
+      { "overviewRulerColor": "#bee3f8", "backgroundColor": "#bee3f8", "color": "#1f1f1f", "fontWeight": "bold" },
+      { "backgroundColor": "#bee3f8", "color": "#1f1f1f" },
+      { "borderWidth": "1px", "borderStyle": "solid", "borderColor": "#63b3ed", "color": "#1f1f1f" }
+    ],
+    "(<th\\b[^>]*?\\s)(scope)(\\s*=\\s*)(\"(?:row|col|rowgroup|colgroup|auto)\"|'(?:row|col|rowgroup|colgroup|auto)'|(?:row|col|rowgroup|colgroup|auto))": [
+      {},
+      { "overviewRulerColor": "#e9d8fd", "backgroundColor": "#e9d8fd", "color": "#1f1f1f", "fontWeight": "bold" },
+      { "backgroundColor": "#e9d8fd", "color": "#1f1f1f" },
+      { "borderWidth": "1px", "borderStyle": "solid", "borderColor": "#b794f4", "color": "#1f1f1f" }
+    ],
+
+    // ---------- LIST TAG PAIRS ----------
+    "(<ul\\b[^>]*?>)|(</ul>)": [
+      { "overviewRulerColor": "#b0ffba", "backgroundColor": "#b0ffba", "color": "#1f1f1f", "fontWeight": "bold" },
+      { "overviewRulerColor": "#69db7c", "backgroundColor": "#69db7c", "color": "#1f1f1f" }
+    ],
+    "(<ol\\b[^>]*?>)|(</ol>)": [
+      { "overviewRulerColor": "#a8d5f6", "backgroundColor": "#a8d5f6", "color": "#1f1f1f", "fontWeight": "bold" },
+      { "overviewRulerColor": "#74c0fc", "backgroundColor": "#74c0fc", "color": "#1f1f1f" }
+    ],
+    "(<li\\b[^>]*?>)|(</li>)": [
+      { "overviewRulerColor": "#c59a64", "backgroundColor": "#c59a64", "color": "#1f1f1f", "fontWeight": "bold" },
+      { "overviewRulerColor": "#ae641f", "backgroundColor": "#ae641f", "color": "#1f1f1f" }
+    ],
+
+    // ---------- LIST ATTRIBUTES (restricted to the right tags) ----------
+    // <ol start|type="..."> and boolean <ol reversed>
+    "(<ol\\b[^>]*?\\s)(start|type)(\\s*=\\s*)(\"[^\"]*\"|'[^']*'|[^\\s>]+)": [
+      {},
+      { "overviewRulerColor": "#e7f5ff", "backgroundColor": "#e7f5ff", "color": "#1f1f1f", "fontWeight": "bold" },
+      { "backgroundColor": "#e7f5ff", "color": "#1f1f1f" },
+      { "borderWidth": "1px", "borderStyle": "solid", "borderColor": "#74c0fc", "color": "#1f1f1f" }
+    ],
+    "(<ol\\b[^>]*?\\s)(reversed)\\b": [
+      {},
+      { "overviewRulerColor": "#d0ebff", "backgroundColor": "#d0ebff", "color": "#1f1f1f", "fontWeight": "bold" }
+    ],
+
+    // <li value="...">
+    "(<li\\b[^>]*?\\s)(value)(\\s*=\\s*)(\"[^\"]*\"|'[^']*'|[^\\s>]+)": [
+      {},
+      { "overviewRulerColor": "#fff4e6", "backgroundColor": "#fff4e6", "color": "#1f1f1f", "fontWeight": "bold" },
+      { "backgroundColor": "#fff4e6", "color": "#1f1f1f" },
+      { "borderWidth": "1px", "borderStyle": "solid", "borderColor": "#ffa94d", "color": "#1f1f1f" }
+    ]
+  }
 }
+
