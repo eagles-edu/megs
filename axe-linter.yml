@@ -1,52 +1,24 @@
-# .axe-linter.yml
-# Global axe-core execution options
-axeOptions:
-  runOnly:
-    type: tag
-    values:
-      - wcag21a
-      - wcag21aa
-  resultTypes:
-    - violations
-    - incomplete
-  rules:
-    color-contrast:
-      enabled: true
-  checks:
-    - id: color-contrast
-      options:
-        experimentalHexAlpha: true
+# axe Accessibility Linter configuration
+# Updated: 2025-09-17 (Asia/Bangkok)
 
-# Rule severities: error (default), warn, or false to disable
+# BEGIN CHANGE: Replaced prior `axeOptions.runOnly.tags` with top-level `tags`
+# RATIONALE: axe-linter reads `tags` at the top level; `axeOptions` is not supported here.
+tags:
+  - wcag21a
+  - wcag21aa
+# END CHANGE
+
+# BEGIN CHANGE: Rules must be booleans only; severities ("warn"/"error") and objects are not supported
+# RATIONALE: The error "Rule value should only be a boolean" was triggered by non-boolean values.
 rules:
-  empty-table-header: false          # keep blank headers without noise
-  color-contrast: warn               # still reported, but downgraded
-  label: error
-  region: warn
-  landmark-one-main:
-    enabled: warn
-    options:
-      allowLandmarkRole:
-        - application
+  empty-table-header: false        # (kept) disable this rule
+  color-contrast: true             # CHANGED: was 'warn' -> true (on/off only)
+  label: true                      # CHANGED: was 'error' -> true
+  region: true                     # CHANGED: was 'warn' -> true
+  landmark-one-main: true          # CHANGED: was object/options -> true
+# END CHANGE
 
-# Narrow exceptions by file pattern
-overrides:
-  - files:
-      - "lists/**/*.html"
-    rules:
-      color-contrast: warn
-  - files:
-      - "legacy/**/*.html"
-    rules:
-      empty-table-header: false
-      region: false
-    axeOptions:
-      runOnly:
-        type: rule
-        values:
-          - landmark-one-main
-
-# Optional UI noise controls
-notifications:
-  onSave: warn
-  problemsView: true
+# NOTE: Removed unsupported sections from the previous file:
+# - axeOptions (runOnly/resultTypes/checks/options) — not used by axe-linter config
+# - overrides with per-rule changes — not supported; use per-folder axe-linter.yml instead
+# - notifications (onSave/problemsView) — not part of axe-linter config schema

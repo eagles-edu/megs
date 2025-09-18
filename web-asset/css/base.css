@@ -545,3 +545,7 @@ body.mobile-nav-enabled #sidebar.mobile-nav-open {
     transition-duration: 0.001ms !important;
   }
 }
+
+.trans {
+  color: transparent;
+}
