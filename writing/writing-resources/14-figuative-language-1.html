@@ -117,7 +117,7 @@ jQuery(document).ready(function($){
 		console.log(e.message);
 	}
 	$("#accordion_menu_90 li.opened > .ul-wrapper").css("display","block");
-	$("#accordion_menu_90 li.opened > .item-wrapper .menu-button img").attr("src", "../../modules/mod_cinch_menu/tmpl/images/minus.png");
+	$("#accordion_menu_90 li.opened > .item-wrapper .menu-button img").attr("src", "../../web-asset/icons/svg/minus5.svg");
 
 	acMenu.find("li").mouseenter(function(){
 		if(onProcess) return true;
@@ -125,7 +125,7 @@ jQuery(document).ready(function($){
 		if(ul.length){
 			onProcess = true;
 			$(this).addClass("opened");
-			$(this).children(".item-wrapper").children(".menu-button").children("img").attr("src", "modules/mod_cinch_menu/tmpl/images/minus.png");
+			$(this).children(".item-wrapper").children(".menu-button").children("img").attr("src", "web-asset/icons/svg/minus5.svg");
 			ul.slideDown(300,function(){
 				onProcess = false;
 			});
@@ -134,7 +134,7 @@ jQuery(document).ready(function($){
 		if(onProcess) return true;
 		if($(this).children(".ul-wrapper").length){
 			onProcess = true;
-			$(this).children(".item-wrapper").children(".menu-button").children("img").attr("src", "modules/mod_cinch_menu/tmpl/images/plus.png");
+			$(this).children(".item-wrapper").children(".menu-button").children("img").attr("src", "web-asset/icons/svg/plus3.svg");
 			$(this).children(".ul-wrapper").slideUp(300,function(){
 				onProcess = false;
 			});
@@ -183,7 +183,7 @@ jQuery(document).ready(function($){
               </li>
               <li>
                 <div class="item-wrapper">
-                  <div class="menu-button"><img class="menuicon" alt="" src="../../modules/mod_cinch_menu/tmpl/images/plus.png"></div>
+                  <div class="menu-button"><img class="menuicon" alt="" src="../../web-asset/icons/svg/plus3.svg"></div>
                   <div class="menu-link"><a href="../../lists.html" aria-label="Menu Link"><img src="../../images/menuico/lists.png" alt="menu icon">Lists</a></div>
                 </div>
                 <div class="ul-wrapper">
@@ -261,7 +261,7 @@ jQuery(document).ready(function($){
 <p>Here are some <strong>examples</strong> featuring <em>figures-of-speech</em>:</p>
               <div class="examplebox" style="border: 2px solid #E0162B; padding: 0 5px 0 15px; color: #333333; font-size: 13px;">
                 <h4 style="margin: -10px 0 5px; line-height: 16px; color: inherit; display: table; padding: 0 20px; background: #fff;">Examples:</h4>
-                <ul style="list-style: square">
+                <ul>
                   <li>A man who waits for roast duck to fly into mouth must wait a very, very long time. (French author Jules Renard)
                     <p>(This quotation uses a metaphor to explain that good things must be earned.)</p>
                   </li>
@@ -276,7 +276,7 @@ jQuery(document).ready(function($){
               <p>Remember that the term "figurative language" includes techniques that can use the literal meanings of words (e.g., anastrophe, alliteration, assonance).</p>
               <div class="examplebox" style="border: 2px solid #E0162B; padding: 0 5px 0 15px; color: #333333; font-size: 13px;">
                 <h4 style="margin: -10px 0 5px; line-height: 16px; color: inherit; display: table; padding: 0 20px; background: #fff;">Examples:</h4>
-                <ul style="list-style: square">
+                <ul>
                   <li>Patient I am not.
                     <p> (The words are used in their literal sense. The anastrophe provides emphasis.)</p>
                   </li>
@@ -288,7 +288,7 @@ jQuery(document).ready(function($){
               <h3>Key Points</h3>
               <p> Use figurative language to:</p>
               <blockquote>
-                <ul style="list-style: square">
+                <ul>
                   <li>Explain your idea with a comparison.</li>
                   <li>Emphasize your idea.</li>
                   <li>Make your writing more aesthetic (e.g., rhythmic).</li>
@@ -297,7 +297,7 @@ jQuery(document).ready(function($){
               <p> <strong>Figurative language often involves one of the following:</strong></p>
               <div class="boxlist5 row22">
                 <div class="column22">
-                  <ul style="list-style: square">
+                  <ul>
                     <li><a href="#metaphor">metaphor</a></li>
                     <li><a href="#simile">simile</a></li>
                     <li><a href="#alliteration">alliteration</a></li>
@@ -308,7 +308,7 @@ jQuery(document).ready(function($){
                   </ul>
                 </div>
                 <div class="column22">
-                  <ul style="list-style: square">
+                  <ul>
                     <li><a href="#hyperbole">hyperbole</a></li>
                     <li><a href="#idiom">idiom</a></li>
                     <li><a href="#logosglyph">logosglyph</a></li>
@@ -324,7 +324,7 @@ jQuery(document).ready(function($){
               <p>A <strong>metaphor</strong> asserts that one thing is something that it literally is not.</p>
               <div class="examplebox" style="border: 2px solid #E0162B; padding: 0 5px 0 15px; color: #333333; font-size: 13px;">
                 <h4 style="margin: -10px 0 5px; line-height: 16px; color: inherit; display: table; padding: 0 20px; background: #fff;">Examples:</h4>
-                <ul style="list-style: square">
+                <ul>
                   <li>An icy stare</li>
                   <li>Time is money.</li>
                   <li>He's a real gannet.</li>
@@ -339,7 +339,7 @@ jQuery(document).ready(function($){
               <p>A <strong>simile</strong> likens one thing to another (usually achieved by the use of the word "like" or "as").</p>
               <div class="examplebox" style="border: 2px solid #E0162B; padding: 0 5px 0 15px; color: #333333; font-size: 13px;">
                 <h4 style="margin: -10px 0 5px; line-height: 16px; color: inherit; display: table; padding: 0 20px; background: #fff;">Examples:</h4>
-                <ul style="list-style: square">
+                <ul>
                   <li>Ghost-like eyes</li>
                   <li>He eats like a gannet.</li>
                   <li>She sings like an angel.</li>
@@ -354,7 +354,7 @@ jQuery(document).ready(function($){
               <p><strong>Alliteration</strong> is the repetition of the same initial letter in successive words for effect.</p>
               <div class="examplebox" style="border: 2px solid #E0162B; padding: 0 5px 0 15px; color: #333333; font-size: 13px;">
                 <h4 style="margin: -10px 0 5px; line-height: 16px; color: inherit; display: table; padding: 0 20px; background: #fff;">Examples:</h4>
-                <ul style="list-style: square">
+                <ul>
                   <li>Smile. Speak. Serve.</li>
                   <li>Those purple pigs are preposterous.</li>
                   <li>She sells seashells down by the seashore.</li>
@@ -364,7 +364,7 @@ jQuery(document).ready(function($){
               <p> Anastrophe is the deliberate changing of normal word order for emphasis.</p>
               <div class="examplebox" style="border: 2px solid #E0162B; padding: 0 5px 0 15px; color: #333333; font-size: 13px;">
                 <h4 style="margin: -10px 0 5px; line-height: 16px; color: inherit; display: table; padding: 0 20px; background: #fff;">Examples:</h4>
-                <ul style="list-style: square">
+                <ul>
                   <li>Ugly she was not.</li>
                   <li>She is always right…not.</li>
                   <li>When 900 years old you reach, look as good you will not. (Yoda from Star Wars)</li>
@@ -375,7 +375,7 @@ jQuery(document).ready(function($){
               <p> Assonance is the repetition of the same vowel sound in neighboring words.</p>
               <div class="examplebox" style="border: 2px solid #E0162B; padding: 0 5px 0 15px; color: #333333; font-size: 13px;">
                 <h4 style="margin: -10px 0 5px; line-height: 16px; color: inherit; display: table; padding: 0 20px; background: #fff;">Examples:</h4>
-                <ul style="list-style: square">
+                <ul>
                   <li>Cats bat at yarn balls.</li>
                   <li>We received three emails.</li>
                   <li>Hear, not fear, the wisdom of wizards.</li>
@@ -386,7 +386,7 @@ jQuery(document).ready(function($){
               <p>Consonance is the repetition of the same consonant sound in neighboring words.</p>
               <div class="examplebox" style="border: 2px solid #E0162B; padding: 0 5px 0 15px; color: #333333; font-size: 13px;">
                 <h4 style="margin: -10px 0 5px; line-height: 16px; color: inherit; display: table; padding: 0 20px; background: #fff;">Examples:</h4>
-                <ul style="list-style: square">
+                <ul>
                   <li>Think tank</li>
                   <li>The big dog dug a hole.</li>
                   <li>She swung her fist in angst against the beast.</li>
@@ -397,7 +397,7 @@ jQuery(document).ready(function($){
               <p>A euphemism is the use of agreeable or inoffensive words to replace rude or offensive ones.</p>
               <div class="examplebox" style="border: 2px solid #E0162B; padding: 0 5px 0 15px; color: #333333; font-size: 13px;">
                 <h4 style="margin: -10px 0 5px; line-height: 16px; color: inherit; display: table; padding: 0 20px; background: #fff;">Examples:</h4>
-                <ul style="list-style: square">
+                <ul>
                   <li>exotic dancer = stripper</li>
                   <li>didn't make it = has died</li>
                   <li>lost his marbles = is mad</li>
@@ -412,7 +412,7 @@ jQuery(document).ready(function($){
               <p>Hyperbole is an exaggeration or extravagant statement used for effect.</p>
               <div class="examplebox" style="border: 2px solid #E0162B; padding: 0 5px 0 15px; color: #333333; font-size: 13px;">
                 <h4 style="margin: -10px 0 5px; line-height: 16px; color: inherit; display: table; padding: 0 20px; background: #fff;">Examples:</h4>
-                <ul style="list-style: square">
+                <ul>
                   <li>We won a tonne of cash.</li>
                   <li>I could eat a scabby horse.</li>
                   <li>They've got truckloads of money.</li>
@@ -424,7 +424,7 @@ jQuery(document).ready(function($){
               <p>An idiom is commonly used expression whose meaning does not relate to the literal meaning of its words.</p>
               <div class="examplebox" style="border: 2px solid #E0162B; padding: 0 5px 0 15px; color: #333333; font-size: 13px;">
                 <h4 style="margin: -10px 0 5px; line-height: 16px; color: inherit; display: table; padding: 0 20px; background: #fff;">Examples:</h4>
-                <ul style="list-style: square">
+                <ul>
                   <li>It's a piece of cake.</li>
                   <li>This is the last straw.</li>
                   <li>I'll be pushing up the daisies.</li>
@@ -439,7 +439,7 @@ jQuery(document).ready(function($){
               <p>A logosglyph is a word that looks like what it means.</p>
               <div class="examplebox" style="border: 2px solid #E0162B; padding: 0 5px 0 15px; color: #333333; font-size: 13px;">
                 <h4 style="margin: -10px 0 5px; line-height: 16px; color: inherit; display: table; padding: 0 20px; background: #fff;">Examples:</h4>
-                <ul style="list-style: square">
+                <ul>
                   <li>She had eyes like pools.</li>
                   <li>Have you tried the online moobs or boobs test?</li>
                 </ul>
@@ -448,7 +448,7 @@ jQuery(document).ready(function($){
               <p> Onomatopoeia is the use of a word which sounds like what it represents.</p>
               <div class="examplebox" style="border: 2px solid #E0162B; padding: 0 5px 0 15px; color: #333333; font-size: 13px;">
                 <h4 style="margin: -10px 0 5px; line-height: 16px; color: inherit; display: table; padding: 0 20px; background: #fff;">Examples:</h4>
-                <ul style="list-style: square">
+                <ul>
                   <li>The rocket whooshed in the sky.</li>
                   <li>Are they sausages I can hear sizzling?</li>
                   <li>The dish clattered against the floor tiles.</li>
@@ -459,7 +459,7 @@ jQuery(document).ready(function($){
               <p>Personification is when non-human objects are given human traits.</p>
               <div class="examplebox" style="border: 2px solid #E0162B; padding: 0 5px 0 15px; color: #333333; font-size: 13px;">
                 <h4 style="margin: -10px 0 5px; line-height: 16px; color: inherit; display: table; padding: 0 20px; background: #fff;">Examples:</h4>
-                <ul style="list-style: square">
+                <ul>
                   <li>Creeping time</li>
                   <li>Autumn's icy touch</li>
                   <li>Summer's healing rays</li>
@@ -475,7 +475,7 @@ jQuery(document).ready(function($){
               <p id="pun"> A pun is a witticism that plays on the different meanings of a word or two words that sound alike but have different meanings.</p>
               <div class="examplebox" style="border: 2px solid #E0162B; padding: 0 5px 0 15px; color: #333333; font-size: 13px;">
                 <h4 style="margin: -10px 0 5px; line-height: 16px; color: inherit; display: table; padding: 0 20px; background: #fff;">Examples:</h4>
-                <ul style="list-style: square">
+                <ul>
                   <li>I'm an honest cheetah.</li>
                   <li>It's hard to beat a boiled egg.</li>
                   <li>Time flies like an arrow. Fruit flies like a banana. (Comedian Groucho Marx)</li>
@@ -523,10 +523,10 @@ jQuery(document).ready(function($){
 
 	acMenu.find("li").mouseleave(function(){
 		$(this).removeClass("opened");
-		$(this).children(".item-wrapper").children(".menu-button").children("img").attr("src", "../../modules/mod_cinch_menu/tmpl/images/plus.png");
+		$(this).children(".item-wrapper").children(".menu-button").children("img").attr("src", "../../web-asset/icons/svg/plus3.svg");
 		$(this).children(".ul-wrapper").hide(300);
 	}).mouseenter(function(){
-		$(this).children(".item-wrapper").children(".menu-button").children("img").attr("src", "../../modules/mod_cinch_menu/tmpl/images/minus.png");
+		$(this).children(".item-wrapper").children(".menu-button").children("img").attr("src", "../../web-asset/icons/svg/minus5.svg");
 		$(this).addClass("opened");
 		$(this).children(".ul-wrapper").show(300);
 	});
@@ -535,7 +535,7 @@ jQuery(document).ready(function($){
           <ul class="flyout-menu vertical flyout-left text-left button-right" id="flyout_menu_95">
             <li class="first">
               <div class="item-wrapper">
-                <div class="menu-button"><img class="menuicon" alt="" src="../../modules/mod_cinch_menu/tmpl/images/plus.png"></div>
+                <div class="menu-button"><img class="menuicon" alt="" src="../../web-asset/icons/svg/plus3.svg"></div>
                 <div class="menu-link"><a href="../../writing.html" aria-label="Menu Link">Writing Sentences</a></div>
               </div>
               <div class="ul-wrapper">
@@ -590,7 +590,7 @@ jQuery(document).ready(function($){
             </li>
             <li>
               <div class="item-wrapper">
-                <div class="menu-button"><img class="menuicon" alt="" src="../../modules/mod_cinch_menu/tmpl/images/plus.png"></div>
+                <div class="menu-button"><img class="menuicon" alt="" src="../../web-asset/icons/svg/plus3.svg"></div>
                 <div class="menu-link"><a href="../10-writing-paragraph.html" aria-label="Menu Link">Writing Paragraphs</a></div>
               </div>
               <div class="ul-wrapper">
@@ -645,7 +645,7 @@ jQuery(document).ready(function($){
             </li>
             <li class="first">
               <div class="item-wrapper">
-                <div class="menu-button"><!--<img class="menuicon" alt=""  src="../modules/mod_cinch_menu/tmpl/images/plus.png">--></div>
+                <div class="menu-button"><!--<img class="menuicon" alt=""  src="../web-asset/icons/svg/plus3.svg">--></div>
                 <div class="menu-link"><a href="../11-a-five-paragraph-2.html" aria-label="Menu Link">Writing Essays</a></div>
               </div>
               <div class="ul-wrapper">
@@ -700,7 +700,7 @@ jQuery(document).ready(function($){
             </li>
             <li class="last current">
               <div class="item-wrapper">
-                <div class="menu-button"><img class="menuicon" alt="" src="../../modules/mod_cinch_menu/tmpl/images/plus.png"></div>
+                <div class="menu-button"><img class="menuicon" alt="" src="../../web-asset/icons/svg/plus3.svg"></div>
                 <div class="menu-link"><a href="../12-14-writing-resouces.html" aria-label="Menu Link">Writing Resources</a></div>
               </div>
               <div class="ul-wrapper">

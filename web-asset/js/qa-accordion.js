@@ -121,7 +121,7 @@
               if (tgl) tgl.setAttribute('aria-expanded', 'false')
             })
           }
-        // eslint-disable-next-line no-unused-vars
+          // eslint-disable-next-line no-unused-vars
         } catch (_) {}
       }
       if (isOpen) {
@@ -166,7 +166,7 @@
     initQAAccordions()
     try {
       window._qaAccordionBound = true
-    // eslint-disable-next-line no-unused-vars
+      // eslint-disable-next-line no-unused-vars
     } catch (_) {}
   })
 })()

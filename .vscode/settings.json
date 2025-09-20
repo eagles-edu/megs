@@ -1,28 +1,29 @@
 {
-"css.autoValidation": "Never",
-"css.validate": false,
-"html.validate.scripts": false,
-"html.validate.styles": false,
-"javascript.validate.enable": false,
-"json.validate.enable": false,
-"less.validate": false,
-"markdown.validate.enabled": false,
-"php.validate.enable": false,
-"scss.validate": false,
-"typescript.validate.enable": false,
-"yaml.validate": false,
+  
+  "css.autoValidation": "Never",
+  "css.validate": false,
+  "html.validate.scripts": false,
+  "html.validate.styles": false,
+  "javascript.validate.enable": false,
+  "json.validate.enable": false,
+  "less.validate": false,
+  "markdown.validate.enabled": false,
+  "php.validate.enable": false,
+  "scss.validate": false,
+  "typescript.validate.enable": false,
+  "yaml.validate": false,
 
-"html.trace.server": "messages",
-"css.lint.boxModel": "ignore",
+  "html.trace.server": "messages",
+  "css.lint.boxModel": "ignore",
 
-"css.format.enable": false,
-"html.format.enable": false,
-"javascript.format.enable": false,
-"json.format.enable": false,
-"less.format.enable": false,
-"scss.format.enable": false,
-"typescript.format.enable": false,
-"yaml.format.enable": false,
+  "css.format.enable": false,
+  "html.format.enable": false,
+  "javascript.format.enable": false,
+  "json.format.enable": false,
+  "less.format.enable": false,
+  "scss.format.enable": false,
+  "typescript.format.enable": false,
+  "yaml.format.enable": false,
   // Disable built-in HTML formatter so it can't fight Prettier
 
   // Prettier is THE formatter
@@ -66,18 +67,10 @@
   "eslint.format.enable": false,
   // Stylelint: lint these languages (no auto-fix unless you run it manually)
   "stylelint.enable": true,
-  "stylelint.validate": [
-    "css",
-    "scss",
-    "less",
-  ],
+  "stylelint.validate": ["css", "scss", "less"],
   // html-validate extension
   "html-validate.enable": true,
-  "html-validate.validate": [
-    "html",
-    "vue",
-    "vue-html" /*, "markdown" */
-  ],
+  "html-validate.validate": ["html", "vue", "vue-html" /*, "markdown" */],
   // Live Server (unset root = workspace root). Set to "/public" or similar if needed.
   // "liveServer.settings.root": "/public",
   "liveServer.settings.port": 5500,
@@ -91,7 +84,7 @@
   },
   "emmet.syntaxProfiles": {
     "html": {
-      "selfClosingStyle": "html",
+      "selfClosingStyle": "html"
     }
   },
   // Help HTML/CSS validators/extensions resolve class definitions across workspace
@@ -122,6 +115,7 @@
     "crosslint",
     "danh",
     "dedupe",
+    "defence",
     "denominal",
     "Distributives",
     "downarrow",
@@ -193,6 +187,7 @@
     "Ruritan",
     "sectionlist",
     "shoulds",
+    "speciality",
     "stylelintignore",
     "subform",
     "tablesty",
@@ -204,6 +199,7 @@
     "Tính",
     "TOESL",
     "trò",
+    "turves",
     "unfeatured",
     "Unfused",
     "uparrow",
@@ -230,10 +226,7 @@
     },
     "everything": {
       "command": "npx",
-      "args": [
-        "-y",
-        "@modelcontextprotocol/server-everything"
-      ]
+      "args": ["-y", "@modelcontextprotocol/server-everything"]
     },
     "playwright": {
       "command": "npx",
@@ -250,9 +243,7 @@
     },
     "git": {
       "command": "mcp-server-git",
-      "args": [
-        "/home/eagles/dockerz/megs"
-      ]
+      "args": ["/home/eagles/dockerz/megs"]
     }
   },
   "highlight.decorations": { "rangeBehavior": 3 },
@@ -261,100 +252,201 @@
   "highlight.regexes": {
     // ---------- TABLE TAG PAIRS ----------
     "(<table\\b[^>]*?>)|(</table>)": [
-      { "overviewRulerColor": "#fff1b8", "backgroundColor": "#fff1b8", "color": "#1f1f1f", "fontWeight": "bold" },
-      { "overviewRulerColor": "#f0c240", "backgroundColor": "#f0c240", "color": "#1f1f1f" }
+      {
+        "overviewRulerColor": "#fde171",
+        "backgroundColor": "#fde171",
+        "color": "#000",
+        "fontWeight": "bold"
+      },
+      { "overviewRulerColor": "#b9a143", "backgroundColor": "#b9a143", "color": "#000" }
     ],
     "(<caption\\b[^>]*?>)|(</caption>)": [
-      { "overviewRulerColor": "#e8d1ff", "backgroundColor": "#e8d1ff", "color": "#1f1f1f", "fontWeight": "bold" },
-      { "overviewRulerColor": "#c19bff", "backgroundColor": "#c19bff", "color": "#1f1f1f" }
+      {
+        "overviewRulerColor": "#ff71e0",
+        "backgroundColor": "#ff71e0",
+        "color": "#000",
+        "fontWeight": "bold"
+      },
+      { "overviewRulerColor": "#bd5ba8", "backgroundColor": "#bd5ba8", "color": "#000" }
     ],
     "(<thead\\b[^>]*?>)|(</thead>)": [
-      { "overviewRulerColor": "#bee3f8", "backgroundColor": "#bee3f8", "color": "#1f1f1f", "fontWeight": "bold" },
-      { "overviewRulerColor": "#63b3ed", "backgroundColor": "#63b3ed", "color": "#1f1f1f" }
+      {
+        "overviewRulerColor": "#89d4ff",
+        "backgroundColor": "#89d4ff",
+        "color": "#000",
+        "fontWeight": "bold"
+      },
+      { "overviewRulerColor": "#73c5ff", "backgroundColor": "#63b3ed", "color": "#000" }
     ],
     "(<tbody\\b[^>]*?>)|(</tbody>)": [
-      { "overviewRulerColor": "#c6f6d5", "backgroundColor": "#c6f6d5", "color": "#1f1f1f", "fontWeight": "bold" },
-      { "overviewRulerColor": "#68d391", "backgroundColor": "#68d391", "color": "#1f1f1f" }
+      {
+        "overviewRulerColor": "#89ffae",
+        "backgroundColor": "#89ffae",
+        "color": "#000",
+        "fontWeight": "bold"
+      },
+      { "overviewRulerColor": "#68d391", "backgroundColor": "#68d391", "color": "#000" }
     ],
     "(<tfoot\\b[^>]*?>)|(</tfoot>)": [
-      { "overviewRulerColor": "#fed7d7", "backgroundColor": "#fed7d7", "color": "#1f1f1f", "fontWeight": "bold" },
-      { "overviewRulerColor": "#f56565", "backgroundColor": "#f56565", "color": "#1f1f1f" }
+      {
+        "overviewRulerColor": "#ff8585",
+        "backgroundColor": "#ff8585",
+        "color": "#000",
+        "fontWeight": "bold"
+      },
+      { "overviewRulerColor": "#ff6f6f", "backgroundColor": "#ff6f6f", "color": "#000" }
     ],
     "(<tr\\b[^>]*?>)|(</tr>)": [
-      { "overviewRulerColor": "#fbd38d", "backgroundColor": "#fbd38d", "color": "#1f1f1f", "fontWeight": "bold" },
-      { "overviewRulerColor": "#ce752c", "backgroundColor": "#ce752c", "color": "#1f1f1f" }
+      {
+        "overviewRulerColor": "#ff9346",
+        "backgroundColor": "#ff9346",
+        "color": "#000",
+        "fontWeight": "bold"
+      },
+      { "overviewRulerColor": "#ff8624", "backgroundColor": "#ff8624", "color": "#000" }
     ],
     "(<th\\b[^>]*?>)|(</th>)": [
-      { "overviewRulerColor": "#d6bcfa", "backgroundColor": "#d6bcfa", "color": "#1f1f1f", "fontWeight": "bold" },
-      { "overviewRulerColor": "#9f7aea", "backgroundColor": "#9f7aea", "color": "#1f1f1f" }
+      {
+        "overviewRulerColor": "#bb8bff",
+        "backgroundColor": "#bb8bff",
+        "color": "#000",
+        "fontWeight": "bold"
+      },
+      { "overviewRulerColor": "#8f58fc", "backgroundColor": "#8f58fc", "color": "#e8d7ff" }
     ],
     "(<td\\b[^>]*?>)|(</td>)": [
-      { "overviewRulerColor": "#c6f6f6", "backgroundColor": "#c6f6f6", "color": "#1f1f1f", "fontWeight": "bold" },
-      { "overviewRulerColor": "#76e4e4", "backgroundColor": "#76e4e4", "color": "#1f1f1f" }
+      {
+        "overviewRulerColor": "#56ffff",
+        "backgroundColor": "#56ffff",
+        "color": "#000",
+        "fontWeight": "bold"
+      },
+      { "overviewRulerColor": "#19c2c2", "backgroundColor": "#19c2c2", "color": "#000" }
     ],
     "(<colgroup\\b[^>]*?>)|(</colgroup>)": [
-      { "overviewRulerColor": "#b2f5ea", "backgroundColor": "#b2f5ea", "color": "#1f1f1f", "fontWeight": "bold" },
-      { "overviewRulerColor": "#38b2ac", "backgroundColor": "#38b2ac", "color": "#1f1f1f" }
+      {
+        "overviewRulerColor": "#67abf9",
+        "backgroundColor": "#67abf9",
+        "color": "#000",
+        "fontWeight": "bold"
+      },
+      { "overviewRulerColor": "#3392ff", "backgroundColor": "#3392ff", "color": "#000" }
     ],
     "(<col\\b[^>]*?/?\\s*>)": [
-      { "overviewRulerColor": "#81e6d9", "backgroundColor": "#81e6d9", "color": "#1f1f1f", "fontWeight": "bold" }
+      {
+        "overviewRulerColor": "#81e6d9",
+        "backgroundColor": "#81e6d9",
+        "color": "#000",
+        "fontWeight": "bold"
+      }
     ],
 
-    // ---------- TABLE ATTRIBUTES (restricted to cells/headers) ----------
-    // Groups: 1=prefix (unstyled), 2=name, 3='=', 4=value
+    // ---------- TABLE ATTRIBUTES ----------
     "(<t[dh]\\b[^>]*?\\s)(rowspan)(\\s*=\\s*)(\"[^\"]*\"|'[^']*'|[^\\s>]+)": [
       {},
-      { "overviewRulerColor": "#a7f3d0", "backgroundColor": "#a7f3d0", "color": "#1f1f1f", "fontWeight": "bold" },
-      { "backgroundColor": "#a7f3d0", "color": "#1f1f1f" },
-      { "borderWidth": "1px", "borderStyle": "solid", "borderColor": "#48bb78", "color": "#1f1f1f" }
+      {
+        "overviewRulerColor": "#5beb84",
+        "backgroundColor": "#5beb84",
+        "color": "#000",
+        "fontWeight": "bold"
+      },
+      { "backgroundColor": "#33ad66", "color": "#000" },
+      { "borderWidth": "1px", "borderStyle": "solid", "borderColor": "#646464", "color": "#000" }
     ],
     "(<t[dh]\\b[^>]*?\\s)(colspan)(\\s*=\\s*)(\"[^\"]*\"|'[^']*'|[^\\s>]+)": [
       {},
-      { "overviewRulerColor": "#bee3f8", "backgroundColor": "#bee3f8", "color": "#1f1f1f", "fontWeight": "bold" },
-      { "backgroundColor": "#bee3f8", "color": "#1f1f1f" },
-      { "borderWidth": "1px", "borderStyle": "solid", "borderColor": "#63b3ed", "color": "#1f1f1f" }
+      {
+        "overviewRulerColor": "#fffb7a",
+        "backgroundColor": "#fffb7a",
+        "color": "#000",
+        "fontWeight": "bold"
+      },
+      { "backgroundColor": "#c5c05f", "color": "#000" },
+      { "borderWidth": "1px", "borderStyle": "solid", "borderColor": "#646464", "color": "#000" }
     ],
     "(<th\\b[^>]*?\\s)(scope)(\\s*=\\s*)(\"(?:row|col|rowgroup|colgroup|auto)\"|'(?:row|col|rowgroup|colgroup|auto)'|(?:row|col|rowgroup|colgroup|auto))": [
       {},
-      { "overviewRulerColor": "#e9d8fd", "backgroundColor": "#e9d8fd", "color": "#1f1f1f", "fontWeight": "bold" },
-      { "backgroundColor": "#e9d8fd", "color": "#1f1f1f" },
-      { "borderWidth": "1px", "borderStyle": "solid", "borderColor": "#b794f4", "color": "#1f1f1f" }
+      {
+        "overviewRulerColor": "#ff4b4b",
+        "backgroundColor": "#ff4b4b",
+        "color": "#000",
+        "fontWeight": "bold"
+      },
+      { "backgroundColor": "#ff5454", "color": "#000" },
+      { "borderWidth": "1px", "borderStyle": "solid", "borderColor": "#646464", "color": "#000" }
     ],
 
     // ---------- LIST TAG PAIRS ----------
     "(<ul\\b[^>]*?>)|(</ul>)": [
-      { "overviewRulerColor": "#b0ffba", "backgroundColor": "#b0ffba", "color": "#1f1f1f", "fontWeight": "bold" },
-      { "overviewRulerColor": "#69db7c", "backgroundColor": "#69db7c", "color": "#1f1f1f" }
+      {
+        "overviewRulerColor": "#fcffb0",
+        "backgroundColor": "#fcffb0",
+        "color": "#000",
+        "fontWeight": "bold"
+      },
+      { "overviewRulerColor": "#faff69", "backgroundColor": "#faff69", "color": "#000" }
     ],
     "(<ol\\b[^>]*?>)|(</ol>)": [
-      { "overviewRulerColor": "#a8d5f6", "backgroundColor": "#a8d5f6", "color": "#1f1f1f", "fontWeight": "bold" },
-      { "overviewRulerColor": "#74c0fc", "backgroundColor": "#74c0fc", "color": "#1f1f1f" }
+      {
+        "overviewRulerColor": "#a8d5f6",
+        "backgroundColor": "#a8d5f6",
+        "color": "#000",
+        "fontWeight": "bold"
+      },
+      { "overviewRulerColor": "#74c0fc", "backgroundColor": "#74c0fc", "color": "#000" }
     ],
     "(<li\\b[^>]*?>)|(</li>)": [
-      { "overviewRulerColor": "#c59a64", "backgroundColor": "#c59a64", "color": "#1f1f1f", "fontWeight": "bold" },
-      { "overviewRulerColor": "#ae641f", "backgroundColor": "#ae641f", "color": "#1f1f1f" }
+      {
+        "overviewRulerColor": "#c59a64",
+        "backgroundColor": "#c59a64",
+        "color": "#000",
+        "fontWeight": "bold"
+      },
+      { "overviewRulerColor": "#ffa34e", "backgroundColor": "#ffa34e", "color": "#000" }
     ],
 
-    // ---------- LIST ATTRIBUTES (restricted to the right tags) ----------
-    // <ol start|type="..."> and boolean <ol reversed>
+    // ---------- LIST ATTRIBUTES ----------
     "(<ol\\b[^>]*?\\s)(start|type)(\\s*=\\s*)(\"[^\"]*\"|'[^']*'|[^\\s>]+)": [
       {},
-      { "overviewRulerColor": "#e7f5ff", "backgroundColor": "#e7f5ff", "color": "#1f1f1f", "fontWeight": "bold" },
-      { "backgroundColor": "#e7f5ff", "color": "#1f1f1f" },
-      { "borderWidth": "1px", "borderStyle": "solid", "borderColor": "#74c0fc", "color": "#1f1f1f" }
+      {
+        "overviewRulerColor": "#92d2ff",
+        "backgroundColor": "#92d2ff",
+        "color": "#000",
+        "fontWeight": "bold"
+      },
+      { "backgroundColor": "#66ade0", "color": "#000" },
+      { "borderWidth": "1px", "borderStyle": "solid", "borderColor": "#646464", "color": "#000" }
     ],
     "(<ol\\b[^>]*?\\s)(reversed)\\b": [
       {},
-      { "overviewRulerColor": "#d0ebff", "backgroundColor": "#d0ebff", "color": "#1f1f1f", "fontWeight": "bold" }
+      {
+        "overviewRulerColor": "#d0ebff",
+        "backgroundColor": "#d0ebff",
+        "color": "#000",
+        "fontWeight": "bold"
+      }
     ],
-
-    // <li value="...">
     "(<li\\b[^>]*?\\s)(value)(\\s*=\\s*)(\"[^\"]*\"|'[^']*'|[^\\s>]+)": [
       {},
-      { "overviewRulerColor": "#fff4e6", "backgroundColor": "#fff4e6", "color": "#1f1f1f", "fontWeight": "bold" },
-      { "backgroundColor": "#fff4e6", "color": "#1f1f1f" },
-      { "borderWidth": "1px", "borderStyle": "solid", "borderColor": "#ffa94d", "color": "#1f1f1f" }
+      {
+        "overviewRulerColor": "#fff4e6",
+        "backgroundColor": "#fff4e6",
+        "color": "#000",
+        "fontWeight": "bold"
+      },
+      { "backgroundColor": "#fff4e6", "color": "#000" },
+      { "borderWidth": "1px", "borderStyle": "solid", "borderColor": "#ffa94d", "color": "#000" }
     ]
-  }
-}
+  },
+  "cssVarHover.watchedFiles": [
+    "accordion.css",
+    "base.css",
+    "exercise-1-nouns_new.css",
+    "exercises.css",
+    "flyout.css",
+    "page-classes.css",
+    "qa-accordion.css",
+    "exercise-1-nouns/111-common-nouns-codex.html"
+  ]
 
+}

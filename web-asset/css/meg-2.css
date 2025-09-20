@@ -58,9 +58,6 @@ ul.flyout-menu li {
 
 /* widths handled generically in flyout.css (fluid) */
 
-.nodisplay {
-  display: none !important;
-}
 
 /**
  * MEGS2 - Modern Educational Grammar System

@@ -102,12 +102,8 @@ ul.accordion-menu.button-left li > .item-wrapper > .menu-button,
 ul.accordion-menu.button-right li > .item-wrapper > .menu-button {
   padding: 12px 0;
   line-height: 10px;
-  float: none
+  float: none;
 }
-
-
-
-
 
 ul.accordion-menu.button-left li > .item-wrapper > .menu-button > img {
   padding-left: 0;
@@ -155,7 +151,6 @@ ul.accordion-menu .menu-button > img {
   aspect-ratio: 1 / 1;
   object-fit: contain;
 }
-
 
 ul.accordion-menu .menu-link img {
   height: var(--icon-size);

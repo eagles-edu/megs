@@ -2,130 +2,198 @@
 <html lang="en">
   <!-- /exercise-1-nouns/113-abstract-nouns.html, Tue, 24 Nov 2020 12:32:12 GMT -->
   <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8" />
 
     <meta
       name="keywords"
-      content="ESL, TOESL, TOEFL, courses, english, english courses, education, english degree, degree, english education, exercises, english exercises, grammar, verb, english grammar, noun, adverb, adjective, english adverb, english noun, english adjective">
-    <meta name="description" content="A comprehensive site for free English courses and exercises.">
-    <meta name="generator" content="English Grammar - intermediate levels A2 and above">
+      content="ESL, TOESL, TOEFL, courses, english, english courses, education, english degree, degree, english education, exercises, english exercises, grammar, verb, english grammar, noun, adverb, adjective, english adverb, english noun, english adjective" />
+    <meta name="description" content="A comprehensive site for free English courses and exercises." />
+    <meta name="generator" content="English Grammar - intermediate levels A2 and above" />
     <title>1.1.3 Abstract Nouns</title>
-    <link href="113-abstract-nouns.html" rel="non-canonical">
-    <link href="../web-asset/icons/favicon.ico" rel="shortcut icon" type="image/vnd.microsoft.icon">
-    <link href="../web-asset/css/style.min.css" rel="stylesheet">
-    <link href="../web-asset/css/template592f.css" rel="stylesheet">
-    <link href="../cssd2d5.css?family=Open+Sans" rel="stylesheet">
-    <link href="../web-asset/css/flyout.css" rel="stylesheet">
-    <link href="../web-asset/css/accordion.css" rel="stylesheet">
-    <style>
-      h1,
-      h2,
-      h3,
-      h4,
-      h5,
-      h6,
-      .site-title {
-        font-family: 'Roboto Condensed', sans-serif;
-      }
-      body.site {
-        border-top: 3px solid #004c75;
-        background-color: #f4f6f7;
-      }
-      a {
-        color: #004c75;
-      }
-      .nav-list > .active > a,
-      .nav-list > .active > a:hover,
-      .dropdown-menu li > a:hover,
-      .dropdown-menu .active > a,
-      .dropdown-menu .active > a:hover,
-      .nav-pills > .active > a,
-      .nav-pills > .active > a:hover,
-      .btn-primary {
-        background: #004c75;
-      }
-      #flyout_menu_93 {
-        background: #fff;
-      }
-      #flyout_menu_93 ul {
-        background: #fff;
-      }
-      #flyout_menu_93 a {
-        color: #553f32;
-      }
-      #flyout_menu_93 .item-wrapper:hover a,
-      #flyout_menu_93 li.current > .item-wrapper a,
-      #flyout_menu_93 li.opened > .item-wrapper a {
-        color: #ff8b2f;
-      }
-      #flyout_menu_93 li.open,
-      #flyout_menu_93 li:hover {
-        background: #aa6b39;
-      }
+    <link href="113-abstract-nouns.html" rel="non-canonical" />
+    <link href="../web-asset/icons/favicon.ico" rel="shortcut icon" type="image/vnd.microsoft.icon" />
+    <!-- theme-vars.css eliminated; variables live in base.css -->
 
-      @media screen and (max-width: 767px) {
-        #flyout_menu_93 .ul-wrapper,
-        #flyout_menu_93 ul {
-          width: auto;
-        }
-        #flyout_menu_93.horizontal ul .menu-link {
-          width: auto;
-        }
-      }
+    <!-- Minimal theme tokens inline to avoid var() FOUC when base.css loads async -->
+    <style id="theme-vars-critical">
+:root {
+  /* Brand core */
+  --primary-color: #e0162b; /* locked */
+  --secondary-color: #f5f8ff; /* white */
+  --tertiary-color: #002786; /* locked */
+  --text-color: #212121; /* locked */
+  --icon-color-on-lt: #8a94a8; /* locked */
+  --icon-color-on-dk: #f5f8ff; /* locked */
 
-      @media screen and (min-width: 768px) {
-        #flyout_menu_93 .ul-wrapper,
-        #flyout_menu_93 ul {
-          width: 250px;
-        }
+  /* Layout surfaces */
+  --background-color: #505050; /* page background behind light content */
       }
-      #accordion_menu_90 {
-        background: #fff;
-      }
-      #accordion_menu_90 a {
-        color: #000000;
-      }
-      #accordion_menu_90 .item-wrapper:hover a,
-      #accordion_menu_90 li.current > .item-wrapper a {
-        color: #000d4d;
-      }
-      #accordion_menu_90 li.open,
-      #accordion_menu_90 li:hover {
-        background: #6e92ff;
+      /* Preload critical image dimensions to prevent CLS */
+      img[src*="banner.png"] { width: 650px; height: 120px; }
+      img[src*="arrow.png"] { width: 9px; height: 9px; }
+      img[src*="menuico"] { width: 16px; height: 16px; }
+      img[src*="plus3.svg"] { width: 12px; height: 12px; }
+    </style>
+    <!-- Base CSS (SSOT) async with print-swap to improve FCP/LCP -->
+    <link rel="preload" href="../web-asset/css/base.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="stylesheet" href="../web-asset/css/base.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="../web-asset/css/base.css"></noscript>
+
+    <!-- Critical resource hints for better performance -->
+    <link rel="dns-prefetch" href="../images/">
+    <link rel="dns-prefetch" href="../web-asset/">
+    <link rel="dns-prefetch" href="../media/">
+    <style id="critical-inline">
+      /* Critical CSS: reset + fast header paint + mobile toggle */
+      body { margin: 0; }
+      .grid-modern .row-fluid { background: var(--secondary-color); border-radius: 6px; margin-block: 12px; padding-block: 8px; }
+      .header { margin-bottom: 1rem; }
+      @media (max-width: 767px) {
+        .mobile-menu-toggle { position: fixed; top: 12px; right: 12px; width: 40px; height: 40px; border-radius: 4px; background: var(--primary-color); border: 1px solid var(--primary-color); z-index: 1200; display: block; }
+        .mobile-menu-toggle::before { content: '\00E289A1'; }
+        /* Fallback for browsers not decoding \00E289A1: use explicit ≡ */
+        .mobile-menu-toggle::before { content: '\2261'; display: block; line-height: 40px; text-align: center; font-size: 22px; color: var(--white); }
       }
     </style>
-    <!-- Removed jQuery/Bootstrap/nn_sliders/template scripts on codex variant to keep console clean -->
 
+    <!-- Critical augment: stabilize grid/menu to reduce CLS -->
+    <style id="critical-inline-augment">
+      /* Grid layout (avoid block→flex shift when async CSS loads) */
+      .row-fluid { display: flex; flex-wrap: wrap; margin-left: -8px; margin-right: -8px; }
+      .row-fluid > [class*='span'] { box-sizing: border-box; flex: 0 0 100%; max-width: 100%; padding-left: 8px; padding-right: 8px; }
+      @media (min-width: 768px) {
+        .row-fluid > .span2 { flex: 0 0 16.6667%; max-width: 16.6667%; }
+        .row-fluid > .span8 { flex: 0 0 66.6667%; max-width: 66.6667%; }
+      }
+
+      /* Left accordion menu: reserve icon/text layout early */
+      ul.accordion-menu { list-style: none; margin: 0; padding: 0; border: 1px solid var(--border-color); font-size: 0.85em; overflow: hidden; }
+      ul.accordion-menu .item-wrapper { display: flex; align-items: center; gap: var(--icon-gap, 8px); }
+      ul.accordion-menu .menu-button { flex: 0 0 var(--icon-slot, 24px); display: flex; align-items: center; justify-content: flex-start; padding-left: var(--menu-icon-pad-left, 6px); }
+      /* Match button-right spacing/line-height from left-menu.css to prevent flash */
+      ul.accordion-menu.button-right li > .item-wrapper > .menu-button { padding: 12px 0; line-height: 10px; float: right; }
+      ul.accordion-menu.button-right li > .item-wrapper > .menu-button > img { padding-right: 10px; }
+      ul.accordion-menu li { border-top: 1px solid var(--divider-color); }
+      ul.accordion-menu .menu-link { flex: 1 1 auto; min-width: 0; min-height: 35px; overflow: hidden; }
+      ul.accordion-menu .menu-link > a, ul.accordion-menu .menu-link > p { display: flex; align-items: center; gap: 8px; width: 90%; padding: 10px 10px 9px; text-decoration: none; background: none; }
+      ul.accordion-menu .menu-link > a > img, ul.accordion-menu .menu-link > p > img { vertical-align: middle; border: 0; height: auto; max-width: 100%; padding: 0 5px 0 0; }
+      ul.accordion-menu > li > .item-wrapper > .menu-link > a, ul.accordion-menu > li > .item-wrapper > .menu-link > p { font-weight: bold; }
+      /* Ensure nested lists default to collapsed before left-menu.css loads */
+      ul.accordion-menu li > .ul-wrapper { display: none; }
+      ul.accordion-menu li.opened > .ul-wrapper { display: block; }
+      /* Icon sizing tied to text; reserve shape via aspect-ratio */
+      ul.accordion-menu .menu-button > img { height: var(--icon-size, 1em); width: auto; aspect-ratio: 1 / 1; object-fit: contain; }
+      ul.accordion-menu .menu-link img { height: var(--icon-size, 1em); width: auto; aspect-ratio: 1 / 1; object-fit: contain; }
+
+      /* Pager arrows: reserve space */
+      .pager { display: flex; justify-content: space-between; list-style: none; margin: 1rem 0; padding: 0; }
+      .pager img { width: 12px; height: 12px; }
+
+      /* Flyout (right menu): hide nested lists until CSS loads; reserve icon slot */
+      ul.flyout-menu .ul-wrapper { display: none; }
+      ul.flyout-menu .item-wrapper { display: flex; align-items: center; gap: var(--icon-gap, 8px); }
+      ul.flyout-menu .menu-button { flex: 0 0 var(--icon-slot, 24px); display: flex; align-items: center; justify-content: flex-start; padding-left: var(--menu-icon-pad-left, 6px); }
+      ul.flyout-menu .menu-button > img, ul.flyout-menu .menu-link img { height: var(--icon-size, 1em); width: auto; aspect-ratio: 1 / 1; object-fit: contain; }
+
+      /* QA accordion: collapse bodies before async CSS/JS to prevent flash */
+      #content .nn_sliders .accordion-body { max-height: 0; overflow: hidden; }
+      #content .nn_sliders .collapse { height: 0; overflow: hidden; }
+      /* Hide duplicate legacy title inside body to avoid jump */
+      #content .nn_sliders-title { display: none; }
+
+      /* Breadcrumb divider icon explicit size, belt-and-suspenders */
+      ul.breadcrumb > li > span.divider > img { width: 9px; height: 9px; }
+
+      /* Additional CLS prevention: stabilize accordion toggle heights */
+      .nn_sliders-toggle { min-height: 44px; display: flex; align-items: center; }
+      .nn_sliders-toggle-inner { flex: 1; }
+
+      /* Preload footer height to prevent footer jump */
+      .footer { min-height: 80px; }
+
+      /* Stabilize sidebar width on desktop to prevent reflow */
+      @media (min-width: 768px) {
+        #sidebar { min-height: 300px; }
+        #aside { min-height: 300px; }
+      }
+    </style>
+
+    <!-- Optimized speculationrules with prerender for better UX -->
     <script>
-      ;(function () {
-        if (window.jQuery && typeof window.JCaption !== 'undefined') {
-          jQuery(function () {
-            try {
-              new JCaption('img.caption')
-            } catch (e) {}
-          })
+      (function(){
+        function injectSpeculation(){
+          try {
+            var s = document.createElement('script');
+            s.type = 'speculationrules';
+            s.text = JSON.stringify({
+              prefetch: [{ source: 'list', urls: ['112-proper-nouns.html'] }],
+              prerender: [{ source: 'list', urls: ['112-proper-nouns.html'], eagerness: 'moderate' }]
+            });
+            document.head.appendChild(s);
+          } catch(e) { /* no-op */ }
         }
-      })()
-      var nn_sliders_urlscroll = 0
-      var nn_sliders_use_hash = 1
-      var nn_sliders_reload_iframes = 0
+        if (document.readyState === 'complete') {
+          injectSpeculation();
+        } else {
+          window.addEventListener('load', function(){
+            if ('requestIdleCallback' in window) requestIdleCallback(injectSpeculation, {timeout: 2000});
+            else setTimeout(injectSpeculation, 500);
+          });
+        }
+      })();
     </script>
+    <!-- Icon font not used on Codex variant; removed icomoon.css includes -->
 
-    <link href="../web-asset/css/meg-2.css" rel="stylesheet">
+    <!-- Minimal base for layout/mobile nav used by prototype (async) -->
+    <link rel="preload" href="../web-asset/css/exercises.css" as="style">
+    <link rel="stylesheet" href="../web-asset/css/exercises.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="../web-asset/css/exercises.css"></noscript>
+    <!-- Use system default fonts (no webfont preloads) -->
 
-    <link rel="stylesheet" href="css/exercise-1-nouns_new.css">
+    <!-- Defer non-critical CSS with preload+print media swap -->
+    <link rel="preload" href="../web-asset/css/flyout-menu.css" as="style">
+    <link rel="stylesheet" href="../web-asset/css/flyout-menu.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="../web-asset/css/flyout-menu.css"></noscript>
+    <!-- Left-menu.css async; critical inline reserves layout to avoid flash -->
+    <link rel="preload" href="../web-asset/css/left-menu.css" as="style">
+    <link rel="stylesheet" href="../web-asset/css/left-menu.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="../web-asset/css/left-menu.css"></noscript>
+    <link rel="preload" href="../web-asset/css/page-classes.css" as="style">
+    <link rel="stylesheet" href="../web-asset/css/page-classes.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="../web-asset/css/page-classes.css"></noscript>
+    <!-- Removed jQuery/Bootstrap/nn_sliders/template scripts on codex variant to keep console clean -->
+    <link rel="preload" href="../web-asset/css/exercise-1-nouns_new.css" as="style">
+    <link rel="stylesheet" href="../web-asset/css/exercise-1-nouns_new.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="../web-asset/css/exercise-1-nouns_new.css"></noscript>
+    <!-- Codex QA slider scoped overrides (synchronous to avoid flash) -->
+    <link rel="stylesheet" href="../web-asset/css/qa-accordion.css">
+    <!-- No-JS fallback: show all answers if scripting is disabled -->
+    <noscript>
+      <style>
+        #content .accordion-body {
+          max-height: none !important;
+          height: auto !important;
+          overflow: visible !important;
+        }
+      </style>
+    </noscript>
+    <!-- Mobile navigation styles provided globally by base CSS -->
+    <!-- No inline @font-face; system stacks are used (see base.css variables) -->
+    <!-- Bundled JavaScript: Modern module + legacy fallback (4 requests → 1) -->
+    <script type="module" src="../web-asset/js/main.bundle.js"></script>
+    <script nomodule src="../web-asset/js/main.legacy.js" defer></script>
   </head>
-  <body class="site com_content view-article no-layout no-task itemid-3542">
+  <body>
     <!-- Body -->
-    <div class="body" id="top">
+    <div class="grid-modern" id="top">
       <div class="container">
         <!-- Header -->
         <header class="header">
-          <div class="header-inner clearfix">
-            <a class="brand pull-left" href="../index-2.html" aria-label="link to home page">
-              <img src="../images/banner.png" alt="The Eagles Club logo">
-              <div class="site-description">Serious English</div>
+          <div>
+            <a href="../index-2.html" aria-label="link to home page">
+              <img src="../images/banner.png" alt="The Eagles Club logo" />
+              <div>Serious English</div>
             </a>
             <div class="nodisplay header-search pull-right">
               <div class="customseamod visible-desktop"></div>
@@ -161,10 +229,7 @@
                         console.log(e.message)
                       }
                       $('#accordion_menu_90 li.opened > .ul-wrapper').css('display', 'block')
-                      $('#accordion_menu_90 li.opened > .item-wrapper .menu-button img').attr(
-                        'src',
-                        '../modules/mod_cinch_menu/tmpl/images/minus.png'
-                      )
+                      $('#accordion_menu_90 li.opened > .item-wrapper .menu-button img').attr('src', '../web-asset/icons/svg/minus5.svg')
 
                       acMenu
                         .find('li')
@@ -178,7 +243,7 @@
                               .children('.item-wrapper')
                               .children('.menu-button')
                               .children('img')
-                              .attr('src', '../modules/mod_cinch_menu/tmpl/images/minus.png')
+                              .attr('src', '../web-asset/icons/svg/minus5.svg')
                             ul.slideDown(300, function () {
                               onProcess = false
                             })
@@ -192,7 +257,7 @@
                               .children('.item-wrapper')
                               .children('.menu-button')
                               .children('img')
-                              .attr('src', '../modules/mod_cinch_menu/tmpl/images/plus.png')
+                              .attr('src', '../web-asset/icons/svg/plus3.svg')
                             $(this)
                               .children('.ul-wrapper')
                               .slideUp(300, function () {
@@ -210,7 +275,7 @@
                       <div class="menu-button"></div>
                       <div class="menu-link">
                         <a href="../index-2.html" aria-label="Home">
-                          <img src="../images/menuico/main.png" alt="menu icon">
+                          <img src="../images/menuico/main.png" alt="menu icon" />
                           Home
                         </a>
                       </div>
@@ -221,7 +286,7 @@
                       <div class="menu-button"></div>
                       <div class="menu-link">
                         <a href="../grammar-lessons.html" aria-label="Lessons">
-                          <img src="../images/menuico/lessons.png" alt="menu icon">
+                          <img src="../images/menuico/lessons.png" alt="menu icon" />
                           Lessons
                         </a>
                       </div>
@@ -232,7 +297,7 @@
                       <div class="menu-button"></div>
                       <div class="menu-link">
                         <a href="../grammar-exercises.html" aria-label="Exercises">
-                          <img src="../images/menuico/exercises.png" alt="menu icon">
+                          <img src="../images/menuico/exercises.png" alt="menu icon" />
                           Exercises
                         </a>
                       </div>
@@ -243,7 +308,7 @@
                       <div class="menu-button"></div>
                       <div class="menu-link">
                         <a href="../introduction-to-tenses.html" aria-label="Tenses">
-                          <img src="../images/menuico/tenses.png" alt="menu icon">
+                          <img src="../images/menuico/tenses.png" alt="menu icon" />
                           Tenses
                         </a>
                       </div>
@@ -254,7 +319,7 @@
                       <div class="menu-button"></div>
                       <div class="menu-link">
                         <a href="../writing.html" aria-label="Writing">
-                          <img src="../images/menuico/writing.png" alt="menu icon">
+                          <img src="../images/menuico/writing.png" alt="menu icon" />
                           Writing
                         </a>
                       </div>
@@ -265,7 +330,7 @@
                       <div class="menu-button"></div>
                       <div class="menu-link">
                         <a href="../vocabulary.html" aria-label="Vocabulary">
-                          <img src="../images/menuico/vocab.png" alt="menu icon">
+                          <img src="../images/menuico/vocab.png" alt="menu icon" />
                           Vocabulary
                         </a>
                       </div>
@@ -273,10 +338,10 @@
                   </li>
                   <li>
                     <div class="item-wrapper">
-                      <div class="menu-button"><img class="menuicon" alt="" src="../modules/mod_cinch_menu/tmpl/images/plus.png"></div>
+                      <div class="menu-button"><img class="menuicon" alt="" src="../web-asset/icons/svg/plus3.svg" /></div>
                       <div class="menu-link">
                         <a href="../lists.html" aria-label="Lists">
-                          <img src="../images/menuico/lists.png" alt="menu icon">
+                          <img src="../images/menuico/lists.png" alt="menu icon" />
                           Lists
                         </a>
                       </div>
@@ -311,7 +376,7 @@
                       <div class="menu-button"></div>
                       <div class="menu-link">
                         <a href="../glossary.html" aria-label="Glossary">
-                          <img src="../images/menuico/glossary.png" alt="menu icon">
+                          <img src="../images/menuico/glossary.png" alt="menu icon" />
                           Glossary
                         </a>
                       </div>
@@ -329,7 +394,7 @@
             <div id="system-message-container"></div>
 
             <div class="item-page" itemscope="" itemtype="https://schema.org/Article">
-              <meta itemprop="inLanguage" content="en-GB">
+              <meta itemprop="inLanguage" content="en-GB" />
 
               <div class="page-header">
                 <h2 itemprop="headline">1.1.3 Abstract Nouns</h2>
@@ -1175,9 +1240,9 @@
                 <a itemprop="item" href="../index-2.html" class="pathway" aria-label="Home"><span itemprop="name">Home</span></a>
 
                 <span class="divider">
-                  <img src="../media/system/images/arrow.png" alt="">
+                  <img src="../media/system/images/arrow.png" alt="" />
                 </span>
-                <meta itemprop="position" content="1">
+                <meta itemprop="position" content="1" />
               </li>
               <li itemprop="itemListElement" itemscope="" itemtype="https://schema.org/ListItem">
                 <a itemprop="item" href="../exercise-1-nouns.html" class="pathway" aria-label="Exercise 1 - Nouns">
@@ -1185,21 +1250,18 @@
                 </a>
 
                 <span class="divider">
-                  <img src="../media/system/images/arrow.png" alt="">
+                  <img src="../media/system/images/arrow.png" alt="" />
                 </span>
-                <meta itemprop="position" content="2">
+                <meta itemprop="position" content="2" />
               </li>
               <li itemprop="itemListElement" itemscope="" itemtype="https://schema.org/ListItem" class="active">
                 <span itemprop="name">1.1.3 Abstract Nouns</span>
-                <meta itemprop="position" content="3">
+                <meta itemprop="position" content="3" />
               </li>
             </ul>
 
             <!-- End Content -->
           </main>
-          <div id="aside" class="span2">
-            <!-- Begin Right Sidebar -->
-            <div class="well hidden-phone">
               <script>
                 if (window.jQuery)
                   jQuery(function ($) {
@@ -1221,7 +1283,7 @@
                           .children('.item-wrapper')
                           .children('.menu-button')
                           .children('img')
-                          .attr('src', '../modules/mod_cinch_menu/tmpl/images/plus.png')
+                          .attr('src', '../web-asset/icons/svg/plus3.svg')
                         $(this).children('.ul-wrapper').hide(300)
                       })
                       .mouseenter(function () {
@@ -1229,16 +1291,19 @@
                           .children('.item-wrapper')
                           .children('.menu-button')
                           .children('img')
-                          .attr('src', '../modules/mod_cinch_menu/tmpl/images/minus.png')
+                          .attr('src', '../web-asset/icons/svg/minus5.svg')
                         $(this).addClass('opened')
                         $(this).children('.ul-wrapper').show(300)
                       })
                   })
-              </script>
-              <ul class="flyout-menu vertical flyout-left text-left button-right" id="flyout_menu_93">
-                <li class="current first">
+          </script>
+          <div id="aside" class="span2">
+            <!-- Begin Right Sidebar -->
+            <div class="well hidden-phone">
+              <ul class="flyout-menu vertical flyout-left text-left button-right" id="flyout_menu_92">
+                <li class="first">
                   <div class="item-wrapper">
-                    <div class="menu-button"><img class="menuicon" alt="" src="../modules/mod_cinch_menu/tmpl/images/plus.png"></div>
+                    <div class="menu-button"><img class="menuicon" alt="" src="../web-asset/icons/svg/plus3.svg" /></div>
                     <div class="menu-link"><a href="../exercise-1-nouns.html" aria-label="Nouns">Nouns</a></div>
                   </div>
                   <div class="ul-wrapper">
@@ -1306,7 +1371,7 @@
                 </li>
                 <li>
                   <div class="item-wrapper">
-                    <div class="menu-button"><img class="menuicon" alt="" src="../modules/mod_cinch_menu/tmpl/images/plus.png"></div>
+                    <div class="menu-button"><img class="menuicon" alt="" src="../web-asset/icons/svg/plus3.svg" /></div>
                     <div class="menu-link"><a href="../exercise-2-verbs.html" aria-label="Verbs">Verbs</a></div>
                   </div>
                   <div class="ul-wrapper">
@@ -1361,7 +1426,7 @@
                 </li>
                 <li>
                   <div class="item-wrapper">
-                    <div class="menu-button"><img class="menuicon" alt="" src="../modules/mod_cinch_menu/tmpl/images/plus.png"></div>
+                    <div class="menu-button"><img class="menuicon" alt="" src="../web-asset/icons/svg/plus3.svg" /></div>
                     <div class="menu-link"><a href="../exercise-3-adjectives.html" aria-label="Adjectives">Adjectives</a></div>
                   </div>
                   <div class="ul-wrapper">
@@ -1445,7 +1510,7 @@
                 </li>
                 <li>
                   <div class="item-wrapper">
-                    <div class="menu-button"><img class="menuicon" alt="" src="../modules/mod_cinch_menu/tmpl/images/plus.png"></div>
+                    <div class="menu-button"><img class="menuicon" alt="" src="../web-asset/icons/svg/plus3.svg" /></div>
                     <div class="menu-link"><a href="../exercise-4-adverbs.html" aria-label="Menu Link">Adverbs</a></div>
                   </div>
                   <div class="ul-wrapper">
@@ -1532,7 +1597,7 @@
                 </li>
                 <li>
                   <div class="item-wrapper">
-                    <div class="menu-button"><img class="menuicon" alt="" src="../modules/mod_cinch_menu/tmpl/images/plus.png"></div>
+                    <div class="menu-button"><img class="menuicon" alt="" src="../web-asset/icons/svg/plus3.svg" /></div>
                     <div class="menu-link"><a href="../exercise-5-pronouns.html" aria-label="Menu Link">Pronouns</a></div>
                   </div>
                   <div class="ul-wrapper">
@@ -1707,7 +1772,7 @@
                 </li>
                 <li>
                   <div class="item-wrapper">
-                    <div class="menu-button"><img class="menuicon" alt="" src="../modules/mod_cinch_menu/tmpl/images/plus.png"></div>
+                    <div class="menu-button"><img class="menuicon" alt="" src="../web-asset/icons/svg/plus3.svg" /></div>
                     <div class="menu-link"><a href="../exercise-6-prepositions.html" aria-label="Menu Link">Prepositions</a></div>
                   </div>
                   <div class="ul-wrapper">
@@ -1807,7 +1872,7 @@
                 </li>
                 <li>
                   <div class="item-wrapper">
-                    <div class="menu-button"><img class="menuicon" alt="" src="../modules/mod_cinch_menu/tmpl/images/plus.png"></div>
+                    <div class="menu-button"><img class="menuicon" alt="" src="../web-asset/icons/svg/plus3.svg" /></div>
                     <div class="menu-link"><a href="../exercise-7-conjunctions.html" aria-label="Menu Link">Conjunctions</a></div>
                   </div>
                   <div class="ul-wrapper">
@@ -1880,7 +1945,7 @@
                 </li>
                 <li>
                   <div class="item-wrapper">
-                    <div class="menu-button"><img class="menuicon" alt="" src="../modules/mod_cinch_menu/tmpl/images/plus.png"></div>
+                    <div class="menu-button"><img class="menuicon" alt="" src="../web-asset/icons/svg/plus3.svg" /></div>
                     <div class="menu-link"><a href="../exercise-8-agreement.html" aria-label="Menu Link">S+V Agreement</a></div>
                   </div>
                   <div class="ul-wrapper">
@@ -1911,7 +1976,7 @@
                 </li>
                 <li>
                   <div class="item-wrapper">
-                    <div class="menu-button"><img class="menuicon" alt="" src="../modules/mod_cinch_menu/tmpl/images/plus.png"></div>
+                    <div class="menu-button"><img class="menuicon" alt="" src="../web-asset/icons/svg/plus3.svg" /></div>
                     <div class="menu-link"><a href="../exercise-9-articles.html" aria-label="Menu Link">Articles</a></div>
                   </div>
                   <div class="ul-wrapper">
@@ -1948,7 +2013,7 @@
                 </li>
                 <li>
                   <div class="item-wrapper">
-                    <div class="menu-button"><img class="menuicon" alt="" src="../modules/mod_cinch_menu/tmpl/images/plus.png"></div>
+                    <div class="menu-button"><img class="menuicon" alt="" src="../web-asset/icons/svg/plus3.svg" /></div>
                     <div class="menu-link"><a href="../exercise-11-conditionals.html" aria-label="Menu Link">Conditionals</a></div>
                   </div>
                   <div class="ul-wrapper">
@@ -1985,7 +2050,7 @@
                 </li>
                 <li>
                   <div class="item-wrapper">
-                    <div class="menu-button"><img class="menuicon" alt="" src="../modules/mod_cinch_menu/tmpl/images/plus.png"></div>
+                    <div class="menu-button"><img class="menuicon" alt="" src="../web-asset/icons/svg/plus3.svg" /></div>
                     <div class="menu-link"><a href="../exercise-12-modifiers.html" aria-label="Menu Link">Modifiers</a></div>
                   </div>
                   <div class="ul-wrapper">
@@ -2042,7 +2107,7 @@
                 </li>
                 <li>
                   <div class="item-wrapper">
-                    <div class="menu-button"><img class="menuicon" alt="" src="../modules/mod_cinch_menu/tmpl/images/plus.png"></div>
+                    <div class="menu-button"><img class="menuicon" alt="" src="../web-asset/icons/svg/plus3.svg" /></div>
                     <div class="menu-link"><a href="../exercise-13-indirect-speech.html" aria-label="Menu Link">Speech Direction</a></div>
                   </div>
                   <div class="ul-wrapper">
@@ -2117,7 +2182,7 @@
                 </li>
                 <li>
                   <div class="item-wrapper">
-                    <div class="menu-button"><img class="menuicon" alt="" src="../modules/mod_cinch_menu/tmpl/images/plus.png"></div>
+                    <div class="menu-button"><img class="menuicon" alt="" src="../web-asset/icons/svg/plus3.svg" /></div>
                     <div class="menu-link"><a href="../exercise-15-passive-voice.html" aria-label="Menu Link">Active-Passive</a></div>
                   </div>
                   <div class="ul-wrapper">
@@ -2199,7 +2264,7 @@
                 </li>
                 <li>
                   <div class="item-wrapper">
-                    <div class="menu-button"><img class="menuicon" alt="" src="../modules/mod_cinch_menu/tmpl/images/plus.png"></div>
+                    <div class="menu-button"><img class="menuicon" alt="" src="../web-asset/icons/svg/plus3.svg" /></div>
                     <div class="menu-link"><a href="../exercise-17-clauses.html" aria-label="Menu Link">Clauses</a></div>
                   </div>
                   <div class="ul-wrapper">
@@ -2230,7 +2295,7 @@
                 </li>
                 <li>
                   <div class="item-wrapper">
-                    <div class="menu-button"><img class="menuicon" alt="" src="../modules/mod_cinch_menu/tmpl/images/plus.png"></div>
+                    <div class="menu-button"><img class="menuicon" alt="" src="../web-asset/icons/svg/plus3.svg" /></div>
                     <div class="menu-link">
                       <a href="../exercise-18-verb-ing-gerunds-and-particles.html" aria-label="Menu Link">Verb-ing</a>
                     </div>
@@ -2295,7 +2360,7 @@
                 </li>
                 <li>
                   <div class="item-wrapper">
-                    <div class="menu-button"><img class="menuicon" alt="" src="../modules/mod_cinch_menu/tmpl/images/plus.png"></div>
+                    <div class="menu-button"><img class="menuicon" alt="" src="../web-asset/icons/svg/plus3.svg" /></div>
                     <div class="menu-link">
                       <a href="../exercise-19-determiners-and-quantifiers.html" aria-label="Menu Link">Determiners</a>
                     </div>
@@ -2334,7 +2399,7 @@
                 </li>
                 <li>
                   <div class="item-wrapper">
-                    <div class="menu-button"><img class="menuicon" alt="" src="../modules/mod_cinch_menu/tmpl/images/plus.png"></div>
+                    <div class="menu-button"><img class="menuicon" alt="" src="../web-asset/icons/svg/plus3.svg" /></div>
                     <div class="menu-link"><a href="../exercise-21-general.html" aria-label="Menu Link">Part-of-Speech</a></div>
                   </div>
                   <div class="ul-wrapper">
@@ -2376,7 +2441,7 @@
                 </li>
                 <li class="last">
                   <div class="item-wrapper">
-                    <div class="menu-button"><img class="menuicon" alt="" src="../modules/mod_cinch_menu/tmpl/images/plus.png"></div>
+                    <div class="menu-button"><img class="menuicon" alt="" src="../web-asset/icons/svg/plus3.svg" /></div>
                     <div class="menu-link"><a href="../exercise-22-test-your-vocabulary.html" aria-label="Menu Link">Vocabulary</a></div>
                   </div>
                   <div class="ul-wrapper">
@@ -2412,7 +2477,7 @@
     <!-- Footer -->
     <footer class="footer">
       <div class="container">
-        <hr>
+        <hr />
 
         <p class="pull-right">
           <a href="#top" id="back-top" aria-label="Back to Top">Back to Top</a>

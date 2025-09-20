@@ -549,3 +549,7 @@ body.mobile-nav-enabled #sidebar.mobile-nav-open {
 .trans {
   color: transparent;
 }
+
+.nodisplay {
+  display: none !important;
+}

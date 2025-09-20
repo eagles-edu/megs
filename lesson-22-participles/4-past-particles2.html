@@ -141,7 +141,7 @@ jQuery(document).ready(function($){
 		console.log(e.message);
 	}
 	$("#accordion_menu_90 li.opened > .ul-wrapper").css("display","block");
-	$("#accordion_menu_90 li.opened > .item-wrapper .menu-button img").attr("src", "../modules/mod_cinch_menu/tmpl/images/minus.png");
+	$("#accordion_menu_90 li.opened > .item-wrapper .menu-button img").attr("src", "../web-asset/icons/svg/minus5.svg");
 
 	acMenu.find("li").mouseenter(function(){
 		if(onProcess) return true;
@@ -149,7 +149,7 @@ jQuery(document).ready(function($){
 		if(ul.length){
 			onProcess = true;
 			$(this).addClass("opened");
-			$(this).children(".item-wrapper").children(".menu-button").children("img").attr("src", "../modules/mod_cinch_menu/tmpl/images/minus.png");
+			$(this).children(".item-wrapper").children(".menu-button").children("img").attr("src", "../web-asset/icons/svg/minus5.svg");
 			ul.slideDown(300,function(){
 				onProcess = false;
 			});
@@ -158,7 +158,7 @@ jQuery(document).ready(function($){
 		if(onProcess) return true;
 		if($(this).children(".ul-wrapper").length){
 			onProcess = true;
-			$(this).children(".item-wrapper").children(".menu-button").children("img").attr("src", "../modules/mod_cinch_menu/tmpl/images/plus.png");
+			$(this).children(".item-wrapper").children(".menu-button").children("img").attr("src", "../web-asset/icons/svg/plus3.svg");
 			$(this).children(".ul-wrapper").slideUp(300,function(){
 				onProcess = false;
 			});
@@ -207,7 +207,7 @@ jQuery(document).ready(function($){
             </li>
             <li>
               <div class="item-wrapper">
-                <div class="menu-button"><img class="menuicon" alt="" src="../modules/mod_cinch_menu/tmpl/images/plus.png"></div>
+                <div class="menu-button"><img class="menuicon" alt="" src="../web-asset/icons/svg/plus3.svg"></div>
                 <div class="menu-link"><a href="../lists.html" aria-label="Lists"><img src="../images/menuico/lists.png" alt="menu icon">Lists</a></div>
               </div>
               <div class="ul-wrapper">
@@ -353,9 +353,6 @@ jQuery(document).ready(function($){
 
       <!-- End Content -->
       </main>
-      <div id="aside" class="span2">
-        <!-- Begin Right Sidebar -->
-        <div class="well  hidden-phone">
           <script>
 jQuery(document).ready(function($){
 
@@ -371,25 +368,22 @@ jQuery(document).ready(function($){
 
 	acMenu.find("li").mouseleave(function(){
 		$(this).removeClass("opened");
-		$(this).children(".item-wrapper").children(".menu-button").children("img").attr("src", "../modules/mod_cinch_menu/tmpl/images/plus.png");
+		$(this).children(".item-wrapper").children(".menu-button").children("img").attr("src", "../web-asset/icons/svg/plus3.svg");
 		$(this).children(".ul-wrapper").hide(300);
 	}).mouseenter(function(){
-		$(this).children(".item-wrapper").children(".menu-button").children("img").attr("src", "../modules/mod_cinch_menu/tmpl/images/minus.png");
+		$(this).children(".item-wrapper").children(".menu-button").children("img").attr("src", "../web-asset/icons/svg/minus5.svg");
 		$(this).addClass("opened");
 		$(this).children(".ul-wrapper").show(300);
 	});
 });
-</script>
-          <!--[if lte IE 6]><ul class="flyout-menu vertical flyout-left text-left button-right msie6" id="flyout_menu_92"><![endif]-->
-          <!--[if IE 7]><ul class="flyout-menu vertical flyout-left text-left button-right msie7" id="flyout_menu_92"><![endif]-->
-          <!--[if IE 8]><ul class="flyout-menu vertical flyout-left text-left button-right msie8" id="flyout_menu_92"><![endif]-->
-          <!--[if IE 9]><ul class="flyout-menu vertical flyout-left text-left button-right msie9" id="flyout_menu_92"><![endif]-->
-          
-          <ul class="flyout-menu vertical flyout-left text-left button-right" id="flyout_menu_92">
-            
-            <li class="first">
+          </script>
+          <div id="aside" class="span2">
+            <!-- Begin Right Sidebar -->
+            <div class="well hidden-phone">
+              <ul class="flyout-menu vertical flyout-left text-left button-right" id="flyout_menu_92">
+                <li class="first">
               <div class="item-wrapper">
-                <div class="menu-button"><img class="menuicon" alt="" src="../modules/mod_cinch_menu/tmpl/images/plus.png"></div>
+                <div class="menu-button"><img class="menuicon" alt="" src="../web-asset/icons/svg/plus3.svg"></div>
                 <div class="menu-link"><a href="../lesson-1-nouns.html" aria-label="Menu Link"> Nouns</a></div>
               </div>
               <div class="ul-wrapper">
@@ -429,7 +423,7 @@ jQuery(document).ready(function($){
             </li>
             <li>
               <div class="item-wrapper">
-                <div class="menu-button"><img class="menuicon" alt="" src="../modules/mod_cinch_menu/tmpl/images/plus.png"></div>
+                <div class="menu-button"><img class="menuicon" alt="" src="../web-asset/icons/svg/plus3.svg"></div>
                 <div class="menu-link"><a href="../lesson-2-verbs.html" aria-label="Menu Link"> Verbs</a></div>
               </div>
               <div class="ul-wrapper">
@@ -489,7 +483,7 @@ jQuery(document).ready(function($){
             </li>
             <li>
               <div class="item-wrapper">
-                <div class="menu-button"><img class="menuicon" alt="" src="../modules/mod_cinch_menu/tmpl/images/plus.png"></div>
+                <div class="menu-button"><img class="menuicon" alt="" src="../web-asset/icons/svg/plus3.svg"></div>
                 <div class="menu-link"><a href="../lesson-3-adjectives.html" aria-label="Menu Link"> Adjectives</a></div>
               </div>
               <div class="ul-wrapper">
@@ -529,7 +523,7 @@ jQuery(document).ready(function($){
             </li>
             <li>
               <div class="item-wrapper">
-                <div class="menu-button"><img class="menuicon" alt="" src="../modules/mod_cinch_menu/tmpl/images/plus.png"></div>
+                <div class="menu-button"><img class="menuicon" alt="" src="../web-asset/icons/svg/plus3.svg"></div>
                 <div class="menu-link"><a href="../lesson-4-adverbs.html" aria-label="Menu Link"> Adverbs</a></div>
               </div>
               <div class="ul-wrapper">
@@ -559,7 +553,7 @@ jQuery(document).ready(function($){
             </li>
             <li>
               <div class="item-wrapper">
-                <div class="menu-button"><img class="menuicon" alt="" src="../modules/mod_cinch_menu/tmpl/images/plus.png"></div>
+                <div class="menu-button"><img class="menuicon" alt="" src="../web-asset/icons/svg/plus3.svg"></div>
                 <div class="menu-link"><a href="../lesson-5-pronouns.html" aria-label="Menu Link"> Pronouns</a></div>
               </div>
               <div class="ul-wrapper">
@@ -614,7 +608,7 @@ jQuery(document).ready(function($){
             </li>
             <li>
               <div class="item-wrapper">
-                <div class="menu-button"><img class="menuicon" alt="" src="../modules/mod_cinch_menu/tmpl/images/plus.png"></div>
+                <div class="menu-button"><img class="menuicon" alt="" src="../web-asset/icons/svg/plus3.svg"></div>
                 <div class="menu-link"><a href="../lesson-6-prepositions.html" aria-label="Menu Link"> Prepositions</a></div>
               </div>
               <div class="ul-wrapper">
@@ -669,7 +663,7 @@ jQuery(document).ready(function($){
             </li>
             <li>
               <div class="item-wrapper">
-                <div class="menu-button"><img class="menuicon" alt="" src="../modules/mod_cinch_menu/tmpl/images/plus.png"></div>
+                <div class="menu-button"><img class="menuicon" alt="" src="../web-asset/icons/svg/plus3.svg"></div>
                 <div class="menu-link"><a href="../lesson-7-conjunctions.html" aria-label="Menu Link"> Conjunctions</a></div>
               </div>
               <div class="ul-wrapper">
@@ -714,7 +708,7 @@ jQuery(document).ready(function($){
             </li>
             <li>
               <div class="item-wrapper">
-                <div class="menu-button"><img class="menuicon" alt="" src="../modules/mod_cinch_menu/tmpl/images/plus.png"></div>
+                <div class="menu-button"><img class="menuicon" alt="" src="../web-asset/icons/svg/plus3.svg"></div>
                 <div class="menu-link"><a href="../lesson-8-subject-verb-agreement.html" aria-label="Menu Link"> S+V Agreement</a></div>
               </div>
               <div class="ul-wrapper">
@@ -754,7 +748,7 @@ jQuery(document).ready(function($){
             </li>
             <li>
               <div class="item-wrapper">
-                <div class="menu-button"><img class="menuicon" alt="" src="../modules/mod_cinch_menu/tmpl/images/plus.png"></div>
+                <div class="menu-button"><img class="menuicon" alt="" src="../web-asset/icons/svg/plus3.svg"></div>
                 <div class="menu-link"><a href="../lesson-9-articles.html" aria-label="Menu Link"> Articles</a></div>
               </div>
               <div class="ul-wrapper">
@@ -794,7 +788,7 @@ jQuery(document).ready(function($){
             </li>
             <li>
               <div class="item-wrapper">
-                <div class="menu-button"><img class="menuicon" alt="" src="../modules/mod_cinch_menu/tmpl/images/plus.png"></div>
+                <div class="menu-button"><img class="menuicon" alt="" src="../web-asset/icons/svg/plus3.svg"></div>
                 <div class="menu-link"><a href="../lesson-10-modal-verb.html" aria-label="Menu Link"> Modal Verb</a></div>
               </div>
               <div class="ul-wrapper">
@@ -844,7 +838,7 @@ jQuery(document).ready(function($){
             </li>
             <li>
               <div class="item-wrapper">
-                <div class="menu-button"><img class="menuicon" alt="" src="../modules/mod_cinch_menu/tmpl/images/plus.png"></div>
+                <div class="menu-button"><img class="menuicon" alt="" src="../web-asset/icons/svg/plus3.svg"></div>
                 <div class="menu-link"><a href="../lesson-11-conditionals.html" aria-label="Menu Link"> Conditionals</a></div>
               </div>
               <div class="ul-wrapper">
@@ -874,7 +868,7 @@ jQuery(document).ready(function($){
             </li>
             <li>
               <div class="item-wrapper">
-                <div class="menu-button"><img class="menuicon" alt="" src="../modules/mod_cinch_menu/tmpl/images/plus.png"></div>
+                <div class="menu-button"><img class="menuicon" alt="" src="../web-asset/icons/svg/plus3.svg"></div>
                 <div class="menu-link"><a href="../lesson-12-modifiers.html" aria-label="Menu Link"> Modifiers</a></div>
               </div>
               <div class="ul-wrapper">
@@ -924,7 +918,7 @@ jQuery(document).ready(function($){
             </li>
             <li>
               <div class="item-wrapper">
-                <div class="menu-button"><img class="menuicon" alt="" src="../modules/mod_cinch_menu/tmpl/images/plus.png"></div>
+                <div class="menu-button"><img class="menuicon" alt="" src="../web-asset/icons/svg/plus3.svg"></div>
                 <div class="menu-link"><a href="../lesson-13-indirect-speech.html" aria-label="Menu Link"> Speech Direction</a></div>
               </div>
               <div class="ul-wrapper">
@@ -959,7 +953,7 @@ jQuery(document).ready(function($){
             </li>
             <li>
               <div class="item-wrapper">
-                <div class="menu-button"><img class="menuicon" alt="" src="../modules/mod_cinch_menu/tmpl/images/plus.png"></div>
+                <div class="menu-button"><img class="menuicon" alt="" src="../web-asset/icons/svg/plus3.svg"></div>
                 <div class="menu-link"><a href="../lesson-14-either-neither.html" aria-label="Menu Link"> Either-Neither</a></div>
               </div>
               <div class="ul-wrapper">
@@ -994,7 +988,7 @@ jQuery(document).ready(function($){
             </li>
             <li>
               <div class="item-wrapper">
-                <div class="menu-button"><img class="menuicon" alt="" src="../modules/mod_cinch_menu/tmpl/images/plus.png"></div>
+                <div class="menu-button"><img class="menuicon" alt="" src="../web-asset/icons/svg/plus3.svg"></div>
                 <div class="menu-link"><a href="../lesson-15-active-and-passive-voice.html" aria-label="Menu Link"> Active-Passive</a></div>
               </div>
               <div class="ul-wrapper">
@@ -1029,7 +1023,7 @@ jQuery(document).ready(function($){
             </li>
             <li>
               <div class="item-wrapper">
-                <div class="menu-button"><img class="menuicon" alt="" src="../modules/mod_cinch_menu/tmpl/images/plus.png"></div>
+                <div class="menu-button"><img class="menuicon" alt="" src="../web-asset/icons/svg/plus3.svg"></div>
                 <div class="menu-link"><a href="../lesson-16-punctuation.html" aria-label="Menu Link"> Punctuation</a></div>
               </div>
               <div class="ul-wrapper">
@@ -1094,7 +1088,7 @@ jQuery(document).ready(function($){
             </li>
             <li>
               <div class="item-wrapper">
-                <div class="menu-button"><img class="menuicon" alt="" src="../modules/mod_cinch_menu/tmpl/images/plus.png"></div>
+                <div class="menu-button"><img class="menuicon" alt="" src="../web-asset/icons/svg/plus3.svg"></div>
                 <div class="menu-link"><a href="../lesson-17-clauses.html" aria-label="Menu Link"> Clauses</a></div>
               </div>
               <div class="ul-wrapper">
@@ -1144,7 +1138,7 @@ jQuery(document).ready(function($){
             </li>
             <li>
               <div class="item-wrapper">
-                <div class="menu-button"><img class="menuicon" alt="" src="../modules/mod_cinch_menu/tmpl/images/plus.png"></div>
+                <div class="menu-button"><img class="menuicon" alt="" src="../web-asset/icons/svg/plus3.svg"></div>
                 <div class="menu-link"><a href="../lesson-18-verb-ing.html" aria-label="Menu Link"> Verb-ing</a></div>
               </div>
               <div class="ul-wrapper">
@@ -1169,7 +1163,7 @@ jQuery(document).ready(function($){
             </li>
             <li>
               <div class="item-wrapper">
-                <div class="menu-button"><img class="menuicon" alt="" src="../modules/mod_cinch_menu/tmpl/images/plus.png"></div>
+                <div class="menu-button"><img class="menuicon" alt="" src="../web-asset/icons/svg/plus3.svg"></div>
                 <div class="menu-link"><a href="../lesson-19-determiners-and-quantifiers.html" aria-label="Menu Link"> Determiners</a></div>
               </div>
               <div class="ul-wrapper">
@@ -1224,7 +1218,7 @@ jQuery(document).ready(function($){
             </li>
             <li>
               <div class="item-wrapper">
-                <div class="menu-button"><img class="menuicon" alt="" src="../modules/mod_cinch_menu/tmpl/images/plus.png"></div>
+                <div class="menu-button"><img class="menuicon" alt="" src="../web-asset/icons/svg/plus3.svg"></div>
                 <div class="menu-link"><a href="../lesson-20-phrasal-verbs.html" aria-label="Menu Link"> Phrasal Verbs</a></div>
               </div>
               <div class="ul-wrapper">
@@ -1259,7 +1253,7 @@ jQuery(document).ready(function($){
             </li>
             <li>
               <div class="item-wrapper">
-                <div class="menu-button"><img class="menuicon" alt="" src="../modules/mod_cinch_menu/tmpl/images/plus.png"></div>
+                <div class="menu-button"><img class="menuicon" alt="" src="../web-asset/icons/svg/plus3.svg"></div>
                 <div class="menu-link"><a href="../lesson-21-phrases.html" aria-label="Menu Link"> Phrases</a></div>
               </div>
               <div class="ul-wrapper">
@@ -1307,7 +1301,7 @@ jQuery(document).ready(function($){
             </li>
             <li class="current last">
               <div class="item-wrapper">
-                <div class="menu-button"><img class="menuicon" alt="" src="../modules/mod_cinch_menu/tmpl/images/plus.png"></div>
+                <div class="menu-button"><img class="menuicon" alt="" src="../web-asset/icons/svg/plus3.svg"></div>
                 <div class="menu-link"><a href="../lesson-22-participles.html" aria-label="Menu Link"> Participles </a></div>
               </div>
               <div class="ul-wrapper">

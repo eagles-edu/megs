@@ -115,7 +115,7 @@ jQuery(document).ready(function($){
 		console.log(e.message);
 	}
 	$("#accordion_menu_90 li.opened > .ul-wrapper").css("display","block");
-	$("#accordion_menu_90 li.opened > .item-wrapper .menu-button img").attr("src", "../modules/mod_cinch_menu/tmpl/images/minus.png");
+	$("#accordion_menu_90 li.opened > .item-wrapper .menu-button img").attr("src", "../web-asset/icons/svg/minus5.svg");
 
 	acMenu.find("li").mouseenter(function(){
 		if(onProcess) return true;
@@ -123,7 +123,7 @@ jQuery(document).ready(function($){
 		if(ul.length){
 			onProcess = true;
 			$(this).addClass("opened");
-			$(this).children(".item-wrapper").children(".menu-button").children("img").attr("src", "../modules/mod_cinch_menu/tmpl/images/minus.png");
+			$(this).children(".item-wrapper").children(".menu-button").children("img").attr("src", "../web-asset/icons/svg/minus5.svg");
 			ul.slideDown(300,function(){
 				onProcess = false;
 			});
@@ -132,7 +132,7 @@ jQuery(document).ready(function($){
 		if(onProcess) return true;
 		if($(this).children(".ul-wrapper").length){
 			onProcess = true;
-			$(this).children(".item-wrapper").children(".menu-button").children("img").attr("src", "../modules/mod_cinch_menu/tmpl/images/plus.png");
+			$(this).children(".item-wrapper").children(".menu-button").children("img").attr("src", "../web-asset/icons/svg/plus3.svg");
 			$(this).children(".ul-wrapper").slideUp(300,function(){
 				onProcess = false;
 			});
@@ -181,7 +181,7 @@ jQuery(document).ready(function($){
               </li>
               <li>
                 <div class="item-wrapper">
-                  <div class="menu-button"><img class="menuicon" alt="" src="../modules/mod_cinch_menu/tmpl/images/plus.png"></div>
+                  <div class="menu-button"><img class="menuicon" alt="" src="../web-asset/icons/svg/plus3.svg"></div>
                   <div class="menu-link"><a href="../lists.html" aria-label="Lists"><img src="../images/menuico/lists.png" alt="menu icon">Lists</a></div>
                 </div>
                 <div class="ul-wrapper">
@@ -265,7 +265,7 @@ jQuery(document).ready(function($){
 				<div class="examplebox" style="border: 2px solid #E0162B; padding: 0 5px 0 15px; color: #333333;">
 <h4 style="margin: -10px 0 5px; color: inherit; display: table; padding: 0 20px; background: #fff;">Examples: </h4>
 <ul style="list-style-type: square;">
-            <ul style="list-style: square">
+            <ul>
               <li><strong>Tom and Tommy are</strong> twin brothers. </li>
               <li><strong>He or his sister is </strong>driving. </li>
             </ul>
@@ -285,7 +285,7 @@ jQuery(document).ready(function($){
 			<p><strong>Predicates</strong> are shown in <strong>bold.</strong></p>
 			<div class="examplebox" style="border: 2px solid #E0162B; padding: 0 5px 0 15px; color: #333333;">
 <h4 style="margin: -10px 0 5px; color: inherit; display: table; padding: 0 20px; background: #fff;">Examples: </h4>
-<ul style="list-style-type: square;"><ul style="list-style: square">
+<ul style="list-style-type: square;"><ul>
 			  <li>Predicate of a single verb: The child&nbsp;<strong>sneezes.</strong></li>
 			  <li>Predicate of a verb phrase: Our dog&nbsp;<strong>is barking</strong>. </li>
 			  <li>Predicate of a verb and a direct object: Abu&nbsp;<strong>rides a camel</strong>. </li>
@@ -418,10 +418,10 @@ jQuery(document).ready(function($){
 
 	acMenu.find("li").mouseleave(function(){
 		$(this).removeClass("opened");
-		$(this).children(".item-wrapper").children(".menu-button").children("img").attr("src", "../modules/mod_cinch_menu/tmpl/images/plus.png");
+		$(this).children(".item-wrapper").children(".menu-button").children("img").attr("src", "../web-asset/icons/svg/plus3.svg");
 		$(this).children(".ul-wrapper").hide(300);
 	}).mouseenter(function(){
-		$(this).children(".item-wrapper").children(".menu-button").children("img").attr("src", "../modules/mod_cinch_menu/tmpl/images/minus.png");
+		$(this).children(".item-wrapper").children(".menu-button").children("img").attr("src", "../web-asset/icons/svg/minus5.svg");
 		$(this).addClass("opened");
 		$(this).children(".ul-wrapper").show(300);
 	});
@@ -436,7 +436,7 @@ jQuery(document).ready(function($){
             
             <li class='first current'>
               <div class="item-wrapper">
-                <div class="menu-button"><img class="menuicon" alt="" src="../modules/mod_cinch_menu/tmpl/images/plus.png"></div>
+                <div class="menu-button"><img class="menuicon" alt="" src="../web-asset/icons/svg/plus3.svg"></div>
                 <div class="menu-link"><a href="../writing.html" aria-label="Writing">Writing Sentences</a></div>
               </div>
               <div class="ul-wrapper">
@@ -491,7 +491,7 @@ jQuery(document).ready(function($){
             </li>
 			              <li>
               <div class="item-wrapper">
-                <div class="menu-button"><img class="menuicon" alt="" src="../modules/mod_cinch_menu/tmpl/images/plus.png"></div>
+                <div class="menu-button"><img class="menuicon" alt="" src="../web-asset/icons/svg/plus3.svg"></div>
                 <div class="menu-link"><a href="10-writing-paragraph.html" aria-label="Menu Link">Writing Paragraphs</a></div>
               </div>
               <div class="ul-wrapper">
@@ -546,7 +546,7 @@ jQuery(document).ready(function($){
             </li>
             <li class="first">
               <div class="item-wrapper">
-                <div class="menu-button"><!--<img class="menuicon" alt=""  src="../modules/mod_cinch_menu/tmpl/images/plus.png">--></div>
+                <div class="menu-button"><!--<img class="menuicon" alt=""  src="../web-asset/icons/svg/plus3.svg">--></div>
                 <div class="menu-link"><a href="11-a-five-paragraph-2.html" aria-label="Menu Link">Writing Essays</a></div>
               </div>
               <div class="ul-wrapper">
@@ -601,7 +601,7 @@ jQuery(document).ready(function($){
             </li>
             <li class="last">
               <div class="item-wrapper">
-                <div class="menu-button"><img class="menuicon" alt="" src="../modules/mod_cinch_menu/tmpl/images/plus.png"></div>
+                <div class="menu-button"><img class="menuicon" alt="" src="../web-asset/icons/svg/plus3.svg"></div>
                 <div class="menu-link"><a href="12-14-writing-resouces.html" aria-label="Menu Link">Writing Resources</a></div>
               </div>
               <div class="ul-wrapper">

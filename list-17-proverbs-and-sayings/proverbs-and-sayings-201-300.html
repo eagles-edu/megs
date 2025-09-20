@@ -124,7 +124,7 @@ jQuery(document).ready(function($){
 		console.log(e.message);
 	}
 	$("#accordion_menu_90 li.opened > .ul-wrapper").css("display","block");
-	$("#accordion_menu_90 li.opened > .item-wrapper .menu-button img").attr("src", "../modules/mod_cinch_menu/tmpl/images/minus.png");
+	$("#accordion_menu_90 li.opened > .item-wrapper .menu-button img").attr("src", "../web-asset/icons/svg/minus5.svg");
 
 	acMenu.find("li").mouseenter(function(){
 		if(onProcess) return true;
@@ -132,7 +132,7 @@ jQuery(document).ready(function($){
 		if(ul.length){
 			onProcess = true;
 			$(this).addClass("opened");
-			$(this).children(".item-wrapper").children(".menu-button").children("img").attr("src", "../modules/mod_cinch_menu/tmpl/images/minus.png");
+			$(this).children(".item-wrapper").children(".menu-button").children("img").attr("src", "../web-asset/icons/svg/minus5.svg");
 			ul.slideDown(300,function(){
 				onProcess = false;
 			});
@@ -141,7 +141,7 @@ jQuery(document).ready(function($){
 		if(onProcess) return true;
 		if($(this).children(".ul-wrapper").length){
 			onProcess = true;
-			$(this).children(".item-wrapper").children(".menu-button").children("img").attr("src", "../modules/mod_cinch_menu/tmpl/images/plus.png");
+			$(this).children(".item-wrapper").children(".menu-button").children("img").attr("src", "../web-asset/icons/svg/plus3.svg");
 			$(this).children(".ul-wrapper").slideUp(300,function(){
 				onProcess = false;
 			});
@@ -190,7 +190,7 @@ jQuery(document).ready(function($){
               </li>
               <li>
                 <div class="item-wrapper">
-                  <div class="menu-button"><img class="menuicon" alt="" src="../modules/mod_cinch_menu/tmpl/images/plus.png"></div>
+                  <div class="menu-button"><img class="menuicon" alt="" src="../web-asset/icons/svg/plus3.svg"></div>
                   <div class="menu-link"><a href="../lists.html" aria-label="Lists"><img src="../images/menuico/lists.png" alt="menu icon">Lists</a></div>
                 </div>
                 <div class="ul-wrapper">
@@ -230,19 +230,20 @@ jQuery(document).ready(function($){
       <!-- End Sidebar -->
       <main id="content" class="span8">
         <!-- Begin Content -->
-        
+
         <div id="system-message-container"> </div>
         <div class="item-page" itemscope itemtype="https://schema.org/Article">
           <meta itemprop="inLanguage" content="en-GB">
           <div class="page-header">
             <h2 itemprop="headline"> Proverbs and Sayings 201-300 </h2>
           </div>
-         
+
           <div itemprop="articleBody">
             <ul class="pager pagenav">
               <li class="previous"><a href="proverbs-and-sayings-101-200.html" rel="prev" aria-label="Previous"><span class="icon-chevron-left"> </span> Proverbs and Sayings 101-200</a></li>
               <li class="next"><a href="proverbs-and-sayings-301-370.html" rel="next" aria-label="Next">Proverbs and Sayings 301-370 <span class="icon-chevron-right"> </span></a></li>
             </ul>
+
             <table class="tablesty1">
               <thead>
                 <tr>
@@ -299,7 +300,7 @@ jQuery(document).ready(function($){
                   <td>206. Like father, like son.</p></td>
                 </tr>
                 <tr>
-                  <td> Sons tend to resemble their fathers in character and behaviour.</p></td>
+                  <td> Sons tend to resemble their fathers in character and behavior.</p></td>
                 </tr>
                 <tr>
                   <td>&nbsp;</td>
@@ -800,7 +801,7 @@ jQuery(document).ready(function($){
                   <td>&nbsp;</td>
                 </tr>
                 <tr>
-                  <td>262. Practise what you preach.</p></td>
+                  <td>262. Practice what you preach.</p></td>
                 </tr>
                 <tr>
                   <td> Do the things that you advise others to do.</p></td>
@@ -992,7 +993,7 @@ jQuery(document).ready(function($){
                   <td>283. Spare the rod and spoil the child.</p></td>
                 </tr>
                 <tr>
-                  <td> To punish children for misbehaviour is necessary in order to instill discipline.</p></td>
+                  <td> To punish children for misbehavior is necessary in order to instill discipline.</p></td>
                 </tr>
                 <tr>
                   <td>&nbsp;</td>
@@ -1155,23 +1156,6 @@ jQuery(document).ready(function($){
             </ul>
           </div>
         </div>
-        <div class="clearfix"></div>
-        <div class="ads">
-          <div style="text-align:center;"> <ins class="adsbygoogle"
-	style="display:block;"
-	data-ad-client="ca-pub-7741304783035041"
-	data-ad-format="horizontal"
-	data-ad-type="text"
-	data-color-border="fff"
-	data-color-bg="fff"
-	data-color-link="0088CC"
-	data-color-text="555555"
-	data-color-url="E0162B"></ins>
-            <script>
-(adsbygoogle = window.adsbygoogle || []).push({});
-</script>
-          </div>
-        </div>
         <ul itemscope itemtype="https://schema.org/BreadcrumbList" class="breadcrumb">
           <li class="active"> </li>
           <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"> <a itemprop="item" href="../index-2.html" class="pathway" aria-label="Home"><span itemprop="name">Home</span></a> <span class="divider"> <img src="../media/system/images/arrow.png" alt=""> </span>
@@ -1184,7 +1168,7 @@ jQuery(document).ready(function($){
             <meta itemprop="position" content="3">
           </li>
         </ul>
-        
+
         <!-- End Content -->
       </main>
       <div id="aside" class="span2">
@@ -1205,10 +1189,10 @@ jQuery(document).ready(function($){
 
 	acMenu.find("li").mouseleave(function(){
 		$(this).removeClass("opened");
-		$(this).children(".item-wrapper").children(".menu-button").children("img").attr("src", "../modules/mod_cinch_menu/tmpl/images/plus.png");
+		$(this).children(".item-wrapper").children(".menu-button").children("img").attr("src", "../web-asset/icons/svg/plus3.svg");
 		$(this).children(".ul-wrapper").hide(300);
 	}).mouseenter(function(){
-		$(this).children(".item-wrapper").children(".menu-button").children("img").attr("src", "../modules/mod_cinch_menu/tmpl/images/minus.png");
+		$(this).children(".item-wrapper").children(".menu-button").children("img").attr("src", "../web-asset/icons/svg/minus5.svg");
 		$(this).addClass("opened");
 		$(this).children(".ul-wrapper").show(300);
 	});
@@ -1217,7 +1201,7 @@ jQuery(document).ready(function($){
           <ul class="flyout-menu vertical flyout-left text-left button-right" id="flyout_menu_100">
             <li class="first">
               <div class="item-wrapper">
-                <div class="menu-button"><img class="menuicon" alt="" src="../modules/mod_cinch_menu/tmpl/images/plus.png"></div>
+                <div class="menu-button"><img class="menuicon" alt="" src="../web-asset/icons/svg/plus3.svg"></div>
                 <div class="menu-link"><a href="../list-1-singular-and-plural-nouns.html" aria-label="Menu Link">Singular-Plural</a></div>
               </div>
               <div class="ul-wrapper">
@@ -1302,7 +1286,7 @@ jQuery(document).ready(function($){
             </li>
             <li>
               <div class="item-wrapper">
-                <div class="menu-button"><img class="menuicon" alt="" src="../modules/mod_cinch_menu/tmpl/images/plus.png"></div>
+                <div class="menu-button"><img class="menuicon" alt="" src="../web-asset/icons/svg/plus3.svg"></div>
                 <div class="menu-link"><a href="../list-2-uncountable-nouns-made-countable.html" aria-label="Menu Link">Counting Nouns</a></div>
               </div>
               <div class="ul-wrapper">
@@ -1342,7 +1326,7 @@ jQuery(document).ready(function($){
             </li>
             <li>
               <div class="item-wrapper">
-                <div class="menu-button"><img class="menuicon" alt="" src="../modules/mod_cinch_menu/tmpl/images/plus.png"></div>
+                <div class="menu-button"><img class="menuicon" alt="" src="../web-asset/icons/svg/plus3.svg"></div>
                 <div class="menu-link"><a href="../list-3-collective-nouns.html" aria-label="Menu Link">Collective Nouns</a></div>
               </div>
               <div class="ul-wrapper">
@@ -1367,7 +1351,7 @@ jQuery(document).ready(function($){
             </li>
             <li>
               <div class="item-wrapper">
-                <div class="menu-button"><img class="menuicon" alt="" src="../modules/mod_cinch_menu/tmpl/images/plus.png"></div>
+                <div class="menu-button"><img class="menuicon" alt="" src="../web-asset/icons/svg/plus3.svg"></div>
                 <div class="menu-link"><a href="../list-4-verbs.html" aria-label="Menu Link">Verbs</a></div>
               </div>
               <div class="ul-wrapper">
@@ -1379,7 +1363,7 @@ jQuery(document).ready(function($){
                   </li>
                   <li class="last">
                     <div class="item-wrapper">
-                      <div class="menu-button"><img class="menuicon" alt="" src="../modules/mod_cinch_menu/tmpl/images/plus.png"></div>
+                      <div class="menu-button"><img class="menuicon" alt="" src="../web-asset/icons/svg/plus3.svg"></div>
                       <div class="menu-link"><a href="../list-4-verbs/different-verb-types.html" aria-label="Menu Link">Different Verb Types</a></div>
                     </div>
                     <div class="ul-wrapper">
@@ -1412,7 +1396,7 @@ jQuery(document).ready(function($){
             </li>
             <li>
               <div class="item-wrapper">
-                <div class="menu-button"><img class="menuicon" alt="" src="../modules/mod_cinch_menu/tmpl/images/plus.png"></div>
+                <div class="menu-button"><img class="menuicon" alt="" src="../web-asset/icons/svg/plus3.svg"></div>
                 <div class="menu-link"><a href="../list-5-irregular-verbs.html" aria-label="Menu Link">Irregular Verbs</a></div>
               </div>
               <div class="ul-wrapper">
@@ -1437,7 +1421,7 @@ jQuery(document).ready(function($){
             </li>
             <li>
               <div class="item-wrapper">
-                <div class="menu-button"><img class="menuicon" alt="" src="../modules/mod_cinch_menu/tmpl/images/plus.png"></div>
+                <div class="menu-button"><img class="menuicon" alt="" src="../web-asset/icons/svg/plus3.svg"></div>
                 <div class="menu-link"><a href="../list-6-adjectives.html" aria-label="Menu Link">Adjectives</a></div>
               </div>
               <div class="ul-wrapper">
@@ -1467,7 +1451,7 @@ jQuery(document).ready(function($){
             </li>
             <li>
               <div class="item-wrapper">
-                <div class="menu-button"><img class="menuicon" alt="" src="../modules/mod_cinch_menu/tmpl/images/plus.png"></div>
+                <div class="menu-button"><img class="menuicon" alt="" src="../web-asset/icons/svg/plus3.svg"></div>
                 <div class="menu-link"><a href="../list-7-comparison-of-adjectives.html" aria-label="Menu Link">Comparison</a></div>
               </div>
               <div class="ul-wrapper">
@@ -1492,7 +1476,7 @@ jQuery(document).ready(function($){
             </li>
             <li>
               <div class="item-wrapper">
-                <div class="menu-button"><img class="menuicon" alt="" src="../modules/mod_cinch_menu/tmpl/images/plus.png"></div>
+                <div class="menu-button"><img class="menuicon" alt="" src="../web-asset/icons/svg/plus3.svg"></div>
                 <div class="menu-link"><a href="../list-8-adverbs.html" aria-label="Menu Link">Adverbs</a></div>
               </div>
               <div class="ul-wrapper">
@@ -1509,7 +1493,7 @@ jQuery(document).ready(function($){
                   </li>
                   <li class="last">
                     <div class="item-wrapper">
-                      <div class="menu-button"><img class="menuicon" alt="" src="../modules/mod_cinch_menu/tmpl/images/plus.png"></div>
+                      <div class="menu-button"><img class="menuicon" alt="" src="../web-asset/icons/svg/plus3.svg"></div>
                       <div class="menu-link"><a href="../list-8-adverbs/adverbs-with-two-adverbial-forms.html" aria-label="Menu Link">Adverbs with two adverbial forms</a></div>
                     </div>
                     <div class="ul-wrapper">
@@ -1532,7 +1516,7 @@ jQuery(document).ready(function($){
             </li>
             <li>
               <div class="item-wrapper">
-                <div class="menu-button"><img class="menuicon" alt="" src="../modules/mod_cinch_menu/tmpl/images/plus.png"></div>
+                <div class="menu-button"><img class="menuicon" alt="" src="../web-asset/icons/svg/plus3.svg"></div>
                 <div class="menu-link"><a href="../list-9-adverbs-sharing-same-words-as-adjectives.html" aria-label="Menu Link">Adv. = Adj.</a></div>
               </div>
               <div class="ul-wrapper">
@@ -1567,7 +1551,7 @@ jQuery(document).ready(function($){
             </li>
             <li>
               <div class="item-wrapper">
-                <div class="menu-button"><img class="menuicon" alt="" src="../modules/mod_cinch_menu/tmpl/images/plus.png"></div>
+                <div class="menu-button"><img class="menuicon" alt="" src="../web-asset/icons/svg/plus3.svg"></div>
                 <div class="menu-link"><a href="../list-11-prepositions.html" aria-label="Menu Link">Prepositions</a></div>
               </div>
               <div class="ul-wrapper">
@@ -1622,7 +1606,7 @@ jQuery(document).ready(function($){
             </li>
             <li>
               <div class="item-wrapper">
-                <div class="menu-button"><img class="menuicon" alt="" src="../modules/mod_cinch_menu/tmpl/images/plus.png"></div>
+                <div class="menu-button"><img class="menuicon" alt="" src="../web-asset/icons/svg/plus3.svg"></div>
                 <div class="menu-link"><a href="../list-14-phrasal-verbs.html" aria-label="Menu Link">Phrasal Verbs</a></div>
               </div>
               <div class="ul-wrapper">
@@ -1752,7 +1736,7 @@ jQuery(document).ready(function($){
             </li>
             <li>
               <div class="item-wrapper">
-                <div class="menu-button"><img class="menuicon" alt="" src="../modules/mod_cinch_menu/tmpl/images/plus.png"></div>
+                <div class="menu-button"><img class="menuicon" alt="" src="../web-asset/icons/svg/plus3.svg"></div>
                 <div class="menu-link"><a href="../list-16-phrases-and-idioms.html" aria-label="Menu Link">1000 Idioms</a></div>
               </div>
               <div class="ul-wrapper">
@@ -1812,7 +1796,7 @@ jQuery(document).ready(function($){
             </li>
             <li class="current">
               <div class="item-wrapper">
-                <div class="menu-button"><img class="menuicon" alt="" src="../modules/mod_cinch_menu/tmpl/images/plus.png"></div>
+                <div class="menu-button"><img class="menuicon" alt="" src="../web-asset/icons/svg/plus3.svg"></div>
                 <div class="menu-link"><a href="../list-17-proverbs-and-sayings.html" aria-label="Menu Link">Proverbs</a></div>
               </div>
               <div class="ul-wrapper">
@@ -1852,7 +1836,7 @@ jQuery(document).ready(function($){
             </li>
             <li>
               <div class="item-wrapper">
-                <div class="menu-button"><img class="menuicon" alt="" src="../modules/mod_cinch_menu/tmpl/images/plus.png"></div>
+                <div class="menu-button"><img class="menuicon" alt="" src="../web-asset/icons/svg/plus3.svg"></div>
                 <div class="menu-link"><a href="../list-20-gender.html" aria-label="Menu Link">Gender</a></div>
               </div>
               <div class="ul-wrapper">

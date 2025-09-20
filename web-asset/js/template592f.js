@@ -310,7 +310,7 @@ if (window.jQuery)
             })
           })
         }
-      // eslint-disable-next-line no-unused-vars
+        // eslint-disable-next-line no-unused-vars
       } catch (e) {
         // no-op; some pages may not use templates
       }

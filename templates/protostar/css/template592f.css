@@ -9495,7 +9495,7 @@ div {
   }
 
   /* No hover color change on mobile; only click (active) changes */
-  
+
   /* No background hover effect; keep padding stable on hover/focus */
   body.mobile-nav-enabled #sidebar .accordion-menu .item-wrapper:hover .menu-link > a,
   body.mobile-nav-enabled #sidebar .accordion-menu .menu-link > a:hover,

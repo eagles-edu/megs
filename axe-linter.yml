@@ -11,11 +11,11 @@ tags:
 # BEGIN CHANGE: Rules must be booleans only; severities ("warn"/"error") and objects are not supported
 # RATIONALE: The error "Rule value should only be a boolean" was triggered by non-boolean values.
 rules:
-  empty-table-header: false        # (kept) disable this rule
-  color-contrast: true             # CHANGED: was 'warn' -> true (on/off only)
-  label: true                      # CHANGED: was 'error' -> true
-  region: true                     # CHANGED: was 'warn' -> true
-  landmark-one-main: true          # CHANGED: was object/options -> true
+  empty-table-header: false # (kept) disable this rule
+  color-contrast: true # CHANGED: was 'warn' -> true (on/off only)
+  label: true # CHANGED: was 'error' -> true
+  region: true # CHANGED: was 'warn' -> true
+  landmark-one-main: true # CHANGED: was object/options -> true
 # END CHANGE
 
 # NOTE: Removed unsupported sections from the previous file:
