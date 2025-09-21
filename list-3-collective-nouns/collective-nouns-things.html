@@ -3,85 +3,191 @@
   <!-- /list-3-collective-nouns/collective-nouns-things.html, Tue, 24 Nov 2020 12:37:41 GMT -->
 
   <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
 
-    <meta name="description" content="A comprehensive site for free English courses and exercises." />
-    <meta name="generator" content="English Grammar - intermediate levels A2 and above" />
+    <meta name="description" content="A comprehensive site for free English courses and exercises.">
+    <meta name="generator" content="English Grammar - intermediate levels A2 and above">
     <title>Collective Nouns - Things</title>
-    <link href="collective-nouns-things.html" rel="non-canonical" />
-    <link href="../web-asset/icons/favicon.ico" rel="shortcut icon" type="image/vnd.microsoft.icon" />
-    <link href="../web-asset/css/template592f.css" rel="stylesheet" />
-    <link href="../cssd2d5.css?family=Open+Sans" rel="stylesheet" />
-    <link href="../web-asset/css/flyout.css" rel="stylesheet" />
-    <link href="../web-asset/css/accordion.css" rel="stylesheet" />
-    <style>
+    <link href="collective-nouns-things.html" rel="non-canonical">
+    <link href="../web-asset/icons/favicon.ico" rel="shortcut icon" type="image/vnd.microsoft.icon">    <!-- Minimal theme tokens inline to avoid var() FOUC when base.css loads async -->
+    <style id="theme-vars-critical">
+:root {
+  /* Brand core */
+  --primary-color: #e0162b; /* locked */
+  --secondary-color: #f5f8ff; /* white */
+  --tertiary-color: #002786; /* locked */
+  --text-color: #212121; /* locked */
+  --icon-color-on-lt: #8a94a8; /* locked */
+  --icon-color-on-dk: #f5f8ff; /* locked */
 
-      body.site {
-      	border-top: 3px solid #004c75;
-      	background-color: #f4f6f7;
+  /* Layout surfaces */
+  --background-color: #505050; /* page background behind light content */
       }
-      a {
-      	color: #004c75;
-      }
-      .nav-list > .active > a,  .nav-list > .active > a:hover,  .dropdown-menu li > a:hover,  .dropdown-menu .active > a,  .dropdown-menu .active > a:hover,  .nav-pills > .active > a,  .nav-pills > .active > a:hover,  .btn-primary {
-      	background: #004c75;
-      }
-      #flyout_menu_100 {
-      	background: #fff;
-      }
-      #flyout_menu_100 ul {
-      	background: #fff;
-      }
-      #flyout_menu_100 a {
-      	color: #3b0539;
-      }
-      #flyout_menu_100 .item-wrapper:hover a,  #flyout_menu_100 li.current > .item-wrapper a,  #flyout_menu_100 li.opened > .item-wrapper a {
-      	color: #a863a5;
-      }
-      #flyout_menu_100 li.open,  #flyout_menu_100 li:hover {
-      	background: #f5daf4;
-      }
-      #flyout_menu_100.horizontal ul .menu-link {
-      	width: auto;
-      }
-      }
-                        }
-      #accordion_menu_90 {
-      	background: #fff;
-      }
-      #accordion_menu_90 a {
-      	color: #000000;
-      }
-      #accordion_menu_90 .item-wrapper:hover a,  #accordion_menu_90 li.current > .item-wrapper a {
-      	color: #000d4d;
-      }
-      #accordion_menu_90 li.open,  #accordion_menu_90 li:hover {
-      	background: #6e92ff;
+      /* Preload critical image dimensions to prevent CLS */
+      img[src*="banner.png"] { width: 650px; height: 120px; }
+      img[src*="arrow.png"] { width: 9px; height: 9px; }
+      img[src*="menuico"] { width: 16px; height: 16px; }
+      img[src*="plus3.svg"] { width: 12px; height: 12px; }
+    </style>
+    <!-- Base CSS (SSOT) async with print-swap to improve FCP/LCP -->
+    <link rel="preload" href="../web-asset/css/base.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="stylesheet" href="../web-asset/css/base.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="../web-asset/css/base.css"></noscript>
+
+    <!-- Critical resource hints for better performance -->
+    <link rel="dns-prefetch" href="../images/">
+    <link rel="dns-prefetch" href="../web-asset/">
+    <link rel="dns-prefetch" href="../media/">
+    <style id="critical-inline">
+      /* Critical CSS: reset + fast header paint + mobile toggle */
+      body { margin: 0; }
+      .grid-modern .row-fluid { background: var(--secondary-color); border-radius: 6px; margin-block: 12px; padding-block: 8px; }
+      .header { margin-bottom: 1rem; }
+      @media (max-width: 767px) {
+        .mobile-menu-toggle { position: fixed; top: 12px; right: 12px; width: 40px; height: 40px; border-radius: 4px; background: var(--primary-color); border: 1px solid var(--primary-color); z-index: 1200; display: block; }
+        .mobile-menu-toggle::before { content: '\00E289A1'; }
+        /* Fallback for browsers not decoding \00E289A1: use explicit ≡ */
+        .mobile-menu-toggle::before { content: '\2261'; display: block; line-height: 40px; text-align: center; font-size: 22px; color: var(--white); }
       }
     </style>
-    <script src="../media/jui/js/jquery.min592f.js" defer></script>
-    <script src="../media/jui/js/jquery-noconflict592f.js" defer></script>
-    <script src="../media/jui/js/jquery-migrate.min592f.js" defer></script>
-    <script src="../media/system/js/caption592f.js" defer></script>
-    <script src="../media/jui/js/bootstrap.min592f.js" defer></script>
-    <script src="../web-asset/js/template592f.js" defer></script>
+
+    <!-- Critical augment: stabilize grid/menu to reduce CLS -->
+    <style id="critical-inline-augment">
+      /* Grid layout (avoid block→flex shift when async CSS loads) */
+      .row-fluid { display: flex; flex-wrap: wrap; margin-left: -8px; margin-right: -8px; }
+      .row-fluid > [class*='span'] { box-sizing: border-box; flex: 0 0 100%; max-width: 100%; padding-left: 8px; padding-right: 8px; }
+      @media (min-width: 768px) {
+        .row-fluid > .span2 { flex: 0 0 16.6667%; max-width: 16.6667%; }
+        .row-fluid > .span8 { flex: 0 0 66.6667%; max-width: 66.6667%; }
+      }
+
+      /* Left accordion menu: reserve icon/text layout early */
+      ul.accordion-menu { list-style: none; margin: 0; padding: 0; border: 1px solid var(--border-color); font-size: 0.85em; overflow: hidden; }
+      ul.accordion-menu .item-wrapper { display: flex; align-items: center; gap: var(--icon-gap, 8px); }
+      ul.accordion-menu .menu-button { flex: 0 0 var(--icon-slot, 24px); display: flex; align-items: center; justify-content: flex-start; padding-left: var(--menu-icon-pad-left, 6px); }
+      /* Match button-right spacing/line-height from left-menu.css to prevent flash */
+      ul.accordion-menu.button-right li > .item-wrapper > .menu-button { padding: 12px 0; line-height: 10px; float: right; }
+      ul.accordion-menu.button-right li > .item-wrapper > .menu-button > img { padding-right: 10px; }
+      ul.accordion-menu li { border-top: 1px solid var(--divider-color); }
+      ul.accordion-menu .menu-link { flex: 1 1 auto; min-width: 0; min-height: 35px; overflow: hidden; }
+      ul.accordion-menu .menu-link > a, ul.accordion-menu .menu-link > p { display: flex; align-items: center; gap: 8px; width: 90%; padding: 10px 10px 9px; text-decoration: none; background: none; }
+      ul.accordion-menu .menu-link > a > img, ul.accordion-menu .menu-link > p > img { vertical-align: middle; border: 0; height: auto; max-width: 100%; padding: 0 5px 0 0; }
+      ul.accordion-menu > li > .item-wrapper > .menu-link > a, ul.accordion-menu > li > .item-wrapper > .menu-link > p { font-weight: bold; }
+      /* Ensure nested lists default to collapsed before left-menu.css loads */
+      ul.accordion-menu li > .ul-wrapper { display: none; }
+      ul.accordion-menu li.opened > .ul-wrapper { display: block; }
+      /* Icon sizing tied to text; reserve shape via aspect-ratio */
+      ul.accordion-menu .menu-button > img { height: var(--icon-size, 1em); width: auto; aspect-ratio: 1 / 1; object-fit: contain; }
+      ul.accordion-menu .menu-link img { height: var(--icon-size, 1em); width: auto; aspect-ratio: 1 / 1; object-fit: contain; }
+
+      /* Pager arrows: reserve space */
+      .pager { display: flex; justify-content: space-between; list-style: none; margin: 1rem 0; padding: 0; }
+      .pager img { width: 12px; height: 12px; }
+
+      /* Flyout (right menu): hide nested lists until CSS loads; reserve icon slot */
+      ul.flyout-menu .ul-wrapper { display: none; }
+      ul.flyout-menu .item-wrapper { display: flex; align-items: center; gap: var(--icon-gap, 8px); }
+      ul.flyout-menu .menu-button { flex: 0 0 var(--icon-slot, 24px); display: flex; align-items: center; justify-content: flex-start; padding-left: var(--menu-icon-pad-left, 6px); }
+      ul.flyout-menu .menu-button > img, ul.flyout-menu .menu-link img { height: var(--icon-size, 1em); width: auto; aspect-ratio: 1 / 1; object-fit: contain; }
+
+      /* QA accordion: collapse bodies before async CSS/JS to prevent flash */
+      #content .nn_sliders .accordion-body { max-height: 0; overflow: hidden; }
+      #content .nn_sliders .collapse { height: 0; overflow: hidden; }
+      /* Hide duplicate legacy title inside body to avoid jump */
+      #content .nn_sliders-title { display: none; }
+
+      /* Breadcrumb divider icon explicit size, belt-and-suspenders */
+      ul.breadcrumb > li > span.divider > img { width: 9px; height: 9px; }
+
+      /* Additional CLS prevention: stabilize accordion toggle heights */
+      .nn_sliders-toggle { min-height: 44px; display: flex; align-items: center; }
+      .nn_sliders-toggle-inner { flex: 1; }
+
+      /* Preload footer height to prevent footer jump */
+      .footer { min-height: 80px; }
+
+      /* Stabilize sidebar width on desktop to prevent reflow */
+      @media (min-width: 768px) {
+        #sidebar { min-height: 300px; }
+        #aside { min-height: 300px; }
+      }
+    </style>
+
+    <!-- Optimized speculationrules with prerender for better UX -->
     <script>
-      jQuery(window).on('load', function () {
-        new JCaption('img.caption')
-      })
+      (function(){
+        function injectSpeculation(){
+          try {
+            var s = document.createElement('script');
+            s.type = 'speculationrules';
+            s.text = JSON.stringify({
+              prefetch: [{ source: 'list', urls: ['112-proper-nouns.html'] }],
+              prerender: [{ source: 'list', urls: ['112-proper-nouns.html'], eagerness: 'moderate' }]
+            });
+            document.head.appendChild(s);
+          } catch(e) { /* no-op */ }
+        }
+        if (document.readyState === 'complete') {
+          injectSpeculation();
+        } else {
+          window.addEventListener('load', function(){
+            if ('requestIdleCallback' in window) requestIdleCallback(injectSpeculation, {timeout: 2000});
+            else setTimeout(injectSpeculation, 500);
+          });
+        }
+      })();
     </script>
-    <link href="../../web-asset/css/meg-2.css" rel="stylesheet" />
+    <!-- Icon font not used on Codex variant; removed icomoon.css includes -->
+
+    <!-- Minimal base for layout/mobile nav used by prototype (async) -->
+    <link rel="preload" href="../web-asset/css/exercises.css" as="style">
+    <link rel="stylesheet" href="../web-asset/css/exercises.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="../web-asset/css/exercises.css"></noscript>
+    <!-- Use system default fonts (no webfont preloads) -->
+
+    <!-- Defer non-critical CSS with preload+print media swap -->
+    <link rel="preload" href="../web-asset/css/flyout-menu.css" as="style">
+    <link rel="stylesheet" href="../web-asset/css/flyout-menu.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="../web-asset/css/flyout-menu.css"></noscript>
+    <!-- Left-menu.css async; critical inline reserves layout to avoid flash -->
+    <link rel="preload" href="../web-asset/css/left-menu.css" as="style">
+    <link rel="stylesheet" href="../web-asset/css/left-menu.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="../web-asset/css/left-menu.css"></noscript>
+    <link rel="preload" href="../web-asset/css/page-classes.css" as="style">
+    <link rel="stylesheet" href="../web-asset/css/page-classes.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="../web-asset/css/page-classes.css"></noscript>
+    <!-- Removed jQuery/Bootstrap/nn_sliders/template scripts on codex variant to keep console clean -->
+    <link rel="preload" href="../web-asset/css/exercise-1-nouns_new.css" as="style">
+    <link rel="stylesheet" href="../web-asset/css/exercise-1-nouns_new.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="../web-asset/css/exercise-1-nouns_new.css"></noscript>
+    <!-- Codex QA slider scoped overrides (synchronous to avoid flash) -->
+    <link rel="stylesheet" href="../web-asset/css/qa-accordion.css">
+    <!-- No-JS fallback: show all answers if scripting is disabled -->
+    <noscript>
+      <style>
+        #content .accordion-body {
+          max-height: none !important;
+          height: auto !important;
+          overflow: visible !important;
+        }
+      </style>
+    </noscript>
+    <!-- Mobile navigation styles provided globally by base CSS -->
+    <!-- No inline @font-face; system stacks are used (see base.css variables) -->
+    <!-- Bundled JavaScript: Modern module + legacy fallback (4 requests → 1) -->
+    <script type="module" src="../web-asset/js/main.bundle.js"></script>
+    <script nomodule src="../web-asset/js/main.legacy.js" defer></script>
   </head>
-  <body class="site com_content view-article no-layout no-task itemid-14236">
+  <body class="base exercize">
     <!-- Body -->
-    <div class="body" id="top">
+    <div class="body grid-modern" id="top">
       <div class="container">
         <!-- Header -->
-        <header class="header">
+        <header class="nodisplay header">
           <div class="header-inner clearfix">
             <a class="brand pull-left" href="../index-2.html" aria-label="link to home page">
-              <img src="../images/banner.png" alt="The Eagles Club logo" />
+              <img src="../images/banner.png" alt="The Eagles Club logo">
               <div class="site-description">Serious English</div>
             </a>
             <div class="nodisplay header-search pull-right">
@@ -89,7 +195,7 @@
             </div>
           </div>
         </header>
-        <div class="row-fluid">
+        <div class="row-fluid padme1">
           <!-- Begin Sidebar -->
           <div id="sidebar" class="span2">
             <div class="sidebar-nav">
@@ -162,7 +268,7 @@
                       <div class="menu-button"></div>
                       <div class="menu-link">
                         <a href="../index-2.html" aria-label="Home">
-                          <img src="../images/menuico/main.png" alt="menu icon" />
+                          <img src="../images/menuico/main.png" alt="menu icon">
                           Home
                         </a>
                       </div>
@@ -173,7 +279,7 @@
                       <div class="menu-button"></div>
                       <div class="menu-link">
                         <a href="../grammar-lessons.html" aria-label="Lessons">
-                          <img src="../images/menuico/lessons.png" alt="menu icon" />
+                          <img src="../images/menuico/lessons.png" alt="menu icon">
                           Lessons
                         </a>
                       </div>
@@ -184,7 +290,7 @@
                       <div class="menu-button"></div>
                       <div class="menu-link">
                         <a href="../grammar-exercises.html" aria-label="Exercises">
-                          <img src="../images/menuico/exercises.png" alt="menu icon" />
+                          <img src="../images/menuico/exercises.png" alt="menu icon">
                           Exercises
                         </a>
                       </div>
@@ -195,7 +301,7 @@
                       <div class="menu-button"></div>
                       <div class="menu-link">
                         <a href="../introduction-to-tenses.html" aria-label="Tenses">
-                          <img src="../images/menuico/tenses.png" alt="menu icon" />
+                          <img src="../images/menuico/tenses.png" alt="menu icon">
                           Tenses
                         </a>
                       </div>
@@ -206,7 +312,7 @@
                       <div class="menu-button"></div>
                       <div class="menu-link">
                         <a href="../writing.html" aria-label="Writing">
-                          <img src="../images/menuico/writing.png" alt="menu icon" />
+                          <img src="../images/menuico/writing.png" alt="menu icon">
                           Writing
                         </a>
                       </div>
@@ -217,7 +323,7 @@
                       <div class="menu-button"></div>
                       <div class="menu-link">
                         <a href="../vocabulary.html" aria-label="Vocabulary">
-                          <img src="../images/menuico/vocab.png" alt="menu icon" />
+                          <img src="../images/menuico/vocab.png" alt="menu icon">
                           Vocabulary
                         </a>
                       </div>
@@ -226,11 +332,11 @@
                   <li>
                     <div class="item-wrapper">
                       <div class="menu-button">
-                        <img class="menuicon" alt="" src="../web-asset/icons/svg/plus3.svg" />
+                        <img class="menuicon" alt="" src="../web-asset/icons/svg/plus3.svg">
                       </div>
                       <div class="menu-link">
                         <a href="../lists.html" aria-label="Lists">
-                          <img src="../images/menuico/lists.png" alt="menu icon" />
+                          <img src="../images/menuico/lists.png" alt="menu icon">
                           Lists
                         </a>
                       </div>
@@ -269,7 +375,7 @@
                       <div class="menu-button"></div>
                       <div class="menu-link">
                         <a href="../glossary.html" aria-label="Glossary">
-                          <img src="../images/menuico/glossary.png" alt="menu icon" />
+                          <img src="../images/menuico/glossary.png" alt="menu icon">
                           Glossary
                         </a>
                       </div>
@@ -286,7 +392,7 @@
 
             <div id="system-message-container"></div>
             <div class="item-page" itemscope itemtype="https://schema.org/Article">
-              <meta itemprop="inLanguage" content="en-GB" />
+              <meta itemprop="inLanguage" content="en-GB">
               <div class="page-header">
                 <h2 itemprop="headline">Collective Nouns - Things</h2>
               </div>
@@ -314,17 +420,17 @@
                       <th scope="col" colspan="5">Collective Nouns - Things</th>
                     </tr>
                     <tr>
-                      <th style="width: 24%">Noun</th>
-                      <th style="width: 24%">
+                      <th scope="col">Noun</th>
+                      <th scope="col">
                         Collective
-                        <br />
+                        <br>
                         Noun
                       </th>
-                      <td style="background-color: #fff; border-top: none; border-bottom: none"></td>
-                      <th style="width: 24%">Noun</th>
-                      <th style="width: 24%">
+                      <th scope="col"> </th>
+                      <th scope="col">Noun</th>
+                      <th scope="col">
                         Collective
-                        <br />
+                        <br>
                         Noun
                       </th>
                     </tr>
@@ -333,378 +439,378 @@
                     <tr>
                       <td>airplanes</td>
                       <td>flight, squadron</td>
-                      <td style="background-color: #fff; border-top: none; border-bottom: none"></td>
+                      <td></td>
                       <td>hair</td>
                       <td>mass/tuft</td>
                     </tr>
                     <tr>
                       <td>applause</td>
                       <td>round</td>
-                      <td style="background-color: #fff; border-top: none; border-bottom: none"></td>
+                      <td></td>
                       <td>hay</td>
                       <td>bail/stack</td>
                     </tr>
                     <tr>
                       <td>apples</td>
                       <td>crop</td>
-                      <td style="background-color: #fff; border-top: none; border-bottom: none"></td>
+                      <td></td>
                       <td>hills</td>
                       <td>range</td>
                     </tr>
                     <tr>
                       <td>arms</td>
                       <td>stack</td>
-                      <td style="background-color: #fff; border-top: none; border-bottom: none"></td>
+                      <td></td>
                       <td>houses</td>
                       <td>row</td>
                     </tr>
                     <tr>
                       <td>arrows</td>
                       <td>quiver/sheaf</td>
-                      <td style="background-color: #fff; border-top: none; border-bottom: none"></td>
+                      <td></td>
                       <td>ice</td>
                       <td>block</td>
                     </tr>
                     <tr>
                       <td>autographs</td>
                       <td>album</td>
-                      <td style="background-color: #fff; border-top: none; border-bottom: none"></td>
+                      <td></td>
                       <td>islands</td>
                       <td>archipelago/ group</td>
                     </tr>
                     <tr>
                       <td>bananas</td>
                       <td>bunch/cluster/ comb/ hand</td>
-                      <td style="background-color: #fff; border-top: none; border-bottom: none"></td>
+                      <td></td>
                       <td>joy</td>
                       <td>bundle</td>
                     </tr>
                     <tr>
                       <td>beads</td>
                       <td>string</td>
-                      <td style="background-color: #fff; border-top: none; border-bottom: none"></td>
+                      <td></td>
                       <td>keys</td>
                       <td>bunch</td>
                     </tr>
                     <tr>
                       <td>bells</td>
                       <td>peal</td>
-                      <td style="background-color: #fff; border-top: none; border-bottom: none"></td>
+                      <td></td>
                       <td>lamb</td>
                       <td>shoulder</td>
                     </tr>
                     <tr>
                       <td>blows</td>
                       <td>shower</td>
-                      <td style="background-color: #fff; border-top: none; border-bottom: none"></td>
+                      <td></td>
                       <td>letters</td>
                       <td>packet</td>
                     </tr>
                     <tr>
                       <td>books</td>
                       <td>library/set</td>
-                      <td style="background-color: #fff; border-top: none; border-bottom: none"></td>
+                      <td></td>
                       <td>lies</td>
                       <td>pack</td>
                     </tr>
                     <tr>
                       <td>bottles</td>
                       <td>crate</td>
-                      <td style="background-color: #fff; border-top: none; border-bottom: none"></td>
+                      <td></td>
                       <td>cars</td>
                       <td>fleet</td>
                     </tr>
                     <tr>
                       <td>bread</td>
                       <td>batch</td>
-                      <td style="background-color: #fff; border-top: none; border-bottom: none"></td>
+                      <td></td>
                       <td>mountains</td>
                       <td>chain/range</td>
                     </tr>
                     <tr>
                       <td>bullets</td>
                       <td>hail</td>
-                      <td style="background-color: #fff; border-top: none; border-bottom: none"></td>
+                      <td></td>
                       <td>mutton</td>
                       <td>shoulder</td>
                     </tr>
                     <tr>
                       <td>bushes</td>
                       <td>clump/ hedge</td>
-                      <td style="background-color: #fff; border-top: none; border-bottom: none"></td>
+                      <td></td>
                       <td>names</td>
                       <td>list</td>
                     </tr>
                     <tr>
                       <td>cakes</td>
                       <td>batch</td>
-                      <td style="background-color: #fff; border-top: none; border-bottom: none"></td>
+                      <td></td>
                       <td>notes</td>
                       <td>book</td>
                     </tr>
                     <tr>
                       <td>cards</td>
                       <td>deck/pack</td>
-                      <td style="background-color: #fff; border-top: none; border-bottom: none"></td>
+                      <td></td>
                       <td>paper</td>
                       <td>ream/sheaf</td>
                     </tr>
                     <tr>
                       <td>cars</td>
                       <td>fleet/line</td>
-                      <td style="background-color: #fff; border-top: none; border-bottom: none"></td>
+                      <td></td>
                       <td>pearls</td>
                       <td>necklace/rope/ string</td>
                     </tr>
                     <tr>
                       <td>china</td>
                       <td>set</td>
-                      <td style="background-color: #fff; border-top: none; border-bottom: none"></td>
+                      <td></td>
                       <td>photographs</td>
                       <td>album</td>
                     </tr>
                     <tr>
                       <td>cigarettes</td>
                       <td>packet</td>
-                      <td style="background-color: #fff; border-top: none; border-bottom: none"></td>
+                      <td></td>
                       <td>phrases</td>
                       <td>glossary</td>
                     </tr>
                     <tr>
                       <td>cloth</td>
                       <td>roll</td>
-                      <td style="background-color: #fff; border-top: none; border-bottom: none"></td>
+                      <td></td>
                       <td>pictures</td>
                       <td>collection</td>
                     </tr>
                     <tr>
                       <td>clothes</td>
                       <td>outfit/ suit</td>
-                      <td style="background-color: #fff; border-top: none; border-bottom: none"></td>
+                      <td></td>
                       <td>poems</td>
                       <td>anthology</td>
                     </tr>
                     <tr>
                       <td>clubs</td>
                       <td>set</td>
-                      <td style="background-color: #fff; border-top: none; border-bottom: none"></td>
+                      <td></td>
                       <td>pork</td>
                       <td>shoulder</td>
                     </tr>
                     <tr>
                       <td>coconuts</td>
                       <td>cluster</td>
-                      <td style="background-color: #fff; border-top: none; border-bottom: none"></td>
+                      <td></td>
                       <td>prices</td>
                       <td>catalogue</td>
                     </tr>
                     <tr>
                       <td>coins</td>
                       <td>collection</td>
-                      <td style="background-color: #fff; border-top: none; border-bottom: none"></td>
+                      <td></td>
                       <td>rags/old clothes</td>
                       <td>bundle</td>
                     </tr>
                     <tr>
                       <td>corn</td>
                       <td>sheaf/stack/ harvest</td>
-                      <td style="background-color: #fff; border-top: none; border-bottom: none"></td>
+                      <td></td>
                       <td>rain</td>
                       <td>fall/shower</td>
                     </tr>
                     <tr>
                       <td>cotton</td>
                       <td>bale</td>
-                      <td style="background-color: #fff; border-top: none; border-bottom: none"></td>
+                      <td></td>
                       <td>rays</td>
                       <td>pencil</td>
                     </tr>
                     <tr>
                       <td>curiosities</td>
                       <td>collection</td>
-                      <td style="background-color: #fff; border-top: none; border-bottom: none"></td>
+                      <td></td>
                       <td>relics</td>
                       <td>collection</td>
                     </tr>
                     <tr>
                       <td>currency/ notes</td>
                       <td>wad</td>
-                      <td style="background-color: #fff; border-top: none; border-bottom: none"></td>
+                      <td></td>
                       <td>rice</td>
                       <td>bowl</td>
                     </tr>
                     <tr>
                       <td>diamonds</td>
                       <td>cluster</td>
-                      <td style="background-color: #fff; border-top: none; border-bottom: none"></td>
+                      <td></td>
                       <td>rooms</td>
                       <td>suite</td>
                     </tr>
                     <tr>
                       <td>difficult words</td>
                       <td>glossary</td>
-                      <td style="background-color: #fff; border-top: none; border-bottom: none"></td>
+                      <td></td>
                       <td>rubbish</td>
                       <td>heap</td>
                     </tr>
                     <tr>
                       <td>dirt</td>
                       <td>layer</td>
-                      <td style="background-color: #fff; border-top: none; border-bottom: none"></td>
+                      <td></td>
                       <td>ruins</td>
                       <td>heap/mass</td>
                     </tr>
                     <tr>
                       <td>drawers</td>
                       <td>chest</td>
-                      <td style="background-color: #fff; border-top: none; border-bottom: none"></td>
+                      <td></td>
                       <td>sails</td>
                       <td>suit</td>
                     </tr>
                     <tr>
                       <td>dust</td>
                       <td>cloud</td>
-                      <td style="background-color: #fff; border-top: none; border-bottom: none"></td>
+                      <td></td>
                       <td>ships</td>
                       <td>fleet/flotilla</td>
                     </tr>
                     <tr>
                       <td>eggs</td>
                       <td>clutch</td>
-                      <td style="background-color: #fff; border-top: none; border-bottom: none"></td>
+                      <td></td>
                       <td>shoes</td>
                       <td>pair</td>
                     </tr>
                     <tr>
                       <td>events</td>
                       <td>chain/series</td>
-                      <td style="background-color: #fff; border-top: none; border-bottom: none"></td>
+                      <td></td>
                       <td>smoke</td>
                       <td>column</td>
                     </tr>
                     <tr>
                       <td>exercises</td>
                       <td>book</td>
-                      <td style="background-color: #fff; border-top: none; border-bottom: none"></td>
+                      <td></td>
                       <td>snow</td>
                       <td>fall</td>
                     </tr>
                     <tr>
                       <td>fans (persons)</td>
                       <td>cluster</td>
-                      <td style="background-color: #fff; border-top: none; border-bottom: none"></td>
+                      <td></td>
                       <td>soil</td>
                       <td>layer</td>
                     </tr>
                     <tr>
                       <td>film</td>
                       <td>reel/roll</td>
-                      <td style="background-color: #fff; border-top: none; border-bottom: none"></td>
+                      <td></td>
                       <td>stamps</td>
                       <td>album/collection</td>
                     </tr>
                     <tr>
                       <td>firewood</td>
                       <td>bundle</td>
-                      <td style="background-color: #fff; border-top: none; border-bottom: none"></td>
+                      <td></td>
                       <td>stars</td>
                       <td>cluster /galaxy / constellation</td>
                     </tr>
                     <tr>
                       <td>flats</td>
                       <td>block</td>
-                      <td style="background-color: #fff; border-top: none; border-bottom: none"></td>
+                      <td></td>
                       <td>steps</td>
                       <td>flight</td>
                     </tr>
                     <tr>
                       <td>flowers</td>
                       <td>bouquet/ bunch/ garland</td>
-                      <td style="background-color: #fff; border-top: none; border-bottom: none"></td>
+                      <td></td>
                       <td>sticks</td>
                       <td>bundle</td>
                     </tr>
                     <tr>
                       <td>flowers</td>
                       <td>posy/wreath</td>
-                      <td style="background-color: #fff; border-top: none; border-bottom: none"></td>
+                      <td></td>
                       <td>stones</td>
                       <td>heap</td>
                     </tr>
                     <tr>
                       <td>fruit</td>
                       <td>basket/ crate</td>
-                      <td style="background-color: #fff; border-top: none; border-bottom: none"></td>
+                      <td></td>
                       <td>taxis</td>
                       <td>fleet</td>
                     </tr>
                     <tr>
                       <td>fruit trees</td>
                       <td>orchard</td>
-                      <td style="background-color: #fff; border-top: none; border-bottom: none"></td>
+                      <td></td>
                       <td>technical terms</td>
                       <td>glossary</td>
                     </tr>
                     <tr>
                       <td>furniture</td>
                       <td>suite</td>
-                      <td style="background-color: #fff; border-top: none; border-bottom: none"></td>
+                      <td></td>
                       <td>thread</td>
                       <td>reel</td>
                     </tr>
                     <tr>
                       <td>galaxies</td>
                       <td>cluster</td>
-                      <td style="background-color: #fff; border-top: none; border-bottom: none"></td>
+                      <td></td>
                       <td>timber</td>
                       <td>stack</td>
                     </tr>
                     <tr>
                       <td>games</td>
                       <td>compendium</td>
-                      <td style="background-color: #fff; border-top: none; border-bottom: none"></td>
+                      <td></td>
                       <td>tobacco leaves</td>
                       <td>handful</td>
                     </tr>
                     <tr>
                       <td>golf clubs</td>
                       <td>set</td>
-                      <td style="background-color: #fff; border-top: none; border-bottom: none"></td>
+                      <td></td>
                       <td>tools</td>
                       <td>set</td>
                     </tr>
                     <tr>
                       <td>goods</td>
                       <td>catalogue/stock</td>
-                      <td style="background-color: #fff; border-top: none; border-bottom: none"></td>
+                      <td></td>
                       <td>trees</td>
                       <td>clump/ forest/ grove</td>
                     </tr>
                     <tr>
                       <td>grain</td>
                       <td>sheaf</td>
-                      <td style="background-color: #fff; border-top: none; border-bottom: none"></td>
+                      <td></td>
                       <td>twins</td>
                       <td>pair</td>
                     </tr>
                     <tr>
                       <td>grapes</td>
                       <td>bunch/cluster</td>
-                      <td style="background-color: #fff; border-top: none; border-bottom: none"></td>
+                      <td></td>
                       <td>wheat</td>
                       <td>harvest/sheaf</td>
                     </tr>
                     <tr>
                       <td>grass</td>
                       <td>tuft</td>
-                      <td style="background-color: #fff; border-top: none; border-bottom: none"></td>
+                      <td></td>
                       <td>wood</td>
                       <td>stack/ stock</td>
                     </tr>
                     <tr>
                       <td>guns</td>
                       <td>battery</td>
-                      <td style="background-color: #fff; border-top: none; border-bottom: none"></td>
+                      <td></td>
                       <td>wool</td>
                       <td>bale</td>
                     </tr>
@@ -732,30 +838,27 @@
               <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
                 <a itemprop="item" href="../index-2.html" class="pathway" aria-label="Home"><span itemprop="name">Home</span></a>
                 <span class="divider">
-                  <img src="../media/system/images/arrow.png" alt="" />
+                  <img src="../media/system/images/arrow.png" alt="">
                 </span>
-                <meta itemprop="position" content="1" />
+                <meta itemprop="position" content="1">
               </li>
               <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
                 <a itemprop="item" href="../list-3-collective-nouns.html" class="pathway" aria-label="Menu Link">
                   <span itemprop="name">List 3 - Collective Nouns</span>
                 </a>
                 <span class="divider">
-                  <img src="../media/system/images/arrow.png" alt="" />
+                  <img src="../media/system/images/arrow.png" alt="">
                 </span>
-                <meta itemprop="position" content="2" />
+                <meta itemprop="position" content="2">
               </li>
               <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem" class="active">
                 <span itemprop="name">Collective Nouns - Things</span>
-                <meta itemprop="position" content="3" />
+                <meta itemprop="position" content="3">
               </li>
             </ul>
 
             <!-- End Content -->
           </main>
-          <div id="aside" class="span2">
-            <!-- Begin Right Sidebar -->
-            <div class="well hidden-phone">
               <script>
                 jQuery(document).ready(function ($) {
                   var acMenu = $('#flyout_menu_100')
@@ -789,12 +892,15 @@
                       $(this).children('.ul-wrapper').show(300)
                     })
                 })
-              </script>
-              <ul class="flyout-menu vertical flyout-left text-left button-right" id="flyout_menu_100">
+          </script>
+          <div id="aside" class="span2">
+            <!-- Begin Right Sidebar -->
+            <div class="well hidden-phone">
+              <ul class="flyout-menu vertical flyout-left text-left button-right" id="flyout_menu_92">
                 <li class="first">
                   <div class="item-wrapper">
                     <div class="menu-button">
-                      <img class="menuicon" alt="" src="../web-asset/icons/svg/plus3.svg" />
+                      <img class="menuicon" alt="" src="../web-asset/icons/svg/plus3.svg">
                     </div>
                     <div class="menu-link">
                       <a href="../list-1-singular-and-plural-nouns.html" aria-label="Menu Link">Singular-Plural</a>
@@ -957,7 +1063,7 @@
                 <li>
                   <div class="item-wrapper">
                     <div class="menu-button">
-                      <img class="menuicon" alt="" src="../web-asset/icons/svg/plus3.svg" />
+                      <img class="menuicon" alt="" src="../web-asset/icons/svg/plus3.svg">
                     </div>
                     <div class="menu-link">
                       <a href="../list-2-uncountable-nouns-made-countable.html" aria-label="Menu Link">Counting Nouns</a>
@@ -1017,7 +1123,7 @@
                 <li class="current">
                   <div class="item-wrapper">
                     <div class="menu-button">
-                      <img class="menuicon" alt="" src="../web-asset/icons/svg/plus3.svg" />
+                      <img class="menuicon" alt="" src="../web-asset/icons/svg/plus3.svg">
                     </div>
                     <div class="menu-link">
                       <a href="../list-3-collective-nouns.html" aria-label="Menu Link">Collective Nouns</a>
@@ -1052,7 +1158,7 @@
                 <li>
                   <div class="item-wrapper">
                     <div class="menu-button">
-                      <img class="menuicon" alt="" src="../web-asset/icons/svg/plus3.svg" />
+                      <img class="menuicon" alt="" src="../web-asset/icons/svg/plus3.svg">
                     </div>
                     <div class="menu-link">
                       <a href="../list-4-verbs.html" aria-label="Menu Link">Verbs</a>
@@ -1070,7 +1176,7 @@
                       <li class="last">
                         <div class="item-wrapper">
                           <div class="menu-button">
-                            <img class="menuicon" alt="" src="../web-asset/icons/svg/plus3.svg" />
+                            <img class="menuicon" alt="" src="../web-asset/icons/svg/plus3.svg">
                           </div>
                           <div class="menu-link">
                             <a href="../list-4-verbs/different-verb-types.html" aria-label="Menu Link">Different Verb Types</a>
@@ -1119,7 +1225,7 @@
                 <li>
                   <div class="item-wrapper">
                     <div class="menu-button">
-                      <img class="menuicon" alt="" src="../web-asset/icons/svg/plus3.svg" />
+                      <img class="menuicon" alt="" src="../web-asset/icons/svg/plus3.svg">
                     </div>
                     <div class="menu-link">
                       <a href="../list-5-irregular-verbs.html" aria-label="Menu Link">Irregular Verbs</a>
@@ -1162,7 +1268,7 @@
                 <li>
                   <div class="item-wrapper">
                     <div class="menu-button">
-                      <img class="menuicon" alt="" src="../web-asset/icons/svg/plus3.svg" />
+                      <img class="menuicon" alt="" src="../web-asset/icons/svg/plus3.svg">
                     </div>
                     <div class="menu-link">
                       <a href="../list-6-adjectives.html" aria-label="Menu Link">Adjectives</a>
@@ -1208,7 +1314,7 @@
                 <li>
                   <div class="item-wrapper">
                     <div class="menu-button">
-                      <img class="menuicon" alt="" src="../web-asset/icons/svg/plus3.svg" />
+                      <img class="menuicon" alt="" src="../web-asset/icons/svg/plus3.svg">
                     </div>
                     <div class="menu-link">
                       <a href="../list-7-comparison-of-adjectives.html" aria-label="Menu Link">Comparison</a>
@@ -1255,7 +1361,7 @@
                 <li>
                   <div class="item-wrapper">
                     <div class="menu-button">
-                      <img class="menuicon" alt="" src="../web-asset/icons/svg/plus3.svg" />
+                      <img class="menuicon" alt="" src="../web-asset/icons/svg/plus3.svg">
                     </div>
                     <div class="menu-link">
                       <a href="../list-8-adverbs.html" aria-label="Menu Link">Adverbs</a>
@@ -1280,7 +1386,7 @@
                       <li class="last">
                         <div class="item-wrapper">
                           <div class="menu-button">
-                            <img class="menuicon" alt="" src="../web-asset/icons/svg/plus3.svg" />
+                            <img class="menuicon" alt="" src="../web-asset/icons/svg/plus3.svg">
                           </div>
                           <div class="menu-link">
                             <a href="../list-8-adverbs/adverbs-with-two-adverbial-forms.html" aria-label="Menu Link">
@@ -1321,7 +1427,7 @@
                 <li>
                   <div class="item-wrapper">
                     <div class="menu-button">
-                      <img class="menuicon" alt="" src="../web-asset/icons/svg/plus3.svg" />
+                      <img class="menuicon" alt="" src="../web-asset/icons/svg/plus3.svg">
                     </div>
                     <div class="menu-link">
                       <a href="../list-9-adverbs-sharing-same-words-as-adjectives.html" aria-label="Menu Link">Adv. = Adj.</a>
@@ -1378,7 +1484,7 @@
                 <li>
                   <div class="item-wrapper">
                     <div class="menu-button">
-                      <img class="menuicon" alt="" src="../web-asset/icons/svg/plus3.svg" />
+                      <img class="menuicon" alt="" src="../web-asset/icons/svg/plus3.svg">
                     </div>
                     <div class="menu-link">
                       <a href="../list-11-prepositions.html" aria-label="Menu Link">Prepositions</a>
@@ -1477,7 +1583,7 @@
                 <li>
                   <div class="item-wrapper">
                     <div class="menu-button">
-                      <img class="menuicon" alt="" src="../web-asset/icons/svg/plus3.svg" />
+                      <img class="menuicon" alt="" src="../web-asset/icons/svg/plus3.svg">
                     </div>
                     <div class="menu-link">
                       <a href="../list-14-phrasal-verbs.html" aria-label="Menu Link">Phrasal Verbs</a>
@@ -1705,7 +1811,7 @@
                 <li>
                   <div class="item-wrapper">
                     <div class="menu-button">
-                      <img class="menuicon" alt="" src="../web-asset/icons/svg/plus3.svg" />
+                      <img class="menuicon" alt="" src="../web-asset/icons/svg/plus3.svg">
                     </div>
                     <div class="menu-link">
                       <a href="../list-16-phrases-and-idioms.html" aria-label="Menu Link">1000 Idioms</a>
@@ -1809,7 +1915,7 @@
                 <li>
                   <div class="item-wrapper">
                     <div class="menu-button">
-                      <img class="menuicon" alt="" src="../web-asset/icons/svg/plus3.svg" />
+                      <img class="menuicon" alt="" src="../web-asset/icons/svg/plus3.svg">
                     </div>
                     <div class="menu-link">
                       <a href="../list-17-proverbs-and-sayings.html" aria-label="Menu Link">Proverbs</a>
@@ -1873,7 +1979,7 @@
                 <li>
                   <div class="item-wrapper">
                     <div class="menu-button">
-                      <img class="menuicon" alt="" src="../web-asset/icons/svg/plus3.svg" />
+                      <img class="menuicon" alt="" src="../web-asset/icons/svg/plus3.svg">
                     </div>
                     <div class="menu-link">
                       <a href="../list-20-gender.html" aria-label="Menu Link">Gender</a>
@@ -1956,7 +2062,7 @@
     <!-- Footer -->
     <footer class="footer">
       <div class="container">
-        <hr />
+        <hr>
         <p class="pull-right"><a href="#top" id="back-top" aria-label="Back to Top">Back to Top</a></p>
         <p>&copy; 2021.</p>
       </div>

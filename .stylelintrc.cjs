@@ -12,7 +12,6 @@ module.exports = {
     '**/*.htm',
     '**/*.min.css',
   ],
-  plugins: ['stylelint-no-unused-selectors'],
   rules: {
     /* Keep stylistic overlap with Prettier low; Prettier formats, this validates */
     // 'color-hex-length': 'null', // example non-formatting rule you may like
@@ -30,8 +29,8 @@ module.exports = {
     'selector-class-pattern': null,
     'selector-id-pattern': null,
 
-    // 🔕 DEAD CLASSES OFF (global)
-    'plugin/no-unused-selectors': null,
+    // 🔕 Dead class detection removed:
+    //    plugin incompatible with Stylelint 16
 
     // Relaxers you chose
     'number-max-precision': null,

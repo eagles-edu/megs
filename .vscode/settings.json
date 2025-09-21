@@ -12,6 +12,8 @@
   "scss.validate": false,
   "typescript.validate.enable": false,
   "yaml.validate": false,
+  // "terminal.external.linuxExec": "gnome-terminal",
+  "terminal.explorerKind": "external",
 
   "html.trace.server": "messages",
   "css.lint.boxModel": "ignore",
