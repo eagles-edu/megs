@@ -11,64 +11,182 @@
 <meta name="generator" content="English Grammar - intermediate levels A2 and above">
 <title>List 12 - Conjunctions</title>
 <link href="619-list-12-conjunctions.html" rel="non-canonical">
-<link href="../../../web-asset/icons/favicon.ico" rel="shortcut icon" type="image/vnd.microsoft.icon">
-<link href="../../../web-asset/css/template592f.css" rel="stylesheet">
-<link href="../../cssd2d5.css?family=Open+Sans" rel="stylesheet">
-<link href="../../../web-asset/css/accordion.css" rel="stylesheet">
-<style>
+<link href="../../web-asset/icons/favicon.ico" rel="shortcut icon" type="image/vnd.microsoft.icon">    <!-- Minimal theme tokens inline to avoid var() FOUC when base.css loads async -->
+    <style id="theme-vars-critical">
+:root {
+  /* Brand core */
+  --primary-color: #e0162b; /* locked */
+  --secondary-color: #f5f8ff; /* white */
+  --tertiary-color: #002786; /* locked */
+  --text-color: #212121; /* locked */
+  --icon-color-on-lt: #8a94a8; /* locked */
+  --icon-color-on-dk: #f5f8ff; /* locked */
 
-body.site {
-	border-top: 3px solid #004c75;
-	background-color: #f4f6f7;
-}
-a {
-	color: #004c75;
-}
-.nav-list > .active > a,  .nav-list > .active > a:hover,  .dropdown-menu li > a:hover,  .dropdown-menu .active > a,  .dropdown-menu .active > a:hover,  .nav-pills > .active > a,  .nav-pills > .active > a:hover,  .btn-primary {
-	background: #004c75;
-}
-#accordion_menu_90 {
-	background: #fff;
-}
-#accordion_menu_90 a {
-	color: #000000;
-}
-#accordion_menu_90 .item-wrapper:hover a,  #accordion_menu_90 li.current > .item-wrapper a {
-	color: #000d4d;
-}
-#accordion_menu_90 li.open,  #accordion_menu_90 li:hover {
-	background: #6e92ff;
-}
-</style>
-<script src="../../media/jui/js/jquery.min592f.js" defer></script>
-<script src="../../media/jui/js/jquery-noconflict592f.js" defer></script>
-<script src="../../media/jui/js/jquery-migrate.min592f.js" defer></script>
-<script src="../../media/system/js/caption592f.js" defer></script>
-<script src="../../media/jui/js/bootstrap.min592f.js" defer></script>
-<script src="../../../web-asset/js/template592f.js" defer></script><script>
-jQuery(window).on('load',  function() {
-				new JCaption('img.caption');
-			});
-</script>
-<link href="../../../web-asset/css/meg-2.css" rel="stylesheet">
+  /* Layout surfaces */
+  --background-color: #505050; /* page background behind light content */
+      }
+      /* Preload critical image dimensions to prevent CLS */
+      img[src*="banner.png"] { width: 650px; height: 120px; }
+      img[src*="arrow.png"] { width: 9px; height: 9px; }
+      img[src*="menuico"] { width: 16px; height: 16px; }
+      img[src*="plus3.svg"] { width: 12px; height: 12px; }
+    </style>
+    <!-- Base CSS (SSOT) async with print-swap to improve FCP/LCP -->
+    <link rel="preload" href="../../web-asset/css/base.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="stylesheet" href="../../web-asset/css/base.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="../../web-asset/css/base.css"></noscript>
+
+    <!-- Critical resource hints for better performance -->
+    <link rel="dns-prefetch" href="../../images/">
+    <link rel="dns-prefetch" href="../../web-asset/">
+    <link rel="dns-prefetch" href="../../media/">
+    <style id="critical-inline">
+      /* Critical CSS: reset + fast header paint + mobile toggle */
+      body { margin: 0; }
+      .grid-modern .row-fluid { background: var(--secondary-color); border-radius: 6px; margin-block: 12px; padding-block: 8px; }
+      .header { margin-bottom: 1rem; }
+      @media (max-width: 767px) {
+        .mobile-menu-toggle { position: fixed; top: 12px; right: 12px; width: 40px; height: 40px; border-radius: 4px; background: var(--primary-color); border: 1px solid var(--primary-color); z-index: 1200; display: block; }
+        .mobile-menu-toggle::before { content: '\00E289A1'; }
+        /* Fallback for browsers not decoding \00E289A1: use explicit ≡ */
+        .mobile-menu-toggle::before { content: '\2261'; display: block; line-height: 40px; text-align: center; font-size: 22px; color: var(--white); }
+      }
+    </style>
+
+    <!-- Critical augment: stabilize grid/menu to reduce CLS -->
+    <style id="critical-inline-augment">
+      /* Grid layout (avoid block→flex shift when async CSS loads) */
+      .row-fluid { display: flex; flex-wrap: wrap; margin-left: -8px; margin-right: -8px; }
+      .row-fluid > [class*='span'] { box-sizing: border-box; flex: 0 0 100%; max-width: 100%; padding-left: 8px; padding-right: 8px; }
+      @media (min-width: 768px) {
+        .row-fluid > .span2 { flex: 0 0 16.6667%; max-width: 16.6667%; }
+        .row-fluid > .span8 { flex: 0 0 66.6667%; max-width: 66.6667%; }
+      }
+
+      /* Left accordion menu: reserve icon/text layout early */
+      ul.accordion-menu { list-style: none; margin: 0; padding: 0; border: 1px solid var(--border-color); font-size: 0.85em; overflow: hidden; }
+      ul.accordion-menu .item-wrapper { display: flex; align-items: center; gap: var(--icon-gap, 8px); }
+      ul.accordion-menu .menu-button { flex: 0 0 var(--icon-slot, 24px); display: flex; align-items: center; justify-content: flex-start; padding-left: var(--menu-icon-pad-left, 6px); }
+      /* Match button-right spacing/line-height from left-menu.css to prevent flash */
+      ul.accordion-menu.button-right li > .item-wrapper > .menu-button { padding: 12px 0; line-height: 10px; float: right; }
+      ul.accordion-menu.button-right li > .item-wrapper > .menu-button > img { padding-right: 10px; }
+      ul.accordion-menu li { border-top: 1px solid var(--divider-color); }
+      ul.accordion-menu .menu-link { flex: 1 1 auto; min-width: 0; min-height: 35px; overflow: hidden; }
+      ul.accordion-menu .menu-link > a, ul.accordion-menu .menu-link > p { display: flex; align-items: center; gap: 8px; width: 90%; padding: 10px 10px 9px; text-decoration: none; background: none; }
+      ul.accordion-menu .menu-link > a > img, ul.accordion-menu .menu-link > p > img { vertical-align: middle; border: 0; height: auto; max-width: 100%; padding: 0 5px 0 0; }
+      ul.accordion-menu > li > .item-wrapper > .menu-link > a, ul.accordion-menu > li > .item-wrapper > .menu-link > p { font-weight: bold; }
+      /* Ensure nested lists default to collapsed before left-menu.css loads */
+      ul.accordion-menu li > .ul-wrapper { display: none; }
+      ul.accordion-menu li.opened > .ul-wrapper { display: block; }
+      /* Icon sizing tied to text; reserve shape via aspect-ratio */
+      ul.accordion-menu .menu-button > img { height: var(--icon-size, 1em); width: auto; aspect-ratio: 1 / 1; object-fit: contain; }
+      ul.accordion-menu .menu-link img { height: var(--icon-size, 1em); width: auto; aspect-ratio: 1 / 1; object-fit: contain; }
+
+      /* Pager arrows: reserve space */
+      .pager { display: flex; justify-content: space-between; list-style: none; margin: 1rem 0; padding: 0; }
+      .pager img { width: 12px; height: 12px; }
+
+      /* Flyout (right menu): hide nested lists until CSS loads; reserve icon slot */
+      ul.flyout-menu .ul-wrapper { display: none; }
+      ul.flyout-menu .item-wrapper { display: flex; align-items: center; gap: var(--icon-gap, 8px); }
+      ul.flyout-menu .menu-button { flex: 0 0 var(--icon-slot, 24px); display: flex; align-items: center; justify-content: flex-start; padding-left: var(--menu-icon-pad-left, 6px); }
+      ul.flyout-menu .menu-button > img, ul.flyout-menu .menu-link img { height: var(--icon-size, 1em); width: auto; aspect-ratio: 1 / 1; object-fit: contain; }
+
+      /* QA accordion: collapse bodies before async CSS/JS to prevent flash */
+      #content .nn_sliders .accordion-body { max-height: 0; overflow: hidden; }
+      #content .nn_sliders .collapse { height: 0; overflow: hidden; }
+      /* Hide duplicate legacy title inside body to avoid jump */
+      #content .nn_sliders-title { display: none; }
+
+      /* Breadcrumb divider icon explicit size, belt-and-suspenders */
+      ul.breadcrumb > li > span.divider > img { width: 9px; height: 9px; }
+
+      /* Additional CLS prevention: stabilize accordion toggle heights */
+      .nn_sliders-toggle { min-height: 44px; display: flex; align-items: center; }
+      .nn_sliders-toggle-inner { flex: 1; }
+
+      /* Preload footer height to prevent footer jump */
+      .footer { min-height: 80px; }
+
+      /* Stabilize sidebar width on desktop to prevent reflow */
+      @media (min-width: 768px) {
+        #sidebar { min-height: 300px; }
+        #aside { min-height: 300px; }
+      }
+    </style>
+
+    <!-- Optimized speculationrules with prerender for better UX -->
+    <script>
+      (function(){
+        function injectSpeculation(){
+          try {
+            var s = document.createElement('script');
+            s.type = 'speculationrules';
+            s.text = JSON.stringify({
+              prefetch: [{ source: 'list', urls: ['112-proper-nouns.html'] }],
+              prerender: [{ source: 'list', urls: ['112-proper-nouns.html'], eagerness: 'moderate' }]
+            });
+            document.head.appendChild(s);
+          } catch(e) { /* no-op */ }
+        }
+        if (document.readyState === 'complete') {
+          injectSpeculation();
+        } else {
+          window.addEventListener('load', function(){
+            if ('requestIdleCallback' in window) requestIdleCallback(injectSpeculation, {timeout: 2000});
+            else setTimeout(injectSpeculation, 500);
+          });
+        }
+      })();
+    </script>
+    <!-- Icon font not used on Codex variant; removed icomoon.css includes -->
+
+    <!-- Minimal base for layout/mobile nav used by prototype (async) -->
+    <link rel="preload" href="../../web-asset/css/exercises.css" as="style">
+    <link rel="stylesheet" href="../../web-asset/css/exercises.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="../../web-asset/css/exercises.css"></noscript>
+    <!-- Use system default fonts (no webfont preloads) -->
+
+    <!-- Defer non-critical CSS with preload+print media swap -->
+    <link rel="preload" href="../../web-asset/css/flyout-menu.css" as="style">
+    <link rel="stylesheet" href="../../web-asset/css/flyout-menu.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="../../web-asset/css/flyout-menu.css"></noscript>
+    <!-- Left-menu.css async; critical inline reserves layout to avoid flash -->
+    <link rel="preload" href="../../web-asset/css/left-menu.css" as="style">
+    <link rel="stylesheet" href="../../web-asset/css/left-menu.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="../../web-asset/css/left-menu.css"></noscript>
+    <link rel="preload" href="../../web-asset/css/page-classes.css" as="style">
+    <link rel="stylesheet" href="../../web-asset/css/page-classes.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="../../web-asset/css/page-classes.css"></noscript>
+    <!-- Removed jQuery/Bootstrap/nn_sliders/template scripts on codex variant to keep console clean -->
+    <link rel="preload" href="../../web-asset/css/exercise-1-nouns_new.css" as="style">
+    <link rel="stylesheet" href="../../web-asset/css/exercise-1-nouns_new.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="../../web-asset/css/exercise-1-nouns_new.css"></noscript>
+    <!-- Codex QA slider scoped overrides (synchronous to avoid flash) -->
+    <link rel="stylesheet" href="../../web-asset/css/qa-accordion.css">
+    <!-- No-JS fallback: show all answers if scripting is disabled -->
+    <noscript>
+      <style>
+        #content .accordion-body {
+          max-height: none !important;
+          height: auto !important;
+          overflow: visible !important;
+        }
+      </style>
+    </noscript>
+    <!-- Mobile navigation styles provided globally by base CSS -->
+    <!-- No inline @font-face; system stacks are used (see base.css variables) -->
+    <!-- Bundled JavaScript: Modern module + legacy fallback (4 requests → 1) -->
+    <script type="module" src="../../web-asset/js/main.bundle.js"></script>
+    <script nomodule src="../../web-asset/js/main.legacy.js" defer></script>
 </head>
-<body class="site com_content view-article no-layout no-task itemid-9198">
 <!-- Body -->
-<div class="body" id="top">
-  <div class="container">
-    <!-- Header -->
-    <header class="header">
-      <div class="header-inner clearfix"> <a class="brand pull-left" href="../../index-2.html" aria-label="link  to home page"> <img src="../../images/banner.png" alt="The Eagles Club logo">
-        <div class="site-description">Serious English</div>
-        </a>
-        <div class="nodisplay header-search pull-right">
-          <div class="customseamod visible-desktop"  > Search this site:
-            
-          </div>
-        </div>
-      </div>
-    </header>
-    <div class="row-fluid">
+  <body class="base">
+    <!-- Body -->
+    <div class="body grid-modern" id="top">
+      <div class="container">
+        <!-- Header removed on Codex variant to avoid load-time CLS. See ../web-asset/js/template.js for details-->
+        <div class="row-fluid padme1">
       <!-- Begin Sidebar -->
       <div id="sidebar" class="span2">
         <div class="sidebar-nav">
@@ -158,9 +276,9 @@ jQuery(document).ready(function($){
                   <div class="menu-link"><a href="../../vocabulary.html" aria-label="Menu Link"><img src="../../images/menuico/vocab.png" alt="menu icon">Vocabulary</a></div>
                 </div>
               </li>
-              <li class='current opened'>
+              <li class="current opened">
                 <div class="item-wrapper">
-                  <div class="menu-button"><img class="menuicon" alt="" src='../../web-asset/icons/svg/plus3.svg'></div>
+                  <div class="menu-button"><img class="menuicon" alt="" src="../../web-asset/icons/svg/plus3.svg"></div>
                   <div class="menu-link"><a href="../../lists.html" aria-label="Menu Link"><img src="../../images/menuico/lists.png" alt="menu icon">Lists</a></div>
                 </div>
                 <div class="ul-wrapper">
@@ -200,30 +318,30 @@ jQuery(document).ready(function($){
       <!-- End Sidebar -->
       <main id="content" class="span9">
         <!-- Begin Content -->
-        
+
         <div id="system-message-container"> </div>
         <div class="item-page" itemscope itemtype="https://schema.org/Article">
           <meta itemprop="inLanguage" content="en-GB">
           <div class="page-header">
             <h2 itemprop="headline"> List 12 - Conjunctions </h2>
           </div>
-        
+
           <div itemprop="articleBody">
             <ul class="pager pagenav">
               <li class="previous"><a href="617-list-10-pronouns.html" rel="next" aria-label="Next"><span class="icon-chevron-left"> </span> List 10 - Pronouns</a></li>
               <li class="next"><a href="620-list-13-forming-abstract-nouns.html" rel="prev" aria-label="Previous">List 13 - Forming Abstract Nouns <span class="icon-chevron-right"> </span></a></li>
             </ul>
 			  <h3>Coordinating Conjunctions</h3>
-           <table class="tablesty1">
-              <thead>
+        <table class="tablesty1">
+             <thead class="tabstytit1">
                 <tr>
-                  <th style="width: 16.6%">Coordinating conjunctions</th>
-                  <th style="width: 21.6%">Meaning</th>
-                  <th style="width: 61.8%">Use </th>
+                  <th scope="col">Coordinating conjunctions</th>
+                  <th scope="col">Meaning</th>
+                  <th scope="col">Use </th>
                 </tr>
               </thead>
               <tbody>
-
+                <tr>
                   <td>and</td>
                   <td>also</td>
                   <td>to introduce something to another thing that is already mentioned.</td>
@@ -261,17 +379,18 @@ jQuery(document).ready(function($){
               </tbody>
             </table>
             <h3>Different types of subordinating conjunctions.</h3>
-   <table class="tablesty1">
-              <thead>
+            <table class="tablesty1">
+            <thead class="tabstytit1">
+
                 <tr>
-                  <th style="width: 16.6%">Time</th>
-                  <th style="width: 16.6%">Place</th>
-                  <th style="width: 16.6%">Reason</th>
-                  <th style="width: 16.6%">Purpose</th>
-                  <th style="width: 16.6%">Contrast</th>
-                  <th style="width: 16.6%">Comparison </th>
+                  <th scope="col">Time</th>
+                  <th scope="col">Place</th>
+                  <th scope="col">Reason</th>
+                  <th scope="col">Purpose</th>
+                  <th scope="col">Contrast</th>
+                  <th scope="col">Comparison </th>
                 </tr>
-              </thead>
+                </thead>
               <tbody>
                 <tr>
                   <td>after</td>
@@ -397,15 +516,15 @@ jQuery(document).ready(function($){
             </table>
             <h3>Different types of subordinating conjunctions.</h3>
             <table class="tablesty1">
-              <thead>
+            <thead class="tabstytit1">
                 <tr>
-                  <th style="width: 14.2%">Condition </th>
-                  <th style="width: 14.2%">Choice</th>
-                  <th style="width: 14.2%">Exception</th>
-                  <th style="width: 14.2%">Degree</th>
-                  <th style="width: 14.2%">Preference </th>
-                  <th style="width: 14.2%">Consequence</th>
-                  <th style="width: 14.2%">Indirect question</th>
+                  <th scope="col">Condition </th>
+                  <th scope="col">Choice</th>
+                  <th scope="col">Exception</th>
+                  <th scope="col">Degree</th>
+                  <th scope="col">Preference </th>
+                  <th scope="col">Consequence</th>
+                  <th scope="col">Indirect question</th>
                 </tr>
               </thead>
               <tbody>
@@ -487,11 +606,13 @@ jQuery(document).ready(function($){
             </table>
             <h3>Correlative conjunctions</h3>
             <table class="tablesty1">
-				   <thead>
-					   <tr>
+              <thead class="tabstytit1">
+                <tr>
                   <th scope="col">Correlative conjunctions</th>
                   <th scope="col">Meaning</th>
-                </tr> </thead> <tbody>
+                </tr>
+              </thead>
+              <tbody>
                 <tr>
                   <td>either .. or</td>
                   <td>One or more things that are available as another possibility</td>
@@ -523,9 +644,9 @@ jQuery(document).ready(function($){
               </tbody>
             </table>
        
-            <h3>Other correlative conjunctions:</h3>
-		  <div class="boxlist5 row22">
-			  <div class="column22">
+      <h3>Other correlative conjunctions:</h3>
+      <div class="boxlist5 row22">
+      <div class="column22">
               <ul>
                 <li>as … so</li>
                 <li>as … as</li>
@@ -533,8 +654,9 @@ jQuery(document).ready(function($){
                 <li>although … yet</li>
                 <li>so … that</li>
               </ul>
-		  </div> </div>
-                        <ul class="pager pagenav">
+        </div>
+      </div>
+          <ul class="pager pagenav">
               <li class="previous"><a href="617-list-10-pronouns.html" rel="prev" aria-label="Previous"><span class="icon-chevron-left"> </span> List 10 - Pronouns</a></li>
               <li class="next"><a href="620-list-13-forming-abstract-nouns.html" rel="next" aria-label="Next">List 13 - Forming Abstract Nouns <span class="icon-chevron-right"> </span></a></li>
             </ul>
@@ -556,7 +678,7 @@ jQuery(document).ready(function($){
             <meta itemprop="position" content="4">
           </li>
         </ul>
-        
+
         <!-- End Content -->
       </main>
     </div>

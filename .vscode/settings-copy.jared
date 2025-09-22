@@ -1,195 +1,24 @@
 {
-  "css.autoValidation": "Never",
-  "css.validate": false,
-  "html.validate.scripts": false,
-  "html.validate.styles": false,
-  "javascript.validate.enable": false,
-  "json.validate.enable": false,
-  "less.validate": false,
-  "markdown.validate.enabled": false,
-  "php.validate.enable": false,
-  "scss.validate": false,
-  "typescript.validate.enable": false,
-  "yaml.validate": false,
-  // "terminal.external.linuxExec": "gnome-terminal",
-  "terminal.explorerKind": "external",
-
-  "html.trace.server": "messages",
-  "css.lint.boxModel": "ignore",
-
-  "css.format.enable": false,
-  "html.format.enable": false,
-  "javascript.format.enable": false,
-  "json.format.enable": false,
-  "less.format.enable": false,
-  "scss.format.enable": false,
-  "typescript.format.enable": false,
-  "yaml.format.enable": false,
-  // Disable built-in HTML formatter so it can't fight Prettier
-
-  // Prettier is THE formatter
-  "prettier.requireConfig": true,
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "editor.formatOnSave": false,
-  // Per-language default formatter (keeps things predictable)
-  "[html]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.formatOnSave": false
-  },
-  "[vue]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[markdown]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[css]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[scss]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[less]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[javascript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[typescript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  // Lint-only on save (no auto-fix on save)
-  "editor.codeActionsOnSave": {
-    "source.fixAll": "never",
-    "source.fixAll.eslint": "never",
-    "source.fixAll.stylelint": "never",
-    "source.fixAll.html-validate": "never"
-  },
-  // ESLint shouldn't format (Prettier handles formatting)
-  "eslint.format.enable": false,
-  // Stylelint: lint these languages (no auto-fix unless you run it manually)
-  "stylelint.enable": true,
-  "stylelint.validate": ["css", "scss", "less"],
-  // html-validate extension
-  "html-validate.enable": true,
-  "html-validate.validate": ["html", "vue", "vue-html" /*, "markdown" */],
-  // Live Server (unset root = workspace root). Set to "/public" or similar if needed.
-  // "liveServer.settings.root": "/public",
-  "liveServer.settings.port": 5500,
-  // Disable float lint warnings in VS Code (CSS/SCSS/LESS)
-  "css.lint.float": "ignore",
-  "scss.lint.float": "ignore",
-  "less.lint.float": "ignore",
-  // Emmet: generate HTML-style void tags (<br>, <meta>, <link>) without closing slash
-  "emmet.preferences": {
-    "output.selfClosingStyle": "html"
-  },
-  "emmet.syntaxProfiles": {
-    "html": {
-      "selfClosingStyle": "html"
-    }
-  },
-  // Help HTML/CSS validators/extensions resolve class definitions across workspace
-  "html-css-class-completion.includeGlobPattern": "**/*.{css,scss,less}",
+  "cssVarHover.ignoredFiles": [
+    "lists/68-grammar-lists/619-list-12-conjunctions.html",
+    "exercise-1-nouns/111-common-nouns-codex.html"
+  ],
   "cSpell.words": [
-    "Abrahamic",
-    "actus",
-    "ador",
-    "autofocus",
-    "autoplay",
-    "Ballmer",
-    "beauti",
-    "blanco",
     "boxhead",
-    "boxlist",
-    "Brideshead",
-    "buen",
-    "caballo",
-    "célèbre",
     "checkedout",
     "checkin",
-    "chien",
     "chzn",
-    "classicus",
-    "colortransforms",
-    "costlily",
-    "Crêpe",
-    "crosslint",
-    "danh",
-    "dedupe",
-    "defence",
-    "denominal",
-    "Distributives",
     "downarrow",
-    "drey",
     "dropup",
-    "dryrun",
-    "EAGLEEYE",
-    "Eeuo",
-    "examplebox",
-    "expando",
-    "eyric",
-    "fareast",
-    "firstloc",
-    "firstrow",
-    "furnitures",
-    "hairdress",
     "hasimage",
-    "headerclass",
     "helpsite",
-    "homme",
-    "Hospitaller",
-    "htmlvalidate",
-    "ible",
     "imich",
-    "informations",
-    "insideh",
-    "insidev",
-    "irow",
-    "JGLOBAL",
-    "Joomla",
-    "jtext",
     "jviewport",
-    "katsu",
-    "Kendal",
-    "lastrow",
     "leftarrow",
-    "linkco",
-    "listops",
-    "logfile",
-    "logosglyph",
-    "lumm",
-    "majeure",
-    "manquée",
-    "Matsuhisa",
-    "menuico",
-    "menuicon",
-    "modlgn",
-    "moobs",
-    "newsfeed",
-    "newstyle",
-    "Nobu",
     "noheader",
-    "Nonfinite",
-    "Plec",
-    "postnominal",
-    "postpositives",
-    "postpositve",
-    "praps",
-    "prepositively",
-    "raab",
     "rcorners",
-    "rebracketing",
-    "redb",
-    "regextype",
-    "Renard",
-    "reus",
     "rightarrow",
-    "Rosensweig",
-    "Ruritan",
     "sectionlist",
-    "shoulds",
-    "speciality",
-    "stylelintignore",
     "subform",
     "tablesty",
     "tabstytit",
@@ -448,8 +277,6 @@
     "page-classes.css",
     "qa-accordion.css",
     "exercise-1-nouns/111-common-nouns-codex.html"
-  ],
-  "cssVarHover.ignoredFiles": [
-    "lists/68-grammar-lists/619-list-12-conjunctions.html"
   ]
+
 }
