@@ -622,15 +622,19 @@ body.mobile-nav-enabled #sidebar.mobile-nav-open {
   border: 2px solid var(--primary-color) !important;
 }
 
-.padx-t0r5nl1 {
+.padx-t0r5b0l15 {
   padding: 0 5px 0 15px;
 }
 
-h4.box-head4{
+h4.box-head4 {
   background: var(--secondary-color);
   color: var(--primary-color);
   display: table;
   line-height: 16px;
   margin: -10px 0 5px;
   padding: 0 20px;
+}
+
+.uline {
+  text-decoration: underline;
 }

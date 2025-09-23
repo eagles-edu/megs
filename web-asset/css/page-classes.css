@@ -17,7 +17,19 @@ body.site {
   background-color: var(--background-color);
 }
 
+/* Exercise style enhancements */
+.hilite {
+  color: var(--link-color);
+}
+
+.bkgrnd-prime {
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+}
+
+
 /* Page-type hooks (no-op yet | define as needed)
+
 body.exercize {
 }
 
