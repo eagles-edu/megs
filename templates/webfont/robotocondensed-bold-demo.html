@@ -1,48 +1,55 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<html
+  xmlns="http://www.w3.org/1999/xhtml"
+  xml:lang="en"
+  lang="en">
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" charset="utf-8"></script>
+    <meta
+      http-equiv="Content-Type"
+      content="text/html; charset=utf-8">
+    <script
+      src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"
+      charset="utf-8"></script>
     <script>
       ;(function ($) {
         $.fn.easyTabs = function (option) {
-          var param = jQuery.extend({ fadeSpeed: 'fast', defaultContent: 1, activeClass: 'active' }, option)
+          var param = jQuery.extend({ fadeSpeed: "fast", defaultContent: 1, activeClass: "active" }, option)
           $(this).each(function () {
-            var thisId = '#' + this.id
-            if (param.defaultContent == '') {
+            var thisId = "#" + this.id
+            if (param.defaultContent == "") {
               param.defaultContent = 1
             }
-            if (typeof param.defaultContent == 'number') {
-              var defaultTab = $(thisId + ' .tabs li:eq(' + (param.defaultContent - 1) + ') a')
-                .attr('href')
+            if (typeof param.defaultContent == "number") {
+              var defaultTab = $(thisId + " .tabs li:eq(" + (param.defaultContent - 1) + ") a")
+                .attr("href")
                 .substr(1)
             } else {
               var defaultTab = param.defaultContent
             }
-            $(thisId + ' .tabs li a').each(function () {
-              var tabToHide = $(this).attr('href').substr(1)
-              $('#' + tabToHide).addClass('easytabs-tab-content')
+            $(thisId + " .tabs li a").each(function () {
+              var tabToHide = $(this).attr("href").substr(1)
+              $("#" + tabToHide).addClass("easytabs-tab-content")
             })
             hideAll()
             changeContent(defaultTab)
             function hideAll() {
-              $(thisId + ' .easytabs-tab-content').hide()
+              $(thisId + " .easytabs-tab-content").hide()
             }
             function changeContent(tabId) {
               hideAll()
-              $(thisId + ' .tabs li').removeClass(param.activeClass)
-              $(thisId + ' .tabs li a[href=#' + tabId + ']')
-                .closest('li')
+              $(thisId + " .tabs li").removeClass(param.activeClass)
+              $(thisId + " .tabs li a[href=#" + tabId + "]")
+                .closest("li")
                 .addClass(param.activeClass)
-              if (param.fadeSpeed != 'none') {
-                $(thisId + ' #' + tabId).fadeIn(param.fadeSpeed)
+              if (param.fadeSpeed != "none") {
+                $(thisId + " #" + tabId).fadeIn(param.fadeSpeed)
               } else {
-                $(thisId + ' #' + tabId).show()
+                $(thisId + " #" + tabId).show()
               }
             }
-            $(thisId + ' .tabs li').click(function () {
-              var tabId = $(this).find('a').attr('href').substr(1)
+            $(thisId + " .tabs li").click(function () {
+              var tabId = $(this).find("a").attr("href").substr(1)
               changeContent(tabId)
               return false
             })
@@ -50,12 +57,20 @@
         }
       })(jQuery)
     </script>
-    <link rel="stylesheet" href="specimen_files/specimen_stylesheet.css" type="text/css" charset="utf-8" />
-    <link rel="stylesheet" href="stylesheet.css" type="text/css" charset="utf-8" />
+    <link
+      rel="stylesheet"
+      href="specimen_files/specimen_stylesheet.css"
+      type="text/css"
+      charset="utf-8">
+    <link
+      rel="stylesheet"
+      href="stylesheet.css"
+      type="text/css"
+      charset="utf-8">
 
     <style type="text/css">
       body {
-        font-family: 'roboto_condensedbold';
+        font-family: "roboto_condensedbold";
       }
     </style>
 
@@ -63,7 +78,7 @@
 
     <script charset="utf-8">
       $(document).ready(function () {
-        $('#container').easyTabs({ defaultContent: 1 })
+        $("#container").easyTabs({ defaultContent: 1 })
       })
     </script>
   </head>
@@ -188,7 +203,9 @@
             </div>
           </div>
 
-          <div class="section" id="bodycomparison">
+          <div
+            class="section"
+            id="bodycomparison">
             <div id="xheight">
               <div class="fontbody">
                 &#x25FC;&#x25FC;&#x25FC;&#x25FC;&#x25FC;&#x25FC;&#x25FC;&#x25FC;&#x25FC;&#x25FC;&#x25FC;&#x25FC;&#x25FC;&#x25FC;&#x25FC;&#x25FC;&#x25FC;&#x25FC;&#x25FC;&#x25FC;&#x25FC;&#x25FC;&#x25FC;&#x25FC;&#x25FC;&#x25FC;&#x25FC;&#x25FC;&#x25FC;&#x25FC;&#x25FC;&#x25FC;&#x25FC;&#x25FC;&#x25FC;&#x25FC;&#x25FC;&#x25FC;&#x25FC;&#x25FC;&#x25FC;&#x25FC;&#x25FC;&#x25FC;&#x25FC;&#x25FC;&#x25FC;&#x25FC;&#x25FC;&#x25FC;&#x25FC;&#x25FC;&#x25FC;&#x25FC;&#x25FC;&#x25FC;&#x25FC;&#x25FC;&#x25FC;&#x25FC;&#x25FC;&#x25FC;&#x25FC;&#x25FC;&#x25FC;&#x25FC;&#x25FC;&#x25FC;&#x25FC;&#x25FC;&#x25FC;&#x25FC;&#x25FC;&#x25FC;&#x25FC;&#x25FC;&#x25FC;&#x25FC;&#x25FC;&#x25FC;&#x25FC;&#x25FC;&#x25FC;&#x25FC;&#x25FC;&#x25FC;&#x25FC;&#x25FC;&#x25FC;&#x25FC;&#x25FC;&#x25FC;&#x25FC;&#x25FC;&#x25FC;&#x25FC;&#x25FC;&#x25FC;&#x25FC;body
@@ -197,25 +214,35 @@
               <div class="verdanabody">body</div>
               <div class="georgiabody">body</div>
             </div>
-            <div class="fontbody" style="z-index: 1">
+            <div
+              class="fontbody"
+              style="z-index: 1">
               body
               <span>Roboto Condensed Bold</span>
             </div>
-            <div class="arialbody" style="z-index: 1">
+            <div
+              class="arialbody"
+              style="z-index: 1">
               body
               <span>Arial</span>
             </div>
-            <div class="verdanabody" style="z-index: 1">
+            <div
+              class="verdanabody"
+              style="z-index: 1">
               body
               <span>Verdana</span>
             </div>
-            <div class="georgiabody" style="z-index: 1">
+            <div
+              class="georgiabody"
+              style="z-index: 1">
               body
               <span>Georgia</span>
             </div>
           </div>
 
-          <div class="section psample psample_row1" id="">
+          <div
+            class="section psample psample_row1"
+            id="">
             <div class="grid2 firstcol">
               <p class="size10">
                 <span>10.</span>
@@ -250,7 +277,9 @@
             </div>
             <div class="white_blend"></div>
           </div>
-          <div class="section psample psample_row2" id="">
+          <div
+            class="section psample psample_row2"
+            id="">
             <div class="grid3 firstcol">
               <p class="size14">
                 <span>14.</span>
@@ -279,7 +308,9 @@
             <div class="white_blend"></div>
           </div>
 
-          <div class="section psample psample_row3" id="">
+          <div
+            class="section psample psample_row3"
+            id="">
             <div class="grid5 firstcol">
               <p class="size20">
                 <span>20.</span>
@@ -300,7 +331,9 @@
             <div class="white_blend"></div>
           </div>
 
-          <div class="section psample psample_row4" id="">
+          <div
+            class="section psample psample_row4"
+            id="">
             <div class="grid12 firstcol">
               <p class="size30">
                 <span>30.</span>
@@ -376,7 +409,9 @@
             <div class="black_blend"></div>
           </div>
 
-          <div class="section psample fullreverse psample_row3" id="">
+          <div
+            class="section psample fullreverse psample_row3"
+            id="">
             <div class="grid5 firstcol">
               <p class="size20">
                 <span>20.</span>
@@ -397,7 +432,10 @@
             <div class="black_blend"></div>
           </div>
 
-          <div class="section psample fullreverse psample_row4" id="" style="border-bottom: 20px #000 solid">
+          <div
+            class="section psample fullreverse psample_row4"
+            id=""
+            style="border-bottom: 20px #000 solid">
             <div class="grid12 firstcol">
               <p class="size30">
                 <span>30.</span>
@@ -505,7 +543,7 @@
               <h1>Language Support</h1>
               <p>
                 The subset of Roboto Condensed Bold in this kit supports the following languages:
-                <br />
+                <br>
 
                 Albanian, Basque, Breton, Chamorro, Danish, Dutch, English, Faroese, Finnish, French, Frisian, Galician, German, Icelandic,
                 Italian, Malagasy, Norwegian, Portuguese, Spanish, Alsatian, Aragonese, Arapaho, Arrernte, Asturian, Aymara, Bislama,
@@ -1516,7 +1554,7 @@
               <div class="box">
                 <h2>
                   Troubleshooting
-                  <br />
+                  <br>
                   Font-Face Problems
                 </h2>
                 <p>

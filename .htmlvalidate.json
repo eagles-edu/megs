@@ -5,8 +5,8 @@
   "extends": ["html-validate:recommended", "html-validate:prettier"],
   "rules": {
     "doctype-style": "warn",
-    "void-style": "off",
-    "no-self-closing": "off",
+    "void-style": ["error", { "style": "omit" }],
+    "no-self-closing": ["error", { "ignoreForeign": true }],
     "close-order": "off",
     "prefer-button": "off",
     "wcag/h32": "off",

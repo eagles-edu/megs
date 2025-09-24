@@ -553,14 +553,6 @@ body.mobile-nav-enabled #sidebar.mobile-nav-open {
   }
 }
 
-.trans {
-  color: transparent;
-}
-
-.nodisplay {
-  display: none !important;
-}
-
 /* Tablesty1 style  */
 .tablesty1 {
   border-collapse: collapse !important;
@@ -637,4 +629,12 @@ h4.box-head4 {
 
 .uline {
   text-decoration: underline;
+}
+
+.nodisplay, .hidden {
+  display: none;
+}
+
+.trans {
+  color: transparent;
 }

@@ -1,0 +1,26 @@
+# folders
+node_modules/
+dist/
+build/
+reports/
+docs/
+node_modules/
+**/**/sto/
+**/**/.sto/
+**/**/_notes/
+.github/
+.gemini/
+.codacy/
+.codex/
+templates/
+media/
+modules/
+tmp/
+
+# files / globs
+**/*.min.html
+**/*.snapshot.html
+docs/legacy/**
+
+# re-include something previously ignored
+!docs/legacy/keep-this.html

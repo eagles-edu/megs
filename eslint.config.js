@@ -8,11 +8,11 @@
 // @ts-nocheck
 import js from '@eslint/js'
 import eslintConfigPrettier from 'eslint-config-prettier'
+import globals from "globals";
 
 export default [
   // Recommended JS rules
   js.configs.recommended,
-
   // Project-wide tweaks
   {
     files: ['**/*.{js,mjs,cjs}'],
@@ -20,6 +20,7 @@ export default [
       ecmaVersion: 'latest',
       sourceType: 'module',
       globals: {
+        ...globals.node,
         jQuery: 'readonly',
         Joomla: 'readonly',
         define: 'readonly',

@@ -1,23 +1,29 @@
 {
+  "logLevel": "debug",
   "printWidth": 100,
   "tabWidth": 2,
   "useTabs": false,
   "semi": false,
-  "singleQuote": true,
+  "singleQuote": false,
   "trailingComma": "es5",
   "bracketSpacing": true,
   "bracketSameLine": true,
   "arrowParens": "always",
-  "singleAttributePerLine": false,
+  "singleAttributePerLine": true,
   "htmlWhitespaceSensitivity": "ignore",
   "overrides": [
     {
       "files": ["*.html", "*.htm"],
       "options": {
-        "printWidth": 140,
+        "parser": "html",               // 👈 force HTML parser
         "bracketSameLine": true,
-        "singleAttributePerLine": false,
-        "htmlWhitespaceSensitivity": "ignore"
+        "singleAttributePerLine": true,
+        "printWidth": 140,
+        "htmlWhitespaceSensitivity": "ignore",
+        {
+        "files": ["*.html","*.htm"],
+        "options": { "parser": "html" }
+      }
       }
     }
   ]

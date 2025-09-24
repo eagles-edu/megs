@@ -1,6 +1,6 @@
 {
   // VS Code tasks to run bulk cleanup safely. Run in order.
-  "version": "2.0.0",
+  "version": "2.0.1",
   "tasks": [
     {
       "label": "backup-html",
@@ -53,6 +53,32 @@
       "command": "set -e; for f in $(rg -l --type-add html:*.html '#[0-9a-fA-F]{3,8}'); do perl -0777 -pe 's/#(?:E0162B|e0162b)\b/var(--primary-color)/g; s/#(?:004c75|000d4d)\b/var(--link-color)/g; s/#(?:f4f6f7|F4F6F7|f0f0ee|F0F0EE)\b/var(--surface-1)/g; s/#(?:fff|FFF|ffffff|FFFFFF)\b/var(--surface-color)/g; s/#(?:000|000000)\b/var(--text-color)/g; s/#333333\b/var(--color-strong)/g' -i \"$f\"; done; echo 'Applied safe theme mappings to inline colors'",
       "problemMatcher": [],
       "dependsOn": ["backup-html"]
+    },
+{
+  "label": "HTML-Validate: Active File (log + Problems)",
+  "type": "shell",
+  "options": { "cwd": "${workspaceFolder}" },
+  "command": "bash",
+  "args": [
+    "-lc",
+    "html-validate -f json \"${file}\" | npm run -s htmlvalidate:pretty"
+  ],
+  "problemMatcher": {
+    "owner": "html-validate",
+    "fileLocation": ["relative", "${workspaceFolder}"],
+    "pattern": [
+      {
+        "regexp": "^(.+?):(\\d+):(\\d+):? \\[(error|warning)\\] (.*?)(?: \\(([^)]+)\\))?$",
+        "file": 1,
+        "line": 2,
+        "column": 3,
+        "severity": 4,
+        "message": 5,
+        "code": 6
+      }
+    ]
+    },
+    "presentation": { "reveal": "always", "panel": "dedicated", "clear": true }
     }
   ]
 }

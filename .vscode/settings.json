@@ -1,4 +1,18 @@
 {
+  // Ensure files are treated as HTML (not XML)
+  "files.associations": { "*.html": "html", "*.htm": "html" },
+
+  // Disable built-in HTML formatters so it can't fight Prettier
+  "css.format.enable": false,
+  "javascript.format.enable": false,
+  "json.format.enable": false,
+  "less.format.enable": false,
+  "scss.format.enable": false,
+  "typescript.format.enable": false,
+  "yaml.format.enable": false,
+
+  "html.format.enable": true,
+
   "css.autoValidation": "Never",
   "css.validate": false,
   "html.validate.scripts": false,
@@ -11,30 +25,25 @@
   "scss.validate": false,
   "typescript.validate.enable": false,
   "yaml.validate": false,
+
   // "terminal.external.linuxExec": "gnome-terminal",
   "terminal.explorerKind": "external",
 
   "html.trace.server": "messages",
   "css.lint.boxModel": "ignore",
 
-  "css.format.enable": false,
-  "html.format.enable": false,
-  "javascript.format.enable": false,
-  "json.format.enable": false,
-  "less.format.enable": false,
-  "scss.format.enable": false,
-  "typescript.format.enable": false,
-  "yaml.format.enable": false,
-  // Disable built-in HTML formatter so it can't fight Prettier
-
   // Prettier is THE formatter
   "prettier.requireConfig": true,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.formatOnSave": false,
+
+  // Keep Prettier away from HTML files entirely
+  "prettier.disableLanguages": ["html", "htm"],
+
   // Per-language default formatter (keeps things predictable)
   "[html]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.formatOnSave": false
+    "editor.defaultFormatter": "vscode.html-language-features",
+    "editor.formatOnSave": true
   },
   "[vue]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
@@ -79,6 +88,7 @@
   "css.lint.float": "ignore",
   "scss.lint.float": "ignore",
   "less.lint.float": "ignore",
+
   // Emmet: generate HTML-style void tags (<br>, <meta>, <link>) without closing slash
   "emmet.preferences": {
     "output.selfClosingStyle": "html"
@@ -88,6 +98,16 @@
       "selfClosingStyle": "html"
     }
   },
+{
+  // show the NPM Scripts view and scan for scripts
+  "npm.enableScriptExplorer": true,
+  "npm.autoDetect": "on",
+
+  // don't hide any package.json with exclude rules
+  "npm.exclude": [],
+},
+{
+
   // Help HTML/CSS validators/extensions resolve class definitions across workspace
   "html-css-class-completion.includeGlobPattern": "**/*.{css,scss,less}",
   "cSpell.words": [
@@ -168,20 +188,24 @@
     "menuicon",
     "modlgn",
     "moobs",
+    "nderwater",
     "newsfeed",
     "newstyle",
     "Nobu",
     "noheader",
     "Nonfinite",
     "onald",
+    "ontained",
     "Plec",
     "postnominal",
     "postpositives",
     "postpositve",
+    "pparatus",
     "praps",
     "prepositively",
     "raab",
     "rcorners",
+    "reathing",
     "rebracketing",
     "redb",
     "regextype",
@@ -252,6 +276,9 @@
       "args": ["/home/eagles/dockerz/megs"]
     }
   },
+  "npm.enableScriptExplorer": true,
+  "npm.autoDetect": "on",
+  "npm.exclude": []  "npm.enableScriptExplorer": true,
   "highlight.decorations": { "rangeBehavior": 3 },
   "highlight.regexFlags": "gim",
   "highlight.maxMatches": 1000,
@@ -454,7 +481,5 @@
     "qa-accordion.css",
     "exercise-1-nouns/111-common-nouns-codex.html"
   ],
-  "cssVarHover.ignoredFiles": [
-    "lists/68-grammar-lists/619-list-12-conjunctions.html"
-  ]
+  "cssVarHover.ignoredFiles": ["lists/68-grammar-lists/619-list-12-conjunctions.html"]
 }
