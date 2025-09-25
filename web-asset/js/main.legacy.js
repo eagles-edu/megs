@@ -439,7 +439,6 @@
       initJQueryCompat()
       window._qaAccordionBound = true
     } catch (e) {
-      // eslint-disable-next-line no-undef
       if (console && console.warn) console.warn('Bundle init error:', e)
     }
   }

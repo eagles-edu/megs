@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 // scripts/persistence-manager.js
 // Purpose: Single-source persistence manager that ingests persistence/remember.json
 // and the structured persistence history log, derives context (last 6 days and last

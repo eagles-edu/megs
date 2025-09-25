@@ -77,10 +77,26 @@ secrets.*
 credentials.*
 settings.*
 
-
 # keep essential tracked files/folders despite broad ignores above
 !.gitignore
 !.github/
 !.github/**
+
+# specifies files
 frame.html
 opensans-bold-demo.html
+dedupe-css.js
+diagnose.js
+eagleeye-domain-update.sh
+domains.map
+migrate-legacy-to-persistence.js
+persistence-manager.js
+READMEinline-css-extract.md
+scan_dead_css.py
+scan_sampled_assets.py
+session-heartbeat.js
+show-last-note.sh
+startup-new.sh
+startup.sh
+status-refresh.js
+
