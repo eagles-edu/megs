@@ -25,7 +25,8 @@ npm-debug.log*
 docs/
 tmp/
 persistence/
-scripts/
+
+
 lists2 - Copy/
 .stylelintignore
 *.log.txt
