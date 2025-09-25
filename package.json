@@ -11,10 +11,10 @@
   "engines": {
     "node": "=20"
   },
-    "scripts": {
+  "scripts": {
     "start": "bash scripts/startup-new.sh",
     "diagnose": "node scripts/diagnose.js",
-    "verify:prototype": "node scripts/verify-prototype.js",
+    "verify:prototype": "node scripts/verify-prototype.mjs",
     "verify:live": "node scripts/verify-live.js",
     "smoke:pages": "node scripts/smoke-pages.js",
     "migrate:legacy": "node scripts/migrate-legacy-to-persistence.js --apply",
@@ -42,7 +42,7 @@
     "critical:inline": "node scripts/generate-critical.js exercise-1-nouns/111-common-nouns-codex.html",
     "mcp:context7": "npx --no-update-notifier -y @upstash/context7-mcp",
     "mcp:seq-think": "npx --no-update-notifier -y @modelcontextprotocol/sequential-thinking-mcp"
-},
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/eagles-edu/megs.git"
