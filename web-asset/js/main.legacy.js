@@ -62,13 +62,13 @@
       li.addEventListener('mouseenter', function () {
         li.classList.add('opened')
         wrapper.style.display = 'block'
-        if (btnImg) btnImg.src = '../web-asset/icons/svg/minus5.svg'
+        if (btnImg) btnImg.src = "../web-asset/icons/svg/sized/minus5.svg"
       })
 
       li.addEventListener('mouseleave', function () {
         li.classList.remove('opened')
         wrapper.style.display = 'none'
-        if (btnImg) btnImg.src = '../web-asset/icons/svg/plus3.svg'
+        if (btnImg) btnImg.src = "../web-asset/icons/svg/sized/plus3.svg"
       })
     })
   }
@@ -104,13 +104,13 @@
         li.addEventListener('mouseenter', function () {
           li.classList.add('opened')
           wrapper.style.display = 'block'
-          if (btnImg) btnImg.src = '../web-asset/icons/svg/minus5.svg'
+          if (btnImg) btnImg.src = "../web-asset/icons/svg/sized/minus5.svg"
         })
 
         li.addEventListener('mouseleave', function () {
           li.classList.remove('opened')
           wrapper.style.display = 'none'
-          if (btnImg) btnImg.src = '../web-asset/icons/svg/plus3.svg'
+          if (btnImg) btnImg.src = "../web-asset/icons/svg/sized/plus3.svg"
         })
       })
     })
@@ -381,12 +381,12 @@
           li.addEventListener('mouseenter', function () {
             li.classList.add('opened')
             wrapper.style.display = 'block'
-            if (btnImg) btnImg.src = '../web-asset/icons/svg/minus5.svg'
+            if (btnImg) btnImg.src = "../web-asset/icons/svg/sized/minus5.svg"
           })
           li.addEventListener('mouseleave', function () {
             li.classList.remove('opened')
             wrapper.style.display = 'none'
-            if (btnImg) btnImg.src = '../web-asset/icons/svg/plus3.svg'
+            if (btnImg) btnImg.src = "../web-asset/icons/svg/sized/plus3.svg"
           })
         })
       }

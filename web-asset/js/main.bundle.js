@@ -61,13 +61,13 @@ const LeftMenu = {
       li.addEventListener('mouseenter', () => {
         li.classList.add('opened')
         wrapper.style.display = 'block'
-        if (btnImg) btnImg.src = '../web-asset/icons/svg/minus5.svg'
+        if (btnImg) btnImg.src = "../web-asset/icons/svg/sized/sized/minus5.svg"
       })
 
       li.addEventListener('mouseleave', () => {
         li.classList.remove('opened')
         wrapper.style.display = 'none'
-        if (btnImg) btnImg.src = '../web-asset/icons/svg/plus3.svg'
+        if (btnImg) btnImg.src = "../web-asset/icons/svg/sized/plus3.svg"
       })
     })
   },
@@ -106,13 +106,13 @@ const FlyoutMenu = {
         li.addEventListener('mouseenter', () => {
           li.classList.add('opened')
           wrapper.style.display = 'block'
-          if (btnImg) btnImg.src = '../web-asset/icons/svg/minus5.svg'
+          if (btnImg) btnImg.src = "../web-asset/icons/svg/sized/minus5.svg"
         })
 
         li.addEventListener('mouseleave', () => {
           li.classList.remove('opened')
           wrapper.style.display = 'none'
-          if (btnImg) btnImg.src = '../web-asset/icons/svg/plus3.svg'
+          if (btnImg) btnImg.src = "../web-asset/icons/svg/sized/plus3.svg"
         })
       })
     })
@@ -381,12 +381,12 @@ class MobileNavigation {
           li.addEventListener('mouseenter', () => {
             li.classList.add('opened')
             wrapper.style.display = 'block'
-            if (btnImg) btnImg.src = '../web-asset/icons/svg/minus5.svg'
+            if (btnImg) btnImg.src = "../web-asset/icons/svg/sized/minus5.svg"
           })
           li.addEventListener('mouseleave', () => {
             li.classList.remove('opened')
             wrapper.style.display = 'none'
-            if (btnImg) btnImg.src = '../web-asset/icons/svg/plus3.svg'
+            if (btnImg) btnImg.src = "../web-asset/icons/svg/sized/plus3.svg"
           })
         })
       }

@@ -12,7 +12,6 @@
   Exit code: 0 if all critical checks pass, 1 otherwise.
 */
 import fs from 'node:fs';
-import fsp from 'node:fs/promises';
 import path from 'node:path';
 
 const ROOT = process.cwd();
@@ -69,7 +68,9 @@ function isRunning(pid) { try { return process.kill(pid, 0), true; } catch { ret
       try {
         const obj = JSON.parse(lines[i]);
         if (obj && obj.type === 'heartbeat') { lastHeartbeat = obj; break; }
-      } catch {}
+      } catch {
+        continue;
+      }
     }
   }
   if (lastHeartbeat && timeWithin(lastHeartbeat.ts || lastHeartbeat.timestamp, 5)) {

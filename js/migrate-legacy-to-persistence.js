@@ -28,7 +28,6 @@ function toISO(d = Date.now()) { return new Date(d).toISOString(); }
 function ensureDir(p) { if (!fs.existsSync(p)) fs.mkdirSync(p, { recursive: true }); }
 function read(file) { try { return fs.readFileSync(file, 'utf8'); } catch { return ''; } }
 function write(file, data) { ensureDir(path.dirname(file)); fs.writeFileSync(file, data, 'utf8'); }
-function append(file, data) { ensureDir(path.dirname(file)); fs.appendFileSync(file, data, 'utf8'); }
 
 function parseJSONL(raw) {
   return raw.split(/\r?\n/).filter(Boolean).map(l=>{ try { return JSON.parse(l);} catch { return null; } }).filter(Boolean);
@@ -123,10 +122,12 @@ function migrate() {
   // Remove legacy remnants
   const rm = (p) => { try {
     if (fs.existsSync(p)) {
-      if (fs.lstatSync(p).isDirectory()) fs.rmSync(p, { recursive: true, force: true });
-      else fs.unlinkSync(p);
+      if (fs.lstatSync(p).isDirectory()) fs.rmSync(p, { recursive: true, force: true })
+      else fs.unlinkSync(p)
     }
-  } catch {}
+  } catch (error) {
+    console.warn("[migrate:legacy] failed to remove legacy path", p, error.message)
+  }
   };
   rm(CODEX_LOG);
   rm(CODEX_ARCH);

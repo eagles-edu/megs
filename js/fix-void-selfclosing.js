@@ -1,14 +1,12 @@
 #!/usr/bin/env node
 /*
- Replace XML-style self-closing syntax on HTML void elements with omitted-end-tag style.
- Affects only: area, base, br, col, embed, hr, img, input, link, meta, param, source, track, wbr
- Usage: node scripts/fix-void-selfclosing.js [globs...]
- If no globs passed, defaults to all .html and .htm files.
+  Replace XML-style self-closing syntax on HTML void elements with omitted-end-tag style.
+  Affects only: area, base, br, col, embed, hr, img, input, link, meta, param, source, track, wbr
+  Usage: node scripts/fix-void-selfclosing.js [globs...]
+  If no globs passed, defaults to all .html and .htm files.
 */
 import fs from 'node:fs';
 import path from 'node:path';
-
-const DEFAULT_GLOBS = ["**/*.html", "**/*.htm"];
 
 // simple glob walker (no deps): recurse and filter by extensions
 function* walk(dir) {

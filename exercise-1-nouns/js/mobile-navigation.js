@@ -29,7 +29,6 @@ class MobileNavigation {
   createMobileElements() {
     this.sidebar = document.getElementById('sidebar')
     if (!this.sidebar) {
-      // eslint-disable-next-line no-undef
       console.warn('Sidebar element not found')
       return
     }
@@ -82,7 +81,6 @@ class MobileNavigation {
     this.sidebar?.addEventListener('click', (e) => {
       if (this.mediaQuery.matches && e.target.tagName === 'A') {
         // Small delay to allow navigation to start before closing menu
-        // eslint-disable-next-line no-undef
         setTimeout(() => this.closeMenu(), 150)
       }
     })

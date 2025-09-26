@@ -10,7 +10,6 @@
     node scripts/session-heartbeat.js --stop    # stop running daemon
 */
 import fs from 'node:fs';
-import fsp from 'node:fs/promises';
 import path from 'node:path';
 import { spawn } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
@@ -41,7 +40,12 @@ function getStats() {
   const historyEntries = histRaw ? histRaw.split(/\r?\n/).filter(Boolean).length : 0;
   const rememberRaw = read(REMEMBER);
   let rememberUpdatedAt = null;
-  try { rememberUpdatedAt = JSON.parse(rememberRaw)?.updated_at || null; } catch {}
+    try {
+      rememberUpdatedAt = JSON.parse(rememberRaw)?.updated_at || null
+    } catch (error) {
+      console.warn("[heartbeat] unable to parse remember.json", error.message)
+      rememberUpdatedAt = null
+    }
   return {
     history_entries: historyEntries,
     history_bytes: size(HISTORY),
@@ -63,7 +67,12 @@ async function stop() {
   if (!fileExists(PID_FILE)) { console.log('[heartbeat] no pid file'); return; }
   const pid = Number(read(PID_FILE).trim());
   if (!pid || !isRunning(pid)) {
-    try { fs.unlinkSync(PID_FILE); } catch {}
+        try {
+          fs.unlinkSync(PID_FILE)
+        } catch (error) {
+          if (error.code !== "ENOENT")
+            console.warn("[heartbeat] failed to remove stale pid file", error.message)
+        }
     console.log('[heartbeat] not running');
     return;
   }
@@ -105,10 +114,13 @@ async function daemon() {
     // On meaningful change, refresh status.json (non-invasive, no history write)
     if (changed) {
       try {
-        const { spawnSync } = await import('node:child_process');
-        const res = spawnSync(process.execPath, [path.join(ROOT, 'scripts', 'status-refresh.js')], { stdio: 'ignore' });
-        // ignore errors; heartbeat must not crash
-      } catch {}
+        const { spawnSync } = await import("node:child_process")
+        spawnSync(process.execPath, [path.join(ROOT, "scripts", "status-refresh.js")], {
+          stdio: "ignore",
+        })
+      } catch (error) {
+        console.warn("[heartbeat] status refresh failed", error.message)
+      }
     }
   }
   // graceful close marker
@@ -123,7 +135,12 @@ async function start() {
       console.log('[heartbeat] already running with pid', pid);
       return;
     } else {
-      try { fs.unlinkSync(PID_FILE); } catch {}
+            try {
+              fs.unlinkSync(PID_FILE)
+            } catch (error) {
+              if (error.code !== "ENOENT")
+                console.warn("[heartbeat] failed to clean pid file", error.message)
+            }
     }
   }
 
