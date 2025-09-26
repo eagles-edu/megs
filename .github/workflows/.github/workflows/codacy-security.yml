@@ -4,11 +4,11 @@ on:
   push:
     branches:
       - main
-      - refactor-025-08-25
+      - refactor-2025-08-25
   pull_request:
     branches:
       - main
-      - refactor-025-08-25
+      - refactor-2025-08-25
 
 permissions:
   contents: read
