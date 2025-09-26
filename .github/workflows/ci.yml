@@ -1,4 +1,15 @@
-environment:
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  ci:
+    runs-on: ubuntu-22.04
+    env:
+      CODACY_PROJECT_TOKEN: ${{ secrets.CODACY_PROJECT_TOKEN }}
+    environment:
       name: megs_env
     steps:
       - name: Checkout
@@ -8,7 +19,7 @@ environment:
         uses: actions/setup-node@v4
         with:
           node-version-file: .nvmrc
-          cache: 'npm'
+          cache: "npm"
 
       - name: Install
         run: npm ci

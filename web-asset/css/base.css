@@ -381,7 +381,6 @@ pre {
   margin-left: auto;
 }
 
-/* No full-width stretch on small viewports; buttons remain content-sized */
 @media (width <= 479.98px) {
   .pager {
     align-items: stretch;
@@ -401,8 +400,6 @@ pre {
     margin-left: 0;
   }
 }
-
-/* On wider viewports buttons remain content-sized */
 
 /* Ensure pager icons reserve space and avoid layout shifts */
 .pager img {

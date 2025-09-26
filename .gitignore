@@ -17,12 +17,9 @@ npm-debug.log*
 
 # codex persistence (keep untracked)
 .codex/
-.codacy/
 .continue/
-.github/
 .history-memo/
 .zencoder/
-docs/
 tmp/
 persistence/
 scripts/
@@ -81,13 +78,22 @@ settings.*
 !.gitignore
 !.github/
 !.github/**
-!scripts/verify-prototype.mjs
+!js/verify-prototype.mjs
+
 # specifies files
 frame.html
 
-
-
-
-
 #Ignore vscode AI rules
 .github/instructions/codacy.instructions.md
+codet.html
+docs/codet.html
+download.txt
+codex-working.txt
+docs/lighthouse-*.json
+lighthouse*.*
+127.0.0.1*.json
+127.0.0.1*.*
+docs/scratch2.md
+docs/gemini.md
+docs/111-common-nouns.html.console.txt
+docs/session-log.md
