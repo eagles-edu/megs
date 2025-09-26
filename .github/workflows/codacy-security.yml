@@ -33,7 +33,7 @@ jobs:
           format: sarif
           gh-code-scanning-compat: true
           max-allowed-issues: 999999
-          extra-args: --config eslint.config.js
+          tool: trivy
 
       - name: Upload SARIF results
         uses: github/codeql-action/upload-sarif@v2

@@ -1,7 +1,12 @@
 runtimes:
     - node@20.19.4
+
 tools:
     - eslint@9.33.0
+    - trivy
+
+tool_configurations:
+    trivy: .codacy/tools-configs/trivy.yaml
 
 exclude_paths:
     - "**/**/*.md"
