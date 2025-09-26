@@ -1,7 +1,7 @@
 #!/usr/bin/env node
-const fs = require('fs');
-const path = require('path');
-const critical = require('critical');
+import fs from 'node:fs';
+import path from 'node:path';
+import * as critical from 'critical';
 
 (async function main() {
   const htmlPath = process.argv[2] || 'exercise-1-nouns/111-common-nouns-codex.html';
@@ -22,10 +22,10 @@ const critical = require('critical');
     css: cssList,
     inline: false,
     rebase: false,
-    minify: true,
+    cleanCSS: {},
     width: 412,
-    height: 915
-  });
+    height: 915,
+  })
 
   const html = fs.readFileSync(src, 'utf8');
   const start = '<style id="critical-inline">';
