@@ -22,63 +22,79 @@
   <!-- Minimal theme tokens inline to avoid var() FOUC when base.css loads async -->
   <style id="theme-vars-critical">
     :root {
-      /* Brand core */
-      --primary-color: #e0162b;
-      /* locked */
-      --secondary-color: #f5f8ff;
-      /* white */
-      --tertiary-color: #002786;
-      /* locked */
-      --text-color: #212121;
-      /* locked */
-      --icon-color-on-lt: #8a94a8;
-      /* locked */
+      --background-color: #505050;
       --icon-color-on-dk: #f5f8ff;
+      --icon-color-on-lt: #8a94a8;
+      --primary-color: #e0162b;
+      --secondary-color: #f5f8ff;
+      --tertiary-color: #002786;
+      --text-color: #212121;
+      /* pager variables  */
+      --pager-gap-x: 14px;
+      --pager-gap-y: 10px;
+      --pager-padding-block: 0.6rem;
+      --pager-padding-inline: 0.95rem;
+      --pager-border-radius: 6px;
+      --pager-border-color: var(--border-color, #d0d6e4);
+      --pager-background: var(--surface-color, #fff);
+      --pager-text-color: var(--text-color, #212121);
+      --pager-font-size: clamp(0.9rem, 0.85rem + 0.2vw, 1.05rem);
+      --pager-font-weight: 600;
+      --pager-icon-size: 1.25rem;
+      --pager-label-wrap: nowrap;
+      --pager-label-truncate: ellipsis;
+      --pager-link-shadow: inset 0 0 0 1px rgb(255 255 255 / 35%);
+      --pager-hover-shadow: 0 0 0 3px rgb(224 22 43 / 15%);
+      /* Brand core */
+      /* locked */
+      /* white */
+      /* locked */
+      /* locked */
+      /* locked */
       /* locked */
       /* Layout surfaces */
-      --background-color: #505050;
       /* page background behind light content */
     }
 
     /* Preload critical image dimensions to prevent CLS */
     img[src*="banner.png"] {
-      width: 650px;
       height: 120px;
+      width: 650px;
     }
 
     img[src*="arrow.png"] {
-      width: 9px;
       height: 9px;
+      width: 9px;
     }
 
     img[src*="menuico"] {
-      width: 24px;
       height: 24px;
       max-height: 28px;
+      width: 24px;
     }
 
     img[src*="../web-asset/icons/svg/sized/plus3.svg"] {
-      width: 24px;
       height: 24px;
       max-height: 28px;
+      width: 24px;
     }
 
     img[src*="../web-asset/icons/svg/sized/minus5.svg"] {
-      width: 24px;
       height: 24px;
       max-height: 28px;
+      width: 24px;
     }
 
     img[src*="../web-asset/icons/svg/sized/angle-left.svg"] {
-      width: auto;
       height: 24px;
       max-height: 28px;
+      width: auto;
     }
 
     img[src*="../web-asset/icons/svg/sized/angle-right.svg"] {
-      width: auto;
       height: 24px;
       max-height: 28px;
+      width: auto;
     }
   </style>
   <!-- Base CSS (SSOT) async with print-swap to improve FCP/LCP -->
@@ -87,7 +103,98 @@
   <noscript>
     <link rel="stylesheet" href="../web-asset/css/base.css">
   </noscript>
+  <style id="pager-style-overrides">
+    .pager {
+      align-items: stretch;
+      display: flex;
+      flex-wrap: var(--pager-flex-wrap, nowrap);
+      gap: var(--pager-gap-y) var(--pager-gap-x);
+      justify-content: space-between;
+      list-style: none;
+      margin: 1.5rem 0;
+      max-width: 100%;
+      padding: 0;
+      width: 100%;
+    }
 
+    .pager>li {
+      display: flex;
+      flex: 1 1 0;
+      min-width: 0;
+    }
+
+    .pager>li>a {
+      align-items: center;
+      background: var(--pager-background);
+      border: 1px solid var(--pager-border-color);
+      border-radius: var(--pager-border-radius);
+      box-shadow: var(--pager-link-shadow);
+      color: var(--pager-text-color);
+      display: inline-flex;
+      font-size: var(--pager-font-size);
+      font-weight: var(--pager-font-weight);
+      gap: calc(var(--pager-gap-x) * 0.5);
+      justify-content: space-between;
+      min-height: calc(var(--pager-icon-size) + (var(--pager-padding-block) * 2));
+      overflow: hidden;
+      padding: var(--pager-padding-block) var(--pager-padding-inline);
+      text-decoration: none;
+      text-overflow: var(--pager-label-truncate);
+      white-space: var(--pager-label-wrap);
+      width: 100%;
+      transition: color 0.2s ease, background-color 0.2s ease, border-color 0.2s ease,
+        box-shadow 0.2s ease;
+    }
+
+    .pager>li>a:focus,
+    .pager>li>a:hover {
+      border-color: var(--primary-color);
+      box-shadow: var(--pager-hover-shadow);
+      color: var(--primary-color);
+      outline: none;
+    }
+
+    .pager>li>a:focus-visible {
+      outline: none;
+    }
+
+    .pager>li>a:active {
+      box-shadow: inset 0 0 0 2px rgba(224, 22, 43, 0.15);
+    }
+
+    .pager .previous>a {
+      justify-content: flex-start;
+    }
+
+    .pager .next {
+      margin-left: auto;
+    }
+
+    .pager .next>a {
+      justify-content: flex-end;
+    }
+
+    .pager>li>a svg,
+    .pager>li>a img {
+      flex: 0 0 auto;
+      height: var(--pager-icon-size);
+      width: var(--pager-icon-size);
+    }
+
+    .pager>li>a svg {
+      fill: currentColor;
+    }
+
+    @media (max-width: 599px) {
+      .pager {
+        flex-wrap: var(--pager-flex-wrap-mobile, wrap);
+      }
+
+      .pager>li {
+        flex-basis: var(--pager-mobile-item-width, 100%);
+      }
+    }
+  </style>
   <!-- Critical resource hints for better performance -->
   <link rel="dns-prefetch" href="../images/">
   <link rel="dns-prefetch" href="../web-asset/">
@@ -111,31 +218,32 @@
 
     @media (max-width: 767px) {
       .mobile-menu-toggle {
-        position: fixed;
-        top: 12px;
-        right: 12px;
-        width: 40px;
-        height: 40px;
-        border-radius: 4px;
         background: var(--primary-color);
         border: 1px solid var(--primary-color);
-        z-index: 1200;
+        border-radius: 4px;
         display: block;
+        height: 40px;
+        position: fixed;
+        right: 12px;
+        top: 12px;
+        width: 40px;
+        z-index: 1200;
       }
 
       .mobile-menu-toggle::before {
         content: '\00E289A1';
       }
 
-      /* Fallback for browsers not decoding \00E289A1: use explicit ≡ */
       .mobile-menu-toggle::before {
+        color: var(--white);
         content: '\2261';
         display: block;
+        font-size: 22px;
         line-height: 40px;
         text-align: center;
-        font-size: 22px;
-        color: var(--white);
       }
+
+      /* Fallback for browsers not decoding \00E289A1: use explicit ≡ */
     }
   </style>
 
@@ -171,33 +279,33 @@
 
     /* Left accordion menu: reserve icon/text layout early */
     ul.accordion-menu {
-      list-style: none;
-      margin: 0;
-      padding: 0;
       border: 1px solid var(--border-color);
       font-size: 0.85em;
+      list-style: none;
+      margin: 0;
       overflow: hidden;
+      padding: 0;
     }
 
     ul.accordion-menu .item-wrapper {
-      display: flex;
       align-items: center;
+      display: flex;
       gap: var(--icon-gap, 8px);
     }
 
     ul.accordion-menu .menu-button {
-      flex: 0 0 var(--icon-slot, 24px);
-      display: flex;
       align-items: center;
+      display: flex;
+      flex: 0 0 var(--icon-slot, 24px);
       justify-content: flex-start;
       padding-left: var(--menu-icon-pad-left, 6px);
     }
 
     /* Match button-right spacing/line-height from left-menu.css to prevent flash */
     ul.accordion-menu.button-right li>.item-wrapper>.menu-button {
-      padding: 12px 0;
-      line-height: 10px;
       float: right;
+      line-height: 10px;
+      padding: 12px 0;
     }
 
     ul.accordion-menu.button-right li>.item-wrapper>.menu-button>img {
@@ -210,29 +318,29 @@
 
     ul.accordion-menu .menu-link {
       flex: 1 1 auto;
-      min-width: 0;
       min-height: 35px;
+      min-width: 0;
       overflow: hidden;
     }
 
     ul.accordion-menu .menu-link>a,
     ul.accordion-menu .menu-link>p {
-      display: flex;
       align-items: center;
+      background: none;
+      display: flex;
       gap: 8px;
-      width: 90%;
       padding: 10px 10px 9px;
       text-decoration: none;
-      background: none;
+      width: 90%;
     }
 
     ul.accordion-menu .menu-link>a>img,
     ul.accordion-menu .menu-link>p>img {
-      vertical-align: middle;
       border: 0;
       height: auto;
       max-width: 100%;
       padding: 0 5px 0 0;
+      vertical-align: middle;
     }
 
     ul.accordion-menu>li>.item-wrapper>.menu-link>a,
@@ -251,17 +359,17 @@
 
     /* Icon sizing tied to text; reserve shape via aspect-ratio */
     ul.accordion-menu .menu-button>img {
-      height: var(--icon-size, 1em);
-      width: auto;
       aspect-ratio: 1 / 1;
+      height: var(--icon-size, 1em);
       object-fit: contain;
+      width: auto;
     }
 
     ul.accordion-menu .menu-link img {
-      height: var(--icon-size, 1em);
-      width: auto;
       aspect-ratio: 1 / 1;
+      height: var(--icon-size, 1em);
       object-fit: contain;
+      width: auto;
     }
 
     /* Pager arrows: reserve space */
@@ -274,8 +382,8 @@
     }
 
     .pager img {
-      width: 12px;
       height: 12px;
+      width: 12px;
     }
 
     /* Flyout (right menu): hide nested lists until CSS loads; reserve icon slot */
@@ -284,25 +392,25 @@
     }
 
     ul.flyout-menu .item-wrapper {
-      display: flex;
       align-items: center;
+      display: flex;
       gap: var(--icon-gap, 8px);
     }
 
     ul.flyout-menu .menu-button {
-      flex: 0 0 var(--icon-slot, 24px);
-      display: flex;
       align-items: center;
+      display: flex;
+      flex: 0 0 var(--icon-slot, 24px);
       justify-content: flex-start;
       padding-left: var(--menu-icon-pad-left, 6px);
     }
 
     ul.flyout-menu .menu-button>img,
     ul.flyout-menu .menu-link img {
-      height: var(--icon-size, 1em);
-      width: auto;
       aspect-ratio: 1 / 1;
+      height: var(--icon-size, 1em);
       object-fit: contain;
+      width: auto;
     }
 
     /* QA accordion: collapse bodies before async CSS/JS to prevent flash */
@@ -323,15 +431,15 @@
 
     /* Breadcrumb divider icon explicit size, belt-and-suspenders */
     ul.breadcrumb>li>span.divider>img {
-      width: 9px;
       height: 9px;
+      width: 9px;
     }
 
     /* Additional CLS prevention: stabilize accordion toggle heights */
     .nn_sliders-toggle {
-      min-height: 44px;
-      display: flex;
       align-items: center;
+      display: flex;
+      min-height: 44px;
     }
 
     .nn_sliders-toggle-inner {
@@ -359,24 +467,39 @@
   <script>
     ( function () {
       function injectSpeculation() {
+
         try
         {
+
           var s = document.createElement( 'script' );
           s.type = 'speculationrules';
           s.text = JSON.stringify( {
-            prefetch: [ { source: 'list', urls: [ '112-proper-nouns.html' ] } ],
-            prerender: [ { source: 'list', urls: [ '112-proper-nouns.html' ], eagerness: 'moderate' } ]
+            prefetch: [ {
+
+              source: 'list', urls: [ '112-proper-nouns.html' ]
+            } ],
+            prerender: [ {
+
+              source: 'list', urls: [ '112-proper-nouns.html' ], eagerness: 'moderate'
+            } ]
           } );
           document.head.appendChild( s );
-        } catch ( e ) { /* no-op */ }
+        } catch ( e )
+        {
+          /* no-op */
+        }
       }
       if ( document.readyState === 'complete' )
       {
+
         injectSpeculation();
       } else
       {
         window.addEventListener( 'load', function () {
-          if ( 'requestIdleCallback' in window ) requestIdleCallback( injectSpeculation, { timeout: 2000 } );
+          if ( 'requestIdleCallback' in window ) requestIdleCallback( injectSpeculation, {
+
+            timeout: 2000
+          } );
           else setTimeout( injectSpeculation, 500 );
         } );
       }
@@ -421,8 +544,8 @@
   <noscript>
     <style>
       #content .accordion-body {
-        max-height: none !important;
         height: auto !important;
+        max-height: none !important;
         overflow: visible !important;
       }
     </style>
@@ -470,7 +593,8 @@
                       <div class="menu-button"></div>
                       <div class="menu-link">
                         <a href="../grammar-lessons.html" aria-label="Lessons">
-                          <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 48 48">
+                          <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                            viewBox="0 0 48 48">
                             <title>display</title>
                             <path d="M0 3v30h48v-30h-48zM45 30h-42v-24h42v24zM31.5 36h-15l-1.5 6-3 3h24l-3-3z"></path>
                           </svg>
@@ -484,7 +608,8 @@
                       <div class="menu-button"></div>
                       <div class="menu-link">
                         <a href="../grammar-exercises.html" aria-label="Exercises">
-                          <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 48 48">
+                          <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                            viewBox="0 0 48 48">
                             <path
                               d="M33.094 22.031l-7.125-7.125 2.813-2.813 4.313 4.219 8.438-8.438 2.813 2.813zM22.031 13.969h-18v4.031h18v-4.031zM42 26.813l-2.813-2.813-5.156 5.156-5.25-5.156-2.813 2.813 5.25 5.156-5.25 5.25 2.813 2.813 5.25-5.25 5.156 5.25 2.813-2.813-5.156-5.25zM22.031 30h-18v4.031h18v-4.031z">
                             </path>
@@ -499,7 +624,8 @@
                       <div class="menu-button"></div>
                       <div class="menu-link">
                         <a href="../introduction-to-tenses.html" aria-label="Tenses">
-                          <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 48 48">
+                          <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                            viewBox="0 0 48 48">
                             <path
                               d="M0 24.5c0 12.98 10.52 23.5 23.5 23.5s23.5-10.52 23.5-23.5-10.52-23.5-23.5-23.5c-12.98 0-23.5 10.52-23.5 23.5zM21 8.5c0-1.38 1.12-2.5 2.5-2.5s2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5-2.5-1.12-2.5-2.5zM5 24.5c0-1.38 1.12-2.5 2.5-2.5s2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5-2.5-1.12-2.5-2.5zM37 24.5c0-1.38 1.12-2.5 2.5-2.5s2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5-2.5-1.12-2.5-2.5zM21 40.5c0-1.38 1.12-2.5 2.5-2.5s2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5-2.5-1.12-2.5-2.5zM19.83 25.689c-0.53-0.52-7.26-7.369-7.26-7.369-0.76-0.76-0.76-1.99 0-2.75s1.99-0.76 2.75 0l6.6 6.619c0.59 0.58 1.56 0.58 2.141 0l9.619-9.619c0.76-0.76 1.99-0.76 2.75 0s0.76 1.99 0 2.75c0 0-9.76 9.88-10.279 10.4-0.811 0.79-1.93 1.28-3.151 1.28-1.24 0-2.36-0.5-3.17-1.311z">
                             </path>
@@ -514,12 +640,13 @@
                       <div class="menu-button"></div>
                       <div class="menu-link">
                         <a href="../writing.html" aria-label="Writing">
-                        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 48 48">
-                          <title>pencil</title>
-                          <path
-                            d="M40.5 0c4.142 0 7.5 3.358 7.5 7.5 0 1.688-0.558 3.246-1.5 4.5l-3 3-10.5-10.5 3-3c1.254-0.942 2.811-1.5 4.5-1.5zM3 34.5l-3 13.5 13.5-3 27.75-27.75-10.5-10.5-27.75 27.75zM33.543 17.043l-21 21-2.585-2.585 21-21 2.585 2.585z">
-                          </path>
-                        </svg>
+                          <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                            viewBox="0 0 48 48">
+                            <title>pencil</title>
+                            <path
+                              d="M40.5 0c4.142 0 7.5 3.358 7.5 7.5 0 1.688-0.558 3.246-1.5 4.5l-3 3-10.5-10.5 3-3c1.254-0.942 2.811-1.5 4.5-1.5zM3 34.5l-3 13.5 13.5-3 27.75-27.75-10.5-10.5-27.75 27.75zM33.543 17.043l-21 21-2.585-2.585 21-21 2.585 2.585z">
+                            </path>
+                          </svg>
                           Writing
                         </a>
                       </div>
@@ -530,7 +657,8 @@
                       <div class="menu-button"></div>
                       <div class="menu-link">
                         <a href="../vocabulary.html" aria-label="Vocabulary">
-                          <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                          <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                            viewBox="0 0 24 24">
                             <title>file</title>
                             <path fill="#212121"
                               d="M8.25 11.25h0.75v-0.75h-0.75v0.75zM8.25 13.5h0.75v-0.75h-0.75v0.75zM8.25 9h0.75v-0.75h-0.75v0.75zM8.25 15.75h0.75v-0.75h-0.75v0.75zM8.25 18h0.75v-0.75h-0.75v0.75zM9.75 13.5h6v-0.75h-6v0.75zM9.75 9h6v-0.75h-6v0.75zM15.703 3h-10.454v18h13.5v-15l-3.047-3zM17.25 19.453h-10.5v-14.953h7.5v2.204h3v12.75zM9.75 15.75h6v-0.75h-6v0.75zM9.75 11.25h6v-0.75h-6v0.75zM9.75 18h6v-0.75h-6v0.75z">
@@ -554,7 +682,8 @@
                       </div>
                       <div class="menu-link">
                         <a href="../lists.html" aria-label="Lists">
-                          <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                          <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                            viewBox="0 0 24 24">
                             <title>list-ol</title>
                             <path fill="#212121"
                               d="M5.103 21.696c0 1.473-1.152 2.304-2.545 2.304-0.844 0-1.701-0.281-2.304-0.884l0.763-1.179c0.362 0.335 0.911 0.603 1.42 0.603 0.469 0 0.964-0.228 0.964-0.763 0-0.75-0.857-0.79-1.406-0.75l-0.348-0.75c0.482-0.616 0.924-1.299 1.5-1.821v-0.013c-0.429 0-0.871 0.027-1.299 0.027v0.71h-1.42v-2.036h4.46v1.179l-1.272 1.54c0.897 0.214 1.487 0.911 1.487 1.835zM5.129 13.299v2.129h-4.848c-0.040-0.241-0.080-0.482-0.080-0.723 0-2.478 3.027-2.853 3.027-3.978 0-0.455-0.281-0.696-0.723-0.696-0.469 0-0.857 0.402-1.085 0.777l-1.138-0.79c0.442-0.924 1.353-1.446 2.371-1.446 1.246 0 2.317 0.737 2.317 2.063 0 1.982-2.906 2.424-2.946 3.469h1.701v-0.804h1.406zM24 17.571v2.571c0 0.228-0.201 0.429-0.429 0.429h-16.286c-0.241 0-0.429-0.201-0.429-0.429v-2.571c0-0.241 0.188-0.429 0.429-0.429h16.286c0.228 0 0.429 0.188 0.429 0.429zM5.143 5.531v1.326h-4.487v-1.326h1.433c0-1.085 0.013-2.17 0.013-3.254v-0.161h-0.027c-0.147 0.295-0.415 0.496-0.67 0.723l-0.951-1.018 1.821-1.701h1.42v5.411h1.446zM24 10.714v2.571c0 0.228-0.201 0.429-0.429 0.429h-16.286c-0.241 0-0.429-0.201-0.429-0.429v-2.571c0-0.241 0.188-0.429 0.429-0.429h16.286c0.228 0 0.429 0.188 0.429 0.429zM24 3.857v2.571c0 0.228-0.201 0.429-0.429 0.429h-16.286c-0.241 0-0.429-0.201-0.429-0.429v-2.571c0-0.228 0.188-0.429 0.429-0.429h16.286c0.228 0 0.429 0.201 0.429 0.429z">
@@ -599,7 +728,8 @@
                       <div class="menu-button"></div>
                       <div class="menu-link">
                         <a href="../glossary.html" aria-label="Glossary">
-                          <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 54 48">
+                          <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                            viewBox="0 0 54 48">
                             <title>Books</title>
                             <path
                               d="M10.5 6h-9c-0.825 0-1.5 0.675-1.5 1.5v33c0 0.825 0.675 1.5 1.5 1.5h9c0.825 0 1.5-0.675 1.5-1.5v-33c0-0.825-0.675-1.5-1.5-1.5zM9 15h-6v-3h6v3z">
@@ -650,12 +780,13 @@
                 <li class="next">
                   <a href="112-proper-nouns.html" rel="next" aria-label="1.1.2 Proper Nouns">
                     1.1.2 Proper Nouns&nbsp;&nbsp;
-                  <svg version="1.1" xmlns="http://www.w3.org/2000/svg" height="24px" width="auto" viewBox="0 0 18 48" fill="#212121">
-                    <title>angle-right</title>
-                    <path
-                      d="M15.938 25.714c0 0.214-0.107 0.455-0.268 0.616l-12.482 12.482c-0.161 0.161-0.402 0.268-0.616 0.268s-0.455-0.107-0.616-0.268l-1.339-1.339c-0.161-0.161-0.268-0.375-0.268-0.616 0-0.214 0.107-0.455 0.268-0.616l10.527-10.527-10.527-10.527c-0.161-0.161-0.268-0.402-0.268-0.616s0.107-0.455 0.268-0.616l1.339-1.339c0.161-0.161 0.402-0.268 0.616-0.268s0.455 0.107 0.616 0.268l12.482 12.482c0.161 0.161 0.268 0.402 0.268 0.616z">
-                    </path>
-                  </svg>
+                    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" height="24px" width="auto" viewBox="0 0 18 48"
+                      fill="#212121">
+                      <title>angle-right</title>
+                      <path
+                        d="M15.938 25.714c0 0.214-0.107 0.455-0.268 0.616l-12.482 12.482c-0.161 0.161-0.402 0.268-0.616 0.268s-0.455-0.107-0.616-0.268l-1.339-1.339c-0.161-0.161-0.268-0.375-0.268-0.616 0-0.214 0.107-0.455 0.268-0.616l10.527-10.527-10.527-10.527c-0.161-0.161-0.268-0.402-0.268-0.616s0.107-0.455 0.268-0.616l1.339-1.339c0.161-0.161 0.402-0.268 0.616-0.268s0.455 0.107 0.616 0.268l12.482 12.482c0.161 0.161 0.268 0.402 0.268 0.616z">
+                      </path>
+                    </svg>
                   </a>
                 </li>
               </ul>
@@ -1249,9 +1380,10 @@
                 </div>
               </div>
               <ul class="pager pagenav">
-                <li class="previous">
+                <li class="prev">
                   <a href="../exercise-1-nouns.html" rel="prev" aria-label="Previous">
-                    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 48">
+                    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" height="24px" width="auto"
+                      viewBox="0 0 18 48">
                       <title>angle-left</title>
                       <path
                         d="M16.795 14.571c0 0.214-0.107 0.455-0.268 0.616l-10.527 10.527 10.527 10.527c0.161 0.161 0.268 0.402 0.268 0.616s-0.107 0.455-0.268 0.616l-1.339 1.339c-0.161 0.161-0.402 0.268-0.616 0.268s-0.455-0.107-0.616-0.268l-12.482-12.482c-0.161-0.161-0.268-0.402-0.268-0.616s0.107-0.455 0.268-0.616l12.482-12.482c0.161-0.161 0.402-0.268 0.616-0.268s0.455 0.107 0.616 0.268l1.339 1.339c0.161 0.161 0.268 0.375 0.268 0.616z">
@@ -1263,7 +1395,8 @@
                 <li class="next">
                   <a href="112-proper-nouns.html" rel="next" aria-label="1.1.2 Proper Nouns">
                     1.1.2 Proper Nouns&nbsp;&nbsp;
-                    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" height="24" width="auto" viewBox="0 0 18 48" fill="#212121">
+                    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" height="24px" width="auto" viewBox="0 0 18 48"
+                      fill="#212121">
                       <title>angle-right</title>
                       <path
                         d="M15.938 25.714c0 0.214-0.107 0.455-0.268 0.616l-12.482 12.482c-0.161 0.161-0.402 0.268-0.616 0.268s-0.455-0.107-0.616-0.268l-1.339-1.339c-0.161-0.161-0.268-0.375-0.268-0.616 0-0.214 0.107-0.455 0.268-0.616l10.527-10.527-10.527-10.527c-0.161-0.161-0.268-0.402-0.268-0.616s0.107-0.455 0.268-0.616l1.339-1.339c0.161-0.161 0.402-0.268 0.616-0.268s0.455 0.107 0.616 0.268l12.482 12.482c0.161 0.161 0.268 0.402 0.268 0.616z">
@@ -2706,12 +2839,16 @@
   <script>
     // nn_sliders fallback: enable toggles without jQuery/Bootstrap
     ; ( function () {
+
       if ( typeof window.jQuery === 'undefined' && !window._qaAccordionBound )
       {
+
         try
         {
+
           var toggles = document.querySelectorAll( '.nn_sliders-toggle' )
           function onToggle( e ) {
+
             if ( e ) e.preventDefault()
             var href = this.getAttribute( 'href' ) || ''
             var id = this.getAttribute( 'data-id' ) || href.split( '#' )[ 1 ]
@@ -2721,6 +2858,7 @@
             var open = el.classList.contains( 'in' ) || el.classList.contains( 'show' )
             if ( open )
             {
+
               el.classList.remove( 'in' )
               el.classList.remove( 'show' )
               el.classList.add( 'collapse' )
@@ -2729,6 +2867,7 @@
               this.setAttribute( 'aria-expanded', 'false' )
             } else
             {
+
               el.classList.add( 'in' )
               el.classList.add( 'show' )
               el.classList.remove( 'collapse' )
@@ -2737,13 +2876,19 @@
               this.setAttribute( 'aria-expanded', 'true' )
             }
           }
-          for ( var i = 0; i < toggles.length; i++ )
+          for ( var i = 0;
+            i < toggles.length;
+            i++ )
           {
+
             toggles[ i ].addEventListener( 'click', onToggle )
             var id = toggles[ i ].getAttribute( 'data-id' )
             if ( id ) toggles[ i ].setAttribute( 'aria-controls', id )
           }
-        } catch ( e ) { /* no-op */ }
+        } catch ( e )
+        {
+          /* no-op */
+        }
       }
     } )()
   </script>
