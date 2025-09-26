@@ -1,17 +1,4 @@
-name: CI
-
-on:
-  push:
-  pull_request:
-
-permissions:
-  contents: read
-
-jobs:
-  build-and-analyze:
-    name: Lint & Codacy
-    runs-on: ubuntu-22.04
-    environment:
+environment:
       name: megs_env
     steps:
       - name: Checkout
@@ -36,9 +23,14 @@ jobs:
         run: npm run smoke:pages
 
       - name: Codacy Analysis
+        if: ${{ secrets.CODACY_PROJECT_TOKEN != '' }}
         uses: codacy/codacy-analysis-cli-action@v4
         with:
           project-token: ${{ secrets.CODACY_PROJECT_TOKEN }}
           tool: eslint
           upload: true
           verbose: true
+
+      - name: Skip Codacy Analysis (token missing)
+        if: ${{ secrets.CODACY_PROJECT_TOKEN == '' }}
+        run: echo "Skipping Codacy analysis because CODACY_PROJECT_TOKEN is not set."

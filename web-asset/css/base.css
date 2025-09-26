@@ -382,6 +382,27 @@ pre {
 }
 
 /* No full-width stretch on small viewports; buttons remain content-sized */
+@media (width <= 479.98px) {
+  .pager {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .pager li {
+    width: 100%;
+  }
+
+  .pager li > a {
+    justify-content: center;
+    width: 100%;
+  }
+
+  .pager .next {
+    margin-left: 0;
+  }
+}
+
+/* On wider viewports buttons remain content-sized */
 
 /* Ensure pager icons reserve space and avoid layout shifts */
 .pager img {
