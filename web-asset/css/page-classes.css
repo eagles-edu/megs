@@ -1,0 +1,41 @@
+/* stylelint-disable block-no-empty */
+
+/**
+ * Page type classes
+ * New, explicit page taxonomy without breaking existing pages.
+ * - body.base: holds site-wide base shell previously under body.site
+ * - body.exercise, body.lesson, body.list: page-type hooks (placeholders for now)
+ *
+ * Backward compatible: keep body.site in selectors so legacy pages continue to work.
+ */
+
+/* Base shell (padding, top border, background) */
+body.base,
+body.site {
+  border-top: 3px solid var(--info-border);
+  padding: 20px;
+  background-color: var(--background-color);
+}
+
+/* Exercise style enhancements */
+.hilite {
+  color: var(--link-color);
+}
+
+.bkgrnd-prime {
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+}
+
+
+/* Page-type hooks (no-op yet | define as needed)
+
+body.exercize {
+}
+
+body.lesson {
+}
+
+body.list {
+}
+*/

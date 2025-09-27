@@ -1,0 +1,67 @@
+// Commands to Diagnose Sync Issues
+
+git status
+git remote -v
+git fetch --all --prune
+git branch -vv
+git log --oneline --graph --decorate --all
+git diff
+git diff origin/<branch>
+git show-branch --more=20
+
+// </branch>Commands to Handle Local Changes Before Syncing
+
+git add <files>
+git commit -m "<message>"
+git stash push -m "<reason>"
+git stash list
+git stash pop
+git stash apply
+git stash drop
+git stash clear
+
+
+// Commands to Pull Remote Updates Cleanly
+git pull --no-rebase
+git pull --rebase origin <branch>
+git pull origin <branch>
+git rebase origin/<branch>
+git merge origin/<branch>
+git reset --hard origin/<branch> (discard local changes)
+
+
+// Commands for Conflict Resolution
+
+git status (identify conflicted files)
+Edit files to resolve conflicts
+git add <resolved-file>
+git rebase --continue
+git merge --continue
+git rebase --abort
+git merge --abort
+git checkout --ours <file>
+git checkout --theirs <file>
+git diff --name-only --diff-filter=U
+
+
+// Commands to Reconcile Diverged Histories
+
+git log origin/refactor-2025-08-25..HEAD --oneline
+git push origin <branch>
+git push --force-with-lease origin <branch>
+git cherry-pick <commit>
+git reflog
+git revert <commit>
+git reset --hard <commit>
+git clean -fd
+
+
+// Commands to Verify Sync Completion
+
+git status
+git log origin/<branch>..HEAD
+git log HEAD..origin/<branch>
+git push origin <branch>
+git fetch --all --prune
+git branch -vv
+

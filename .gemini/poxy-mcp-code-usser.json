@@ -1,0 +1,47 @@
+// /home/eagles/.config/Code/User/mcp.json proxy
+{
+  "servers": {
+    "github": {
+      "url": "https://api.githubcopilot.com/mcp/",
+      "type": "http"
+    },
+    "sequentialthinking": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-sequential-thinking"]
+    },
+    "github-remote": {
+      "url": "https://api.githubcopilot.com/mcp/",
+      "id": "github-copilot"
+    },
+    "context7": {
+      "command": "npx",
+      "args": ["--no-update-notifier", "-y", "@upstash/context7-mcp"]
+    },
+    "docker": {
+      "command": "npx",
+      "args": ["mcp-server-docker"],
+      "type": "stdio"
+    },
+    "everything": {
+      "command": "npx",
+      "args": ["@modelcontextprotocol/server-everything"],
+      "type": "stdio"
+    },
+    "git": {
+      "command": "uvx",
+      "args": ["mcp-server-git", "--repository", "/home/eagles/dockerz/megs"],
+      "type": "stdio"
+    },
+    "filesystem": {
+      "command": "npx",
+      "args": ["@modelcontextprotocol/server-filesystem"],
+      "type": "stdio"
+    },
+    "memory": {
+      "command": "npx",
+      "args": ["@modelcontextprotocol/server-memory"],
+      "type": "stdio"
+    }
+  },
+  "inputs": []
+}

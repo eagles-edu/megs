@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "updated": "2025-09-10",
+  "notes": [
+    "Authoritative SOP for front-end behavior. Read-only at runtime.",
+    "Avoid page-local mobile navigation scripts/CSS; handled by template assets.",
+    "Hamburger breakpoint is <= 766px across the site.",
+    "CSS formatting: use exactly one blank line between selector blocks (e.g., exercises.css, demo.css).",
+    "Codex pages: do not include style.min.css; QA accordion is SSOT via qa-accordion.css.",
+    "base.css is SSOT for common page defaults (typography, links, media, tables, utilities).",
+    "Specialized CSS (exercises.css, lists.css, lessons.css) should only contain page/system-specific rules."
+  ],
+  "mobileNav": {
+    "globalOnly": true,
+    "noPageLocalIncludes": true,
+    "breakpointMaxWidthPx": 766,
+    "offCanvasLeftNav": true
+  }
+}

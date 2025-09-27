@@ -1,0 +1,29 @@
+runtimes:
+    - node@20.19.4
+
+tools:
+    - eslint@9.33.0
+    - trivy
+
+tool_configurations:
+    trivy: .codacy/tools-configs/trivy.yaml
+
+exclude_paths:
+    - "**/*.md"
+    - ".codex/**"
+    - ".continue/**"
+    - ".gemini/**"
+    - ".zencoder/**"
+    - "docs/**"
+    - "images/**"
+    - "media/**"
+    - "modules/**"
+    - "scripts/**"
+    - "templates/**"
+    - "tmp/**"
+    - "web-asset/icons/**"
+    - "web-asset/fonts/**"
+    - "web-asset/css/**"
+    - "**/**/_notes/**"
+    - "**/**/sto/**"
+    - "**/**/.sto/**"

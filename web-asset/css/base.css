@@ -1,0 +1,660 @@
+/* Base CSS (SSOT) — shared across all html pages
+ * - Mobile-first, progressive, minimal specificity
+ * - Contains theme variables (:root) directly; no separate theme-vars.css required
+ */
+
+/* 0) Theme variables (:root) */
+:root {
+  /* Brand core */
+  --primary-color: #e0162b; /* locked */
+  --secondary-color: #f5f8ff; /* white */
+  --tertiary-color: #002786; /* locked */
+  --text-color: #212121; /* locked */
+  --icon-color-on-lt: #8a94a8; /* locked */
+  --icon-color-on-dk: #f5f8ff; /* locked */
+
+  /* Layout surfaces */
+  --background-color: #505050; /* page background behind light content */
+  --body-bgcolor: var(--secondary-color); /* body background */
+  --surface-color: #eee; /* menu/content surface */
+  --surface-muted: #f0f0ee; /* light alt surface */
+  --surface-soft: #fff; /* neutral soft background */
+  --surface-warm: #fff; /* hover menu warm neutral alt */
+  --surface-1: #fffffa; /* medium light surface */
+  --surface-2: #fffaf0; /* very light gray surface */
+
+  /* Links */
+  --link-color: #205fff; /* derived from brand blue */
+  --link-hover: var(--primary-color);
+
+  /* Semantic states */
+  --success-color: #0f6d2a;
+  --success-bg: #e6f7ee;
+  --success-border: #2f7d51;
+  --danger-color: #e0162b; /* align with primary */
+  --danger-bg: #fce9e9;
+  --danger-border: #870200;
+  --warning-color: #e194ff;
+  --warning-bg: #630094;
+  --warning-border: #6330da;
+  --info-color: #005e8d;
+  --info-bg: #d9edf7;
+  --info-border: #3a87ad;
+
+  /* Answers (current + suggested alternates) */
+  --answer-bgcolor: #93ffc5; /* current */
+  --answer-txtcolor: #0b501e; /* current */
+  --answer-bgcolor-alt: #8df8a6; /* suggested themed */
+  --answer-txtcolor-alt: #0b501e; /* suggested themed */
+  --answer-border: #0c5a1e; /* suggested themed */
+
+  /* Navigation/menu */
+  --menu-text: #616978; /* accessible muted slate on white */
+  --menu-text-hover: var(--primary-color);
+
+  /* Shape */
+  --radius: 3px;
+
+  /* Legacy button accents (for older components) */
+  --btn-warning: #f89406;
+  --btn-danger: #bd362f;
+  --btn-success: #51a351;
+  --btn-info: #49afcd;
+
+  /* System font stacks (sans Arial) */
+  --font-base:
+    roboto, system-ui, -apple-system, blinkmacsystemfont, 'Noto Sans', 'Segoe UI', ubuntu,
+    cantarell, 'Liberation Sans', 'DejaVu Sans', 'Apple Color Emoji', 'Segoe UI Emoji',
+    'Noto Color Emoji', sans-serif;
+  --font-header:
+    roboto, system-ui, -apple-system, blinkmacsystemfont, 'Noto Sans', 'Segoe UI', ubuntu,
+    cantarell, 'Liberation Sans', 'DejaVu Sans', 'Apple Color Emoji', 'Segoe UI Emoji',
+    'Noto Color Emoji', sans-serif;
+
+  /* Neutrals and utility */
+  --color-strong: #444;
+  --color-muted: #666;
+  --color-subtle: #888;
+  --border-color: #aaa;
+  --divider-color: #aaa;
+  --border-subtle: #ccc;
+  --border-light: var(--icon-color-on-lt); /* default border color */
+  --border-dark: var(--icon-color-on-dk);
+  --shadow-color: rgb(0 0 0 / 20%);
+
+  /* Flyout/Menu theming */
+  --flyout-width-desktop: 250px;
+  --flyout-border: rgb(0 0 0 / 22%);
+  --flyout-divider: rgb(0 0 0 / 15%);
+  --flyout-shadow-menu: 0 2px 10px rgb(0 0 0 / 6%);
+  --flyout-shadow-panel: 0 8px 24px rgb(0 0 0 / 12%);
+  --hover-surface-overlay: rgb(0 0 0 / 2%);
+  --flyout-anim-duration: 0.18s;
+  --flyout-anim-ease: ease;
+
+  /* Focus ring shadow (for accessibility states) */
+  --focus-ring-shadow: 0 0 0 2px rgb(0 94 141 / 25%);
+
+  /* Basic whites/blacks for legacy mappings */
+  --white: #fff;
+  --black: #000;
+
+  /* Flyout item spacing */
+  --flyout-item-padding-x: 8px;
+  --flyout-item-padding-y: 6px;
+  --flyout-item-gap: 6px;
+  --flyout-icon-size: 20px;
+  --flyout-item-min-width: 16ch;
+  --flyout-item-min-width-left: 140px;
+  --flyout-item-min-width-right: 155px;
+
+  /* Icon sizing (menu + UI) */
+  --icon-size: 1em; /* ties icon height to text size for rhythm */
+  --icon-slot: 1.25em; /* reserved horizontal space for the icon column */
+  --icon-gap: 8px; /* space between icon and label */
+}
+
+/* 1) Global resets and defaults */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  text-size-adjust: 100%;
+}
+
+body {
+  /* Revert: use body background token (light) */
+  background: var(--secondary-color);
+  color: var(--text-color);
+  font-family: var(--font-base);
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* 1b) Structural container */
+.container {
+  margin: 0 auto;
+  max-width: 1100px;
+  padding: 0 16px;
+}
+
+.padme1 {
+  padding-top: 3rem !important;
+}
+
+/* 2) Typography */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--text-color);
+  font-family: var(--font-header);
+  margin: 0 0 0.5rem;
+}
+
+h1 {
+  font-size: clamp(1.6rem, 1.2rem + 2vw, 2.2rem);
+}
+
+h2 {
+  font-size: clamp(1.4rem, 1.1rem + 1.5vw, 2rem);
+}
+
+h3 {
+  font-size: clamp(1.2rem, 1.05rem + 1vw, 1.6rem);
+}
+
+h4 {
+  font-size: 1.125rem;
+}
+
+h5 {
+  font-size: 1rem;
+}
+
+h6 {
+  font-size: 0.95rem;
+}
+
+p {
+  margin: 0 0 1rem;
+}
+
+small {
+  font-size: 0.875em;
+}
+
+/* 3) Links and focus */
+a {
+  color: var(--link-color);
+  text-decoration: none;
+}
+
+a:hover,
+a:focus {
+  color: var(--link-hover);
+}
+
+a:focus-visible {
+  box-shadow: var(--focus-ring-shadow);
+  outline: none;
+}
+
+/* 4) Media */
+img,
+video {
+  height: auto;
+  max-width: 100%;
+}
+
+svg {
+  height: auto;
+  max-width: 100%;
+}
+
+/* 5) Lists, tables, code */
+ul,
+ol {
+  margin: 0 0 1rem 1.25rem;
+  padding: 0;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th,
+td {
+  border: 1px solid var(--divider-color);
+  padding: 0.5rem;
+  text-align: left;
+}
+
+code,
+pre {
+  font-family:
+    ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New',
+    monospace;
+}
+
+pre {
+  background: var(--surface-1);
+  padding: 0.75rem;
+  overflow: auto;
+}
+
+/* 6) Utilities */
+.clearfix::before,
+.clearfix::after {
+  content: '';
+  display: table;
+}
+
+.clearfix::after {
+  clear: both;
+}
+
+.visually-hidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute !important;
+  white-space: nowrap;
+  width: 1px;
+}
+
+/* Legacy float utilities still used in markup */
+.pull-left {
+  float: left;
+}
+
+.pull-right {
+  float: right;
+}
+
+/* 7) Grid (mobile-first, minimal) */
+.row-fluid {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: -8px;
+  margin-right: -8px;
+}
+
+.row-fluid > [class*='span'] {
+  box-sizing: border-box;
+  flex: 0 0 100%;
+  max-width: 100%;
+  padding-left: 8px;
+  padding-right: 8px;
+}
+
+@media (width >= 768px) {
+  .row-fluid > .span2 {
+    flex: 0 0 16.6667%;
+    max-width: 16.6667%;
+  }
+
+  .row-fluid > .span8 {
+    flex: 0 0 66.6667%;
+    max-width: 66.6667%;
+  }
+}
+
+/* Content band: span the three-column region with a light surface */
+.grid-modern .row-fluid {
+  background: var(--secondary-color);
+  border-radius: 6px;
+  margin-block: 12px; /* small gap above/below band */
+  padding-block: 8px; /* breathing room inside band */
+}
+
+/* 8) Header basics */
+.header {
+  margin-bottom: 1rem;
+}
+
+.header .brand img {
+  display: block;
+  height: auto;
+  max-width: 100%;
+}
+
+/* 9) Pager */
+.pager {
+  align-items: center;
+  display: flex;
+  justify-content: flex-start; /* keep buttons content-sized and aligned */
+  flex-wrap: wrap; /* allow wrap/stack on overflow */
+  gap: 8px 12px; /* row/column gap between buttons */
+  list-style: none;
+  margin: 1rem 0;
+  padding: 0;
+  width: 100%; /* allow pushing .next to the right edge */
+}
+
+.pager li {
+  align-items: center;
+  display: inline-flex;
+}
+
+.pager li > a {
+  align-items: center;
+  color: var(--link-color);
+  display: inline-flex;
+  text-decoration: none;
+
+  /* Button-like affordance (replaces template592f.css) */
+  background-color: var(--surface-color);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  padding: 4px 10px;
+  gap: 6px;
+
+  /* Allow labels to wrap when space is tight */
+  white-space: normal;
+  overflow: visible;
+}
+
+.pager li > a:hover {
+  color: var(--link-hover);
+  text-decoration: none;
+  background-color: var(--white);
+}
+
+/* Ensure inline SVG icons don't shrink and remain visible */
+.pager li > a .icon,
+.pager li > a svg {
+  flex: 0 0 auto;
+}
+
+/* Always push the next button to the right edge of the line */
+.pager .next {
+  margin-left: auto;
+}
+
+@media (width <= 479.98px) {
+  .pager {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .pager li {
+    width: 100%;
+  }
+
+  .pager li > a {
+    justify-content: center;
+    width: 100%;
+  }
+
+  .pager .next {
+    margin-left: 0;
+  }
+}
+
+/* Ensure pager icons reserve space and avoid layout shifts */
+.pager img {
+  width: 12px;
+  height: 12px;
+}
+
+/* 10) Breadcrumb */
+.breadcrumb {
+  align-items: center;
+  color: var(--color-muted);
+  display: flex;
+  gap: 8px;
+  list-style: none;
+  margin: 1rem 0;
+  padding: 0;
+}
+
+/* 10b) Icon utilities for inline SVG */
+.icon {
+  display: inline-block;
+  height: 1em;
+  line-height: 1;
+  vertical-align: -0.125em;
+  width: 1em;
+}
+
+/* When nested SVG used inside an icon wrapper */
+.icon > svg {
+  height: 100%;
+  width: 100%;
+}
+
+.icon-lg {
+  height: 1.5rem;
+  width: auto;
+}
+
+.icon-lt {
+  opacity: 0.85;
+}
+
+.icon-shift-up-1 {
+  transform: translateY(-1px);
+}
+
+.icon-shift-up-2 {
+  transform: translateY(-2px);
+}
+
+.icon-shift-up-3 {
+  transform: translateY(-3px);
+}
+
+.breadcrumb > li {
+  display: inline;
+}
+
+/* 11) Mobile navigation (works with template592f.js) */
+
+.mobile-nav-enabled #sidebar,
+#sidebar {
+  /* Reduce rendering cost and isolate layout; sidebar is offscreen on mobile */
+  contain: layout paint;
+}
+
+@supports (content-visibility: auto) {
+  .mobile-nav-enabled #sidebar,
+  #sidebar {
+    content-visibility: auto;
+  }
+}
+
+.mobile-menu-toggle {
+  background: var(--primary-color);
+  border: 1px solid var(--primary-color);
+  border-radius: 4px;
+  height: 40px;
+  left: auto;
+  position: fixed;
+  right: 12px;
+  top: 12px;
+  width: 40px;
+  z-index: 1200;
+
+  /* place on the right */
+}
+
+/* Ensure toggle is visible on small viewports */
+@media (width <= 767px) {
+  .mobile-menu-toggle {
+    display: block;
+  }
+}
+
+.mobile-menu-toggle::before {
+  color: var(--white);
+  content: '\2261';
+  display: block;
+  font-size: 22px;
+  line-height: 40px;
+  text-align: center;
+
+  /* primary on button, white icon */
+}
+
+.mobile-menu-toggle.open::before {
+  content: '\00D7';
+}
+
+/* Interaction states */
+.mobile-menu-toggle:hover,
+.mobile-menu-toggle:focus {
+  box-shadow: var(--focus-ring-shadow);
+  outline: none;
+}
+
+.mobile-nav-overlay {
+  background: transparent; /* keep overlay for click-to-close, but no dimming */
+  display: none;
+  inset: 0;
+  position: fixed;
+  z-index: 1100;
+}
+
+.mobile-nav-overlay.active {
+  display: block;
+}
+
+body.mobile-nav-enabled #sidebar {
+  background: transparent;
+  height: 100vh;
+  left: -260px;
+  overflow: auto;
+  position: fixed;
+  top: 0;
+  transition: left 0.2s ease;
+  width: 260px;
+  z-index: 1201;
+}
+
+body.mobile-nav-enabled #sidebar.mobile-nav-open {
+  left: 0;
+}
+
+@media (width >= 768px) {
+  .mobile-menu-toggle,
+  .mobile-nav-overlay {
+    display: none !important;
+  }
+
+  body.mobile-nav-enabled #sidebar {
+    height: auto;
+    left: 0;
+    position: static;
+    width: auto;
+  }
+}
+
+/* 7) Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+/* Tablesty1 style  */
+.tablesty1 {
+  border-collapse: collapse !important;
+  box-sizing: border-box;
+  line-height: 1.3em !important;
+  margin: 1.5em 0 2em !important;
+  width: 100% !important;
+}
+
+.tablesty1 td,
+.tablesty1 th {
+  border: 1px solid var(--border-color) !important;
+  padding: 7px 7px 7px 0.5em !important;
+}
+
+.hie21 {
+  height: 1.3125rem;
+}
+
+.tablesty1 tr:nth-child(even) {
+  background-color: var(--surface-warm) !important;
+}
+
+.tablesty1 tr:hover {
+  background-color: rgb(255 214 98 / 50%) !important;
+  color: var(--color-strong) !important;
+}
+
+.tablesty1 th {
+  background-color: var(--primary-color) !important;
+  color: white !important;
+  padding-bottom: 12px !important;
+  padding-top: 12px !important;
+  text-align: center !important;
+}
+
+.tabstytit1 {
+  background-color: var(--primary-color) !important;
+  box-sizing: border-box;
+  color: white !important;
+  font-weight: bold !important;
+  line-height: 1.9em;
+  padding-bottom: 12px !important;
+  padding-top: 12px !important;
+  text-align: center !important;
+}
+
+.primary-color {
+  color: var(--primary-color);
+}
+
+/* examplebox style */
+.examplebox {
+  margin: 2em 0 !important;
+  padding: 0 10px !important;
+}
+
+.xborder2 {
+  border: 2px solid var(--primary-color) !important;
+}
+
+.padx-t0r5b0l15 {
+  padding: 0 5px 0 15px;
+}
+
+h4.box-head4 {
+  background: var(--secondary-color);
+  color: var(--primary-color);
+  display: table;
+  line-height: 16px;
+  margin: -10px 0 5px;
+  padding: 0 20px;
+}
+
+.uline {
+  text-decoration: underline;
+}
+
+.nodisplay, .hidden {
+  display: none;
+}
+
+.trans {
+  color: transparent;
+}
+
+

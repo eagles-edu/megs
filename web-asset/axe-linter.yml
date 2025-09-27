@@ -1,0 +1,52 @@
+# .axe-linter.yml
+# Global axe-core execution options
+axeOptions:
+  runOnly:
+    type: tag
+    values:
+      - wcag21a
+      - wcag21aa
+  resultTypes:
+    - violations
+    - incomplete
+  rules:
+    color-contrast:
+      enabled: true
+  checks:
+    - id: color-contrast
+      options:
+        experimentalHexAlpha: true
+
+# Rule severities: error (default), warn, or false to disable
+rules:
+  empty-table-header: false # keep blank headers without noise
+  color-contrast: warn # still reported, but downgraded
+  label: error
+  region: warn
+  landmark-one-main:
+    enabled: warn
+    options:
+      allowLandmarkRole:
+        - application
+
+# Narrow exceptions by file pattern
+overrides:
+  - files:
+      - 'lists/**/*.html'
+    rules:
+      color-contrast: warn
+  - files:
+      - 'legacy/**/*.html'
+    rules:
+      empty-table-header: false
+      region: false
+    axeOptions:
+      runOnly:
+        type: rule
+        values:
+          - landmark-one-main
+
+# Optional UI noise controls
+notifications:
+  onSave: warn
+  problemsView: true

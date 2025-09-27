@@ -1,0 +1,659 @@
+@font-face {
+  font-family: icomoon;
+  src:
+    url('../fonts/icomoon.woff?i28e79') format('woff'),
+    url('../fonts/icomoon.ttf?i28e79') format('truetype'),
+    url('../fonts/icomoon.svg?i28e79#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* use !important to prevent issues with browser extensions that change fonts */
+
+.icomoon- {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  /* stylelint-disable-next-line font-family-no-missing-generic-family-keyword */
+  font-family: icomoon !important;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  line-height: 1;
+  speak: never;
+  text-transform: none;
+}
+
+.icomoon-chevron-left::before {
+  content: '\e900';
+}
+
+.icomoon-chevron-left3::before {
+  content: '\e902';
+}
+
+.icomoon-chevron-left2::before {
+  content: '\e911';
+}
+
+.icomoon-chevron-thin-left::before {
+  content: '\e901';
+}
+
+.icomoon-minus6::before {
+  content: '\e903';
+}
+
+.icomoon-plus4::before {
+  content: '\e904';
+}
+
+.icomoon-rewind::before {
+  content: '\e905';
+}
+
+.icomoon-subtract::before {
+  content: '\e906';
+}
+
+.icomoon-calculate::before {
+  content: '\e906';
+}
+
+.icomoon-remove::before {
+  content: '\e906';
+}
+
+.icomoon-withdraw::before {
+  content: '\e906';
+}
+
+.icomoon-deduct::before {
+  content: '\e906';
+}
+
+.icomoon-minus::before {
+  content: '\e907';
+}
+
+.icomoon-subtract1::before {
+  content: '\e907';
+}
+
+.icomoon-minus1::before {
+  content: '\e908';
+}
+
+.icomoon-remove1::before {
+  content: '\e908';
+}
+
+.icomoon-delete::before {
+  content: '\e908';
+}
+
+.icomoon-plus::before {
+  content: '\e909';
+}
+
+.icomoon-add::before {
+  content: '\e909';
+}
+
+.icomoon-office::before {
+  content: '\e90a';
+}
+
+.icomoon-pencil::before {
+  content: '\e90b';
+}
+
+.icomoon-headphones::before {
+  content: '\e910';
+}
+
+.icomoon-bullhorn::before {
+  content: '\e91a';
+}
+
+.icomoon-book::before {
+  content: '\e91f';
+}
+
+.icomoon-books::before {
+  content: '\e920';
+}
+
+.icomoon-library::before {
+  content: '\e921';
+}
+
+.icomoon-file-picture::before {
+  content: '\e927';
+}
+
+.icomoon-folder-upload::before {
+  content: '\e934';
+}
+
+.icomoon-lifebuoy::before {
+  content: '\e941';
+}
+
+.icomoon-display::before {
+  content: '\e956';
+}
+
+.icomoon-laptop::before {
+  content: '\e957';
+}
+
+.icomoon-mobile::before {
+  content: '\e958';
+}
+
+.icomoon-mobile2::before {
+  content: '\e959';
+}
+
+.icomoon-tablet::before {
+  content: '\e95a';
+}
+
+.icomoon-cloud-download::before {
+  content: '\e9c2';
+}
+
+.icomoon-download3::before {
+  content: '\e9c7';
+}
+
+.icomoon-contrast::before {
+  content: '\e9d5';
+}
+
+.icomoon-star-empty::before {
+  content: '\e9d7';
+}
+
+.icomoon-star-half::before {
+  content: '\e9d8';
+}
+
+.icomoon-star-full::before {
+  content: '\e9d9';
+}
+
+.icomoon-heart::before {
+  content: '\e9da';
+}
+
+.icomoon-plus1::before {
+  content: '\ea0a';
+}
+
+.icomoon-minus2::before {
+  content: '\ea0b';
+}
+
+.icomoon-cross::before {
+  content: '\ea0f';
+}
+
+.icomoon-checkmark::before {
+  content: '\ea10';
+}
+
+.icomoon-arrow-up-left2::before {
+  content: '\ea39';
+}
+
+.icomoon-arrow-up2::before {
+  content: '\ea3a';
+}
+
+.icomoon-arrow-up-right2::before {
+  content: '\ea3b';
+}
+
+.icomoon-arrow-right2::before {
+  content: '\ea3c';
+}
+
+.icomoon-arrow-down-right2::before {
+  content: '\ea3d';
+}
+
+.icomoon-arrow-down2::before {
+  content: '\ea3e';
+}
+
+.icomoon-arrow-down-left2::before {
+  content: '\ea3f';
+}
+
+.icomoon-arrow-left2::before {
+  content: '\ea40';
+}
+
+.icomoon-checkbox-checked::before {
+  content: '\ea52';
+}
+
+.icomoon-google2::before {
+  content: '\ea89';
+}
+
+.icomoon-youtube::before {
+  content: '\ea9d';
+}
+
+.icomoon-youtube2::before {
+  content: '\ea9e';
+}
+
+.icomoon-tux::before {
+  content: '\eabd';
+}
+
+.icomoon-appleinc::before {
+  content: '\eabe';
+}
+
+.icomoon-finder::before {
+  content: '\eabf';
+}
+
+.icomoon-android::before {
+  content: '\eac0';
+}
+
+.icomoon-chrome::before {
+  content: '\ead9';
+}
+
+.icomoon-firefox::before {
+  content: '\eada';
+}
+
+.icomoon-file-pdf::before {
+  content: '\eadf';
+}
+
+.icomoon-html-five::before {
+  content: '\eae4';
+}
+
+.icomoon-html-five2::before {
+  content: '\eae5';
+}
+
+.icomoon-angle-left::before {
+  content: '\e90c';
+}
+
+.icomoon-chevron-left1::before {
+  content: '\e90d';
+}
+
+.icomoon-angle-right::before {
+  content: '\e90e';
+}
+
+.icomoon-minus3::before {
+  content: '\e90f';
+}
+
+.icomoon-chevron-right-outline::before {
+  content: '\e912';
+}
+
+.icomoon-chevron-right::before {
+  content: '\e913';
+}
+
+.icomoon-minus4::before {
+  content: '\e914';
+}
+
+.icomoon-plus2::before {
+  content: '\e915';
+}
+
+.icomoon-keyboard_arrow_left::before {
+  content: '\e916';
+}
+
+.icomoon-navigate_next::before {
+  content: '\e917';
+}
+
+.icomoon-chevron_right::before {
+  content: '\e917';
+}
+
+.icomoon-minimize::before {
+  content: '\e918';
+}
+
+.icomoon-add1::before {
+  content: '\e919';
+}
+
+.icomoon-chevron-right1::before {
+  content: '\e91b';
+}
+
+.icomoon-minus5::before {
+  content: '\e91c';
+}
+
+.icomoon-plus3::before {
+  content: '\e91d';
+}
+
+/* -----------------------------------------------------------
+    Icon utilities (color + size helpers)
+    - Works with both IcoMoon font icons and inline SVGs
+    - Font icons size with font-size; SVGs size with width/height
+   ----------------------------------------------------------- */
+
+/* Base utility for font icons (e.g., <span class="icomoon- icomoon-plus icon-font">) */
+.icon-font {
+  color: currentcolor;
+  font-size: 1.1rem;
+  line-height: 1;
+  vertical-align: middle;
+}
+
+/* Base utility for inline SVG (e.g., <svg class="icon">...) */
+.icon {
+  display: inline-block;
+  height: 1.1rem;
+  color: currentcolor;
+  vertical-align: middle;
+}
+
+/* Size variants (applies to both .icon-font and .icon) */
+.icon-sm {
+  height: 1rem;
+  font-size: 1rem;
+}
+
+.icon-md {
+  height: 1.25rem;
+  font-size: 1.25rem;
+}
+
+.icon-lg {
+  height: 1.5rem;
+  font-size: 1.5rem;
+}
+
+/* Themed color helpers with sensible fallbacks */
+.icon-lt {
+  color: var(--icon-color-on-lt, #8a94a8);
+}
+
+.icon-dk {
+  color: var(--icon-color-on-dk, #f5f8ff);
+}
+
+/* Alignment helpers (for inline SVG and font icons) */
+.icon-align-top {
+  vertical-align: text-top;
+}
+
+.icon-align-middle {
+  vertical-align: middle;
+}
+
+.icon-align-baseline {
+  vertical-align: baseline;
+}
+
+.icon-align-bottom {
+  vertical-align: text-bottom;
+}
+
+/* Vertical nudge (fine-tune baseline alignment) */
+.icon-shift-up-1 {
+  transform: translateY(-1px);
+}
+
+.icon-shift-up-2 {
+  transform: translateY(-2px);
+}
+
+.icon-shift-up-3 {
+  transform: translateY(-3px);
+}
+
+.icon-shift-down-1 {
+  transform: translateY(1px);
+}
+
+.icon-shift-down-2 {
+  transform: translateY(2px);
+}
+
+.icon-shift-down-3 {
+  transform: translateY(3px);
+}
+
+/* Inline spacing (icon next to text) */
+.icon-gap-start-xs {
+  margin-inline-start: 0.15em;
+}
+
+.icon-gap-start-sm {
+  margin-inline-start: 0.25em;
+}
+
+.icon-gap-start-md {
+  margin-inline-start: 0.5em;
+}
+
+.icon-gap-end-xs {
+  margin-inline-end: 0.15em;
+}
+
+.icon-gap-end-sm {
+  margin-inline-end: 0.25em;
+}
+
+.icon-gap-end-md {
+  margin-inline-end: 0.5em;
+}
+
+/* Scoped ico-* aliases to avoid template overrides that target [class^='icon-'] */
+
+.icobm3 {
+  display: inline-block;
+  margin-bottom: 4px;
+}
+
+.ico-font {
+  color: currentcolor;
+  font-size: 1.1em;
+  line-height: 1;
+  vertical-align: middle;
+}
+
+.ico-icon {
+  display: inline-block;
+  height: 1.1rem;
+  color: currentcolor;
+  vertical-align: middle;
+}
+
+.ico-sm {
+  height: 1rem;
+  font-size: 1rem;
+}
+
+.ico-md {
+  height: 1.5rem;
+  font-size: 1.5rem;
+}
+
+.ico-lg {
+  height: 2rem;
+  font-size: 2rem;
+}
+
+.ico-lt {
+  color: var(--icon-on-light, var(--icon-color-on-lt, #8a94a8));
+}
+
+.ico-dk {
+  color: var(--icon-on-dark, var(--icon-color-on-dk, #f5f8ff));
+}
+
+/* Alignment helpers (for inline SVG and font icons) */
+.ico-align-top {
+  vertical-align: text-top;
+}
+
+.ico-align-middle {
+  vertical-align: middle;
+}
+
+.ico-align-baseline {
+  vertical-align: baseline;
+}
+
+.ico-align-bottom {
+  vertical-align: text-bottom;
+}
+
+/* Vertical nudge (fine-tune baseline alignment) */
+.ico-shift-up-1 {
+  transform: translateY(-1px);
+}
+
+.ico-shift-up-2 {
+  transform: translateY(-2px);
+}
+
+.ico-shift-down-1 {
+  transform: translateY(1px);
+}
+
+.ico-shift-down-2 {
+  transform: translateY(2px);
+}
+
+/* Extra nudge for fine-grained control */
+.ico-shift-up-3 {
+  transform: translateY(-3px);
+}
+
+.ico-shift-down-3 {
+  transform: translateY(3px);
+}
+
+/* Inline spacing (icon next to text) */
+.ico-gap-start-xs {
+  margin-inline-start: 0.15em;
+}
+
+.ico-gap-start-sm {
+  margin-inline-start: 0.25em;
+}
+
+.ico-gap-start-md {
+  margin-inline-start: 0.5em;
+}
+
+.ico-gap-end-xs {
+  margin-inline-end: 0.15em;
+}
+
+.ico-gap-end-sm {
+  margin-inline-end: 0.25em;
+}
+
+.ico-gap-end-md {
+  margin-inline-end: 0.5em;
+}
+
+/* Ensure IcoMoon pseudo-element uses currentColor explicitly */
+.icomoon-::before {
+  color: currentcolor;
+}
+
+/* Mask-based SVG helpers for file icons (tint with currentColor) */
+.icon-mask {
+  display: inline-block;
+  height: 1.25rem;
+  background-color: transparent; /* set via @supports when masks are available */
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  mask-repeat: no-repeat;
+  mask-position: center;
+  mask-size: contain;
+  vertical-align: middle;
+}
+
+/* Scoped mask alias */
+.ico-mask {
+  display: inline-block;
+  height: 1.1rem;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  mask-repeat: no-repeat;
+  mask-position: center;
+  mask-size: contain;
+  vertical-align: middle;
+}
+
+/* Angle right/left image fallback (shows black glyph when masks unsupported) */
+.icomoon-angle-right {
+  background-image: url('svg/angle-right.svg');
+}
+
+.icomoon-angle-left {
+  background-image: url('svg/angle-left.svg');
+}
+
+/* Prefer mask-based tinting where supported */
+@supports (
+  (mask-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg'/>")) or
+    (-webkit-mask-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg'/>"))
+) {
+  .icon-mask {
+    background-color: currentcolor;
+  }
+
+  .icomoon-angle-right {
+    background-image: none;
+    display: inline-block;
+    margin-bottom: 4px;
+    mask-image: url('svg/angle-right.svg');
+  }
+
+  .icomoon-angle-left {
+    background-image: none;
+    display: inline-block;
+    margin-bottom: 4px;
+    mask-image: url('svg/angle-left.svg');
+  }
+
+  .icomoon-plus {
+    background-image: none;
+    display: inline-block;
+    margin-bottom: 4px;
+    mask-image: url('svg/plus.svg');
+  }
+
+  .icomoon-minus::before {
+    background-image: none;
+    display: inline-block;
+    margin-bottom: 4px;
+    mask-image: url('svg/minus.svg');
+  }
+}

@@ -1,0 +1,66 @@
+/* Text webfont with font-display: swap for fast rendering */
+
+/* Open Sans (Regular 400) */
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src:
+    local('Open Sans Regular'),
+    local('OpenSans-Regular'),
+    url('../fonts/opensans-regular-webfont.woff2') format('woff2'),
+    url('../fonts/opensans-regular-webfont.woff') format('woff');
+}
+
+/* Open Sans (Semibold 600) */
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src:
+    local('Open Sans Semibold'),
+    local('OpenSans-Semibold'),
+    url('../fonts/opensans-semibold-webfont.woff2') format('woff2'),
+    url('../fonts/opensans-semibold-webfont.woff') format('woff');
+}
+
+/* Open Sans (Bold 700) */
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src:
+    local('Open Sans Bold'),
+    local('OpenSans-Bold'),
+    url('../fonts/opensans-bold-webfont.woff2') format('woff2'),
+    url('../fonts/opensans-bold-webfont.woff') format('woff');
+}
+
+/* Roboto Condensed (Regular 400) */
+@font-face {
+  font-family: 'Roboto Condensed';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src:
+    local('Roboto Condensed'),
+    local('RobotoCondensed-Regular'),
+    url('../fonts/robotocondensed-regular-webfont.woff2') format('woff2'),
+    url('../fonts/robotocondensed-regular-webfont.woff') format('woff');
+}
+
+/* Roboto Condensed (Bold 700) */
+@font-face {
+  font-family: 'Roboto Condensed';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src:
+    local('Roboto Condensed Bold'),
+    local('RobotoCondensed-Bold'),
+    url('../fonts/robotocondensed-bold-webfont.woff2') format('woff2'),
+    url('../fonts/robotocondensed-bold-webfont.woff') format('woff');
+}
