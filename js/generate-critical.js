@@ -22,7 +22,6 @@ import * as critical from 'critical';
     css: cssList,
     inline: false,
     rebase: false,
-    cleanCSS: {},
     width: 412,
     height: 915,
   })
