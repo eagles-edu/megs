@@ -1,0 +1,10 @@
+node_modules
+dist
+build
+coverage
+**/**/.sto
+**/**/sto
+.hts-cache
+**/**/_notes
+docs/**
+scripts/**

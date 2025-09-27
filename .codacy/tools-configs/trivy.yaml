@@ -1,0 +1,59 @@
+# Basic trivy.yaml configuration
+scanners:
+  - vuln
+  - misconfig
+  - secret
+
+vulnerability:
+  type:
+    - os
+    - library
+  severity:
+    - CRITICAL
+    - HIGH
+    - MEDIUM
+    - LOW
+    - UNKNOWN
+
+  include-non-failures: false
+
+misconfig:
+  severity:
+    - CRITICAL
+    - HIGH
+    - MEDIUM
+
+secret:
+  severity:
+    - CRITICAL
+    - HIGH
+    - MEDIUM
+
+ignore-unfixed: true
+
+skip-files:
+  - '**/*_test.go'
+  - '**/testdata/**'
+  - 'vendor/**'
+  - 'node_modules/**'
+  - 'test/**'
+  - '*.test.js'
+  - '.git/**'
+  - '**/*.md'
+
+skip-dirs:
+  - 'test'
+  - 'tests'
+  - '.git'
+  - 'node_modules'
+
+# Cache settings for better performance
+cache:
+  # Cache directory (relative to project root)
+  dir: '.trivy-cache'
+
+  # Clear cache before scanning
+  clear: false
+
+  # Cache backend (redis, fs)
+  backend: 'fs'
