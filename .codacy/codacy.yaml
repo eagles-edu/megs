@@ -9,7 +9,7 @@ tool_configurations:
     trivy: .codacy/tools-configs/trivy.yaml
 
 exclude_paths:
-    - "**/**/*.md"
+    - "**/*.md"
     - ".codex/**"
     - ".continue/**"
     - ".gemini/**"
