@@ -15,22 +15,23 @@ npm-debug.log*
 **/**/.sto/
 **/**/sto/
 
-# codex persistence (keep untracked)
-.codex/
-.continue/
-.history-memo/
-.zencoder/
-tmp/
-persistence/
+# general 
+.codex/**
+.continue/**
+.history-memo/**
+templates/**
+modules/**
+media/**
+.zencoder/**
+tmp/**
+/**
+
+persistence/**
 scripts/
 
 lists2 - Copy/
 .stylelintignore
 *.log.txt
-
-web-asset/icons/demo-files/*
-**/**/demo.html
-**/**/demo2.html
 
 # secrets and environment
 .env
@@ -54,7 +55,6 @@ startup-plan-draft.md
 tatus
 TODO.md
 
-
 # credentials & keys
 .git-credentials
 *.pem
@@ -75,13 +75,22 @@ credentials.*
 settings.*
 
 # keep essential tracked files/folders despite broad ignores above
+!.codacy/**
 !.gitignore
-!.github/
 !.github/**
-!js/verify-prototype.mjs
+!js/**
+!.codacy/tools-configs/trivy.yaml
+!.github/workflows/codacy-analysis.yml
+!.github/workflows/ci.yml
+!.github/workflows/codacy-security.yml
+!.codacy/tools-configs/analysis_options.yaml
+!web-asset/**
 
 # specifies files
 frame.html
+web-asset/icons/demo-files/*
+**/**/demo.html
+**/**/demo2.html
 
 #Ignore vscode AI rules
 .github/instructions/codacy.instructions.md
