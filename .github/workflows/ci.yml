@@ -13,8 +13,6 @@ jobs:
   ci:
     runs-on: ubuntu-22.04
     timeout-minutes: 30
-    env:
-      CODACY_PROJECT_TOKEN: ${{ secrets.CODACY_PROJECT_TOKEN }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -36,17 +34,3 @@ jobs:
 
       - name: Smoke Test Multiple Pages
         run: npm run smoke:pages
-
-      # (optional) upload to Codacy service (kept here if you want separate from SARIF)
-      - name: Codacy Analysis (upload to Codacy)
-        if: ${{ env.CODACY_PROJECT_TOKEN != '' }}
-        uses: codacy/codacy-analysis-cli-action@v4
-        with:
-          project-token: ${{ secrets.CODACY_PROJECT_TOKEN }}
-          tool: eslint
-          upload: true
-          verbose: true
-
-      - name: Skip Codacy Analysis (token missing)
-        if: ${{ env.CODACY_PROJECT_TOKEN == '' }}
-        run: echo "Skipping Codacy analysis because CODACY_PROJECT_TOKEN is not set."
