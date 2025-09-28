@@ -1,7 +1,7 @@
 // Left Menu behavior (vanilla JS)
 // - Hover expand for #accordion_menu_90
 
-;(function () {
+(function () {
   function ready(fn) {
     if (document.readyState === 'loading') {
       document.addEventListener('DOMContentLoaded', fn)

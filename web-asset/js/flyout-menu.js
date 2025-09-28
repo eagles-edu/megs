@@ -1,7 +1,7 @@
 // Flyout Menus behavior (vanilla JS)
 // - Hover expand/collapse for ul.flyout-menu in #aside/#sidebar
 /* eslint-env browser */
-;(function () {
+(function () {
   function ready(fn) {
     if (document.readyState === 'loading') {
       document.addEventListener('DOMContentLoaded', fn)

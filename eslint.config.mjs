@@ -1,10 +1,7 @@
-// eslint.config.mjs  — ESLint 9 flat config (root)
-// Requires: npm i -D @eslint/js globals @microsoft/eslint-formatter-sarif
-
+// eslint.config.mjs — ESLint 9 flat config (root)
 import js from "@eslint/js"
 import globals from "globals"
 
-// central ignores (mirror repo reality)
 const ignores = [
   "**/*.md",
   ".git/",
@@ -15,13 +12,22 @@ const ignores = [
   ".zencoder/",
   "tmp/",
   "persistence/",
+  // legacy dirs you said are not source
   "modules/",
   "media/",
   "templates/",
-  "scripts/", // legacy dirs, intentionally ignored
+  "scripts/",
+  // generated/vendor JS we should not lint
+  "web-asset/js/*.bundle.js",
+  "web-asset/js/*legacy*.js",
+  "web-asset/js/*.min.js",
+  "web-asset/js/vendor/**",
+  "web-asset/js/template*.js",
+  // demo junk
   "web-asset/icons/demo-files/*",
   "**/demo.html",
   "**/demo2.html",
+  // common build dirs
   "node_modules/",
   "dist/",
   "build/",
@@ -29,17 +35,19 @@ const ignores = [
 
 export default [
   { ignores },
-
-  // baseline recommended
   js.configs.recommended,
-
-  // your explicit rule set applied to JS
   {
     files: ["**/*.{js,mjs,cjs}"],
     languageOptions: {
       ecmaVersion: 2023,
       sourceType: "module",
-      globals: { ...globals.browser, ...globals.node },
+      globals: {
+        ...globals.browser,
+        ...globals.node,
+        // add legacy jQuery globals (readonly)
+        $: "readonly",
+        jQuery: "readonly",
+      },
     },
     linterOptions: { reportUnusedDisableDirectives: true },
     rules: {

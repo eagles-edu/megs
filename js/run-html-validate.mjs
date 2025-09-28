@@ -1,4 +1,4 @@
-;+144 - 0
++144 - 0
 
 import { readdir, mkdir, writeFile } from "node:fs/promises"
 import { createWriteStream } from "node:fs"
