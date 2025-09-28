@@ -1,4 +1,4 @@
-# Basic trivy.yaml configuration
+# Trivy configuration used by Codacy CLI
 scanners:
   - vuln
   - misconfig
@@ -14,7 +14,6 @@ vulnerability:
     - MEDIUM
     - LOW
     - UNKNOWN
-
   include-non-failures: false
 
 misconfig:
@@ -47,13 +46,7 @@ skip-dirs:
   - '.git'
   - 'node_modules'
 
-# Cache settings for better performance
 cache:
-  # Cache directory (relative to project root)
   dir: '.trivy-cache'
-
-  # Clear cache before scanning
   clear: false
-
-  # Cache backend (redis, fs)
   backend: 'fs'

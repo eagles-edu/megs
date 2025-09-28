@@ -5,15 +5,16 @@ permissions:
 
 on:
   push:
+    branches: [ trunk ]
   pull_request:
+    branches: [ trunk ]
 
 jobs:
   ci:
     runs-on: ubuntu-22.04
+    timeout-minutes: 30
     env:
       CODACY_PROJECT_TOKEN: ${{ secrets.CODACY_PROJECT_TOKEN }}
-    environment:
-      name: megs_env
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -22,7 +23,7 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version-file: .nvmrc
-          cache: "npm"
+          cache: npm
 
       - name: Install
         run: npm ci
@@ -36,8 +37,9 @@ jobs:
       - name: Smoke Test Multiple Pages
         run: npm run smoke:pages
 
-      - name: Codacy Analysis
-        if: ${{ secrets.CODACY_PROJECT_TOKEN != '' }}
+      # Upload findings to Codacy service (optional)
+      - name: Codacy Analysis (upload to Codacy)
+        if: ${{ env.CODACY_PROJECT_TOKEN != '' }}
         uses: codacy/codacy-analysis-cli-action@v4
         with:
           project-token: ${{ secrets.CODACY_PROJECT_TOKEN }}
@@ -46,5 +48,5 @@ jobs:
           verbose: true
 
       - name: Skip Codacy Analysis (token missing)
-        if: ${{ secrets.CODACY_PROJECT_TOKEN == '' }}
+        if: ${{ env.CODACY_PROJECT_TOKEN == '' }}
         run: echo "Skipping Codacy analysis because CODACY_PROJECT_TOKEN is not set."

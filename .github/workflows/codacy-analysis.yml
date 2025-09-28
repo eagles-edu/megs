@@ -1,32 +1,82 @@
-name: Codacy Analysis CLI
+name: Codacy Analysis (ESLint + Trivy)
 
-on: ["push"]
+on:
+  push:
+    branches: [ trunk ]
+  pull_request:
+    branches: [ trunk ]
+  workflow_dispatch:
+
+concurrency:
+  group: codacy-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
-  codacy-analysis-cli:
-    name: Codacy Analysis CLI
+  codacy-analysis:
+    name: Codacy Analysis
+    runs-on: ubuntu-22.04
+    timeout-minutes: 30
     permissions:
       contents: read
+      actions: read
+      security-events: write  # needed for SARIF upload
       pull-requests: write
-    runs-on: ubuntu-22.04
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
+    env:
+      ESLINT_USE_FLAT_CONFIG: "true"
 
-      - name: Set up Node.js
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node (from .nvmrc)
         uses: actions/setup-node@v4
         with:
-          node-version-file: ".nvmrc"
+          node-version-file: .nvmrc
+          cache: npm
 
-      - name: Install dependencies
+      - name: Install deps
         run: npm ci
 
-      - name: Run lint
+      - name: Lint (project)
         run: npm run lint
 
-      - name: Run Codacy Analysis CLI
-        uses: codacy/codacy-analysis-cli-action@v4.4.7
-        env:
-          ESLINT_USE_FLAT_CONFIG: "true"
+      # ---- ESLint via Codacy CLI -> SARIF (uploads to Codacy too)
+      - name: Codacy CLI (ESLint → SARIF)
+        uses: codacy/codacy-analysis-cli-action@v4
         with:
-          extra-args: --config eslint.config.js
+          tool: eslint
+          format: sarif
+          output: results-eslint.sarif
+          gh-code-scanning-compat: true
+          project-token: ${{ secrets.CODACY_PROJECT_TOKEN }}
+          upload: true
+
+      - name: Upload ESLint SARIF to GitHub
+        uses: github/codeql-action/upload-sarif@v3
+        if: hashFiles('results-eslint.sarif') != ''
+        with:
+          sarif_file: results-eslint.sarif
+          wait-for-processing: true
+
+      # ---- Trivy via Codacy CLI -> SARIF (uploads to Codacy too)
+      - name: Codacy CLI (Trivy → SARIF)
+        uses: codacy/codacy-analysis-cli-action@v4
+        with:
+          tool: trivy
+          run-docker-tools: true
+          allow-network: true
+          format: sarif
+          output: results-trivy.sarif
+          gh-code-scanning-compat: true
+          project-token: ${{ secrets.CODACY_PROJECT_TOKEN }}
+          upload: true
+          # skip-container-engine-check: true  # uncomment if Docker checks fail on runner
+
+      - name: Upload Trivy SARIF to GitHub
+        uses: github/codeql-action/upload-sarif@v3
+        if: hashFiles('results-trivy.sarif') != ''
+        with:
+          sarif_file: results-trivy.sarif
+          wait-for-processing: true

@@ -24,7 +24,7 @@ jobs:
         with:
           languages: javascript-typescript
 
-      # If your project needs a build, add it here
+      # add your build here if required
 
       - uses: github/codeql-action/analyze@v3
         with:
