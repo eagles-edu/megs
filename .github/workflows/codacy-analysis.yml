@@ -1,3 +1,4 @@
+# .github/workflows/codacy-analysis.yml
 name: Codacy Analysis (ESLint + Trivy)
 
 on:
@@ -13,13 +14,12 @@ concurrency:
 
 jobs:
   codacy-analysis:
-    name: Codacy Analysis
     runs-on: ubuntu-22.04
     timeout-minutes: 30
     permissions:
       contents: read
       actions: read
-      security-events: write   # needed for SARIF upload
+      security-events: write
       pull-requests: write
     env:
       ESLINT_USE_FLAT_CONFIG: "true"
@@ -27,8 +27,7 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
+        with: { fetch-depth: 0 }
 
       - name: Setup Node (from .nvmrc)
         uses: actions/setup-node@v4
@@ -42,7 +41,7 @@ jobs:
       - name: Lint (project)
         run: npm run lint
 
-      # ---- ESLint via Codacy CLI → SARIF (Codacy upload only if token is set)
+      # ---- ESLint via Codacy CLI → SARIF (+ optional upload to Codacy)
       - name: Codacy CLI (ESLint → SARIF)
         uses: codacy/codacy-analysis-cli-action@v4
         with:
@@ -52,15 +51,24 @@ jobs:
           gh-code-scanning-compat: true
           project-token: ${{ secrets.CODACY_PROJECT_TOKEN }}
           upload: ${{ secrets.CODACY_PROJECT_TOKEN != '' }}
+          fail-if-incomplete: true
+
+      - name: Validate ESLint SARIF
+        id: validate_eslint
+        run: |
+          node -e "const fs=require('fs');let ok=false;
+          try{const s=fs.readFileSync('results-eslint.sarif','utf8'); if(s.trim().length>2){const j=JSON.parse(s); ok = Array.isArray(j.runs) && j.runs.length>0;}}catch(e){}
+          console.log('eslint_sarif_ok='+ok);
+          fs.appendFileSync(process.env.GITHUB_OUTPUT, `ok=${ok}\n`);"
 
       - name: Upload ESLint SARIF to GitHub
         uses: github/codeql-action/upload-sarif@v3
-        if: hashFiles('results-eslint.sarif') != ''
+        if: steps.validate_eslint.outputs.ok == 'true'
         with:
           sarif_file: results-eslint.sarif
           wait-for-processing: true
 
-      # ---- Trivy via Codacy CLI → SARIF (Codacy upload only if token is set)
+      # ---- Trivy via Codacy CLI → SARIF (+ optional upload to Codacy)
       - name: Codacy CLI (Trivy → SARIF)
         uses: codacy/codacy-analysis-cli-action@v4
         with:
@@ -72,11 +80,20 @@ jobs:
           gh-code-scanning-compat: true
           project-token: ${{ secrets.CODACY_PROJECT_TOKEN }}
           upload: ${{ secrets.CODACY_PROJECT_TOKEN != '' }}
-          # skip-container-engine-check: true  # uncomment if Docker checks fail
+          fail-if-incomplete: true
+          # skip-container-engine-check: true  # if Docker checks fail on runner
+
+      - name: Validate Trivy SARIF
+        id: validate_trivy
+        run: |
+          node -e "const fs=require('fs');let ok=false;
+          try{const s=fs.readFileSync('results-trivy.sarif','utf8'); if(s.trim().length>2){const j=JSON.parse(s); ok = Array.isArray(j.runs) && j.runs.length>0;}}catch(e){}
+          console.log('trivy_sarif_ok='+ok);
+          fs.appendFileSync(process.env.GITHUB_OUTPUT, `ok=${ok}\n`);"
 
       - name: Upload Trivy SARIF to GitHub
         uses: github/codeql-action/upload-sarif@v3
-        if: hashFiles('results-trivy.sarif') != ''
+        if: steps.validate_trivy.outputs.ok == 'true'
         with:
           sarif_file: results-trivy.sarif
           wait-for-processing: true
