@@ -5,6 +5,9 @@ on: ["push"]
 jobs:
   codacy-analysis-cli:
     name: Codacy Analysis CLI
+    permissions:
+      contents: read
+      pull-requests: write
     runs-on: ubuntu-22.04
     steps:
       - name: Checkout code
