@@ -19,6 +19,7 @@ permissions:
 
 jobs:
   codacy-analysis:
+    environment: megs_env
     name: Codacy Analysis
     runs-on: ubuntu-22.04
     timeout-minutes: 30
@@ -65,13 +66,12 @@ jobs:
           sarif_file: results-eslint.sarif
           wait-for-processing: true
 
-      # Trivy via Codacy CLI → SARIF (Codacy upload only if token present)
+      # Trivy via Codacy CLI → SARIF (optional Codacy upload)
       - name: Codacy CLI (Trivy → SARIF)
         uses: codacy/codacy-analysis-cli-action@v4
         with:
           tool: trivy
-          # IMPORTANT: don't use "."; either omit or use absolute path:
-          directory: /src
+          directory: .
           run-docker-tools: true
           allow-network: true
           format: sarif
@@ -86,7 +86,7 @@ jobs:
         shell: bash
         run: |
           if [ -s results-trivy.sarif ] && \
-              jq -e '.runs | type=="array" and (length>0)' results-trivy.sarif >/dev/null; then
+          jq -e '.runs | type=="array" and (length>0)' results-trivy.sarif >/dev/null; then
             echo "ok=true" >> "$GITHUB_OUTPUT"
           else
             echo "ok=false" >> "$GITHUB_OUTPUT"
