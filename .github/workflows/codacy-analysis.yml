@@ -40,7 +40,7 @@ jobs:
       - name: Install deps
         run: npm ci
 
-      # ───────────── ESLint (native, flat) → SARIF ─────────────
+      # ESLint (native, flat) → SARIF
       - name: ESLint → SARIF
         run: |
           npx eslint . \
@@ -49,11 +49,14 @@ jobs:
 
       - name: Validate ESLint SARIF
         id: validate_eslint
+        shell: bash
         run: |
-          node -e "const fs=require('fs');let ok=false;
-          try{const s=fs.readFileSync('results-eslint.sarif','utf8'); if(s.trim().length>2){const j=JSON.parse(s); ok=Array.isArray(j.runs)&&j.runs.length>0;}}catch(e){}
-          console.log('eslint_sarif_ok='+ok);
-          require('fs').appendFileSync(process.env.GITHUB_OUTPUT, `ok=${ok}\n`);"
+          if [ -s results-eslint.sarif ] && \
+              jq -e '.runs | type=="array" and (length>0)' results-eslint.sarif >/dev/null; then
+            echo "ok=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "ok=false" >> "$GITHUB_OUTPUT"
+          fi
 
       - name: Upload ESLint SARIF to GitHub
         uses: github/codeql-action/upload-sarif@v3
@@ -62,8 +65,7 @@ jobs:
           sarif_file: results-eslint.sarif
           wait-for-processing: true
 
-      # ───────────── Trivy via Codacy CLI → SARIF ─────────────
-      # Generates SARIF for GitHub; uploads to Codacy only if token is present.
+      # Trivy via Codacy CLI → SARIF (optional Codacy upload)
       - name: Codacy CLI (Trivy → SARIF)
         uses: codacy/codacy-analysis-cli-action@v4
         with:
@@ -77,15 +79,17 @@ jobs:
           project-token: ${{ secrets.CODACY_PROJECT_TOKEN }}
           upload: ${{ secrets.CODACY_PROJECT_TOKEN != '' }}
           fail-if-incomplete: true
-          # skip-container-engine-check: true  # uncomment if the runner blocks Docker
 
       - name: Validate Trivy SARIF
         id: validate_trivy
+        shell: bash
         run: |
-          node -e "const fs=require('fs');let ok=false;
-          try{const s=fs.readFileSync('results-trivy.sarif','utf8'); if(s.trim().length>2){const j=JSON.parse(s); ok=Array.isArray(j.runs)&&j.runs.length>0;}}catch(e){}
-          console.log('trivy_sarif_ok='+ok);
-          require('fs').appendFileSync(process.env.GITHUB_OUTPUT, `ok=${ok}\n`);"
+          if [ -s results-trivy.sarif ] && \
+            jq -e '.runs | type=="array" and (length>0)' results-trivy.sarif >/dev/null; then
+            echo "ok=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "ok=false" >> "$GITHUB_OUTPUT"
+          fi
 
       - name: Upload Trivy SARIF to GitHub
         uses: github/codeql-action/upload-sarif@v3
