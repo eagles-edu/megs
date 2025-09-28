@@ -71,7 +71,7 @@ jobs:
         uses: codacy/codacy-analysis-cli-action@v4
         with:
           tool: trivy
-          directory: .
+          directory: /src
           run-docker-tools: true
           allow-network: true
           format: sarif
