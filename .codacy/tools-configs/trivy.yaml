@@ -1,32 +1,18 @@
-# Trivy configuration used by Codacy CLI
 scanners:
   - vuln
   - misconfig
   - secret
 
 vulnerability:
-  type:
-    - os
-    - library
-  severity:
-    - CRITICAL
-    - HIGH
-    - MEDIUM
-    - LOW
-    - UNKNOWN
+  type: [ os, library ]
+  severity: [ CRITICAL, HIGH, MEDIUM, LOW, UNKNOWN ]
   include-non-failures: false
 
 misconfig:
-  severity:
-    - CRITICAL
-    - HIGH
-    - MEDIUM
+  severity: [ CRITICAL, HIGH, MEDIUM ]
 
 secret:
-  severity:
-    - CRITICAL
-    - HIGH
-    - MEDIUM
+  severity: [ CRITICAL, HIGH, MEDIUM ]
 
 ignore-unfixed: true
 

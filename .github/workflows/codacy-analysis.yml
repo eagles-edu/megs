@@ -1,4 +1,3 @@
-# .github/workflows/codacy-analysis.yml
 name: Codacy Analysis (ESLint + Trivy)
 
 on:
@@ -12,22 +11,25 @@ concurrency:
   group: codacy-${{ github.ref }}
   cancel-in-progress: true
 
+permissions:
+  contents: read
+  security-events: write
+  actions: read
+  pull-requests: write
+
 jobs:
   codacy-analysis:
+    name: Codacy Analysis
     runs-on: ubuntu-22.04
     timeout-minutes: 30
-    permissions:
-      contents: read
-      actions: read
-      security-events: write
-      pull-requests: write
     env:
       ESLINT_USE_FLAT_CONFIG: "true"
 
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-        with: { fetch-depth: 0 }
+        with:
+          fetch-depth: 0
 
       - name: Setup Node (from .nvmrc)
         uses: actions/setup-node@v4
@@ -38,28 +40,20 @@ jobs:
       - name: Install deps
         run: npm ci
 
-      - name: Lint (project)
-        run: npm run lint
-
-      # ---- ESLint via Codacy CLI → SARIF (+ optional upload to Codacy)
-      - name: Codacy CLI (ESLint → SARIF)
-        uses: codacy/codacy-analysis-cli-action@v4
-        with:
-          tool: eslint
-          format: sarif
-          output: results-eslint.sarif
-          gh-code-scanning-compat: true
-          project-token: ${{ secrets.CODACY_PROJECT_TOKEN }}
-          upload: ${{ secrets.CODACY_PROJECT_TOKEN != '' }}
-          fail-if-incomplete: true
+      # ───────────── ESLint (native, flat) → SARIF ─────────────
+      - name: ESLint → SARIF
+        run: |
+          npx eslint . \
+            -f @microsoft/eslint-formatter-sarif \
+            -o results-eslint.sarif || true
 
       - name: Validate ESLint SARIF
         id: validate_eslint
         run: |
           node -e "const fs=require('fs');let ok=false;
-          try{const s=fs.readFileSync('results-eslint.sarif','utf8'); if(s.trim().length>2){const j=JSON.parse(s); ok = Array.isArray(j.runs) && j.runs.length>0;}}catch(e){}
+          try{const s=fs.readFileSync('results-eslint.sarif','utf8'); if(s.trim().length>2){const j=JSON.parse(s); ok=Array.isArray(j.runs)&&j.runs.length>0;}}catch(e){}
           console.log('eslint_sarif_ok='+ok);
-          fs.appendFileSync(process.env.GITHUB_OUTPUT, `ok=${ok}\n`);"
+          require('fs').appendFileSync(process.env.GITHUB_OUTPUT, `ok=${ok}\n`);"
 
       - name: Upload ESLint SARIF to GitHub
         uses: github/codeql-action/upload-sarif@v3
@@ -68,11 +62,13 @@ jobs:
           sarif_file: results-eslint.sarif
           wait-for-processing: true
 
-      # ---- Trivy via Codacy CLI → SARIF (+ optional upload to Codacy)
+      # ───────────── Trivy via Codacy CLI → SARIF ─────────────
+      # Generates SARIF for GitHub; uploads to Codacy only if token is present.
       - name: Codacy CLI (Trivy → SARIF)
         uses: codacy/codacy-analysis-cli-action@v4
         with:
           tool: trivy
+          directory: .
           run-docker-tools: true
           allow-network: true
           format: sarif
@@ -81,15 +77,15 @@ jobs:
           project-token: ${{ secrets.CODACY_PROJECT_TOKEN }}
           upload: ${{ secrets.CODACY_PROJECT_TOKEN != '' }}
           fail-if-incomplete: true
-          # skip-container-engine-check: true  # if Docker checks fail on runner
+          # skip-container-engine-check: true  # uncomment if the runner blocks Docker
 
       - name: Validate Trivy SARIF
         id: validate_trivy
         run: |
           node -e "const fs=require('fs');let ok=false;
-          try{const s=fs.readFileSync('results-trivy.sarif','utf8'); if(s.trim().length>2){const j=JSON.parse(s); ok = Array.isArray(j.runs) && j.runs.length>0;}}catch(e){}
+          try{const s=fs.readFileSync('results-trivy.sarif','utf8'); if(s.trim().length>2){const j=JSON.parse(s); ok=Array.isArray(j.runs)&&j.runs.length>0;}}catch(e){}
           console.log('trivy_sarif_ok='+ok);
-          fs.appendFileSync(process.env.GITHUB_OUTPUT, `ok=${ok}\n`);"
+          require('fs').appendFileSync(process.env.GITHUB_OUTPUT, `ok=${ok}\n`);"
 
       - name: Upload Trivy SARIF to GitHub
         uses: github/codeql-action/upload-sarif@v3

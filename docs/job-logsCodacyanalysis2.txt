@@ -1,0 +1,586 @@
+﻿2025-09-28T10:04:47.2564676Z Current runner version: '2.328.0'
+2025-09-28T10:04:47.2588166Z ##[group]Runner Image Provisioner
+2025-09-28T10:04:47.2589145Z Hosted Compute Agent
+2025-09-28T10:04:47.2589716Z Version: 20250912.392
+2025-09-28T10:04:47.2590279Z Commit: d921fda672a98b64f4f82364647e2f10b2267d0b
+2025-09-28T10:04:47.2591031Z Build Date: 2025-09-12T15:23:14Z
+2025-09-28T10:04:47.2591599Z ##[endgroup]
+2025-09-28T10:04:47.2592132Z ##[group]Operating System
+2025-09-28T10:04:47.2592744Z Ubuntu
+2025-09-28T10:04:47.2593199Z 22.04.5
+2025-09-28T10:04:47.2593673Z LTS
+2025-09-28T10:04:47.2594072Z ##[endgroup]
+2025-09-28T10:04:47.2594979Z ##[group]Runner Image
+2025-09-28T10:04:47.2595544Z Image: ubuntu-22.04
+2025-09-28T10:04:47.2596027Z Version: 20250922.79.1
+2025-09-28T10:04:47.2597100Z Included Software: https://github.com/actions/runner-images/blob/ubuntu22/20250922.79/images/ubuntu/Ubuntu2204-Readme.md
+2025-09-28T10:04:47.2598714Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu22%2F20250922.79
+2025-09-28T10:04:47.2599730Z ##[endgroup]
+2025-09-28T10:04:47.2600987Z ##[group]GITHUB_TOKEN Permissions
+2025-09-28T10:04:47.2603233Z Actions: read
+2025-09-28T10:04:47.2603737Z Contents: read
+2025-09-28T10:04:47.2604225Z Metadata: read
+2025-09-28T10:04:47.2605083Z PullRequests: write
+2025-09-28T10:04:47.2605571Z SecurityEvents: write
+2025-09-28T10:04:47.2606109Z ##[endgroup]
+2025-09-28T10:04:47.2608551Z Secret source: Actions
+2025-09-28T10:04:47.2609262Z Prepare workflow directory
+2025-09-28T10:04:47.3009160Z Prepare all required actions
+2025-09-28T10:04:47.3047819Z Getting action download info
+2025-09-28T10:04:47.7037112Z Download action repository 'actions/checkout@v4' (SHA:08eba0b27e820071cde6df949e0beb9ba4906955)
+2025-09-28T10:04:48.0249508Z Download action repository 'actions/setup-node@v4' (SHA:49933ea5288caeca8642d1e84afbd3f7d6820020)
+2025-09-28T10:04:48.1586071Z Download action repository 'codacy/codacy-analysis-cli-action@v4' (SHA:562ee3e92b8e92df8b67e0a5ff8aa8e261919c08)
+2025-09-28T10:04:48.8018843Z Download action repository 'github/codeql-action@v3' (SHA:3599b3baa15b485a2e49ef411a7a4bb2452e7f93)
+2025-09-28T10:04:49.9101287Z Getting action download info
+2025-09-28T10:04:50.0655596Z Download action repository 'actions/setup-go@v3' (SHA:be3c94b385c4f180051c996d336f57a34c397495)
+2025-09-28T10:04:50.7874898Z Getting action download info
+2025-09-28T10:04:50.9889876Z Complete job name: codacy-analysis
+2025-09-28T10:04:51.0630283Z ##[group]Run actions/checkout@v4
+2025-09-28T10:04:51.0631001Z with:
+2025-09-28T10:04:51.0631241Z   fetch-depth: 0
+2025-09-28T10:04:51.0631495Z   repository: eagles-edu/megs
+2025-09-28T10:04:51.0631993Z   token: ***
+2025-09-28T10:04:51.0632220Z   ssh-strict: true
+2025-09-28T10:04:51.0632452Z   ssh-user: git
+2025-09-28T10:04:51.0632702Z   persist-credentials: true
+2025-09-28T10:04:51.0632972Z   clean: true
+2025-09-28T10:04:51.0633228Z   sparse-checkout-cone-mode: true
+2025-09-28T10:04:51.0633533Z   fetch-tags: false
+2025-09-28T10:04:51.0633780Z   show-progress: true
+2025-09-28T10:04:51.0634017Z   lfs: false
+2025-09-28T10:04:51.0634264Z   submodules: false
+2025-09-28T10:04:51.0634679Z   set-safe-directory: true
+2025-09-28T10:04:51.0635211Z env:
+2025-09-28T10:04:51.0635455Z   ESLINT_USE_FLAT_CONFIG: true
+2025-09-28T10:04:51.0635726Z ##[endgroup]
+2025-09-28T10:04:51.1724213Z Syncing repository: eagles-edu/megs
+2025-09-28T10:04:51.1726068Z ##[group]Getting Git version info
+2025-09-28T10:04:51.1726593Z Working directory is '/home/runner/work/megs/megs'
+2025-09-28T10:04:51.1727269Z [command]/usr/bin/git version
+2025-09-28T10:04:51.1775759Z git version 2.51.0
+2025-09-28T10:04:51.1803205Z ##[endgroup]
+2025-09-28T10:04:51.1820051Z Temporarily overriding HOME='/home/runner/work/_temp/d2b25c09-03d4-47eb-87bb-9bc0edb51945' before making global git config changes
+2025-09-28T10:04:51.1821619Z Adding repository directory to the temporary git global config as a safe directory
+2025-09-28T10:04:51.1834956Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/megs/megs
+2025-09-28T10:04:51.1868361Z Deleting the contents of '/home/runner/work/megs/megs'
+2025-09-28T10:04:51.1872988Z ##[group]Initializing the repository
+2025-09-28T10:04:51.1877941Z [command]/usr/bin/git init /home/runner/work/megs/megs
+2025-09-28T10:04:51.1970147Z hint: Using 'master' as the name for the initial branch. This default branch name
+2025-09-28T10:04:51.1971443Z hint: is subject to change. To configure the initial branch name to use in all
+2025-09-28T10:04:51.1972024Z hint: of your new repositories, which will suppress this warning, call:
+2025-09-28T10:04:51.1972670Z hint:
+2025-09-28T10:04:51.1973054Z hint: 	git config --global init.defaultBranch <name>
+2025-09-28T10:04:51.1973712Z hint:
+2025-09-28T10:04:51.1974338Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2025-09-28T10:04:51.1975164Z hint: 'development'. The just-created branch can be renamed via this command:
+2025-09-28T10:04:51.1975845Z hint:
+2025-09-28T10:04:51.1976302Z hint: 	git branch -m <name>
+2025-09-28T10:04:51.1976786Z hint:
+2025-09-28T10:04:51.1977520Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2025-09-28T10:04:51.1978604Z Initialized empty Git repository in /home/runner/work/megs/megs/.git/
+2025-09-28T10:04:51.1987516Z [command]/usr/bin/git remote add origin https://github.com/eagles-edu/megs
+2025-09-28T10:04:51.2020334Z ##[endgroup]
+2025-09-28T10:04:51.2021140Z ##[group]Disabling automatic garbage collection
+2025-09-28T10:04:51.2026161Z [command]/usr/bin/git config --local gc.auto 0
+2025-09-28T10:04:51.2055543Z ##[endgroup]
+2025-09-28T10:04:51.2056332Z ##[group]Setting up auth
+2025-09-28T10:04:51.2063036Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2025-09-28T10:04:51.2095311Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2025-09-28T10:04:51.2417985Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2025-09-28T10:04:51.2449047Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2025-09-28T10:04:51.2677586Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2025-09-28T10:04:51.2713113Z ##[endgroup]
+2025-09-28T10:04:51.2713997Z ##[group]Fetching the repository
+2025-09-28T10:04:51.2730926Z [command]/usr/bin/git -c protocol.version=2 fetch --prune --no-recurse-submodules origin +refs/heads/*:refs/remotes/origin/* +refs/tags/*:refs/tags/*
+2025-09-28T10:04:53.8791786Z From https://github.com/eagles-edu/megs
+2025-09-28T10:04:53.8793005Z  * [new branch]      codex/update-accordion-menu-styles-in-codex -> origin/codex/update-accordion-menu-styles-in-codex
+2025-09-28T10:04:53.8794002Z  * [new branch]      codex/update-documentation-and-explain-styles -> origin/codex/update-documentation-and-explain-styles
+2025-09-28T10:04:53.8795031Z  * [new branch]      housekeeping/align-gitignore-20250927 -> origin/housekeeping/align-gitignore-20250927
+2025-09-28T10:04:53.8795527Z  * [new branch]      main                -> origin/main
+2025-09-28T10:04:53.8795878Z  * [new branch]      refactor-2025-08-25 -> origin/refactor-2025-08-25
+2025-09-28T10:04:53.8796236Z  * [new branch]      trunk               -> origin/trunk
+2025-09-28T10:04:53.8796612Z  * [new tag]         baseline/2025-08-25 -> baseline/2025-08-25
+2025-09-28T10:04:53.8846563Z [command]/usr/bin/git branch --list --remote origin/trunk
+2025-09-28T10:04:53.8870574Z   origin/trunk
+2025-09-28T10:04:53.8880430Z [command]/usr/bin/git rev-parse refs/remotes/origin/trunk
+2025-09-28T10:04:53.8900724Z b1ef7f9ad85a38b661f0a4d1c5ab0f577dc5ad41
+2025-09-28T10:04:53.8906437Z ##[endgroup]
+2025-09-28T10:04:53.8907304Z ##[group]Determining the checkout info
+2025-09-28T10:04:53.8908449Z ##[endgroup]
+2025-09-28T10:04:53.8913166Z [command]/usr/bin/git sparse-checkout disable
+2025-09-28T10:04:53.8953556Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2025-09-28T10:04:53.8980470Z ##[group]Checking out the ref
+2025-09-28T10:04:53.8985643Z [command]/usr/bin/git checkout --progress --force -B trunk refs/remotes/origin/trunk
+2025-09-28T10:04:54.1313138Z Switched to a new branch 'trunk'
+2025-09-28T10:04:54.1313877Z branch 'trunk' set up to track 'origin/trunk'.
+2025-09-28T10:04:54.1376814Z ##[endgroup]
+2025-09-28T10:04:54.1417241Z [command]/usr/bin/git log -1 --format=%H
+2025-09-28T10:04:54.1440533Z b1ef7f9ad85a38b661f0a4d1c5ab0f577dc5ad41
+2025-09-28T10:04:54.1657371Z ##[group]Run actions/setup-node@v4
+2025-09-28T10:04:54.1657670Z with:
+2025-09-28T10:04:54.1657858Z   node-version-file: .nvmrc
+2025-09-28T10:04:54.1658067Z   cache: npm
+2025-09-28T10:04:54.1658249Z   always-auth: false
+2025-09-28T10:04:54.1658483Z   check-latest: false
+2025-09-28T10:04:54.1658818Z   token: ***
+2025-09-28T10:04:54.1658991Z env:
+2025-09-28T10:04:54.1659158Z   ESLINT_USE_FLAT_CONFIG: true
+2025-09-28T10:04:54.1659390Z ##[endgroup]
+2025-09-28T10:04:54.3383078Z Node version file is not JSON file
+2025-09-28T10:04:54.3385129Z Resolved .nvmrc as 20.19.4
+2025-09-28T10:04:54.3437273Z Attempting to download 20.19.4...
+2025-09-28T10:04:55.1506711Z Acquiring 20.19.4 - x64 from https://github.com/actions/node-versions/releases/download/20.19.4-16309772647/node-20.19.4-linux-x64.tar.gz
+2025-09-28T10:04:55.7818022Z Extracting ...
+2025-09-28T10:04:55.7922711Z [command]/usr/bin/tar xz --strip 1 --warning=no-unknown-keyword --overwrite -C /home/runner/work/_temp/cc5afc50-ee8a-4f8c-b298-22d29575f628 -f /home/runner/work/_temp/0d9e02f2-eb34-4adb-8795-f960a66ced96
+2025-09-28T10:04:56.7641109Z Adding to the cache ...
+2025-09-28T10:04:58.4283676Z ##[group]Environment details
+2025-09-28T10:04:58.7588270Z node: v20.19.4
+2025-09-28T10:04:58.7588620Z npm: 10.8.2
+2025-09-28T10:04:58.7589008Z yarn: 1.22.22
+2025-09-28T10:04:58.7589706Z ##[endgroup]
+2025-09-28T10:04:58.7617308Z [command]/opt/hostedtoolcache/node/20.19.4/x64/bin/npm config get cache
+2025-09-28T10:04:58.8634873Z /home/runner/.npm
+2025-09-28T10:04:59.0810295Z Cache hit for: node-cache-Linux-x64-npm-6238f7cb83688cc73c5f70b2cce9f692c35d850abf113e47513161c567fb2580
+2025-09-28T10:05:00.2937002Z Received 33558740 of 41947348 (80.0%), 32.0 MBs/sec
+2025-09-28T10:05:00.5313663Z Received 41947348 of 41947348 (100.0%), 32.3 MBs/sec
+2025-09-28T10:05:00.5314308Z Cache Size: ~40 MB (41947348 B)
+2025-09-28T10:05:00.5346840Z [command]/usr/bin/tar -xf /home/runner/work/_temp/d6e76525-ac83-4e02-8c05-315267ba8c30/cache.tzst -P -C /home/runner/work/megs/megs --use-compress-program unzstd
+2025-09-28T10:05:00.7136333Z Cache restored successfully
+2025-09-28T10:05:00.7232438Z Cache restored from key: node-cache-Linux-x64-npm-6238f7cb83688cc73c5f70b2cce9f692c35d850abf113e47513161c567fb2580
+2025-09-28T10:05:00.7388092Z ##[group]Run npm ci
+2025-09-28T10:05:00.7388366Z [36;1mnpm ci[0m
+2025-09-28T10:05:00.7420605Z shell: /usr/bin/bash -e {0}
+2025-09-28T10:05:00.7420872Z env:
+2025-09-28T10:05:00.7421057Z   ESLINT_USE_FLAT_CONFIG: true
+2025-09-28T10:05:00.7421280Z ##[endgroup]
+2025-09-28T10:05:03.3575583Z npm warn deprecated inflight@1.0.6: This module is not supported, and leaks memory. Do not use it. Check out lru-cache if you want a good and tested way to coalesce async requests by a key value, which is much more comprehensive and powerful.
+2025-09-28T10:05:03.4291212Z npm warn deprecated rimraf@2.7.1: Rimraf versions prior to v4 are no longer supported
+2025-09-28T10:05:03.5033307Z npm warn deprecated abab@2.0.6: Use your platform's native atob() and btoa() methods instead
+2025-09-28T10:05:03.5796425Z npm warn deprecated glob@7.2.3: Glob versions prior to v9 are no longer supported
+2025-09-28T10:05:03.6325877Z npm warn deprecated domexception@4.0.0: Use your platform's native DOMException instead
+2025-09-28T10:05:04.3571364Z npm warn deprecated puppeteer@2.1.1: < 24.10.2 is no longer supported
+2025-09-28T10:05:11.0260104Z 
+2025-09-28T10:05:11.0260731Z added 779 packages, and audited 780 packages in 10s
+2025-09-28T10:05:11.0261461Z 
+2025-09-28T10:05:11.0261834Z 162 packages are looking for funding
+2025-09-28T10:05:11.0262286Z   run `npm fund` for details
+2025-09-28T10:05:11.0274344Z 
+2025-09-28T10:05:11.0274750Z found 0 vulnerabilities
+2025-09-28T10:05:11.0756289Z ##[group]Run npm run lint
+2025-09-28T10:05:11.0756581Z [36;1mnpm run lint[0m
+2025-09-28T10:05:11.0783712Z shell: /usr/bin/bash -e {0}
+2025-09-28T10:05:11.0783948Z env:
+2025-09-28T10:05:11.0784127Z   ESLINT_USE_FLAT_CONFIG: true
+2025-09-28T10:05:11.0784346Z ##[endgroup]
+2025-09-28T10:05:11.1947515Z 
+2025-09-28T10:05:11.1952275Z > megs@2.0.3 lint
+2025-09-28T10:05:11.1955484Z > npm run lint:js && npm run lint:css && npm run lint:html
+2025-09-28T10:05:11.1957164Z 
+2025-09-28T10:05:11.3131976Z 
+2025-09-28T10:05:11.3132550Z > megs@2.0.3 lint:js
+2025-09-28T10:05:11.3133232Z > eslint "**/*.{js,mjs,cjs}"
+2025-09-28T10:05:11.3133533Z 
+2025-09-28T10:05:12.1422761Z 
+2025-09-28T10:05:12.1423116Z > megs@2.0.3 lint:css
+2025-09-28T10:05:12.1423579Z > stylelint "**/*.{css,scss,less}" --allow-empty-input
+2025-09-28T10:05:12.1423826Z 
+2025-09-28T10:05:13.2790518Z 
+2025-09-28T10:05:13.2792167Z > megs@2.0.3 lint:html
+2025-09-28T10:05:13.2792749Z > html-validate "**/*.{html,htm}"
+2025-09-28T10:05:13.2793175Z 
+2025-09-28T10:05:46.1288133Z ##[group]Run codacy/codacy-analysis-cli-action@v4
+2025-09-28T10:05:46.1288450Z with:
+2025-09-28T10:05:46.1288625Z   tool: eslint
+2025-09-28T10:05:46.1288804Z   format: sarif
+2025-09-28T10:05:46.1288991Z   output: results-eslint.sarif
+2025-09-28T10:05:46.1314039Z   gh-code-scanning-compat: true
+2025-09-28T10:05:46.1314370Z   upload: false
+2025-09-28T10:05:46.1314783Z   fail-if-incomplete: true
+2025-09-28T10:05:46.1315016Z   max-allowed-issues: 2147483647
+2025-09-28T10:05:46.1315261Z   run-docker-tools: true
+2025-09-28T10:05:46.1315465Z env:
+2025-09-28T10:05:46.1315629Z   ESLINT_USE_FLAT_CONFIG: true
+2025-09-28T10:05:46.1315844Z ##[endgroup]
+2025-09-28T10:05:46.1407167Z ##[group]Run echo "CODACY_BASE_URL_OR_DEFAULT=$(if [ -n "" ]; then echo ""; else echo "https://api.codacy.com"; fi)" >> "$GITHUB_ENV"
+2025-09-28T10:05:46.1407919Z [36;1mecho "CODACY_BASE_URL_OR_DEFAULT=$(if [ -n "" ]; then echo ""; else echo "https://api.codacy.com"; fi)" >> "$GITHUB_ENV"[0m
+2025-09-28T10:05:46.1408553Z [36;1mecho "OWNER_NAME=$(echo "$GITHUB_REPOSITORY" | cut -d '/' -f 1)" >> "$GITHUB_ENV"[0m
+2025-09-28T10:05:46.1409070Z [36;1mecho "REPOSITORY_NAME=$(echo "$GITHUB_REPOSITORY" | cut -d '/' -f 2)" >> "$GITHUB_ENV"[0m
+2025-09-28T10:05:46.1409741Z [36;1mecho "ORGANIZATION_PROVIDER=$(if [ "$GITHUB_SERVER_URL" == "https://github.com" ]; then echo "gh"; else echo "ghe"; fi)" >> "$GITHUB_ENV"[0m
+2025-09-28T10:05:46.1410526Z [36;1mecho "COMMIT_SHA=$(if [ "push" == "pull_request" ]; then echo ""; else echo "b1ef7f9ad85a38b661f0a4d1c5ab0f577dc5ad41"; fi)" >> "$GITHUB_ENV"[0m
+2025-09-28T10:05:46.1411032Z [36;1mif [ -n "" ]; then[0m
+2025-09-28T10:05:46.1411308Z [36;1m  echo "SKIP_CONTAINER_ENGINE_CHECK=" >> "$GITHUB_ENV"[0m
+2025-09-28T10:05:46.1411589Z [36;1mfi[0m
+2025-09-28T10:05:46.1440073Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2025-09-28T10:05:46.1440397Z env:
+2025-09-28T10:05:46.1440571Z   ESLINT_USE_FLAT_CONFIG: true
+2025-09-28T10:05:46.1440790Z ##[endgroup]
+2025-09-28T10:05:46.1565107Z ##[group]Run if [ -n "" ]; then
+2025-09-28T10:05:46.1565381Z [36;1mif [ -n "" ]; then[0m
+2025-09-28T10:05:46.1565701Z [36;1m  echo "CURL_CODACY_AUTH_AUTHENTICATION=api-token: " >> $GITHUB_ENV[0m
+2025-09-28T10:05:46.1566039Z [36;1melif [ -n "" ]; then[0m
+2025-09-28T10:05:46.1566354Z [36;1m  echo "CURL_CODACY_AUTH_AUTHENTICATION=project-token: " >> $GITHUB_ENV[0m
+2025-09-28T10:05:46.1566711Z [36;1melif [ "false" == "true" ]; then[0m
+2025-09-28T10:05:46.1567065Z [36;1m  echo "At least one authentication method is required to upload results."[0m
+2025-09-28T10:05:46.1567412Z [36;1m  exit 1[0m
+2025-09-28T10:05:46.1567579Z [36;1mfi[0m
+2025-09-28T10:05:46.1594800Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2025-09-28T10:05:46.1595340Z env:
+2025-09-28T10:05:46.1595518Z   ESLINT_USE_FLAT_CONFIG: true
+2025-09-28T10:05:46.1595806Z   CODACY_BASE_URL_OR_DEFAULT: https://api.codacy.com
+2025-09-28T10:05:46.1596086Z   OWNER_NAME: eagles-edu
+2025-09-28T10:05:46.1596303Z   REPOSITORY_NAME: megs
+2025-09-28T10:05:46.1596515Z   ORGANIZATION_PROVIDER: gh
+2025-09-28T10:05:46.1596778Z   COMMIT_SHA: b1ef7f9ad85a38b661f0a4d1c5ab0f577dc5ad41
+2025-09-28T10:05:46.1597053Z ##[endgroup]
+2025-09-28T10:05:46.1666407Z ##[group]Run set -eux
+2025-09-28T10:05:46.1666651Z [36;1mset -eux[0m
+2025-09-28T10:05:46.1666832Z [36;1m[0m
+2025-09-28T10:05:46.1667013Z [36;1mif [ "" == "true" ]; then[0m
+2025-09-28T10:05:46.1667236Z [36;1m  cd /tmp[0m
+2025-09-28T10:05:46.1667654Z [36;1m  curl -sfL https://raw.githubusercontent.com/securego/gosec/master/install.sh | sh -s v2.15.0[0m
+2025-09-28T10:05:46.1668105Z [36;1m  chmod +x ./bin/gosec[0m
+2025-09-28T10:05:46.1668517Z [36;1m  CODACY_GOSEC_VERSION=$(curl -SL "https://artifacts.codacy.com/bin/codacy-gosec/latest" -o-)[0m
+2025-09-28T10:05:46.1669304Z [36;1m  curl -fsSL "https://artifacts.codacy.com/bin/codacy-gosec/$CODACY_GOSEC_VERSION/codacy-gosec-$CODACY_GOSEC_VERSION" -o /tmp/codacy-gosec[0m
+2025-09-28T10:05:46.1670081Z [36;1m  chmod +x /tmp/codacy-gosec[0m
+2025-09-28T10:05:46.1670330Z [36;1m  cd -[0m
+2025-09-28T10:05:46.1670501Z [36;1m[0m
+2025-09-28T10:05:46.1670804Z [36;1m  /tmp/bin/gosec -no-fail -fmt json -log /tmp/log.txt ./... > /tmp/gosec-out.json[0m
+2025-09-28T10:05:46.1671265Z [36;1m  /tmp/codacy-gosec < /tmp/gosec-out.json > /tmp/codacy-out.json[0m
+2025-09-28T10:05:46.1671593Z [36;1m  if [ "false" == "true" ]; then[0m
+2025-09-28T10:05:46.1671902Z [36;1m    curl -XPOST -L -H "$CURL_CODACY_AUTH_AUTHENTICATION" \[0m
+2025-09-28T10:05:46.1672334Z [36;1m      -H "Content-type: application/json" --data-binary @/tmp/codacy-out.json \[0m
+2025-09-28T10:05:46.1672978Z [36;1m      "${CODACY_BASE_URL_OR_DEFAULT}/2.0/$ORGANIZATION_PROVIDER/$OWNER_NAME/$REPOSITORY_NAME/commit/$COMMIT_SHA/issuesRemoteResults"[0m
+2025-09-28T10:05:46.1673472Z [36;1m  else[0m
+2025-09-28T10:05:46.1673664Z [36;1m    cat /tmp/codacy-out.json[0m
+2025-09-28T10:05:46.1673893Z [36;1m  fi[0m
+2025-09-28T10:05:46.1674150Z [36;1melse[0m
+2025-09-28T10:05:46.1674353Z [36;1m  echo "Skipping GoSec"[0m
+2025-09-28T10:05:46.1674842Z [36;1mfi[0m
+2025-09-28T10:05:46.1701668Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2025-09-28T10:05:46.1701984Z env:
+2025-09-28T10:05:46.1702161Z   ESLINT_USE_FLAT_CONFIG: true
+2025-09-28T10:05:46.1702442Z   CODACY_BASE_URL_OR_DEFAULT: https://api.codacy.com
+2025-09-28T10:05:46.1702720Z   OWNER_NAME: eagles-edu
+2025-09-28T10:05:46.1702926Z   REPOSITORY_NAME: megs
+2025-09-28T10:05:46.1703131Z   ORGANIZATION_PROVIDER: gh
+2025-09-28T10:05:46.1703393Z   COMMIT_SHA: b1ef7f9ad85a38b661f0a4d1c5ab0f577dc5ad41
+2025-09-28T10:05:46.1703673Z ##[endgroup]
+2025-09-28T10:05:46.1751982Z + '[' '' == true ']'
+2025-09-28T10:05:46.1752376Z + echo 'Skipping GoSec'
+2025-09-28T10:05:46.1752751Z Skipping GoSec
+2025-09-28T10:05:46.1779096Z ##[group]Run set -eux
+2025-09-28T10:05:46.1779340Z [36;1mset -eux[0m
+2025-09-28T10:05:46.1779519Z [36;1m[0m
+2025-09-28T10:05:46.1779688Z [36;1mif [ "" == "true" ]; then[0m
+2025-09-28T10:05:46.1779925Z [36;1m  cd /tmp[0m
+2025-09-28T10:05:46.1780200Z [36;1m  go install honnef.co/go/tools/cmd/staticcheck@2023.1.6      [0m
+2025-09-28T10:05:46.1780562Z [36;1m  chmod +x /home/runner/go/bin/staticcheck[0m
+2025-09-28T10:05:46.1781068Z [36;1m  CODACY_STATICCHECK_VERSION=$(curl -SL "https://artifacts.codacy.com/bin/codacy-staticcheck/latest" -o-)[0m
+2025-09-28T10:05:46.1781986Z [36;1m  curl -fsSL "https://artifacts.codacy.com/bin/codacy-staticcheck/$CODACY_STATICCHECK_VERSION/codacy-staticcheck-$CODACY_STATICCHECK_VERSION" -o /tmp/codacy-staticcheck[0m
+2025-09-28T10:05:46.1782702Z [36;1m  chmod +x /tmp/codacy-staticcheck[0m
+2025-09-28T10:05:46.1782958Z [36;1m  cd -[0m
+2025-09-28T10:05:46.1783124Z [36;1m[0m
+2025-09-28T10:05:46.1783923Z [36;1m  find . -type f -name go.mod -exec bash -c 'cd $(dirname $1); cp $1 $1.codacy.bak; PKGS=$(go list ./...); /home/runner/go/bin/staticcheck -f json $PKGS; mv $1.codacy.bak $1' _ {} \; > /tmp/staticcheck-out.json[0m
+2025-09-28T10:05:46.1785042Z [36;1m  /tmp/codacy-staticcheck < /tmp/staticcheck-out.json > /tmp/codacy-out.json[0m
+2025-09-28T10:05:46.1785439Z [36;1m  if [ "false" == "true" ]; then[0m
+2025-09-28T10:05:46.1785747Z [36;1m    curl -XPOST -L -H "$CURL_CODACY_AUTH_AUTHENTICATION" \[0m
+2025-09-28T10:05:46.1786186Z [36;1m      -H "Content-type: application/json" --data-binary @/tmp/codacy-out.json \[0m
+2025-09-28T10:05:46.1786820Z [36;1m      "${CODACY_BASE_URL_OR_DEFAULT}/2.0/$ORGANIZATION_PROVIDER/$OWNER_NAME/$REPOSITORY_NAME/commit/$COMMIT_SHA/issuesRemoteResults"[0m
+2025-09-28T10:05:46.1787314Z [36;1m  else[0m
+2025-09-28T10:05:46.1787496Z [36;1m    cat /tmp/codacy-out.json[0m
+2025-09-28T10:05:46.1787725Z [36;1m  fi[0m
+2025-09-28T10:05:46.1787889Z [36;1melse[0m
+2025-09-28T10:05:46.1788078Z [36;1m  echo "Skipping StaticCheck"[0m
+2025-09-28T10:05:46.1788314Z [36;1mfi[0m
+2025-09-28T10:05:46.1814836Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2025-09-28T10:05:46.1815205Z env:
+2025-09-28T10:05:46.1815383Z   ESLINT_USE_FLAT_CONFIG: true
+2025-09-28T10:05:46.1815890Z   CODACY_BASE_URL_OR_DEFAULT: https://api.codacy.com
+2025-09-28T10:05:46.1816200Z   OWNER_NAME: eagles-edu
+2025-09-28T10:05:46.1816414Z   REPOSITORY_NAME: megs
+2025-09-28T10:05:46.1816613Z   ORGANIZATION_PROVIDER: gh
+2025-09-28T10:05:46.1816885Z   COMMIT_SHA: b1ef7f9ad85a38b661f0a4d1c5ab0f577dc5ad41
+2025-09-28T10:05:46.1817168Z ##[endgroup]
+2025-09-28T10:05:46.1866610Z + '[' '' == true ']'
+2025-09-28T10:05:46.1867063Z + echo 'Skipping StaticCheck'
+2025-09-28T10:05:46.1867526Z Skipping StaticCheck
+2025-09-28T10:05:46.1886326Z ##[group]Run set -eux
+2025-09-28T10:05:46.1886571Z [36;1mset -eux[0m
+2025-09-28T10:05:46.1886744Z [36;1m[0m
+2025-09-28T10:05:46.1886906Z [36;1mif [ -n "" ]; then[0m
+2025-09-28T10:05:46.1887122Z [36;1m  cd /tmp[0m
+2025-09-28T10:05:46.1887542Z [36;1m  CODACY_CLANG_TIDY_VERSION=$(curl -SL "https://artifacts.codacy.com/bin/codacy-clang-tidy/latest" -o-)[0m
+2025-09-28T10:05:46.1888445Z [36;1m  curl -fsSL "https://artifacts.codacy.com/bin/codacy-clang-tidy/$CODACY_CLANG_TIDY_VERSION/codacy-clang-tidy-linux-$CODACY_CLANG_TIDY_VERSION" -o /tmp/codacy-clang-tidy[0m
+2025-09-28T10:05:46.1889155Z [36;1m  chmod +x /tmp/codacy-clang-tidy[0m
+2025-09-28T10:05:46.1889408Z [36;1m  cd -[0m
+2025-09-28T10:05:46.1889580Z [36;1m[0m
+2025-09-28T10:05:46.1889805Z [36;1m  /tmp/codacy-clang-tidy < "" > /tmp/codacy-out.json[0m
+2025-09-28T10:05:46.1890109Z [36;1m  if [ "false" == "true" ]; then[0m
+2025-09-28T10:05:46.1890437Z [36;1m    curl -XPOST -L -H "$CURL_CODACY_AUTH_AUTHENTICATION" \[0m
+2025-09-28T10:05:46.1890879Z [36;1m      -H "Content-type: application/json" --data-binary @/tmp/codacy-out.json \[0m
+2025-09-28T10:05:46.1891514Z [36;1m      "${CODACY_BASE_URL_OR_DEFAULT}/2.0/$ORGANIZATION_PROVIDER/$OWNER_NAME/$REPOSITORY_NAME/commit/$COMMIT_SHA/issuesRemoteResults"[0m
+2025-09-28T10:05:46.1892016Z [36;1m  else[0m
+2025-09-28T10:05:46.1892209Z [36;1m    cat /tmp/codacy-out.json[0m
+2025-09-28T10:05:46.1892435Z [36;1m  fi[0m
+2025-09-28T10:05:46.1892605Z [36;1melse[0m
+2025-09-28T10:05:46.1892786Z [36;1m  echo "Skipping Clang Tidy"[0m
+2025-09-28T10:05:46.1893004Z [36;1mfi[0m
+2025-09-28T10:05:46.1919477Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2025-09-28T10:05:46.1919790Z env:
+2025-09-28T10:05:46.1919967Z   ESLINT_USE_FLAT_CONFIG: true
+2025-09-28T10:05:46.1920249Z   CODACY_BASE_URL_OR_DEFAULT: https://api.codacy.com
+2025-09-28T10:05:46.1920531Z   OWNER_NAME: eagles-edu
+2025-09-28T10:05:46.1920728Z   REPOSITORY_NAME: megs
+2025-09-28T10:05:46.1920930Z   ORGANIZATION_PROVIDER: gh
+2025-09-28T10:05:46.1921188Z   COMMIT_SHA: b1ef7f9ad85a38b661f0a4d1c5ab0f577dc5ad41
+2025-09-28T10:05:46.1921451Z ##[endgroup]
+2025-09-28T10:05:46.1968499Z + '[' -n '' ']'
+2025-09-28T10:05:46.1969195Z + echo 'Skipping Clang Tidy'
+2025-09-28T10:05:46.1969593Z Skipping Clang Tidy
+2025-09-28T10:05:46.1988615Z ##[group]Run set -eux
+2025-09-28T10:05:46.1988861Z [36;1mset -eux[0m
+2025-09-28T10:05:46.1989033Z [36;1m[0m
+2025-09-28T10:05:46.1989214Z [36;1mif [ -n "" ]; then[0m
+2025-09-28T10:05:46.1989420Z [36;1m  cd /tmp[0m
+2025-09-28T10:05:46.1989824Z [36;1m  CODACY_FAUX_PAS_VERSION=$(curl -SL "https://artifacts.codacy.com/bin/codacy-faux-pas/latest" -o-)[0m
+2025-09-28T10:05:46.1990643Z [36;1m  curl -fsSL "https://artifacts.codacy.com/bin/codacy-faux-pas/$CODACY_FAUX_PAS_VERSION/codacy-faux-pas-$CODACY_FAUX_PAS_VERSION" -o /tmp/codacy-faux-pas[0m
+2025-09-28T10:05:46.1991279Z [36;1m  chmod +x /tmp/codacy-faux-pas[0m
+2025-09-28T10:05:46.1991519Z [36;1m  cd -[0m
+2025-09-28T10:05:46.1991685Z [36;1m[0m
+2025-09-28T10:05:46.1991910Z [36;1m  /tmp/codacy-faux-pas < "" > /tmp/codacy-out.json[0m
+2025-09-28T10:05:46.1992210Z [36;1m  if [ "false" == "true" ]; then[0m
+2025-09-28T10:05:46.1992541Z [36;1m    curl -XPOST -L -H "$CURL_CODACY_AUTH_AUTHENTICATION" \[0m
+2025-09-28T10:05:46.1992976Z [36;1m      -H "Content-type: application/json" --data-binary @/tmp/codacy-out.json \[0m
+2025-09-28T10:05:46.1993816Z [36;1m      "${CODACY_BASE_URL_OR_DEFAULT}/2.0/$ORGANIZATION_PROVIDER/$OWNER_NAME/$REPOSITORY_NAME/commit/$COMMIT_SHA/issuesRemoteResults"[0m
+2025-09-28T10:05:46.1994329Z [36;1m  else[0m
+2025-09-28T10:05:46.1994786Z [36;1m    cat /tmp/codacy-out.json[0m
+2025-09-28T10:05:46.1995024Z [36;1m  fi[0m
+2025-09-28T10:05:46.1995190Z [36;1melse[0m
+2025-09-28T10:05:46.1995375Z [36;1m  echo "Skipping Faux Pas"[0m
+2025-09-28T10:05:46.1995590Z [36;1mfi[0m
+2025-09-28T10:05:46.2020780Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2025-09-28T10:05:46.2021099Z env:
+2025-09-28T10:05:46.2021276Z   ESLINT_USE_FLAT_CONFIG: true
+2025-09-28T10:05:46.2021558Z   CODACY_BASE_URL_OR_DEFAULT: https://api.codacy.com
+2025-09-28T10:05:46.2021832Z   OWNER_NAME: eagles-edu
+2025-09-28T10:05:46.2022044Z   REPOSITORY_NAME: megs
+2025-09-28T10:05:46.2022246Z   ORGANIZATION_PROVIDER: gh
+2025-09-28T10:05:46.2022546Z   COMMIT_SHA: b1ef7f9ad85a38b661f0a4d1c5ab0f577dc5ad41
+2025-09-28T10:05:46.2022816Z ##[endgroup]
+2025-09-28T10:05:46.2071067Z + '[' -n '' ']'
+2025-09-28T10:05:46.2071500Z + echo 'Skipping Faux Pas'
+2025-09-28T10:05:46.2071963Z Skipping Faux Pas
+2025-09-28T10:05:46.2090332Z ##[group]Run echo "CODACY_ANALYSIS_CLI_VERSION=7.9.25" >> $GITHUB_ENV
+2025-09-28T10:05:46.2090754Z [36;1mecho "CODACY_ANALYSIS_CLI_VERSION=7.9.25" >> $GITHUB_ENV[0m
+2025-09-28T10:05:46.2117018Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2025-09-28T10:05:46.2117336Z env:
+2025-09-28T10:05:46.2117507Z   ESLINT_USE_FLAT_CONFIG: true
+2025-09-28T10:05:46.2117789Z   CODACY_BASE_URL_OR_DEFAULT: https://api.codacy.com
+2025-09-28T10:05:46.2118083Z   OWNER_NAME: eagles-edu
+2025-09-28T10:05:46.2118288Z   REPOSITORY_NAME: megs
+2025-09-28T10:05:46.2118491Z   ORGANIZATION_PROVIDER: gh
+2025-09-28T10:05:46.2118762Z   COMMIT_SHA: b1ef7f9ad85a38b661f0a4d1c5ab0f577dc5ad41
+2025-09-28T10:05:46.2119043Z ##[endgroup]
+2025-09-28T10:05:46.2187493Z ##[group]Run echo "CLI_SCRIPT_PATH=/home/runner/work/_actions/codacy/codacy-analysis-cli-action/v4/codacy-analysis-cli.sh" >> $GITHUB_ENV
+2025-09-28T10:05:46.2188374Z [36;1mecho "CLI_SCRIPT_PATH=/home/runner/work/_actions/codacy/codacy-analysis-cli-action/v4/codacy-analysis-cli.sh" >> $GITHUB_ENV[0m
+2025-09-28T10:05:46.2215038Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2025-09-28T10:05:46.2215354Z env:
+2025-09-28T10:05:46.2215529Z   ESLINT_USE_FLAT_CONFIG: true
+2025-09-28T10:05:46.2215811Z   CODACY_BASE_URL_OR_DEFAULT: https://api.codacy.com
+2025-09-28T10:05:46.2216102Z   OWNER_NAME: eagles-edu
+2025-09-28T10:05:46.2216303Z   REPOSITORY_NAME: megs
+2025-09-28T10:05:46.2216507Z   ORGANIZATION_PROVIDER: gh
+2025-09-28T10:05:46.2216769Z   COMMIT_SHA: b1ef7f9ad85a38b661f0a4d1c5ab0f577dc5ad41
+2025-09-28T10:05:46.2217058Z   CODACY_ANALYSIS_CLI_VERSION: 7.9.25
+2025-09-28T10:05:46.2217468Z ##[endgroup]
+2025-09-28T10:05:46.2287240Z ##[group]Run wget -O - https://raw.githubusercontent.com/codacy/codacy-analysis-cli/7.9.25/bin/codacy-analysis-cli.sh > /home/runner/work/_actions/codacy/codacy-analysis-cli-action/v4/codacy-analysis-cli.sh
+2025-09-28T10:05:46.2288592Z [36;1mwget -O - https://raw.githubusercontent.com/codacy/codacy-analysis-cli/7.9.25/bin/codacy-analysis-cli.sh > /home/runner/work/_actions/codacy/codacy-analysis-cli-action/v4/codacy-analysis-cli.sh[0m
+2025-09-28T10:05:46.2314360Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2025-09-28T10:05:46.2314954Z env:
+2025-09-28T10:05:46.2315133Z   ESLINT_USE_FLAT_CONFIG: true
+2025-09-28T10:05:46.2315416Z   CODACY_BASE_URL_OR_DEFAULT: https://api.codacy.com
+2025-09-28T10:05:46.2315710Z   OWNER_NAME: eagles-edu
+2025-09-28T10:05:46.2315920Z   REPOSITORY_NAME: megs
+2025-09-28T10:05:46.2316115Z   ORGANIZATION_PROVIDER: gh
+2025-09-28T10:05:46.2316378Z   COMMIT_SHA: b1ef7f9ad85a38b661f0a4d1c5ab0f577dc5ad41
+2025-09-28T10:05:46.2316677Z   CODACY_ANALYSIS_CLI_VERSION: 7.9.25
+2025-09-28T10:05:46.2317129Z   CLI_SCRIPT_PATH: /home/runner/work/_actions/codacy/codacy-analysis-cli-action/v4/codacy-analysis-cli.sh
+2025-09-28T10:05:46.2317569Z ##[endgroup]
+2025-09-28T10:05:46.2616217Z --2025-09-28 10:05:46--  https://raw.githubusercontent.com/codacy/codacy-analysis-cli/7.9.25/bin/codacy-analysis-cli.sh
+2025-09-28T10:05:46.2680736Z Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 185.199.111.133, 185.199.108.133, 185.199.109.133, ...
+2025-09-28T10:05:46.2849890Z Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|185.199.111.133|:443... connected.
+2025-09-28T10:05:46.4032334Z HTTP request sent, awaiting response... 200 OK
+2025-09-28T10:05:46.4033217Z Length: 3291 (3.2K) [text/plain]
+2025-09-28T10:05:46.4034774Z Saving to: ‘STDOUT’
+2025-09-28T10:05:46.4035119Z 
+2025-09-28T10:05:46.4035474Z      0K ...                                                   100% 28.4M=0s
+2025-09-28T10:05:46.4035905Z 
+2025-09-28T10:05:46.4036483Z 2025-09-28 10:05:46 (28.4 MB/s) - written to stdout [3291/3291]
+2025-09-28T10:05:46.4037041Z 
+2025-09-28T10:05:46.4073443Z ##[group]Run chmod +x "/home/runner/work/_actions/codacy/codacy-analysis-cli-action/v4/codacy-analysis-cli.sh"
+2025-09-28T10:05:46.4074164Z [36;1mchmod +x "/home/runner/work/_actions/codacy/codacy-analysis-cli-action/v4/codacy-analysis-cli.sh"[0m
+2025-09-28T10:05:46.4101667Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2025-09-28T10:05:46.4101987Z env:
+2025-09-28T10:05:46.4102163Z   ESLINT_USE_FLAT_CONFIG: true
+2025-09-28T10:05:46.4102437Z   CODACY_BASE_URL_OR_DEFAULT: https://api.codacy.com
+2025-09-28T10:05:46.4102714Z   OWNER_NAME: eagles-edu
+2025-09-28T10:05:46.4102917Z   REPOSITORY_NAME: megs
+2025-09-28T10:05:46.4103114Z   ORGANIZATION_PROVIDER: gh
+2025-09-28T10:05:46.4103375Z   COMMIT_SHA: b1ef7f9ad85a38b661f0a4d1c5ab0f577dc5ad41
+2025-09-28T10:05:46.4103663Z   CODACY_ANALYSIS_CLI_VERSION: 7.9.25
+2025-09-28T10:05:46.4104114Z   CLI_SCRIPT_PATH: /home/runner/work/_actions/codacy/codacy-analysis-cli-action/v4/codacy-analysis-cli.sh
+2025-09-28T10:05:46.4104823Z ##[endgroup]
+2025-09-28T10:05:46.4189720Z ##[group]Run if [ -n "" ]; then
+2025-09-28T10:05:46.4190004Z [36;1mif [ -n "" ]; then[0m
+2025-09-28T10:05:46.4190238Z [36;1m  export REGISTRY_ADDRESS=[0m
+2025-09-28T10:05:46.4190467Z [36;1mfi[0m
+2025-09-28T10:05:46.4190643Z [36;1mif [ "true" == "true" ]; then[0m
+2025-09-28T10:05:46.4191082Z [36;1m  /home/runner/work/_actions/codacy/codacy-analysis-cli-action/v4/codacy-analysis-cli.sh \[0m
+2025-09-28T10:05:46.4191510Z [36;1m    analyze \[0m
+2025-09-28T10:05:46.4191739Z [36;1m    --skip-commit-uuid-validation \[0m
+2025-09-28T10:05:46.4192019Z [36;1m    --commit-uuid $COMMIT_SHA \[0m
+2025-09-28T10:05:46.4192321Z [36;1m    $(if [ "" == "true" ]; then echo "--verbose"; fi) \[0m
+2025-09-28T10:05:46.4192649Z [36;1m    $(if [ -n "" ]; then echo "--project-token "; fi) \[0m
+2025-09-28T10:05:46.4193179Z [36;1m    $(if [ -n "" ]; then echo "--api-token  --username $OWNER_NAME --project $REPOSITORY_NAME --provider $ORGANIZATION_PROVIDER"; fi) \[0m
+2025-09-28T10:05:46.4193893Z [36;1m    $(if [ -n "" ]; then echo "--codacy-api-base-url "; fi) \[0m
+2025-09-28T10:05:46.4194232Z [36;1m    $(if [ -n "sarif" ]; then echo "--format sarif"; fi) \[0m
+2025-09-28T10:05:46.4194967Z [36;1m    $(if [ -n "results-eslint.sarif" ]; then echo "--output results-eslint.sarif"; fi) \[0m
+2025-09-28T10:05:46.4195402Z [36;1m    $(if [ -n "" ]; then echo "--directory "; fi) \[0m
+2025-09-28T10:05:46.4195706Z [36;1m    $(if [ -n "" ]; then echo "--parallel "; fi) \[0m
+2025-09-28T10:05:46.4196023Z [36;1m    $(if [ -n "" ]; then echo "--max-tool-memory "; fi) \[0m
+2025-09-28T10:05:46.4196385Z [36;1m    $(if [ -n "2147483647" ]; then echo "--max-allowed-issues 2147483647"; fi) \[0m
+2025-09-28T10:05:46.4196761Z [36;1m    $(if [ -n "eslint" ]; then echo "--tool eslint"; fi) \[0m
+2025-09-28T10:05:46.4197071Z [36;1m    $(if [ -n "" ]; then echo "--tool-timeout "; fi) \[0m
+2025-09-28T10:05:46.4197426Z [36;1m    $(if [ "" == "true" ]; then echo "--skip-uncommitted-files-check"; fi) \[0m
+2025-09-28T10:05:46.4197783Z [36;1m    $(if [ "false" == "true" ]; then echo "--upload"; fi) \[0m
+2025-09-28T10:05:46.4198262Z [36;1m    $(if [ -n "" ]; then echo "--upload-batch-size "; fi) \[0m
+2025-09-28T10:05:46.4198608Z [36;1m    $(if [ "true" == "true" ]; then echo "--fail-if-incomplete"; fi) \[0m
+2025-09-28T10:05:46.4198947Z [36;1m    $(if [ "" == "true" ]; then echo "--allow-network"; fi) \[0m
+2025-09-28T10:05:46.4199276Z [36;1m    $(if [ "" == "true" ]; then echo "--force-file-permissions"; fi) \[0m
+2025-09-28T10:05:46.4199648Z [36;1m    $(if [ "true" == "true" ]; then echo "--gh-code-scanning-compat"; fi) \[0m
+2025-09-28T10:05:46.4200001Z [36;1m    $(if [ -n "" ]; then echo "--registry-address "; fi)[0m
+2025-09-28T10:05:46.4200265Z [36;1melse[0m
+2025-09-28T10:05:46.4200456Z [36;1m  echo "Skipping docker tools"[0m
+2025-09-28T10:05:46.4200689Z [36;1mfi[0m
+2025-09-28T10:05:46.4227868Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2025-09-28T10:05:46.4228184Z env:
+2025-09-28T10:05:46.4228373Z   ESLINT_USE_FLAT_CONFIG: true
+2025-09-28T10:05:46.4228658Z   CODACY_BASE_URL_OR_DEFAULT: https://api.codacy.com
+2025-09-28T10:05:46.4228959Z   OWNER_NAME: eagles-edu
+2025-09-28T10:05:46.4229171Z   REPOSITORY_NAME: megs
+2025-09-28T10:05:46.4229376Z   ORGANIZATION_PROVIDER: gh
+2025-09-28T10:05:46.4229643Z   COMMIT_SHA: b1ef7f9ad85a38b661f0a4d1c5ab0f577dc5ad41
+2025-09-28T10:05:46.4229938Z   CODACY_ANALYSIS_CLI_VERSION: 7.9.25
+2025-09-28T10:05:46.4230395Z   CLI_SCRIPT_PATH: /home/runner/work/_actions/codacy/codacy-analysis-cli-action/v4/codacy-analysis-cli.sh
+2025-09-28T10:05:46.4230833Z ##[endgroup]
+2025-09-28T10:05:46.5137534Z Unable to find image 'codacy/codacy-analysis-cli:7.9.25' locally
+2025-09-28T10:05:47.1971777Z 7.9.25: Pulling from codacy/codacy-analysis-cli
+2025-09-28T10:05:47.2020216Z f18232174bc9: Already exists
+2025-09-28T10:05:47.2078251Z 9a4213fa5beb: Pulling fs layer
+2025-09-28T10:05:47.2078940Z 7772859a2eba: Pulling fs layer
+2025-09-28T10:05:47.2079744Z 96fa1203d65f: Pulling fs layer
+2025-09-28T10:05:47.4518193Z 7772859a2eba: Verifying Checksum
+2025-09-28T10:05:47.4518817Z 7772859a2eba: Download complete
+2025-09-28T10:05:47.8557332Z 96fa1203d65f: Verifying Checksum
+2025-09-28T10:05:47.8558369Z 96fa1203d65f: Download complete
+2025-09-28T10:05:48.3521493Z 9a4213fa5beb: Verifying Checksum
+2025-09-28T10:05:48.3522320Z 9a4213fa5beb: Download complete
+2025-09-28T10:05:51.1254273Z 9a4213fa5beb: Pull complete
+2025-09-28T10:05:51.1339506Z 7772859a2eba: Pull complete
+2025-09-28T10:05:51.4479821Z 96fa1203d65f: Pull complete
+2025-09-28T10:05:51.4509401Z Digest: sha256:339e0103e28804f9d76aff34503e505440e5d5b42f5dd70dae73b592ea87826a
+2025-09-28T10:05:51.4519395Z Status: Downloaded newer image for codacy/codacy-analysis-cli:7.9.25
+2025-09-28T10:06:52.1396246Z 09/28 10:06:52 [1;31mERROR[0;39m [36mc.c.a.c.a.CodacyPluginsAnalyser:31[0;39m - Failed analysis for eslint 
+2025-09-28T10:06:52.1397924Z java.lang.Throwable: 
+2025-09-28T10:06:52.1398539Z Docker exited with code 1
+2025-09-28T10:06:52.1399166Z stdout: 
+2025-09-28T10:06:52.1400202Z stderr: ConfigurationNotFoundError: No ESLint configuration found in /src/.codacy/tools-configs.
+2025-09-28T10:06:52.1401906Z     at CascadingConfigArrayFactory._finalizeConfigArray (/node_modules/@eslint/eslintrc/lib/cascading-config-array-factory.js:508:19)
+2025-09-28T10:06:52.1403062Z     at CascadingConfigArrayFactory.getConfigArrayForFile (/node_modules/@eslint/eslintrc/lib/cascading-config-array-factory.js:299:21)
+2025-09-28T10:06:52.1404030Z     at FileEnumerator._iterateFilesWithFile (/node_modules/eslint/lib/cli-engine/file-enumerator.js:365:43)
+2025-09-28T10:06:52.1405287Z     at FileEnumerator._iterateFiles (/node_modules/eslint/lib/cli-engine/file-enumerator.js:346:25)
+2025-09-28T10:06:52.1406117Z     at FileEnumerator.iterateFiles (/node_modules/eslint/lib/cli-engine/file-enumerator.js:296:59)
+2025-09-28T10:06:52.1406996Z     at iterateFiles.next (<anonymous>)
+2025-09-28T10:06:52.1408195Z     at CLIEngine.executeOnFiles (/node_modules/eslint/lib/cli-engine/cli-engine.js:771:48)
+2025-09-28T10:06:52.1409151Z     at /dist/src/engineImpl.js:33:38
+2025-09-28T10:06:52.1409961Z     at Generator.next (<anonymous>)
+2025-09-28T10:06:52.1411178Z     at fulfilled (/dist/src/engineImpl.js:5:58) {
+2025-09-28T10:06:52.1412075Z   messageTemplate: 'no-config-found',
+2025-09-28T10:06:52.1413041Z   messageData: { directoryPath: '/src/.codacy/tools-configs' }
+2025-09-28T10:06:52.1413867Z }
+2025-09-28T10:06:52.1414256Z            
+2025-09-28T10:06:52.1415556Z 	at com.codacy.plugins.runners.BinaryDockerRunner.$anonfun$run$4(BinaryDockerRunner.scala:84)
+2025-09-28T10:06:52.1416713Z 	at scala.util.Success.flatMap(Try.scala:251)
+2025-09-28T10:06:52.1417909Z 	at com.codacy.plugins.runners.BinaryDockerRunner.run(BinaryDockerRunner.scala:69)
+2025-09-28T10:06:52.1419293Z 	at com.codacy.plugins.results.traits.ToolRunner.$anonfun$apply$2(ToolRunner.scala:77)
+2025-09-28T10:06:52.1420673Z 	at com.codacy.plugins.results.traits.CodacyDocker$.$anonfun$usingDockerConfig$2(CodacyDocker.scala:45)
+2025-09-28T10:06:52.1422056Z 	at com.codacy.plugins.utils.FileHelper$.$anonfun$usingNewFile$2(FileHelper.scala:51)
+2025-09-28T10:06:52.1423126Z 	at scala.util.Try$.apply(Try.scala:213)
+2025-09-28T10:06:52.1424038Z 	at com.codacy.plugins.utils.FileHelper$.usingNewFile(FileHelper.scala:45)
+2025-09-28T10:06:52.1425526Z 	at com.codacy.plugins.results.traits.CodacyDocker$.usingConfigPath(CodacyDocker.scala:57)
+2025-09-28T10:06:52.1427053Z 	at com.codacy.plugins.results.traits.CodacyDocker$.$anonfun$usingDockerConfig$1(CodacyDocker.scala:39)
+2025-09-28T10:06:52.1428153Z 	at scala.Option.map(Option.scala:230)
+2025-09-28T10:06:52.1429195Z 	at com.codacy.plugins.results.traits.CodacyDocker$.usingDockerConfig(CodacyDocker.scala:38)
+2025-09-28T10:06:52.1430749Z 	at com.codacy.plugins.results.traits.ToolRunner.$anonfun$apply$1(ToolRunner.scala:76)
+2025-09-28T10:06:52.1431758Z 	at scala.util.Try$.apply(Try.scala:213)
+2025-09-28T10:06:52.1432804Z 	at com.codacy.plugins.results.traits.ToolRunner.apply(ToolRunner.scala:61)
+2025-09-28T10:06:52.1433937Z 	at com.codacy.plugins.results.traits.ToolRunner.run(ToolRunner.scala:49)
+2025-09-28T10:06:52.1435258Z 	at com.codacy.analysis.core.tools.Tool.run(Tool.scala:95)
+2025-09-28T10:06:52.1436628Z 	at com.codacy.analysis.core.analysis.CodacyPluginsAnalyser.analyse(CodacyPluginsAnalyser.scala:25)
+2025-09-28T10:06:52.1438200Z 	at com.codacy.analysis.cli.analysis.AnalyseExecutor.$anonfun$issues$1(AnalyseExecutor.scala:159)
+2025-09-28T10:06:52.1439307Z 	at scala.util.Success.flatMap(Try.scala:251)
+2025-09-28T10:06:52.1440391Z 	at com.codacy.analysis.cli.analysis.AnalyseExecutor.issues(AnalyseExecutor.scala:151)
+2025-09-28T10:06:52.1441844Z 	at com.codacy.analysis.cli.analysis.AnalyseExecutor.$anonfun$run$5(AnalyseExecutor.scala:70)
+2025-09-28T10:06:52.1443326Z 	at scala.collection.parallel.AugmentedIterableIterator.map2combiner(RemainsIterator.scala:116)
+2025-09-28T10:06:52.1445482Z 	at scala.collection.parallel.AugmentedIterableIterator.map2combiner$(RemainsIterator.scala:113)
+2025-09-28T10:06:52.1447253Z 	at scala.collection.parallel.immutable.ParHashSet$ParHashSetIterator.map2combiner(ParHashSet.scala:81)
+2025-09-28T10:06:52.1448672Z 	at scala.collection.parallel.ParIterableLike$Map.leaf(ParIterableLike.scala:1064)
+2025-09-28T10:06:52.1450339Z 	at scala.collection.parallel.Task.$anonfun$tryLeaf$1(Tasks.scala:53)
+2025-09-28T10:06:52.1451465Z 	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.java:23)
+2025-09-28T10:06:52.1452444Z 	at scala.util.control.Breaks$$anon$1.catchBreak(Breaks.scala:67)
+2025-09-28T10:06:52.1453517Z 	at scala.collection.parallel.Task.tryLeaf(Tasks.scala:56)
+2025-09-28T10:06:52.1454690Z 	at scala.collection.parallel.Task.tryLeaf$(Tasks.scala:50)
+2025-09-28T10:06:52.1455841Z 	at scala.collection.parallel.ParIterableLike$Map.tryLeaf(ParIterableLike.scala:1061)
+2025-09-28T10:06:52.1456975Z 	at scala.collection.parallel.AdaptiveWorkStealingTasks$WrappedTask.compute(Tasks.scala:153)
+2025-09-28T10:06:52.1458491Z 	at scala.collection.parallel.AdaptiveWorkStealingTasks$WrappedTask.compute$(Tasks.scala:149)
+2025-09-28T10:06:52.1460331Z 	at scala.collection.parallel.AdaptiveWorkStealingForkJoinTasks$WrappedTask.compute(Tasks.scala:440)
+2025-09-28T10:06:52.1461770Z 	at java.util.concurrent.RecursiveAction.exec(RecursiveAction.java:189)
+2025-09-28T10:06:52.1462813Z 	at java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:289)
+2025-09-28T10:06:52.1463831Z 	at java.util.concurrent.ForkJoinTask.doJoin(ForkJoinTask.java:389)
+2025-09-28T10:06:52.1465105Z 	at java.util.concurrent.ForkJoinTask.join(ForkJoinTask.java:719)
+2025-09-28T10:06:52.1466194Z 	at scala.collection.parallel.ForkJoinTasks$WrappedTask.sync(Tasks.scala:379)
+2025-09-28T10:06:52.1467506Z 	at scala.collection.parallel.ForkJoinTasks$WrappedTask.sync$(Tasks.scala:379)
+2025-09-28T10:06:52.1468906Z 	at scala.collection.parallel.AdaptiveWorkStealingForkJoinTasks$WrappedTask.sync(Tasks.scala:440)
+2025-09-28T10:06:52.1470273Z 	at scala.collection.parallel.ForkJoinTasks.executeAndWaitResult(Tasks.scala:423)
+2025-09-28T10:06:52.1471677Z 	at scala.collection.parallel.ForkJoinTasks.executeAndWaitResult$(Tasks.scala:416)
+2025-09-28T10:06:52.1473066Z 	at scala.collection.parallel.ForkJoinTaskSupport.executeAndWaitResult(TaskSupport.scala:60)
+2025-09-28T10:06:52.1474661Z 	at scala.collection.parallel.ParIterableLike$ResultMapping.leaf(ParIterableLike.scala:968)
+2025-09-28T10:06:52.1476239Z 	at scala.collection.parallel.Task.$anonfun$tryLeaf$1(Tasks.scala:53)
+2025-09-28T10:06:52.1477320Z 	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.java:23)
+2025-09-28T10:06:52.1478295Z 	at scala.util.control.Breaks$$anon$1.catchBreak(Breaks.scala:67)
+2025-09-28T10:06:52.1479366Z 	at scala.collection.parallel.Task.tryLeaf(Tasks.scala:56)
+2025-09-28T10:06:52.1480330Z 	at scala.collection.parallel.Task.tryLeaf$(Tasks.scala:50)
+2025-09-28T10:06:52.1481764Z 	at scala.collection.parallel.ParIterableLike$ResultMapping.tryLeaf(ParIterableLike.scala:963)
+2025-09-28T10:06:52.1483400Z 	at scala.collection.parallel.AdaptiveWorkStealingTasks$WrappedTask.compute(Tasks.scala:153)
+2025-09-28T10:06:52.1485301Z 	at scala.collection.parallel.AdaptiveWorkStealingTasks$WrappedTask.compute$(Tasks.scala:149)
+2025-09-28T10:06:52.1486957Z 	at scala.collection.parallel.AdaptiveWorkStealingForkJoinTasks$WrappedTask.compute(Tasks.scala:440)
+2025-09-28T10:06:52.1488363Z 	at java.util.concurrent.RecursiveAction.exec(RecursiveAction.java:189)
+2025-09-28T10:06:52.1489486Z 	at java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:289)
+2025-09-28T10:06:52.1490721Z 	at java.util.concurrent.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1056)
+2025-09-28T10:06:52.1491899Z 	at java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1692)
+2025-09-28T10:06:52.1493038Z 	at java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:175)
+2025-09-28T10:06:52.5841960Z ##[error]Process completed with exit code 101.
+2025-09-28T10:06:52.6024651Z Post job cleanup.
+2025-09-28T10:06:52.6069234Z Post job cleanup.
+2025-09-28T10:06:52.7021836Z [command]/usr/bin/git version
+2025-09-28T10:06:52.7058222Z git version 2.51.0
+2025-09-28T10:06:52.7102092Z Temporarily overriding HOME='/home/runner/work/_temp/1e9b483d-4f1c-46e8-8b73-d094c3d77293' before making global git config changes
+2025-09-28T10:06:52.7102934Z Adding repository directory to the temporary git global config as a safe directory
+2025-09-28T10:06:52.7107639Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/megs/megs
+2025-09-28T10:06:52.7143952Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2025-09-28T10:06:52.7176895Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2025-09-28T10:06:52.7410808Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2025-09-28T10:06:52.7433521Z http.https://github.com/.extraheader
+2025-09-28T10:06:52.7446492Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2025-09-28T10:06:52.7477932Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2025-09-28T10:06:52.7811736Z Cleaning up orphan processes

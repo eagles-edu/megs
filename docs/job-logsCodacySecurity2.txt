@@ -1,0 +1,734 @@
+﻿2025-09-28T10:04:46.9952304Z Current runner version: '2.328.0'
+2025-09-28T10:04:46.9975279Z ##[group]Runner Image Provisioner
+2025-09-28T10:04:46.9976108Z Hosted Compute Agent
+2025-09-28T10:04:46.9976739Z Version: 20250912.392
+2025-09-28T10:04:46.9977326Z Commit: d921fda672a98b64f4f82364647e2f10b2267d0b
+2025-09-28T10:04:46.9978014Z Build Date: 2025-09-12T15:23:14Z
+2025-09-28T10:04:46.9978601Z ##[endgroup]
+2025-09-28T10:04:46.9979150Z ##[group]Operating System
+2025-09-28T10:04:46.9979669Z Ubuntu
+2025-09-28T10:04:46.9980166Z 22.04.5
+2025-09-28T10:04:46.9980866Z LTS
+2025-09-28T10:04:46.9981333Z ##[endgroup]
+2025-09-28T10:04:46.9981867Z ##[group]Runner Image
+2025-09-28T10:04:46.9982419Z Image: ubuntu-22.04
+2025-09-28T10:04:46.9982927Z Version: 20250922.79.1
+2025-09-28T10:04:46.9983890Z Included Software: https://github.com/actions/runner-images/blob/ubuntu22/20250922.79/images/ubuntu/Ubuntu2204-Readme.md
+2025-09-28T10:04:46.9985497Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu22%2F20250922.79
+2025-09-28T10:04:46.9986502Z ##[endgroup]
+2025-09-28T10:04:46.9987591Z ##[group]GITHUB_TOKEN Permissions
+2025-09-28T10:04:46.9989882Z Contents: read
+2025-09-28T10:04:46.9990660Z Metadata: read
+2025-09-28T10:04:46.9991178Z SecurityEvents: write
+2025-09-28T10:04:46.9991680Z ##[endgroup]
+2025-09-28T10:04:46.9994019Z Secret source: Actions
+2025-09-28T10:04:46.9994682Z Prepare workflow directory
+2025-09-28T10:04:47.0313954Z Prepare all required actions
+2025-09-28T10:04:47.0357484Z Getting action download info
+2025-09-28T10:04:47.4763495Z Download action repository 'actions/checkout@v4' (SHA:08eba0b27e820071cde6df949e0beb9ba4906955)
+2025-09-28T10:04:47.6919293Z Download action repository 'codacy/codacy-analysis-cli-action@v4' (SHA:562ee3e92b8e92df8b67e0a5ff8aa8e261919c08)
+2025-09-28T10:04:48.2533083Z Download action repository 'github/codeql-action@v3' (SHA:3599b3baa15b485a2e49ef411a7a4bb2452e7f93)
+2025-09-28T10:04:49.2521676Z Getting action download info
+2025-09-28T10:04:49.4114568Z Download action repository 'actions/setup-go@v3' (SHA:be3c94b385c4f180051c996d336f57a34c397495)
+2025-09-28T10:04:50.0437646Z Complete job name: Codacy Security Scan
+2025-09-28T10:04:50.1058076Z ##[group]Run actions/checkout@v4
+2025-09-28T10:04:50.1058644Z with:
+2025-09-28T10:04:50.1058842Z   repository: eagles-edu/megs
+2025-09-28T10:04:50.1059194Z   token: ***
+2025-09-28T10:04:50.1059373Z   ssh-strict: true
+2025-09-28T10:04:50.1059545Z   ssh-user: git
+2025-09-28T10:04:50.1059732Z   persist-credentials: true
+2025-09-28T10:04:50.1059936Z   clean: true
+2025-09-28T10:04:50.1060129Z   sparse-checkout-cone-mode: true
+2025-09-28T10:04:50.1060598Z   fetch-depth: 1
+2025-09-28T10:04:50.1060799Z   fetch-tags: false
+2025-09-28T10:04:50.1060982Z   show-progress: true
+2025-09-28T10:04:50.1061170Z   lfs: false
+2025-09-28T10:04:50.1061325Z   submodules: false
+2025-09-28T10:04:50.1061511Z   set-safe-directory: true
+2025-09-28T10:04:50.1061956Z ##[endgroup]
+2025-09-28T10:04:50.2129735Z Syncing repository: eagles-edu/megs
+2025-09-28T10:04:50.2131398Z ##[group]Getting Git version info
+2025-09-28T10:04:50.2131794Z Working directory is '/home/runner/work/megs/megs'
+2025-09-28T10:04:50.2132348Z [command]/usr/bin/git version
+2025-09-28T10:04:50.2209593Z git version 2.51.0
+2025-09-28T10:04:50.2236061Z ##[endgroup]
+2025-09-28T10:04:50.2251981Z Temporarily overriding HOME='/home/runner/work/_temp/33f884bd-1844-4ae5-a5d7-1674f1158e08' before making global git config changes
+2025-09-28T10:04:50.2253404Z Adding repository directory to the temporary git global config as a safe directory
+2025-09-28T10:04:50.2265133Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/megs/megs
+2025-09-28T10:04:50.2299780Z Deleting the contents of '/home/runner/work/megs/megs'
+2025-09-28T10:04:50.2303348Z ##[group]Initializing the repository
+2025-09-28T10:04:50.2307090Z [command]/usr/bin/git init /home/runner/work/megs/megs
+2025-09-28T10:04:50.2412724Z hint: Using 'master' as the name for the initial branch. This default branch name
+2025-09-28T10:04:50.2413625Z hint: is subject to change. To configure the initial branch name to use in all
+2025-09-28T10:04:50.2414887Z hint: of your new repositories, which will suppress this warning, call:
+2025-09-28T10:04:50.2415491Z hint:
+2025-09-28T10:04:50.2415932Z hint: 	git config --global init.defaultBranch <name>
+2025-09-28T10:04:50.2416595Z hint:
+2025-09-28T10:04:50.2417117Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2025-09-28T10:04:50.2418013Z hint: 'development'. The just-created branch can be renamed via this command:
+2025-09-28T10:04:50.2418653Z hint:
+2025-09-28T10:04:50.2418975Z hint: 	git branch -m <name>
+2025-09-28T10:04:50.2419253Z hint:
+2025-09-28T10:04:50.2419607Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2025-09-28T10:04:50.2420173Z Initialized empty Git repository in /home/runner/work/megs/megs/.git/
+2025-09-28T10:04:50.2428781Z [command]/usr/bin/git remote add origin https://github.com/eagles-edu/megs
+2025-09-28T10:04:50.2460000Z ##[endgroup]
+2025-09-28T10:04:50.2460735Z ##[group]Disabling automatic garbage collection
+2025-09-28T10:04:50.2464446Z [command]/usr/bin/git config --local gc.auto 0
+2025-09-28T10:04:50.2491634Z ##[endgroup]
+2025-09-28T10:04:50.2492111Z ##[group]Setting up auth
+2025-09-28T10:04:50.2498356Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2025-09-28T10:04:50.2526666Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2025-09-28T10:04:50.3056222Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2025-09-28T10:04:50.3087779Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2025-09-28T10:04:50.3307694Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2025-09-28T10:04:50.3342080Z ##[endgroup]
+2025-09-28T10:04:50.3343066Z ##[group]Fetching the repository
+2025-09-28T10:04:50.3351516Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +b1ef7f9ad85a38b661f0a4d1c5ab0f577dc5ad41:refs/remotes/origin/trunk
+2025-09-28T10:04:52.3993009Z From https://github.com/eagles-edu/megs
+2025-09-28T10:04:52.3994148Z  * [new ref]         b1ef7f9ad85a38b661f0a4d1c5ab0f577dc5ad41 -> origin/trunk
+2025-09-28T10:04:52.4024868Z ##[endgroup]
+2025-09-28T10:04:52.4025416Z ##[group]Determining the checkout info
+2025-09-28T10:04:52.4027773Z ##[endgroup]
+2025-09-28T10:04:52.4032751Z [command]/usr/bin/git sparse-checkout disable
+2025-09-28T10:04:52.4071670Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2025-09-28T10:04:52.4098258Z ##[group]Checking out the ref
+2025-09-28T10:04:52.4102099Z [command]/usr/bin/git checkout --progress --force -B trunk refs/remotes/origin/trunk
+2025-09-28T10:04:52.5794048Z Switched to a new branch 'trunk'
+2025-09-28T10:04:52.5795080Z branch 'trunk' set up to track 'origin/trunk'.
+2025-09-28T10:04:52.5818569Z ##[endgroup]
+2025-09-28T10:04:52.5856517Z [command]/usr/bin/git log -1 --format=%H
+2025-09-28T10:04:52.5878709Z b1ef7f9ad85a38b661f0a4d1c5ab0f577dc5ad41
+2025-09-28T10:04:52.6271428Z ##[group]Run codacy/codacy-analysis-cli-action@v4
+2025-09-28T10:04:52.6271764Z with:
+2025-09-28T10:04:52.6271935Z   tool: trivy
+2025-09-28T10:04:52.6272122Z   run-docker-tools: true
+2025-09-28T10:04:52.6272319Z   allow-network: true
+2025-09-28T10:04:52.6272509Z   format: sarif
+2025-09-28T10:04:52.6272683Z   output: results.sarif
+2025-09-28T10:04:52.6272888Z   gh-code-scanning-compat: true
+2025-09-28T10:04:52.6273131Z   max-allowed-issues: 2147483647
+2025-09-28T10:04:52.6273351Z ##[endgroup]
+2025-09-28T10:04:52.6438488Z ##[group]Run echo "CODACY_BASE_URL_OR_DEFAULT=$(if [ -n "" ]; then echo ""; else echo "https://api.codacy.com"; fi)" >> "$GITHUB_ENV"
+2025-09-28T10:04:52.6439481Z [36;1mecho "CODACY_BASE_URL_OR_DEFAULT=$(if [ -n "" ]; then echo ""; else echo "https://api.codacy.com"; fi)" >> "$GITHUB_ENV"[0m
+2025-09-28T10:04:52.6440061Z [36;1mecho "OWNER_NAME=$(echo "$GITHUB_REPOSITORY" | cut -d '/' -f 1)" >> "$GITHUB_ENV"[0m
+2025-09-28T10:04:52.6440883Z [36;1mecho "REPOSITORY_NAME=$(echo "$GITHUB_REPOSITORY" | cut -d '/' -f 2)" >> "$GITHUB_ENV"[0m
+2025-09-28T10:04:52.6441535Z [36;1mecho "ORGANIZATION_PROVIDER=$(if [ "$GITHUB_SERVER_URL" == "https://github.com" ]; then echo "gh"; else echo "ghe"; fi)" >> "$GITHUB_ENV"[0m
+2025-09-28T10:04:52.6442330Z [36;1mecho "COMMIT_SHA=$(if [ "push" == "pull_request" ]; then echo ""; else echo "b1ef7f9ad85a38b661f0a4d1c5ab0f577dc5ad41"; fi)" >> "$GITHUB_ENV"[0m
+2025-09-28T10:04:52.6442860Z [36;1mif [ -n "" ]; then[0m
+2025-09-28T10:04:52.6443132Z [36;1m  echo "SKIP_CONTAINER_ENGINE_CHECK=" >> "$GITHUB_ENV"[0m
+2025-09-28T10:04:52.6443413Z [36;1mfi[0m
+2025-09-28T10:04:52.6473933Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2025-09-28T10:04:52.6474280Z ##[endgroup]
+2025-09-28T10:04:52.6617297Z ##[group]Run if [ -n "" ]; then
+2025-09-28T10:04:52.6617550Z [36;1mif [ -n "" ]; then[0m
+2025-09-28T10:04:52.6617870Z [36;1m  echo "CURL_CODACY_AUTH_AUTHENTICATION=api-token: " >> $GITHUB_ENV[0m
+2025-09-28T10:04:52.6618209Z [36;1melif [ -n "" ]; then[0m
+2025-09-28T10:04:52.6618535Z [36;1m  echo "CURL_CODACY_AUTH_AUTHENTICATION=project-token: " >> $GITHUB_ENV[0m
+2025-09-28T10:04:52.6618875Z [36;1melif [ "" == "true" ]; then[0m
+2025-09-28T10:04:52.6619224Z [36;1m  echo "At least one authentication method is required to upload results."[0m
+2025-09-28T10:04:52.6619555Z [36;1m  exit 1[0m
+2025-09-28T10:04:52.6619728Z [36;1mfi[0m
+2025-09-28T10:04:52.6643820Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2025-09-28T10:04:52.6644129Z env:
+2025-09-28T10:04:52.6644359Z   CODACY_BASE_URL_OR_DEFAULT: https://api.codacy.com
+2025-09-28T10:04:52.6644638Z   OWNER_NAME: eagles-edu
+2025-09-28T10:04:52.6644841Z   REPOSITORY_NAME: megs
+2025-09-28T10:04:52.6645054Z   ORGANIZATION_PROVIDER: gh
+2025-09-28T10:04:52.6645307Z   COMMIT_SHA: b1ef7f9ad85a38b661f0a4d1c5ab0f577dc5ad41
+2025-09-28T10:04:52.6645585Z ##[endgroup]
+2025-09-28T10:04:52.6704172Z ##[group]Run set -eux
+2025-09-28T10:04:52.6704402Z [36;1mset -eux[0m
+2025-09-28T10:04:52.6704583Z [36;1m[0m
+2025-09-28T10:04:52.6704757Z [36;1mif [ "" == "true" ]; then[0m
+2025-09-28T10:04:52.6704976Z [36;1m  cd /tmp[0m
+2025-09-28T10:04:52.6705374Z [36;1m  curl -sfL https://raw.githubusercontent.com/securego/gosec/master/install.sh | sh -s v2.15.0[0m
+2025-09-28T10:04:52.6705815Z [36;1m  chmod +x ./bin/gosec[0m
+2025-09-28T10:04:52.6706214Z [36;1m  CODACY_GOSEC_VERSION=$(curl -SL "https://artifacts.codacy.com/bin/codacy-gosec/latest" -o-)[0m
+2025-09-28T10:04:52.6706944Z [36;1m  curl -fsSL "https://artifacts.codacy.com/bin/codacy-gosec/$CODACY_GOSEC_VERSION/codacy-gosec-$CODACY_GOSEC_VERSION" -o /tmp/codacy-gosec[0m
+2025-09-28T10:04:52.6707506Z [36;1m  chmod +x /tmp/codacy-gosec[0m
+2025-09-28T10:04:52.6707756Z [36;1m  cd -[0m
+2025-09-28T10:04:52.6707926Z [36;1m[0m
+2025-09-28T10:04:52.6708240Z [36;1m  /tmp/bin/gosec -no-fail -fmt json -log /tmp/log.txt ./... > /tmp/gosec-out.json[0m
+2025-09-28T10:04:52.6708878Z [36;1m  /tmp/codacy-gosec < /tmp/gosec-out.json > /tmp/codacy-out.json[0m
+2025-09-28T10:04:52.6709215Z [36;1m  if [ "" == "true" ]; then[0m
+2025-09-28T10:04:52.6709511Z [36;1m    curl -XPOST -L -H "$CURL_CODACY_AUTH_AUTHENTICATION" \[0m
+2025-09-28T10:04:52.6709929Z [36;1m      -H "Content-type: application/json" --data-binary @/tmp/codacy-out.json \[0m
+2025-09-28T10:04:52.6710785Z [36;1m      "${CODACY_BASE_URL_OR_DEFAULT}/2.0/$ORGANIZATION_PROVIDER/$OWNER_NAME/$REPOSITORY_NAME/commit/$COMMIT_SHA/issuesRemoteResults"[0m
+2025-09-28T10:04:52.6711276Z [36;1m  else[0m
+2025-09-28T10:04:52.6711463Z [36;1m    cat /tmp/codacy-out.json[0m
+2025-09-28T10:04:52.6711686Z [36;1m  fi[0m
+2025-09-28T10:04:52.6711845Z [36;1melse[0m
+2025-09-28T10:04:52.6712200Z [36;1m  echo "Skipping GoSec"[0m
+2025-09-28T10:04:52.6712451Z [36;1mfi[0m
+2025-09-28T10:04:52.6735760Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2025-09-28T10:04:52.6736064Z env:
+2025-09-28T10:04:52.6736284Z   CODACY_BASE_URL_OR_DEFAULT: https://api.codacy.com
+2025-09-28T10:04:52.6736579Z   OWNER_NAME: eagles-edu
+2025-09-28T10:04:52.6736780Z   REPOSITORY_NAME: megs
+2025-09-28T10:04:52.6736987Z   ORGANIZATION_PROVIDER: gh
+2025-09-28T10:04:52.6737246Z   COMMIT_SHA: b1ef7f9ad85a38b661f0a4d1c5ab0f577dc5ad41
+2025-09-28T10:04:52.6737507Z ##[endgroup]
+2025-09-28T10:04:52.6777813Z + '[' '' == true ']'
+2025-09-28T10:04:52.6778161Z Skipping GoSec
+2025-09-28T10:04:52.6778503Z + echo 'Skipping GoSec'
+2025-09-28T10:04:52.6811587Z ##[group]Run set -eux
+2025-09-28T10:04:52.6811820Z [36;1mset -eux[0m
+2025-09-28T10:04:52.6811992Z [36;1m[0m
+2025-09-28T10:04:52.6812164Z [36;1mif [ "" == "true" ]; then[0m
+2025-09-28T10:04:52.6812380Z [36;1m  cd /tmp[0m
+2025-09-28T10:04:52.6812647Z [36;1m  go install honnef.co/go/tools/cmd/staticcheck@2023.1.6      [0m
+2025-09-28T10:04:52.6812987Z [36;1m  chmod +x /home/runner/go/bin/staticcheck[0m
+2025-09-28T10:04:52.6813476Z [36;1m  CODACY_STATICCHECK_VERSION=$(curl -SL "https://artifacts.codacy.com/bin/codacy-staticcheck/latest" -o-)[0m
+2025-09-28T10:04:52.6814398Z [36;1m  curl -fsSL "https://artifacts.codacy.com/bin/codacy-staticcheck/$CODACY_STATICCHECK_VERSION/codacy-staticcheck-$CODACY_STATICCHECK_VERSION" -o /tmp/codacy-staticcheck[0m
+2025-09-28T10:04:52.6815100Z [36;1m  chmod +x /tmp/codacy-staticcheck[0m
+2025-09-28T10:04:52.6815344Z [36;1m  cd -[0m
+2025-09-28T10:04:52.6815506Z [36;1m[0m
+2025-09-28T10:04:52.6816122Z [36;1m  find . -type f -name go.mod -exec bash -c 'cd $(dirname $1); cp $1 $1.codacy.bak; PKGS=$(go list ./...); /home/runner/go/bin/staticcheck -f json $PKGS; mv $1.codacy.bak $1' _ {} \; > /tmp/staticcheck-out.json[0m
+2025-09-28T10:04:52.6816897Z [36;1m  /tmp/codacy-staticcheck < /tmp/staticcheck-out.json > /tmp/codacy-out.json[0m
+2025-09-28T10:04:52.6817264Z [36;1m  if [ "" == "true" ]; then[0m
+2025-09-28T10:04:52.6817560Z [36;1m    curl -XPOST -L -H "$CURL_CODACY_AUTH_AUTHENTICATION" \[0m
+2025-09-28T10:04:52.6817992Z [36;1m      -H "Content-type: application/json" --data-binary @/tmp/codacy-out.json \[0m
+2025-09-28T10:04:52.6818620Z [36;1m      "${CODACY_BASE_URL_OR_DEFAULT}/2.0/$ORGANIZATION_PROVIDER/$OWNER_NAME/$REPOSITORY_NAME/commit/$COMMIT_SHA/issuesRemoteResults"[0m
+2025-09-28T10:04:52.6819103Z [36;1m  else[0m
+2025-09-28T10:04:52.6819284Z [36;1m    cat /tmp/codacy-out.json[0m
+2025-09-28T10:04:52.6819508Z [36;1m  fi[0m
+2025-09-28T10:04:52.6819664Z [36;1melse[0m
+2025-09-28T10:04:52.6819851Z [36;1m  echo "Skipping StaticCheck"[0m
+2025-09-28T10:04:52.6820082Z [36;1mfi[0m
+2025-09-28T10:04:52.6843769Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2025-09-28T10:04:52.6844084Z env:
+2025-09-28T10:04:52.6844305Z   CODACY_BASE_URL_OR_DEFAULT: https://api.codacy.com
+2025-09-28T10:04:52.6844593Z   OWNER_NAME: eagles-edu
+2025-09-28T10:04:52.6844805Z   REPOSITORY_NAME: megs
+2025-09-28T10:04:52.6844998Z   ORGANIZATION_PROVIDER: gh
+2025-09-28T10:04:52.6845252Z   COMMIT_SHA: b1ef7f9ad85a38b661f0a4d1c5ab0f577dc5ad41
+2025-09-28T10:04:52.6845511Z ##[endgroup]
+2025-09-28T10:04:52.6886182Z + '[' '' == true ']'
+2025-09-28T10:04:52.6886751Z + echo 'Skipping StaticCheck'
+2025-09-28T10:04:52.6887152Z Skipping StaticCheck
+2025-09-28T10:04:52.6904045Z ##[group]Run set -eux
+2025-09-28T10:04:52.6904272Z [36;1mset -eux[0m
+2025-09-28T10:04:52.6904436Z [36;1m[0m
+2025-09-28T10:04:52.6904602Z [36;1mif [ -n "" ]; then[0m
+2025-09-28T10:04:52.6904800Z [36;1m  cd /tmp[0m
+2025-09-28T10:04:52.6905221Z [36;1m  CODACY_CLANG_TIDY_VERSION=$(curl -SL "https://artifacts.codacy.com/bin/codacy-clang-tidy/latest" -o-)[0m
+2025-09-28T10:04:52.6906118Z [36;1m  curl -fsSL "https://artifacts.codacy.com/bin/codacy-clang-tidy/$CODACY_CLANG_TIDY_VERSION/codacy-clang-tidy-linux-$CODACY_CLANG_TIDY_VERSION" -o /tmp/codacy-clang-tidy[0m
+2025-09-28T10:04:52.6906959Z [36;1m  chmod +x /tmp/codacy-clang-tidy[0m
+2025-09-28T10:04:52.6907196Z [36;1m  cd -[0m
+2025-09-28T10:04:52.6907354Z [36;1m[0m
+2025-09-28T10:04:52.6907584Z [36;1m  /tmp/codacy-clang-tidy < "" > /tmp/codacy-out.json[0m
+2025-09-28T10:04:52.6907888Z [36;1m  if [ "" == "true" ]; then[0m
+2025-09-28T10:04:52.6908180Z [36;1m    curl -XPOST -L -H "$CURL_CODACY_AUTH_AUTHENTICATION" \[0m
+2025-09-28T10:04:52.6908603Z [36;1m      -H "Content-type: application/json" --data-binary @/tmp/codacy-out.json \[0m
+2025-09-28T10:04:52.6909221Z [36;1m      "${CODACY_BASE_URL_OR_DEFAULT}/2.0/$ORGANIZATION_PROVIDER/$OWNER_NAME/$REPOSITORY_NAME/commit/$COMMIT_SHA/issuesRemoteResults"[0m
+2025-09-28T10:04:52.6909705Z [36;1m  else[0m
+2025-09-28T10:04:52.6909890Z [36;1m    cat /tmp/codacy-out.json[0m
+2025-09-28T10:04:52.6910113Z [36;1m  fi[0m
+2025-09-28T10:04:52.6910281Z [36;1melse[0m
+2025-09-28T10:04:52.6910710Z [36;1m  echo "Skipping Clang Tidy"[0m
+2025-09-28T10:04:52.6910935Z [36;1mfi[0m
+2025-09-28T10:04:52.6934568Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2025-09-28T10:04:52.6934870Z env:
+2025-09-28T10:04:52.6935092Z   CODACY_BASE_URL_OR_DEFAULT: https://api.codacy.com
+2025-09-28T10:04:52.6935366Z   OWNER_NAME: eagles-edu
+2025-09-28T10:04:52.6935572Z   REPOSITORY_NAME: megs
+2025-09-28T10:04:52.6935772Z   ORGANIZATION_PROVIDER: gh
+2025-09-28T10:04:52.6936031Z   COMMIT_SHA: b1ef7f9ad85a38b661f0a4d1c5ab0f577dc5ad41
+2025-09-28T10:04:52.6936296Z ##[endgroup]
+2025-09-28T10:04:52.6976836Z + '[' -n '' ']'
+2025-09-28T10:04:52.6977070Z Skipping Clang Tidy
+2025-09-28T10:04:52.6977288Z + echo 'Skipping Clang Tidy'
+2025-09-28T10:04:52.6995129Z ##[group]Run set -eux
+2025-09-28T10:04:52.6995367Z [36;1mset -eux[0m
+2025-09-28T10:04:52.6995540Z [36;1m[0m
+2025-09-28T10:04:52.6995709Z [36;1mif [ -n "" ]; then[0m
+2025-09-28T10:04:52.6995907Z [36;1m  cd /tmp[0m
+2025-09-28T10:04:52.6996317Z [36;1m  CODACY_FAUX_PAS_VERSION=$(curl -SL "https://artifacts.codacy.com/bin/codacy-faux-pas/latest" -o-)[0m
+2025-09-28T10:04:52.6997170Z [36;1m  curl -fsSL "https://artifacts.codacy.com/bin/codacy-faux-pas/$CODACY_FAUX_PAS_VERSION/codacy-faux-pas-$CODACY_FAUX_PAS_VERSION" -o /tmp/codacy-faux-pas[0m
+2025-09-28T10:04:52.6997789Z [36;1m  chmod +x /tmp/codacy-faux-pas[0m
+2025-09-28T10:04:52.6998030Z [36;1m  cd -[0m
+2025-09-28T10:04:52.6998196Z [36;1m[0m
+2025-09-28T10:04:52.6998417Z [36;1m  /tmp/codacy-faux-pas < "" > /tmp/codacy-out.json[0m
+2025-09-28T10:04:52.6998702Z [36;1m  if [ "" == "true" ]; then[0m
+2025-09-28T10:04:52.6999004Z [36;1m    curl -XPOST -L -H "$CURL_CODACY_AUTH_AUTHENTICATION" \[0m
+2025-09-28T10:04:52.6999432Z [36;1m      -H "Content-type: application/json" --data-binary @/tmp/codacy-out.json \[0m
+2025-09-28T10:04:52.7000047Z [36;1m      "${CODACY_BASE_URL_OR_DEFAULT}/2.0/$ORGANIZATION_PROVIDER/$OWNER_NAME/$REPOSITORY_NAME/commit/$COMMIT_SHA/issuesRemoteResults"[0m
+2025-09-28T10:04:52.7000786Z [36;1m  else[0m
+2025-09-28T10:04:52.7000976Z [36;1m    cat /tmp/codacy-out.json[0m
+2025-09-28T10:04:52.7001212Z [36;1m  fi[0m
+2025-09-28T10:04:52.7001374Z [36;1melse[0m
+2025-09-28T10:04:52.7001561Z [36;1m  echo "Skipping Faux Pas"[0m
+2025-09-28T10:04:52.7001785Z [36;1mfi[0m
+2025-09-28T10:04:52.7025331Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2025-09-28T10:04:52.7025782Z env:
+2025-09-28T10:04:52.7026015Z   CODACY_BASE_URL_OR_DEFAULT: https://api.codacy.com
+2025-09-28T10:04:52.7026317Z   OWNER_NAME: eagles-edu
+2025-09-28T10:04:52.7026526Z   REPOSITORY_NAME: megs
+2025-09-28T10:04:52.7026724Z   ORGANIZATION_PROVIDER: gh
+2025-09-28T10:04:52.7026983Z   COMMIT_SHA: b1ef7f9ad85a38b661f0a4d1c5ab0f577dc5ad41
+2025-09-28T10:04:52.7027243Z ##[endgroup]
+2025-09-28T10:04:52.7067296Z + '[' -n '' ']'
+2025-09-28T10:04:52.7067626Z Skipping Faux Pas
+2025-09-28T10:04:52.7067973Z + echo 'Skipping Faux Pas'
+2025-09-28T10:04:52.7084485Z ##[group]Run echo "CODACY_ANALYSIS_CLI_VERSION=7.9.25" >> $GITHUB_ENV
+2025-09-28T10:04:52.7084886Z [36;1mecho "CODACY_ANALYSIS_CLI_VERSION=7.9.25" >> $GITHUB_ENV[0m
+2025-09-28T10:04:52.7108988Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2025-09-28T10:04:52.7109295Z env:
+2025-09-28T10:04:52.7109518Z   CODACY_BASE_URL_OR_DEFAULT: https://api.codacy.com
+2025-09-28T10:04:52.7109796Z   OWNER_NAME: eagles-edu
+2025-09-28T10:04:52.7110004Z   REPOSITORY_NAME: megs
+2025-09-28T10:04:52.7110201Z   ORGANIZATION_PROVIDER: gh
+2025-09-28T10:04:52.7110653Z   COMMIT_SHA: b1ef7f9ad85a38b661f0a4d1c5ab0f577dc5ad41
+2025-09-28T10:04:52.7110922Z ##[endgroup]
+2025-09-28T10:04:52.7169680Z ##[group]Run echo "CLI_SCRIPT_PATH=/home/runner/work/_actions/codacy/codacy-analysis-cli-action/v4/codacy-analysis-cli.sh" >> $GITHUB_ENV
+2025-09-28T10:04:52.7170827Z [36;1mecho "CLI_SCRIPT_PATH=/home/runner/work/_actions/codacy/codacy-analysis-cli-action/v4/codacy-analysis-cli.sh" >> $GITHUB_ENV[0m
+2025-09-28T10:04:52.7194549Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2025-09-28T10:04:52.7194855Z env:
+2025-09-28T10:04:52.7195082Z   CODACY_BASE_URL_OR_DEFAULT: https://api.codacy.com
+2025-09-28T10:04:52.7195371Z   OWNER_NAME: eagles-edu
+2025-09-28T10:04:52.7195599Z   REPOSITORY_NAME: megs
+2025-09-28T10:04:52.7195806Z   ORGANIZATION_PROVIDER: gh
+2025-09-28T10:04:52.7196052Z   COMMIT_SHA: b1ef7f9ad85a38b661f0a4d1c5ab0f577dc5ad41
+2025-09-28T10:04:52.7196350Z   CODACY_ANALYSIS_CLI_VERSION: 7.9.25
+2025-09-28T10:04:52.7196584Z ##[endgroup]
+2025-09-28T10:04:52.7255762Z ##[group]Run wget -O - https://raw.githubusercontent.com/codacy/codacy-analysis-cli/7.9.25/bin/codacy-analysis-cli.sh > /home/runner/work/_actions/codacy/codacy-analysis-cli-action/v4/codacy-analysis-cli.sh
+2025-09-28T10:04:52.7257060Z [36;1mwget -O - https://raw.githubusercontent.com/codacy/codacy-analysis-cli/7.9.25/bin/codacy-analysis-cli.sh > /home/runner/work/_actions/codacy/codacy-analysis-cli-action/v4/codacy-analysis-cli.sh[0m
+2025-09-28T10:04:52.7281533Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2025-09-28T10:04:52.7281847Z env:
+2025-09-28T10:04:52.7282078Z   CODACY_BASE_URL_OR_DEFAULT: https://api.codacy.com
+2025-09-28T10:04:52.7282365Z   OWNER_NAME: eagles-edu
+2025-09-28T10:04:52.7282563Z   REPOSITORY_NAME: megs
+2025-09-28T10:04:52.7282757Z   ORGANIZATION_PROVIDER: gh
+2025-09-28T10:04:52.7283011Z   COMMIT_SHA: b1ef7f9ad85a38b661f0a4d1c5ab0f577dc5ad41
+2025-09-28T10:04:52.7283286Z   CODACY_ANALYSIS_CLI_VERSION: 7.9.25
+2025-09-28T10:04:52.7283733Z   CLI_SCRIPT_PATH: /home/runner/work/_actions/codacy/codacy-analysis-cli-action/v4/codacy-analysis-cli.sh
+2025-09-28T10:04:52.7284171Z ##[endgroup]
+2025-09-28T10:04:52.7366530Z --2025-09-28 10:04:52--  https://raw.githubusercontent.com/codacy/codacy-analysis-cli/7.9.25/bin/codacy-analysis-cli.sh
+2025-09-28T10:04:52.7431441Z Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 185.199.110.133, 185.199.111.133, 185.199.108.133, ...
+2025-09-28T10:04:52.7438008Z Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|185.199.110.133|:443... connected.
+2025-09-28T10:04:52.8585219Z HTTP request sent, awaiting response... 200 OK
+2025-09-28T10:04:52.8585915Z Length: 3291 (3.2K) [text/plain]
+2025-09-28T10:04:52.8586847Z Saving to: ‘STDOUT’
+2025-09-28T10:04:52.8587144Z 
+2025-09-28T10:04:52.8587379Z      0K ...                                                   100% 39.4M=0s
+2025-09-28T10:04:52.8587819Z 
+2025-09-28T10:04:52.8588361Z 2025-09-28 10:04:52 (39.4 MB/s) - written to stdout [3291/3291]
+2025-09-28T10:04:52.8588888Z 
+2025-09-28T10:04:52.8619720Z ##[group]Run chmod +x "/home/runner/work/_actions/codacy/codacy-analysis-cli-action/v4/codacy-analysis-cli.sh"
+2025-09-28T10:04:52.8620647Z [36;1mchmod +x "/home/runner/work/_actions/codacy/codacy-analysis-cli-action/v4/codacy-analysis-cli.sh"[0m
+2025-09-28T10:04:52.8646801Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2025-09-28T10:04:52.8647114Z env:
+2025-09-28T10:04:52.8647338Z   CODACY_BASE_URL_OR_DEFAULT: https://api.codacy.com
+2025-09-28T10:04:52.8647625Z   OWNER_NAME: eagles-edu
+2025-09-28T10:04:52.8647822Z   REPOSITORY_NAME: megs
+2025-09-28T10:04:52.8648196Z   ORGANIZATION_PROVIDER: gh
+2025-09-28T10:04:52.8648450Z   COMMIT_SHA: b1ef7f9ad85a38b661f0a4d1c5ab0f577dc5ad41
+2025-09-28T10:04:52.8648726Z   CODACY_ANALYSIS_CLI_VERSION: 7.9.25
+2025-09-28T10:04:52.8649210Z   CLI_SCRIPT_PATH: /home/runner/work/_actions/codacy/codacy-analysis-cli-action/v4/codacy-analysis-cli.sh
+2025-09-28T10:04:52.8649642Z ##[endgroup]
+2025-09-28T10:04:52.8745458Z ##[group]Run if [ -n "" ]; then
+2025-09-28T10:04:52.8745731Z [36;1mif [ -n "" ]; then[0m
+2025-09-28T10:04:52.8745943Z [36;1m  export REGISTRY_ADDRESS=[0m
+2025-09-28T10:04:52.8746164Z [36;1mfi[0m
+2025-09-28T10:04:52.8746336Z [36;1mif [ "true" == "true" ]; then[0m
+2025-09-28T10:04:52.8746766Z [36;1m  /home/runner/work/_actions/codacy/codacy-analysis-cli-action/v4/codacy-analysis-cli.sh \[0m
+2025-09-28T10:04:52.8747180Z [36;1m    analyze \[0m
+2025-09-28T10:04:52.8747399Z [36;1m    --skip-commit-uuid-validation \[0m
+2025-09-28T10:04:52.8747669Z [36;1m    --commit-uuid $COMMIT_SHA \[0m
+2025-09-28T10:04:52.8747939Z [36;1m    $(if [ "" == "true" ]; then echo "--verbose"; fi) \[0m
+2025-09-28T10:04:52.8748257Z [36;1m    $(if [ -n "" ]; then echo "--project-token "; fi) \[0m
+2025-09-28T10:04:52.8748804Z [36;1m    $(if [ -n "" ]; then echo "--api-token  --username $OWNER_NAME --project $REPOSITORY_NAME --provider $ORGANIZATION_PROVIDER"; fi) \[0m
+2025-09-28T10:04:52.8749332Z [36;1m    $(if [ -n "" ]; then echo "--codacy-api-base-url "; fi) \[0m
+2025-09-28T10:04:52.8749654Z [36;1m    $(if [ -n "sarif" ]; then echo "--format sarif"; fi) \[0m
+2025-09-28T10:04:52.8750004Z [36;1m    $(if [ -n "results.sarif" ]; then echo "--output results.sarif"; fi) \[0m
+2025-09-28T10:04:52.8750569Z [36;1m    $(if [ -n "" ]; then echo "--directory "; fi) \[0m
+2025-09-28T10:04:52.8750879Z [36;1m    $(if [ -n "" ]; then echo "--parallel "; fi) \[0m
+2025-09-28T10:04:52.8751178Z [36;1m    $(if [ -n "" ]; then echo "--max-tool-memory "; fi) \[0m
+2025-09-28T10:04:52.8751534Z [36;1m    $(if [ -n "2147483647" ]; then echo "--max-allowed-issues 2147483647"; fi) \[0m
+2025-09-28T10:04:52.8751897Z [36;1m    $(if [ -n "trivy" ]; then echo "--tool trivy"; fi) \[0m
+2025-09-28T10:04:52.8752198Z [36;1m    $(if [ -n "" ]; then echo "--tool-timeout "; fi) \[0m
+2025-09-28T10:04:52.8752536Z [36;1m    $(if [ "" == "true" ]; then echo "--skip-uncommitted-files-check"; fi) \[0m
+2025-09-28T10:04:52.8752872Z [36;1m    $(if [ "" == "true" ]; then echo "--upload"; fi) \[0m
+2025-09-28T10:04:52.8753166Z [36;1m    $(if [ -n "" ]; then echo "--upload-batch-size "; fi) \[0m
+2025-09-28T10:04:52.8753480Z [36;1m    $(if [ "" == "true" ]; then echo "--fail-if-incomplete"; fi) \[0m
+2025-09-28T10:04:52.8753811Z [36;1m    $(if [ "true" == "true" ]; then echo "--allow-network"; fi) \[0m
+2025-09-28T10:04:52.8754147Z [36;1m    $(if [ "" == "true" ]; then echo "--force-file-permissions"; fi) \[0m
+2025-09-28T10:04:52.8754518Z [36;1m    $(if [ "true" == "true" ]; then echo "--gh-code-scanning-compat"; fi) \[0m
+2025-09-28T10:04:52.8754864Z [36;1m    $(if [ -n "" ]; then echo "--registry-address "; fi)[0m
+2025-09-28T10:04:52.8755118Z [36;1melse[0m
+2025-09-28T10:04:52.8755311Z [36;1m  echo "Skipping docker tools"[0m
+2025-09-28T10:04:52.8755532Z [36;1mfi[0m
+2025-09-28T10:04:52.8779819Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2025-09-28T10:04:52.8780290Z env:
+2025-09-28T10:04:52.8780744Z   CODACY_BASE_URL_OR_DEFAULT: https://api.codacy.com
+2025-09-28T10:04:52.8781047Z   OWNER_NAME: eagles-edu
+2025-09-28T10:04:52.8781254Z   REPOSITORY_NAME: megs
+2025-09-28T10:04:52.8781456Z   ORGANIZATION_PROVIDER: gh
+2025-09-28T10:04:52.8781778Z   COMMIT_SHA: b1ef7f9ad85a38b661f0a4d1c5ab0f577dc5ad41
+2025-09-28T10:04:52.8782064Z   CODACY_ANALYSIS_CLI_VERSION: 7.9.25
+2025-09-28T10:04:52.8782503Z   CLI_SCRIPT_PATH: /home/runner/work/_actions/codacy/codacy-analysis-cli-action/v4/codacy-analysis-cli.sh
+2025-09-28T10:04:52.8782927Z ##[endgroup]
+2025-09-28T10:04:53.0072815Z Unable to find image 'codacy/codacy-analysis-cli:7.9.25' locally
+2025-09-28T10:04:53.9624985Z 7.9.25: Pulling from codacy/codacy-analysis-cli
+2025-09-28T10:04:53.9703144Z f18232174bc9: Already exists
+2025-09-28T10:04:53.9775867Z 9a4213fa5beb: Pulling fs layer
+2025-09-28T10:04:53.9776303Z 7772859a2eba: Pulling fs layer
+2025-09-28T10:04:53.9776634Z 96fa1203d65f: Pulling fs layer
+2025-09-28T10:04:54.2336032Z 7772859a2eba: Verifying Checksum
+2025-09-28T10:04:54.2336509Z 7772859a2eba: Download complete
+2025-09-28T10:04:54.5673375Z 96fa1203d65f: Verifying Checksum
+2025-09-28T10:04:54.5673857Z 96fa1203d65f: Download complete
+2025-09-28T10:04:55.3608093Z 9a4213fa5beb: Verifying Checksum
+2025-09-28T10:04:55.3608580Z 9a4213fa5beb: Download complete
+2025-09-28T10:04:58.3956870Z 9a4213fa5beb: Pull complete
+2025-09-28T10:04:58.4071084Z 7772859a2eba: Pull complete
+2025-09-28T10:04:58.7320953Z 96fa1203d65f: Pull complete
+2025-09-28T10:04:58.7369593Z Digest: sha256:339e0103e28804f9d76aff34503e505440e5d5b42f5dd70dae73b592ea87826a
+2025-09-28T10:04:58.7388750Z Status: Downloaded newer image for codacy/codacy-analysis-cli:7.9.25
+2025-09-28T10:05:12.0747116Z 09/28 10:05:12 [1;31mERROR[0;39m [36mc.c.a.c.a.CodacyPluginsAnalyser:31[0;39m - Failed analysis for trivy 
+2025-09-28T10:05:12.0747823Z java.lang.Throwable: 
+2025-09-28T10:05:12.0748142Z Docker exited with code 1
+2025-09-28T10:05:12.0748451Z stdout: 
+2025-09-28T10:05:12.0749268Z stderr: time="2025-09-28T10:05:12Z" level=error msg="Failed to run the tool: codacy-trivy/tool: Failed to configure Codacy Trivy: no patterns configured"
+2025-09-28T10:05:12.0750184Z            
+2025-09-28T10:05:12.0751066Z 	at com.codacy.plugins.runners.BinaryDockerRunner.$anonfun$run$4(BinaryDockerRunner.scala:84)
+2025-09-28T10:05:12.0751905Z 	at scala.util.Success.flatMap(Try.scala:251)
+2025-09-28T10:05:12.0752614Z 	at com.codacy.plugins.runners.BinaryDockerRunner.run(BinaryDockerRunner.scala:69)
+2025-09-28T10:05:12.0753553Z 	at com.codacy.plugins.results.traits.ToolRunner.$anonfun$apply$2(ToolRunner.scala:77)
+2025-09-28T10:05:12.0754633Z 	at com.codacy.plugins.results.traits.CodacyDocker$.$anonfun$usingDockerConfig$2(CodacyDocker.scala:45)
+2025-09-28T10:05:12.0755802Z 	at com.codacy.plugins.utils.FileHelper$.$anonfun$usingNewFile$2(FileHelper.scala:51)
+2025-09-28T10:05:12.0756470Z 	at scala.util.Try$.apply(Try.scala:213)
+2025-09-28T10:05:12.0757110Z 	at com.codacy.plugins.utils.FileHelper$.usingNewFile(FileHelper.scala:45)
+2025-09-28T10:05:12.0758149Z 	at com.codacy.plugins.results.traits.CodacyDocker$.usingConfigPath(CodacyDocker.scala:57)
+2025-09-28T10:05:12.0759349Z 	at com.codacy.plugins.results.traits.CodacyDocker$.$anonfun$usingDockerConfig$1(CodacyDocker.scala:39)
+2025-09-28T10:05:12.0760238Z 	at scala.Option.map(Option.scala:230)
+2025-09-28T10:05:12.0761232Z 	at com.codacy.plugins.results.traits.CodacyDocker$.usingDockerConfig(CodacyDocker.scala:38)
+2025-09-28T10:05:12.0762323Z 	at com.codacy.plugins.results.traits.ToolRunner.$anonfun$apply$1(ToolRunner.scala:76)
+2025-09-28T10:05:12.0763120Z 	at scala.util.Try$.apply(Try.scala:213)
+2025-09-28T10:05:12.0763831Z 	at com.codacy.plugins.results.traits.ToolRunner.apply(ToolRunner.scala:61)
+2025-09-28T10:05:12.0764756Z 	at com.codacy.plugins.results.traits.ToolRunner.run(ToolRunner.scala:49)
+2025-09-28T10:05:12.0765558Z 	at com.codacy.analysis.core.tools.Tool.run(Tool.scala:95)
+2025-09-28T10:05:12.0766944Z 	at com.codacy.analysis.core.analysis.CodacyPluginsAnalyser.analyse(CodacyPluginsAnalyser.scala:25)
+2025-09-28T10:05:12.0768292Z 	at com.codacy.analysis.cli.analysis.AnalyseExecutor.$anonfun$issues$1(AnalyseExecutor.scala:159)
+2025-09-28T10:05:12.0769149Z 	at scala.util.Success.flatMap(Try.scala:251)
+2025-09-28T10:05:12.0769938Z 	at com.codacy.analysis.cli.analysis.AnalyseExecutor.issues(AnalyseExecutor.scala:151)
+2025-09-28T10:05:12.0771198Z 	at com.codacy.analysis.cli.analysis.AnalyseExecutor.$anonfun$run$5(AnalyseExecutor.scala:70)
+2025-09-28T10:05:12.0772233Z 	at scala.collection.parallel.AugmentedIterableIterator.map2combiner(RemainsIterator.scala:116)
+2025-09-28T10:05:12.0773395Z 	at scala.collection.parallel.AugmentedIterableIterator.map2combiner$(RemainsIterator.scala:113)
+2025-09-28T10:05:12.0774889Z 	at scala.collection.parallel.immutable.ParHashSet$ParHashSetIterator.map2combiner(ParHashSet.scala:81)
+2025-09-28T10:05:12.0775892Z 	at scala.collection.parallel.ParIterableLike$Map.leaf(ParIterableLike.scala:1064)
+2025-09-28T10:05:12.0776668Z 	at scala.collection.parallel.Task.$anonfun$tryLeaf$1(Tasks.scala:53)
+2025-09-28T10:05:12.0777363Z 	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.java:23)
+2025-09-28T10:05:12.0778018Z 	at scala.util.control.Breaks$$anon$1.catchBreak(Breaks.scala:67)
+2025-09-28T10:05:12.0778714Z 	at scala.collection.parallel.Task.tryLeaf(Tasks.scala:56)
+2025-09-28T10:05:12.0779405Z 	at scala.collection.parallel.Task.tryLeaf$(Tasks.scala:50)
+2025-09-28T10:05:12.0780259Z 	at scala.collection.parallel.ParIterableLike$Map.tryLeaf(ParIterableLike.scala:1061)
+2025-09-28T10:05:12.0781587Z 	at scala.collection.parallel.AdaptiveWorkStealingTasks$WrappedTask.internal(Tasks.scala:160)
+2025-09-28T10:05:12.0782797Z 	at scala.collection.parallel.AdaptiveWorkStealingTasks$WrappedTask.internal$(Tasks.scala:157)
+2025-09-28T10:05:12.0783977Z 	at scala.collection.parallel.AdaptiveWorkStealingForkJoinTasks$WrappedTask.internal(Tasks.scala:440)
+2025-09-28T10:05:12.0785146Z 	at scala.collection.parallel.AdaptiveWorkStealingTasks$WrappedTask.compute(Tasks.scala:150)
+2025-09-28T10:05:12.0786303Z 	at scala.collection.parallel.AdaptiveWorkStealingTasks$WrappedTask.compute$(Tasks.scala:149)
+2025-09-28T10:05:12.0787537Z 	at scala.collection.parallel.AdaptiveWorkStealingForkJoinTasks$WrappedTask.compute(Tasks.scala:440)
+2025-09-28T10:05:12.0788594Z 	at java.util.concurrent.RecursiveAction.exec(RecursiveAction.java:189)
+2025-09-28T10:05:12.0789425Z 	at java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:289)
+2025-09-28T10:05:12.0790260Z 	at java.util.concurrent.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1056)
+2025-09-28T10:05:12.0791370Z 	at java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1692)
+2025-09-28T10:05:12.0792314Z 	at java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:175)
+2025-09-28T10:05:12.0793589Z 09/28 10:05:12 [1;31mERROR[0;39m [36mc.c.a.c.a.CodacyPluginsAnalyser:31[0;39m - Failed analysis for trivy 
+2025-09-28T10:05:12.0794367Z java.lang.Throwable: 
+2025-09-28T10:05:12.0794735Z Docker exited with code 1
+2025-09-28T10:05:12.0795092Z stdout: 
+2025-09-28T10:05:12.0795944Z stderr: time="2025-09-28T10:05:12Z" level=error msg="Failed to run the tool: codacy-trivy/tool: Failed to configure Codacy Trivy: no patterns configured"
+2025-09-28T10:05:12.0796889Z            
+2025-09-28T10:05:12.0797552Z 	at com.codacy.plugins.runners.BinaryDockerRunner.$anonfun$run$4(BinaryDockerRunner.scala:84)
+2025-09-28T10:05:12.0798369Z 	at scala.util.Success.flatMap(Try.scala:251)
+2025-09-28T10:05:12.0799114Z 	at com.codacy.plugins.runners.BinaryDockerRunner.run(BinaryDockerRunner.scala:69)
+2025-09-28T10:05:12.0800085Z 	at com.codacy.plugins.results.traits.ToolRunner.$anonfun$apply$2(ToolRunner.scala:77)
+2025-09-28T10:05:12.0801429Z 	at com.codacy.plugins.results.traits.CodacyDocker$.$anonfun$usingDockerConfig$2(CodacyDocker.scala:45)
+2025-09-28T10:05:12.0802518Z 	at com.codacy.plugins.utils.FileHelper$.$anonfun$usingNewFile$2(FileHelper.scala:51)
+2025-09-28T10:05:12.0803463Z 	at scala.util.Try$.apply(Try.scala:213)
+2025-09-28T10:05:12.0804111Z 	at com.codacy.plugins.utils.FileHelper$.usingNewFile(FileHelper.scala:45)
+2025-09-28T10:05:12.0805067Z 	at com.codacy.plugins.results.traits.CodacyDocker$.usingConfigPath(CodacyDocker.scala:57)
+2025-09-28T10:05:12.0806225Z 	at com.codacy.plugins.results.traits.CodacyDocker$.$anonfun$usingDockerConfig$1(CodacyDocker.scala:39)
+2025-09-28T10:05:12.0807045Z 	at scala.Option.map(Option.scala:230)
+2025-09-28T10:05:12.0807800Z 	at com.codacy.plugins.results.traits.CodacyDocker$.usingDockerConfig(CodacyDocker.scala:38)
+2025-09-28T10:05:12.0808840Z 	at com.codacy.plugins.results.traits.ToolRunner.$anonfun$apply$1(ToolRunner.scala:76)
+2025-09-28T10:05:12.0809575Z 	at scala.util.Try$.apply(Try.scala:213)
+2025-09-28T10:05:12.0810708Z 	at com.codacy.plugins.results.traits.ToolRunner.apply(ToolRunner.scala:61)
+2025-09-28T10:05:12.0811580Z 	at com.codacy.plugins.results.traits.ToolRunner.run(ToolRunner.scala:49)
+2025-09-28T10:05:12.0812342Z 	at com.codacy.analysis.core.tools.Tool.run(Tool.scala:95)
+2025-09-28T10:05:12.0813298Z 	at com.codacy.analysis.core.analysis.CodacyPluginsAnalyser.analyse(CodacyPluginsAnalyser.scala:25)
+2025-09-28T10:05:12.0814575Z 	at com.codacy.analysis.cli.analysis.AnalyseExecutor.$anonfun$issues$1(AnalyseExecutor.scala:159)
+2025-09-28T10:05:12.0815403Z 	at scala.util.Success.flatMap(Try.scala:251)
+2025-09-28T10:05:12.0816197Z 	at com.codacy.analysis.cli.analysis.AnalyseExecutor.issues(AnalyseExecutor.scala:151)
+2025-09-28T10:05:12.0817275Z 	at com.codacy.analysis.cli.analysis.AnalyseExecutor.$anonfun$run$5(AnalyseExecutor.scala:70)
+2025-09-28T10:05:12.0818428Z 	at scala.collection.parallel.AugmentedIterableIterator.map2combiner(RemainsIterator.scala:116)
+2025-09-28T10:05:12.0819892Z 	at scala.collection.parallel.AugmentedIterableIterator.map2combiner$(RemainsIterator.scala:113)
+2025-09-28T10:05:12.0821414Z 	at scala.collection.parallel.immutable.ParHashSet$ParHashSetIterator.map2combiner(ParHashSet.scala:81)
+2025-09-28T10:05:12.0822541Z 	at scala.collection.parallel.ParIterableLike$Map.leaf(ParIterableLike.scala:1064)
+2025-09-28T10:05:12.0823412Z 	at scala.collection.parallel.Task.$anonfun$tryLeaf$1(Tasks.scala:53)
+2025-09-28T10:05:12.0824207Z 	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.java:23)
+2025-09-28T10:05:12.0824971Z 	at scala.util.control.Breaks$$anon$1.catchBreak(Breaks.scala:67)
+2025-09-28T10:05:12.0825652Z 	at scala.collection.parallel.Task.tryLeaf(Tasks.scala:56)
+2025-09-28T10:05:12.0826335Z 	at scala.collection.parallel.Task.tryLeaf$(Tasks.scala:50)
+2025-09-28T10:05:12.0827175Z 	at scala.collection.parallel.ParIterableLike$Map.tryLeaf(ParIterableLike.scala:1061)
+2025-09-28T10:05:12.0828279Z 	at scala.collection.parallel.AdaptiveWorkStealingTasks$WrappedTask.internal(Tasks.scala:160)
+2025-09-28T10:05:12.0829460Z 	at scala.collection.parallel.AdaptiveWorkStealingTasks$WrappedTask.internal$(Tasks.scala:157)
+2025-09-28T10:05:12.0830911Z 	at scala.collection.parallel.AdaptiveWorkStealingForkJoinTasks$WrappedTask.internal(Tasks.scala:440)
+2025-09-28T10:05:12.0832248Z 	at scala.collection.parallel.AdaptiveWorkStealingTasks$WrappedTask.compute(Tasks.scala:150)
+2025-09-28T10:05:12.0833400Z 	at scala.collection.parallel.AdaptiveWorkStealingTasks$WrappedTask.compute$(Tasks.scala:149)
+2025-09-28T10:05:12.0834660Z 	at scala.collection.parallel.AdaptiveWorkStealingForkJoinTasks$WrappedTask.compute(Tasks.scala:440)
+2025-09-28T10:05:12.0835722Z 	at java.util.concurrent.RecursiveAction.exec(RecursiveAction.java:189)
+2025-09-28T10:05:12.0836517Z 	at java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:289)
+2025-09-28T10:05:12.0837283Z 	at java.util.concurrent.ForkJoinTask.doJoin(ForkJoinTask.java:389)
+2025-09-28T10:05:12.0838022Z 	at java.util.concurrent.ForkJoinTask.join(ForkJoinTask.java:719)
+2025-09-28T10:05:12.0838888Z 	at scala.collection.parallel.ForkJoinTasks$WrappedTask.sync(Tasks.scala:379)
+2025-09-28T10:05:12.0839821Z 	at scala.collection.parallel.ForkJoinTasks$WrappedTask.sync$(Tasks.scala:379)
+2025-09-28T10:05:12.0841339Z 	at scala.collection.parallel.AdaptiveWorkStealingForkJoinTasks$WrappedTask.sync(Tasks.scala:440)
+2025-09-28T10:05:12.0842818Z 	at scala.collection.parallel.ForkJoinTasks.executeAndWaitResult(Tasks.scala:423)
+2025-09-28T10:05:12.0843853Z 	at scala.collection.parallel.ForkJoinTasks.executeAndWaitResult$(Tasks.scala:416)
+2025-09-28T10:05:12.0844989Z 	at scala.collection.parallel.ForkJoinTaskSupport.executeAndWaitResult(TaskSupport.scala:60)
+2025-09-28T10:05:12.0845613Z 	at scala.collection.parallel.ParIterableLike$ResultMapping.leaf(ParIterableLike.scala:968)
+2025-09-28T10:05:12.0846117Z 	at scala.collection.parallel.Task.$anonfun$tryLeaf$1(Tasks.scala:53)
+2025-09-28T10:05:12.0846546Z 	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.java:23)
+2025-09-28T10:05:12.0847166Z 	at scala.util.control.Breaks$$anon$1.catchBreak(Breaks.scala:67)
+2025-09-28T10:05:12.0847544Z 	at scala.collection.parallel.Task.tryLeaf(Tasks.scala:56)
+2025-09-28T10:05:12.0847907Z 	at scala.collection.parallel.Task.tryLeaf$(Tasks.scala:50)
+2025-09-28T10:05:12.0848400Z 	at scala.collection.parallel.ParIterableLike$ResultMapping.tryLeaf(ParIterableLike.scala:963)
+2025-09-28T10:05:12.0848997Z 	at scala.collection.parallel.AdaptiveWorkStealingTasks$WrappedTask.compute(Tasks.scala:153)
+2025-09-28T10:05:12.0849600Z 	at scala.collection.parallel.AdaptiveWorkStealingTasks$WrappedTask.compute$(Tasks.scala:149)
+2025-09-28T10:05:12.0850244Z 	at scala.collection.parallel.AdaptiveWorkStealingForkJoinTasks$WrappedTask.compute(Tasks.scala:440)
+2025-09-28T10:05:12.0851062Z 	at java.util.concurrent.RecursiveAction.exec(RecursiveAction.java:189)
+2025-09-28T10:05:12.0851494Z 	at java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:289)
+2025-09-28T10:05:12.0851946Z 	at java.util.concurrent.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1056)
+2025-09-28T10:05:12.0852407Z 	at java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1692)
+2025-09-28T10:05:12.0852880Z 	at java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:175)
+2025-09-28T10:05:12.3554913Z 09/28 10:05:12 [1;31mERROR[0;39m [36mc.c.a.c.a.CodacyPluginsAnalyser:31[0;39m - Failed analysis for trivy 
+2025-09-28T10:05:12.3555684Z java.lang.Throwable: 
+2025-09-28T10:05:12.3556038Z Docker exited with code 1
+2025-09-28T10:05:12.3556359Z stdout: 
+2025-09-28T10:05:12.3557106Z stderr: time="2025-09-28T10:05:12Z" level=error msg="Failed to run the tool: codacy-trivy/tool: Failed to configure Codacy Trivy: no patterns configured"
+2025-09-28T10:05:12.3558021Z            
+2025-09-28T10:05:12.3558621Z 	at com.codacy.plugins.runners.BinaryDockerRunner.$anonfun$run$4(BinaryDockerRunner.scala:84)
+2025-09-28T10:05:12.3559423Z 	at scala.util.Success.flatMap(Try.scala:251)
+2025-09-28T10:05:12.3560144Z 	at com.codacy.plugins.runners.BinaryDockerRunner.run(BinaryDockerRunner.scala:69)
+2025-09-28T10:05:12.3561272Z 	at com.codacy.plugins.results.traits.ToolRunner.$anonfun$apply$2(ToolRunner.scala:77)
+2025-09-28T10:05:12.3562471Z 	at com.codacy.plugins.results.traits.CodacyDocker$.$anonfun$usingDockerConfig$2(CodacyDocker.scala:45)
+2025-09-28T10:05:12.3563518Z 	at com.codacy.plugins.utils.FileHelper$.$anonfun$usingNewFile$2(FileHelper.scala:51)
+2025-09-28T10:05:12.3564211Z 	at scala.util.Try$.apply(Try.scala:213)
+2025-09-28T10:05:12.3564824Z 	at com.codacy.plugins.utils.FileHelper$.usingNewFile(FileHelper.scala:45)
+2025-09-28T10:05:12.3565740Z 	at com.codacy.plugins.results.traits.CodacyDocker$.usingConfigPath(CodacyDocker.scala:57)
+2025-09-28T10:05:12.3566765Z 	at com.codacy.plugins.results.traits.CodacyDocker$.$anonfun$usingDockerConfig$1(CodacyDocker.scala:39)
+2025-09-28T10:05:12.3567571Z 	at scala.Option.map(Option.scala:230)
+2025-09-28T10:05:12.3568287Z 	at com.codacy.plugins.results.traits.CodacyDocker$.usingDockerConfig(CodacyDocker.scala:38)
+2025-09-28T10:05:12.3569261Z 	at com.codacy.plugins.results.traits.ToolRunner.$anonfun$apply$1(ToolRunner.scala:76)
+2025-09-28T10:05:12.3569960Z 	at scala.util.Try$.apply(Try.scala:213)
+2025-09-28T10:05:12.3571082Z 	at com.codacy.plugins.results.traits.ToolRunner.apply(ToolRunner.scala:61)
+2025-09-28T10:05:12.3572008Z 	at com.codacy.plugins.results.traits.ToolRunner.run(ToolRunner.scala:49)
+2025-09-28T10:05:12.3572764Z 	at com.codacy.analysis.core.tools.Tool.run(Tool.scala:95)
+2025-09-28T10:05:12.3573687Z 	at com.codacy.analysis.core.analysis.CodacyPluginsAnalyser.analyse(CodacyPluginsAnalyser.scala:25)
+2025-09-28T10:05:12.3574843Z 	at com.codacy.analysis.cli.analysis.AnalyseExecutor.$anonfun$issues$1(AnalyseExecutor.scala:159)
+2025-09-28T10:05:12.3575614Z 	at scala.util.Success.flatMap(Try.scala:251)
+2025-09-28T10:05:12.3576366Z 	at com.codacy.analysis.cli.analysis.AnalyseExecutor.issues(AnalyseExecutor.scala:151)
+2025-09-28T10:05:12.3577440Z 	at com.codacy.analysis.cli.analysis.AnalyseExecutor.$anonfun$run$5(AnalyseExecutor.scala:70)
+2025-09-28T10:05:12.3578891Z 	at scala.collection.parallel.AugmentedIterableIterator.map2combiner(RemainsIterator.scala:116)
+2025-09-28T10:05:12.3580120Z 	at scala.collection.parallel.AugmentedIterableIterator.map2combiner$(RemainsIterator.scala:113)
+2025-09-28T10:05:12.3585486Z 	at scala.collection.parallel.immutable.ParHashSet$ParHashSetIterator.map2combiner(ParHashSet.scala:81)
+2025-09-28T10:05:12.3586672Z 	at scala.collection.parallel.ParIterableLike$Map.leaf(ParIterableLike.scala:1064)
+2025-09-28T10:05:12.3587569Z 	at scala.collection.parallel.Task.$anonfun$tryLeaf$1(Tasks.scala:53)
+2025-09-28T10:05:12.3588354Z 	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.java:23)
+2025-09-28T10:05:12.3589093Z 	at scala.util.control.Breaks$$anon$1.catchBreak(Breaks.scala:67)
+2025-09-28T10:05:12.3589714Z 	at scala.collection.parallel.Task.tryLeaf(Tasks.scala:56)
+2025-09-28T10:05:12.3592640Z 	at scala.collection.parallel.Task.tryLeaf$(Tasks.scala:50)
+2025-09-28T10:05:12.3593536Z 	at scala.collection.parallel.ParIterableLike$Map.tryLeaf(ParIterableLike.scala:1061)
+2025-09-28T10:05:12.3594555Z 	at scala.collection.parallel.AdaptiveWorkStealingTasks$WrappedTask.internal(Tasks.scala:170)
+2025-09-28T10:05:12.3595675Z 	at scala.collection.parallel.AdaptiveWorkStealingTasks$WrappedTask.internal$(Tasks.scala:157)
+2025-09-28T10:05:12.3596855Z 	at scala.collection.parallel.AdaptiveWorkStealingForkJoinTasks$WrappedTask.internal(Tasks.scala:440)
+2025-09-28T10:05:12.3598044Z 	at scala.collection.parallel.AdaptiveWorkStealingTasks$WrappedTask.compute(Tasks.scala:150)
+2025-09-28T10:05:12.3599151Z 	at scala.collection.parallel.AdaptiveWorkStealingTasks$WrappedTask.compute$(Tasks.scala:149)
+2025-09-28T10:05:12.3600326Z 	at scala.collection.parallel.AdaptiveWorkStealingForkJoinTasks$WrappedTask.compute(Tasks.scala:440)
+2025-09-28T10:05:12.3601590Z 	at java.util.concurrent.RecursiveAction.exec(RecursiveAction.java:189)
+2025-09-28T10:05:12.3602427Z 	at java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:289)
+2025-09-28T10:05:12.3603239Z 	at java.util.concurrent.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1056)
+2025-09-28T10:05:12.3604047Z 	at java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1692)
+2025-09-28T10:05:12.3604910Z 	at java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:175)
+2025-09-28T10:05:12.3606117Z 09/28 10:05:12 [1;31mERROR[0;39m [36mc.c.a.c.a.CodacyPluginsAnalyser:31[0;39m - Failed analysis for trivy 
+2025-09-28T10:05:12.3606763Z java.lang.Throwable: 
+2025-09-28T10:05:12.3607090Z Docker exited with code 1
+2025-09-28T10:05:12.3607400Z stdout: 
+2025-09-28T10:05:12.3608132Z stderr: time="2025-09-28T10:05:12Z" level=error msg="Failed to run the tool: codacy-trivy/tool: Failed to configure Codacy Trivy: no patterns configured"
+2025-09-28T10:05:12.3608863Z            
+2025-09-28T10:05:12.3609366Z 	at com.codacy.plugins.runners.BinaryDockerRunner.$anonfun$run$4(BinaryDockerRunner.scala:84)
+2025-09-28T10:05:12.3610019Z 	at scala.util.Success.flatMap(Try.scala:251)
+2025-09-28T10:05:12.3610830Z 	at com.codacy.plugins.runners.BinaryDockerRunner.run(BinaryDockerRunner.scala:69)
+2025-09-28T10:05:12.3611681Z 	at com.codacy.plugins.results.traits.ToolRunner.$anonfun$apply$2(ToolRunner.scala:77)
+2025-09-28T10:05:12.3612836Z 	at com.codacy.plugins.results.traits.CodacyDocker$.$anonfun$usingDockerConfig$2(CodacyDocker.scala:45)
+2025-09-28T10:05:12.3613825Z 	at com.codacy.plugins.utils.FileHelper$.$anonfun$usingNewFile$2(FileHelper.scala:51)
+2025-09-28T10:05:12.3614469Z 	at scala.util.Try$.apply(Try.scala:213)
+2025-09-28T10:05:12.3615005Z 	at com.codacy.plugins.utils.FileHelper$.usingNewFile(FileHelper.scala:45)
+2025-09-28T10:05:12.3615847Z 	at com.codacy.plugins.results.traits.CodacyDocker$.usingConfigPath(CodacyDocker.scala:57)
+2025-09-28T10:05:12.3616813Z 	at com.codacy.plugins.results.traits.CodacyDocker$.$anonfun$usingDockerConfig$1(CodacyDocker.scala:39)
+2025-09-28T10:05:12.3617554Z 	at scala.Option.map(Option.scala:230)
+2025-09-28T10:05:12.3618326Z 	at com.codacy.plugins.results.traits.CodacyDocker$.usingDockerConfig(CodacyDocker.scala:38)
+2025-09-28T10:05:12.3619184Z 	at com.codacy.plugins.results.traits.ToolRunner.$anonfun$apply$1(ToolRunner.scala:76)
+2025-09-28T10:05:12.3619783Z 	at scala.util.Try$.apply(Try.scala:213)
+2025-09-28T10:05:12.3620499Z 	at com.codacy.plugins.results.traits.ToolRunner.apply(ToolRunner.scala:61)
+2025-09-28T10:05:12.3621250Z 	at com.codacy.plugins.results.traits.ToolRunner.run(ToolRunner.scala:49)
+2025-09-28T10:05:12.3621890Z 	at com.codacy.analysis.core.tools.Tool.run(Tool.scala:95)
+2025-09-28T10:05:12.3622686Z 	at com.codacy.analysis.core.analysis.CodacyPluginsAnalyser.analyse(CodacyPluginsAnalyser.scala:25)
+2025-09-28T10:05:12.3623713Z 	at com.codacy.analysis.cli.analysis.AnalyseExecutor.$anonfun$issues$1(AnalyseExecutor.scala:159)
+2025-09-28T10:05:12.3624447Z 	at scala.util.Success.flatMap(Try.scala:251)
+2025-09-28T10:05:12.3625110Z 	at com.codacy.analysis.cli.analysis.AnalyseExecutor.issues(AnalyseExecutor.scala:151)
+2025-09-28T10:05:12.3626044Z 	at com.codacy.analysis.cli.analysis.AnalyseExecutor.$anonfun$run$5(AnalyseExecutor.scala:70)
+2025-09-28T10:05:12.3627060Z 	at scala.collection.parallel.AugmentedIterableIterator.map2combiner(RemainsIterator.scala:116)
+2025-09-28T10:05:12.3628185Z 	at scala.collection.parallel.AugmentedIterableIterator.map2combiner$(RemainsIterator.scala:113)
+2025-09-28T10:05:12.3629273Z 	at scala.collection.parallel.immutable.ParHashSet$ParHashSetIterator.map2combiner(ParHashSet.scala:81)
+2025-09-28T10:05:12.3630254Z 	at scala.collection.parallel.ParIterableLike$Map.leaf(ParIterableLike.scala:1064)
+2025-09-28T10:05:12.3631136Z 	at scala.collection.parallel.Task.$anonfun$tryLeaf$1(Tasks.scala:53)
+2025-09-28T10:05:12.3631845Z 	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.java:23)
+2025-09-28T10:05:12.3632489Z 	at scala.util.control.Breaks$$anon$1.catchBreak(Breaks.scala:67)
+2025-09-28T10:05:12.3633113Z 	at scala.collection.parallel.Task.tryLeaf(Tasks.scala:56)
+2025-09-28T10:05:12.3633716Z 	at scala.collection.parallel.Task.tryLeaf$(Tasks.scala:50)
+2025-09-28T10:05:12.3634451Z 	at scala.collection.parallel.ParIterableLike$Map.tryLeaf(ParIterableLike.scala:1061)
+2025-09-28T10:05:12.3635406Z 	at scala.collection.parallel.AdaptiveWorkStealingTasks$WrappedTask.internal(Tasks.scala:170)
+2025-09-28T10:05:12.3636434Z 	at scala.collection.parallel.AdaptiveWorkStealingTasks$WrappedTask.internal$(Tasks.scala:157)
+2025-09-28T10:05:12.3637555Z 	at scala.collection.parallel.AdaptiveWorkStealingForkJoinTasks$WrappedTask.internal(Tasks.scala:440)
+2025-09-28T10:05:12.3638674Z 	at scala.collection.parallel.AdaptiveWorkStealingTasks$WrappedTask.compute(Tasks.scala:150)
+2025-09-28T10:05:12.3639719Z 	at scala.collection.parallel.AdaptiveWorkStealingTasks$WrappedTask.compute$(Tasks.scala:149)
+2025-09-28T10:05:12.3640869Z 	at scala.collection.parallel.AdaptiveWorkStealingForkJoinTasks$WrappedTask.compute(Tasks.scala:440)
+2025-09-28T10:05:12.3641768Z 	at java.util.concurrent.RecursiveAction.exec(RecursiveAction.java:189)
+2025-09-28T10:05:12.3642477Z 	at java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:289)
+2025-09-28T10:05:12.3643136Z 	at java.util.concurrent.ForkJoinTask.doJoin(ForkJoinTask.java:389)
+2025-09-28T10:05:12.3644059Z 	at java.util.concurrent.ForkJoinTask.join(ForkJoinTask.java:719)
+2025-09-28T10:05:12.3644936Z 	at scala.collection.parallel.ForkJoinTasks$WrappedTask.sync(Tasks.scala:379)
+2025-09-28T10:05:12.3645877Z 	at scala.collection.parallel.ForkJoinTasks$WrappedTask.sync$(Tasks.scala:379)
+2025-09-28T10:05:12.3646964Z 	at scala.collection.parallel.AdaptiveWorkStealingForkJoinTasks$WrappedTask.sync(Tasks.scala:440)
+2025-09-28T10:05:12.3648113Z 	at scala.collection.parallel.ForkJoinTasks.executeAndWaitResult(Tasks.scala:423)
+2025-09-28T10:05:12.3649132Z 	at scala.collection.parallel.ForkJoinTasks.executeAndWaitResult$(Tasks.scala:416)
+2025-09-28T10:05:12.3650230Z 	at scala.collection.parallel.ForkJoinTaskSupport.executeAndWaitResult(TaskSupport.scala:60)
+2025-09-28T10:05:12.3651779Z 	at scala.collection.parallel.ParIterableLike$ResultMapping.leaf(ParIterableLike.scala:968)
+2025-09-28T10:05:12.3652714Z 	at scala.collection.parallel.Task.$anonfun$tryLeaf$1(Tasks.scala:53)
+2025-09-28T10:05:12.3653532Z 	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.java:23)
+2025-09-28T10:05:12.3654301Z 	at scala.util.control.Breaks$$anon$1.catchBreak(Breaks.scala:67)
+2025-09-28T10:05:12.3654982Z 	at scala.collection.parallel.Task.tryLeaf(Tasks.scala:56)
+2025-09-28T10:05:12.3655663Z 	at scala.collection.parallel.Task.tryLeaf$(Tasks.scala:50)
+2025-09-28T10:05:12.3656568Z 	at scala.collection.parallel.ParIterableLike$ResultMapping.tryLeaf(ParIterableLike.scala:963)
+2025-09-28T10:05:12.3657710Z 	at scala.collection.parallel.AdaptiveWorkStealingTasks$WrappedTask.compute(Tasks.scala:153)
+2025-09-28T10:05:12.3658835Z 	at scala.collection.parallel.AdaptiveWorkStealingTasks$WrappedTask.compute$(Tasks.scala:149)
+2025-09-28T10:05:12.3660043Z 	at scala.collection.parallel.AdaptiveWorkStealingForkJoinTasks$WrappedTask.compute(Tasks.scala:440)
+2025-09-28T10:05:12.3661300Z 	at java.util.concurrent.RecursiveAction.exec(RecursiveAction.java:189)
+2025-09-28T10:05:12.3663626Z 	at java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:289)
+2025-09-28T10:05:12.3664504Z 	at java.util.concurrent.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1056)
+2025-09-28T10:05:12.3665380Z 	at java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1692)
+2025-09-28T10:05:12.3666268Z 	at java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:175)
+2025-09-28T10:05:12.5781488Z 09/28 10:05:12 [1;31mERROR[0;39m [36mc.c.a.c.a.CodacyPluginsAnalyser:31[0;39m - Failed analysis for trivy 
+2025-09-28T10:05:12.5782360Z java.lang.Throwable: 
+2025-09-28T10:05:12.5782688Z Docker exited with code 1
+2025-09-28T10:05:12.5783055Z stdout: 
+2025-09-28T10:05:12.5783928Z stderr: time="2025-09-28T10:05:12Z" level=error msg="Failed to run the tool: codacy-trivy/tool: Failed to configure Codacy Trivy: no patterns configured"
+2025-09-28T10:05:12.5784816Z            
+2025-09-28T10:05:12.5785519Z 	at com.codacy.plugins.runners.BinaryDockerRunner.$anonfun$run$4(BinaryDockerRunner.scala:84)
+2025-09-28T10:05:12.5786294Z 	at scala.util.Success.flatMap(Try.scala:251)
+2025-09-28T10:05:12.5786749Z 	at com.codacy.plugins.runners.BinaryDockerRunner.run(BinaryDockerRunner.scala:69)
+2025-09-28T10:05:12.5787572Z 	at com.codacy.plugins.results.traits.ToolRunner.$anonfun$apply$2(ToolRunner.scala:77)
+2025-09-28T10:05:12.5788689Z 	at com.codacy.plugins.results.traits.CodacyDocker$.$anonfun$usingDockerConfig$2(CodacyDocker.scala:45)
+2025-09-28T10:05:12.5789683Z 	at com.codacy.plugins.utils.FileHelper$.$anonfun$usingNewFile$2(FileHelper.scala:51)
+2025-09-28T10:05:12.5790519Z 	at scala.util.Try$.apply(Try.scala:213)
+2025-09-28T10:05:12.5791137Z 	at com.codacy.plugins.utils.FileHelper$.usingNewFile(FileHelper.scala:45)
+2025-09-28T10:05:12.5792008Z 	at com.codacy.plugins.results.traits.CodacyDocker$.usingConfigPath(CodacyDocker.scala:57)
+2025-09-28T10:05:12.5793098Z 	at com.codacy.plugins.results.traits.CodacyDocker$.$anonfun$usingDockerConfig$1(CodacyDocker.scala:39)
+2025-09-28T10:05:12.5793890Z 	at scala.Option.map(Option.scala:230)
+2025-09-28T10:05:12.5794915Z 	at com.codacy.plugins.results.traits.CodacyDocker$.usingDockerConfig(CodacyDocker.scala:38)
+2025-09-28T10:05:12.5795891Z 	at com.codacy.plugins.results.traits.ToolRunner.$anonfun$apply$1(ToolRunner.scala:76)
+2025-09-28T10:05:12.5796591Z 	at scala.util.Try$.apply(Try.scala:213)
+2025-09-28T10:05:12.5797198Z 	at com.codacy.plugins.results.traits.ToolRunner.apply(ToolRunner.scala:61)
+2025-09-28T10:05:12.5798022Z 	at com.codacy.plugins.results.traits.ToolRunner.run(ToolRunner.scala:49)
+2025-09-28T10:05:12.5798724Z 	at com.codacy.analysis.core.tools.Tool.run(Tool.scala:95)
+2025-09-28T10:05:12.5799669Z 	at com.codacy.analysis.core.analysis.CodacyPluginsAnalyser.analyse(CodacyPluginsAnalyser.scala:25)
+2025-09-28T10:05:12.5801088Z 	at com.codacy.analysis.cli.analysis.AnalyseExecutor.$anonfun$issues$1(AnalyseExecutor.scala:159)
+2025-09-28T10:05:12.5802259Z 	at scala.util.Success.flatMap(Try.scala:251)
+2025-09-28T10:05:12.5803022Z 	at com.codacy.analysis.cli.analysis.AnalyseExecutor.issues(AnalyseExecutor.scala:151)
+2025-09-28T10:05:12.5804057Z 	at com.codacy.analysis.cli.analysis.AnalyseExecutor.$anonfun$run$5(AnalyseExecutor.scala:70)
+2025-09-28T10:05:12.5805171Z 	at scala.collection.parallel.AugmentedIterableIterator.map2combiner(RemainsIterator.scala:116)
+2025-09-28T10:05:12.5806370Z 	at scala.collection.parallel.AugmentedIterableIterator.map2combiner$(RemainsIterator.scala:113)
+2025-09-28T10:05:12.5807526Z 	at scala.collection.parallel.immutable.ParHashSet$ParHashSetIterator.map2combiner(ParHashSet.scala:81)
+2025-09-28T10:05:12.5808518Z 	at scala.collection.parallel.ParIterableLike$Map.leaf(ParIterableLike.scala:1064)
+2025-09-28T10:05:12.5809375Z 	at scala.collection.parallel.Task.$anonfun$tryLeaf$1(Tasks.scala:53)
+2025-09-28T10:05:12.5810166Z 	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.java:23)
+2025-09-28T10:05:12.5812318Z 	at scala.util.control.Breaks$$anon$1.catchBreak(Breaks.scala:67)
+2025-09-28T10:05:12.5813002Z 	at scala.collection.parallel.Task.tryLeaf(Tasks.scala:56)
+2025-09-28T10:05:12.5813683Z 	at scala.collection.parallel.Task.tryLeaf$(Tasks.scala:50)
+2025-09-28T10:05:12.5814547Z 	at scala.collection.parallel.ParIterableLike$Map.tryLeaf(ParIterableLike.scala:1061)
+2025-09-28T10:05:12.5815647Z 	at scala.collection.parallel.AdaptiveWorkStealingTasks$WrappedTask.compute(Tasks.scala:153)
+2025-09-28T10:05:12.5816815Z 	at scala.collection.parallel.AdaptiveWorkStealingTasks$WrappedTask.compute$(Tasks.scala:149)
+2025-09-28T10:05:12.5817518Z 	at scala.collection.parallel.AdaptiveWorkStealingForkJoinTasks$WrappedTask.compute(Tasks.scala:440)
+2025-09-28T10:05:12.5818317Z 	at java.util.concurrent.RecursiveAction.exec(RecursiveAction.java:189)
+2025-09-28T10:05:12.5819100Z 	at java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:289)
+2025-09-28T10:05:12.5819613Z 	at java.util.concurrent.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1056)
+2025-09-28T10:05:12.5820273Z 	at java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1692)
+2025-09-28T10:05:12.5821323Z 	at java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:175)
+2025-09-28T10:05:13.0204473Z ##[group]Run if [ "" == "true" ]; then
+2025-09-28T10:05:13.0204759Z [36;1mif [ "" == "true" ]; then[0m
+2025-09-28T10:05:13.0205182Z [36;1m  echo "Uploading results for $ORGANIZATION_PROVIDER/$OWNER_NAME/$REPOSITORY_NAME commit $COMMIT_SHA"[0m
+2025-09-28T10:05:13.0205676Z [36;1m  curl -XPOST -L -H "$CURL_CODACY_AUTH_AUTHENTICATION" \[0m
+2025-09-28T10:05:13.0206000Z [36;1m    -H "Content-type: application/json" \[0m
+2025-09-28T10:05:13.0206495Z [36;1m    "${CODACY_BASE_URL_OR_DEFAULT}/2.0/$ORGANIZATION_PROVIDER/$OWNER_NAME/$REPOSITORY_NAME/commit/$COMMIT_SHA/resultsFinal"[0m
+2025-09-28T10:05:13.0206948Z [36;1melse[0m
+2025-09-28T10:05:13.0207140Z [36;1m  echo "Skipping results upload"[0m
+2025-09-28T10:05:13.0207376Z [36;1mfi[0m
+2025-09-28T10:05:13.0234588Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2025-09-28T10:05:13.0234892Z env:
+2025-09-28T10:05:13.0235113Z   CODACY_BASE_URL_OR_DEFAULT: https://api.codacy.com
+2025-09-28T10:05:13.0235565Z   OWNER_NAME: eagles-edu
+2025-09-28T10:05:13.0235762Z   REPOSITORY_NAME: megs
+2025-09-28T10:05:13.0235956Z   ORGANIZATION_PROVIDER: gh
+2025-09-28T10:05:13.0236200Z   COMMIT_SHA: b1ef7f9ad85a38b661f0a4d1c5ab0f577dc5ad41
+2025-09-28T10:05:13.0236468Z   CODACY_ANALYSIS_CLI_VERSION: 7.9.25
+2025-09-28T10:05:13.0236917Z   CLI_SCRIPT_PATH: /home/runner/work/_actions/codacy/codacy-analysis-cli-action/v4/codacy-analysis-cli.sh
+2025-09-28T10:05:13.0237353Z ##[endgroup]
+2025-09-28T10:05:13.0283464Z Skipping results upload
+2025-09-28T10:05:13.0344858Z ##[group]Run github/codeql-action/upload-sarif@v3
+2025-09-28T10:05:13.0345157Z with:
+2025-09-28T10:05:13.0345330Z   sarif_file: results.sarif
+2025-09-28T10:05:13.0345762Z   checkout_path: /home/runner/work/megs/megs
+2025-09-28T10:05:13.0346127Z   token: ***
+2025-09-28T10:05:13.0346290Z   matrix: null
+2025-09-28T10:05:13.0346469Z   wait-for-processing: true
+2025-09-28T10:05:13.0346663Z env:
+2025-09-28T10:05:13.0346865Z   CODACY_BASE_URL_OR_DEFAULT: https://api.codacy.com
+2025-09-28T10:05:13.0347128Z   OWNER_NAME: eagles-edu
+2025-09-28T10:05:13.0347323Z   REPOSITORY_NAME: megs
+2025-09-28T10:05:13.0347511Z   ORGANIZATION_PROVIDER: gh
+2025-09-28T10:05:13.0347757Z   COMMIT_SHA: b1ef7f9ad85a38b661f0a4d1c5ab0f577dc5ad41
+2025-09-28T10:05:13.0348031Z   CODACY_ANALYSIS_CLI_VERSION: 7.9.25
+2025-09-28T10:05:13.0348465Z   CLI_SCRIPT_PATH: /home/runner/work/_actions/codacy/codacy-analysis-cli-action/v4/codacy-analysis-cli.sh
+2025-09-28T10:05:13.0348897Z ##[endgroup]
+2025-09-28T10:05:13.8234262Z ##[group]Uploading code scanning results
+2025-09-28T10:05:13.8234788Z Processing sarif files: ["results.sarif"]
+2025-09-28T10:05:13.8242316Z Adding fingerprints to SARIF file. See https://docs.github.com/en/enterprise-cloud@latest/code-security/code-scanning/integrating-with-code-scanning/sarif-support-for-code-scanning#providing-data-to-track-code-scanning-alerts-across-runs for more information.
+2025-09-28T10:05:13.8323720Z Uploading results
+2025-09-28T10:05:14.0300098Z ##[warning]Invalid request.
+
+1 item required; only 0 were supplied. - https://docs.github.com/rest
+2025-09-28T10:05:14.0311706Z ##[error]Invalid request.
+
+1 item required; only 0 were supplied. - https://docs.github.com/rest
+2025-09-28T10:05:14.4774533Z Post job cleanup.
+2025-09-28T10:05:14.6658302Z ##[group]Uploading combined SARIF debug artifact
+2025-09-28T10:05:14.6660219Z ##[endgroup]
+2025-09-28T10:05:14.6921985Z Post job cleanup.
+2025-09-28T10:05:14.6964668Z Post job cleanup.
+2025-09-28T10:05:14.7899218Z [command]/usr/bin/git version
+2025-09-28T10:05:14.7934167Z git version 2.51.0
+2025-09-28T10:05:14.7977773Z Temporarily overriding HOME='/home/runner/work/_temp/edd7de6f-65a8-4102-b63a-859094da8873' before making global git config changes
+2025-09-28T10:05:14.7979062Z Adding repository directory to the temporary git global config as a safe directory
+2025-09-28T10:05:14.7984396Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/megs/megs
+2025-09-28T10:05:14.8019816Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2025-09-28T10:05:14.8052663Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2025-09-28T10:05:14.8279333Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2025-09-28T10:05:14.8299806Z http.https://github.com/.extraheader
+2025-09-28T10:05:14.8312593Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2025-09-28T10:05:14.8342385Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2025-09-28T10:05:14.8668960Z Cleaning up orphan processes

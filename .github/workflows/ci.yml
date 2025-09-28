@@ -37,7 +37,7 @@ jobs:
       - name: Smoke Test Multiple Pages
         run: npm run smoke:pages
 
-      # Upload findings to Codacy service (optional)
+      # (optional) upload to Codacy service (kept here if you want separate from SARIF)
       - name: Codacy Analysis (upload to Codacy)
         if: ${{ env.CODACY_PROJECT_TOKEN != '' }}
         uses: codacy/codacy-analysis-cli-action@v4
