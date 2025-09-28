@@ -19,7 +19,7 @@ jobs:
     permissions:
       contents: read
       actions: read
-      security-events: write  # needed for SARIF upload
+      security-events: write   # needed for SARIF upload
       pull-requests: write
     env:
       ESLINT_USE_FLAT_CONFIG: "true"
@@ -42,7 +42,7 @@ jobs:
       - name: Lint (project)
         run: npm run lint
 
-      # ---- ESLint via Codacy CLI -> SARIF (uploads to Codacy too)
+      # ---- ESLint via Codacy CLI → SARIF (Codacy upload only if token is set)
       - name: Codacy CLI (ESLint → SARIF)
         uses: codacy/codacy-analysis-cli-action@v4
         with:
@@ -51,7 +51,7 @@ jobs:
           output: results-eslint.sarif
           gh-code-scanning-compat: true
           project-token: ${{ secrets.CODACY_PROJECT_TOKEN }}
-          upload: true
+          upload: ${{ secrets.CODACY_PROJECT_TOKEN != '' }}
 
       - name: Upload ESLint SARIF to GitHub
         uses: github/codeql-action/upload-sarif@v3
@@ -60,7 +60,7 @@ jobs:
           sarif_file: results-eslint.sarif
           wait-for-processing: true
 
-      # ---- Trivy via Codacy CLI -> SARIF (uploads to Codacy too)
+      # ---- Trivy via Codacy CLI → SARIF (Codacy upload only if token is set)
       - name: Codacy CLI (Trivy → SARIF)
         uses: codacy/codacy-analysis-cli-action@v4
         with:
@@ -71,8 +71,8 @@ jobs:
           output: results-trivy.sarif
           gh-code-scanning-compat: true
           project-token: ${{ secrets.CODACY_PROJECT_TOKEN }}
-          upload: true
-          # skip-container-engine-check: true  # uncomment if Docker checks fail on runner
+          upload: ${{ secrets.CODACY_PROJECT_TOKEN != '' }}
+          # skip-container-engine-check: true  # uncomment if Docker checks fail
 
       - name: Upload Trivy SARIF to GitHub
         uses: github/codeql-action/upload-sarif@v3

@@ -1,0 +1,243 @@
+﻿2025-09-28T08:33:52.2843362Z Current runner version: '2.328.0'
+2025-09-28T08:33:52.2865319Z ##[group]Runner Image Provisioner
+2025-09-28T08:33:52.2866126Z Hosted Compute Agent
+2025-09-28T08:33:52.2866628Z Version: 20250912.392
+2025-09-28T08:33:52.2867335Z Commit: d921fda672a98b64f4f82364647e2f10b2267d0b
+2025-09-28T08:33:52.2868016Z Build Date: 2025-09-12T15:23:14Z
+2025-09-28T08:33:52.2868551Z ##[endgroup]
+2025-09-28T08:33:52.2869153Z ##[group]Operating System
+2025-09-28T08:33:52.2869674Z Ubuntu
+2025-09-28T08:33:52.2870126Z 22.04.5
+2025-09-28T08:33:52.2870631Z LTS
+2025-09-28T08:33:52.2871391Z ##[endgroup]
+2025-09-28T08:33:52.2871884Z ##[group]Runner Image
+2025-09-28T08:33:52.2872504Z Image: ubuntu-22.04
+2025-09-28T08:33:52.2872963Z Version: 20250922.79.1
+2025-09-28T08:33:52.2873940Z Included Software: https://github.com/actions/runner-images/blob/ubuntu22/20250922.79/images/ubuntu/Ubuntu2204-Readme.md
+2025-09-28T08:33:52.2875476Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu22%2F20250922.79
+2025-09-28T08:33:52.2876432Z ##[endgroup]
+2025-09-28T08:33:52.2877735Z ##[group]GITHUB_TOKEN Permissions
+2025-09-28T08:33:52.2879709Z Actions: read
+2025-09-28T08:33:52.2880274Z Contents: read
+2025-09-28T08:33:52.2880800Z Metadata: read
+2025-09-28T08:33:52.2881480Z PullRequests: write
+2025-09-28T08:33:52.2882042Z SecurityEvents: write
+2025-09-28T08:33:52.2882545Z ##[endgroup]
+2025-09-28T08:33:52.2884520Z Secret source: Actions
+2025-09-28T08:33:52.2885155Z Prepare workflow directory
+2025-09-28T08:33:52.3278245Z Prepare all required actions
+2025-09-28T08:33:52.3315267Z Getting action download info
+2025-09-28T08:33:52.7259265Z Download action repository 'actions/checkout@v4' (SHA:08eba0b27e820071cde6df949e0beb9ba4906955)
+2025-09-28T08:33:53.0170325Z Download action repository 'actions/setup-node@v4' (SHA:49933ea5288caeca8642d1e84afbd3f7d6820020)
+2025-09-28T08:33:53.1769813Z Download action repository 'codacy/codacy-analysis-cli-action@v4' (SHA:562ee3e92b8e92df8b67e0a5ff8aa8e261919c08)
+2025-09-28T08:33:53.9028695Z Download action repository 'github/codeql-action@v3' (SHA:3599b3baa15b485a2e49ef411a7a4bb2452e7f93)
+2025-09-28T08:33:55.0847570Z Getting action download info
+2025-09-28T08:33:55.2466452Z Download action repository 'actions/setup-go@v3' (SHA:be3c94b385c4f180051c996d336f57a34c397495)
+2025-09-28T08:33:55.9437712Z Getting action download info
+2025-09-28T08:33:56.1321565Z Complete job name: Codacy Analysis
+2025-09-28T08:33:56.1974611Z ##[group]Run actions/checkout@v4
+2025-09-28T08:33:56.1975183Z with:
+2025-09-28T08:33:56.1975358Z   fetch-depth: 0
+2025-09-28T08:33:56.1975560Z   repository: eagles-edu/megs
+2025-09-28T08:33:56.1975909Z   token: ***
+2025-09-28T08:33:56.1976084Z   ssh-strict: true
+2025-09-28T08:33:56.1976260Z   ssh-user: git
+2025-09-28T08:33:56.1976446Z   persist-credentials: true
+2025-09-28T08:33:56.1976650Z   clean: true
+2025-09-28T08:33:56.1976839Z   sparse-checkout-cone-mode: true
+2025-09-28T08:33:56.1977064Z   fetch-tags: false
+2025-09-28T08:33:56.1977237Z   show-progress: true
+2025-09-28T08:33:56.1977416Z   lfs: false
+2025-09-28T08:33:56.1977584Z   submodules: false
+2025-09-28T08:33:56.1977767Z   set-safe-directory: true
+2025-09-28T08:33:56.1978148Z env:
+2025-09-28T08:33:56.1978321Z   ESLINT_USE_FLAT_CONFIG: true
+2025-09-28T08:33:56.1978520Z ##[endgroup]
+2025-09-28T08:33:56.3038223Z Syncing repository: eagles-edu/megs
+2025-09-28T08:33:56.3039426Z ##[group]Getting Git version info
+2025-09-28T08:33:56.3039841Z Working directory is '/home/runner/work/megs/megs'
+2025-09-28T08:33:56.3040344Z [command]/usr/bin/git version
+2025-09-28T08:33:56.3108842Z git version 2.51.0
+2025-09-28T08:33:56.3134846Z ##[endgroup]
+2025-09-28T08:33:56.3148363Z Temporarily overriding HOME='/home/runner/work/_temp/83e7d4fd-f986-42b5-807c-5541b11575f4' before making global git config changes
+2025-09-28T08:33:56.3149309Z Adding repository directory to the temporary git global config as a safe directory
+2025-09-28T08:33:56.3160346Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/megs/megs
+2025-09-28T08:33:56.3191527Z Deleting the contents of '/home/runner/work/megs/megs'
+2025-09-28T08:33:56.3196097Z ##[group]Initializing the repository
+2025-09-28T08:33:56.3200727Z [command]/usr/bin/git init /home/runner/work/megs/megs
+2025-09-28T08:33:56.3293574Z hint: Using 'master' as the name for the initial branch. This default branch name
+2025-09-28T08:33:56.3294757Z hint: is subject to change. To configure the initial branch name to use in all
+2025-09-28T08:33:56.3295646Z hint: of your new repositories, which will suppress this warning, call:
+2025-09-28T08:33:56.3296275Z hint:
+2025-09-28T08:33:56.3296726Z hint: 	git config --global init.defaultBranch <name>
+2025-09-28T08:33:56.3297254Z hint:
+2025-09-28T08:33:56.3297751Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2025-09-28T08:33:56.3298588Z hint: 'development'. The just-created branch can be renamed via this command:
+2025-09-28T08:33:56.3299184Z hint:
+2025-09-28T08:33:56.3299494Z hint: 	git branch -m <name>
+2025-09-28T08:33:56.3299841Z hint:
+2025-09-28T08:33:56.3300223Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2025-09-28T08:33:56.3300713Z Initialized empty Git repository in /home/runner/work/megs/megs/.git/
+2025-09-28T08:33:56.3313889Z [command]/usr/bin/git remote add origin https://github.com/eagles-edu/megs
+2025-09-28T08:33:56.3349772Z ##[endgroup]
+2025-09-28T08:33:56.3350172Z ##[group]Disabling automatic garbage collection
+2025-09-28T08:33:56.3356329Z [command]/usr/bin/git config --local gc.auto 0
+2025-09-28T08:33:56.3388879Z ##[endgroup]
+2025-09-28T08:33:56.3389407Z ##[group]Setting up auth
+2025-09-28T08:33:56.3399051Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2025-09-28T08:33:56.3434328Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2025-09-28T08:33:56.3760958Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2025-09-28T08:33:56.3793976Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2025-09-28T08:33:56.4019627Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2025-09-28T08:33:56.4052834Z ##[endgroup]
+2025-09-28T08:33:56.4053229Z ##[group]Fetching the repository
+2025-09-28T08:33:56.4069320Z [command]/usr/bin/git -c protocol.version=2 fetch --prune --no-recurse-submodules origin +refs/heads/*:refs/remotes/origin/* +refs/tags/*:refs/tags/*
+2025-09-28T08:33:58.9551820Z From https://github.com/eagles-edu/megs
+2025-09-28T08:33:58.9553153Z  * [new branch]      codex/update-accordion-menu-styles-in-codex -> origin/codex/update-accordion-menu-styles-in-codex
+2025-09-28T08:33:58.9554560Z  * [new branch]      codex/update-documentation-and-explain-styles -> origin/codex/update-documentation-and-explain-styles
+2025-09-28T08:33:58.9555853Z  * [new branch]      housekeeping/align-gitignore-20250927 -> origin/housekeeping/align-gitignore-20250927
+2025-09-28T08:33:58.9556671Z  * [new branch]      main                -> origin/main
+2025-09-28T08:33:58.9557134Z  * [new branch]      refactor-2025-08-25 -> origin/refactor-2025-08-25
+2025-09-28T08:33:58.9557514Z  * [new branch]      trunk               -> origin/trunk
+2025-09-28T08:33:58.9557949Z  * [new tag]         baseline/2025-08-25 -> baseline/2025-08-25
+2025-09-28T08:33:58.9598011Z [command]/usr/bin/git branch --list --remote origin/trunk
+2025-09-28T08:33:58.9621766Z   origin/trunk
+2025-09-28T08:33:58.9631701Z [command]/usr/bin/git rev-parse refs/remotes/origin/trunk
+2025-09-28T08:33:58.9652139Z b6747131cc0317b3fc0cece26fb6dbb19fb6d5f5
+2025-09-28T08:33:58.9658397Z ##[endgroup]
+2025-09-28T08:33:58.9659035Z ##[group]Determining the checkout info
+2025-09-28T08:33:58.9663181Z ##[endgroup]
+2025-09-28T08:33:58.9664706Z [command]/usr/bin/git sparse-checkout disable
+2025-09-28T08:33:58.9709287Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2025-09-28T08:33:58.9730566Z ##[group]Checking out the ref
+2025-09-28T08:33:58.9734966Z [command]/usr/bin/git checkout --progress --force -B trunk refs/remotes/origin/trunk
+2025-09-28T08:33:59.1993665Z Switched to a new branch 'trunk'
+2025-09-28T08:33:59.1994744Z branch 'trunk' set up to track 'origin/trunk'.
+2025-09-28T08:33:59.2057746Z ##[endgroup]
+2025-09-28T08:33:59.2095890Z [command]/usr/bin/git log -1 --format=%H
+2025-09-28T08:33:59.2119133Z b6747131cc0317b3fc0cece26fb6dbb19fb6d5f5
+2025-09-28T08:33:59.2328806Z ##[group]Run actions/setup-node@v4
+2025-09-28T08:33:59.2329098Z with:
+2025-09-28T08:33:59.2329274Z   node-version-file: .nvmrc
+2025-09-28T08:33:59.2329484Z   cache: npm
+2025-09-28T08:33:59.2329651Z   always-auth: false
+2025-09-28T08:33:59.2329870Z   check-latest: false
+2025-09-28T08:33:59.2330194Z   token: ***
+2025-09-28T08:33:59.2330362Z env:
+2025-09-28T08:33:59.2330525Z   ESLINT_USE_FLAT_CONFIG: true
+2025-09-28T08:33:59.2330742Z ##[endgroup]
+2025-09-28T08:33:59.4001812Z Node version file is not JSON file
+2025-09-28T08:33:59.4003591Z Resolved .nvmrc as 20.19.4
+2025-09-28T08:33:59.4021299Z Attempting to download 20.19.4...
+2025-09-28T08:34:00.1667570Z Acquiring 20.19.4 - x64 from https://github.com/actions/node-versions/releases/download/20.19.4-16309772647/node-20.19.4-linux-x64.tar.gz
+2025-09-28T08:34:00.9273168Z Extracting ...
+2025-09-28T08:34:00.9377573Z [command]/usr/bin/tar xz --strip 1 --warning=no-unknown-keyword --overwrite -C /home/runner/work/_temp/a3bd75e9-9283-4392-9790-83b32021253e -f /home/runner/work/_temp/c93c33f3-9d7c-4030-a3f7-cc90f411a3a0
+2025-09-28T08:34:01.9110077Z Adding to the cache ...
+2025-09-28T08:34:03.5940226Z ##[group]Environment details
+2025-09-28T08:34:03.9592628Z node: v20.19.4
+2025-09-28T08:34:03.9593938Z npm: 10.8.2
+2025-09-28T08:34:03.9594295Z yarn: 1.22.22
+2025-09-28T08:34:03.9594887Z ##[endgroup]
+2025-09-28T08:34:03.9620210Z [command]/opt/hostedtoolcache/node/20.19.4/x64/bin/npm config get cache
+2025-09-28T08:34:04.0632028Z /home/runner/.npm
+2025-09-28T08:34:04.2581423Z npm cache is not found
+2025-09-28T08:34:04.2725164Z ##[group]Run npm ci
+2025-09-28T08:34:04.2725418Z [36;1mnpm ci[0m
+2025-09-28T08:34:04.2756896Z shell: /usr/bin/bash -e {0}
+2025-09-28T08:34:04.2757135Z env:
+2025-09-28T08:34:04.2757296Z   ESLINT_USE_FLAT_CONFIG: true
+2025-09-28T08:34:04.2757518Z ##[endgroup]
+2025-09-28T08:34:06.6083926Z npm warn deprecated rimraf@2.7.1: Rimraf versions prior to v4 are no longer supported
+2025-09-28T08:34:07.4908020Z npm warn deprecated inflight@1.0.6: This module is not supported, and leaks memory. Do not use it. Check out lru-cache if you want a good and tested way to coalesce async requests by a key value, which is much more comprehensive and powerful.
+2025-09-28T08:34:07.8633094Z npm warn deprecated domexception@4.0.0: Use your platform's native DOMException instead
+2025-09-28T08:34:08.2492927Z npm warn deprecated abab@2.0.6: Use your platform's native atob() and btoa() methods instead
+2025-09-28T08:34:08.3325924Z npm warn deprecated puppeteer@2.1.1: < 24.10.2 is no longer supported
+2025-09-28T08:34:09.0274778Z npm warn deprecated glob@7.2.3: Glob versions prior to v9 are no longer supported
+2025-09-28T08:34:16.6761794Z 
+2025-09-28T08:34:16.6762566Z added 779 packages, and audited 780 packages in 12s
+2025-09-28T08:34:16.6762972Z 
+2025-09-28T08:34:16.6763220Z 162 packages are looking for funding
+2025-09-28T08:34:16.6763704Z   run `npm fund` for details
+2025-09-28T08:34:16.6774021Z 
+2025-09-28T08:34:16.6774562Z found 0 vulnerabilities
+2025-09-28T08:34:16.7047594Z ##[group]Run npm run lint
+2025-09-28T08:34:16.7047848Z [36;1mnpm run lint[0m
+2025-09-28T08:34:16.7075134Z shell: /usr/bin/bash -e {0}
+2025-09-28T08:34:16.7075350Z env:
+2025-09-28T08:34:16.7075513Z   ESLINT_USE_FLAT_CONFIG: true
+2025-09-28T08:34:16.7075725Z ##[endgroup]
+2025-09-28T08:34:16.8135553Z 
+2025-09-28T08:34:16.8136040Z > megs@2.0.3 lint
+2025-09-28T08:34:16.8136683Z > npm run lint:js && npm run lint:css && npm run lint:html
+2025-09-28T08:34:16.8137543Z 
+2025-09-28T08:34:16.9216841Z 
+2025-09-28T08:34:16.9217448Z > megs@2.0.3 lint:js
+2025-09-28T08:34:16.9219145Z > eslint "**/*.{js,mjs,cjs}"
+2025-09-28T08:34:16.9219447Z 
+2025-09-28T08:34:17.6875598Z 
+2025-09-28T08:34:17.6876161Z > megs@2.0.3 lint:css
+2025-09-28T08:34:17.6876914Z > stylelint "**/*.{css,scss,less}" --allow-empty-input
+2025-09-28T08:34:17.6877347Z 
+2025-09-28T08:34:18.7654106Z 
+2025-09-28T08:34:18.7654637Z > megs@2.0.3 lint:html
+2025-09-28T08:34:18.7655224Z > html-validate "**/*.{html,htm}"
+2025-09-28T08:34:18.7655593Z 
+2025-09-28T08:34:50.3504315Z ##[group]Run codacy/codacy-analysis-cli-action@v4
+2025-09-28T08:34:50.3504626Z with:
+2025-09-28T08:34:50.3504788Z   tool: eslint
+2025-09-28T08:34:50.3504959Z   format: sarif
+2025-09-28T08:34:50.3505133Z   output: results-eslint.sarif
+2025-09-28T08:34:50.3505368Z   gh-code-scanning-compat: true
+2025-09-28T08:34:50.3505585Z   upload: true
+2025-09-28T08:34:50.3505774Z   max-allowed-issues: 2147483647
+2025-09-28T08:34:50.3506001Z   run-docker-tools: true
+2025-09-28T08:34:50.3506194Z env:
+2025-09-28T08:34:50.3506344Z   ESLINT_USE_FLAT_CONFIG: true
+2025-09-28T08:34:50.3506545Z ##[endgroup]
+2025-09-28T08:34:50.3624145Z ##[group]Run echo "CODACY_BASE_URL_OR_DEFAULT=$(if [ -n "" ]; then echo ""; else echo "https://api.codacy.com"; fi)" >> "$GITHUB_ENV"
+2025-09-28T08:34:50.3624855Z [36;1mecho "CODACY_BASE_URL_OR_DEFAULT=$(if [ -n "" ]; then echo ""; else echo "https://api.codacy.com"; fi)" >> "$GITHUB_ENV"[0m
+2025-09-28T08:34:50.3625489Z [36;1mecho "OWNER_NAME=$(echo "$GITHUB_REPOSITORY" | cut -d '/' -f 1)" >> "$GITHUB_ENV"[0m
+2025-09-28T08:34:50.3625990Z [36;1mecho "REPOSITORY_NAME=$(echo "$GITHUB_REPOSITORY" | cut -d '/' -f 2)" >> "$GITHUB_ENV"[0m
+2025-09-28T08:34:50.3626638Z [36;1mecho "ORGANIZATION_PROVIDER=$(if [ "$GITHUB_SERVER_URL" == "https://github.com" ]; then echo "gh"; else echo "ghe"; fi)" >> "$GITHUB_ENV"[0m
+2025-09-28T08:34:50.3627406Z [36;1mecho "COMMIT_SHA=$(if [ "push" == "pull_request" ]; then echo ""; else echo "b6747131cc0317b3fc0cece26fb6dbb19fb6d5f5"; fi)" >> "$GITHUB_ENV"[0m
+2025-09-28T08:34:50.3627912Z [36;1mif [ -n "" ]; then[0m
+2025-09-28T08:34:50.3628172Z [36;1m  echo "SKIP_CONTAINER_ENGINE_CHECK=" >> "$GITHUB_ENV"[0m
+2025-09-28T08:34:50.3628440Z [36;1mfi[0m
+2025-09-28T08:34:50.3656724Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2025-09-28T08:34:50.3657019Z env:
+2025-09-28T08:34:50.3657179Z   ESLINT_USE_FLAT_CONFIG: true
+2025-09-28T08:34:50.3657385Z ##[endgroup]
+2025-09-28T08:34:50.3778202Z ##[group]Run if [ -n "" ]; then
+2025-09-28T08:34:50.3778461Z [36;1mif [ -n "" ]; then[0m
+2025-09-28T08:34:50.3778759Z [36;1m  echo "CURL_CODACY_AUTH_AUTHENTICATION=api-token: " >> $GITHUB_ENV[0m
+2025-09-28T08:34:50.3779074Z [36;1melif [ -n "" ]; then[0m
+2025-09-28T08:34:50.3779373Z [36;1m  echo "CURL_CODACY_AUTH_AUTHENTICATION=project-token: " >> $GITHUB_ENV[0m
+2025-09-28T08:34:50.3779706Z [36;1melif [ "true" == "true" ]; then[0m
+2025-09-28T08:34:50.3780051Z [36;1m  echo "At least one authentication method is required to upload results."[0m
+2025-09-28T08:34:50.3780387Z [36;1m  exit 1[0m
+2025-09-28T08:34:50.3780552Z [36;1mfi[0m
+2025-09-28T08:34:50.3806150Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2025-09-28T08:34:50.3806455Z env:
+2025-09-28T08:34:50.3806624Z   ESLINT_USE_FLAT_CONFIG: true
+2025-09-28T08:34:50.3806898Z   CODACY_BASE_URL_OR_DEFAULT: https://api.codacy.com
+2025-09-28T08:34:50.3807174Z   OWNER_NAME: eagles-edu
+2025-09-28T08:34:50.3807372Z   REPOSITORY_NAME: megs
+2025-09-28T08:34:50.3807580Z   ORGANIZATION_PROVIDER: gh
+2025-09-28T08:34:50.3807824Z   COMMIT_SHA: b6747131cc0317b3fc0cece26fb6dbb19fb6d5f5
+2025-09-28T08:34:50.3808082Z ##[endgroup]
+2025-09-28T08:34:50.3852896Z At least one authentication method is required to upload results.
+2025-09-28T08:34:50.3862984Z ##[error]Process completed with exit code 1.
+2025-09-28T08:34:50.4052600Z Post job cleanup.
+2025-09-28T08:34:50.4098444Z Post job cleanup.
+2025-09-28T08:34:50.5060911Z [command]/usr/bin/git version
+2025-09-28T08:34:50.5097627Z git version 2.51.0
+2025-09-28T08:34:50.5143241Z Temporarily overriding HOME='/home/runner/work/_temp/2730508f-397d-44a1-8317-6a29403e445d' before making global git config changes
+2025-09-28T08:34:50.5144726Z Adding repository directory to the temporary git global config as a safe directory
+2025-09-28T08:34:50.5149779Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/megs/megs
+2025-09-28T08:34:50.5186599Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2025-09-28T08:34:50.5220292Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2025-09-28T08:34:50.5455419Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2025-09-28T08:34:50.5479431Z http.https://github.com/.extraheader
+2025-09-28T08:34:50.5492856Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2025-09-28T08:34:50.5523393Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2025-09-28T08:34:50.5842931Z Cleaning up orphan processes
