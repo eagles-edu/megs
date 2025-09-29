@@ -19,9 +19,8 @@ permissions:
 
 jobs:
   codacy-analysis:
-    environment: megs_env
     name: Codacy Analysis
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-22.04       # <-- remove this line if your secret is repo-level
     timeout-minutes: 30
     env:
       ESLINT_USE_FLAT_CONFIG: "true"
@@ -66,27 +65,28 @@ jobs:
           sarif_file: results-eslint.sarif
           wait-for-processing: true
 
-    # .github/workflows/codacy-analysis.yml
-    # --- Trivy via Codacy CLI → SARIF (no Codacy upload)
-    - name: Codacy CLI (Trivy → SARIF)
-      uses: codacy/codacy-analysis-cli-action@v4
-      with:
-        tool: trivy
-        directory: /src            # absolute; avoids Docker mount error
-        run-docker-tools: true
-        allow-network: true
-        format: sarif
-        output: results-trivy.sarif
-        gh-code-scanning-compat: true
-        upload: false              # ⬅️ turn off upload to Codacy
-        fail-if-incomplete: true
+      # Trivy via Codacy CLI → SARIF (run only when token is readable; avoids "Skipping upload" noise)
+      - name: Codacy CLI (Trivy → SARIF)
+        if: ${{ github.event_name != 'pull_request' && secrets.CODACY_PROJECT_TOKEN != '' }}
+        uses: codacy/codacy-analysis-cli-action@v4
+        with:
+          tool: trivy
+          directory: /src                 # absolute; DO NOT use "."
+          run-docker-tools: true
+          allow-network: true
+          format: sarif
+          output: results-trivy.sarif
+          gh-code-scanning-compat: true
+          project-token: ${{ secrets.CODACY_PROJECT_TOKEN }}
+          upload: true
+          fail-if-incomplete: true
 
       - name: Validate Trivy SARIF
         id: validate_trivy
         shell: bash
         run: |
           if [ -s results-trivy.sarif ] && \
-          jq -e '.runs | type=="array" and (length>0)' results-trivy.sarif >/dev/null; then
+              jq -e '.runs | type=="array" and (length>0)' results-trivy.sarif >/dev/null; then
             echo "ok=true" >> "$GITHUB_OUTPUT"
           else
             echo "ok=false" >> "$GITHUB_OUTPUT"
