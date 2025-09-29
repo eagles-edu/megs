@@ -20,10 +20,13 @@ permissions:
 jobs:
   codacy-analysis:
     name: Codacy Analysis
-    runs-on: ubuntu-22.04       # <-- remove this line if your secret is repo-level
+    runs-on: ubuntu-22.04
+    # If your token is stored in an Environment, uncomment this and set the right name:
+    # environment: megs_env
     timeout-minutes: 30
     env:
       ESLINT_USE_FLAT_CONFIG: "true"
+      CODACY_PROJECT_TOKEN: ${{ secrets.CODACY_PROJECT_TOKEN }}
 
     steps:
       - name: Checkout
@@ -40,7 +43,7 @@ jobs:
       - name: Install deps
         run: npm ci
 
-      # ESLint (native, flat) → SARIF
+      # ── ESLint (native, flat) → SARIF
       - name: ESLint → SARIF
         run: |
           npx eslint . \
@@ -65,9 +68,10 @@ jobs:
           sarif_file: results-eslint.sarif
           wait-for-processing: true
 
-      # Trivy via Codacy CLI → SARIF (run only when token is readable; avoids "Skipping upload" noise)
+      # ── Trivy via Codacy CLI → SARIF
+      # Run only when token is available and the event is not a forked PR
       - name: Codacy CLI (Trivy → SARIF)
-        if: ${{ github.event_name != 'pull_request' && secrets.CODACY_PROJECT_TOKEN != '' }}
+        if: ${{ github.event_name != 'pull_request' && env.CODACY_PROJECT_TOKEN != '' }}
         uses: codacy/codacy-analysis-cli-action@v4
         with:
           tool: trivy
@@ -77,7 +81,7 @@ jobs:
           format: sarif
           output: results-trivy.sarif
           gh-code-scanning-compat: true
-          project-token: ${{ secrets.CODACY_PROJECT_TOKEN }}
+          project-token: ${{ env.CODACY_PROJECT_TOKEN }}
           upload: true
           fail-if-incomplete: true
 
