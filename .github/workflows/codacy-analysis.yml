@@ -66,20 +66,20 @@ jobs:
           sarif_file: results-eslint.sarif
           wait-for-processing: true
 
-      # Trivy via Codacy CLI → SARIF (optional Codacy upload)
-      - name: Codacy CLI (Trivy → SARIF)
-        uses: codacy/codacy-analysis-cli-action@v4
-        with:
-          tool: trivy
-          directory: /src
-          run-docker-tools: true
-          allow-network: true
-          format: sarif
-          output: results-trivy.sarif
-          gh-code-scanning-compat: true
-          project-token: ${{ secrets.CODACY_PROJECT_TOKEN }}
-          upload: ${{ secrets.CODACY_PROJECT_TOKEN != '' }}
-          fail-if-incomplete: true
+    # .github/workflows/codacy-analysis.yml
+    # --- Trivy via Codacy CLI → SARIF (no Codacy upload)
+    - name: Codacy CLI (Trivy → SARIF)
+      uses: codacy/codacy-analysis-cli-action@v4
+      with:
+        tool: trivy
+        directory: /src            # absolute; avoids Docker mount error
+        run-docker-tools: true
+        allow-network: true
+        format: sarif
+        output: results-trivy.sarif
+        gh-code-scanning-compat: true
+        upload: false              # ⬅️ turn off upload to Codacy
+        fail-if-incomplete: true
 
       - name: Validate Trivy SARIF
         id: validate_trivy
