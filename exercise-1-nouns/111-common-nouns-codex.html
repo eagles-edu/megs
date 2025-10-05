@@ -18,29 +18,29 @@
   <!-- Minimal theme tokens inline to avoid var() FOUC when base.css loads async -->
   <style id="theme-vars-critical">
     :root {
-      --background-color: #505050;
-      --icon-color-on-dk: #f5f8ff;
-      --icon-color-on-lt: #8a94a8;
       --primary-color: #e0162b;
       --secondary-color: #f5f8ff;
       --tertiary-color: #002786;
       --text-color: #212121;
-      /* pager variables  */
-      --pager-gap-x: 14px;
-      --pager-gap-y: 10px;
-      --pager-padding-block: 0.6rem;
-      --pager-padding-inline: 0.95rem;
-      --pager-border-radius: 6px;
-      --pager-border-color: var(--border-color, #d0d6e4);
+      --background-color: #505050;
+      --icon-color-on-dk: #f5f8ff;
+      --icon-color-on-lt: #8a94a8;
       --pager-background: var(--surface-color, #fff);
-      --pager-text-color: var(--text-color, #212121);
+      --pager-border-color: var(--border-color, #d0d6e4);
+      --pager-border-radius: 6px;
       --pager-font-size: clamp(0.9rem, 0.85rem + 0.2vw, 1.05rem);
       --pager-font-weight: 600;
-      --pager-icon-size: 1.25rem;
-      --pager-label-wrap: nowrap;
-      --pager-label-truncate: ellipsis;
-      --pager-link-shadow: inset 0 0 0 1px rgb(255 255 255 / 35%);
+      --pager-gap-x: 14px;
+      --pager-gap-y: 10px;
       --pager-hover-shadow: 0 0 0 3px rgb(224 22 43 / 15%);
+      --pager-icon-size: 1.25rem;
+      --pager-label-truncate: ellipsis;
+      --pager-label-wrap: nowrap;
+      --pager-link-shadow: inset 0 0 0 1px rgb(255 255 255 / 35%);
+      --pager-padding-block: 0.6rem;
+      --pager-padding-inline: 0.95rem;
+      --pager-text-color: var(--text-color, #212121);
+      /* pager variables  */
       /* Brand core */
       /* locked */
       /* white */
@@ -136,13 +136,13 @@
       padding: var(--pager-padding-block) var(--pager-padding-inline);
       text-decoration: none;
       text-overflow: var(--pager-label-truncate);
-      white-space: var(--pager-label-wrap);
-      width: 100%;
       transition:
         color 0.2s ease,
         background-color 0.2s ease,
         border-color 0.2s ease,
         box-shadow 0.2s ease;
+      white-space: var(--pager-label-wrap);
+      width: 100%;
     }
 
     .pager>li>a:focus,
@@ -197,7 +197,7 @@
   <!-- Critical resource hints for better performance -->
   <link rel="dns-prefetch" href="../images/">
   <link rel="dns-prefetch" href="../web-asset/">
-  <link rel="dns-prefetch" href="../media/">
+  <link rel="dns-prefetch" href="../js/">
   <style id="critical-inline">
     /* Critical CSS: reset + fast header paint + mobile toggle */
     body {
@@ -357,18 +357,47 @@
     }
 
     /* Icon sizing tied to text; reserve shape via aspect-ratio */
-    ul.accordion-menu .menu-button>img {
+    ul.accordion-menu .menu-button {
+      position: relative;
+    }
+
+    ul.accordion-menu .menu-button>img,
+    ul.accordion-menu .menu-button>svg,
+    ul.accordion-menu .menu-link img {
       aspect-ratio: 1 / 1;
       height: var(--icon-size, 1em);
       object-fit: contain;
       width: auto;
     }
 
-    ul.accordion-menu .menu-link img {
-      aspect-ratio: 1 / 1;
-      height: var(--icon-size, 1em);
-      object-fit: contain;
-      width: auto;
+    ul.accordion-menu .menu-button>img,
+    ul.accordion-menu .menu-button>svg {
+      transition: opacity 0.2s ease;
+    }
+
+    ul.accordion-menu .menu-button::after {
+      background: center / contain no-repeat url("../web-asset/icons/svg/sized/minus5.svg");
+      content: "";
+      inset: 0;
+      opacity: 0;
+      pointer-events: none;
+      position: absolute;
+      transition: opacity 0.2s ease;
+    }
+
+    ul.accordion-menu li:hover>.item-wrapper>.menu-button>img,
+    ul.accordion-menu li:hover>.item-wrapper>.menu-button>svg,
+    ul.accordion-menu li:focus-within>.item-wrapper>.menu-button>img,
+    ul.accordion-menu li:focus-within>.item-wrapper>.menu-button>svg,
+    ul.accordion-menu li.opened>.item-wrapper>.menu-button>img,
+    ul.accordion-menu li.opened>.item-wrapper>.menu-button>svg {
+      opacity: 0;
+    }
+
+    ul.accordion-menu li:hover>.item-wrapper>.menu-button::after,
+    ul.accordion-menu li:focus-within>.item-wrapper>.menu-button::after,
+    ul.accordion-menu li.opened>.item-wrapper>.menu-button::after {
+      opacity: 1;
     }
 
     /* Pager arrows: reserve space */
@@ -402,9 +431,11 @@
       flex: 0 0 var(--icon-slot, 24px);
       justify-content: flex-start;
       padding-left: var(--menu-icon-pad-left, 6px);
+      position: relative;
     }
 
     ul.flyout-menu .menu-button>img,
+    ul.flyout-menu .menu-button>svg,
     ul.flyout-menu .menu-link img {
       aspect-ratio: 1 / 1;
       height: var(--icon-size, 1em);
@@ -412,7 +443,37 @@
       width: auto;
     }
 
+    ul.flyout-menu .menu-button>img,
     /* QA accordion: collapse bodies before async CSS/JS to prevent flash */
+    ul.flyout-menu .menu-button>svg {
+      transition: opacity 0.2s ease;
+    }
+
+    ul.flyout-menu .menu-button::after {
+      background: center / contain no-repeat url("../web-asset/icons/svg/sized/minus5.svg");
+      content: "";
+      inset: 0;
+      opacity: 0;
+      pointer-events: none;
+      position: absolute;
+      transition: opacity 0.2s ease;
+    }
+
+    ul.flyout-menu li:hover>.item-wrapper>.menu-button>img,
+    ul.flyout-menu li:hover>.item-wrapper>.menu-button>svg,
+    ul.flyout-menu li:focus-within>.item-wrapper>.menu-button>img,
+    ul.flyout-menu li:focus-within>.item-wrapper>.menu-button>svg,
+    ul.flyout-menu li.opened>.item-wrapper>.menu-button>img,
+    ul.flyout-menu li.opened>.item-wrapper>.menu-button>svg {
+      opacity: 0;
+    }
+
+    ul.flyout-menu li:hover>.item-wrapper>.menu-button::after,
+    ul.flyout-menu li:focus-within>.item-wrapper>.menu-button::after,
+    ul.flyout-menu li.opened>.item-wrapper>.menu-button::after {
+      opacity: 1;
+    }
+
     #content .nn_sliders .accordion-body {
       max-height: 0;
       overflow: hidden;
@@ -466,19 +527,24 @@
   <script>
     ; ( function () {
       function injectSpeculation() {
+
         try
         {
+
           var s = document.createElement( "script" )
           s.type = "speculationrules"
           s.text = JSON.stringify( {
+
             prefetch: [
               {
+
                 source: "list",
                 urls: [ "112-proper-nouns.html" ],
               },
             ],
             prerender: [
               {
+
                 source: "list",
                 urls: [ "112-proper-nouns.html" ],
                 eagerness: "moderate",
@@ -493,12 +559,15 @@
       }
       if ( document.readyState === "complete" )
       {
+
         injectSpeculation()
       } else
       {
         window.addEventListener( "load", function () {
+
           if ( "requestIdleCallback" in window )
             requestIdleCallback( injectSpeculation, {
+
               timeout: 2000,
             } )
           else setTimeout( injectSpeculation, 500 )
@@ -579,7 +648,7 @@
                           <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                             viewBox="0 0 48 48">
                             <title>office</title>
-                            <path fill=""
+                            <path fill="currentColor"
                               d="M0 48h24v-48h-24v48zM15 6h6v6h-6v-6zM15 18h6v6h-6v-6zM15 30h6v6h-6v-6zM3 6h6v6h-6v-6zM3 18h6v6h-6v-6zM3 30h6v6h-6v-6zM27 15h21v3h-21zM27 48h6v-12h9v12h6v-27h-21z">
                             </path>
                           </svg>
@@ -2908,12 +2977,16 @@
   <script>
       // nn_sliders fallback: enable toggles without jQuery/Bootstrap
       ; ( function () {
+
         if ( typeof window.jQuery === "undefined" && !window._qaAccordionBound )
         {
+
           try
           {
+
             var toggles = document.querySelectorAll( ".nn_sliders-toggle" )
             function onToggle( e ) {
+
               if ( e ) e.preventDefault()
               var href = this.getAttribute( "href" ) || ""
               var id = this.getAttribute( "data-id" ) || href.split( "#" )[ 1 ]
@@ -2923,6 +2996,7 @@
               var open = el.classList.contains( "in" ) || el.classList.contains( "show" )
               if ( open )
               {
+
                 el.classList.remove( "in" )
                 el.classList.remove( "show" )
                 el.classList.add( "collapse" )
@@ -2931,6 +3005,7 @@
                 this.setAttribute( "aria-expanded", "false" )
               } else
               {
+
                 el.classList.add( "in" )
                 el.classList.add( "show" )
                 el.classList.remove( "collapse" )
@@ -2939,8 +3014,11 @@
                 this.setAttribute( "aria-expanded", "true" )
               }
             }
-            for ( var i = 0; i < toggles.length; i++ )
+            for ( var i = 0;
+              i < toggles.length;
+              i++ )
             {
+
               toggles[ i ].addEventListener( "click", onToggle )
               var id = toggles[ i ].getAttribute( "data-id" )
               if ( id ) toggles[ i ].setAttribute( "aria-controls", id )
