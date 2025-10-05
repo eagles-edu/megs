@@ -277,13 +277,15 @@
     }
 
     /* Left accordion menu: reserve icon/text layout early */
-    ul.accordion-menu {
+    #sidebar ul.accordion-menu {
       border: 1px solid var(--border-color);
       font-size: 0.85em;
       list-style: none;
       margin: 0;
       overflow: hidden;
       padding: 0;
+      background-color: var(--surface-color);
+      box-shadow: var(--flyout-shadow-menu);
     }
 
     ul.accordion-menu .item-wrapper {
@@ -311,8 +313,29 @@
       padding-right: 10px;
     }
 
-    ul.accordion-menu li {
-      border-top: 1px solid var(--divider-color);
+    #sidebar ul.accordion-menu li {
+      border-top: 1px solid transparent;
+      border-right: 1px solid transparent;
+      border-bottom: 1px solid var(--divider-color);
+      border-left: 1px solid transparent;
+      transition: border-color 0.2s ease, background-color 0.2s ease;
+    }
+
+    #sidebar ul.accordion-menu>li.first,
+    #sidebar ul.accordion-menu>li:first-child {
+      border-top-width: 1px;
+    }
+
+    #sidebar ul.accordion-menu li.last,
+    #sidebar ul.accordion-menu li:last-of-type {
+      border-bottom-color: transparent;
+    }
+
+    #sidebar ul.accordion-menu li.open,
+    #sidebar ul.accordion-menu li.opened,
+    #sidebar ul.accordion-menu li:hover {
+      background-color: #fff;
+      border-color: var(--primary-color);
     }
 
     ul.accordion-menu .menu-link {
@@ -375,7 +398,7 @@
       transition: opacity 0.2s ease;
     }
 
-    ul.accordion-menu .menu-button::after {
+    #sidebar ul.accordion-menu li.has-submenu>.item-wrapper>.menu-button::after {
       background: center / contain no-repeat url("../web-asset/icons/svg/sized/minus5.svg");
       content: "";
       inset: 0;
@@ -385,18 +408,18 @@
       transition: opacity 0.2s ease;
     }
 
-    ul.accordion-menu li:hover>.item-wrapper>.menu-button>img,
-    ul.accordion-menu li:hover>.item-wrapper>.menu-button>svg,
-    ul.accordion-menu li:focus-within>.item-wrapper>.menu-button>img,
-    ul.accordion-menu li:focus-within>.item-wrapper>.menu-button>svg,
-    ul.accordion-menu li.opened>.item-wrapper>.menu-button>img,
-    ul.accordion-menu li.opened>.item-wrapper>.menu-button>svg {
+    #sidebar ul.accordion-menu li.has-submenu:hover>.item-wrapper>.menu-button>img,
+    #sidebar ul.accordion-menu li.has-submenu:hover>.item-wrapper>.menu-button>svg,
+    #sidebar ul.accordion-menu li.has-submenu:focus-within>.item-wrapper>.menu-button>img,
+    #sidebar ul.accordion-menu li.has-submenu:focus-within>.item-wrapper>.menu-button>svg,
+    #sidebar ul.accordion-menu li.has-submenu.opened>.item-wrapper>.menu-button>img,
+    #sidebar ul.accordion-menu li.has-submenu.opened>.item-wrapper>.menu-button>svg {
       opacity: 0;
     }
 
-    ul.accordion-menu li:hover>.item-wrapper>.menu-button::after,
-    ul.accordion-menu li:focus-within>.item-wrapper>.menu-button::after,
-    ul.accordion-menu li.opened>.item-wrapper>.menu-button::after {
+    #sidebar ul.accordion-menu li.has-submenu:hover>.item-wrapper>.menu-button::after,
+    #sidebar ul.accordion-menu li.has-submenu:focus-within>.item-wrapper>.menu-button::after,
+    #sidebar ul.accordion-menu li.has-submenu.opened>.item-wrapper>.menu-button::after {
       opacity: 1;
     }
 
@@ -738,7 +761,7 @@
                       </div>
                     </div>
                   </li>
-                  <li>
+                  <li class="has-submenu">
                     <div class="item-wrapper">
                       <div class="menu-button">
                         <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="24" height="24"

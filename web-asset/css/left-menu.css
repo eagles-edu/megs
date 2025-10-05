@@ -37,6 +37,24 @@ ul.accordion-menu li {
   border-top: 1px solid var(--divider-color);
 }
 
+ul.accordion-menu li.open,
+ul.accordion-menu li:hover {
+  background: var(--surface-warm);
+}
+
+#sidebar ul.accordion-menu li {
+  border-top-color: transparent;
+  border-right: 1px solid transparent;
+  border-bottom: 1px solid var(--divider-color);
+  border-left: 1px solid transparent;
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+#sidebar ul.accordion-menu li.last,
+#sidebar ul.accordion-menu li:last-of-type {
+  border-bottom-color: transparent;
+}
+
 /* Layout: icon and text left-aligned, responsive */
 ul.accordion-menu .item-wrapper {
   display: flex;
@@ -71,6 +89,11 @@ ul.accordion-menu > li:first-child {
   border-top: 0;
 }
 
+#sidebar ul.accordion-menu > li.first,
+#sidebar ul.accordion-menu > li:first-child {
+  border-top-width: 1px;
+}
+
 ul.accordion-menu a,
 ul.accordion-menu a:hover,
 ul.accordion-menu a:visited,
@@ -93,9 +116,11 @@ ul.accordion-menu li.opened > .item-wrapper a {
 }
 
 /* Subtle hover/open background to guide focus */
-ul.accordion-menu li.open,
-ul.accordion-menu li:hover {
-  background: var(--surface-warm);
+#sidebar ul.accordion-menu li.open,
+#sidebar ul.accordion-menu li.opened,
+#sidebar ul.accordion-menu li:hover {
+  background: #fff;
+  border-color: var(--primary-color);
 }
 
 ul.accordion-menu.button-left li > .item-wrapper > .menu-button,
