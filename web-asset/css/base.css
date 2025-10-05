@@ -49,7 +49,7 @@
   --answer-border: #0c5a1e; /* suggested themed */
 
   /* Navigation/menu */
-  --menu-text: #616978; /* accessible muted slate on white */
+  --menu-text: #5b626f; /* accessible muted slate on white */
   --menu-text-hover: var(--primary-color);
 
   /* Shape */
@@ -183,6 +183,10 @@ h6 {
 
 p {
   margin: 0 0 1rem;
+}
+
+div.accordion-inner > p {
+  margin: 0;
 }
 
 small {

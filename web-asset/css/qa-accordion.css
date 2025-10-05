@@ -19,19 +19,21 @@
 
 #content .accordion-heading {
   background-color: var(--surface-1);
+  border:1px solid var(--link-color);
   transition: background-color 0.2s ease;
 }
 
-#content .accordion-heading:hover {
-  background-color: var(--surface-soft);
-}
-
 #content .accordion-heading > a.accordion-toggle {
+  cursor: pointer;
   display: block;
   padding: 0.75rem 1rem;
   position: relative;
   text-decoration: none;
-  cursor: pointer;
+}
+
+#content .accordion-heading:hover {
+  background-color: var(--white);
+  border:1px solid var(--primary-color);
 }
 
 /* Arrow indicator controlled via aria-expanded */
