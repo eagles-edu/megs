@@ -208,10 +208,11 @@
     }
 
     .qa-attempt textarea {
-      background-color: #fff;
-      border: 1px solid rgb(208 214 228 / 0.9);
+      background: linear-gradient(135deg, rgba(239, 242, 252, 0.94), rgba(250, 252, 255, 0.78));
+      border: 1px solid rgba(115, 134, 182, 0.9);
       border-radius: 4px;
-      color: inherit;
+      box-shadow: 0 1px 2px rgb(15 23 42 / 14%), 0 0 0 1px rgb(255 255 255 / 55%);
+      color: var(--text-color, #212121);
       flex: 1 1 calc((100% - 2rem) / 3);
       font-size: 1rem;
       line-height: 1.4;
@@ -223,14 +224,25 @@
       width: 100%;
     }
 
+    .qa-attempt textarea:hover {
+      border-color: rgba(112, 129, 167, 0.95);
+      box-shadow: 0 2px 5px rgb(15 23 42 / 18%);
+    }
+
     .qa-attempt textarea:focus {
       border-color: var(--primary-color, #e0162b);
-      box-shadow: 0 0 0 3px rgb(224 22 43 / 15%);
+      box-shadow: 0 0 0 3px rgb(224 22 43 / 18%);
       outline: none;
+    }
+
+    .qa-attempt textarea.qa-input--correct {
+      border-color: #2e7d32;
+      box-shadow: 0 0 0 2px rgba(46, 125, 50, 0.28);
     }
 
     .qa-attempt textarea.qa-input--incorrect {
       border-color: #c62828;
+      box-shadow: 0 0 0 2px rgba(198, 40, 40, 0.25);
     }
 
     .qa-attempt.qa-attempt--flash textarea {
@@ -3057,7 +3069,7 @@
       <p>© 2021.</p>
     </div>
   </footer>
-  <!-- cSpell: disable  -->
+  
   <script>
       ( function () {
         var QA_ANSWER_KEY = {
@@ -3184,6 +3196,40 @@
           }, 5000 );
         }
 
+        function openAccordionBody( group, toggle ) {
+          if ( !group || !toggle )
+          {
+            return;
+          }
+
+          var body = group.querySelector( ".accordion-body" );
+          if ( !body )
+          {
+            var targetId = toggle.getAttribute( "data-id" ) || "";
+            if ( !targetId )
+            {
+              var href = toggle.getAttribute( "href" ) || "";
+              targetId = href.indexOf( "#" ) > -1 ? href.split( "#" )[ 1 ] : "";
+            }
+            if ( targetId )
+            {
+              body = document.getElementById( targetId );
+            }
+          }
+
+          if ( !body )
+          {
+            return;
+          }
+
+          body.classList.add( "in" );
+          body.classList.add( "show" );
+          body.classList.remove( "collapse" );
+          body.style.height = "auto";
+          body.style.display = "block";
+          toggle.setAttribute( "aria-expanded", "true" );
+        }
+
         function evaluateAttempts( form, config, group, toggle ) {
           if ( !form || !config )
           {
@@ -3281,6 +3327,7 @@
           {
             group.dataset.qaUnlocked = "true";
             toggle.dataset.qaUnlocked = "true";
+            openAccordionBody( group, toggle );
             return true;
           }
 
@@ -3362,6 +3409,8 @@
             var unlocked = evaluateAttempts( form, config, group, toggle );
             if ( unlocked )
             {
+              event.preventDefault();
+              event.stopPropagation();
               return;
             }
           }
@@ -3473,7 +3522,7 @@
       }
     } )()
   </script>
-<!-- cSpell: enable -->
+
   <!-- Mobile navigation is handled globally via template asset -->
 </body>
 <!--exercise-1-nouns/111-common-nouns.html, Tue, 24 Nov 2020 12:32:11 GMT -->

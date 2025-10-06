@@ -1,0 +1,22 @@
+{
+  "SnippetName": {
+    "prefix": "cspd",
+    "description": "Begin cSpell ignore",
+    "body": ["<!-- cSpell: disable -->"]
+  },
+  "SnippetName": {
+    "prefix": "cspe",
+    "description": "Enable cSpell ignore",
+    "body": ["<!-- cSpell: enable -->"]
+  },
+  "SnippetName": {
+    "prefix": "comst",
+    "description": "Begin comment",
+    "body": ["<!--  "]
+  },
+  "SnippetName": {
+    "prefix": "comen",
+    "description": "End comment",
+    "body": ["  -->"]
+  }
+}
