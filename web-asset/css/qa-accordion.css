@@ -9,11 +9,10 @@
 
 /* Preserve themed top border (e.g., .green/.info) and control other borders */
 #content .nn_sliders.accordion > .accordion-group {
-  background: var(--answer-bgcolor);
-  border-bottom: 1px solid var(--border-color);
-  border-left: 1px solid var(--border-color);
+  background: var(--white);
+  border: 1px solid var(--icon-color-on-lt);
   border-radius: var(--radius);
-  border-right: 1px solid var(--border-color);
+  padding: .75rem .75rem 0 12px;
   overflow: hidden;
 }
 

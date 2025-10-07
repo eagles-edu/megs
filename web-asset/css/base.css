@@ -19,7 +19,7 @@
   --surface-color: #eee; /* menu/content surface */
   --surface-muted: #f0f0ee; /* light alt surface */
   --surface-soft: #fff; /* neutral soft background */
-  --surface-warm: #fff; /* hover menu warm neutral alt */
+  --surface-warm: #f0f0ee; /* hover menu warm neutral alt */
   --surface-1: #fffffa; /* medium light surface */
   --surface-2: #fffaf0; /* very light gray surface */
 

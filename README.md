@@ -18,6 +18,12 @@ Or use Tasks:
 
 Terminal → Run Task → Format: Prettier (all) etc.
 
+## Issue summarization workflow
+
+- Automation lives in [`.github/workflows/summary.yml`](.github/workflows/summary.yml).
+- Setup checklist and troubleshooting tips are documented in [`docs/issue-summarization-workflow.md`](docs/issue-summarization-workflow.md).
+- No additional dependencies are required beyond enabling GitHub Actions and access to GitHub Models.
+
 Notes on things we fixed/avoided
 
 No stylelint-config-prettier: it’s unmaintained and conflicts with Stylelint v16 peer range. We keep overlap low by disabling a couple of purely stylistic rules (max-line-length), and let Prettier handle formatting.

@@ -96,7 +96,7 @@ ul.flyout-menu li:hover {
     opacity: 1;
     visibility: visible;
     transform: translateY(0);
-    transition-delay: 0s;
+    transition-delay: .45s;
   }
 
   /* Elevation for panels */
@@ -234,7 +234,7 @@ ul.flyout-menu li.opened > .item-wrapper a {
 /* stylelint-disable-next-line no-duplicate-selectors */
 ul.flyout-menu li.open,
 ul.flyout-menu li:hover {
-  background: var(--surface-warm);
+  background: var(--white);
   border: 1px solid var(--primary-color);
 }
 
