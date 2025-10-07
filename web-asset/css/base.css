@@ -18,8 +18,8 @@
   --body-bgcolor: var(--secondary-color); /* body background */
   --surface-color: #eee; /* menu/content surface */
   --surface-muted: #f0f0ee; /* light alt surface */
-  --surface-soft: #fff; /* neutral soft background */
-  --surface-warm: #f0f0ee; /* hover menu warm neutral alt */
+  --surface-soft: #e8e8e8; /* neutral soft background */
+  --surface-warm: #fffff0; /* hover menu warm neutral alt */
   --surface-1: #fffffa; /* medium light surface */
   --surface-2: #fffaf0; /* very light gray surface */
 
@@ -63,13 +63,13 @@
 
   /* System font stacks (sans Arial) */
   --font-base:
-    roboto, system-ui, -apple-system, blinkmacsystemfont, 'Noto Sans', 'Segoe UI', ubuntu,
-    cantarell, 'Liberation Sans', 'DejaVu Sans', 'Apple Color Emoji', 'Segoe UI Emoji',
-    'Noto Color Emoji', sans-serif;
+    roboto, system-ui, -apple-system, blinkmacsystemfont, "Noto Sans", "Segoe UI", ubuntu,
+    cantarell, "Liberation Sans", "DejaVu Sans", "Apple Color Emoji", "Segoe UI Emoji",
+    "Noto Color Emoji", sans-serif;
   --font-header:
-    roboto, system-ui, -apple-system, blinkmacsystemfont, 'Noto Sans', 'Segoe UI', ubuntu,
-    cantarell, 'Liberation Sans', 'DejaVu Sans', 'Apple Color Emoji', 'Segoe UI Emoji',
-    'Noto Color Emoji', sans-serif;
+    roboto, system-ui, -apple-system, blinkmacsystemfont, "Noto Sans", "Segoe UI", ubuntu,
+    cantarell, "Liberation Sans", "DejaVu Sans", "Apple Color Emoji", "Segoe UI Emoji",
+    "Noto Color Emoji", sans-serif;
 
   /* Neutrals and utility */
   --color-strong: #444;
@@ -243,7 +243,7 @@ td {
 code,
 pre {
   font-family:
-    ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New',
+    ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New",
     monospace;
 }
 
@@ -256,7 +256,7 @@ pre {
 /* 6) Utilities */
 .clearfix::before,
 .clearfix::after {
-  content: '';
+  content: "";
   display: table;
 }
 
@@ -293,7 +293,7 @@ pre {
   margin-right: -8px;
 }
 
-.row-fluid > [class*='span'] {
+.row-fluid > [class*="span"] {
   box-sizing: border-box;
   flex: 0 0 100%;
   max-width: 100%;
@@ -501,7 +501,7 @@ pre {
 
 .mobile-menu-toggle::before {
   color: var(--white);
-  content: '\2261';
+  content: "\2261";
   display: block;
   font-size: 22px;
   line-height: 40px;
@@ -511,7 +511,7 @@ pre {
 }
 
 .mobile-menu-toggle.open::before {
-  content: '\00D7';
+  content: "\00D7";
 }
 
 /* Interaction states */
@@ -653,12 +653,11 @@ h4.box-head4 {
   text-decoration: underline;
 }
 
-.nodisplay, .hidden {
+.nodisplay,
+.hidden {
   display: none;
 }
 
 .trans {
   color: transparent;
 }
-
-
