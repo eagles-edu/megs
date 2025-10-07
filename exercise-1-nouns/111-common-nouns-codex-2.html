@@ -216,7 +216,6 @@
       flex: 1 1 calc((100% - 2rem) / 3);
       font-size: 1rem;
       line-height: 1.4;
-      margin-top: .75rem;
       min-height: 2.75rem;
       min-width: clamp(9rem, 30%, 12rem);
       padding: 0.55rem 0.7rem;
@@ -579,9 +578,21 @@
       overflow: hidden;
     }
 
+    #content .nn_sliders .accordion-body.in,
+    #content .nn_sliders .accordion-body.show {
+      max-height: none;
+      overflow: visible;
+    }
+
     #content .nn_sliders .collapse {
       height: 0;
       overflow: hidden;
+    }
+
+    #content .nn_sliders .collapse.in,
+    #content .nn_sliders .collapse.show {
+      height: auto;
+      overflow: visible;
     }
 
     /* Hide duplicate legacy title inside body to avoid jump */
@@ -702,7 +713,7 @@
   <noscript>
     <link rel="stylesheet" href="../web-asset/css/page-classes.css">
   </noscript>
-  <!-- Removed jQuery/Bootstrap/nn_sliders/template scripts on codex variant to keep console clean -->
+  <!-- Removed legacy template slider scripts on Codex variant to keep console clean -->
   <link rel="preload" href="../web-asset/css/exercise-1-nouns_new.css" as="style">
   <link rel="stylesheet" href="../web-asset/css/exercise-1-nouns_new.css" media="print" onload="this.media='all'">
   <noscript>
@@ -3431,7 +3442,7 @@
       } )();
   </script>
   <script>
-    // nn_sliders fallback: enable toggles without jQuery/Bootstrap
+    // nn_sliders fallback: enable toggles without legacy template helpers
     ; ( function () {
 
       if ( typeof window.jQuery === "undefined" && !window._qaAccordionBound )
@@ -3486,7 +3497,7 @@
       }
     } )()
   </script>
-<!-- cSpell: enable -->
+
   <!-- Mobile navigation is handled globally via template asset -->
 </body>
 <!--exercise-1-nouns/111-common-nouns.html, Tue, 24 Nov 2020 12:32:11 GMT -->
