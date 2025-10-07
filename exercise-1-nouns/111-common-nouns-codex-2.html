@@ -216,7 +216,7 @@
       flex: 1 1 calc((100% - 2rem) / 3);
       font-size: 1rem;
       line-height: 1.4;
-      margin-top: .825rem;
+      margin-top: .75rem;
       min-height: 2.75rem;
       min-width: clamp(9rem, 30%, 12rem);
       padding: 0.55rem 0.7rem;
@@ -3070,7 +3070,7 @@
       <p>© 2021.</p>
     </div>
   </footer>
-<!--  cSpell: disable  -->
+  <!-- cSpell: disable -->
   <script>
       ( function () {
         var QA_ANSWER_KEY = {
@@ -3197,40 +3197,6 @@
           }, 5000 );
         }
 
-        function openAccordionBody( group, toggle ) {
-          if ( !group || !toggle )
-          {
-            return;
-          }
-
-          var body = group.querySelector( ".accordion-body" );
-          if ( !body )
-          {
-            var targetId = toggle.getAttribute( "data-id" ) || "";
-            if ( !targetId )
-            {
-              var href = toggle.getAttribute( "href" ) || "";
-              targetId = href.indexOf( "#" ) > -1 ? href.split( "#" )[ 1 ] : "";
-            }
-            if ( targetId )
-            {
-              body = document.getElementById( targetId );
-            }
-          }
-
-          if ( !body )
-          {
-            return;
-          }
-
-          body.classList.add( "in" );
-          body.classList.add( "show" );
-          body.classList.remove( "collapse" );
-          body.style.height = "auto";
-          body.style.display = "block";
-          toggle.setAttribute( "aria-expanded", "true" );
-        }
-
         function evaluateAttempts( form, config, group, toggle ) {
           if ( !form || !config )
           {
@@ -3328,7 +3294,6 @@
           {
             group.dataset.qaUnlocked = "true";
             toggle.dataset.qaUnlocked = "true";
-            openAccordionBody( group, toggle );
             return true;
           }
 
@@ -3410,8 +3375,6 @@
             var unlocked = evaluateAttempts( form, config, group, toggle );
             if ( unlocked )
             {
-              event.preventDefault();
-              event.stopPropagation();
               return;
             }
           }

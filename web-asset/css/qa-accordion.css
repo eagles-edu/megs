@@ -19,7 +19,7 @@
 #content .accordion-heading {
   background-color: var(--surface-1);
   border:1px solid var(--link-color);
-  transition: background-color 0.2s ease;
+  transition: background-color 0.4s ease;
 }
 
 #content .accordion-heading > a.accordion-toggle {
@@ -45,7 +45,7 @@
   right: 1rem;
   top: 50%;
   transform: translateY(-50%) rotate(0deg);
-  transition: transform 0.25s ease;
+  transition: transform 0.35s ease;
   width: 10px;
 }
 
@@ -95,7 +95,7 @@
 /* Harmonize with legacy .nn_sliders collapse rules to avoid dupe transitions */
 #content .nn_sliders .collapse {
   height: 0;
-  overflow: hidden;
+  overflow:auto;
 }
 
 #content .nn_sliders .collapse.in,
