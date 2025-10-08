@@ -521,6 +521,18 @@
         min-height: 300px;
       }
     }
+
+    @media (width <= 909px) {
+      /* Prevent the right rail from wrapping beneath the article on mid-sized viewports */
+      #aside {
+        display: none;
+      }
+
+      .row-fluid > #content {
+        flex: 1 1 0%;
+        max-width: 100%;
+      }
+    }
   </style>
 
   <!-- Optimized speculationrules with prerender for better UX -->
