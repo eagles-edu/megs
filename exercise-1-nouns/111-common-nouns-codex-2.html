@@ -161,7 +161,7 @@
       box-shadow: inset 0 0 0 2px rgb(224 22 43 / 15%);
     }
 
-    .pager .previous > a {
+    .pager .previous>a {
       justify-content: flex-start;
     }
 
@@ -226,7 +226,7 @@
     }
 
     .qa-attempt textarea:hover {
-      border-color: rgba(112, 129, 167, 0.95);
+      border-color: rgb(112 129 167 / 95%);
       box-shadow: 0 2px 5px rgb(15 23 42 / 18%);
     }
 
@@ -363,7 +363,7 @@
       margin: 0;
       overflow: hidden;
       padding: 0;
-  }
+    }
 
     ul.accordion-menu .item-wrapper {
       align-items: center;
@@ -396,7 +396,7 @@
       border-right: 1px solid transparent;
       border-top: 1px solid transparent;
       transition: border-color 0.2s ease, background-color 0.2s ease;
-  }
+    }
 
     #sidebar ul.accordion-menu>li.first,
     #sidebar ul.accordion-menu>li:first-child {
@@ -698,10 +698,10 @@
   <!-- Use system default fonts (no webfont preloads) -->
 
   <!-- Defer non-critical CSS with preload+print media swap -->
-  <link rel="preload" href="../web-asset/css/flyout-menu.css" as="style">
-  <link rel="stylesheet" href="../web-asset/css/flyout-menu.css" media="print" onload="this.media='all'">
+  <link rel="preload" href="../web-asset/css/flyout.css" as="style">
+  <link rel="stylesheet" href="../web-asset/css/flyout.css" media="print" onload="this.media='all'">
   <noscript>
-    <link rel="stylesheet" href="../web-asset/css/flyout-menu.css">
+    <link rel="stylesheet" href="../web-asset/css/flyout.css">
   </noscript>
   <!-- Left-menu.css async; critical inline reserves layout to avoid flash -->
   <link rel="preload" href="../web-asset/css/left-menu.css" as="style">
@@ -745,193 +745,201 @@
     <div class="container">
       <!-- Header removed on Codex variant to avoid load-time CLS. See ../web-asset/js/template.js for details-->
       <div class="row-fluid padme1">
-          <!-- Begin Sidebar -->
-          <div id="sidebar" class="span2">
-            <div class="sidebar-nav">
-              <div class="moduletable lowmargin">
-                <!-- jQuery-driven left-menu behavior removed on Codex variant to avoid load-time CLS.Vanilla handlers in ../web-asset/js/left-menu.js cover hover interactions. -->
-                <template id="sidebar-menu-template">
-                  <ul class="accordion-menu text-left button-right" id="accordion_menu_90">
-                    <li class="first">
-                      <div class="item-wrapper">
-                        <div class="menu-button"></div>
-                        <div class="menu-link">
-                          <a href="../index-2.html" aria-label="Home">
-                            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 48 48">
-                              <title>office</title>
-                              <path
-                                d="M0 48h24v-48h-24v48zM15 6h6v6h-6v-6zM15 18h6v6h-6v-6zM15 30h6v6h-6v-6zM3 6h6v6h-6v-6zM3 18h6v6h-6v-6zM3 30h6v6h-6v-6zM27 15h21v3h-21zM27 48h6v-12h9v12h6v-27h-21z">
-                              </path>
-                            </svg>
-                            Home
-                          </a>
-                        </div>
-                      </div>
-                    </li>
-                    <li>
-                      <div class="item-wrapper">
-                        <div class="menu-button"></div>
-                        <div class="menu-link">
-                          <a href="../grammar-lessons.html" aria-label="Lessons">
-                            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 48 48">
-                              <title>display</title>
-                              <path d="M0 3v30h48v-30h-48zM45 30h-42v-24h42v24zM31.5 36h-15l-1.5 6-3 3h24l-3-3z"></path>
-                            </svg>
-                            Lessons
-                          </a>
-                        </div>
-                      </div>
-                    </li>
-                    <li>
-                      <div class="item-wrapper">
-                        <div class="menu-button"></div>
-                        <div class="menu-link">
-                          <a href="../grammar-exercises.html" aria-label="Exercises">
-                            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 48 48">
-                              <path
-                                d="M33.094 22.031l-7.125-7.125 2.813-2.813 4.313 4.219 8.438-8.438 2.813 2.813zM22.031 13.969h-18v4.031h18v-4.031zM42 26.813l-2.813-2.813-5.156 5.156-5.25-5.156-2.813 2.813 5.25 5.156-5.25 5.25 2.813 2.813 5.25-5.25 5.156 5.25 2.813-2.813-5.156-5.25zM22.031 30h-18v4.031h18v-4.031z">
-                              </path>
-                            </svg>
-                            Exercises
-                          </a>
-                        </div>
-                      </div>
-                    </li>
-                    <li>
-                      <div class="item-wrapper">
-                        <div class="menu-button"></div>
-                        <div class="menu-link">
-                          <a href="../introduction-to-tenses.html" aria-label="Tenses">
-                            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 48 48">
-                              <path
-                                d="M0 24.5c0 12.98 10.52 23.5 23.5 23.5s23.5-10.52 23.5-23.5-10.52-23.5-23.5-23.5c-12.98 0-23.5 10.52-23.5 23.5zM21 8.5c0-1.38 1.12-2.5 2.5-2.5s2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5-2.5-1.12-2.5-2.5zM5 24.5c0-1.38 1.12-2.5 2.5-2.5s2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5-2.5-1.12-2.5-2.5zM37 24.5c0-1.38 1.12-2.5 2.5-2.5s2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5-2.5-1.12-2.5-2.5zM21 40.5c0-1.38 1.12-2.5 2.5-2.5s2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5-2.5-1.12-2.5-2.5zM19.83 25.689c-0.53-0.52-7.26-7.369-7.26-7.369-0.76-0.76-0.76-1.99 0-2.75s1.99-0.76 2.75 0l6.6 6.619c0.59 0.58 1.56 0.58 2.141 0l9.619-9.619c0.76-0.76 1.99-0.76 2.75 0s0.76 1.99 0 2.75c0 0-9.76 9.88-10.279 10.4-0.811 0.79-1.93 1.28-3.151 1.28-1.24 0-2.36-0.5-3.17-1.311z">
-                              </path>
-                            </svg>
-                            Tenses
-                          </a>
-                        </div>
-                      </div>
-                    </li>
-                    <li>
-                      <div class="item-wrapper">
-                        <div class="menu-button"></div>
-                        <div class="menu-link">
-                          <a href="../writing.html" aria-label="Writing">
-                            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 48 48">
-                              <title>pencil</title>
-                              <path
-                                d="M40.5 0c4.142 0 7.5 3.358 7.5 7.5 0 1.688-0.558 3.246-1.5 4.5l-3 3-10.5-10.5 3-3c1.254-0.942 2.811-1.5 4.5-1.5zM3 34.5l-3 13.5 13.5-3 27.75-27.75-10.5-10.5-27.75 27.75zM33.543 17.043l-21 21-2.585-2.585 21-21 2.585 2.585z">
-                              </path>
-                            </svg>
-                            Writing
-                          </a>
-                        </div>
-                      </div>
-                    </li>
-                    <li>
-                      <div class="item-wrapper">
-                        <div class="menu-button"></div>
-                        <div class="menu-link">
-                          <a href="../vocabulary.html" aria-label="Vocabulary">
-                            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                              <title>file</title>
-                              <path
-                                d="M8.25 11.25h0.75v-0.75h-0.75v0.75zM8.25 13.5h0.75v-0.75h-0.75v0.75zM8.25 9h0.75v-0.75h-0.75v0.75zM8.25 15.75h0.75v-0.75h-0.75v0.75zM8.25 18h0.75v-0.75h-0.75v0.75zM9.75 13.5h6v-0.75h-6v0.75zM9.75 9h6v-0.75h-6v0.75zM15.703 3h-10.454v18h13.5v-15l-3.047-3zM17.25 19.453h-10.5v-14.953h7.5v2.204h3v12.75zM9.75 15.75h6v-0.75h-6v0.75zM9.75 11.25h6v-0.75h-6v0.75zM9.75 18h6v-0.75h-6v0.75z">
-                              </path>
-                            </svg>
-                            Vocabulary
-                          </a>
-                        </div>
-                      </div>
-                    </li>
-                    <li>
-                      <div class="item-wrapper">
-                        <div class="menu-button"></div>
-                        <div class="menu-link">
-                          <a href="../glossary.html" aria-label="Glossary">
-                            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="28" height="24" viewBox="0 0 54 48">
-                              <title>Books</title>
-                              <path
-                                d="M10.5 6h-9c-0.825 0-1.5 0.675-1.5 1.5v33c0 0.825 0.675 1.5 1.5 1.5h9c0.825 0 1.5-0.675 1.5-1.5v-33c0-0.825-0.675-1.5-1.5-1.5zM9 15h-6v-3h6v3z">
-                              </path>
-                              <path
-                                d="M25.5 6h-9c-0.825 0-1.5 0.675-1.5 1.5v33c0 0.825 0.675 1.5 1.5 1.5h9c0.825 0 1.5-0.675 1.5-1.5v-33c0-0.825-0.675-1.5-1.5-1.5zM24 15h-6v-3h6v3z">
-                              </path>
-                              <path
-                                d="M35.864 8.319l-8.037 4.050c-0.737 0.371-1.036 1.278-0.665 2.014l13.499 26.791c0.371 0.737 1.278 1.036 2.014 0.665l8.037-4.050c0.737-0.371 1.036-1.278 0.665-2.014l-13.499-26.791c-0.371-0.737-1.278-1.036-2.014-0.665z">
-                              </path>
-                            </svg>
-                            Glossary
-                          </a>
-                        </div>
-                      </div>
-                    </li>
-                    <li class="last">
-                      <div class="item-wrapper">
-                        <div class="menu-button">
-                          <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 48 48"
-                            fill="currentColor">
-                            <title>plus3</title>
+        <!-- Begin Sidebar -->
+        <div id="sidebar" class="span2">
+          <div class="sidebar-nav">
+            <div class="moduletable lowmargin">
+              <!-- jQuery-driven left-menu behavior removed on Codex variant to avoid load-time CLS.Vanilla handlers in ../web-asset/js/left-menu.js cover hover interactions. -->
+              <template id="sidebar-menu-template">
+                <ul class="accordion-menu text-left button-right" id="accordion_menu_90">
+                  <li class="first">
+                    <div class="item-wrapper">
+                      <div class="menu-button"></div>
+                      <div class="menu-link">
+                        <a href="../index-2.html" aria-label="Home">
+                          <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                            viewBox="0 0 48 48">
+                            <title>office</title>
                             <path
-                              d="M10 26h12v12c0 1.104 0.896 2 2 2s2-0.896 2-2v-12h12c1.104 0 2-0.896 2-2s-0.896-2-2-2h-12v-12c0-1.104-0.896-2-2-2s-2 0.896-2 2v12h-12c-1.104 0-2 0.896-2 2s0.896 2 2 2z">
+                              d="M0 48h24v-48h-24v48zM15 6h6v6h-6v-6zM15 18h6v6h-6v-6zM15 30h6v6h-6v-6zM3 6h6v6h-6v-6zM3 18h6v6h-6v-6zM3 30h6v6h-6v-6zM27 15h21v3h-21zM27 48h6v-12h9v12h6v-27h-21z">
                             </path>
                           </svg>
-                        </div>
-                        <div class="menu-link">
-                          <a href="../lists.html" aria-label="Lists">
-                            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                              <title>list-ol</title>
-                              <path
-                                d="M5.103 21.696c0 1.473-1.152 2.304-2.545 2.304-0.844 0-1.701-0.281-2.304-0.884l0.763-1.179c0.362 0.335 0.911 0.603 1.42 0.603 0.469 0 0.964-0.228 0.964-0.763 0-0.75-0.857-0.79-1.406-0.75l-0.348-0.75c0.482-0.616 0.924-1.299 1.5-1.821v-0.013c-0.429 0-0.871 0.027-1.299 0.027v0.71h-1.42v-2.036h4.46v1.179l-1.272 1.54c0.897 0.214 1.487 0.911 1.487 1.835zM5.129 13.299v2.129h-4.848c-0.040-0.241-0.080-0.482-0.080-0.723 0-2.478 3.027-2.853 3.027-3.978 0-0.455-0.281-0.696-0.723-0.696-0.469 0-0.857 0.402-1.085 0.777l-1.138-0.79c0.442-0.924 1.353-1.446 2.371-1.446 1.246 0 2.317 0.737 2.317 2.063 0 1.982-2.906 2.424-2.946 3.469h1.701v-0.804h1.406zM24 17.571v2.571c0 0.228-0.201 0.429-0.429 0.429h-16.286c-0.241 0-0.429-0.201-0.429-0.429v-2.571c0-0.241 0.188-0.429 0.429-0.429h16.286c0.228 0 0.429 0.188 0.429 0.429zM5.143 5.531v1.326h-4.487v-1.326h1.433c0-1.085 0.013-2.17 0.013-3.254v-0.161h-0.027c-0.147 0.295-0.415 0.496-0.67 0.723l-0.951-1.018 1.821-1.701h1.42v5.411h1.446zM24 10.714v2.571c0 0.228-0.201 0.429-0.429 0.429h-16.286c-0.241 0-0.429-0.201-0.429-0.429v-2.571c0-0.241 0.188-0.429 0.429-0.429h16.286c0.228 0 0.429 0.188 0.429 0.429zM24 3.857v2.571c0 0.228-0.201 0.429-0.429 0.429h-16.286c-0.241 0-0.429-0.201-0.429-0.429v-2.571c0-0.228 0.188-0.429 0.429-0.429h16.286c0.228 0 0.429 0.201 0.429 0.429z">
-                              </path>
-                            </svg>
-                            Lists
-                          </a>
-                        </div>
+                          Home
+                        </a>
                       </div>
-                      <div class="ul-wrapper">
-                        <ul>
-                          <li class="first">
-                            <div class="item-wrapper">
-                              <div class="menu-button"></div>
-                              <div class="menu-link">
-                                <a href="../lists.html" aria-label="Lists">
-                                  Lists
-                                </a>
-                              </div>
-                            </div>
-                          </li>
-                          <li>
-                            <div class="item-wrapper">
-                              <div class="menu-button"></div>
-                              <div class="menu-link">
-                                <a href="../prepositions.html" aria-label="Prepositions">
-                                  Prepositions
-                                </a>
-                              </div>
-                            </div>
-                          </li>
-                          <li class="last">
-                            <div class="item-wrapper">
-                              <div class="menu-button"></div>
-                              <div class="menu-link">
-                                <a href="../lists2/words-from-a-z.html" aria-label="Sentences (v+prep)">
-                                  Sentences (v+prep)
-                                </a>
-                              </div>
-                            </div>
-                          </li>
-                        </ul>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="item-wrapper">
+                      <div class="menu-button"></div>
+                      <div class="menu-link">
+                        <a href="../grammar-lessons.html" aria-label="Lessons">
+                          <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                            viewBox="0 0 48 48">
+                            <title>display</title>
+                            <path d="M0 3v30h48v-30h-48zM45 30h-42v-24h42v24zM31.5 36h-15l-1.5 6-3 3h24l-3-3z"></path>
+                          </svg>
+                          Lessons
+                        </a>
                       </div>
-                    </li>
-                  </ul>
-                </template>
-                <div id="sidebar-menu-mount" aria-hidden="true"></div>
-              </div>
-              <div class="moduletable"></div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="item-wrapper">
+                      <div class="menu-button"></div>
+                      <div class="menu-link">
+                        <a href="../grammar-exercises.html" aria-label="Exercises">
+                          <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                            viewBox="0 0 48 48">
+                            <path
+                              d="M33.094 22.031l-7.125-7.125 2.813-2.813 4.313 4.219 8.438-8.438 2.813 2.813zM22.031 13.969h-18v4.031h18v-4.031zM42 26.813l-2.813-2.813-5.156 5.156-5.25-5.156-2.813 2.813 5.25 5.156-5.25 5.25 2.813 2.813 5.25-5.25 5.156 5.25 2.813-2.813-5.156-5.25zM22.031 30h-18v4.031h18v-4.031z">
+                            </path>
+                          </svg>
+                          Exercises
+                        </a>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="item-wrapper">
+                      <div class="menu-button"></div>
+                      <div class="menu-link">
+                        <a href="../introduction-to-tenses.html" aria-label="Tenses">
+                          <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                            viewBox="0 0 48 48">
+                            <path
+                              d="M0 24.5c0 12.98 10.52 23.5 23.5 23.5s23.5-10.52 23.5-23.5-10.52-23.5-23.5-23.5c-12.98 0-23.5 10.52-23.5 23.5zM21 8.5c0-1.38 1.12-2.5 2.5-2.5s2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5-2.5-1.12-2.5-2.5zM5 24.5c0-1.38 1.12-2.5 2.5-2.5s2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5-2.5-1.12-2.5-2.5zM37 24.5c0-1.38 1.12-2.5 2.5-2.5s2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5-2.5-1.12-2.5-2.5zM21 40.5c0-1.38 1.12-2.5 2.5-2.5s2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5-2.5-1.12-2.5-2.5zM19.83 25.689c-0.53-0.52-7.26-7.369-7.26-7.369-0.76-0.76-0.76-1.99 0-2.75s1.99-0.76 2.75 0l6.6 6.619c0.59 0.58 1.56 0.58 2.141 0l9.619-9.619c0.76-0.76 1.99-0.76 2.75 0s0.76 1.99 0 2.75c0 0-9.76 9.88-10.279 10.4-0.811 0.79-1.93 1.28-3.151 1.28-1.24 0-2.36-0.5-3.17-1.311z">
+                            </path>
+                          </svg>
+                          Tenses
+                        </a>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="item-wrapper">
+                      <div class="menu-button"></div>
+                      <div class="menu-link">
+                        <a href="../writing.html" aria-label="Writing">
+                          <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                            viewBox="0 0 48 48">
+                            <title>pencil</title>
+                            <path
+                              d="M40.5 0c4.142 0 7.5 3.358 7.5 7.5 0 1.688-0.558 3.246-1.5 4.5l-3 3-10.5-10.5 3-3c1.254-0.942 2.811-1.5 4.5-1.5zM3 34.5l-3 13.5 13.5-3 27.75-27.75-10.5-10.5-27.75 27.75zM33.543 17.043l-21 21-2.585-2.585 21-21 2.585 2.585z">
+                            </path>
+                          </svg>
+                          Writing
+                        </a>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="item-wrapper">
+                      <div class="menu-button"></div>
+                      <div class="menu-link">
+                        <a href="../vocabulary.html" aria-label="Vocabulary">
+                          <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                            viewBox="0 0 24 24">
+                            <title>file</title>
+                            <path
+                              d="M8.25 11.25h0.75v-0.75h-0.75v0.75zM8.25 13.5h0.75v-0.75h-0.75v0.75zM8.25 9h0.75v-0.75h-0.75v0.75zM8.25 15.75h0.75v-0.75h-0.75v0.75zM8.25 18h0.75v-0.75h-0.75v0.75zM9.75 13.5h6v-0.75h-6v0.75zM9.75 9h6v-0.75h-6v0.75zM15.703 3h-10.454v18h13.5v-15l-3.047-3zM17.25 19.453h-10.5v-14.953h7.5v2.204h3v12.75zM9.75 15.75h6v-0.75h-6v0.75zM9.75 11.25h6v-0.75h-6v0.75zM9.75 18h6v-0.75h-6v0.75z">
+                            </path>
+                          </svg>
+                          Vocabulary
+                        </a>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="item-wrapper">
+                      <div class="menu-button"></div>
+                      <div class="menu-link">
+                        <a href="../glossary.html" aria-label="Glossary">
+                          <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="28" height="24"
+                            viewBox="0 0 54 48">
+                            <title>Books</title>
+                            <path
+                              d="M10.5 6h-9c-0.825 0-1.5 0.675-1.5 1.5v33c0 0.825 0.675 1.5 1.5 1.5h9c0.825 0 1.5-0.675 1.5-1.5v-33c0-0.825-0.675-1.5-1.5-1.5zM9 15h-6v-3h6v3z">
+                            </path>
+                            <path
+                              d="M25.5 6h-9c-0.825 0-1.5 0.675-1.5 1.5v33c0 0.825 0.675 1.5 1.5 1.5h9c0.825 0 1.5-0.675 1.5-1.5v-33c0-0.825-0.675-1.5-1.5-1.5zM24 15h-6v-3h6v3z">
+                            </path>
+                            <path
+                              d="M35.864 8.319l-8.037 4.050c-0.737 0.371-1.036 1.278-0.665 2.014l13.499 26.791c0.371 0.737 1.278 1.036 2.014 0.665l8.037-4.050c0.737-0.371 1.036-1.278 0.665-2.014l-13.499-26.791c-0.371-0.737-1.278-1.036-2.014-0.665z">
+                            </path>
+                          </svg>
+                          Glossary
+                        </a>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="last">
+                    <div class="item-wrapper">
+                      <div class="menu-button">
+                        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 48 48"
+                          fill="currentColor">
+                          <title>plus3</title>
+                          <path
+                            d="M10 26h12v12c0 1.104 0.896 2 2 2s2-0.896 2-2v-12h12c1.104 0 2-0.896 2-2s-0.896-2-2-2h-12v-12c0-1.104-0.896-2-2-2s-2 0.896-2 2v12h-12c-1.104 0-2 0.896-2 2s0.896 2 2 2z">
+                          </path>
+                        </svg>
+                      </div>
+                      <div class="menu-link">
+                        <a href="../lists.html" aria-label="Lists">
+                          <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                            viewBox="0 0 24 24">
+                            <title>list-ol</title>
+                            <path
+                              d="M5.103 21.696c0 1.473-1.152 2.304-2.545 2.304-0.844 0-1.701-0.281-2.304-0.884l0.763-1.179c0.362 0.335 0.911 0.603 1.42 0.603 0.469 0 0.964-0.228 0.964-0.763 0-0.75-0.857-0.79-1.406-0.75l-0.348-0.75c0.482-0.616 0.924-1.299 1.5-1.821v-0.013c-0.429 0-0.871 0.027-1.299 0.027v0.71h-1.42v-2.036h4.46v1.179l-1.272 1.54c0.897 0.214 1.487 0.911 1.487 1.835zM5.129 13.299v2.129h-4.848c-0.040-0.241-0.080-0.482-0.080-0.723 0-2.478 3.027-2.853 3.027-3.978 0-0.455-0.281-0.696-0.723-0.696-0.469 0-0.857 0.402-1.085 0.777l-1.138-0.79c0.442-0.924 1.353-1.446 2.371-1.446 1.246 0 2.317 0.737 2.317 2.063 0 1.982-2.906 2.424-2.946 3.469h1.701v-0.804h1.406zM24 17.571v2.571c0 0.228-0.201 0.429-0.429 0.429h-16.286c-0.241 0-0.429-0.201-0.429-0.429v-2.571c0-0.241 0.188-0.429 0.429-0.429h16.286c0.228 0 0.429 0.188 0.429 0.429zM5.143 5.531v1.326h-4.487v-1.326h1.433c0-1.085 0.013-2.17 0.013-3.254v-0.161h-0.027c-0.147 0.295-0.415 0.496-0.67 0.723l-0.951-1.018 1.821-1.701h1.42v5.411h1.446zM24 10.714v2.571c0 0.228-0.201 0.429-0.429 0.429h-16.286c-0.241 0-0.429-0.201-0.429-0.429v-2.571c0-0.241 0.188-0.429 0.429-0.429h16.286c0.228 0 0.429 0.188 0.429 0.429zM24 3.857v2.571c0 0.228-0.201 0.429-0.429 0.429h-16.286c-0.241 0-0.429-0.201-0.429-0.429v-2.571c0-0.228 0.188-0.429 0.429-0.429h16.286c0.228 0 0.429 0.201 0.429 0.429z">
+                            </path>
+                          </svg>
+                          Lists
+                        </a>
+                      </div>
+                    </div>
+                    <div class="ul-wrapper">
+                      <ul>
+                        <li class="first">
+                          <div class="item-wrapper">
+                            <div class="menu-button"></div>
+                            <div class="menu-link">
+                              <a href="../lists.html" aria-label="Lists">
+                                Lists
+                              </a>
+                            </div>
+                          </div>
+                        </li>
+                        <li>
+                          <div class="item-wrapper">
+                            <div class="menu-button"></div>
+                            <div class="menu-link">
+                              <a href="../prepositions.html" aria-label="Prepositions">
+                                Prepositions
+                              </a>
+                            </div>
+                          </div>
+                        </li>
+                        <li class="last">
+                          <div class="item-wrapper">
+                            <div class="menu-button"></div>
+                            <div class="menu-link">
+                              <a href="../lists2/words-from-a-z.html" aria-label="Sentences (v+prep)">
+                                Sentences (v+prep)
+                              </a>
+                            </div>
+                          </div>
+                        </li>
+                      </ul>
+                    </div>
+                  </li>
+                </ul>
+              </template>
+              <div id="sidebar-menu-mount" aria-hidden="true"></div>
             </div>
+            <div class="moduletable"></div>
           </div>
-          <!-- End Sidebar -->
+        </div>
+        <!-- End Sidebar -->
         <main id="content" class="span8">
           <!-- Begin Content -->
 
@@ -1123,7 +1131,8 @@
                       aria-label="Answer" class="accordion-toggle nn_sliders-toggle" data-toggle="collapse"
                       data-id="sec-6-my-mother-is-singing-a-religious-song-in-the-kitchen"
                       data-parent="#set-nn_sliders-6">
-                      <span class="nn_sliders-toggle-inner">6. My mother is singing a religious song in the kitchen.</span>
+                      <span class="nn_sliders-toggle-inner">6. My mother is singing a religious song in the
+                        kitchen.</span>
                     </a>
                   </div>
                   <div class="accordion-body nn_sliders-body collapse"
@@ -3075,382 +3084,513 @@
   </footer>
   <!-- cSpell: disable -->
   <script>
-    (function () {
-      var QA_ANSWER_KEY = {
-        "sec-1-they-arrived-early-but-at-the-wrong-station": {
-          answers: ["c3RhdGlvbg=="]
-        },
-        "sec-2-we-counted-only-six-different-colours-in-the-rainbow": {
-          answers: ["Y29sb3Jz", "cmFpbmJvdw=="]
-        },
-        "sec-3-the-man-was-trying-to-steal-a-horse-with-a-cart-full-of-apples": {
-          answers: ["bWFu", "aG9yc2U=", "Y2FydA=="]
-        },
-        "sec-4-they-have-gone-to-the-zoo-to-see-the-black-sheep": {
-          answers: ["em9v", "c2hlZXA="]
-        },
-        "sec-5-she-put-her-head-on-her-arms-and-cried-loudly": {
-          answers: ["aGVhZA==", "YXJtcw=="]
-        },
-        "sec-6-my-mother-is-singing-a-religious-song-in-the-kitchen": {
-          answers: ["bW90aGVy", "c29uZw==", "a2l0Y2hlbg=="]
-        },
-        "sec-7-he-threw-some-salted-nuts-to-the-monkeys": {
-          answers: ["bnV0cw==", "bW9ua2V5cw=="]
-        },
-        "sec-8-the-children-are-kicking-a-ball-around-in-the-field": {
-          answers: ["Y2hpbGRyZW4=", "YmFsbA==", "ZmllbGQ="]
-        },
-        "sec-9-that-temple-was-built-before-my-grandfather-was-born": {
-          answers: ["dGVtcGxl", "Z3JhbmRmYXRoZXI="]
-        },
-        "sec-10-he-bought-balloons-for-his-children-and-their-friends": {
-          answers: ["YmFsbG9vbnM=", "Y2hpbGRyZW4=", "ZnJpZW5kcw=="]
-        },
-        "sec-11-my-father-swims-like-a-turtle": {
-          answers: ["ZmF0aGVy", "dHVydGxl"]
-        },
-        "sec-12-she-won-a-trophy-for-best-dancer-in-the-street": {
-          answers: ["dHJvcGh5", "ZGFuY2Vy", "c3RyZWV0"]
-        },
-        "sec-13-simply-point-your-camera-at-the-camel-and-press-the-button": {
-          answers: ["Y2FtZXJh", "Y2FtZWw=", "YnV0dG9u"]
-        },
-        "sec-14-we-watched-seabirds-flocking-above-our-heads": {
-          answers: ["c2VhYmlyZHM=", "aGVhZHM="]
-        },
-        "sec-15-he-went-to-visit-his-homesick-uncle-at-the-hospital": {
-          answers: ["dW5jbGU=", "aG9zcGl0YWw="]
-        },
-        "sec-16-my-brother-wants-to-play-hide-and-seek-with-us": {
-          answers: ["YnJvdGhlcg==", "aGlkZS1hbmQtc2Vlaw=="]
-        },
-        "sec-17-let-me-look-at-your-puppies-and-kittens": {
-          answers: ["cHVwcGllcw==", "a2l0dGVucw=="]
-        },
-        "sec-18-the-taxi-broke-down-in-front-of-my-gate": {
-          answers: ["dGF4aQ==", "Z2F0ZQ=="]
-        },
-        "sec-19-the-boys-are-quarrelling-noisily-on-the-beach": {
-          answers: ["Ym95cw==", "YmVhY2g="]
-        },
-        "sec-20-the-monkey-was-hanging-by-its-tail-from-a-branch": {
-          answers: ["bW9ua2V5", "dGFpbA==", "YnJhbmNo"]
-        }
-      };
-
-      function decodeAnswer(encoded) {
-        if (typeof encoded !== "string") {
-          return "";
-        }
-        try {
-          return window.atob(encoded);
-        } catch (error) {
-          return "";
-        }
-      }
-
-      function normalizeAnswer(value) {
-        return (value || "").toLowerCase().replace(/[^a-z]/g, "");
-      }
-
-      function isMeaningful(value) {
-        if (!value) return false;
-        var trimmed = value.trim();
-        if (trimmed.length < 3) return false;
-        return /[aeiou]/i.test(trimmed);
-      }
-
-      function clearVisualState(inputs, form) {
-        for (var idx = 0; idx < inputs.length; idx++) {
-          inputs[idx].classList.remove("qa-input--correct");
-          inputs[idx].classList.remove("qa-input--incorrect");
-        }
-        if (form) {
-          if (form._qaFlashTimer) {
-            window.clearTimeout(form._qaFlashTimer);
-            form._qaFlashTimer = null;
+      ( function () {
+        var QA_ANSWER_KEY = {
+          "sec-1-they-arrived-early-but-at-the-wrong-station": {
+            answers: [ "c3RhdGlvbg==" ]
+          },
+          "sec-2-we-counted-only-six-different-colours-in-the-rainbow": {
+            answers: [ "Y29sb3Jz", "cmFpbmJvdw==" ]
+          },
+          "sec-3-the-man-was-trying-to-steal-a-horse-with-a-cart-full-of-apples": {
+            answers: [ "bWFu", "aG9yc2U=", "Y2FydA==" ]
+          },
+          "sec-4-they-have-gone-to-the-zoo-to-see-the-black-sheep": {
+            answers: [ "em9v", "c2hlZXA=" ]
+          },
+          "sec-5-she-put-her-head-on-her-arms-and-cried-loudly": {
+            answers: [ "aGVhZA==", "YXJtcw==" ]
+          },
+          "sec-6-my-mother-is-singing-a-religious-song-in-the-kitchen": {
+            answers: [ "bW90aGVy", "c29uZw==", "a2l0Y2hlbg==" ]
+          },
+          "sec-7-he-threw-some-salted-nuts-to-the-monkeys": {
+            answers: [ "bnV0cw==", "bW9ua2V5cw==" ]
+          },
+          "sec-8-the-children-are-kicking-a-ball-around-in-the-field": {
+            answers: [ "Y2hpbGRyZW4=", "YmFsbA==", "ZmllbGQ=" ]
+          },
+          "sec-9-that-temple-was-built-before-my-grandfather-was-born": {
+            answers: [ "dGVtcGxl", "Z3JhbmRmYXRoZXI=" ]
+          },
+          "sec-10-he-bought-balloons-for-his-children-and-their-friends": {
+            answers: [ "YmFsbG9vbnM=", "Y2hpbGRyZW4=", "ZnJpZW5kcw==" ]
+          },
+          "sec-11-my-father-swims-like-a-turtle": {
+            answers: [ "ZmF0aGVy", "dHVydGxl" ]
+          },
+          "sec-12-she-won-a-trophy-for-best-dancer-in-the-street": {
+            answers: [ "dHJvcGh5", "ZGFuY2Vy", "c3RyZWV0" ]
+          },
+          "sec-13-simply-point-your-camera-at-the-camel-and-press-the-button": {
+            answers: [ "Y2FtZXJh", "Y2FtZWw=", "YnV0dG9u" ]
+          },
+          "sec-14-we-watched-seabirds-flocking-above-our-heads": {
+            answers: [ "c2VhYmlyZHM=", "aGVhZHM=" ]
+          },
+          "sec-15-he-went-to-visit-his-homesick-uncle-at-the-hospital": {
+            answers: [ "dW5jbGU=", "aG9zcGl0YWw=" ]
+          },
+          "sec-16-my-brother-wants-to-play-hide-and-seek-with-us": {
+            answers: [ "YnJvdGhlcg==", "aGlkZS1hbmQtc2Vlaw==" ]
+          },
+          "sec-17-let-me-look-at-your-puppies-and-kittens": {
+            answers: [ "cHVwcGllcw==", "a2l0dGVucw==" ]
+          },
+          "sec-18-the-taxi-broke-down-in-front-of-my-gate": {
+            answers: [ "dGF4aQ==", "Z2F0ZQ==" ]
+          },
+          "sec-19-the-boys-are-quarrelling-noisily-on-the-beach": {
+            answers: [ "Ym95cw==", "YmVhY2g=" ]
+          },
+          "sec-20-the-monkey-was-hanging-by-its-tail-from-a-branch": {
+            answers: [ "bW9ua2V5", "dGFpbA==", "YnJhbmNo" ]
           }
-          form.classList.remove("qa-attempt--flash");
-        }
-      }
+        };
 
-      function triggerFlash(form) {
-        if (!form) {
-          return;
-        }
-
-        form.classList.add("qa-attempt--flash");
-
-        if (form._qaFlashTimer) {
-          window.clearTimeout(form._qaFlashTimer);
-        }
-
-        form._qaFlashTimer = window.setTimeout(function () {
-          form.classList.remove("qa-attempt--flash");
-          form._qaFlashTimer = null;
-        }, 5000);
-      }
-
-      function evaluateAttempts(form, config, group, toggle) {
-        if (!form || !config) {
-          return false;
-        }
-
-        var inputs = form._qaInputs || [];
-        var requiredCount = Math.min(config.answers.length, inputs.length);
-        var decodedAnswers = config._decodedAnswers;
-
-        if (!decodedAnswers) {
-          decodedAnswers = [];
-          for (var a = 0; a < config.answers.length; a++) {
-            decodedAnswers.push(decodeAnswer(config.answers[a]));
+        function decodeAnswer( encoded ) {
+          if ( typeof encoded !== "string" )
+          {
+            return "";
           }
-          config._decodedAnswers = decodedAnswers;
-        }
-
-        clearVisualState(inputs, form);
-
-        if (!inputs.length || requiredCount === 0) {
-          return false;
-        }
-
-        var attempts = [];
-        var hasEmpty = false;
-        var allMeaningful = true;
-
-        for (var index = 0; index < requiredCount; index++) {
-          var currentInput = inputs[index];
-          if (!currentInput) {
-            attempts.push("");
-            hasEmpty = true;
-            allMeaningful = false;
-            continue;
-          }
-
-          var value = currentInput.value.trim();
-          attempts.push(value);
-
-          if (!value) {
-            hasEmpty = true;
-            allMeaningful = false;
-          } else if (!isMeaningful(value)) {
-            allMeaningful = false;
-          }
-        }
-
-        if (hasEmpty || !allMeaningful) {
-          for (var markIdx = 0; markIdx < requiredCount; markIdx++) {
-            if (inputs[markIdx]) {
-              inputs[markIdx].classList.add("qa-input--incorrect");
-            }
-          }
-          group.dataset.qaUnlocked = "";
-          toggle.dataset.qaUnlocked = "";
-          triggerFlash(form);
-          return false;
-        }
-
-        var correctCount = 0;
-
-        for (var compareIdx = 0; compareIdx < requiredCount; compareIdx++) {
-          var inputElement = inputs[compareIdx];
-          if (!inputElement) {
-            continue;
-          }
-
-          var normalizedAttempt = normalizeAnswer(attempts[compareIdx]);
-          var normalizedAnswer = normalizeAnswer(decodedAnswers[compareIdx]);
-
-          if (normalizedAttempt && normalizedAttempt === normalizedAnswer) {
-            inputElement.classList.add("qa-input--correct");
-            correctCount += 1;
-          } else {
-            inputElement.classList.add("qa-input--incorrect");
-          }
-        }
-
-        if (correctCount === requiredCount) {
-          group.dataset.qaUnlocked = "true";
-          toggle.dataset.qaUnlocked = "true";
-          return true;
-        }
-
-        group.dataset.qaUnlocked = "";
-        toggle.dataset.qaUnlocked = "";
-        triggerFlash(form);
-        return false;
-      }
-
-      function buildAttemptForm(config, group, toggle) {
-        var form = document.createElement("form");
-        form.className = "qa-attempt";
-        form.noValidate = true;
-
-        var inputsContainer = document.createElement("div");
-        inputsContainer.className = "qa-inputs";
-        form.appendChild(inputsContainer);
-
-        var inputs = [];
-        var MAX_INPUTS = 3;
-        var requiredInputsCount = Math.min(config.answers.length, MAX_INPUTS);
-
-        for (var index = 0; index < requiredInputsCount; index++) {
-          var input = document.createElement("textarea");
-          input.rows = 1;
-          input.autocomplete = "off";
-          input.spellcheck = true;
-          input.placeholder = "";
-          input.setAttribute("aria-label", "Attempt " + (index + 1) + " for the answer");
-          inputsContainer.appendChild(input);
-          inputs.push(input);
-        }
-
-        while (inputs.length < MAX_INPUTS) {
-          var extraIndex = inputs.length;
-          var extraInput = document.createElement("textarea");
-          extraInput.rows = 1;
-          extraInput.autocomplete = "off";
-          extraInput.spellcheck = true;
-          extraInput.placeholder = "";
-          extraInput.setAttribute("aria-label", "Additional attempt " + (extraIndex + 1));
-          extraInput.dataset.qaOptional = "true";
-          inputsContainer.appendChild(extraInput);
-          inputs.push(extraInput);
-        }
-
-        form._qaInputs = inputs;
-
-        inputs.forEach(function (input) {
-          input.addEventListener("input", function () {
-            group.dataset.qaUnlocked = "";
-            toggle.dataset.qaUnlocked = "";
-            clearVisualState(inputs, form);
-          });
-        });
-
-        return form;
-      }
-
-      function guardToggle(event) {
-        var toggle = event.currentTarget;
-        var group = toggle.closest ? toggle.closest(".nn_sliders-group") : null;
-        if (!group) {
-          return;
-        }
-
-        if (group.dataset.qaUnlocked === "true" || toggle.dataset.qaUnlocked === "true") {
-          return;
-        }
-
-        var config = toggle._qaConfig;
-        var form = group.querySelector(".qa-attempt");
-        if (config && form) {
-          var unlocked = evaluateAttempts(form, config, group, toggle);
-          if (unlocked) {
-            return;
-          }
-        }
-
-        event.preventDefault();
-        event.stopPropagation();
-
-        var inputs = (form && form._qaInputs) || [];
-        var firstInput = inputs.length ? inputs[0] : group.querySelector(".qa-attempt textarea");
-        if (firstInput && typeof firstInput.focus === "function") {
-          firstInput.focus();
-        }
-      }
-
-      function init() {
-        var toggles = document.querySelectorAll(".nn_sliders-toggle[data-id]");
-        for (var i = 0; i < toggles.length; i++) {
-          var toggle = toggles[i];
-          var dataId = toggle.getAttribute("data-id");
-          var config = QA_ANSWER_KEY[dataId];
-          if (!config) {
-            continue;
-          }
-
-          var group = toggle.closest ? toggle.closest(".nn_sliders-group") : null;
-          if (!group) {
-            continue;
-          }
-
-          var body = group.querySelector(".accordion-body");
-          if (!body) {
-            continue;
-          }
-
-          var form = buildAttemptForm(config, group, toggle);
-          toggle._qaConfig = config;
-          group.insertBefore(form, body);
-          toggle.addEventListener("click", guardToggle, true);
-        }
-      }
-
-      if (document.readyState === "loading") {
-        document.addEventListener("DOMContentLoaded", init, { once: true });
-      } else {
-        init();
-      }
-    })();
-  </script>
-  <script>
-      // nn_sliders fallback: enable toggles without legacy template helpers
-      ; ( function () {
-
-        if ( typeof window.jQuery === "undefined" && !window._qaAccordionBound )
-        {
-
           try
           {
-
-            var toggles = document.querySelectorAll( ".nn_sliders-toggle" )
-            function onToggle( e ) {
-
-              if ( e ) e.preventDefault()
-              var href = this.getAttribute( "href" ) || ""
-              var id = this.getAttribute( "data-id" ) || href.split( "#" )[ 1 ]
-              if ( !id ) return
-              var el = document.getElementById( id )
-              if ( !el ) return
-              var open = el.classList.contains( "in" ) || el.classList.contains( "show" )
-              if ( open )
-              {
-
-                el.classList.remove( "in" )
-                el.classList.remove( "show" )
-                el.classList.add( "collapse" )
-                el.style.height = ""
-                el.style.display = ""
-                this.setAttribute( "aria-expanded", "false" )
-              } else
-              {
-
-                el.classList.add( "in" )
-                el.classList.add( "show" )
-                el.classList.remove( "collapse" )
-                el.style.height = "auto"
-                el.style.display = "block"
-                this.setAttribute( "aria-expanded", "true" )
-              }
-            }
-            for ( var i = 0;
-              i < toggles.length;
-              i++ )
-            {
-
-              toggles[ i ].addEventListener( "click", onToggle )
-              var id = toggles[ i ].getAttribute( "data-id" )
-              if ( id ) toggles[ i ].setAttribute( "aria-controls", id )
-            }
-          } catch ( e )
+            return window.atob( encoded );
+          } catch ( error )
           {
-            /* no-op */
+            return "";
           }
         }
-      } )()
+
+        function normalizeAnswer( value ) {
+          return ( value || "" ).toLowerCase().replace( /[^a-z]/g, "" );
+        }
+
+        function isMeaningful( value ) {
+          if ( !value ) return false;
+          var trimmed = value.trim();
+          if ( trimmed.length < 3 ) return false;
+          return /[aeiou]/i.test( trimmed );
+        }
+
+        function clearVisualState( inputs, form ) {
+          for ( var idx = 0; idx < inputs.length; idx++ )
+          {
+            inputs[ idx ].classList.remove( "qa-input--correct" );
+            inputs[ idx ].classList.remove( "qa-input--incorrect" );
+          }
+          if ( form )
+          {
+            if ( form._qaFlashTimer )
+            {
+              window.clearTimeout( form._qaFlashTimer );
+              form._qaFlashTimer = null;
+            }
+            form.classList.remove( "qa-attempt--flash" );
+          }
+        }
+
+        function triggerFlash( form ) {
+          if ( !form )
+          {
+            return;
+          }
+
+          form.classList.add( "qa-attempt--flash" );
+
+          if ( form._qaFlashTimer )
+          {
+            window.clearTimeout( form._qaFlashTimer );
+          }
+
+          form._qaFlashTimer = window.setTimeout( function () {
+            form.classList.remove( "qa-attempt--flash" );
+            form._qaFlashTimer = null;
+          }, 5000 );
+        }
+
+        function evaluateAttempts( form, config, group, toggle ) {
+          if ( !form || !config )
+          {
+            return false;
+          }
+
+          var inputs = form._qaInputs || [];
+          var requiredCount = Math.min( config.answers.length, inputs.length );
+          var decodedAnswers = config._decodedAnswers;
+
+          if ( !decodedAnswers )
+          {
+            decodedAnswers = [];
+            for ( var a = 0; a < config.answers.length; a++ )
+            {
+              decodedAnswers.push( decodeAnswer( config.answers[ a ] ) );
+            }
+            config._decodedAnswers = decodedAnswers;
+          }
+
+          clearVisualState( inputs, form );
+
+          if ( !inputs.length || requiredCount === 0 )
+          {
+            return false;
+          }
+
+          var attempts = [];
+          var hasEmpty = false;
+          var allMeaningful = true;
+
+          for ( var index = 0; index < requiredCount; index++ )
+          {
+            var currentInput = inputs[ index ];
+            if ( !currentInput )
+            {
+              attempts.push( "" );
+              hasEmpty = true;
+              allMeaningful = false;
+              continue;
+            }
+
+            var value = currentInput.value.trim();
+            attempts.push( value );
+
+            if ( !value )
+            {
+              hasEmpty = true;
+              allMeaningful = false;
+            } else if ( !isMeaningful( value ) )
+            {
+              allMeaningful = false;
+            }
+          }
+
+          if ( hasEmpty || !allMeaningful )
+          {
+            for ( var markIdx = 0; markIdx < requiredCount; markIdx++ )
+            {
+              if ( inputs[ markIdx ] )
+              {
+                inputs[ markIdx ].classList.add( "qa-input--incorrect" );
+              }
+            }
+            group.dataset.qaUnlocked = "";
+            toggle.dataset.qaUnlocked = "";
+            triggerFlash( form );
+            return false;
+          }
+
+          var correctCount = 0;
+
+          for ( var compareIdx = 0; compareIdx < requiredCount; compareIdx++ )
+          {
+            var inputElement = inputs[ compareIdx ];
+            if ( !inputElement )
+            {
+              continue;
+            }
+
+            var normalizedAttempt = normalizeAnswer( attempts[ compareIdx ] );
+            var normalizedAnswer = normalizeAnswer( decodedAnswers[ compareIdx ] );
+
+            if ( normalizedAttempt && normalizedAttempt === normalizedAnswer )
+            {
+              inputElement.classList.add( "qa-input--correct" );
+              correctCount += 1;
+            } else
+            {
+              inputElement.classList.add( "qa-input--incorrect" );
+            }
+          }
+
+          if ( correctCount === requiredCount )
+          {
+            group.dataset.qaUnlocked = "true";
+            toggle.dataset.qaUnlocked = "true";
+            return true;
+          }
+
+          group.dataset.qaUnlocked = "";
+          toggle.dataset.qaUnlocked = "";
+          triggerFlash( form );
+          return false;
+        }
+
+        function buildAttemptForm( config, group, toggle ) {
+          var form = document.createElement( "form" );
+          form.className = "qa-attempt";
+          form.noValidate = true;
+
+          var inputsContainer = document.createElement( "div" );
+          inputsContainer.className = "qa-inputs";
+          form.appendChild( inputsContainer );
+
+          var inputs = [];
+          var MAX_INPUTS = 3;
+          var requiredInputsCount = Math.min( config.answers.length, MAX_INPUTS );
+
+          for ( var index = 0; index < requiredInputsCount; index++ )
+          {
+            var input = document.createElement( "textarea" );
+            input.rows = 1;
+            input.autocomplete = "off";
+            input.spellcheck = true;
+            input.placeholder = "";
+            input.setAttribute( "aria-label", "Attempt " + ( index + 1 ) + " for the answer" );
+            inputsContainer.appendChild( input );
+            inputs.push( input );
+          }
+
+          while ( inputs.length < MAX_INPUTS )
+          {
+            var extraIndex = inputs.length;
+            var extraInput = document.createElement( "textarea" );
+            extraInput.rows = 1;
+            extraInput.autocomplete = "off";
+            extraInput.spellcheck = true;
+            extraInput.placeholder = "";
+            extraInput.setAttribute( "aria-label", "Additional attempt " + ( extraIndex + 1 ) );
+            extraInput.dataset.qaOptional = "true";
+            inputsContainer.appendChild( extraInput );
+            inputs.push( extraInput );
+          }
+
+          form._qaInputs = inputs;
+
+          inputs.forEach( function ( input ) {
+            input.addEventListener( "input", function () {
+              group.dataset.qaUnlocked = "";
+              toggle.dataset.qaUnlocked = "";
+              clearVisualState( inputs, form );
+            } );
+          } );
+
+          return form;
+        }
+
+        function guardToggle( event ) {
+          var toggle = event.currentTarget;
+          var group = toggle.closest ? toggle.closest( ".nn_sliders-group" ) : null;
+          if ( !group )
+          {
+            return;
+          }
+
+          if ( group.dataset.qaUnlocked === "true" || toggle.dataset.qaUnlocked === "true" )
+          {
+            return;
+          }
+
+          var config = toggle._qaConfig;
+          var form = group.querySelector( ".qa-attempt" );
+          if ( config && form )
+          {
+            var unlocked = evaluateAttempts( form, config, group, toggle );
+            if ( unlocked )
+            {
+              return;
+            }
+          }
+
+          event.preventDefault();
+          event.stopPropagation();
+
+          var inputs = ( form && form._qaInputs ) || [];
+          var firstInput = inputs.length ? inputs[ 0 ] : group.querySelector( ".qa-attempt textarea" );
+          if ( firstInput && typeof firstInput.focus === "function" )
+          {
+            firstInput.focus();
+          }
+        }
+
+        function init() {
+          var toggles = document.querySelectorAll( ".nn_sliders-toggle[data-id]" );
+          for ( var i = 0; i < toggles.length; i++ )
+          {
+            var toggle = toggles[ i ];
+            var dataId = toggle.getAttribute( "data-id" );
+            var config = QA_ANSWER_KEY[ dataId ];
+            if ( !config )
+            {
+              continue;
+            }
+
+            var group = toggle.closest ? toggle.closest( ".nn_sliders-group" ) : null;
+            if ( !group )
+            {
+              continue;
+            }
+
+            var body = group.querySelector( ".accordion-body" );
+            if ( !body )
+            {
+              continue;
+            }
+
+            var form = buildAttemptForm( config, group, toggle );
+            toggle._qaConfig = config;
+            group.insertBefore( form, body );
+            toggle.addEventListener( "click", guardToggle, true );
+          }
+        }
+
+        if ( document.readyState === "loading" )
+        {
+          document.addEventListener( "DOMContentLoaded", init, { once: true } );
+        } else
+        {
+          init();
+        }
+      } )();
+  </script>
+  <script>
+    // nn_sliders fallback: enable toggles without legacy template helpers
+    ; ( function () {
+
+      if ( typeof window.jQuery === "undefined" && !window._qaAccordionBound )
+      {
+
+        try
+        {
+
+          var toggles = document.querySelectorAll( ".nn_sliders-toggle" )
+          var requestFrame = window.requestAnimationFrame || function ( callback ) {
+            return window.setTimeout( callback, 16 )
+          }
+
+          function expandToContent( element ) {
+            if ( !element ) return
+
+            element.style.display = "block"
+            element.style.overflow = "visible"
+            element.style.height = "auto"
+            element.style.maxHeight = "none"
+
+            var targetHeight = element.scrollHeight
+
+            if ( targetHeight && targetHeight > 0 )
+            {
+              var pixelHeight = targetHeight + "px"
+              element.style.height = pixelHeight
+              element.style.maxHeight = pixelHeight
+
+              requestFrame( function () {
+                element.style.height = "auto"
+                element.style.maxHeight = "none"
+              } )
+            }
+
+            element.setAttribute( "aria-hidden", "false" )
+          }
+
+          function resetInlineMetrics( element ) {
+            if ( !element ) return
+
+            element.style.height = ""
+            element.style.maxHeight = ""
+            element.style.display = ""
+            element.style.overflow = ""
+            element.setAttribute( "aria-hidden", "true" )
+          }
+
+          function collapseSiblings( toggle, currentPanel ) {
+            if ( !toggle ) return
+
+            var parentSelector = toggle.getAttribute( "data-parent" )
+            if ( !parentSelector ) return
+
+            var parentGroup = document.querySelector( parentSelector )
+            if ( !parentGroup ) return
+
+            var openPanels = parentGroup.querySelectorAll( ".nn_sliders-body.in, .nn_sliders-body.show" )
+            for ( var idx = 0; idx < openPanels.length; idx++ )
+            {
+              var panel = openPanels[ idx ]
+              if ( panel === currentPanel )
+              {
+                continue
+              }
+
+              panel.classList.remove( "in" )
+              panel.classList.remove( "show" )
+              panel.classList.add( "collapse" )
+              resetInlineMetrics( panel )
+
+              var panelId = panel.getAttribute( "id" )
+              if ( !panelId )
+              {
+                continue
+              }
+
+              var controllingToggle = parentGroup.querySelector( '.nn_sliders-toggle[data-id="' + panelId + '"]' )
+              if ( !controllingToggle )
+              {
+                controllingToggle = parentGroup.querySelector( '.nn_sliders-toggle[href$="#' + panelId + '"]' )
+              }
+
+              if ( controllingToggle )
+              {
+                controllingToggle.setAttribute( "aria-expanded", "false" )
+              }
+            }
+          }
+          function onToggle( e ) {
+
+            if ( e ) e.preventDefault()
+            var href = this.getAttribute( "href" ) || ""
+            var id = this.getAttribute( "data-id" ) || href.split( "#" )[ 1 ]
+            if ( !id ) return
+            var el = document.getElementById( id )
+            if ( !el ) return
+            var open = el.classList.contains( "in" ) || el.classList.contains( "show" )
+            if ( open )
+            {
+
+              el.classList.remove( "in" )
+              el.classList.remove( "show" )
+              el.classList.add( "collapse" )
+              resetInlineMetrics( el )
+              this.setAttribute( "aria-expanded", "false" )
+            } else
+            {
+
+              el.classList.add( "in" )
+              el.classList.add( "show" )
+              el.classList.remove( "collapse" )
+              expandToContent( el )
+              this.setAttribute( "aria-expanded", "true" )
+              collapseSiblings( this, el )
+            }
+          }
+          for ( var i = 0;
+            i < toggles.length;
+            i++ )
+          {
+
+            toggles[ i ].addEventListener( "click", onToggle )
+            var id = toggles[ i ].getAttribute( "data-id" )
+            if ( id )
+            {
+              toggles[ i ].setAttribute( "aria-controls", id )
+              var target = document.getElementById( id )
+              var expanded = target && ( target.classList.contains( "in" ) || target.classList.contains( "show" ) )
+              toggles[ i ].setAttribute( "aria-expanded", expanded ? "true" : "false" )
+              if ( target )
+              {
+                target.setAttribute( "aria-hidden", expanded ? "false" : "true" )
+              }
+              if ( expanded )
+              {
+                expandToContent( target )
+              }
+            }
+          }
+          window._qaAccordionBound = true
+        } catch ( e )
+        {
+          /* no-op */
+        }
+      }
+    } )()
   </script>
 
   <!-- Mobile navigation is handled globally via template asset -->
