@@ -101,3 +101,7 @@ div.accordion-inner > p {
 #content .nn_sliders .collapse.show {
   height: auto;
 }
+
+div .accordion-inner > p {
+  margin: 0;
+}
