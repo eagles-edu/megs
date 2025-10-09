@@ -5,9 +5,9 @@ permissions:
 
 on:
   push:
-    branches: [ trunk ]
+    branches: [ trunk-revert ]
   pull_request:
-    branches: [ trunk ]
+    branches: [ trunk-revert ]
 
 jobs:
   ci:

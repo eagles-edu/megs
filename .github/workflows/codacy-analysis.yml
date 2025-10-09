@@ -2,9 +2,9 @@ name: Codacy Analysis (ESLint + Trivy)
 
 on:
   push:
-    branches: [ trunk ]
+    branches: [ trunk-revert ]
   pull_request:
-    branches: [ trunk ]
+    branches: [ trunk-revert ]
   workflow_dispatch:
 
 concurrency:

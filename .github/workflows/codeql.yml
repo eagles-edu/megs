@@ -2,9 +2,9 @@ name: CodeQL
 
 on:
   push:
-    branches: [ trunk ]
+    branches: [ trunk-revert ]
   pull_request:
-    branches: [ trunk ]
+    branches: [ trunk-revert ]
   schedule:
     - cron: '0 9 * * 1'
   workflow_dispatch:
