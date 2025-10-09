@@ -40,6 +40,7 @@
       --pager-padding-block: 0.6rem;
       --pager-padding-inline: 0.95rem;
       --pager-text-color: var(--text-color, #212121);
+      --menu-icon-pad-inline: 6px;
       /* pager variables  */
       /* Brand core */
       /* locked */
@@ -276,6 +277,11 @@
       }
     }
 
+        /* Left accordion menu: reserve icon/text layout early */
+    #sidebar {
+      --menu-icon-pad-inline: 7px;
+    }
+
     /* Left accordion menu: reserve icon/text layout early */
     #sidebar .sidebar-nav {
       background: var(--surface-color, #fff);
@@ -307,25 +313,50 @@
       display: flex;
       flex: 0 0 var(--icon-slot, 24px);
       justify-content: center;
-      padding-left: var(--menu-icon-pad-left, 6px);
-      padding-right: 1rem;
       margin-inline-start: auto;
       order: 2;
+      padding-inline: var(--menu-icon-pad-inline, 7px);
+      position: relative;
     }
 
     ul.accordion-menu .menu-button:empty {
       display: none;
     }
+ul.accordion-menu .menu-button::after {
+      background: center / contain no-repeat url("../web-asset/icons/svg/sized/minus5.svg");
+      content: "";
+      inset: 0;
+      opacity: 0;
+      pointer-events: none;
+      position: absolute;
+      transition: opacity 0.2s ease;
+    }
 
-    /* Match button-right spacing/line-height from left-menu.css to prevent flash */
-    ul.accordion-menu.button-right li>.item-wrapper>.menu-button {
-      float: right;
+    /* Match left/right toggle padding with linked CSS defaults */
+    #sidebar ul.accordion-menu.button-left li>.item-wrapper>.menu-button,
+    #sidebar ul.accordion-menu.button-right li>.item-wrapper>.menu-button {
       line-height: 10px;
-      padding: 12px 0;
+      padding-block: 12px;
+      padding-inline: var(--menu-icon-pad-inline, 7px);
     }
 
     ul.accordion-menu.button-right li>.item-wrapper>.menu-button>img {
       padding-right: 10px;
+    }
+
+    ul.accordion-menu li:hover>.item-wrapper>.menu-button>img,
+    ul.accordion-menu li:hover>.item-wrapper>.menu-button>svg,
+    ul.accordion-menu li:focus-within>.item-wrapper>.menu-button>img,
+    ul.accordion-menu li:focus-within>.item-wrapper>.menu-button>svg,
+    ul.accordion-menu li.opened>.item-wrapper>.menu-button>img,
+    ul.accordion-menu li.opened>.item-wrapper>.menu-button>svg {
+      opacity: 0;
+    }
+
+    ul.accordion-menu li:hover>.item-wrapper>.menu-button::after,
+    ul.accordion-menu li:focus-within>.item-wrapper>.menu-button::after,
+    ul.accordion-menu li.opened>.item-wrapper>.menu-button::after {
+      opacity: 1;
     }
 
     ul.accordion-menu li {
@@ -1108,7 +1139,8 @@
                       data-id="sec-9-that-temple-was-built-before-my-grandfather-was-born"
                       data-parent="#set-nn_sliders-9" aria-expanded="false"
                       aria-controls="sec-9-that-temple-was-built-before-my-grandfather-was-born">
-                      <span class="nn_sliders-toggle-inner">9. That temple was built before my grandfather was born.</span>
+                      <span class="nn_sliders-toggle-inner">9. That temple was built before my grandfather was
+                        born.</span>
                     </a>
                   </div>
                   <div class="accordion-body nn_sliders-body collapse"

@@ -51,6 +51,7 @@
   /* Navigation/menu */
   --menu-text: #616978; /* accessible muted slate on white */
   --menu-text-hover: var(--primary-color);
+  --menu-icon-pad-inline: 7px;
 
   /* Shape */
   --radius: 3px;
