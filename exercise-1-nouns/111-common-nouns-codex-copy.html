@@ -322,7 +322,18 @@
     ul.accordion-menu .menu-button:empty {
       display: none;
     }
+
 ul.accordion-menu .menu-button::after {
+      background: center / contain no-repeat url("../web-asset/icons/svg/sized/minus5.svg");
+      content: "";
+      inset: 0;
+      opacity: 0;
+      pointer-events: none;
+      position: absolute;
+      transition: opacity 0.2s ease;
+    }
+
+    ul.accordion-menu .menu-button::after {
       background: center / contain no-repeat url("../web-asset/icons/svg/sized/minus5.svg");
       content: "";
       inset: 0;
@@ -336,8 +347,10 @@ ul.accordion-menu .menu-button::after {
     #sidebar ul.accordion-menu.button-left li>.item-wrapper>.menu-button,
     #sidebar ul.accordion-menu.button-right li>.item-wrapper>.menu-button {
       line-height: 10px;
-      padding-block: 12px;
-      padding-inline: var(--menu-icon-pad-inline, 7px);
+      padding-bottom: 12px;
+      padding-left: var(--menu-icon-pad-inline, 7px);
+      padding-right: var(--menu-icon-pad-inline, 7px);
+      padding-top: 12px;
     }
 
     ul.accordion-menu.button-right li>.item-wrapper>.menu-button>img {
@@ -404,7 +417,7 @@ ul.accordion-menu .menu-button::after {
       display: block;
     }
 
-    @@ -393, 156+409, 168 @@ ul.accordion-menu li.opened>.item-wrapper>.menu-button>svg {
+    ul.accordion-menu li.opened>.item-wrapper>.menu-button>svg {
       opacity: 0;
     }
 
