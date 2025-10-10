@@ -65,3 +65,22 @@ git push origin <branch>
 git fetch --all --prune
 git branch -vv
 
+# List local branches:
+git branch
+
+# List remote branches:
+git branch -r
+
+# List all branches (local + remote):
+git branch -a
+
+# List branches with last commit info:
+git branch -vv
+
+# Bonus – list only merged branches:
+git branch --merged
+
+
+And to list unmerged ones:
+
+git branch --no-merged

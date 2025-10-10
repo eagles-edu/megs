@@ -27,7 +27,7 @@
   "yaml.validate": false,
 
   // "terminal.external.linuxExec": "gnome-terminal",
-  "terminal.explorerKind": "external",
+  "terminal.explorerKind": "integrated",
 
   "html.trace.server": "messages",
   "css.lint.boxModel": "ignore",
