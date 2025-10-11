@@ -41,6 +41,9 @@
       --pager-padding-inline: 0.95rem;
       --pager-text-color: var(--text-color, #212121);
       --menu-icon-pad-inline: 6px;
+      --menu-toggle-icon-size: var(--flyout-icon-size, 24px);
+      --menu-toggle-icon-gap: 6px;
+      --menu-toggle-minus-asset: url("../web-asset/icons/svg/sized/minus5.svg");
       /* pager variables  */
       /* Brand core */
       /* locked */
@@ -326,9 +329,15 @@
     }
 
     ul.accordion-menu .menu-button::after {
-      background: center / contain no-repeat url("../web-asset/icons/svg/sized/minus5.svg");
+      background: center / contain no-repeat var(--menu-toggle-minus-asset);
+      background-color: currentColor;
+      block-size: var(--menu-toggle-icon-size);
       content: "";
+      inline-size: var(--menu-toggle-icon-size);
       inset: 0;
+      margin: auto;
+      -webkit-mask: center / contain no-repeat var(--menu-toggle-minus-asset);
+      mask: center / contain no-repeat var(--menu-toggle-minus-asset);
       opacity: 0;
       pointer-events: none;
       position: absolute;
@@ -348,12 +357,13 @@
       padding-inline-end: var(--menu-icon-pad-inline-end, 7px);
     }
 
-    /* Lists toggle: align icon sizing with right rail flyout */
+ /* Lists toggle: align icon sizing with right rail flyout */
     #lists-menu-item {
-      --lists-icon-size: var(--flyout-icon-size, 24px);
-      --lists-icon-slot: calc(var(--lists-icon-size) + var(--lists-icon-gap, 6px));
+      --lists-icon-gap: var(--menu-toggle-icon-gap, 6px);
+      --lists-icon-size: var(--menu-toggle-icon-size);
+      --lists-icon-slot: calc(var(--lists-icon-size) + var(--lists-icon-gap));
       --menu-icon-pad-inline-start: var(--lists-icon-pad-start, 0);
-      --menu-icon-pad-inline-end: var(--lists-icon-gap, 6px);
+      --menu-icon-pad-inline-end: var(--lists-icon-gap);
       --icon-slot: var(--lists-icon-slot);
     }
 
@@ -363,13 +373,6 @@
       min-block-size: var(--lists-icon-size);
       padding-block: var(--lists-icon-pad-block, 12px);
       transition: color 0.2s ease;
-    }
-
-    #lists-menu-item>.item-wrapper>.menu-button>svg {
-      flex: 0 0 auto;
-      height: var(--lists-icon-size);
-      width: var(--lists-icon-size);
-      fill: currentColor;
     }
 
     #lists-menu-item>.item-wrapper>.menu-button::after {
@@ -387,6 +390,14 @@
     #lists-menu-item:focus-within>.item-wrapper>.menu-button,
     #lists-menu-item.opened>.item-wrapper>.menu-button {
       color: var(--primary-color);
+    }
+
+    ul.accordion-menu .menu-button>svg,
+    #aside ul.flyout-menu .menu-button>svg {
+      flex: 0 0 auto;
+      height: var(--menu-toggle-icon-size);
+      width: var(--menu-toggle-icon-size);
+      fill: currentColor;
     }
 
 ul.accordion-menu.button-right li>.item-wrapper>.menu-button>img {
@@ -490,11 +501,14 @@ ul.accordion-menu.button-right li>.item-wrapper>.menu-button>img {
 
     #aside ul.flyout-menu .menu-button {
       align-items: center;
+      color: var(--menu-toggle-icon-color, var(--icon-color-on-lt));
       display: flex;
       flex: 0 0 var(--icon-slot, 24px);
       justify-content: flex-start;
+      min-block-size: var(--menu-toggle-icon-size);
       padding-left: var(--menu-icon-pad-left, 6px);
       position: relative;
+      transition: color 0.2s ease;
     }
 
     #aside ul.flyout-menu .menu-button>img,
@@ -513,9 +527,15 @@ ul.accordion-menu.button-right li>.item-wrapper>.menu-button>img {
     }
 
     #aside ul.flyout-menu .menu-button::after {
-      background: center / contain no-repeat url("../web-asset/icons/svg/sized/minus5.svg");
+      background: center / contain no-repeat var(--menu-toggle-minus-asset);
+      background-color: currentColor;
+      block-size: var(--menu-toggle-icon-size);
       content: "";
+      inline-size: var(--menu-toggle-icon-size);
       inset: 0;
+      margin: auto;
+      -webkit-mask: center / contain no-repeat var(--menu-toggle-minus-asset);
+      mask: center / contain no-repeat var(--menu-toggle-minus-asset);
       opacity: 0;
       pointer-events: none;
       position: absolute;
@@ -529,6 +549,12 @@ ul.accordion-menu.button-right li>.item-wrapper>.menu-button>img {
     #aside ul.flyout-menu li.opened>.item-wrapper>.menu-button>img,
     #aside ul.flyout-menu li.opened>.item-wrapper>.menu-button>svg {
       opacity: 0;
+    }
+
+    #aside ul.flyout-menu li:hover>.item-wrapper>.menu-button,
+    #aside ul.flyout-menu li:focus-within>.item-wrapper>.menu-button,
+    #aside ul.flyout-menu li.opened>.item-wrapper>.menu-button {
+      color: var(--primary-color);
     }
 
     #aside ul.flyout-menu li:hover>.item-wrapper>.menu-button::after,
@@ -1597,13 +1623,12 @@ ul.accordion-menu.button-right li>.item-wrapper>.menu-button>img {
             <ul class="flyout-menu vertical flyout-left text-left button-right" id="flyout_menu_93">
               <li class="current first">
                 <div class="item-wrapper">
-                  <div class="menu-button">
-                    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 48 48" fill="currentColor">
-                      <title>plus3</title>
-                      <path
-                        d="M10 26h12v12c0 1.104 0.896 2 2 2s2-0.896 2-2v-12h12c1.104 0 2-0.896 2-2s-0.896-2-2-2h-12v-12c0-1.104-0.896-2-2-2s-2 0.896-2 2v12h-12c-1.104 0-2 0.896-2 2s0.896 2 2 2z">
-                      </path>
-                    </svg>
+                  <div class="menu-button"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 48 48" fill="currentColor">
+                    <title>plus3</title>
+                    <path
+                      d="M10 26h12v12c0 1.104 0.896 2 2 2s2-0.896 2-2v-12h12c1.104 0 2-0.896 2-2s-0.896-2-2-2h-12v-12c0-1.104-0.896-2-2-2s-2 0.896-2 2v12h-12c-1.104 0-2 0.896-2 2s0.896 2 2 2z">
+                    </path>
+                  </svg>
                   </div>
                   <div class="menu-link">
                     <a href="../exercise-1-nouns.html" aria-label="Nouns">
