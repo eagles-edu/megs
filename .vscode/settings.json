@@ -239,7 +239,7 @@
     "xxlarge",
     "yfti"
   ],
-  "checkpoints.showActiveFileOnly": false,
+  "checkpoints.showActiveFileOnly": true,
   "checkpoints.addCheckpointOnSave": true,
   "checkpoints.locale": "vi-VN",
   "checkpoints.location": "scm",
