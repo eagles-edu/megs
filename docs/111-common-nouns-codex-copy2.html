@@ -348,39 +348,24 @@
       padding-inline-end: var(--menu-icon-pad-inline-end, 7px);
     }
 
-    /* Lists toggle: align icon sizing with right rail flyout */
-    #lists-menu-item {
-      --lists-icon-size: var(--flyout-icon-size, 24px);
-      --lists-icon-slot: calc(var(--lists-icon-size) + var(--lists-icon-gap, 6px));
+    * Lists toggle: align icon sizing with right rail flyout */ #lists-menu-item {
+      --icon-slot: var(--lists-icon-slot, 32px);
       --menu-icon-pad-inline-start: var(--lists-icon-pad-start, 0);
-      --menu-icon-pad-inline-end: var(--lists-icon-gap, 6px);
-      --icon-slot: var(--lists-icon-slot);
+      --menu-icon-pad-inline-end: var(--lists-icon-pad-end, 6px);
     }
 
     #lists-menu-item>.item-wrapper>.menu-button {
       color: var(--menu-toggle-icon-color, var(--icon-color-on-lt));
       justify-content: flex-end;
-      min-block-size: var(--lists-icon-size);
       padding-block: var(--lists-icon-pad-block, 12px);
       transition: color 0.2s ease;
     }
 
     #lists-menu-item>.item-wrapper>.menu-button>svg {
       flex: 0 0 auto;
-      height: var(--lists-icon-size);
-      width: var(--lists-icon-size);
+      height: var(--lists-icon-size, 22px);
+      width: var(--lists-icon-size, 22px);
       fill: currentColor;
-    }
-
-    #lists-menu-item>.item-wrapper>.menu-button::after {
-      block-size: var(--lists-icon-size);
-      height: var(--lists-icon-size);
-      inline-size: var(--lists-icon-size);
-      inset: auto;
-      right: var(--lists-icon-gap, 6px);
-      top: 50%;
-      transform: translateY(-50%);
-      width: var(--lists-icon-size);
     }
 
     #lists-menu-item:hover>.item-wrapper>.menu-button,
@@ -389,7 +374,7 @@
       color: var(--primary-color);
     }
 
-ul.accordion-menu.button-right li>.item-wrapper>.menu-button>img {
+    ul.accordion-menu.button-right li>.item-wrapper>.menu-button>img {
       padding-right: 10px;
     }
 
@@ -840,8 +825,8 @@ ul.accordion-menu.button-right li>.item-wrapper>.menu-button>img {
                   <li id="lists-menu-item">
                     <div class="item-wrapper">
                       <div class="menu-button">
-                        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                          viewBox="0 0 48 48" fill="currentColor">
+                        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 48 48"
+                          fill="currentColor">
                           <title>plus3</title>
                           <path
                             d="M10 26h12v12c0 1.104 0.896 2 2 2s2-0.896 2-2v-12h12c1.104 0 2-0.896 2-2s-0.896-2-2-2h-12v-12c0-1.104-0.896-2-2-2s-2 0.896-2 2v12h-12c-1.104 0-2 0.896-2 2s0.896 2 2 2z">
@@ -928,7 +913,8 @@ ul.accordion-menu.button-right li>.item-wrapper>.menu-button>img {
                 <li class="next">
                   <a href="112-proper-nouns.html" rel="next" aria-label="1.1.2 Proper Nouns">
                     1.1.2 Proper Nouns&nbsp;&nbsp;
-                    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 18 48" fill="currentColor">
+                    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 18 48"
+                      fill="currentColor">
                       <title>angle-right</title>
                       <path
                         d="M15.938 25.714c0 0.214-0.107 0.455-0.268 0.616l-12.482 12.482c-0.161 0.161-0.402 0.268-0.616 0.268s-0.455-0.107-0.616-0.268l-1.339-1.339c-0.161-0.161-0.268-0.375-0.268-0.616 0-0.214 0.107-0.455 0.268-0.616l10.527-10.527-10.527-10.527c-0.161-0.161-0.268-0.402-0.268-0.616s0.107-0.455 0.268-0.616l1.339-1.339c0.161-0.161 0.402-0.268 0.616-0.268s0.455 0.107 0.616 0.268l12.482 12.482c0.161 0.161 0.268 0.402 0.268 0.616z">
@@ -1533,7 +1519,8 @@ ul.accordion-menu.button-right li>.item-wrapper>.menu-button>img {
               <ul class="pager pagenav">
                 <li class="prev">
                   <a href="../exercise-1-nouns.html" rel="prev" aria-label="Previous">
-                    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 18 48" fill="currentColor">
+                    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 18 48"
+                      fill="currentColor">
                       <title>angle-left</title>
                       <path
                         d="M16.795 14.571c0 0.214-0.107 0.455-0.268 0.616l-10.527 10.527 10.527 10.527c0.161 0.161 0.268 0.402 0.268 0.616s-0.107 0.455-0.268 0.616l-1.339 1.339c-0.161 0.161-0.402 0.268-0.616 0.268s-0.455-0.107-0.616-0.268l-12.482-12.482c-0.161-0.161-0.268-0.402-0.268-0.616s0.107-0.455 0.268-0.616l12.482-12.482c0.161-0.161 0.402-0.268 0.616-0.268s0.455 0.107 0.616 0.268l1.339 1.339c0.161 0.161 0.268 0.375 0.268 0.616z">
@@ -1545,7 +1532,8 @@ ul.accordion-menu.button-right li>.item-wrapper>.menu-button>img {
                 <li class="next">
                   <a href="112-proper-nouns.html" rel="next" aria-label="1.1.2 Proper Nouns">
                     1.1.2 Proper Nouns&nbsp;&nbsp;
-                    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 18 48" fill="currentColor">
+                    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 18 48"
+                      fill="currentColor">
                       <title>angle-right</title>
                       <path
                         d="M15.938 25.714c0 0.214-0.107 0.455-0.268 0.616l-12.482 12.482c-0.161 0.161-0.402 0.268-0.616 0.268s-0.455-0.107-0.616-0.268l-1.339-1.339c-0.161-0.161-0.268-0.375-0.268-0.616 0-0.214 0.107-0.455 0.268-0.616l10.527-10.527-10.527-10.527c-0.161-0.161-0.268-0.402-0.268-0.616s0.107-0.455 0.268-0.616l1.339-1.339c0.161-0.161 0.402-0.268 0.616-0.268s0.455 0.107 0.616 0.268l12.482 12.482c0.161 0.161 0.268 0.402 0.268 0.616z">
@@ -1598,7 +1586,8 @@ ul.accordion-menu.button-right li>.item-wrapper>.menu-button>img {
               <li class="current first">
                 <div class="item-wrapper">
                   <div class="menu-button">
-                    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 48 48" fill="currentColor">
+                    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 48 48"
+                      fill="currentColor">
                       <title>plus3</title>
                       <path
                         d="M10 26h12v12c0 1.104 0.896 2 2 2s2-0.896 2-2v-12h12c1.104 0 2-0.896 2-2s-0.896-2-2-2h-12v-12c0-1.104-0.896-2-2-2s-2 0.896-2 2v12h-12c-1.104 0-2 0.896-2 2s0.896 2 2 2z">
@@ -1692,7 +1681,8 @@ ul.accordion-menu.button-right li>.item-wrapper>.menu-button>img {
               <li>
                 <div class="item-wrapper">
                   <div class="menu-button">
-                    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 48 48" fill="currentColor">
+                    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 48 48"
+                      fill="currentColor">
                       <title>plus3</title>
                       <path
                         d="M10 26h12v12c0 1.104 0.896 2 2 2s2-0.896 2-2v-12h12c1.104 0 2-0.896 2-2s-0.896-2-2-2h-12v-12c0-1.104-0.896-2-2-2s-2 0.896-2 2v12h-12c-1.104 0-2 0.896-2 2s0.896 2 2 2z">
@@ -1760,7 +1750,8 @@ ul.accordion-menu.button-right li>.item-wrapper>.menu-button>img {
               <li>
                 <div class="item-wrapper">
                   <div class="menu-button">
-                    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 48 48" fill="currentColor">
+                    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 48 48"
+                      fill="currentColor">
                       <title>plus3</title>
                       <path
                         d="M10 26h12v12c0 1.104 0.896 2 2 2s2-0.896 2-2v-12h12c1.104 0 2-0.896 2-2s-0.896-2-2-2h-12v-12c0-1.104-0.896-2-2-2s-2 0.896-2 2v12h-12c-1.104 0-2 0.896-2 2s0.896 2 2 2z">
@@ -1861,7 +1852,8 @@ ul.accordion-menu.button-right li>.item-wrapper>.menu-button>img {
               <li>
                 <div class="item-wrapper">
                   <div class="menu-button">
-                    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 48 48" fill="currentColor">
+                    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 48 48"
+                      fill="currentColor">
                       <title>plus3</title>
                       <path
                         d="M10 26h12v12c0 1.104 0.896 2 2 2s2-0.896 2-2v-12h12c1.104 0 2-0.896 2-2s-0.896-2-2-2h-12v-12c0-1.104-0.896-2-2-2s-2 0.896-2 2v12h-12c-1.104 0-2 0.896-2 2s0.896 2 2 2z">
@@ -1963,7 +1955,8 @@ ul.accordion-menu.button-right li>.item-wrapper>.menu-button>img {
               <li>
                 <div class="item-wrapper">
                   <div class="menu-button">
-                    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 48 48" fill="currentColor">
+                    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 48 48"
+                      fill="currentColor">
                       <title>plus3</title>
                       <path
                         d="M10 26h12v12c0 1.104 0.896 2 2 2s2-0.896 2-2v-12h12c1.104 0 2-0.896 2-2s-0.896-2-2-2h-12v-12c0-1.104-0.896-2-2-2s-2 0.896-2 2v12h-12c-1.104 0-2 0.896-2 2s0.896 2 2 2z">
@@ -2159,7 +2152,8 @@ ul.accordion-menu.button-right li>.item-wrapper>.menu-button>img {
               <li>
                 <div class="item-wrapper">
                   <div class="menu-button">
-                    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 48 48" fill="currentColor">
+                    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 48 48"
+                      fill="currentColor">
                       <title>plus3</title>
                       <path
                         d="M10 26h12v12c0 1.104 0.896 2 2 2s2-0.896 2-2v-12h12c1.104 0 2-0.896 2-2s-0.896-2-2-2h-12v-12c0-1.104-0.896-2-2-2s-2 0.896-2 2v12h-12c-1.104 0-2 0.896-2 2s0.896 2 2 2z">
@@ -2271,7 +2265,8 @@ ul.accordion-menu.button-right li>.item-wrapper>.menu-button>img {
               <li>
                 <div class="item-wrapper">
                   <div class="menu-button">
-                    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 48 48" fill="currentColor">
+                    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 48 48"
+                      fill="currentColor">
                       <title>plus3</title>
                       <path
                         d="M10 26h12v12c0 1.104 0.896 2 2 2s2-0.896 2-2v-12h12c1.104 0 2-0.896 2-2s-0.896-2-2-2h-12v-12c0-1.104-0.896-2-2-2s-2 0.896-2 2v12h-12c-1.104 0-2 0.896-2 2s0.896 2 2 2z">
@@ -2362,7 +2357,8 @@ ul.accordion-menu.button-right li>.item-wrapper>.menu-button>img {
               <li>
                 <div class="item-wrapper">
                   <div class="menu-button">
-                    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 48 48" fill="currentColor">
+                    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 48 48"
+                      fill="currentColor">
                       <title>plus3</title>
                       <path
                         d="M10 26h12v12c0 1.104 0.896 2 2 2s2-0.896 2-2v-12h12c1.104 0 2-0.896 2-2s-0.896-2-2-2h-12v-12c0-1.104-0.896-2-2-2s-2 0.896-2 2v12h-12c-1.104 0-2 0.896-2 2s0.896 2 2 2z">
@@ -2410,7 +2406,8 @@ ul.accordion-menu.button-right li>.item-wrapper>.menu-button>img {
               <li>
                 <div class="item-wrapper">
                   <div class="menu-button">
-                    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 48 48" fill="currentColor">
+                    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 48 48"
+                      fill="currentColor">
                       <title>plus3</title>
                       <path
                         d="M10 26h12v12c0 1.104 0.896 2 2 2s2-0.896 2-2v-12h12c1.104 0 2-0.896 2-2s-0.896-2-2-2h-12v-12c0-1.104-0.896-2-2-2s-2 0.896-2 2v12h-12c-1.104 0-2 0.896-2 2s0.896 2 2 2z">
@@ -2458,7 +2455,8 @@ ul.accordion-menu.button-right li>.item-wrapper>.menu-button>img {
               <li>
                 <div class="item-wrapper">
                   <div class="menu-button">
-                    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 48 48" fill="currentColor">
+                    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 48 48"
+                      fill="currentColor">
                       <title>plus3</title>
                       <path
                         d="M10 26h12v12c0 1.104 0.896 2 2 2s2-0.896 2-2v-12h12c1.104 0 2-0.896 2-2s-0.896-2-2-2h-12v-12c0-1.104-0.896-2-2-2s-2 0.896-2 2v12h-12c-1.104 0-2 0.896-2 2s0.896 2 2 2z">
@@ -2506,7 +2504,8 @@ ul.accordion-menu.button-right li>.item-wrapper>.menu-button>img {
               <li>
                 <div class="item-wrapper">
                   <div class="menu-button">
-                    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 48 48" fill="currentColor">
+                    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 48 48"
+                      fill="currentColor">
                       <title>plus3</title>
                       <path
                         d="M10 26h12v12c0 1.104 0.896 2 2 2s2-0.896 2-2v-12h12c1.104 0 2-0.896 2-2s-0.896-2-2-2h-12v-12c0-1.104-0.896-2-2-2s-2 0.896-2 2v12h-12c-1.104 0-2 0.896-2 2s0.896 2 2 2z">
@@ -2575,7 +2574,8 @@ ul.accordion-menu.button-right li>.item-wrapper>.menu-button>img {
               <li>
                 <div class="item-wrapper">
                   <div class="menu-button">
-                    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 48 48" fill="currentColor">
+                    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 48 48"
+                      fill="currentColor">
                       <title>plus3</title>
                       <path
                         d="M10 26h12v12c0 1.104 0.896 2 2 2s2-0.896 2-2v-12h12c1.104 0 2-0.896 2-2s-0.896-2-2-2h-12v-12c0-1.104-0.896-2-2-2s-2 0.896-2 2v12h-12c-1.104 0-2 0.896-2 2s0.896 2 2 2z">
@@ -2665,7 +2665,8 @@ ul.accordion-menu.button-right li>.item-wrapper>.menu-button>img {
               <li>
                 <div class="item-wrapper">
                   <div class="menu-button">
-                    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 48 48" fill="currentColor">
+                    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 48 48"
+                      fill="currentColor">
                       <title>plus3</title>
                       <path
                         d="M10 26h12v12c0 1.104 0.896 2 2 2s2-0.896 2-2v-12h12c1.104 0 2-0.896 2-2s-0.896-2-2-2h-12v-12c0-1.104-0.896-2-2-2s-2 0.896-2 2v12h-12c-1.104 0-2 0.896-2 2s0.896 2 2 2z">
@@ -2766,7 +2767,8 @@ ul.accordion-menu.button-right li>.item-wrapper>.menu-button>img {
               <li>
                 <div class="item-wrapper">
                   <div class="menu-button">
-                    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 48 48" fill="currentColor">
+                    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 48 48"
+                      fill="currentColor">
                       <title>plus3</title>
                       <path
                         d="M10 26h12v12c0 1.104 0.896 2 2 2s2-0.896 2-2v-12h12c1.104 0 2-0.896 2-2s-0.896-2-2-2h-12v-12c0-1.104-0.896-2-2-2s-2 0.896-2 2v12h-12c-1.104 0-2 0.896-2 2s0.896 2 2 2z">
@@ -2814,7 +2816,8 @@ ul.accordion-menu.button-right li>.item-wrapper>.menu-button>img {
               <li>
                 <div class="item-wrapper">
                   <div class="menu-button">
-                    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 48 48" fill="currentColor">
+                    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 48 48"
+                      fill="currentColor">
                       <title>plus3</title>
                       <path
                         d="M10 26h12v12c0 1.104 0.896 2 2 2s2-0.896 2-2v-12h12c1.104 0 2-0.896 2-2s-0.896-2-2-2h-12v-12c0-1.104-0.896-2-2-2s-2 0.896-2 2v12h-12c-1.104 0-2 0.896-2 2s0.896 2 2 2z">
@@ -2885,7 +2888,8 @@ ul.accordion-menu.button-right li>.item-wrapper>.menu-button>img {
               <li>
                 <div class="item-wrapper">
                   <div class="menu-button">
-                    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 48 48" fill="currentColor">
+                    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 48 48"
+                      fill="currentColor">
                       <title>plus3</title>
                       <path
                         d="M10 26h12v12c0 1.104 0.896 2 2 2s2-0.896 2-2v-12h12c1.104 0 2-0.896 2-2s-0.896-2-2-2h-12v-12c0-1.104-0.896-2-2-2s-2 0.896-2 2v12h-12c-1.104 0-2 0.896-2 2s0.896 2 2 2z">
@@ -2936,7 +2940,8 @@ ul.accordion-menu.button-right li>.item-wrapper>.menu-button>img {
               <li>
                 <div class="item-wrapper">
                   <div class="menu-button">
-                    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 48 48" fill="currentColor">
+                    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 48 48"
+                      fill="currentColor">
                       <title>plus3</title>
                       <path
                         d="M10 26h12v12c0 1.104 0.896 2 2 2s2-0.896 2-2v-12h12c1.104 0 2-0.896 2-2s-0.896-2-2-2h-12v-12c0-1.104-0.896-2-2-2s-2 0.896-2 2v12h-12c-1.104 0-2 0.896-2 2s0.896 2 2 2z">
@@ -2994,7 +2999,8 @@ ul.accordion-menu.button-right li>.item-wrapper>.menu-button>img {
               <li class="last">
                 <div class="item-wrapper">
                   <div class="menu-button">
-                    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 48 48" fill="currentColor">
+                    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 48 48"
+                      fill="currentColor">
                       <title>plus3</title>
                       <path
                         d="M10 26h12v12c0 1.104 0.896 2 2 2s2-0.896 2-2v-12h12c1.104 0 2-0.896 2-2s-0.896-2-2-2h-12v-12c0-1.104-0.896-2-2-2s-2 0.896-2 2v12h-12c-1.104 0-2 0.896-2 2s0.896 2 2 2z">
