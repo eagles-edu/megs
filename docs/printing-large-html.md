@@ -58,3 +58,7 @@ sed -n '1,3223p' exercise-1-nouns/111-common-nouns-codex-copy2.html | gzip > 111
 ```
 
 If you only need a portion of the file, adjust the line range accordingly (e.g., `sed -n '150,260p' ...`).
+
+-----------------
+
+exercise-1-nouns/111-common-nouns-codex-copy3.html
