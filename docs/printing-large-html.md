@@ -37,3 +37,24 @@ wc -l exercise-1-nouns/111-common-nouns-codex-copy.html
 ```
 
 Adjust the split point accordingly so that both halves remain contiguous.
+
+----------
+
+ Downloading `exercise-1-nouns/111-common-nouns-codex-copy2.html` with `sed`
+
+The HTML file currently spans 3,223 lines. Use the following commands from the project root (or adjust the path if elsewhere):
+
+```bash
+# View the whole file in the terminal1,1581p
+
+sed -n '1,1603p' exercise-1-nouns/111-common-nouns-codex-copy2.html
+sed -n '1604,3230p' exercise-1-nouns/111-common-nouns-codex-copy2.html
+
+# Save the file to a new copy for download/transfer
+sed -n '1,3223p' exercise-1-nouns/111-common-nouns-codex-copy2.html > 111-common-nouns-codex-copy2.html
+
+# Alternatively, stream it into a compressed archive
+sed -n '1,3223p' exercise-1-nouns/111-common-nouns-codex-copy2.html | gzip > 111-common-nouns-codex-copy2.html.gz
+```
+
+If you only need a portion of the file, adjust the line range accordingly (e.g., `sed -n '150,260p' ...`).
