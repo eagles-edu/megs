@@ -638,12 +638,14 @@
       background: var(--pager-background, #fff);
       border: 1px solid var(--border-color, #d0d6e4);
       border-radius: 6px;
+      box-sizing: border-box;
       display: flex;
       flex-wrap: wrap;
       gap: 0.5rem;
       justify-content: space-around;
       margin-top: 0.5rem;
       padding: 0.4rem 0.75rem;
+      width: 100%;
     }
 
     .exercise-response-field {
@@ -3197,14 +3199,17 @@
   <script>
     document.addEventListener( "DOMContentLoaded", function () {
 
-      var groups = document.querySelectorAll( ".nn_sliders-group" )
-      if ( !groups.length ) return
+      var sliders = document.querySelectorAll( ".nn_sliders.accordion.panel-group" )
+      if ( !sliders.length ) return
 
       var fieldPlaceholders = [ "Response", "Notes", "Confidence" ]
 
-      groups.forEach( function ( group, index ) {
+      sliders.forEach( function ( slider, index ) {
 
-        if ( group.querySelector( ".exercise-response-row" ) ) return
+        if ( slider.nextElementSibling && slider.nextElementSibling.classList.contains( "exercise-response-row" ) )
+        {
+          return
+        }
 
         var row = document.createElement( "div" )
         row.className = "exercise-response-row"
@@ -3228,7 +3233,7 @@
           row.appendChild( label )
         } )
 
-        group.appendChild( row )
+        slider.parentNode.insertBefore( row, slider.nextSibling )
       } )
     } )
   </script>
