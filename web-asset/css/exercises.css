@@ -110,3 +110,10 @@
 .breadcrumb > li {
   display: inline;
 }
+
+.quest-bg {
+  background-color: seashell;
+  display: block;
+  margin-bottom: .75rem;
+  padding: .5rem .5rem 0;
+}

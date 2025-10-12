@@ -9,7 +9,7 @@
 
 /* Preserve themed top border (e.g., .green/.info) and control other borders */
 #content .nn_sliders.accordion > .accordion-group {
-  background: var(--answer-bgcolor);
+  background: transparent;
   border-bottom: 1px solid var(--border-color);
   border-left: 1px solid var(--border-color);
   border-radius: var(--radius);
