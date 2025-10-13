@@ -12,7 +12,7 @@
   <meta name="generator" content="English Grammar - intermediate levels A2 and above">
   <link href="111-common-nouns.html" rel="non-canonical">
   <title>1.1.1 Common Nouns</title>
-  <link href="../web-asset/icons/favicon.ico" rel="shortcut icon" type="image/vnd.microsoft.icon">
+  <link href="../favicon.ico" rel="shortcut icon" type="image/vnd.microsoft.icon">
   <!-- theme-vars.css eliminated; variables live in base.css -->
 
   <!-- Minimal theme tokens inline to avoid var() FOUC when base.css loads async -->
@@ -22,12 +22,12 @@
       --secondary-color: #f5f8ff;
       --tertiary-color: #002786;
       --text-color: #212121;
-      --background-color: #505050;
+      --background-color: #798ea4;
       --icon-color-on-dk: #f5f8ff;
       --icon-color-on-lt: #8a94a8;
       --pager-background: var(--surface-color, #fff);
       --pager-border-color: var(--border-color, #d0d6e4);
-      --pager-border-radius: 6px;
+      --pager-border-radius: 3px;
       --pager-font-size: clamp(0.9rem, 0.85rem + 0.2vw, 1.05rem);
       --pager-font-weight: 600;
       --pager-gap-x: 14px;
@@ -46,6 +46,8 @@
       --menu-toggle-minus-color: var(--primary-color);
       --menu-toggle-minus-mask-size: calc(var(--menu-toggle-icon-size) - 6px);
       --menu-toggle-minus-asset: url("../web-asset/icons/svg/sized/minus5.svg");
+      --txtarea-bg: #f0f2f5;
+      --radius: 3px;
       /* pager variables  */
       /* Brand core */
       /* locked */
@@ -59,17 +61,23 @@
     }
 
     /* Preload critical image dimensions to prevent CLS */
-    img[src*="banner.png"] {
-      height: 120px;
-      width: 650px;
+    img[src*="../images/banner.png"] {
+      height: 120;
+      width: 650;
     }
 
-    img[src*="arrow.png"] {
+    img[src*="../favicon.png"] {
+      height: 24px;
+      max-height: 28px;
+      width: 24px;
+    }
+
+    img[src*="../images/arrow.png"] {
       height: 9px;
       width: 9px;
     }
 
-    img[src*="menuico"] {
+    img[src*="../favicon.ico"] {
       height: 24px;
       max-height: 28px;
       width: 24px;
@@ -90,13 +98,11 @@
     img[src*="../web-asset/icons/svg/sized/angle-left.svg"] {
       height: 24px;
       max-height: 28px;
-      width: auto;
     }
 
     img[src*="../web-asset/icons/svg/sized/angle-right.svg"] {
       height: 24px;
       max-height: 28px;
-      width: auto;
     }
   </style>
   <!-- Base CSS (SSOT) async with print-swap to improve FCP/LCP -->
@@ -129,7 +135,7 @@
       align-items: center;
       background: var(--pager-background);
       border: 1px solid var(--pager-border-color);
-      border-radius: var(--pager-border-radius);
+      border-radius: var(--radius);
       box-shadow: var(--pager-link-shadow);
       color: var(--pager-text-color);
       display: inline-flex;
@@ -212,7 +218,7 @@
 
     .grid-modern .row-fluid {
       background: var(--secondary-color);
-      border-radius: 6px;
+      border-radius:  var(--radius);
       margin-block: 12px;
       padding-block: 8px;
     }
@@ -225,7 +231,7 @@
       .mobile-menu-toggle {
         background: var(--primary-color);
         border: 1px solid var(--primary-color);
-        border-radius: 4px;
+        border-radius:  var(--radius);
         display: block;
         height: 40px;
         position: fixed;
@@ -291,14 +297,14 @@
     /* Left accordion menu: reserve icon/text layout early */
     #sidebar .sidebar-nav {
       background: var(--surface-color, #fff);
-      border-radius: 8px;
+      border-radius: var(--radius);
       box-shadow: var(--flyout-shadow-menu, 0 12px 26px rgb(24 39 75 / 8%));
       padding: 4px;
     }
 
     ul.accordion-menu {
       border: 1px solid var(--border-color);
-      border-radius: 6px;
+      border-radius:  var(--radius);
       background: var(--surface-color, #fff);
       font-size: 0.85em;
       list-style: none;
@@ -635,16 +641,16 @@
 
     .exercise-response-row {
       align-items: center;
-      background: var(--pager-background, #fff);
-      border: 1px solid var(--border-color, #d0d6e4);
-      border-radius: 6px;
+      background: var(--surface-soft);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius);
       box-sizing: border-box;
       display: flex;
       flex-wrap: wrap;
       gap: 0.5rem;
       justify-content: space-around;
-      margin-top: 0.5rem;
-      padding: 0.4rem 0.75rem;
+      margin-top: 1rem;
+      padding: .45rem;
       width: 100%;
     }
 
@@ -655,9 +661,9 @@
     }
 
     .exercise-response-input {
-      background-color: var(--surface-color, #fff);
+      background: linear-gradient(to bottom left, #e9e9e9 0%, #ffffff 35%);
       border: 1px solid var(--border-color, #ccd3e0);
-      border-radius: 4px;
+      border-radius: var(--radius);
       color: var(--text-color, #212121);
       font-size: 0.95rem;
       padding: 0.35rem 0.5rem;
@@ -665,8 +671,8 @@
     }
 
     .exercise-response-input:focus {
-      border-color: var(--primary-color);
-      box-shadow: 0 0 0 3px rgb(224 22 43 / 15%);
+      border-color: var(--link-color);
+      box-shadow: 0 0 0 3px rgba(39, 22, 224, 0.15);
       outline: none;
     }
 
@@ -720,6 +726,34 @@
         flex: 1 1 0%;
         max-width: 100%;
       }
+    }
+
+    #content .accordion-heading:link,
+    .nn_sliders-toggle:link {
+      background-color: var(--surface-soft);
+      border: 1px solid var(--link-color);
+      border-radius: var(--radius);
+    }
+
+    #content .accordion-heading:visited,
+    .nn_sliders-toggle:visited {
+      background-color: var(--surface-soft);
+      border: 1px solid var(--link-visited);
+      border-radius: var(--radius);
+    }
+
+    #content .accordion-heading:hover,
+    .nn_sliders-toggle:hover {
+      background-color: var(--surface-soft);
+      border: 1px solid var(--primary-color);
+      border-radius: var(--radius);
+    }
+
+    #content .accordion-heading:active,
+    .nn_sliders-toggle:active {
+      background-color: var(--surface-soft);
+      border: 1px solid var(--link-color);
+      border-radius: var(--radius);
     }
   </style>
 
@@ -1108,956 +1142,1075 @@
                   </div>
                 </div>
               </div>
-              <div class="nn_sliders accordion panel-group" id="set-nn_sliders-2">
-                <span id="nn_sliders-scrollto_2" class="anchor nn_sliders-scroll"></span>
-                <div class="accordion-group panel nn_sliders-group">
-                  <span id="nn_sliders-scrollto_2-we-counted-only-six-different-colours-in-the-rainbow"
-                    class="anchor nn_sliders-scroll"></span>
-                  <div class="accordion-heading panel-heading">
-                    <a href="111-common-nouns.html#sec-2-we-counted-only-six-different-colours-in-the-rainbow"
-                      aria-label="Answer" class="accordion-toggle nn_sliders-toggle" data-toggle="collapse"
-                      data-id="sec-2-we-counted-only-six-different-colours-in-the-rainbow"
-                      data-parent="#set-nn_sliders-2">
-                      <span class="nn_sliders-toggle-inner">2. We counted only six different colors in the
-                        rainbow.</span>
-                    </a>
-                  </div>
-                  <div class="accordion-body nn_sliders-body collapse"
-                    id="sec-2-we-counted-only-six-different-colours-in-the-rainbow" aria-hidden="true">
-                    <div class="accordion-inner panel-body">
-                      <h2 class="nn_sliders-title">2. We counted only six different colors in the rainbow.</h2>
-                      <p>
-                        2. We counted only six different
-                        <span class="in-text-decoration-underline__14j0pz">colors</span>
-                        in the
-                        <span class="in-text-decoration-underline__14j0pz">rainbow</span>.
-                      </p>
+              <div class="quest-bg">
+                <div class="nn_sliders accordion panel-group" id="set-nn_sliders-2">
+                  <span id="nn_sliders-scrollto_2" class="anchor nn_sliders-scroll"></span>
+                  <div class="accordion-group panel nn_sliders-group">
+                    <span id="nn_sliders-scrollto_2-we-counted-only-six-different-colours-in-the-rainbow"
+                      class="anchor nn_sliders-scroll"></span>
+                    <div class="accordion-heading panel-heading">
+                      <a href="111-common-nouns.html#sec-2-we-counted-only-six-different-colours-in-the-rainbow"
+                        aria-label="Answer" class="accordion-toggle nn_sliders-toggle" data-toggle="collapse"
+                        data-id="sec-2-we-counted-only-six-different-colours-in-the-rainbow"
+                        data-parent="#set-nn_sliders-2">
+                        <span class="nn_sliders-toggle-inner">2. We counted only six different colors in the
+                          rainbow.</span>
+                      </a>
                     </div>
-                  </div>
-                  <div class="exercise-response-row" data-item="2">
-                    <label class="exercise-response-field">
-                      <span class="visually-hidden">Response for item 2</span>
-                      <input class="exercise-response-input" type="text" placeholder="Answer" data-item="2"
-                        data-field="response">
-                    </label>
-                    <label class="exercise-response-field">
-                      <span class="visually-hidden">Notes for item 2</span>
-                      <input class="exercise-response-input" type="text" placeholder="Answer" data-item="2"
-                        data-field="notes">
-                    </label>
-                    <label class="exercise-response-field">
-                      <span class="visually-hidden">Confidence for item 2</span>
-                      <input class="exercise-response-input" type="text" placeholder="Answer" data-item="2"
-                        data-field="confidence">
-                    </label>
+                    <div class="accordion-body nn_sliders-body collapse"
+                      id="sec-2-we-counted-only-six-different-colours-in-the-rainbow" aria-hidden="true">
+                      <div class="accordion-inner panel-body">
+                        <h2 class="nn_sliders-title">2. We counted only six different colors in the rainbow.</h2>
+                        <p>
+                          2. We counted only six different
+                          <span class="in-text-decoration-underline__14j0pz">colors</span>
+                          in the
+                          <span class="in-text-decoration-underline__14j0pz">rainbow</span>.
+                        </p>
+                      </div>
+                    </div>
+                    <div class="exercise-response-row" data-item="2">
+                      <label class="exercise-response-field">
+                        <span class="visually-hidden">Response for item 2</span>
+                        <input class="exercise-response-input" type="text" placeholder="Answer" data-item="2"
+                          data-field="response">
+                      </label>
+                      <label class="exercise-response-field">
+                        <span class="visually-hidden">Notes for item 2</span>
+                        <input class="exercise-response-input" type="text" placeholder="Answer" data-item="2"
+                          data-field="notes">
+                      </label>
+                      <label class="exercise-response-field">
+                        <span class="visually-hidden">Confidence for item 2</span>
+                        <input class="exercise-response-input" type="text" placeholder="Answer" data-item="2"
+                          data-field="confidence">
+                      </label>
+                    </div>
                   </div>
                 </div>
               </div>
 
-              <div class="nn_sliders accordion panel-group" id="set-nn_sliders-3">
-                <span id="nn_sliders-scrollto_3" class="anchor nn_sliders-scroll"></span>
-                <div class="accordion-group panel nn_sliders-group">
-                  <span id="nn_sliders-scrollto_3-the-man-was-trying-to-steal-a-horse-with-a-cart-full-of-apples"
-                    class="anchor nn_sliders-scroll"></span>
-                  <div class="accordion-heading panel-heading">
-                    <a href="111-common-nouns.html#sec-3-the-man-was-trying-to-steal-a-horse-with-a-cart-full-of-apples"
-                      aria-label="Answer" class="accordion-toggle nn_sliders-toggle" data-toggle="collapse"
-                      data-id="sec-3-the-man-was-trying-to-steal-a-horse-with-a-cart-full-of-apples"
-                      data-parent="#set-nn_sliders-3" aria-expanded="false"
-                      aria-controls="sec-3-the-man-was-trying-to-steal-a-horse-with-a-cart-full-of-apples">
-                      <span class="nn_sliders-toggle-inner">3. The man was trying to steal a horse with a cart full of
-                        apples</span>.
-                    </a>
-                  </div>
-                  <div class="accordion-body nn_sliders-body collapse"
-                    id="sec-3-the-man-was-trying-to-steal-a-horse-with-a-cart-full-of-apples" aria-hidden="true">
-                    <div class="accordion-inner panel-body">
-                      <h2 class="nn_sliders-title">3. The man was trying to steal a horse with a cart full of apples.
-                      </h2>
-                      <p>
-                        3. The
-                        <span class="in-text-decoration-underline__14j0pz">man</span>
-                        was trying to steal a
-                        <span class="in-text-decoration-underline__14j0pz">horse</span>
-                        with a
-                        <span class="in-text-decoration-underline__14j0pz">cart</span>
-                        full of
-                        <span class="in-text-decoration-underline__14j0pz">apples</span>.
-                      </p>
+                <div class="quest-bg">
+                  <div class="nn_sliders accordion panel-group" id="set-nn_sliders-3">
+                    <span id="nn_sliders-scrollto_3" class="anchor nn_sliders-scroll"></span>
+                    <div class="accordion-group panel nn_sliders-group">
+                      <span id="nn_sliders-scrollto_3-the-man-was-trying-to-steal-a-horse-with-a-cart-full-of-apples"
+                        class="anchor nn_sliders-scroll"></span>
+                      <div class="accordion-heading panel-heading">
+                        <a href="111-common-nouns.html#sec-3-the-man-was-trying-to-steal-a-horse-with-a-cart-full-of-apples"
+                          aria-label="Answer" class="accordion-toggle nn_sliders-toggle" data-toggle="collapse"
+                          data-id="sec-3-the-man-was-trying-to-steal-a-horse-with-a-cart-full-of-apples"
+                          data-parent="#set-nn_sliders-3" aria-expanded="false"
+                          aria-controls="sec-3-the-man-was-trying-to-steal-a-horse-with-a-cart-full-of-apples">
+                          <span class="nn_sliders-toggle-inner">3. The man was trying to steal a horse with a cart full
+                            of
+                            apples</span>.
+                        </a>
+                      </div>
+                      <div class="accordion-body nn_sliders-body collapse"
+                        id="sec-3-the-man-was-trying-to-steal-a-horse-with-a-cart-full-of-apples" aria-hidden="true">
+                        <div class="accordion-inner panel-body">
+                          <h2 class="nn_sliders-title">3. The man was trying to steal a horse with a cart full of
+                            apples.
+                          </h2>
+                          <p>
+                            3. The
+                            <span class="in-text-decoration-underline__14j0pz">man</span>
+                            was trying to steal a
+                            <span class="in-text-decoration-underline__14j0pz">horse</span>
+                            with a
+                            <span class="in-text-decoration-underline__14j0pz">cart</span>
+                            full of
+                            <span class="in-text-decoration-underline__14j0pz">apples</span>.
+                          </p>
+                        </div>
+                      </div>
+                      <div class="exercise-response-row" data-item="3">
+                        <label class="exercise-response-field">
+                          <span class="visually-hidden">Response for item 3</span>
+                          <input class="exercise-response-input" type="text" placeholder="Answer" data-item="3"
+                            data-field="response">
+                        </label>
+                        <label class="exercise-response-field">
+                          <span class="visually-hidden">Notes for item 3</span>
+                          <input class="exercise-response-input" type="text" placeholder="Answer" data-item="3"
+                            data-field="notes">
+                        </label>
+                        <label class="exercise-response-field">
+                          <span class="visually-hidden">Confidence for item 3</span>
+                          <input class="exercise-response-input" type="text" placeholder="Answer" data-item="3"
+                            data-field="confidence">
+                        </label>
+                      </div>
                     </div>
                   </div>
-                  <div class="exercise-response-row" data-item="3">
-                    <label class="exercise-response-field">
-                      <span class="visually-hidden">Response for item 3</span>
-                      <input class="exercise-response-input" type="text" placeholder="Answer" data-item="3"
-                        data-field="response">
-                    </label>
-                    <label class="exercise-response-field">
-                      <span class="visually-hidden">Notes for item 3</span>
-                      <input class="exercise-response-input" type="text" placeholder="Answer" data-item="3"
-                        data-field="notes">
-                    </label>
-                    <label class="exercise-response-field">
-                      <span class="visually-hidden">Confidence for item 3</span>
-                      <input class="exercise-response-input" type="text" placeholder="Answer" data-item="3"
-                        data-field="confidence">
-                    </label>
-                  </div>
                 </div>
-              </div>
 
-              <div class="nn_sliders accordion panel-group" id="set-nn_sliders-4">
-                <span id="nn_sliders-scrollto_4" class="anchor nn_sliders-scroll"></span>
-                <div class="accordion-group panel nn_sliders-group">
-                  <span id="nn_sliders-scrollto_4-they-have-gone-to-the-zoo-to-see-the-black-sheep"
-                    class="anchor nn_sliders-scroll"></span>
-                  <div class="accordion-heading panel-heading">
-                    <a href="111-common-nouns.html#sec-4-they-have-gone-to-the-zoo-to-see-the-black-sheep"
-                      aria-label="Answer" class="accordion-toggle nn_sliders-toggle" data-toggle="collapse"
-                      data-id="sec-4-they-have-gone-to-the-zoo-to-see-the-black-sheep" data-parent="#set-nn_sliders-4"
-                      aria-expanded="false" aria-controls="sec-4-they-have-gone-to-the-zoo-to-see-the-black-sheep">
-                      <span class="nn_sliders-toggle-inner">4. They have gone to the zoo to see the black sheep.</span>
-                    </a>
-                  </div>
-                  <div class="accordion-body nn_sliders-body collapse"
-                    id="sec-4-they-have-gone-to-the-zoo-to-see-the-black-sheep" aria-hidden="true">
-                    <div class="accordion-inner panel-body">
-                      <h2 class="nn_sliders-title">4. They have gone to the zoo to see the black sheep.</h2>
-                      <p>
-                        4. They have gone to the
-                        <span class="in-text-decoration-underline__14j0pz">zoo</span>
-                        to see the black
-                        <span class="in-text-decoration-underline__14j0pz">sheep</span>.
-                      </p>
+                  <div class="quest-bg">
+                    <div class="nn_sliders accordion panel-group" id="set-nn_sliders-4">
+                      <span id="nn_sliders-scrollto_4" class="anchor nn_sliders-scroll"></span>
+                      <div class="accordion-group panel nn_sliders-group">
+                        <span id="nn_sliders-scrollto_4-they-have-gone-to-the-zoo-to-see-the-black-sheep"
+                          class="anchor nn_sliders-scroll"></span>
+                        <div class="accordion-heading panel-heading">
+                          <a href="111-common-nouns.html#sec-4-they-have-gone-to-the-zoo-to-see-the-black-sheep"
+                            aria-label="Answer" class="accordion-toggle nn_sliders-toggle" data-toggle="collapse"
+                            data-id="sec-4-they-have-gone-to-the-zoo-to-see-the-black-sheep"
+                            data-parent="#set-nn_sliders-4" aria-expanded="false"
+                            aria-controls="sec-4-they-have-gone-to-the-zoo-to-see-the-black-sheep">
+                            <span class="nn_sliders-toggle-inner">4. They have gone to the zoo to see the black
+                              sheep.</span>
+                          </a>
+                        </div>
+                        <div class="accordion-body nn_sliders-body collapse"
+                          id="sec-4-they-have-gone-to-the-zoo-to-see-the-black-sheep" aria-hidden="true">
+                          <div class="accordion-inner panel-body">
+                            <h2 class="nn_sliders-title">4. They have gone to the zoo to see the black sheep.</h2>
+                            <p>
+                              4. They have gone to the
+                              <span class="in-text-decoration-underline__14j0pz">zoo</span>
+                              to see the black
+                              <span class="in-text-decoration-underline__14j0pz">sheep</span>.
+                            </p>
+                          </div>
+                        </div>
+                        <div class="exercise-response-row" data-item="4">
+                          <label class="exercise-response-field">
+                            <span class="visually-hidden">Response for item 4</span>
+                            <input class="exercise-response-input" type="text" placeholder="Answer" data-item="4"
+                              data-field="response">
+                          </label>
+                          <label class="exercise-response-field">
+                            <span class="visually-hidden">Notes for item 4</span>
+                            <input class="exercise-response-input" type="text" placeholder="Answer" data-item="4"
+                              data-field="notes">
+                          </label>
+                          <label class="exercise-response-field">
+                            <span class="visually-hidden">Confidence for item 4</span>
+                            <input class="exercise-response-input" type="text" placeholder="Answer" data-item="4"
+                              data-field="confidence">
+                          </label>
+                        </div>
+                      </div>
                     </div>
                   </div>
-                  <div class="exercise-response-row" data-item="4">
-                    <label class="exercise-response-field">
-                      <span class="visually-hidden">Response for item 4</span>
-                      <input class="exercise-response-input" type="text" placeholder="Answer" data-item="4"
-                        data-field="response">
-                    </label>
-                    <label class="exercise-response-field">
-                      <span class="visually-hidden">Notes for item 4</span>
-                      <input class="exercise-response-input" type="text" placeholder="Answer" data-item="4"
-                        data-field="notes">
-                    </label>
-                    <label class="exercise-response-field">
-                      <span class="visually-hidden">Confidence for item 4</span>
-                      <input class="exercise-response-input" type="text" placeholder="Answer" data-item="4"
-                        data-field="confidence">
-                    </label>
-                  </div>
-                </div>
-              </div>
-              <div class="nn_sliders accordion panel-group" id="set-nn_sliders-5">
-                <span id="nn_sliders-scrollto_5" class="anchor nn_sliders-scroll"></span>
-                <div class="accordion-group panel nn_sliders-group">
-                  <span id="nn_sliders-scrollto_5-she-put-her-head-on-her-arms-and-cried-loudly"
-                    class="anchor nn_sliders-scroll"></span>
-                  <div class="accordion-heading panel-heading">
-                    <a href="111-common-nouns.html#sec-5-she-put-her-head-on-her-arms-and-cried-loudly"
-                      aria-label="Answer" class="accordion-toggle nn_sliders-toggle" data-toggle="collapse"
-                      data-id="sec-5-she-put-her-head-on-her-arms-and-cried-loudly" data-parent="#set-nn_sliders-5"
-                      aria-expanded="false" aria-controls="sec-5-she-put-her-head-on-her-arms-and-cried-loudly">
-                      <span class="nn_sliders-toggle-inner">5. She put her head on her arms and cried loudly</span>.
-                    </a>
-                  </div>
-                  <div class="accordion-body nn_sliders-body collapse"
-                    id="sec-5-she-put-her-head-on-her-arms-and-cried-loudly" aria-hidden="true">
-                    <div class="accordion-inner panel-body">
-                      <h2 class="nn_sliders-title">5. She put her head on her arms and cried loudly.</h2>
-                      <p>
-                        5. She put her
-                        <span class="in-text-decoration-underline__14j0pz">head</span>
-                        on her
-                        <span class="in-text-decoration-underline__14j0pz">arms</span>
-                        and cried loudly.
-                      </p>
-                    </div>
-                  </div>
-                  <div class="exercise-response-row" data-item="5">
-                    <label class="exercise-response-field">
-                      <span class="visually-hidden">Response for item 5</span>
-                      <input class="exercise-response-input" type="text" placeholder="Answer" data-item="5"
-                        data-field="response">
-                    </label>
-                    <label class="exercise-response-field">
-                      <span class="visually-hidden">Notes for item 5</span>
-                      <input class="exercise-response-input" type="text" placeholder="Answer" data-item="5"
-                        data-field="notes">
-                    </label>
-                    <label class="exercise-response-field">
-                      <span class="visually-hidden">Confidence for item 5</span>
-                      <input class="exercise-response-input" type="text" placeholder="Answer" data-item="5"
-                        data-field="confidence">
-                    </label>
-                  </div>
-                </div>
-              </div>
 
-              <div class="nn_sliders accordion panel-group" id="set-nn_sliders-6">
-                <span id="nn_sliders-scrollto_6" class="anchor nn_sliders-scroll"></span>
-                <div class="accordion-group panel nn_sliders-group">
-                  <span id="nn_sliders-scrollto_6-my-mother-is-singing-a-religious-song-in-the-kitchen"
-                    class="anchor nn_sliders-scroll"></span>
-                  <div class="accordion-heading panel-heading">
-                    <a href="111-common-nouns.html#sec-6-my-mother-is-singing-a-religious-song-in-the-kitchen"
-                      aria-label="Answer" class="accordion-toggle nn_sliders-toggle" data-toggle="collapse"
-                      data-id="sec-6-my-mother-is-singing-a-religious-song-in-the-kitchen"
-                      data-parent="#set-nn_sliders-6" aria-expanded="false"
-                      aria-controls="sec-6-my-mother-is-singing-a-religious-song-in-the-kitchen">
-                      <span class="nn_sliders-toggle-inner">6. My mother is singing a religious song in the
-                        kitchen.</span>
-                    </a>
-                  </div>
-                  <div class="accordion-body nn_sliders-body collapse"
-                    id="sec-6-my-mother-is-singing-a-religious-song-in-the-kitchen" aria-hidden="true">
-                    <div class="accordion-inner panel-body">
-                      <h2 class="nn_sliders-title">6. My mother is singing a religious song in the kitchen.</h2>
-                      <p>
-                        6. My
-                        <span class="in-text-decoration-underline__14j0pz">mother</span>
-                        is singing a religious
-                        <span class="in-text-decoration-underline__14j0pz">song</span>
-                        in the
-                        <span class="in-text-decoration-underline__14j0pz">kitchen</span>.
-                      </p>
-                    </div>
-                  </div>
-                  <div class="exercise-response-row" data-item="6">
-                    <label class="exercise-response-field">
-                      <span class="visually-hidden">Response for item 6</span>
-                      <input class="exercise-response-input" type="text" placeholder="Answer" data-item="6"
-                        data-field="response">
-                    </label>
-                    <label class="exercise-response-field">
-                      <span class="visually-hidden">Notes for item 6</span>
-                      <input class="exercise-response-input" type="text" placeholder="Answer" data-item="6"
-                        data-field="notes">
-                    </label>
-                    <label class="exercise-response-field">
-                      <span class="visually-hidden">Confidence for item 6</span>
-                      <input class="exercise-response-input" type="text" placeholder="Answer" data-item="6"
-                        data-field="confidence">
-                    </label>
-                  </div>
-                </div>
-              </div>
+                    <div class="quest-bg">
+                      <div class="nn_sliders accordion panel-group" id="set-nn_sliders-5">
+                        <span id="nn_sliders-scrollto_5" class="anchor nn_sliders-scroll"></span>
+                        <div class="accordion-group panel nn_sliders-group">
+                          <span id="nn_sliders-scrollto_5-she-put-her-head-on-her-arms-and-cried-loudly"
+                            class="anchor nn_sliders-scroll"></span>
+                          <div class="accordion-heading panel-heading">
+                            <a href="111-common-nouns.html#sec-5-she-put-her-head-on-her-arms-and-cried-loudly"
+                              aria-label="Answer" class="accordion-toggle nn_sliders-toggle" data-toggle="collapse"
+                              data-id="sec-5-she-put-her-head-on-her-arms-and-cried-loudly"
+                              data-parent="#set-nn_sliders-5" aria-expanded="false"
+                              aria-controls="sec-5-she-put-her-head-on-her-arms-and-cried-loudly">
+                              <span class="nn_sliders-toggle-inner">5. She put her head on her arms and cried
+                                loudly</span>.
+                            </a>
+                          </div>
+                          <div class="accordion-body nn_sliders-body collapse"
+                            id="sec-5-she-put-her-head-on-her-arms-and-cried-loudly" aria-hidden="true">
+                            <div class="accordion-inner panel-body">
+                              <h2 class="nn_sliders-title">5. She put her head on her arms and cried loudly.</h2>
+                              <p>
+                                5. She put her
+                                <span class="in-text-decoration-underline__14j0pz">head</span>
+                                on her
+                                <span class="in-text-decoration-underline__14j0pz">arms</span>
+                                and cried loudly.
+                              </p>
+                            </div>
+                          </div>
+                          <div class="exercise-response-row" data-item="5">
+                            <label class="exercise-response-field">
+                              <span class="visually-hidden">Response for item 5</span>
+                              <input class="exercise-response-input" type="text" placeholder="Answer" data-item="5"
+                                data-field="response">
+                            </label>
+                            <label class="exercise-response-field">
+                              <span class="visually-hidden">Notes for item 5</span>
+                              <input class="exercise-response-input" type="text" placeholder="Answer" data-item="5"
+                                data-field="notes">
+                            </label>
+                            <label class="exercise-response-field">
+                              <span class="visually-hidden">Confidence for item 5</span>
+                              <input class="exercise-response-input" type="text" placeholder="Answer" data-item="5"
+                                data-field="confidence">
+                            </label>
+                          </div>
+                        </div>
+                      </div></div>
 
-              <div class="nn_sliders accordion panel-group" id="set-nn_sliders-7">
-                <span id="nn_sliders-scrollto_7" class="anchor nn_sliders-scroll"></span>
-                <div class="accordion-group panel nn_sliders-group">
-                  <span id="nn_sliders-scrollto_7-he-threw-some-salted-nuts-to-the-monkeys"
-                    class="anchor nn_sliders-scroll"></span>
-                  <div class="accordion-heading panel-heading">
-                    <a href="111-common-nouns.html#sec-7-he-threw-some-salted-nuts-to-the-monkeys" aria-label="Answer"
-                      class="accordion-toggle nn_sliders-toggle" data-toggle="collapse"
-                      data-id="sec-7-he-threw-some-salted-nuts-to-the-monkeys" data-parent="#set-nn_sliders-7"
-                      aria-expanded="false" aria-controls="sec-7-he-threw-some-salted-nuts-to-the-monkeys">
-                      <span class="nn_sliders-toggle-inner">7. He threw some salted nuts to the monkeys.</span>
-                    </a>
-                  </div>
-                  <div class="accordion-body nn_sliders-body collapse"
-                    id="sec-7-he-threw-some-salted-nuts-to-the-monkeys" aria-hidden="true">
-                    <div class="accordion-inner panel-body">
-                      <h2 class="nn_sliders-title">7. He threw some salted nuts to the monkeys.</h2>
-                      <p>
-                        7. He threw some salted
-                        <span class="in-text-decoration-underline__14j0pz">nuts</span>
-                        to the
-                        <span class="in-text-decoration-underline__14j0pz">monkeys</span>.
-                      </p>
-                    </div>
-                  </div>
-                  <div class="exercise-response-row" data-item="7">
-                    <label class="exercise-response-field">
-                      <span class="visually-hidden">Response for item 7</span>
-                      <input class="exercise-response-input" type="text" placeholder="Answer" data-item="7"
-                        data-field="response">
-                    </label>
-                    <label class="exercise-response-field">
-                      <span class="visually-hidden">Notes for item 7</span>
-                      <input class="exercise-response-input" type="text" placeholder="Answer" data-item="7"
-                        data-field="notes">
-                    </label>
-                    <label class="exercise-response-field">
-                      <span class="visually-hidden">Confidence for item 7</span>
-                      <input class="exercise-response-input" type="text" placeholder="Answer" data-item="7"
-                        data-field="confidence">
-                    </label>
-                  </div>
-                </div>
-              </div>
+                      <div class="quest-bg">
+                        <div class="nn_sliders accordion panel-group" id="set-nn_sliders-6">
+                          <span id="nn_sliders-scrollto_6" class="anchor nn_sliders-scroll"></span>
+                          <div class="accordion-group panel nn_sliders-group">
+                            <span id="nn_sliders-scrollto_6-my-mother-is-singing-a-religious-song-in-the-kitchen"
+                              class="anchor nn_sliders-scroll"></span>
+                            <div class="accordion-heading panel-heading">
+                              <a href="111-common-nouns.html#sec-6-my-mother-is-singing-a-religious-song-in-the-kitchen"
+                                aria-label="Answer" class="accordion-toggle nn_sliders-toggle" data-toggle="collapse"
+                                data-id="sec-6-my-mother-is-singing-a-religious-song-in-the-kitchen"
+                                data-parent="#set-nn_sliders-6" aria-expanded="false"
+                                aria-controls="sec-6-my-mother-is-singing-a-religious-song-in-the-kitchen">
+                                <span class="nn_sliders-toggle-inner">6. My mother is singing a religious song in the
+                                  kitchen.</span>
+                              </a>
+                            </div>
+                            <div class="accordion-body nn_sliders-body collapse"
+                              id="sec-6-my-mother-is-singing-a-religious-song-in-the-kitchen" aria-hidden="true">
+                              <div class="accordion-inner panel-body">
+                                <h2 class="nn_sliders-title">6. My mother is singing a religious song in the kitchen.
+                                </h2>
+                                <p>
+                                  6. My
+                                  <span class="in-text-decoration-underline__14j0pz">mother</span>
+                                  is singing a religious
+                                  <span class="in-text-decoration-underline__14j0pz">song</span>
+                                  in the
+                                  <span class="in-text-decoration-underline__14j0pz">kitchen</span>.
+                                </p>
+                              </div>
+                            </div>
+                            <div class="exercise-response-row" data-item="6">
+                              <label class="exercise-response-field">
+                                <span class="visually-hidden">Response for item 6</span>
+                                <input class="exercise-response-input" type="text" placeholder="Answer" data-item="6"
+                                  data-field="response">
+                              </label>
+                              <label class="exercise-response-field">
+                                <span class="visually-hidden">Notes for item 6</span>
+                                <input class="exercise-response-input" type="text" placeholder="Answer" data-item="6"
+                                  data-field="notes">
+                              </label>
+                              <label class="exercise-response-field">
+                                <span class="visually-hidden">Confidence for item 6</span>
+                                <input class="exercise-response-input" type="text" placeholder="Answer" data-item="6"
+                                  data-field="confidence">
+                              </label>
+                            </div>
+                          </div>
+                        </div></div>
 
-              <div class="nn_sliders accordion panel-group" id="set-nn_sliders-8">
-                <span id="nn_sliders-scrollto_8" class="anchor nn_sliders-scroll"></span>
-                <div class="accordion-group panel nn_sliders-group">
-                  <span id="nn_sliders-scrollto_8-the-children-are-kicking-a-ball-around-in-the-field"
-                    class="anchor nn_sliders-scroll"></span>
-                  <div class="accordion-heading panel-heading">
-                    <a href="111-common-nouns.html#sec-8-the-children-are-kicking-a-ball-around-in-the-field"
-                      aria-label="Answer" class="accordion-toggle nn_sliders-toggle" data-toggle="collapse"
-                      data-id="sec-8-the-children-are-kicking-a-ball-around-in-the-field"
-                      data-parent="#set-nn_sliders-8" aria-expanded="false"
-                      aria-controls="sec-8-the-children-are-kicking-a-ball-around-in-the-field">
-                      <span class="nn_sliders-toggle-inner">8. The children are kicking a ball around in the
-                        field.</span>
-                    </a>
-                  </div>
-                  <div class="accordion-body nn_sliders-body collapse"
-                    id="sec-8-the-children-are-kicking-a-ball-around-in-the-field" aria-hidden="true">
-                    <div class="accordion-inner panel-body">
-                      <h2 class="nn_sliders-title">8. The children are kicking a ball around in the field.</h2>
-                      <p>
-                        8. The
-                        <span class="in-text-decoration-underline__14j0pz">children</span>
-                        are kicking a
-                        <span class="in-text-decoration-underline__14j0pz">ball</span>
-                        around in the
-                        <span class="in-text-decoration-underline__14j0pz">field</span>.
-                      </p>
-                    </div>
-                  </div>
-                  <div class="exercise-response-row" data-item="8">
-                    <label class="exercise-response-field">
-                      <span class="visually-hidden">Response for item 8</span>
-                      <input class="exercise-response-input" type="text" placeholder="Answer" data-item="8"
-                        data-field="response">
-                    </label>
-                    <label class="exercise-response-field">
-                      <span class="visually-hidden">Notes for item 8</span>
-                      <input class="exercise-response-input" type="text" placeholder="Answer" data-item="8"
-                        data-field="notes">
-                    </label>
-                    <label class="exercise-response-field">
-                      <span class="visually-hidden">Confidence for item 8</span>
-                      <input class="exercise-response-input" type="text" placeholder="Answer" data-item="8"
-                        data-field="confidence">
-                    </label>
-                  </div>
-                </div>
-              </div>
+                        <div class="quest-bg">
+                          <div class="nn_sliders accordion panel-group" id="set-nn_sliders-7">
+                            <span id="nn_sliders-scrollto_7" class="anchor nn_sliders-scroll"></span>
+                            <div class="accordion-group panel nn_sliders-group">
+                              <span id="nn_sliders-scrollto_7-he-threw-some-salted-nuts-to-the-monkeys"
+                                class="anchor nn_sliders-scroll"></span>
+                              <div class="accordion-heading panel-heading">
+                                <a href="111-common-nouns.html#sec-7-he-threw-some-salted-nuts-to-the-monkeys"
+                                  aria-label="Answer" class="accordion-toggle nn_sliders-toggle" data-toggle="collapse"
+                                  data-id="sec-7-he-threw-some-salted-nuts-to-the-monkeys"
+                                  data-parent="#set-nn_sliders-7" aria-expanded="false"
+                                  aria-controls="sec-7-he-threw-some-salted-nuts-to-the-monkeys">
+                                  <span class="nn_sliders-toggle-inner">7. He threw some salted nuts to the
+                                    monkeys.</span>
+                                </a>
+                              </div>
+                              <div class="accordion-body nn_sliders-body collapse"
+                                id="sec-7-he-threw-some-salted-nuts-to-the-monkeys" aria-hidden="true">
+                                <div class="accordion-inner panel-body">
+                                  <h2 class="nn_sliders-title">7. He threw some salted nuts to the monkeys.</h2>
+                                  <p>
+                                    7. He threw some salted
+                                    <span class="in-text-decoration-underline__14j0pz">nuts</span>
+                                    to the
+                                    <span class="in-text-decoration-underline__14j0pz">monkeys</span>.
+                                  </p>
+                                </div>
+                              </div>
+                              <div class="exercise-response-row" data-item="7">
+                                <label class="exercise-response-field">
+                                  <span class="visually-hidden">Response for item 7</span>
+                                  <input class="exercise-response-input" type="text" placeholder="Answer" data-item="7"
+                                    data-field="response">
+                                </label>
+                                <label class="exercise-response-field">
+                                  <span class="visually-hidden">Notes for item 7</span>
+                                  <input class="exercise-response-input" type="text" placeholder="Answer" data-item="7"
+                                    data-field="notes">
+                                </label>
+                                <label class="exercise-response-field">
+                                  <span class="visually-hidden">Confidence for item 7</span>
+                                  <input class="exercise-response-input" type="text" placeholder="Answer" data-item="7"
+                                    data-field="confidence">
+                                </label>
+                              </div>
+                            </div>
+                          </div></div>
 
-              <div class="nn_sliders accordion panel-group" id="set-nn_sliders-9">
-                <span id="nn_sliders-scrollto_9" class="anchor nn_sliders-scroll"></span>
-                <div class="accordion-group panel nn_sliders-group">
-                  <span id="nn_sliders-scrollto_9-that-temple-was-built-before-my-grandfather-was-born"
-                    class="anchor nn_sliders-scroll"></span>
-                  <div class="accordion-heading panel-heading">
-                    <a href="111-common-nouns.html#sec-9-that-temple-was-built-before-my-grandfather-was-born"
-                      aria-label="Answer" class="accordion-toggle nn_sliders-toggle" data-toggle="collapse"
-                      data-id="sec-9-that-temple-was-built-before-my-grandfather-was-born"
-                      data-parent="#set-nn_sliders-9" aria-expanded="false"
-                      aria-controls="sec-9-that-temple-was-built-before-my-grandfather-was-born">
-                      <span class="nn_sliders-toggle-inner">9. That temple was built before my grandfather was
-                        born.</span>
-                    </a>
-                  </div>
-                  <div class="accordion-body nn_sliders-body collapse"
-                    id="sec-9-that-temple-was-built-before-my-grandfather-was-born" aria-hidden="true">
-                    <div class="accordion-inner panel-body">
-                      <h2 class="nn_sliders-title">9. That temple was built before my grandfather was born.</h2>
-                      <p>
-                        9. That
-                        <span class="in-text-decoration-underline__14j0pz">temple</span>
-                        was built before my
-                        <span class="in-text-decoration-underline__14j0pz">grandfather</span>
-                        was born.
-                      </p>
-                    </div>
-                  </div>
-                  <div class="exercise-response-row" data-item="9">
-                    <label class="exercise-response-field">
-                      <span class="visually-hidden">Response for item 9</span>
-                      <input class="exercise-response-input" type="text" placeholder="Answer" data-item="9"
-                        data-field="response">
-                    </label>
-                    <label class="exercise-response-field">
-                      <span class="visually-hidden">Notes for item 9</span>
-                      <input class="exercise-response-input" type="text" placeholder="Answer" data-item="9"
-                        data-field="notes">
-                    </label>
-                    <label class="exercise-response-field">
-                      <span class="visually-hidden">Confidence for item 9</span>
-                      <input class="exercise-response-input" type="text" placeholder="Answer" data-item="9"
-                        data-field="confidence">
-                    </label>
-                  </div>
-                </div>
-              </div>
+                          <div class="quest-bg">
+                            <div class="nn_sliders accordion panel-group" id="set-nn_sliders-8">
+                              <span id="nn_sliders-scrollto_8" class="anchor nn_sliders-scroll"></span>
+                              <div class="accordion-group panel nn_sliders-group">
+                                <span id="nn_sliders-scrollto_8-the-children-are-kicking-a-ball-around-in-the-field"
+                                  class="anchor nn_sliders-scroll"></span>
+                                <div class="accordion-heading panel-heading">
+                                  <a href="111-common-nouns.html#sec-8-the-children-are-kicking-a-ball-around-in-the-field"
+                                    aria-label="Answer" class="accordion-toggle nn_sliders-toggle"
+                                    data-toggle="collapse"
+                                    data-id="sec-8-the-children-are-kicking-a-ball-around-in-the-field"
+                                    data-parent="#set-nn_sliders-8" aria-expanded="false"
+                                    aria-controls="sec-8-the-children-are-kicking-a-ball-around-in-the-field">
+                                    <span class="nn_sliders-toggle-inner">8. The children are kicking a ball around in
+                                      the
+                                      field.</span>
+                                  </a>
+                                </div>
+                                <div class="accordion-body nn_sliders-body collapse"
+                                  id="sec-8-the-children-are-kicking-a-ball-around-in-the-field" aria-hidden="true">
+                                  <div class="accordion-inner panel-body">
+                                    <h2 class="nn_sliders-title">8. The children are kicking a ball around in the field.
+                                    </h2>
+                                    <p>
+                                      8. The
+                                      <span class="in-text-decoration-underline__14j0pz">children</span>
+                                      are kicking a
+                                      <span class="in-text-decoration-underline__14j0pz">ball</span>
+                                      around in the
+                                      <span class="in-text-decoration-underline__14j0pz">field</span>.
+                                    </p>
+                                  </div>
+                                </div>
+                                <div class="exercise-response-row" data-item="8">
+                                  <label class="exercise-response-field">
+                                    <span class="visually-hidden">Response for item 8</span>
+                                    <input class="exercise-response-input" type="text" placeholder="Answer"
+                                      data-item="8" data-field="response">
+                                  </label>
+                                  <label class="exercise-response-field">
+                                    <span class="visually-hidden">Notes for item 8</span>
+                                    <input class="exercise-response-input" type="text" placeholder="Answer"
+                                      data-item="8" data-field="notes">
+                                  </label>
+                                  <label class="exercise-response-field">
+                                    <span class="visually-hidden">Confidence for item 8</span>
+                                    <input class="exercise-response-input" type="text" placeholder="Answer"
+                                      data-item="8" data-field="confidence">
+                                  </label>
+                                </div>
+                              </div>
+                            </div></div>
 
-              <div class="nn_sliders accordion panel-group" id="set-nn_sliders-10">
-                <span id="nn_sliders-scrollto_10" class="anchor nn_sliders-scroll"></span>
-                <div class="accordion-group panel nn_sliders-group">
-                  <span id="nn_sliders-scrollto_10-he-bought-balloons-for-his-children-and-their-friends"
-                    class="anchor nn_sliders-scroll"></span>
-                  <div class="accordion-heading panel-heading">
-                    <a href="111-common-nouns.html#sec-10-he-bought-balloons-for-his-children-and-their-friends"
-                      aria-label="Answer" class="accordion-toggle nn_sliders-toggle" data-toggle="collapse"
-                      data-id="sec-10-he-bought-balloons-for-his-children-and-their-friends"
-                      data-parent="#set-nn_sliders-10" aria-expanded="false"
-                      aria-controls="sec-10-he-bought-balloons-for-his-children-and-their-friends">
-                      <span class="nn_sliders-toggle-inner">10. He bought balloons for his children and their
-                        friends.</span>
-                    </a>
-                  </div>
-                  <div class="accordion-body nn_sliders-body collapse"
-                    id="sec-10-he-bought-balloons-for-his-children-and-their-friends" aria-hidden="true">
-                    <div class="accordion-inner panel-body">
-                      <h2 class="nn_sliders-title">10. He bought balloons for his children and their friends.</h2>
-                      <p>
-                        10. He bought
-                        <span class="in-text-decoration-underline__14j0pz">balloons</span>
-                        for his
-                        <span class="in-text-decoration-underline__14j0pz">children</span>
-                        and their
-                        <span class="in-text-decoration-underline__14j0pz">friends</span>.
-                      </p>
-                    </div>
-                  </div>
-                  <div class="exercise-response-row" data-item="10">
-                    <label class="exercise-response-field">
-                      <span class="visually-hidden">Response for item 10</span>
-                      <input class="exercise-response-input" type="text" placeholder="Answer" data-item="10"
-                        data-field="response">
-                    </label>
-                    <label class="exercise-response-field">
-                      <span class="visually-hidden">Notes for item 10</span>
-                      <input class="exercise-response-input" type="text" placeholder="Answer" data-item="10"
-                        data-field="notes">
-                    </label>
-                    <label class="exercise-response-field">
-                      <span class="visually-hidden">Confidence for item 10</span>
-                      <input class="exercise-response-input" type="text" placeholder="Answer" data-item="10"
-                        data-field="confidence">
-                    </label>
-                  </div>
-                </div>
-              </div>
+                            <div class="quest-bg">
+                              <div class="nn_sliders accordion panel-group" id="set-nn_sliders-9">
+                                <span id="nn_sliders-scrollto_9" class="anchor nn_sliders-scroll"></span>
+                                <div class="accordion-group panel nn_sliders-group">
+                                  <span id="nn_sliders-scrollto_9-that-temple-was-built-before-my-grandfather-was-born"
+                                    class="anchor nn_sliders-scroll"></span>
+                                  <div class="accordion-heading panel-heading">
+                                    <a href="111-common-nouns.html#sec-9-that-temple-was-built-before-my-grandfather-was-born"
+                                      aria-label="Answer" class="accordion-toggle nn_sliders-toggle"
+                                      data-toggle="collapse"
+                                      data-id="sec-9-that-temple-was-built-before-my-grandfather-was-born"
+                                      data-parent="#set-nn_sliders-9" aria-expanded="false"
+                                      aria-controls="sec-9-that-temple-was-built-before-my-grandfather-was-born">
+                                      <span class="nn_sliders-toggle-inner">9. That temple was built before my
+                                        grandfather was
+                                        born.</span>
+                                    </a>
+                                  </div>
+                                  <div class="accordion-body nn_sliders-body collapse"
+                                    id="sec-9-that-temple-was-built-before-my-grandfather-was-born" aria-hidden="true">
+                                    <div class="accordion-inner panel-body">
+                                      <h2 class="nn_sliders-title">9. That temple was built before my grandfather was
+                                        born.</h2>
+                                      <p>
+                                        9. That
+                                        <span class="in-text-decoration-underline__14j0pz">temple</span>
+                                        was built before my
+                                        <span class="in-text-decoration-underline__14j0pz">grandfather</span>
+                                        was born.
+                                      </p>
+                                    </div>
+                                  </div>
+                                  <div class="exercise-response-row" data-item="9">
+                                    <label class="exercise-response-field">
+                                      <span class="visually-hidden">Response for item 9</span>
+                                      <input class="exercise-response-input" type="text" placeholder="Answer"
+                                        data-item="9" data-field="response">
+                                    </label>
+                                    <label class="exercise-response-field">
+                                      <span class="visually-hidden">Notes for item 9</span>
+                                      <input class="exercise-response-input" type="text" placeholder="Answer"
+                                        data-item="9" data-field="notes">
+                                    </label>
+                                    <label class="exercise-response-field">
+                                      <span class="visually-hidden">Confidence for item 9</span>
+                                      <input class="exercise-response-input" type="text" placeholder="Answer"
+                                        data-item="9" data-field="confidence">
+                                    </label>
+                                  </div>
+                                </div>
+                              </div></div>
 
-              <div class="nn_sliders accordion panel-group" id="set-nn_sliders-11">
-                <span id="nn_sliders-scrollto_11" class="anchor nn_sliders-scroll"></span>
-                <div class="accordion-group panel nn_sliders-group">
-                  <span id="nn_sliders-scrollto_11-my-father-swims-like-a-turtle"
-                    class="anchor nn_sliders-scroll"></span>
-                  <div class="accordion-heading panel-heading">
-                    <a href="111-common-nouns.html#sec-11-my-father-swims-like-a-turtle" aria-label="Answer"
-                      class="accordion-toggle nn_sliders-toggle" data-toggle="collapse"
-                      data-id="sec-11-my-father-swims-like-a-turtle" data-parent="#set-nn_sliders-11"
-                      aria-expanded="false" aria-controls="sec-11-my-father-swims-like-a-turtle">
-                      <span class="nn_sliders-toggle-inner">11. My father swims like a turtle.</span>
-                    </a>
-                  </div>
-                  <div class="accordion-body nn_sliders-body collapse" id="sec-11-my-father-swims-like-a-turtle"
-                    aria-hidden="true">
-                    <div class="accordion-inner panel-body">
-                      <h2 class="nn_sliders-title">11. My father swims like a turtle.</h2>
-                      <p>
-                        11. My
-                        <span class="in-text-decoration-underline__14j0pz">father</span>
-                        swims like a
-                        <span class="in-text-decoration-underline__14j0pz">turtle</span>.
-                      </p>
-                    </div>
-                  </div>
-                  <div class="exercise-response-row" data-item="11">
-                    <label class="exercise-response-field">
-                      <span class="visually-hidden">Response for item 11</span>
-                      <input class="exercise-response-input" type="text" placeholder="Answer" data-item="11"
-                        data-field="response">
-                    </label>
-                    <label class="exercise-response-field">
-                      <span class="visually-hidden">Notes for item 11</span>
-                      <input class="exercise-response-input" type="text" placeholder="Answer" data-item="11"
-                        data-field="notes">
-                    </label>
-                    <label class="exercise-response-field">
-                      <span class="visually-hidden">Confidence for item 11</span>
-                      <input class="exercise-response-input" type="text" placeholder="Answer" data-item="11"
-                        data-field="confidence">
-                    </label>
-                  </div>
-                </div>
-              </div>
-              <div class="nn_sliders accordion panel-group" id="set-nn_sliders-12">
-                <span id="nn_sliders-scrollto_12" class="anchor nn_sliders-scroll"></span>
-                <div class="accordion-group panel nn_sliders-group">
-                  <span id="nn_sliders-scrollto_12-she-won-a-trophy-for-best-dancer-in-the-street"
-                    class="anchor nn_sliders-scroll"></span>
-                  <div class="accordion-heading panel-heading">
-                    <a href="111-common-nouns.html#sec-12-she-won-a-trophy-for-best-dancer-in-the-street"
-                      aria-label="Answer" class="accordion-toggle nn_sliders-toggle" data-toggle="collapse"
-                      data-id="sec-12-she-won-a-trophy-for-best-dancer-in-the-street" data-parent="#set-nn_sliders-12"
-                      aria-expanded="false" aria-controls="sec-12-she-won-a-trophy-for-best-dancer-in-the-street">
-                      <span class="nn_sliders-toggle-inner">12. She won a trophy for best dancer in the street.</span>
-                    </a>
-                  </div>
-                  <div class="accordion-body nn_sliders-body collapse"
-                    id="sec-12-she-won-a-trophy-for-best-dancer-in-the-street" aria-hidden="true">
-                    <div class="accordion-inner panel-body">
-                      <h2 class="nn_sliders-title">12. She won a trophy for best dancer in the street.</h2>
-                      <p>
-                        12. She won a
-                        <span class="in-text-decoration-underline__14j0pz">trophy</span>
-                        for best
-                        <span class="in-text-decoration-underline__14j0pz">dancer</span>
-                        in the
-                        <span class="in-text-decoration-underline__14j0pz">street</span>.
-                      </p>
-                    </div>
-                  </div>
-                  <div class="exercise-response-row" data-item="12">
-                    <label class="exercise-response-field">
-                      <span class="visually-hidden">Response for item 12</span>
-                      <input class="exercise-response-input" type="text" placeholder="Answer" data-item="12"
-                        data-field="response">
-                    </label>
-                    <label class="exercise-response-field">
-                      <span class="visually-hidden">Notes for item 12</span>
-                      <input class="exercise-response-input" type="text" placeholder="Answer" data-item="12"
-                        data-field="notes">
-                    </label>
-                    <label class="exercise-response-field">
-                      <span class="visually-hidden">Confidence for item 12</span>
-                      <input class="exercise-response-input" type="text" placeholder="Answer" data-item="12"
-                        data-field="confidence">
-                    </label>
-                  </div>
-                </div>
-              </div>
+                              <div class="quest-bg">
+                                <div class="nn_sliders accordion panel-group" id="set-nn_sliders-10">
+                                  <span id="nn_sliders-scrollto_10" class="anchor nn_sliders-scroll"></span>
+                                  <div class="accordion-group panel nn_sliders-group">
+                                    <span
+                                      id="nn_sliders-scrollto_10-he-bought-balloons-for-his-children-and-their-friends"
+                                      class="anchor nn_sliders-scroll"></span>
+                                    <div class="accordion-heading panel-heading">
+                                      <a href="111-common-nouns.html#sec-10-he-bought-balloons-for-his-children-and-their-friends"
+                                        aria-label="Answer" class="accordion-toggle nn_sliders-toggle"
+                                        data-toggle="collapse"
+                                        data-id="sec-10-he-bought-balloons-for-his-children-and-their-friends"
+                                        data-parent="#set-nn_sliders-10" aria-expanded="false"
+                                        aria-controls="sec-10-he-bought-balloons-for-his-children-and-their-friends">
+                                        <span class="nn_sliders-toggle-inner">10. He bought balloons for his children
+                                          and their
+                                          friends.</span>
+                                      </a>
+                                    </div>
+                                    <div class="accordion-body nn_sliders-body collapse"
+                                      id="sec-10-he-bought-balloons-for-his-children-and-their-friends"
+                                      aria-hidden="true">
+                                      <div class="accordion-inner panel-body">
+                                        <h2 class="nn_sliders-title">10. He bought balloons for his children and their
+                                          friends.</h2>
+                                        <p>
+                                          10. He bought
+                                          <span class="in-text-decoration-underline__14j0pz">balloons</span>
+                                          for his
+                                          <span class="in-text-decoration-underline__14j0pz">children</span>
+                                          and their
+                                          <span class="in-text-decoration-underline__14j0pz">friends</span>.
+                                        </p>
+                                      </div>
+                                    </div>
+                                    <div class="exercise-response-row" data-item="10">
+                                      <label class="exercise-response-field">
+                                        <span class="visually-hidden">Response for item 10</span>
+                                        <input class="exercise-response-input" type="text" placeholder="Answer"
+                                          data-item="10" data-field="response">
+                                      </label>
+                                      <label class="exercise-response-field">
+                                        <span class="visually-hidden">Notes for item 10</span>
+                                        <input class="exercise-response-input" type="text" placeholder="Answer"
+                                          data-item="10" data-field="notes">
+                                      </label>
+                                      <label class="exercise-response-field">
+                                        <span class="visually-hidden">Confidence for item 10</span>
+                                        <input class="exercise-response-input" type="text" placeholder="Answer"
+                                          data-item="10" data-field="confidence">
+                                      </label>
+                                    </div>
+                                  </div>
+                                </div></div>
 
-              <div class="nn_sliders accordion panel-group" id="set-nn_sliders-13">
-                <span id="nn_sliders-scrollto_13" class="anchor nn_sliders-scroll"></span>
-                <div class="accordion-group panel nn_sliders-group">
-                  <span id="nn_sliders-scrollto_13-simply-point-your-camera-at-the-camel-and-press-the-button"
-                    class="anchor nn_sliders-scroll"></span>
-                  <div class="accordion-heading panel-heading">
-                    <a href="111-common-nouns.html#sec-13-simply-point-your-camera-at-the-camel-and-press-the-button"
-                      aria-label="Answer" class="accordion-toggle nn_sliders-toggle" data-toggle="collapse"
-                      data-id="sec-13-simply-point-your-camera-at-the-camel-and-press-the-button"
-                      data-parent="#set-nn_sliders-13" aria-expanded="false"
-                      aria-controls="sec-13-simply-point-your-camera-at-the-camel-and-press-the-button">
-                      <span class="nn_sliders-toggle-inner">13. Simply point your camera at the camel and press the
-                        button.</span>
-                    </a>
-                  </div>
-                  <div class="accordion-body nn_sliders-body collapse"
-                    id="sec-13-simply-point-your-camera-at-the-camel-and-press-the-button" aria-hidden="true">
-                    <div class="accordion-inner panel-body">
-                      <h2 class="nn_sliders-title">13. Simply point your camera at the camel and press the button.
-                      </h2>
-                      <p>
-                        13. Simply point your
-                        <span class="in-text-decoration-underline__14j0pz"> camera</span>
-                        at the
-                        <span class="in-text-decoration-underline__14j0pz"> camel</span>
-                        and press the
-                        <span class="in-text-decoration-underline__14j0pz"> button</span>.
-                      </p>
-                    </div>
-                  </div>
-                  <div class="exercise-response-row" data-item="13">
-                    <label class="exercise-response-field">
-                      <span class="visually-hidden">Response for item 13</span>
-                      <input class="exercise-response-input" type="text" placeholder="Answer" data-item="13"
-                        data-field="response">
-                    </label>
-                    <label class="exercise-response-field">
-                      <span class="visually-hidden">Notes for item 13</span>
-                      <input class="exercise-response-input" type="text" placeholder="Answer" data-item="13"
-                        data-field="notes">
-                    </label>
-                    <label class="exercise-response-field">
-                      <span class="visually-hidden">Confidence for item 13</span>
-                      <input class="exercise-response-input" type="text" placeholder="Answer" data-item="13"
-                        data-field="confidence">
-                    </label>
-                  </div>
-                </div>
-              </div>
+                                <div class="quest-bg">
+                                  <div class="nn_sliders accordion panel-group" id="set-nn_sliders-11">
+                                    <span id="nn_sliders-scrollto_11" class="anchor nn_sliders-scroll"></span>
+                                    <div class="accordion-group panel nn_sliders-group">
+                                      <span id="nn_sliders-scrollto_11-my-father-swims-like-a-turtle"
+                                        class="anchor nn_sliders-scroll"></span>
+                                      <div class="accordion-heading panel-heading">
+                                        <a href="111-common-nouns.html#sec-11-my-father-swims-like-a-turtle"
+                                          aria-label="Answer" class="accordion-toggle nn_sliders-toggle"
+                                          data-toggle="collapse" data-id="sec-11-my-father-swims-like-a-turtle"
+                                          data-parent="#set-nn_sliders-11" aria-expanded="false"
+                                          aria-controls="sec-11-my-father-swims-like-a-turtle">
+                                          <span class="nn_sliders-toggle-inner">11. My father swims like a
+                                            turtle.</span>
+                                        </a>
+                                      </div>
+                                      <div class="accordion-body nn_sliders-body collapse"
+                                        id="sec-11-my-father-swims-like-a-turtle" aria-hidden="true">
+                                        <div class="accordion-inner panel-body">
+                                          <h2 class="nn_sliders-title">11. My father swims like a turtle.</h2>
+                                          <p>
+                                            11. My
+                                            <span class="in-text-decoration-underline__14j0pz">father</span>
+                                            swims like a
+                                            <span class="in-text-decoration-underline__14j0pz">turtle</span>.
+                                          </p>
+                                        </div>
+                                      </div>
+                                      <div class="exercise-response-row" data-item="11">
+                                        <label class="exercise-response-field">
+                                          <span class="visually-hidden">Response for item 11</span>
+                                          <input class="exercise-response-input" type="text" placeholder="Answer"
+                                            data-item="11" data-field="response">
+                                        </label>
+                                        <label class="exercise-response-field">
+                                          <span class="visually-hidden">Notes for item 11</span>
+                                          <input class="exercise-response-input" type="text" placeholder="Answer"
+                                            data-item="11" data-field="notes">
+                                        </label>
+                                        <label class="exercise-response-field">
+                                          <span class="visually-hidden">Confidence for item 11</span>
+                                          <input class="exercise-response-input" type="text" placeholder="Answer"
+                                            data-item="11" data-field="confidence">
+                                        </label>
+                                      </div>
+                                    </div>
+                                  </div></div>
+                                  <div class="quest-bg">
+                                    <div class="nn_sliders accordion panel-group" id="set-nn_sliders-12">
+                                      <span id="nn_sliders-scrollto_12" class="anchor nn_sliders-scroll"></span>
+                                      <div class="accordion-group panel nn_sliders-group">
+                                        <span id="nn_sliders-scrollto_12-she-won-a-trophy-for-best-dancer-in-the-street"
+                                          class="anchor nn_sliders-scroll"></span>
+                                        <div class="accordion-heading panel-heading">
+                                          <a href="111-common-nouns.html#sec-12-she-won-a-trophy-for-best-dancer-in-the-street"
+                                            aria-label="Answer" class="accordion-toggle nn_sliders-toggle"
+                                            data-toggle="collapse"
+                                            data-id="sec-12-she-won-a-trophy-for-best-dancer-in-the-street"
+                                            data-parent="#set-nn_sliders-12" aria-expanded="false"
+                                            aria-controls="sec-12-she-won-a-trophy-for-best-dancer-in-the-street">
+                                            <span class="nn_sliders-toggle-inner">12. She won a trophy for best dancer
+                                              in the street.</span>
+                                          </a>
+                                        </div>
+                                        <div class="accordion-body nn_sliders-body collapse"
+                                          id="sec-12-she-won-a-trophy-for-best-dancer-in-the-street" aria-hidden="true">
+                                          <div class="accordion-inner panel-body">
+                                            <h2 class="nn_sliders-title">12. She won a trophy for best dancer in the
+                                              street.</h2>
+                                            <p>
+                                              12. She won a
+                                              <span class="in-text-decoration-underline__14j0pz">trophy</span>
+                                              for best
+                                              <span class="in-text-decoration-underline__14j0pz">dancer</span>
+                                              in the
+                                              <span class="in-text-decoration-underline__14j0pz">street</span>.
+                                            </p>
+                                          </div>
+                                        </div>
+                                        <div class="exercise-response-row" data-item="12">
+                                          <label class="exercise-response-field">
+                                            <span class="visually-hidden">Response for item 12</span>
+                                            <input class="exercise-response-input" type="text" placeholder="Answer"
+                                              data-item="12" data-field="response">
+                                          </label>
+                                          <label class="exercise-response-field">
+                                            <span class="visually-hidden">Notes for item 12</span>
+                                            <input class="exercise-response-input" type="text" placeholder="Answer"
+                                              data-item="12" data-field="notes">
+                                          </label>
+                                          <label class="exercise-response-field">
+                                            <span class="visually-hidden">Confidence for item 12</span>
+                                            <input class="exercise-response-input" type="text" placeholder="Answer"
+                                              data-item="12" data-field="confidence">
+                                          </label>
+                                        </div>
+                                      </div>
+                                    </div></div>
 
-              <div class="nn_sliders accordion panel-group" id="set-nn_sliders-14">
-                <span id="nn_sliders-scrollto_14" class="anchor nn_sliders-scroll"></span>
-                <div class="accordion-group panel nn_sliders-group">
-                  <span id="nn_sliders-scrollto_14-we-watched-seabirds-flocking-above-our-heads"
-                    class="anchor nn_sliders-scroll"></span>
-                  <div class="accordion-heading panel-heading">
-                    <a href="111-common-nouns.html#sec-14-we-watched-seabirds-flocking-above-our-heads"
-                      aria-label="Answer" class="accordion-toggle nn_sliders-toggle" data-toggle="collapse"
-                      data-id="sec-14-we-watched-seabirds-flocking-above-our-heads" data-parent="#set-nn_sliders-14"
-                      aria-expanded="false" aria-controls="sec-14-we-watched-seabirds-flocking-above-our-heads">
-                      <span class="nn_sliders-toggle-inner">14. We watched seabirds flocking above our heads.</span>
-                    </a>
-                  </div>
-                  <div class="accordion-body nn_sliders-body collapse"
-                    id="sec-14-we-watched-seabirds-flocking-above-our-heads" aria-hidden="true">
-                    <div class="accordion-inner panel-body">
-                      <h2 class="nn_sliders-title">14. We watched seabirds flocking above our heads.</h2>
-                      <p>
-                        14. We watched
-                        <span class="in-text-decoration-underline__14j0pz">seabirds</span>
-                        flocking above our
-                        <span class="in-text-decoration-underline__14j0pz">heads</span>.
-                      </p>
-                    </div>
-                  </div>
-                  <div class="exercise-response-row" data-item="14">
-                    <label class="exercise-response-field">
-                      <span class="visually-hidden">Response for item 14</span>
-                      <input class="exercise-response-input" type="text" placeholder="Answer" data-item="14"
-                        data-field="response">
-                    </label>
-                    <label class="exercise-response-field">
-                      <span class="visually-hidden">Notes for item 14</span>
-                      <input class="exercise-response-input" type="text" placeholder="Answer" data-item="14"
-                        data-field="notes">
-                    </label>
-                    <label class="exercise-response-field">
-                      <span class="visually-hidden">Confidence for item 14</span>
-                      <input class="exercise-response-input" type="text" placeholder="Answer" data-item="14"
-                        data-field="confidence">
-                    </label>
-                  </div>
-                </div>
-              </div>
+                                    <div class="quest-bg">
+                                      <div class="nn_sliders accordion panel-group" id="set-nn_sliders-13">
+                                        <span id="nn_sliders-scrollto_13" class="anchor nn_sliders-scroll"></span>
+                                        <div class="accordion-group panel nn_sliders-group">
+                                          <span
+                                            id="nn_sliders-scrollto_13-simply-point-your-camera-at-the-camel-and-press-the-button"
+                                            class="anchor nn_sliders-scroll"></span>
+                                          <div class="accordion-heading panel-heading">
+                                            <a href="111-common-nouns.html#sec-13-simply-point-your-camera-at-the-camel-and-press-the-button"
+                                              aria-label="Answer" class="accordion-toggle nn_sliders-toggle"
+                                              data-toggle="collapse"
+                                              data-id="sec-13-simply-point-your-camera-at-the-camel-and-press-the-button"
+                                              data-parent="#set-nn_sliders-13" aria-expanded="false"
+                                              aria-controls="sec-13-simply-point-your-camera-at-the-camel-and-press-the-button">
+                                              <span class="nn_sliders-toggle-inner">13. Simply point your camera at the
+                                                camel and press the
+                                                button.</span>
+                                            </a>
+                                          </div>
+                                          <div class="accordion-body nn_sliders-body collapse"
+                                            id="sec-13-simply-point-your-camera-at-the-camel-and-press-the-button"
+                                            aria-hidden="true">
+                                            <div class="accordion-inner panel-body">
+                                              <h2 class="nn_sliders-title">13. Simply point your camera at the camel and
+                                                press the button.
+                                              </h2>
+                                              <p>
+                                                13. Simply point your
+                                                <span class="in-text-decoration-underline__14j0pz"> camera</span>
+                                                at the
+                                                <span class="in-text-decoration-underline__14j0pz"> camel</span>
+                                                and press the
+                                                <span class="in-text-decoration-underline__14j0pz"> button</span>.
+                                              </p>
+                                            </div>
+                                          </div>
+                                          <div class="exercise-response-row" data-item="13">
+                                            <label class="exercise-response-field">
+                                              <span class="visually-hidden">Response for item 13</span>
+                                              <input class="exercise-response-input" type="text" placeholder="Answer"
+                                                data-item="13" data-field="response">
+                                            </label>
+                                            <label class="exercise-response-field">
+                                              <span class="visually-hidden">Notes for item 13</span>
+                                              <input class="exercise-response-input" type="text" placeholder="Answer"
+                                                data-item="13" data-field="notes">
+                                            </label>
+                                            <label class="exercise-response-field">
+                                              <span class="visually-hidden">Confidence for item 13</span>
+                                              <input class="exercise-response-input" type="text" placeholder="Answer"
+                                                data-item="13" data-field="confidence">
+                                            </label>
+                                          </div>
+                                        </div>
+                                      </div></div>
 
-              <div class="nn_sliders accordion panel-group" id="set-nn_sliders-15">
-                <span id="nn_sliders-scrollto_15" class="anchor nn_sliders-scroll"></span>
-                <div class="accordion-group panel nn_sliders-group">
-                  <span id="nn_sliders-scrollto_15-he-went-to-visit-his-homesick-uncle-at-the-hospital"
-                    class="anchor nn_sliders-scroll"></span>
-                  <div class="accordion-heading panel-heading">
-                    <a href="111-common-nouns.html#sec-15-he-went-to-visit-his-homesick-uncle-at-the-hospital"
-                      aria-label="Answer" class="accordion-toggle nn_sliders-toggle" data-toggle="collapse"
-                      data-id="sec-15-he-went-to-visit-his-homesick-uncle-at-the-hospital"
-                      data-parent="#set-nn_sliders-15" aria-expanded="false"
-                      aria-controls="sec-15-he-went-to-visit-his-homesick-uncle-at-the-hospital">
-                      <span class="nn_sliders-toggle-inner">15. He went to visit his homesick uncle at the
-                        hospital.</span>
-                    </a>
-                  </div>
-                  <div class="accordion-body nn_sliders-body collapse"
-                    id="sec-15-he-went-to-visit-his-homesick-uncle-at-the-hospital" aria-hidden="true">
-                    <div class="accordion-inner panel-body">
-                      <h2 class="nn_sliders-title">15. He went to visit his homesick uncle at the hospital.</h2>
-                      <p>
-                        15. He went to visit his homesick
-                        <span class="in-text-decoration-underline__14j0pz">uncle</span>
-                        at the
-                        <span class="in-text-decoration-underline__14j0pz">hospital</span>.
-                      </p>
-                    </div>
-                  </div>
-                  <div class="exercise-response-row" data-item="15">
-                    <label class="exercise-response-field">
-                      <span class="visually-hidden">Response for item 15</span>
-                      <input class="exercise-response-input" type="text" placeholder="Answer" data-item="15"
-                        data-field="response">
-                    </label>
-                    <label class="exercise-response-field">
-                      <span class="visually-hidden">Notes for item 15</span>
-                      <input class="exercise-response-input" type="text" placeholder="Answer" data-item="15"
-                        data-field="notes">
-                    </label>
-                    <label class="exercise-response-field">
-                      <span class="visually-hidden">Confidence for item 15</span>
-                      <input class="exercise-response-input" type="text" placeholder="Answer" data-item="15"
-                        data-field="confidence">
-                    </label>
-                  </div>
-                </div>
-              </div>
+                                      <div class="quest-bg">
+                                        <div class="nn_sliders accordion panel-group" id="set-nn_sliders-14">
+                                          <span id="nn_sliders-scrollto_14" class="anchor nn_sliders-scroll"></span>
+                                          <div class="accordion-group panel nn_sliders-group">
+                                            <span
+                                              id="nn_sliders-scrollto_14-we-watched-seabirds-flocking-above-our-heads"
+                                              class="anchor nn_sliders-scroll"></span>
+                                            <div class="accordion-heading panel-heading">
+                                              <a href="111-common-nouns.html#sec-14-we-watched-seabirds-flocking-above-our-heads"
+                                                aria-label="Answer" class="accordion-toggle nn_sliders-toggle"
+                                                data-toggle="collapse"
+                                                data-id="sec-14-we-watched-seabirds-flocking-above-our-heads"
+                                                data-parent="#set-nn_sliders-14" aria-expanded="false"
+                                                aria-controls="sec-14-we-watched-seabirds-flocking-above-our-heads">
+                                                <span class="nn_sliders-toggle-inner">14. We watched seabirds flocking
+                                                  above our heads.</span>
+                                              </a>
+                                            </div>
+                                            <div class="accordion-body nn_sliders-body collapse"
+                                              id="sec-14-we-watched-seabirds-flocking-above-our-heads"
+                                              aria-hidden="true">
+                                              <div class="accordion-inner panel-body">
+                                                <h2 class="nn_sliders-title">14. We watched seabirds flocking above our
+                                                  heads.</h2>
+                                                <p>
+                                                  14. We watched
+                                                  <span class="in-text-decoration-underline__14j0pz">seabirds</span>
+                                                  flocking above our
+                                                  <span class="in-text-decoration-underline__14j0pz">heads</span>.
+                                                </p>
+                                              </div>
+                                            </div>
+                                            <div class="exercise-response-row" data-item="14">
+                                              <label class="exercise-response-field">
+                                                <span class="visually-hidden">Response for item 14</span>
+                                                <input class="exercise-response-input" type="text" placeholder="Answer"
+                                                  data-item="14" data-field="response">
+                                              </label>
+                                              <label class="exercise-response-field">
+                                                <span class="visually-hidden">Notes for item 14</span>
+                                                <input class="exercise-response-input" type="text" placeholder="Answer"
+                                                  data-item="14" data-field="notes">
+                                              </label>
+                                              <label class="exercise-response-field">
+                                                <span class="visually-hidden">Confidence for item 14</span>
+                                                <input class="exercise-response-input" type="text" placeholder="Answer"
+                                                  data-item="14" data-field="confidence">
+                                              </label>
+                                            </div>
+                                          </div>
+                                        </div></div>
 
-              <div class="nn_sliders accordion panel-group" id="set-nn_sliders-16">
-                <span id="nn_sliders-scrollto_16" class="anchor nn_sliders-scroll"></span>
-                <div class="accordion-group panel nn_sliders-group">
-                  <span id="nn_sliders-scrollto_16-my-brother-wants-to-play-hide-and-seek-with-us"
-                    class="anchor nn_sliders-scroll"></span>
-                  <div class="accordion-heading panel-heading">
-                    <a href="111-common-nouns.html#sec-16-my-brother-wants-to-play-hide-and-seek-with-us"
-                      aria-label="Answer" class="accordion-toggle nn_sliders-toggle" data-toggle="collapse"
-                      data-id="sec-16-my-brother-wants-to-play-hide-and-seek-with-us" data-parent="#set-nn_sliders-16"
-                      aria-expanded="false" aria-controls="sec-16-my-brother-wants-to-play-hide-and-seek-with-us">
-                      <span class="nn_sliders-toggle-inner">16. My brother wants to play hide-and-seek with us.</span>
-                    </a>
-                  </div>
-                  <div class="accordion-body nn_sliders-body collapse"
-                    id="sec-16-my-brother-wants-to-play-hide-and-seek-with-us" aria-hidden="true">
-                    <div class="accordion-inner panel-body">
-                      <h2 class="nn_sliders-title">16. My brother wants to play hide-and-seek with us.</h2>
-                      <p>
-                        16. My
-                        <span class="in-text-decoration-underline__14j0pz">brother</span>
-                        wants to play
-                        <span class="in-text-decoration-underline__14j0pz">hide-and-seek</span>
-                        with us.
-                      </p>
-                    </div>
-                  </div>
-                  <div class="exercise-response-row" data-item="16">
-                    <label class="exercise-response-field">
-                      <span class="visually-hidden">Response for item 16</span>
-                      <input class="exercise-response-input" type="text" placeholder="Answer" data-item="16"
-                        data-field="response">
-                    </label>
-                    <label class="exercise-response-field">
-                      <span class="visually-hidden">Notes for item 16</span>
-                      <input class="exercise-response-input" type="text" placeholder="Answer" data-item="16"
-                        data-field="notes">
-                    </label>
-                    <label class="exercise-response-field">
-                      <span class="visually-hidden">Confidence for item 16</span>
-                      <input class="exercise-response-input" type="text" placeholder="Answer" data-item="16"
-                        data-field="confidence">
-                    </label>
-                  </div>
-                </div>
-              </div>
+                                        <div class="quest-bg">
+                                          <div class="nn_sliders accordion panel-group" id="set-nn_sliders-15">
+                                            <span id="nn_sliders-scrollto_15" class="anchor nn_sliders-scroll"></span>
+                                            <div class="accordion-group panel nn_sliders-group">
+                                              <span
+                                                id="nn_sliders-scrollto_15-he-went-to-visit-his-homesick-uncle-at-the-hospital"
+                                                class="anchor nn_sliders-scroll"></span>
+                                              <div class="accordion-heading panel-heading">
+                                                <a href="111-common-nouns.html#sec-15-he-went-to-visit-his-homesick-uncle-at-the-hospital"
+                                                  aria-label="Answer" class="accordion-toggle nn_sliders-toggle"
+                                                  data-toggle="collapse"
+                                                  data-id="sec-15-he-went-to-visit-his-homesick-uncle-at-the-hospital"
+                                                  data-parent="#set-nn_sliders-15" aria-expanded="false"
+                                                  aria-controls="sec-15-he-went-to-visit-his-homesick-uncle-at-the-hospital">
+                                                  <span class="nn_sliders-toggle-inner">15. He went to visit his
+                                                    homesick uncle at the
+                                                    hospital.</span>
+                                                </a>
+                                              </div>
+                                              <div class="accordion-body nn_sliders-body collapse"
+                                                id="sec-15-he-went-to-visit-his-homesick-uncle-at-the-hospital"
+                                                aria-hidden="true">
+                                                <div class="accordion-inner panel-body">
+                                                  <h2 class="nn_sliders-title">15. He went to visit his homesick uncle
+                                                    at the hospital.</h2>
+                                                  <p>
+                                                    15. He went to visit his homesick
+                                                    <span class="in-text-decoration-underline__14j0pz">uncle</span>
+                                                    at the
+                                                    <span class="in-text-decoration-underline__14j0pz">hospital</span>.
+                                                  </p>
+                                                </div>
+                                              </div>
+                                              <div class="exercise-response-row" data-item="15">
+                                                <label class="exercise-response-field">
+                                                  <span class="visually-hidden">Response for item 15</span>
+                                                  <input class="exercise-response-input" type="text"
+                                                    placeholder="Answer" data-item="15" data-field="response">
+                                                </label>
+                                                <label class="exercise-response-field">
+                                                  <span class="visually-hidden">Notes for item 15</span>
+                                                  <input class="exercise-response-input" type="text"
+                                                    placeholder="Answer" data-item="15" data-field="notes">
+                                                </label>
+                                                <label class="exercise-response-field">
+                                                  <span class="visually-hidden">Confidence for item 15</span>
+                                                  <input class="exercise-response-input" type="text"
+                                                    placeholder="Answer" data-item="15" data-field="confidence">
+                                                </label>
+                                              </div>
+                                            </div>
+                                          </div></div>
 
-              <div class="nn_sliders accordion panel-group" id="set-nn_sliders-17">
-                <span id="nn_sliders-scrollto_17" class="anchor nn_sliders-scroll"></span>
-                <div class="accordion-group panel nn_sliders-group">
-                  <span id="nn_sliders-scrollto_17-let-me-look-at-your-puppies-and-kittens"
-                    class="anchor nn_sliders-scroll"></span>
-                  <div class="accordion-heading panel-heading">
-                    <a href="111-common-nouns.html#sec-17-let-me-look-at-your-puppies-and-kittens" aria-label="Answer"
-                      class="accordion-toggle nn_sliders-toggle" data-toggle="collapse"
-                      data-id="sec-17-let-me-look-at-your-puppies-and-kittens" data-parent="#set-nn_sliders-17"
-                      aria-expanded="false" aria-controls="sec-17-let-me-look-at-your-puppies-and-kittens">
-                      <span class="nn_sliders-toggle-inner">17. Let me look at your puppies and kittens.</span>
-                    </a>
-                  </div>
-                  <div class="accordion-body nn_sliders-body collapse"
-                    id="sec-17-let-me-look-at-your-puppies-and-kittens" aria-hidden="true">
-                    <div class="accordion-inner panel-body">
-                      <h2 class="nn_sliders-title">17. Let me look at your puppies and kittens.</h2>
-                      <p>
-                        17. Let me look at your
-                        <span class="in-text-decoration-underline__14j0pz">puppies</span>
-                        and
-                        <span class="in-text-decoration-underline__14j0pz">kittens</span>.
-                      </p>
-                    </div>
-                  </div>
-                  <div class="exercise-response-row" data-item="17">
-                    <label class="exercise-response-field">
-                      <span class="visually-hidden">Response for item 17</span>
-                      <input class="exercise-response-input" type="text" placeholder="Answer" data-item="17"
-                        data-field="response">
-                    </label>
-                    <label class="exercise-response-field">
-                      <span class="visually-hidden">Notes for item 17</span>
-                      <input class="exercise-response-input" type="text" placeholder="Answer" data-item="17"
-                        data-field="notes">
-                    </label>
-                    <label class="exercise-response-field">
-                      <span class="visually-hidden">Confidence for item 17</span>
-                      <input class="exercise-response-input" type="text" placeholder="Answer" data-item="17"
-                        data-field="confidence">
-                    </label>
-                  </div>
-                </div>
-              </div>
+                                          <div class="quest-bg">
+                                            <div class="nn_sliders accordion panel-group" id="set-nn_sliders-16">
+                                              <span id="nn_sliders-scrollto_16" class="anchor nn_sliders-scroll"></span>
+                                              <div class="accordion-group panel nn_sliders-group">
+                                                <span
+                                                  id="nn_sliders-scrollto_16-my-brother-wants-to-play-hide-and-seek-with-us"
+                                                  class="anchor nn_sliders-scroll"></span>
+                                                <div class="accordion-heading panel-heading">
+                                                  <a href="111-common-nouns.html#sec-16-my-brother-wants-to-play-hide-and-seek-with-us"
+                                                    aria-label="Answer" class="accordion-toggle nn_sliders-toggle"
+                                                    data-toggle="collapse"
+                                                    data-id="sec-16-my-brother-wants-to-play-hide-and-seek-with-us"
+                                                    data-parent="#set-nn_sliders-16" aria-expanded="false"
+                                                    aria-controls="sec-16-my-brother-wants-to-play-hide-and-seek-with-us">
+                                                    <span class="nn_sliders-toggle-inner">16. My brother wants to play
+                                                      hide-and-seek with us.</span>
+                                                  </a>
+                                                </div>
+                                                <div class="accordion-body nn_sliders-body collapse"
+                                                  id="sec-16-my-brother-wants-to-play-hide-and-seek-with-us"
+                                                  aria-hidden="true">
+                                                  <div class="accordion-inner panel-body">
+                                                    <h2 class="nn_sliders-title">16. My brother wants to play
+                                                      hide-and-seek with us.</h2>
+                                                    <p>
+                                                      16. My
+                                                      <span class="in-text-decoration-underline__14j0pz">brother</span>
+                                                      wants to play
+                                                      <span
+                                                        class="in-text-decoration-underline__14j0pz">hide-and-seek</span>
+                                                      with us.
+                                                    </p>
+                                                  </div>
+                                                </div>
+                                                <div class="exercise-response-row" data-item="16">
+                                                  <label class="exercise-response-field">
+                                                    <span class="visually-hidden">Response for item 16</span>
+                                                    <input class="exercise-response-input" type="text"
+                                                      placeholder="Answer" data-item="16" data-field="response">
+                                                  </label>
+                                                  <label class="exercise-response-field">
+                                                    <span class="visually-hidden">Notes for item 16</span>
+                                                    <input class="exercise-response-input" type="text"
+                                                      placeholder="Answer" data-item="16" data-field="notes">
+                                                  </label>
+                                                  <label class="exercise-response-field">
+                                                    <span class="visually-hidden">Confidence for item 16</span>
+                                                    <input class="exercise-response-input" type="text"
+                                                      placeholder="Answer" data-item="16" data-field="confidence">
+                                                  </label>
+                                                </div>
+                                              </div>
+                                            </div></div>
 
-              <div class="nn_sliders accordion panel-group" id="set-nn_sliders-18">
-                <span id="nn_sliders-scrollto_18" class="anchor nn_sliders-scroll"></span>
-                <div class="accordion-group panel nn_sliders-group">
-                  <span id="nn_sliders-scrollto_18-the-taxi-broke-down-in-front-of-my-gate"
-                    class="anchor nn_sliders-scroll"></span>
-                  <div class="accordion-heading panel-heading">
-                    <a href="111-common-nouns.html#sec-18-the-taxi-broke-down-in-front-of-my-gate" aria-label="Answer"
-                      class="accordion-toggle nn_sliders-toggle" data-toggle="collapse"
-                      data-id="sec-18-the-taxi-broke-down-in-front-of-my-gate" data-parent="#set-nn_sliders-18"
-                      aria-expanded="false" aria-controls="sec-18-the-taxi-broke-down-in-front-of-my-gate">
-                      <span class="nn_sliders-toggle-inner">18. The taxi broke down in front of my gate.</span>
-                    </a>
-                  </div>
-                  <div class="accordion-body nn_sliders-body collapse"
-                    id="sec-18-the-taxi-broke-down-in-front-of-my-gate" aria-hidden="true">
-                    <div class="accordion-inner panel-body">
-                      <h2 class="nn_sliders-title">18. The taxi broke down in front of my gate.</h2>
-                      <p>
-                        18. The
-                        <span class="in-text-decoration-underline__14j0pz">taxi</span>
-                        broke down in front of my
-                        <span class="in-text-decoration-underline__14j0pz">gate</span>.
-                      </p>
-                    </div>
-                  </div>
-                  <div class="exercise-response-row" data-item="18">
-                    <label class="exercise-response-field">
-                      <span class="visually-hidden">Response for item 18</span>
-                      <input class="exercise-response-input" type="text" placeholder="Answer" data-item="18"
-                        data-field="response">
-                    </label>
-                    <label class="exercise-response-field">
-                      <span class="visually-hidden">Notes for item 18</span>
-                      <input class="exercise-response-input" type="text" placeholder="Answer" data-item="18"
-                        data-field="notes">
-                    </label>
-                    <label class="exercise-response-field">
-                      <span class="visually-hidden">Confidence for item 18</span>
-                      <input class="exercise-response-input" type="text" placeholder="Answer" data-item="18"
-                        data-field="confidence">
-                    </label>
-                  </div>
-                </div>
-              </div>
+                                            <div class="quest-bg">
+                                              <div class="nn_sliders accordion panel-group" id="set-nn_sliders-17">
+                                                <span id="nn_sliders-scrollto_17"
+                                                  class="anchor nn_sliders-scroll"></span>
+                                                <div class="accordion-group panel nn_sliders-group">
+                                                  <span
+                                                    id="nn_sliders-scrollto_17-let-me-look-at-your-puppies-and-kittens"
+                                                    class="anchor nn_sliders-scroll"></span>
+                                                  <div class="accordion-heading panel-heading">
+                                                    <a href="111-common-nouns.html#sec-17-let-me-look-at-your-puppies-and-kittens"
+                                                      aria-label="Answer" class="accordion-toggle nn_sliders-toggle"
+                                                      data-toggle="collapse"
+                                                      data-id="sec-17-let-me-look-at-your-puppies-and-kittens"
+                                                      data-parent="#set-nn_sliders-17" aria-expanded="false"
+                                                      aria-controls="sec-17-let-me-look-at-your-puppies-and-kittens">
+                                                      <span class="nn_sliders-toggle-inner">17. Let me look at your
+                                                        puppies and kittens.</span>
+                                                    </a>
+                                                  </div>
+                                                  <div class="accordion-body nn_sliders-body collapse"
+                                                    id="sec-17-let-me-look-at-your-puppies-and-kittens"
+                                                    aria-hidden="true">
+                                                    <div class="accordion-inner panel-body">
+                                                      <h2 class="nn_sliders-title">17. Let me look at your puppies and
+                                                        kittens.</h2>
+                                                      <p>
+                                                        17. Let me look at your
+                                                        <span
+                                                          class="in-text-decoration-underline__14j0pz">puppies</span>
+                                                        and
+                                                        <span
+                                                          class="in-text-decoration-underline__14j0pz">kittens</span>.
+                                                      </p>
+                                                    </div>
+                                                  </div>
+                                                  <div class="exercise-response-row" data-item="17">
+                                                    <label class="exercise-response-field">
+                                                      <span class="visually-hidden">Response for item 17</span>
+                                                      <input class="exercise-response-input" type="text"
+                                                        placeholder="Answer" data-item="17" data-field="response">
+                                                    </label>
+                                                    <label class="exercise-response-field">
+                                                      <span class="visually-hidden">Notes for item 17</span>
+                                                      <input class="exercise-response-input" type="text"
+                                                        placeholder="Answer" data-item="17" data-field="notes">
+                                                    </label>
+                                                    <label class="exercise-response-field">
+                                                      <span class="visually-hidden">Confidence for item 17</span>
+                                                      <input class="exercise-response-input" type="text"
+                                                        placeholder="Answer" data-item="17" data-field="confidence">
+                                                    </label>
+                                                  </div>
+                                                </div>
+                                              </div></div>
 
-              <div class="nn_sliders accordion panel-group" id="set-nn_sliders-19">
-                <span id="nn_sliders-scrollto_19" class="anchor nn_sliders-scroll"></span>
-                <div class="accordion-group panel nn_sliders-group">
-                  <span id="nn_sliders-scrollto_19-the-boys-are-quarrelling-noisily-on-the-beach"
-                    class="anchor nn_sliders-scroll"></span>
-                  <div class="accordion-heading panel-heading">
-                    <a href="111-common-nouns.html#sec-19-the-boys-are-quarrelling-noisily-on-the-beach"
-                      aria-label="Answer" class="accordion-toggle nn_sliders-toggle" data-toggle="collapse"
-                      data-id="sec-19-the-boys-are-quarrelling-noisily-on-the-beach" data-parent="#set-nn_sliders-19"
-                      aria-expanded="false" aria-controls="sec-19-the-boys-are-quarrelling-noisily-on-the-beach">
-                      <span class="nn_sliders-toggle-inner">19. The boys are quarrelling noisily on the beach.</span>
-                    </a>
-                  </div>
-                  <div class="accordion-body nn_sliders-body collapse"
-                    id="sec-19-the-boys-are-quarrelling-noisily-on-the-beach" aria-hidden="true">
-                    <div class="accordion-inner panel-body">
-                      <h2 class="nn_sliders-title">19. The boys are quarrelling noisily on the beach.</h2>
-                      <p>
-                        19. The
-                        <span class="in-text-decoration-underline__14j0pz">boys</span>
-                        are quarrelling noisily on the
-                        <span class="in-text-decoration-underline__14j0pz">beach</span>.
-                      </p>
-                    </div>
-                  </div>
-                  <div class="exercise-response-row" data-item="19">
-                    <label class="exercise-response-field">
-                      <span class="visually-hidden">Response for item 19</span>
-                      <input class="exercise-response-input" type="text" placeholder="Answer" data-item="19"
-                        data-field="response">
-                    </label>
-                    <label class="exercise-response-field">
-                      <span class="visually-hidden">Notes for item 19</span>
-                      <input class="exercise-response-input" type="text" placeholder="Answer" data-item="19"
-                        data-field="notes">
-                    </label>
-                    <label class="exercise-response-field">
-                      <span class="visually-hidden">Confidence for item 19</span>
-                      <input class="exercise-response-input" type="text" placeholder="Answer" data-item="19"
-                        data-field="confidence">
-                    </label>
-                  </div>
-                </div>
-              </div>
+                                              <div class="quest-bg">
+                                                <div class="nn_sliders accordion panel-group" id="set-nn_sliders-18">
+                                                  <span id="nn_sliders-scrollto_18"
+                                                    class="anchor nn_sliders-scroll"></span>
+                                                  <div class="accordion-group panel nn_sliders-group">
+                                                    <span
+                                                      id="nn_sliders-scrollto_18-the-taxi-broke-down-in-front-of-my-gate"
+                                                      class="anchor nn_sliders-scroll"></span>
+                                                    <div class="accordion-heading panel-heading">
+                                                      <a href="111-common-nouns.html#sec-18-the-taxi-broke-down-in-front-of-my-gate"
+                                                        aria-label="Answer" class="accordion-toggle nn_sliders-toggle"
+                                                        data-toggle="collapse"
+                                                        data-id="sec-18-the-taxi-broke-down-in-front-of-my-gate"
+                                                        data-parent="#set-nn_sliders-18" aria-expanded="false"
+                                                        aria-controls="sec-18-the-taxi-broke-down-in-front-of-my-gate">
+                                                        <span class="nn_sliders-toggle-inner">18. The taxi broke down in
+                                                          front of my gate.</span>
+                                                      </a>
+                                                    </div>
+                                                    <div class="accordion-body nn_sliders-body collapse"
+                                                      id="sec-18-the-taxi-broke-down-in-front-of-my-gate"
+                                                      aria-hidden="true">
+                                                      <div class="accordion-inner panel-body">
+                                                        <h2 class="nn_sliders-title">18. The taxi broke down in front of
+                                                          my gate.</h2>
+                                                        <p>
+                                                          18. The
+                                                          <span class="in-text-decoration-underline__14j0pz">taxi</span>
+                                                          broke down in front of my
+                                                          <span
+                                                            class="in-text-decoration-underline__14j0pz">gate</span>.
+                                                        </p>
+                                                      </div>
+                                                    </div>
+                                                    <div class="exercise-response-row" data-item="18">
+                                                      <label class="exercise-response-field">
+                                                        <span class="visually-hidden">Response for item 18</span>
+                                                        <input class="exercise-response-input" type="text"
+                                                          placeholder="Answer" data-item="18" data-field="response">
+                                                      </label>
+                                                      <label class="exercise-response-field">
+                                                        <span class="visually-hidden">Notes for item 18</span>
+                                                        <input class="exercise-response-input" type="text"
+                                                          placeholder="Answer" data-item="18" data-field="notes">
+                                                      </label>
+                                                      <label class="exercise-response-field">
+                                                        <span class="visually-hidden">Confidence for item 18</span>
+                                                        <input class="exercise-response-input" type="text"
+                                                          placeholder="Answer" data-item="18" data-field="confidence">
+                                                      </label>
+                                                    </div>
+                                                  </div>
+                                                </div></div>
 
-              <div class="nn_sliders accordion panel-group" id="set-nn_sliders-20">
-                <span id="nn_sliders-scrollto_20" class="anchor nn_sliders-scroll"></span>
-                <div class="accordion-group panel nn_sliders-group">
-                  <span id="nn_sliders-scrollto_20-the-monkey-was-hanging-by-its-tail-from-a-branch"
-                    class="anchor nn_sliders-scroll"></span>
-                  <div class="accordion-heading panel-heading">
-                    <a href="111-common-nouns.html#sec-20-the-monkey-was-hanging-by-its-tail-from-a-branch"
-                      aria-label="Answer" class="accordion-toggle nn_sliders-toggle" data-toggle="collapse"
-                      data-id="sec-20-the-monkey-was-hanging-by-its-tail-from-a-branch" data-parent="#set-nn_sliders-20"
-                      aria-expanded="false" aria-controls="sec-20-the-monkey-was-hanging-by-its-tail-from-a-branch">
-                      <span class="nn_sliders-toggle-inner">20. The monkey was hanging by its tail from a branch.</span>
-                    </a>
-                  </div>
-                  <div class="accordion-body nn_sliders-body collapse"
-                    id="sec-20-the-monkey-was-hanging-by-its-tail-from-a-branch" aria-hidden="true">
-                    <div class="accordion-inner panel-body">
-                      <h2 class="nn_sliders-title">20. The monkey was hanging by its tail from a branch.</h2>
-                      <p>
-                        20. The
-                        <span class="in-text-decoration-underline__14j0pz">monkey</span>
-                        was hanging by its
-                        <span class="in-text-decoration-underline__14j0pz">tail</span>
-                        from a
-                        <span class="in-text-decoration-underline__14j0pz">branch</span>.
-                      </p>
-                    </div>
-                  </div>
-                  <div class="exercise-response-row" data-item="20">
-                    <label class="exercise-response-field">
-                      <span class="visually-hidden">Response for item 20</span>
-                      <input class="exercise-response-input" type="text" placeholder="Answer" data-item="20"
-                        data-field="response">
-                    </label>
-                    <label class="exercise-response-field">
-                      <span class="visually-hidden">Notes for item 20</span>
-                      <input class="exercise-response-input" type="text" placeholder="Answer" data-item="20"
-                        data-field="notes">
-                    </label>
-                    <label class="exercise-response-field">
-                      <span class="visually-hidden">Confidence for item 20</span>
-                      <input class="exercise-response-input" type="text" placeholder="Answer" data-item="20"
-                        data-field="confidence">
-                    </label>
-                  </div>
-                </div>
-              </div>
-              <ul class="pager pagenav">
-                <li class="prev">
-                  <a href="../exercise-1-nouns.html" rel="prev" aria-label="Previous">
-                    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 18 48"
-                      fill="currentColor">
-                      <title>angle-left</title>
-                      <path
-                        d="M16.795 14.571c0 0.214-0.107 0.455-0.268 0.616l-10.527 10.527 10.527 10.527c0.161 0.161 0.268 0.402 0.268 0.616s-0.107 0.455-0.268 0.616l-1.339 1.339c-0.161 0.161-0.402 0.268-0.616 0.268s-0.455-0.107-0.616-0.268l-12.482-12.482c-0.161-0.161-0.268-0.402-0.268-0.616s0.107-0.455 0.268-0.616l12.482-12.482c0.161-0.161 0.402-0.268 0.616-0.268s0.455 0.107 0.616 0.268l1.339 1.339c0.161 0.161 0.268 0.375 0.268 0.616z">
-                      </path>
-                    </svg>
-                    &nbsp;&nbsp;Exercise 1 - Nouns
-                  </a>
-                </li>
-                <li class="next">
-                  <a href="112-proper-nouns.html" rel="next" aria-label="1.1.2 Proper Nouns">
-                    1.1.2 Proper Nouns&nbsp;&nbsp;
-                    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 18 48"
-                      fill="currentColor">
-                      <title>angle-right</title>
-                      <path
-                        d="M15.938 25.714c0 0.214-0.107 0.455-0.268 0.616l-12.482 12.482c-0.161 0.161-0.402 0.268-0.616 0.268s-0.455-0.107-0.616-0.268l-1.339-1.339c-0.161-0.161-0.268-0.375-0.268-0.616 0-0.214 0.107-0.455 0.268-0.616l10.527-10.527-10.527-10.527c-0.161-0.161-0.268-0.402-0.268-0.616s0.107-0.455 0.268-0.616l1.339-1.339c0.161-0.161 0.402-0.268 0.616-0.268s0.455 0.107 0.616 0.268l12.482 12.482c0.161 0.161 0.268 0.402 0.268 0.616z">
-                      </path>
-                    </svg>
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </div>
+                                                <div class="quest-bg">
+                                                  <div class="nn_sliders accordion panel-group" id="set-nn_sliders-19">
+                                                    <span id="nn_sliders-scrollto_19"
+                                                      class="anchor nn_sliders-scroll"></span>
+                                                    <div class="accordion-group panel nn_sliders-group">
+                                                      <span
+                                                        id="nn_sliders-scrollto_19-the-boys-are-quarrelling-noisily-on-the-beach"
+                                                        class="anchor nn_sliders-scroll"></span>
+                                                      <div class="accordion-heading panel-heading">
+                                                        <a href="111-common-nouns.html#sec-19-the-boys-are-quarrelling-noisily-on-the-beach"
+                                                          aria-label="Answer" class="accordion-toggle nn_sliders-toggle"
+                                                          data-toggle="collapse"
+                                                          data-id="sec-19-the-boys-are-quarrelling-noisily-on-the-beach"
+                                                          data-parent="#set-nn_sliders-19" aria-expanded="false"
+                                                          aria-controls="sec-19-the-boys-are-quarrelling-noisily-on-the-beach">
+                                                          <span class="nn_sliders-toggle-inner">19. The boys are
+                                                            quarrelling noisily on the beach.</span>
+                                                        </a>
+                                                      </div>
+                                                      <div class="accordion-body nn_sliders-body collapse"
+                                                        id="sec-19-the-boys-are-quarrelling-noisily-on-the-beach"
+                                                        aria-hidden="true">
+                                                        <div class="accordion-inner panel-body">
+                                                          <h2 class="nn_sliders-title">19. The boys are quarrelling
+                                                            noisily on the beach.</h2>
+                                                          <p>
+                                                            19. The
+                                                            <span
+                                                              class="in-text-decoration-underline__14j0pz">boys</span>
+                                                            are quarrelling noisily on the
+                                                            <span
+                                                              class="in-text-decoration-underline__14j0pz">beach</span>.
+                                                          </p>
+                                                        </div>
+                                                      </div>
+                                                      <div class="exercise-response-row" data-item="19">
+                                                        <label class="exercise-response-field">
+                                                          <span class="visually-hidden">Response for item 19</span>
+                                                          <input class="exercise-response-input" type="text"
+                                                            placeholder="Answer" data-item="19" data-field="response">
+                                                        </label>
+                                                        <label class="exercise-response-field">
+                                                          <span class="visually-hidden">Notes for item 19</span>
+                                                          <input class="exercise-response-input" type="text"
+                                                            placeholder="Answer" data-item="19" data-field="notes">
+                                                        </label>
+                                                        <label class="exercise-response-field">
+                                                          <span class="visually-hidden">Confidence for item 19</span>
+                                                          <input class="exercise-response-input" type="text"
+                                                            placeholder="Answer" data-item="19" data-field="confidence">
+                                                        </label>
+                                                      </div>
+                                                    </div>
+                                                  </div></div>
 
-          <div class="clearfix"></div>
-          <ul class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
-            <li class="active">
-              <span class="divider icon-location"></span>
-            </li>
+                                                  <div class="quest-bg">
+                                                    <div class="nn_sliders accordion panel-group"
+                                                      id="set-nn_sliders-20">
+                                                      <span id="nn_sliders-scrollto_20"
+                                                        class="anchor nn_sliders-scroll"></span>
+                                                      <div class="accordion-group panel nn_sliders-group">
+                                                        <span
+                                                          id="nn_sliders-scrollto_20-the-monkey-was-hanging-by-its-tail-from-a-branch"
+                                                          class="anchor nn_sliders-scroll"></span>
+                                                        <div class="accordion-heading panel-heading">
+                                                          <a href="111-common-nouns.html#sec-20-the-monkey-was-hanging-by-its-tail-from-a-branch"
+                                                            aria-label="Answer"
+                                                            class="accordion-toggle nn_sliders-toggle"
+                                                            data-toggle="collapse"
+                                                            data-id="sec-20-the-monkey-was-hanging-by-its-tail-from-a-branch"
+                                                            data-parent="#set-nn_sliders-20" aria-expanded="false"
+                                                            aria-controls="sec-20-the-monkey-was-hanging-by-its-tail-from-a-branch">
+                                                            <span class="nn_sliders-toggle-inner">20. The monkey was
+                                                              hanging by its tail from a branch.</span>
+                                                          </a>
+                                                        </div>
+                                                        <div class="accordion-body nn_sliders-body collapse"
+                                                          id="sec-20-the-monkey-was-hanging-by-its-tail-from-a-branch"
+                                                          aria-hidden="true">
+                                                          <div class="accordion-inner panel-body">
+                                                            <h2 class="nn_sliders-title">20. The monkey was hanging by
+                                                              its tail from a branch.</h2>
+                                                            <p>
+                                                              20. The
+                                                              <span
+                                                                class="in-text-decoration-underline__14j0pz">monkey</span>
+                                                              was hanging by its
+                                                              <span
+                                                                class="in-text-decoration-underline__14j0pz">tail</span>
+                                                              from a
+                                                              <span
+                                                                class="in-text-decoration-underline__14j0pz">branch</span>.
+                                                            </p>
+                                                          </div>
+                                                        </div>
+                                                        <div class="exercise-response-row" data-item="20">
+                                                          <label class="exercise-response-field">
+                                                            <span class="visually-hidden">Response for item 20</span>
+                                                            <input class="exercise-response-input" type="text"
+                                                              placeholder="Answer" data-item="20" data-field="response">
+                                                          </label>
+                                                          <label class="exercise-response-field">
+                                                            <span class="visually-hidden">Notes for item 20</span>
+                                                            <input class="exercise-response-input" type="text"
+                                                              placeholder="Answer" data-item="20" data-field="notes">
+                                                          </label>
+                                                          <label class="exercise-response-field">
+                                                            <span class="visually-hidden">Confidence for item 20</span>
+                                                            <input class="exercise-response-input" type="text"
+                                                              placeholder="Answer" data-item="20"
+                                                              data-field="confidence">
+                                                          </label>
+                                                        </div>
+                                                      </div>
+                                                    </div></div>
+                                                    <ul class="pager pagenav">
+                                                      <li class="prev">
+                                                        <a href="../exercise-1-nouns.html" rel="prev"
+                                                          aria-label="Previous">
+                                                          <svg version="1.1" xmlns="http://www.w3.org/2000/svg"
+                                                            height="24px" viewBox="0 0 18 48" fill="currentColor">
+                                                            <title>angle-left</title>
+                                                            <path
+                                                              d="M16.795 14.571c0 0.214-0.107 0.455-0.268 0.616l-10.527 10.527 10.527 10.527c0.161 0.161 0.268 0.402 0.268 0.616s-0.107 0.455-0.268 0.616l-1.339 1.339c-0.161 0.161-0.402 0.268-0.616 0.268s-0.455-0.107-0.616-0.268l-12.482-12.482c-0.161-0.161-0.268-0.402-0.268-0.616s0.107-0.455 0.268-0.616l12.482-12.482c0.161-0.161 0.402-0.268 0.616-0.268s0.455 0.107 0.616 0.268l1.339 1.339c0.161 0.161 0.268 0.375 0.268 0.616z">
+                                                            </path>
+                                                          </svg>
+                                                          &nbsp;&nbsp;Exercise 1 - Nouns
+                                                        </a>
+                                                      </li>
+                                                      <li class="next">
+                                                        <a href="112-proper-nouns.html" rel="next"
+                                                          aria-label="1.1.2 Proper Nouns">
+                                                          1.1.2 Proper Nouns&nbsp;&nbsp;
+                                                          <svg version="1.1" xmlns="http://www.w3.org/2000/svg"
+                                                            height="24px" viewBox="0 0 18 48" fill="currentColor">
+                                                            <title>angle-right</title>
+                                                            <path
+                                                              d="M15.938 25.714c0 0.214-0.107 0.455-0.268 0.616l-12.482 12.482c-0.161 0.161-0.402 0.268-0.616 0.268s-0.455-0.107-0.616-0.268l-1.339-1.339c-0.161-0.161-0.268-0.375-0.268-0.616 0-0.214 0.107-0.455 0.268-0.616l10.527-10.527-10.527-10.527c-0.161-0.161-0.268-0.402-0.268-0.616s0.107-0.455 0.268-0.616l1.339-1.339c0.161-0.161 0.402-0.268 0.616-0.268s0.455 0.107 0.616 0.268l12.482 12.482c0.161 0.161 0.268 0.402 0.268 0.616z">
+                                                            </path>
+                                                          </svg>
+                                                        </a>
+                                                      </li>
+                                                    </ul>
+                                                  </div>
+                                                </div>
 
-            <li itemprop="itemListElement" itemscope="" itemtype="https://schema.org/ListItem">
-              <a itemprop="item" href="../index-2.html" class="pathway" aria-label="Home">
-                <span itemprop="name">Home</span>
-              </a>
+                                                <div class="clearfix"></div>
+                                                <ul class="breadcrumb" itemscope
+                                                  itemtype="https://schema.org/BreadcrumbList">
+                                                  <li class="active">
+                                                    <span class="divider icon-location"></span>
+                                                  </li>
 
-              <span class="divider">
-                <img src="../media/system/images/arrow.png" alt="" width="9" height="9">
-              </span>
-              <meta itemprop="position" content="1">
-            </li>
-            <li itemprop="itemListElement" itemscope="" itemtype="https://schema.org/ListItem">
-              <a itemprop="item" href="../exercise-1-nouns.html" class="pathway" aria-label="Exercise 1 - Nouns">
-                <span itemprop="name">Exercise 1 - Nouns</span>
-              </a>
+                                                  <li itemprop="itemListElement" itemscope=""
+                                                    itemtype="https://schema.org/ListItem">
+                                                    <a itemprop="item" href="../index-2.html" class="pathway"
+                                                      aria-label="Home">
+                                                      <span itemprop="name">Home</span>
+                                                    </a>
 
-              <span class="divider">
-                <img src="../media/system/images/arrow.png" alt="" width="9" height="9">
-              </span>
-              <meta itemprop="position" content="2">
-            </li>
-            <li itemprop="itemListElement" itemscope="" itemtype="https://schema.org/ListItem" class="active">
-              <span itemprop="name">1.1.1 Common Nouns</span>
-              <meta itemprop="position" content="3">
-            </li>
-          </ul>
+                                                    <span class="divider">
+                                                      <img src="../images/arrow.png" alt="" width="9" height="9">
+                                                    </span>
+                                                    <meta itemprop="position" content="1">
+                                                  </li>
+                                                  <li itemprop="itemListElement" itemscope=""
+                                                    itemtype="https://schema.org/ListItem">
+                                                    <a itemprop="item" href="../exercise-1-nouns.html" class="pathway"
+                                                      aria-label="Exercise 1 - Nouns">
+                                                      <span itemprop="name">Exercise 1 - Nouns</span>
+                                                    </a>
 
-          <!-- End Content -->
+                                                    <span class="divider">
+                                                      <img src="../images/arrow.png" alt="" width="9" height="9">
+                                                    </span>
+                                                    <meta itemprop="position" content="2">
+                                                  </li>
+                                                  <li itemprop="itemListElement" itemscope=""
+                                                    itemtype="https://schema.org/ListItem" class="active">
+                                                    <span itemprop="name">1.1.1 Common Nouns</span>
+                                                    <meta itemprop="position" content="3">
+                                                  </li>
+                                                </ul>
+
+                                                <!-- End Content -->
         </main>
         <div id="aside" class="span2">
           <!-- Begin Right Sidebar -->

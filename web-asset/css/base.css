@@ -14,11 +14,11 @@
   --icon-color-on-dk: #f5f8ff; /* locked */
 
   /* Layout surfaces */
-  --background-color: #505050; /* page background behind light content */
+  --background-color: #798ea4; /* page background behind light content */
   --body-bgcolor: var(--secondary-color); /* body background */
   --surface-color: #eee; /* menu/content surface */
   --surface-muted: #f0f0ee; /* light alt surface */
-  --surface-soft: #fff; /* neutral soft background */
+  --surface-soft: #FFFAF0; /* neutral soft background */
   --surface-warm: #fff; /* hover menu warm neutral alt */
   --surface-1: #fffffa; /* medium light surface */
   --surface-2: #fffaf0; /* very light gray surface */
@@ -26,6 +26,8 @@
   /* Links */
   --link-color: #205fff; /* derived from brand blue */
   --link-hover: var(--primary-color);
+  --link-visited: #630094;
+  --link-active: var(--primary-color)
 
   /* Semantic states */
   --success-color: #0f6d2a;
@@ -630,7 +632,7 @@ body.mobile-nav-enabled #sidebar.mobile-nav-open {
 }
 
 .xborder2 {
-  border: 2px solid var(--primary-color) !important;
+  border: 1px solid var(--primary-color) !important;
 }
 
 .padx-t0r5b0l15 {

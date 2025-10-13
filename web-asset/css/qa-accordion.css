@@ -8,22 +8,19 @@
 }
 
 /* Preserve themed top border (e.g., .green/.info) and control other borders */
+
+  /* border-bottom: 1px solid var(--border-color); */
+
+  /* border-left: 1px solid var(--border-color); */
 #content .nn_sliders.accordion > .accordion-group {
   background: transparent;
-  border-bottom: 1px solid var(--border-color);
-  border-left: 1px solid var(--border-color);
   border-radius: var(--radius);
-  border-right: 1px solid var(--border-color);
   overflow: hidden;
 }
 
 #content .accordion-heading {
   background-color: var(--surface-1);
   transition: background-color 0.2s ease;
-}
-
-#content .accordion-heading:hover {
-  background-color: var(--surface-soft);
 }
 
 #content .accordion-heading > a.accordion-toggle {
