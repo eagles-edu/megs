@@ -44,8 +44,10 @@
       --menu-toggle-icon-size: var(--flyout-icon-size, 24px);
       --menu-toggle-icon-gap: 6px;
       --menu-toggle-minus-color: var(--primary-color);
-      --menu-toggle-minus-length: 13.3px;
-      --menu-toggle-minus-thickness: 2px;
+      --menu-toggle-minus-length-base: calc(var(--menu-toggle-icon-size, 24px) * 32 / 48);
+      --menu-toggle-minus-thickness-base: calc(var(--menu-toggle-icon-size, 24px) * 4 / 48);
+      --menu-toggle-minus-length: var(--menu-toggle-minus-length-base);
+      --menu-toggle-minus-thickness: var(--menu-toggle-minus-thickness-base);
       --menu-toggle-minus-radius: calc(var(--menu-toggle-minus-thickness) / 2);
       --menu-toggle-minus-mask-size: var(--menu-toggle-minus-length);
       --menu-toggle-minus-asset: url("../web-asset/icons/svg/sized/minus5.svg");
@@ -345,10 +347,10 @@
 
     ul.accordion-menu .menu-button::after {
       background-color: var(--menu-toggle-minus-color);
-      border-radius: var(--menu-toggle-minus-radius, calc(var(--menu-toggle-minus-thickness, 2px) / 2));
-      block-size: var(--menu-toggle-minus-thickness, 2px);
+      border-radius: var(--menu-toggle-minus-radius, calc(var(--menu-toggle-minus-thickness, var(--menu-toggle-minus-thickness-base)) / 2));
+      block-size: var(--menu-toggle-minus-thickness, var(--menu-toggle-minus-thickness-base));
       content: "";
-      inline-size: var(--menu-toggle-minus-length, 13.3px);
+      inline-size: var(--menu-toggle-minus-length, var(--menu-toggle-minus-length-base));
       left: 50%;
       margin: 0;
       opacity: 0;
@@ -379,7 +381,7 @@
       --lists-icon-gap: var(--menu-toggle-icon-gap, 6px);
       --lists-icon-size: var(--menu-toggle-icon-size);
       --lists-icon-slot: calc(var(--lists-icon-size) + var(--lists-icon-gap));
-      --menu-toggle-minus-length: var(--lists-minus-length, 13.3px);
+      --menu-toggle-minus-length: var(--lists-minus-length, calc(var(--menu-toggle-icon-size, 24px) * 32 / 48));
       --menu-icon-pad-inline-start: var(--lists-icon-pad-start, 0);
       --menu-icon-pad-inline-end: var(--lists-icon-gap);
       --icon-slot: var(--lists-icon-slot);
@@ -394,8 +396,8 @@
     }
 
     #lists-menu-item>.item-wrapper>.menu-button::after {
-      block-size: var(--menu-toggle-minus-thickness, 2px);
-      inline-size: var(--menu-toggle-minus-length, 13.3px);
+      block-size: var(--menu-toggle-minus-thickness, var(--menu-toggle-minus-thickness-base));
+      inline-size: var(--menu-toggle-minus-length, var(--menu-toggle-minus-length-base));
       inset: auto;
       left: auto;
       right: var(--lists-icon-gap, 6px);
@@ -563,10 +565,10 @@
 
     #aside ul.flyout-menu .menu-button::after {
       background-color: var(--menu-toggle-minus-color);
-      border-radius: var(--menu-toggle-minus-radius, calc(var(--menu-toggle-minus-thickness, 2px) / 2));
-      block-size: var(--menu-toggle-minus-thickness, 2px);
+      border-radius: var(--menu-toggle-minus-radius, calc(var(--menu-toggle-minus-thickness, var(--menu-toggle-minus-thickness-base)) / 2));
+      block-size: var(--menu-toggle-minus-thickness, var(--menu-toggle-minus-thickness-base));
       content: "";
-      inline-size: var(--menu-toggle-minus-length, 13.3px);
+      inline-size: var(--menu-toggle-minus-length, var(--menu-toggle-minus-length-base));
       inset: auto;
       left: 50%;
       margin: 0;
@@ -749,8 +751,9 @@
     .nn_sliders-toggle:active {
       border-color: var(--link-color);
     }
-    
+
   </style>
+
   <!-- Optimized speculationrules with prerender for better UX -->
   <script>
     ; ( function () {
