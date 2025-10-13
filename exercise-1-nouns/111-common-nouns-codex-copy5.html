@@ -44,7 +44,10 @@
       --menu-toggle-icon-size: var(--flyout-icon-size, 24px);
       --menu-toggle-icon-gap: 6px;
       --menu-toggle-minus-color: var(--primary-color);
-      --menu-toggle-minus-mask-size: calc(var(--menu-toggle-icon-size) - 6px);
+      --menu-toggle-minus-length: 13.3px;
+      --menu-toggle-minus-thickness: 2px;
+      --menu-toggle-minus-radius: calc(var(--menu-toggle-minus-thickness) / 2);
+      --menu-toggle-minus-mask-size: var(--menu-toggle-minus-length);
       --menu-toggle-minus-asset: url("../web-asset/icons/svg/sized/minus5.svg");
       --txtarea-bg: #f0f2f5;
       --radius: 3px;
@@ -342,23 +345,20 @@
 
     ul.accordion-menu .menu-button::after {
       background-color: var(--menu-toggle-minus-color);
-      block-size: var(--menu-toggle-icon-size);
+      border-radius: var(--menu-toggle-minus-radius, calc(var(--menu-toggle-minus-thickness, 2px) / 2));
+      block-size: var(--menu-toggle-minus-thickness, 2px);
       content: "";
-      inline-size: var(--menu-toggle-icon-size);
-      inset: 0;
-      margin: auto;
-      -webkit-mask-image: var(--menu-toggle-minus-asset);
-      -webkit-mask-position: center;
-      -webkit-mask-repeat: no-repeat;
-      -webkit-mask-size: var(--menu-toggle-minus-mask-size) var(--menu-toggle-minus-mask-size);
-      mask-image: var(--menu-toggle-minus-asset);
-      mask-position: center;
-      mask-repeat: no-repeat;
-      mask-size: var(--menu-toggle-minus-mask-size) var(--menu-toggle-minus-mask-size);
+      inline-size: var(--menu-toggle-minus-length, 13.3px);
+      left: 50%;
+      margin: 0;
       opacity: 0;
       pointer-events: none;
       position: absolute;
+      top: 50%;
+      transform: translate(-50%, -50%);
       transition: opacity 0.2s ease;
+      -webkit-mask-image: none;
+      mask-image: none;
     }
 
     /* Match left/right toggle padding with linked CSS defaults */
@@ -379,7 +379,7 @@
       --lists-icon-gap: var(--menu-toggle-icon-gap, 6px);
       --lists-icon-size: var(--menu-toggle-icon-size);
       --lists-icon-slot: calc(var(--lists-icon-size) + var(--lists-icon-gap));
-      --menu-toggle-minus-mask-size: calc(var(--lists-icon-size) - 6px);
+      --menu-toggle-minus-length: var(--lists-minus-length, 13.3px);
       --menu-icon-pad-inline-start: var(--lists-icon-pad-start, 0);
       --menu-icon-pad-inline-end: var(--lists-icon-gap);
       --icon-slot: var(--lists-icon-slot);
@@ -394,13 +394,12 @@
     }
 
     #lists-menu-item>.item-wrapper>.menu-button::after {
-      block-size: var(--lists-icon-size);
-      inline-size: var(--lists-icon-size);
+      block-size: var(--menu-toggle-minus-thickness, 2px);
+      inline-size: var(--menu-toggle-minus-length, 13.3px);
       inset: auto;
+      left: auto;
       right: var(--lists-icon-gap, 6px);
       top: 50%;
-      -webkit-mask-size: var(--menu-toggle-minus-mask-size) var(--menu-toggle-minus-mask-size);
-      mask-size: var(--menu-toggle-minus-mask-size) var(--menu-toggle-minus-mask-size);
       transform: translateY(-50%);
     }
 
@@ -564,26 +563,21 @@
 
     #aside ul.flyout-menu .menu-button::after {
       background-color: var(--menu-toggle-minus-color);
-      block-size: var(--menu-toggle-minus-mask-size);
+      border-radius: var(--menu-toggle-minus-radius, calc(var(--menu-toggle-minus-thickness, 2px) / 2));
+      block-size: var(--menu-toggle-minus-thickness, 2px);
       content: "";
-      inline-size: var(--menu-toggle-minus-mask-size);
+      inline-size: var(--menu-toggle-minus-length, 13.3px);
       inset: auto;
       left: 50%;
       margin: 0;
-      -webkit-mask-image: var(--menu-toggle-minus-asset);
-      -webkit-mask-position: center;
-      -webkit-mask-repeat: no-repeat;
-      -webkit-mask-size: var(--menu-toggle-minus-mask-size) var(--menu-toggle-minus-mask-size);
-      mask-image: var(--menu-toggle-minus-asset);
-      mask-position: center;
-      mask-repeat: no-repeat;
-      mask-size: var(--menu-toggle-minus-mask-size) var(--menu-toggle-minus-mask-size);
       opacity: 0;
       pointer-events: none;
       position: absolute;
       top: 50%;
       transform: translate(-50%, -50%);
       transition: opacity 0.2s ease;
+      -webkit-mask-image: none;
+      mask-image: none;
     }
 
     #aside ul.flyout-menu li:hover>.item-wrapper>.menu-button>img,
@@ -728,35 +722,35 @@
       }
     }
 
-    #content .accordion-heading:link,
+    #content .accordion-heading>a.accordion-toggle,
+    .nn_sliders-toggle {
+      background-color: var(--surface-soft);
+      border: 1px solid transparent;
+      border-radius: var(--radius);
+      transition: border-color 0.2s ease;
+    }
+
+    #content .accordion-heading>a.accordion-toggle:link,
     .nn_sliders-toggle:link {
-      background-color: var(--surface-soft);
-      border: 1px solid var(--link-color);
-      border-radius: var(--radius);
+      border-color: var(--link-color);
     }
 
-    #content .accordion-heading:visited,
+    #content .accordion-heading>a.accordion-toggle:visited,
     .nn_sliders-toggle:visited {
-      background-color: var(--surface-soft);
-      border: 1px solid var(--link-visited);
-      border-radius: var(--radius);
+      border-color: var(--link-visited);
     }
 
-    #content .accordion-heading:hover,
+    #content .accordion-heading>a.accordion-toggle:hover,
     .nn_sliders-toggle:hover {
-      background-color: var(--surface-soft);
-      border: 1px solid var(--primary-color);
-      border-radius: var(--radius);
+      border-color: var(--primary-color);
     }
 
-    #content .accordion-heading:active,
+    #content .accordion-heading>a.accordion-toggle:active,
     .nn_sliders-toggle:active {
-      background-color: var(--surface-soft);
-      border: 1px solid var(--link-color);
-      border-radius: var(--radius);
+      border-color: var(--link-color);
     }
+    
   </style>
-
   <!-- Optimized speculationrules with prerender for better UX -->
   <script>
     ; ( function () {
