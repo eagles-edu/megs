@@ -11,7 +11,7 @@
   }
 
   function bindFlyouts() {
-    var menus = document.querySelectorAll('ul.flyout-menu')
+    var menus = document.querySelectorAll("ul.flyout-menu")
     if (!menus || !menus.length) return
 
     menus.forEach(function (menu) {
@@ -20,13 +20,13 @@
       menu.__flyoutBound = true
 
       // Navigate on click, preserving target behavior
-      menu.addEventListener('click', function (e) {
-        var a = e.target && e.target.closest ? e.target.closest('a') : null
+      menu.addEventListener("click", function (e) {
+        var a = e.target && e.target.closest ? e.target.closest("a") : null
         if (!a || !menu.contains(a)) return
-        var href = a.getAttribute('href')
+        var href = a.getAttribute("href")
         if (!href) return
         e.preventDefault()
-        if (a.getAttribute('target') === '_blank') {
+        if (a.getAttribute("target") === "_blank") {
           window.open(href)
         } else {
           window.location.href = href
@@ -34,19 +34,16 @@
       })
 
       // Hover open/close of nested lists + toggle plus/minus icon
-      menu.querySelectorAll('li').forEach(function (li) {
-        var wrapper = li.querySelector(':scope > .ul-wrapper')
-        var btnImg = li.querySelector(':scope > .item-wrapper > .menu-button > img')
+      menu.querySelectorAll("li").forEach(function (li) {
+        var wrapper = li.querySelector(":scope > .ul-wrapper")
         if (!wrapper) return
-        li.addEventListener('mouseenter', function () {
-          li.classList.add('opened')
-          wrapper.style.display = 'block'
-          if (btnImg) btnImg.src = '../web-asset/icons/svg/sized/minus5.svg'
+        li.addEventListener("mouseenter", function () {
+          li.classList.add("opened")
+          wrapper.style.display = "block"
         })
-        li.addEventListener('mouseleave', function () {
-          li.classList.remove('opened')
-          wrapper.style.display = 'none'
-          if (btnImg) btnImg.src = "../web-asset/icons/svg/sized/plus3.svg"
+        li.addEventListener("mouseleave", function () {
+          li.classList.remove("opened")
+          wrapper.style.display = "none"
         })
       })
     })

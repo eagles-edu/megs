@@ -55,19 +55,16 @@ const LeftMenu = {
     Array.prototype.forEach.call(items, (li) => {
       if (!(li && li.tagName === 'LI')) return
       const wrapper = li.querySelector('.ul-wrapper')
-      const btnImg = li.querySelector('.item-wrapper > .menu-button > img')
       if (!wrapper) return
 
       li.addEventListener('mouseenter', () => {
         li.classList.add('opened')
         wrapper.style.display = 'block'
-        if (btnImg) btnImg.src = "../web-asset/icons/svg/sized/sized/minus5.svg"
       })
 
       li.addEventListener('mouseleave', () => {
         li.classList.remove('opened')
         wrapper.style.display = 'none'
-        if (btnImg) btnImg.src = "../web-asset/icons/svg/sized/plus3.svg"
       })
     })
   },
@@ -76,7 +73,7 @@ const LeftMenu = {
 // Flyout Menu Module
 const FlyoutMenu = {
   init() {
-    const menus = document.querySelectorAll('ul.flyout-menu')
+    const menus = document.querySelectorAll("ul.flyout-menu")
     if (!menus || !menus.length) return
 
     menus.forEach((menu) => {
@@ -84,13 +81,13 @@ const FlyoutMenu = {
       menu.__flyoutBound = true
 
       // Navigate on click
-      menu.addEventListener('click', (e) => {
-        const a = e.target && e.target.closest ? e.target.closest('a') : null
+      menu.addEventListener("click", (e) => {
+        const a = e.target && e.target.closest ? e.target.closest("a") : null
         if (!a || !menu.contains(a)) return
-        const href = a.getAttribute('href')
+        const href = a.getAttribute("href")
         if (!href) return
         e.preventDefault()
-        if (a.getAttribute('target') === '_blank') {
+        if (a.getAttribute("target") === "_blank") {
           window.open(href)
         } else {
           window.location.href = href
@@ -98,21 +95,18 @@ const FlyoutMenu = {
       })
 
       // Hover open/close
-      menu.querySelectorAll('li').forEach((li) => {
-        const wrapper = li.querySelector(':scope > .ul-wrapper')
-        const btnImg = li.querySelector(':scope > .item-wrapper > .menu-button > img')
+      menu.querySelectorAll("li").forEach((li) => {
+        const wrapper = li.querySelector(":scope > .ul-wrapper")
         if (!wrapper) return
 
-        li.addEventListener('mouseenter', () => {
-          li.classList.add('opened')
-          wrapper.style.display = 'block'
-          if (btnImg) btnImg.src = "../web-asset/icons/svg/sized/minus5.svg"
+        li.addEventListener("mouseenter", () => {
+          li.classList.add("opened")
+          wrapper.style.display = "block"
         })
 
-        li.addEventListener('mouseleave', () => {
-          li.classList.remove('opened')
-          wrapper.style.display = 'none'
-          if (btnImg) btnImg.src = "../web-asset/icons/svg/sized/plus3.svg"
+        li.addEventListener("mouseleave", () => {
+          li.classList.remove("opened")
+          wrapper.style.display = "none"
         })
       })
     })
@@ -251,73 +245,73 @@ class MobileNavigation {
     this.menuTemplate = null
     this.menuMount = null
     this.isOpen = false
-    this.mediaQuery = window.matchMedia('(max-width: 766px)')
+    this.mediaQuery = window.matchMedia("(max-width: 766px)")
     this.init()
   }
 
   init() {
     this.createMobileElements()
     if (!this.sidebar || !this.toggleButton || !this.overlay) return
-    document.body.classList.add('mobile-nav-enabled')
+    document.body.classList.add("mobile-nav-enabled")
     this.bindEvents()
     this.handleResize()
-    this.mediaQuery.addEventListener('change', () => this.handleResize())
+    this.mediaQuery.addEventListener("change", () => this.handleResize())
     if (!this.mediaQuery.matches) this.mountMenuIfNeeded()
   }
 
   createMobileElements() {
-    this.sidebar = document.getElementById('sidebar')
+    this.sidebar = document.getElementById("sidebar")
     if (!this.sidebar) return
-    this.sidebar.setAttribute('role', 'navigation')
-    this.sidebar.setAttribute('aria-label', 'Main menu')
+    this.sidebar.setAttribute("role", "navigation")
+    this.sidebar.setAttribute("aria-label", "Main menu")
 
-    this.menuTemplate = document.getElementById('sidebar-menu-template')
-    this.menuMount = document.getElementById('sidebar-menu-mount')
+    this.menuTemplate = document.getElementById("sidebar-menu-template")
+    this.menuMount = document.getElementById("sidebar-menu-mount")
 
-    this.toggleButton = document.querySelector('.mobile-menu-toggle')
-    this.overlay = document.querySelector('.mobile-nav-overlay')
+    this.toggleButton = document.querySelector(".mobile-menu-toggle")
+    this.overlay = document.querySelector(".mobile-nav-overlay")
 
     if (!this.toggleButton) {
-      this.toggleButton = document.createElement('button')
-      this.toggleButton.className = 'mobile-menu-toggle'
-      this.toggleButton.setAttribute('aria-label', 'Main menu')
-      this.toggleButton.setAttribute('aria-expanded', 'false')
-      this.toggleButton.setAttribute('aria-controls', 'sidebar')
-      this.toggleButton.setAttribute('aria-haspopup', 'true')
-      this.toggleButton.type = 'button'
+      this.toggleButton = document.createElement("button")
+      this.toggleButton.className = "mobile-menu-toggle"
+      this.toggleButton.setAttribute("aria-label", "Main menu")
+      this.toggleButton.setAttribute("aria-expanded", "false")
+      this.toggleButton.setAttribute("aria-controls", "sidebar")
+      this.toggleButton.setAttribute("aria-haspopup", "true")
+      this.toggleButton.type = "button"
       document.body.appendChild(this.toggleButton)
     }
 
     if (!this.overlay) {
-      this.overlay = document.createElement('div')
-      this.overlay.className = 'mobile-nav-overlay'
-      this.overlay.setAttribute('aria-hidden', 'true')
+      this.overlay = document.createElement("div")
+      this.overlay.className = "mobile-nav-overlay"
+      this.overlay.setAttribute("aria-hidden", "true")
       document.body.appendChild(this.overlay)
     }
   }
 
   bindEvents() {
-    this.toggleButton.addEventListener('click', (e) => {
+    this.toggleButton.addEventListener("click", (e) => {
       e.preventDefault()
       this.toggleMenu()
     })
 
-    this.overlay.addEventListener('click', () => this.closeMenu())
+    this.overlay.addEventListener("click", () => this.closeMenu())
 
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && this.isOpen) {
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && this.isOpen) {
         this.closeMenu()
         this.toggleButton.focus()
       }
     })
 
-    this.sidebar.addEventListener('click', (e) => {
-      if (this.mediaQuery.matches && e.target.tagName === 'A') {
+    this.sidebar.addEventListener("click", (e) => {
+      if (this.mediaQuery.matches && e.target.tagName === "A") {
         window.setTimeout(() => this.closeMenu(), 150)
       }
     })
 
-    window.addEventListener('resize', () => {
+    window.addEventListener("resize", () => {
       if (!this.mediaQuery.matches && this.isOpen) this.closeMenu()
     })
   }
@@ -330,26 +324,26 @@ class MobileNavigation {
     if (!this.mediaQuery.matches) return
     this.mountMenuIfNeeded()
     this.isOpen = true
-    document.body.classList.add('mobile-nav-open')
-    this.sidebar.classList.add('mobile-nav-open')
-    this.overlay.style.display = 'block'
-    this.overlay.classList.add('active')
-    this.toggleButton.classList.add('open')
-    this.toggleButton.setAttribute('aria-expanded', 'true')
-    this.overlay.setAttribute('aria-hidden', 'false')
-    const firstLink = this.sidebar.querySelector('.accordion-menu a, .flyout-menu a')
+    document.body.classList.add("mobile-nav-open")
+    this.sidebar.classList.add("mobile-nav-open")
+    this.overlay.style.display = "block"
+    this.overlay.classList.add("active")
+    this.toggleButton.classList.add("open")
+    this.toggleButton.setAttribute("aria-expanded", "true")
+    this.overlay.setAttribute("aria-hidden", "false")
+    const firstLink = this.sidebar.querySelector(".accordion-menu a, .flyout-menu a")
     if (firstLink) firstLink.focus()
   }
 
   closeMenu() {
     this.isOpen = false
-    document.body.classList.remove('mobile-nav-open')
-    this.sidebar.classList.remove('mobile-nav-open')
-    this.overlay.classList.remove('active')
-    this.overlay.style.display = 'none'
-    this.toggleButton.classList.remove('open')
-    this.toggleButton.setAttribute('aria-expanded', 'false')
-    this.overlay.setAttribute('aria-hidden', 'true')
+    document.body.classList.remove("mobile-nav-open")
+    this.sidebar.classList.remove("mobile-nav-open")
+    this.overlay.classList.remove("active")
+    this.overlay.style.display = "none"
+    this.toggleButton.classList.remove("open")
+    this.toggleButton.setAttribute("aria-expanded", "false")
+    this.overlay.setAttribute("aria-hidden", "true")
   }
 
   handleResize() {
@@ -364,29 +358,26 @@ class MobileNavigation {
       const frag = this.menuTemplate.content
         ? this.menuTemplate.content.cloneNode(true)
         : (() => {
-            const t = document.createElement('div')
+            const t = document.createElement("div")
             t.innerHTML = this.menuTemplate.innerHTML
             return t
           })()
       this.menuMount.appendChild(frag)
-      this.menuMount.removeAttribute('aria-hidden')
+      this.menuMount.removeAttribute("aria-hidden")
 
-      const menu = this.menuMount.querySelector('#accordion_menu_90')
+      const menu = this.menuMount.querySelector("#accordion_menu_90")
       if (menu) {
         Array.prototype.forEach.call(menu.children, (li) => {
-          if (!(li && li.tagName === 'LI')) return
-          const wrapper = li.querySelector('.ul-wrapper')
-          const btnImg = li.querySelector('.item-wrapper > .menu-button > img')
+          if (!(li && li.tagName === "LI")) return
+          const wrapper = li.querySelector(".ul-wrapper")
           if (!wrapper) return
-          li.addEventListener('mouseenter', () => {
-            li.classList.add('opened')
-            wrapper.style.display = 'block'
-            if (btnImg) btnImg.src = "../web-asset/icons/svg/sized/minus5.svg"
+          li.addEventListener("mouseenter", () => {
+            li.classList.add("opened")
+            wrapper.style.display = "block"
           })
-          li.addEventListener('mouseleave', () => {
-            li.classList.remove('opened')
-            wrapper.style.display = 'none'
-            if (btnImg) btnImg.src = "../web-asset/icons/svg/sized/plus3.svg"
+          li.addEventListener("mouseleave", () => {
+            li.classList.remove("opened")
+            wrapper.style.display = "none"
           })
         })
       }

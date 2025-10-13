@@ -44,13 +44,12 @@
       --menu-toggle-icon-size: var(--flyout-icon-size, 24px);
       --menu-toggle-icon-gap: 6px;
       --menu-toggle-minus-color: var(--primary-color);
-      --menu-toggle-minus-length-base: calc(var(--menu-toggle-icon-size, 24px) * 32 / 48);
+      --menu-toggle-minus-length-base: calc(var(--menu-toggle-icon-size, 24px) * 13.3 / 24);
       --menu-toggle-minus-thickness-base: calc(var(--menu-toggle-icon-size, 24px) * 4 / 48);
       --menu-toggle-minus-length: var(--menu-toggle-minus-length-base);
       --menu-toggle-minus-thickness: var(--menu-toggle-minus-thickness-base);
       --menu-toggle-minus-radius: calc(var(--menu-toggle-minus-thickness) / 2);
-      --menu-toggle-minus-mask-size: var(--menu-toggle-minus-length);
-      --menu-toggle-minus-asset: url("../web-asset/icons/svg/sized/minus5.svg");
+      --menu-toggle-minus-center-offset: calc((var(--menu-toggle-icon-size, 24px) - var(--menu-toggle-minus-length, var(--menu-toggle-minus-length-base))) / 2);
       --txtarea-bg: #f0f2f5;
       --radius: 3px;
       /* pager variables  */
@@ -351,16 +350,14 @@
       block-size: var(--menu-toggle-minus-thickness, var(--menu-toggle-minus-thickness-base));
       content: "";
       inline-size: var(--menu-toggle-minus-length, var(--menu-toggle-minus-length-base));
+      inset: auto;
       left: 50%;
-      margin: 0;
       opacity: 0;
       pointer-events: none;
       position: absolute;
       top: 50%;
       transform: translate(-50%, -50%);
       transition: opacity 0.2s ease;
-      -webkit-mask-image: none;
-      mask-image: none;
     }
 
     /* Match left/right toggle padding with linked CSS defaults */
@@ -381,7 +378,7 @@
       --lists-icon-gap: var(--menu-toggle-icon-gap, 6px);
       --lists-icon-size: var(--menu-toggle-icon-size);
       --lists-icon-slot: calc(var(--lists-icon-size) + var(--lists-icon-gap));
-      --menu-toggle-minus-length: var(--lists-minus-length, calc(var(--menu-toggle-icon-size, 24px) * 32 / 48));
+      --menu-toggle-minus-length: var(--lists-minus-length, calc(var(--menu-toggle-icon-size, 24px) * 28 / 48));
       --menu-icon-pad-inline-start: var(--lists-icon-pad-start, 0);
       --menu-icon-pad-inline-end: var(--lists-icon-gap);
       --icon-slot: var(--lists-icon-slot);
@@ -396,11 +393,9 @@
     }
 
     #lists-menu-item>.item-wrapper>.menu-button::after {
-      block-size: var(--menu-toggle-minus-thickness, var(--menu-toggle-minus-thickness-base));
-      inline-size: var(--menu-toggle-minus-length, var(--menu-toggle-minus-length-base));
       inset: auto;
       left: auto;
-      right: var(--lists-icon-gap, 6px);
+      right: calc(var(--lists-icon-gap, 6px) + var(--menu-toggle-minus-center-offset, calc((var(--menu-toggle-icon-size, 24px) - var(--menu-toggle-minus-length, var(--menu-toggle-minus-length-base))) / 2)));
       top: 50%;
       transform: translateY(-50%);
     }
@@ -571,15 +566,12 @@
       inline-size: var(--menu-toggle-minus-length, var(--menu-toggle-minus-length-base));
       inset: auto;
       left: 50%;
-      margin: 0;
       opacity: 0;
       pointer-events: none;
       position: absolute;
       top: 50%;
       transform: translate(-50%, -50%);
       transition: opacity 0.2s ease;
-      -webkit-mask-image: none;
-      mask-image: none;
     }
 
     #aside ul.flyout-menu li:hover>.item-wrapper>.menu-button>img,
