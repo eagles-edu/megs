@@ -409,8 +409,7 @@
       color: var(--primary-color);
     }
 
-    ul.accordion-menu .menu-button>svg,
-    #aside ul.flyout-menu .menu-button>svg {
+    ul.accordion-menu .menu-button>svg {
       flex: 0 0 auto;
       height: var(--menu-toggle-icon-size);
       width: var(--menu-toggle-icon-size);
@@ -505,100 +504,50 @@
       width: 12px;
     }
 
-    /* Flyout (right menu): hide nested lists until CSS loads; reserve icon slot */
-    #aside ul.flyout-menu .ul-wrapper {
-      display: none;
+    /* Right rail flyout menu (critical structure to avoid CLS) */
+    #aside .r-flyout-menu {
+      list-style: none;
+      margin: 0;
+      padding: 0;
     }
 
-    #aside ul.flyout-menu .item-wrapper {
-      align-items: center;
-      display: flex;
-      gap: var(--icon-gap, 8px);
-    }
-
-    #aside ul.flyout-menu .menu-button {
-      align-items: center;
-      color: var(--menu-toggle-icon-color, var(--icon-color-on-lt));
-      display: flex;
-      flex: 0 0 var(--icon-slot, 24px);
-      justify-content: flex-start;
-      min-block-size: var(--menu-toggle-icon-size);
-      padding-left: var(--menu-icon-pad-left, 6px);
+    #aside .r-flyout-menu>[data-r-flyout-item] {
       position: relative;
-      transition: color 0.2s ease;
     }
 
-    ul.accordion-menu .menu-button>img,
-    #aside ul.flyout-menu .menu-button>img {
-      flex: 0 0 auto;
-      height: var(--menu-toggle-icon-size);
-      inline-size: var(--menu-toggle-icon-size);
+    #aside .r-flyout__header {
+      align-items: center;
+      display: flex;
+      gap: var(--menu-toggle-icon-gap, 6px);
+      min-height: 42px;
+      padding: 8px 10px;
+    }
+
+    #aside .r-flyout__link-wrap {
+      flex: 1 1 auto;
+      min-width: 0;
+    }
+
+    #aside .r-flyout__toggle {
+      align-items: center;
+      display: inline-flex;
+      justify-content: center;
+      min-height: var(--menu-toggle-icon-size);
       width: var(--menu-toggle-icon-size);
     }
 
-    #aside ul.flyout-menu .menu-button>img,
-    #aside ul.flyout-menu .menu-button>svg,
-    #aside ul.flyout-menu .menu-link img {
-      aspect-ratio: 1 / 1;
-      height: var(--menu-toggle-icon-size);
-      object-fit: contain;
-      width: var(--menu-toggle-icon-size);
-    }
-
-    #aside ul.flyout-menu .menu-button>img,
-    /* QA accordion: collapse bodies before async CSS/JS to prevent flash */
-    #aside ul.flyout-menu .menu-button>svg {
-      transition: opacity 0.2s ease;
-    }
-
-    #aside ul.flyout-menu .menu-button {
-      --menu-toggle-minus-color: var(--primary-color);
-    }
-
-    #aside ul.flyout-menu .menu-button::after {
-      background-color: var(--menu-toggle-minus-color);
-      block-size: var(--menu-toggle-icon-size);
-      content: "";
-      inline-size: var(--menu-toggle-icon-size);
-      inset: auto;
-      left: 50%;
-      mask-image: var(--menu-toggle-minus-mask);
-      mask-mode: alpha;
-      mask-position: center;
-      mask-repeat: no-repeat;
-      mask-size: contain;
-      opacity: 0;
-      pointer-events: none;
+    #aside .r-flyout__panel {
+      background: var(--surface-color, #fff);
+      border: 1px solid var(--border-color, #d0d6e4);
+      border-radius: var(--radius, 3px);
+      inset-inline-end: calc(100% + 12px);
+      min-width: min(var(--flyout-width-desktop, 250px), 90vw);
       position: absolute;
-      top: 50%;
-      transform: translate(-50%, -50%);
-      transition: opacity 0.2s ease;
-      -webkit-mask-image: var(--menu-toggle-minus-mask);
-      -webkit-mask-mode: alpha;
-      -webkit-mask-position: center;
-      -webkit-mask-repeat: no-repeat;
-      -webkit-mask-size: contain;
+      top: 0;
     }
 
-    #aside ul.flyout-menu li:hover>.item-wrapper>.menu-button>img,
-    #aside ul.flyout-menu li:hover>.item-wrapper>.menu-button>svg,
-    #aside ul.flyout-menu li:focus-within>.item-wrapper>.menu-button>img,
-    #aside ul.flyout-menu li:focus-within>.item-wrapper>.menu-button>svg,
-    #aside ul.flyout-menu li.opened>.item-wrapper>.menu-button>img,
-    #aside ul.flyout-menu li.opened>.item-wrapper>.menu-button>svg {
-      opacity: 0;
-    }
-
-    #aside ul.flyout-menu li:hover>.item-wrapper>.menu-button,
-    #aside ul.flyout-menu li:focus-within>.item-wrapper>.menu-button,
-    #aside ul.flyout-menu li.opened>.item-wrapper>.menu-button {
-      color: var(--primary-color);
-    }
-
-    #aside ul.flyout-menu li:hover>.item-wrapper>.menu-button::after,
-    #aside ul.flyout-menu li:focus-within>.item-wrapper>.menu-button::after,
-    #aside ul.flyout-menu li.opened>.item-wrapper>.menu-button::after {
-      opacity: 1;
+    #aside .r-flyout__panel[hidden] {
+      display: none;
     }
 
     #content .nn_sliders .accordion-body {
@@ -815,10 +764,10 @@
   <!-- Use system default fonts (no webfont preloads) -->
 
   <!-- Defer non-critical CSS with preload+print media swap -->
-  <link rel="preload" href="../web-asset/css/flyout.css" as="style">
-  <link rel="stylesheet" href="../web-asset/css/flyout.css" media="print" onload="this.media='all'">
+  <link rel="preload" href="../web-asset/css/right-rail-flyout.css" as="style">
+  <link rel="stylesheet" href="../web-asset/css/right-rail-flyout.css" media="print" onload="this.media='all'">
   <noscript>
-    <link rel="stylesheet" href="../web-asset/css/flyout.css">
+    <link rel="stylesheet" href="../web-asset/css/right-rail-flyout.css">
   </noscript>
   <!-- Left-menu.css async; critical inline reserves layout to avoid flash -->
   <link rel="preload" href="../web-asset/css/left-menu.css" as="style">
@@ -854,6 +803,7 @@
   <!-- Bundled JavaScript: Modern module + legacy fallback (4 requests → 1) -->
   <script type="module" src="../web-asset/js/main.bundle.js"></script>
   <script nomodule src="../web-asset/js/main.legacy.js" defer></script>
+  <script src="../web-asset/js/right-rail-flyout.js" defer></script>
 </head>
 
 <body class="base exercize">
@@ -2210,10 +2160,17 @@
         <div id="aside" class="span2">
           <!-- Begin Right Sidebar -->
           <div class="well hidden-phone">
-            <ul class="flyout-menu vertical flyout-left text-left button-right" id="flyout_menu_93">
-              <li class="current first">
-                <div class="item-wrapper">
-                  <div class="menu-button">
+            <ul class="r-flyout-menu vertical text-left button-right" id="flyout_menu_93" data-r-flyout
+              data-flyout-origin="right">
+              <li class="current first" data-r-flyout-item="true">
+                <div class="item-wrapper r-flyout__header">
+                  <div class="menu-link r-flyout__link-wrap">
+                    <a class="r-flyout__link" href="../exercise-1-nouns.html" aria-label="Nouns">
+                      Nouns
+                    </a>
+                  </div>
+                  <button class="menu-button r-flyout__toggle" type="button" aria-haspopup="true" aria-expanded="true"
+                    aria-controls="r-flyout-panel-nouns" aria-label="Toggle submenu for Nouns">
                     <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 48 48"
                       fill="currentColor">
                       <title>plus3</title>
@@ -2221,15 +2178,10 @@
                         d="M10 26h12v12c0 1.104 0.896 2 2 2s2-0.896 2-2v-12h12c1.104 0 2-0.896 2-2s-0.896-2-2-2h-12v-12c0-1.104-0.896-2-2-2s-2 0.896-2 2v12h-12c-1.104 0-2 0.896-2 2s0.896 2 2 2z">
                       </path>
                     </svg>
-                  </div>
-                  <div class="menu-link">
-                    <a href="../exercise-1-nouns.html" aria-label="Nouns">
-                      Nouns
-                    </a>
-                  </div>
+                  </button>
                 </div>
-                <div class="ul-wrapper">
-                  <ul>
+                <div class="ul-wrapper r-flyout__panel" id="r-flyout-panel-nouns" aria-hidden="false">
+                  <ul class="r-flyout__sublist">
                     <li class="current first">
                       <div class="item-wrapper">
                         <div class="menu-link">

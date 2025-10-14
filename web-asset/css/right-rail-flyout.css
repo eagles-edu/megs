@@ -1,0 +1,209 @@
++206
+-0
+
+/*
+ * Right rail flyout navigation (Codex variant)
+ * Scoped replacement for legacy ul.flyout-menu styling.
+ */
+
+.r-flyout-menu {
+  --r-flyout-bg: var(--surface-color, #fff);
+  --r-flyout-border: var(--border-color, #d0d6e4);
+  --r-flyout-divider: var(--divider-color, #e1e7f0);
+  --r-flyout-shadow: var(--flyout-shadow-menu, 0 12px 26px rgb(24 39 75 / 8%));
+  --r-flyout-panel-shadow: var(--flyout-shadow-panel, 0 18px 40px rgb(24 39 75 / 18%));
+  --r-flyout-highlight: var(--hover-surface-overlay, rgb(224 22 43 / 8%));
+  --r-flyout-transition: 160ms cubic-bezier(0.4, 0, 0.2, 1);
+  
+  border: 1px solid var(--r-flyout-border);
+  border-radius: var(--radius, 3px);
+  box-shadow: var(--r-flyout-shadow);
+  background-color: var(--r-flyout-bg);
+  font-size: 0.85rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+.r-flyout-menu > li {
+  border-bottom: 1px solid var(--r-flyout-divider);
+  position: relative;
+}
+
+.r-flyout-menu > li:last-child {
+  border-bottom: none;
+}
+
+.r-flyout__header {
+  align-items: center;
+  color: var(--text-color, #212121);
+  display: flex;
+  gap: var(--menu-toggle-icon-gap, 6px);
+  min-height: 44px;
+  padding: 10px 12px;
+  transition: background-color var(--r-flyout-transition),
+    color var(--r-flyout-transition),
+    box-shadow var(--r-flyout-transition);
+}
+
+.r-flyout__link-wrap {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.r-flyout__link {
+  align-items: center;
+  color: inherit;
+  display: inline-flex;
+  font-weight: 600;
+  gap: 8px;
+  line-height: 1.35;
+  text-decoration: none;
+}
+
+.r-flyout__link:hover,
+.r-flyout__link:focus {
+  color: inherit;
+  text-decoration: none;
+}
+
+.r-flyout__toggle {
+  align-items: center;
+  background: none;
+  border: 0;
+  color: var(--menu-toggle-icon-color, var(--icon-color-on-lt, #8a94a8));
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  min-height: var(--menu-toggle-icon-size, 24px);
+  padding: 0;
+  position: relative;
+  width: var(--menu-toggle-icon-size, 24px);
+  transition: color var(--r-flyout-transition);
+}
+
+.r-flyout__toggle svg {
+  display: block;
+  height: 100%;
+  transition: opacity var(--r-flyout-transition);
+  width: 100%;
+}
+
+.r-flyout__toggle::after {
+  background-color: currentcolor;
+  content: "";
+  height: var(--menu-toggle-icon-size, 24px);
+  inset: 50% auto auto 50%;
+  mask: var(--menu-toggle-minus-mask) center / contain no-repeat;
+  opacity: 0;
+  pointer-events: none;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  transition: opacity var(--r-flyout-transition);
+  width: var(--menu-toggle-icon-size, 24px);
+}
+
+[data-r-flyout-item].is-open > .r-flyout__header,
+[data-r-flyout-item]:hover > .r-flyout__header,
+[data-r-flyout-item]:focus-within > .r-flyout__header {
+  background: linear-gradient(0deg, var(--r-flyout-highlight), var(--r-flyout-highlight)), var(--r-flyout-bg);
+  color: var(--primary-color, #e0162b);
+  box-shadow: inset 0 0 0 1px rgb(224 22 43 / 16%);
+}
+
+[data-r-flyout-item].is-open > .r-flyout__header .r-flyout__toggle,
+[data-r-flyout-item]:hover > .r-flyout__header .r-flyout__toggle,
+[data-r-flyout-item]:focus-within > .r-flyout__header .r-flyout__toggle {
+  color: var(--primary-color, #e0162b);
+}
+
+[data-r-flyout-item].is-open > .r-flyout__header .r-flyout__toggle svg,
+[data-r-flyout-item]:hover > .r-flyout__header .r-flyout__toggle svg,
+[data-r-flyout-item]:focus-within > .r-flyout__header .r-flyout__toggle svg {
+  opacity: 0;
+}
+
+[data-r-flyout-item].is-open > .r-flyout__header .r-flyout__toggle::after,
+[data-r-flyout-item]:hover > .r-flyout__header .r-flyout__toggle::after,
+[data-r-flyout-item]:focus-within > .r-flyout__header .r-flyout__toggle::after {
+  opacity: 1;
+}
+
+.r-flyout__panel {
+  background-color: var(--r-flyout-bg);
+  border: 1px solid var(--r-flyout-border);
+  border-radius: var(--radius, 3px);
+  box-shadow: var(--r-flyout-panel-shadow);
+  display: block;
+  max-height: min(70vh, 420px);
+  min-width: min(var(--flyout-width-desktop, 250px), 90vw);
+  overflow-y: auto;
+  padding: 4px 0;
+  z-index: 20;
+}
+
+.r-flyout__panel[hidden] {
+  display: none;
+}
+
+@media (hover: hover) {
+  .r-flyout-menu[data-flyout-origin="right"] [data-r-flyout-item]:hover > .r-flyout__panel,
+  .r-flyout-menu[data-flyout-origin="right"] [data-r-flyout-item]:focus-within > .r-flyout__panel {
+    display: block;
+  }
+}
+
+.r-flyout__sublist {
+  list-style: none;
+  margin: 0;
+  padding: 4px 0;
+}
+
+.r-flyout__sublist .item-wrapper {
+  display: block;
+}
+
+.r-flyout__sublist .menu-link {
+  display: block;
+}
+
+.r-flyout__sublist a {
+  color: var(--text-color, #212121);
+  display: block;
+  padding: 6px 14px;
+  text-decoration: none;
+  transition: background-color var(--r-flyout-transition), color var(--r-flyout-transition);
+}
+
+.r-flyout__sublist a:hover,
+.r-flyout__sublist a:focus {
+  background-color: var(--secondary-color, #f5f8ff);
+  color: var(--primary-color, #e0162b);
+  outline: none;
+}
+
+.r-flyout__sublist li.current > .item-wrapper a,
+.r-flyout__sublist li.active > .item-wrapper a {
+  color: var(--primary-color, #e0162b);
+  font-weight: 600;
+}
+
+[data-r-flyout-origin="right"] .r-flyout__panel,
+.r-flyout-menu[data-flyout-origin="right"] .r-flyout__panel {
+  inset-inline: auto calc(100% + 12px);
+}
+
+.r-flyout-menu[data-flyout-origin="left"] .r-flyout__panel {
+  inset-inline: calc(100% + 12px) auto;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .r-flyout__header,
+  .r-flyout__toggle,
+  .r-flyout__toggle::after,
+  .r-flyout__toggle svg,
+  .r-flyout__sublist a {
+    transition-duration: 0ms;
+  }
+}
