@@ -48,23 +48,23 @@ const matches = (el, selector) => {
 // Left Menu Module
 const LeftMenu = {
   init() {
-    const menu = document.getElementById('accordion_menu_90')
+    const menu = document.getElementById("accordion_menu_90")
     if (!menu) return
 
     const items = menu.children
     Array.prototype.forEach.call(items, (li) => {
-      if (!(li && li.tagName === 'LI')) return
-      const wrapper = li.querySelector('.ul-wrapper')
+      if (!(li && li.tagName === "LI")) return
+      const wrapper = li.querySelector(".ul-wrapper")
       if (!wrapper) return
 
-      li.addEventListener('mouseenter', () => {
-        li.classList.add('opened')
-        wrapper.style.display = 'block'
+      li.addEventListener("mouseenter", () => {
+        li.classList.add("opened")
+        wrapper.style.display = "block"
       })
 
-      li.addEventListener('mouseleave', () => {
-        li.classList.remove('opened')
-        wrapper.style.display = 'none'
+      li.addEventListener("mouseleave", () => {
+        li.classList.remove("opened")
+        wrapper.style.display = "none"
       })
     })
   },

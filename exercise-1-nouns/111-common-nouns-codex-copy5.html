@@ -44,12 +44,7 @@
       --menu-toggle-icon-size: var(--flyout-icon-size, 24px);
       --menu-toggle-icon-gap: 6px;
       --menu-toggle-minus-color: var(--primary-color);
-      --menu-toggle-minus-length-base: calc(var(--menu-toggle-icon-size, 24px) * 13.3 / 24);
-      --menu-toggle-minus-thickness-base: calc(var(--menu-toggle-icon-size, 24px) * 4 / 48);
-      --menu-toggle-minus-length: var(--menu-toggle-minus-length-base);
-      --menu-toggle-minus-thickness: var(--menu-toggle-minus-thickness-base);
-      --menu-toggle-minus-radius: calc(var(--menu-toggle-minus-thickness) / 2);
-      --menu-toggle-minus-center-offset: calc((var(--menu-toggle-icon-size, 24px) - var(--menu-toggle-minus-length, var(--menu-toggle-minus-length-base))) / 2);
+      --menu-toggle-minus-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cpath fill='currentColor' d='M10 26h28c1.104 0 2-0.896 2-2s-0.896-2-2-2h-28c-1.104 0-2 0.896-2 2s0.896 2 2 2z'/%3E%3C/svg%3E");
       --txtarea-bg: #f0f2f5;
       --radius: 3px;
       /* pager variables  */
@@ -79,12 +74,6 @@
     img[src*="../images/arrow.png"] {
       height: 9px;
       width: 9px;
-    }
-
-    img[src*="../favicon.ico"] {
-      height: 24px;
-      max-height: 28px;
-      width: 24px;
     }
 
     img[src*="../web-asset/icons/svg/sized/plus3.svg"] {
@@ -346,18 +335,27 @@
 
     ul.accordion-menu .menu-button::after {
       background-color: var(--menu-toggle-minus-color);
-      border-radius: var(--menu-toggle-minus-radius, calc(var(--menu-toggle-minus-thickness, var(--menu-toggle-minus-thickness-base)) / 2));
-      block-size: var(--menu-toggle-minus-thickness, var(--menu-toggle-minus-thickness-base));
+      block-size: var(--menu-toggle-icon-size);
       content: "";
-      inline-size: var(--menu-toggle-minus-length, var(--menu-toggle-minus-length-base));
+      inline-size: var(--menu-toggle-icon-size);
       inset: auto;
       left: 50%;
+      mask-image: var(--menu-toggle-minus-mask);
+      mask-mode: alpha;
+      mask-position: center;
+      mask-repeat: no-repeat;
+      mask-size: contain;
       opacity: 0;
       pointer-events: none;
       position: absolute;
       top: 50%;
       transform: translate(-50%, -50%);
       transition: opacity 0.2s ease;
+      -webkit-mask-image: var(--menu-toggle-minus-mask);
+      -webkit-mask-mode: alpha;
+      -webkit-mask-position: center;
+      -webkit-mask-repeat: no-repeat;
+      -webkit-mask-size: contain;
     }
 
     /* Match left/right toggle padding with linked CSS defaults */
@@ -373,12 +371,11 @@
       padding-inline-end: var(--menu-icon-pad-inline-end, 7px);
     }
 
-    /* Lists toggle: align icon sizing with right rail flyout */
+     /* Lists toggle: align icon sizing with right rail flyout */
     #lists-menu-item {
       --lists-icon-gap: var(--menu-toggle-icon-gap, 6px);
       --lists-icon-size: var(--menu-toggle-icon-size);
       --lists-icon-slot: calc(var(--lists-icon-size) + var(--lists-icon-gap));
-      --menu-toggle-minus-length: var(--lists-minus-length, calc(var(--menu-toggle-icon-size, 24px) * 28 / 48));
       --menu-icon-pad-inline-start: var(--lists-icon-pad-start, 0);
       --menu-icon-pad-inline-end: var(--lists-icon-gap);
       --icon-slot: var(--lists-icon-slot);
@@ -395,9 +392,9 @@
     #lists-menu-item>.item-wrapper>.menu-button::after {
       inset: auto;
       left: auto;
-      right: calc(var(--lists-icon-gap, 6px) + var(--menu-toggle-minus-center-offset, calc((var(--menu-toggle-icon-size, 24px) - var(--menu-toggle-minus-length, var(--menu-toggle-minus-length-base))) / 2)));
+      right: var(--lists-icon-gap, 6px);
       top: 50%;
-      transform: translateY(-50%);
+      transform: translate(50%, -50%);
     }
 
     #lists-menu-item:hover>.item-wrapper>.menu-button,
@@ -560,18 +557,27 @@
 
     #aside ul.flyout-menu .menu-button::after {
       background-color: var(--menu-toggle-minus-color);
-      border-radius: var(--menu-toggle-minus-radius, calc(var(--menu-toggle-minus-thickness, var(--menu-toggle-minus-thickness-base)) / 2));
-      block-size: var(--menu-toggle-minus-thickness, var(--menu-toggle-minus-thickness-base));
+      block-size: var(--menu-toggle-icon-size);
       content: "";
-      inline-size: var(--menu-toggle-minus-length, var(--menu-toggle-minus-length-base));
+      inline-size: var(--menu-toggle-icon-size);
       inset: auto;
       left: 50%;
+      mask-image: var(--menu-toggle-minus-mask);
+      mask-mode: alpha;
+      mask-position: center;
+      mask-repeat: no-repeat;
+      mask-size: contain;
       opacity: 0;
       pointer-events: none;
       position: absolute;
       top: 50%;
       transform: translate(-50%, -50%);
       transition: opacity 0.2s ease;
+      -webkit-mask-image: var(--menu-toggle-minus-mask);
+      -webkit-mask-mode: alpha;
+      -webkit-mask-position: center;
+      -webkit-mask-repeat: no-repeat;
+      -webkit-mask-size: contain;
     }
 
     #aside ul.flyout-menu li:hover>.item-wrapper>.menu-button>img,
