@@ -1,201 +1,129 @@
-/*
- * Right rail flyout navigation system
- * Modern, scoped styling for the r-flyout menu pattern.
- */
-
-.r-flyout-menu {
-  --r-flyout-bg: var(--surface-color, #fff);
-  --r-flyout-border: var(--border-color, #d0d6e4);
-  --r-flyout-divider: var(--divider-color, #e1e7f0);
-  --r-flyout-shadow: var(--flyout-shadow-menu, 0 12px 26px rgb(24 39 75 / 8%));
-  --r-flyout-panel-shadow: var(--flyout-shadow-panel, 0 18px 40px rgb(24 39 75 / 18%));
-  --r-flyout-highlight: var(--hover-surface-overlay, rgba(224, 22, 43, 0.08));
-  --r-flyout-transition: 160ms cubic-bezier(0.4, 0, 0.2, 1);
-  --r-flyout-header-padding-block: 10px;
-  --r-flyout-header-padding-inline: 12px;
-  --r-flyout-icon-size: 24px;
-  --r-flyout-icon-gap: 8px;
-  background-color: var(--r-flyout-bg);
-  border: 1px solid var(--r-flyout-border);
-  border-radius: var(--radius, 3px);
-  box-shadow: var(--r-flyout-shadow);
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.r-flyout-menu > [data-r-flyout-item] {
-  border-bottom: 1px solid var(--r-flyout-divider);
-  position: relative;
-}
-
-.r-flyout-menu > [data-r-flyout-item]:last-child {
-  border-bottom: none;
-}
-
-.r-flyout__header {
-  align-items: center;
-  color: var(--menu-text, #616978);
-  display: flex;
-  gap: var(--r-flyout-icon-gap);
-  min-height: 44px;
-  padding: var(--r-flyout-header-padding-block) var(--r-flyout-header-padding-inline);
-  transition:
-    background-color var(--r-flyout-transition),
-    box-shadow var(--r-flyout-transition),
-    color var(--r-flyout-transition);
-}
-
-.r-flyout__link-wrap {
-  flex: 1 1 auto;
-  min-width: 0;
-}
-
-.r-flyout__link {
-  align-items: center;
-  color: inherit;
-  display: inline-flex;
-  font-family: var(--font-header, "Open Sans", Arial, sans-serif);
-  font-size: 0.85em;
-  font-weight: 500;
-  gap: 8px;
-  line-height: 1.2;
-  text-decoration: none;
-}
-
-.r-flyout__link:hover,
-.r-flyout__link:focus {
-  color: inherit;
-  text-decoration: none;
-}
-
-.r-flyout__toggle {
-  align-items: center;
-  background: none;
-  border: 0;
-  color: var(--menu-toggle-icon-color, var(--icon-color-on-lt, #8a94a8));
-  cursor: pointer;
-  display: inline-flex;
-  flex: 0 0 auto;
-  justify-content: center;
-  margin: 0;
-  min-height: var(--r-flyout-icon-size);
-  padding: 0;
-  position: relative;
-  width: var(--r-flyout-icon-size);
-  transition: color var(--r-flyout-transition);
-}
-
-.r-flyout__icon {
-  height: 100%;
-  width: 100%;
-  transition: opacity var(--r-flyout-transition);
-}
-
-.r-flyout__icon--minus {
-  inset: 0;
-  opacity: 0;
-  position: absolute;
-}
-
-[data-r-flyout-item].is-open > .r-flyout__header,
-[data-r-flyout-item]:hover > .r-flyout__header,
-[data-r-flyout-item]:focus-within > .r-flyout__header {
-  background: linear-gradient(0deg, var(--r-flyout-highlight), var(--r-flyout-highlight)), var(--r-flyout-bg);
-  box-shadow: inset 0 0 0 1px rgb(224 22 43 / 16%);
-  color: var(--primary-color, #e0162b);
-}
-
-[data-r-flyout-item].is-open > .r-flyout__header .r-flyout__toggle,
-[data-r-flyout-item]:hover > .r-flyout__header .r-flyout__toggle,
-[data-r-flyout-item]:focus-within > .r-flyout__header .r-flyout__toggle {
-  color: var(--primary-color, #e0162b);
-}
-
-[data-r-flyout-item].is-open .r-flyout__icon--plus {
-  opacity: 0;
-}
-
-[data-r-flyout-item].is-open .r-flyout__icon--minus {
-  opacity: 1;
-}
-
-.r-flyout__panel {
-  background-color: var(--r-flyout-bg);
-  border: 1px solid var(--r-flyout-border);
-  border-radius: var(--radius, 3px);
-  box-shadow: var(--r-flyout-panel-shadow);
-  inset-block-start: 0;
-  max-height: min(70vh, 420px);
-  min-width: min(var(--flyout-width-desktop, 250px), 90vw);
-  overflow-y: auto;
-  padding: 4px 0;
-  position: absolute;
-  z-index: 20;
-}
-
-[data-flyout-origin="right"] .r-flyout__panel,
-.r-flyout-menu[data-flyout-origin="right"] .r-flyout__panel {
-  inset-inline-end: calc(100% + 12px);
-}
-
-.r-flyout-menu[data-flyout-origin="left"] .r-flyout__panel {
-  inset-inline-start: calc(100% + 12px);
-}
-
-.r-flyout__panel[hidden] {
-  display: none;
-}
-
-.r-flyout__sublist {
-  list-style: none;
-  margin: 0;
-  padding: 4px 0;
-}
-
-.r-flyout__sublist .item-wrapper {
-  display: block;
-}
-
-.r-flyout__sublist .menu-link {
-  display: block;
-}
-
-.r-flyout__sublist a {
-  color: var(--text-color, #212121);
-  display: block;
-  padding: 6px 14px;
-  text-decoration: none;
-  transition:
-    background-color var(--r-flyout-transition),
-    color var(--r-flyout-transition);
-}
-
-.r-flyout__sublist a:hover,
-.r-flyout__sublist a:focus {
-  background-color: var(--secondary-color, #f5f8ff);
-  color: var(--primary-color, #e0162b);
-  outline: none;
-}
-
-.r-flyout__sublist li.current > .item-wrapper a,
-.r-flyout__sublist li.active > .item-wrapper a {
-  color: var(--primary-color, #e0162b);
-  font-weight: 600;
-}
-
-@media (hover: hover) {
-  .r-flyout-menu[data-flyout-origin="right"] [data-r-flyout-item]:hover > .r-flyout__panel,
-  .r-flyout-menu[data-flyout-origin="right"] [data-r-flyout-item]:focus-within > .r-flyout__panel {
-    display: block;
+(function () {
+  function ready(fn) {
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", fn)
+    } else {
+      fn()
+    }
   }
-}
 
-@media (prefers-reduced-motion: reduce) {
-  .r-flyout__header,
-  .r-flyout__toggle,
-  .r-flyout__icon,
-  .r-flyout__sublist a {
-    transition-duration: 0ms;
+  function forEach(collection, iteratee) {
+    if (!collection) return
+    Array.prototype.forEach.call(collection, iteratee)
   }
-}
+
+  function closeSiblings(menu, currentItem) {
+    var openItems = menu.querySelectorAll("[data-r-flyout-item].is-open")
+    forEach(openItems, function (item) {
+      if (item === currentItem) return
+      var toggle = item.querySelector(".r-flyout__toggle")
+      var panel = item.querySelector(".r-flyout__panel")
+      if (!toggle || !panel) return
+      delete item.dataset.rflyoutSticky
+      if (!panel.hasAttribute("hidden")) panel.setAttribute("hidden", "")
+      panel.setAttribute("aria-hidden", "true")
+      item.classList.remove("is-open")
+      toggle.setAttribute("aria-expanded", "false")
+    })
+  }
+
+  ready(function () {
+    var menus = document.querySelectorAll("[data-r-flyout]")
+    forEach(menus, function (menu) {
+      if (menu.__rFlyoutBound) return
+      menu.__rFlyoutBound = true
+
+      var items = menu.querySelectorAll("[data-r-flyout-item]")
+      forEach(items, function (item, index) {
+        var toggle = item.querySelector(".r-flyout__toggle")
+        var panel = item.querySelector(".r-flyout__panel")
+        if (!toggle || !panel) return
+
+        var panelId = panel.id
+        if (!panelId) {
+          panelId = (menu.id || "r-flyout-menu") + "-panel-" + index
+          panel.id = panelId
+        }
+        toggle.setAttribute("aria-controls", panelId)
+        toggle.setAttribute("aria-haspopup", "true")
+
+        var shouldStartOpen =
+          item.classList.contains("current") ||
+          item.classList.contains("open") ||
+          item.classList.contains("opened") ||
+          panel.getAttribute("aria-hidden") === "false"
+
+        function setSticky(enabled) {
+          if (enabled) item.dataset.rflyoutSticky = "true"
+          else delete item.dataset.rflyoutSticky
+        }
+
+        function isSticky() {
+          return item.dataset.rflyoutSticky === "true"
+        }
+
+        function open(sticky) {
+          if (!isSticky()) closeSiblings(menu, item)
+          if (sticky) setSticky(true)
+          if (panel.hasAttribute("hidden")) panel.removeAttribute("hidden")
+          panel.setAttribute("aria-hidden", "false")
+          item.classList.add("is-open")
+          toggle.setAttribute("aria-expanded", "true")
+        }
+
+        function close(force) {
+          if (!force && isSticky()) return
+          if (!panel.hasAttribute("hidden")) panel.setAttribute("hidden", "")
+          panel.setAttribute("aria-hidden", "true")
+          item.classList.remove("is-open")
+          toggle.setAttribute("aria-expanded", "false")
+          if (force) setSticky(false)
+        }
+
+        if (shouldStartOpen) {
+          open(true)
+        } else {
+          close(true)
+        }
+
+        toggle.addEventListener("click", function (event) {
+          event.preventDefault()
+          var isOpen = item.classList.contains("is-open") && !panel.hasAttribute("hidden")
+          if (isOpen && isSticky()) {
+            close(true)
+          } else {
+            open(true)
+          }
+        })
+
+        item.addEventListener("mouseenter", function () {
+          if (window.matchMedia && !window.matchMedia("(hover: hover)").matches) return
+          if (isSticky()) return
+          open(false)
+        })
+
+        item.addEventListener("mouseleave", function () {
+          if (!isSticky()) close(false)
+        })
+
+        item.addEventListener("focusin", function () {
+          if (!isSticky()) closeSiblings(menu, item)
+          open(false)
+        })
+
+        item.addEventListener("focusout", function (event) {
+          if (item.contains(event.relatedTarget)) return
+          if (!isSticky()) close(false)
+        })
+
+        panel.addEventListener("keydown", function (event) {
+          var key = event.key || event.keyCode
+          if (key === "Escape" || key === "Esc" || key === 27) {
+            close(true)
+            toggle.focus()
+          }
+        })
+      })
+    })
+  })
+})()

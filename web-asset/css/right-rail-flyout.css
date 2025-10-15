@@ -36,7 +36,7 @@
 
 .r-flyout__header {
   align-items: center;
-  color: var(--text-color, #212121);
+  color: var(--menu-text, #616978);
   display: flex;
   gap: var(--r-flyout-icon-gap);
   min-height: 44px;
@@ -56,9 +56,11 @@
   align-items: center;
   color: inherit;
   display: inline-flex;
-  font-weight: 600;
+  font-family: var(--font-header, "Open Sans", Arial, sans-serif);
+  font-size: 0.85em;
+  font-weight: 500;
   gap: 8px;
-  line-height: 1.35;
+  line-height: 1.2;
   text-decoration: none;
 }
 
@@ -75,21 +77,14 @@
   color: var(--menu-toggle-icon-color, var(--icon-color-on-lt, #8a94a8));
   cursor: pointer;
   display: inline-flex;
+  flex: 0 0 auto;
   justify-content: center;
-  margin-inline: auto 0;
+  margin: 0;
   min-height: var(--r-flyout-icon-size);
   padding: 0;
   position: relative;
   width: var(--r-flyout-icon-size);
   transition: color var(--r-flyout-transition);
-}
-
-.r-flyout-menu.button-left .r-flyout__header {
-  flex-direction: row-reverse;
-}
-
-.r-flyout-menu.button-left .r-flyout__toggle {
-  margin-inline: 0 auto;
 }
 
 .r-flyout__icon {
