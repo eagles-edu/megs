@@ -506,21 +506,27 @@
 
     /* Right rail flyout menu (critical structure to avoid CLS) */
     #aside .r-flyout-menu {
-      background: var(--surface-color, #fff);
-      border: 1px solid var(--border-color, #d0d6e4);
+      background: var(--surface-color);
+      border: 1px solid var(--border-color);
       border-radius: var(--radius, 3px);
+      box-shadow: var(--flyout-shadow-menu, 0 12px 26px rgb(24 39 75 / 8%));
       list-style: none;
       margin: 0;
+      min-width: 0;
+      overflow: visible;
       padding: 0;
+      position: relative;
+      z-index: 6000;
     }
 
     #aside .r-flyout-menu>[data-r-flyout-item] {
-      border-top: 1px solid var(--divider-color, #e1e7f0);
+      border-bottom: 1px solid var(--divider-color, #e1e7f0);
       position: relative;
+      transition: border-color 160ms cubic-bezier(0.4, 0, 0.2, 1);
     }
 
-    #aside .r-flyout-menu>[data-r-flyout-item]:first-child {
-      border-top: none;
+    #aside .r-flyout-menu>[data-r-flyout-item]:last-child {
+      border-bottom: none;
     }
 
     #aside .r-flyout__header {
@@ -531,9 +537,17 @@
       font-size: 0.85em;
       font-weight: 500;
       gap: var(--menu-icon-gap, 8px);
-      line-height: 1.2;
-      min-height: 42px;
-      padding: 10px 10px 9px;
+      line-height: 1.3;
+      min-height: 32px;
+      padding: 4px 6px;
+      transition:
+        background-color 160ms cubic-bezier(0.4, 0, 0.2, 1),
+        box-shadow 160ms cubic-bezier(0.4, 0, 0.2, 1),
+        color 160ms cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    #aside .r-flyout-menu>[data-r-flyout-item].current>.r-flyout__header {
+      color: var(--primary-color, #e0162b);
     }
 
     #aside .r-flyout__link {
@@ -556,6 +570,7 @@
       align-items: center;
       background: none;
       border: 0;
+      border-radius: 0;
       color: inherit;
       cursor: pointer;
       display: inline-flex;
@@ -564,8 +579,11 @@
       margin: 0;
       min-height: var(--menu-icon-slot, 24px);
       padding: 0 0 0 var(--menu-icon-pad-left, 6px);
+      -webkit-appearance: none;
+      appearance: none;
       position: relative;
       width: var(--menu-icon-slot, 24px);
+      transition: color 160ms cubic-bezier(0.4, 0, 0.2, 1);
     }
 
     #aside .r-flyout__toggle svg {
@@ -575,9 +593,34 @@
     }
 
     #aside .r-flyout__icon--minus {
+      color: var(--primary-color);
       inset: 0;
       opacity: 0;
       position: absolute;
+    }
+
+    [data-r-flyout-item]>.r-flyout__header {
+      border-radius: var(--radius, 3px);
+    }
+
+    [data-r-flyout-item].is-open>.r-flyout__header,
+    [data-r-flyout-item]:hover>.r-flyout__header,
+    [data-r-flyout-item]:focus-within>.r-flyout__header {
+      background: var(--surface-warm, rgb(224 22 43 / 8%));
+      box-shadow: inset 0 0 0 1px var(--primary-color, #e0162b);
+      color: var(--primary-color, #e0162b);
+    }
+
+    #aside .r-flyout-menu>[data-r-flyout-item].is-open,
+    #aside .r-flyout-menu>[data-r-flyout-item]:hover,
+    #aside .r-flyout-menu>[data-r-flyout-item]:focus-within {
+      border-color: var(--primary-color, #e0162b);
+    }
+
+    [data-r-flyout-item].is-open>.r-flyout__header .r-flyout__toggle,
+    [data-r-flyout-item]:hover>.r-flyout__header .r-flyout__toggle,
+    [data-r-flyout-item]:focus-within>.r-flyout__header .r-flyout__toggle {
+      color: var(--primary-color, #e0162b);
     }
 
     [data-r-flyout-item].is-open>.r-flyout__header .r-flyout__icon--plus {
@@ -589,18 +632,25 @@
     }
 
     #aside .r-flyout__panel {
-      background: var(--surface-color, #fff);
-      border: 1px solid var(--border-color, #d0d6e4);
+      background: var(--menu-link-bg);
+      border: 1px solid var(--border-color);
       border-radius: var(--radius, 3px);
-      inset-inline-end: 100%;
+      box-shadow: var(--flyout-shadow-panel, 0 18px 32px rgb(24 39 75 / 12%));
+      inset-inline-end: calc(100% - 1px);
       min-width: min(var(--flyout-width-desktop, 250px), 90vw);
-      overflow: visible;
+      overflow: hidden;
+      padding: 4px 0;
       position: absolute;
       top: -1px;
+      z-index: 6010;
     }
 
     #aside .r-flyout__panel[hidden] {
       display: none;
+    }
+
+    #aside .r-flyout-menu[data-flyout-origin="left"] .r-flyout__panel {
+      inset-inline: calc(100% - 1px) auto;
     }
 
     #content .nn_sliders .accordion-body {
@@ -3319,14 +3369,24 @@
                   </ul>
                 </div>
               </li>
-              <li>
-                <div class="item-wrapper">
-                  <div class="menu-link">
-                    <a href="../exercise-14-either-neither.html" aria-label="Menu Link">
+              <li data-r-flyout-item>
+                <div class="item-wrapper r-flyout__header">
+
+                  <button class="r-flyout__toggle" type="button" aria-haspopup="true" aria-expanded="false"
+                    aria-controls="r-flyout-panel-passive" aria-label="Toggle submenu for Active-Passive">
+                    <svg class="r-flyout__icon r-flyout__icon--plus" version="1.1" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                      viewBox="0 0 48 48" fill="currentColor" aria-hidden="true">
+                      <title>plus3</title>
+                      <path
+                        d="M10 26h12v12c0 1.104 0.896 2 2 2s2-0.896 2-2v-12h12c1.104 0 2-0.896 2-2s-0.896-2-2-2h-12v-12c0-1.104-0.896-2-2-2s-2 0.896-2 2v12h-12c-1.104 0-2 0.896-2 2s0.896 2 2 2z">
+                      </path>
+                    </svg></button>
+                    <div class="menu-link r-flyout__link-wrap">
+                    <a class="r-flyout__link" href="../exercise-14-either-neither.html" aria-label="Menu Link">
                       Either-Neither
                     </a>
-                  </div>
                 </div>
+              </div>
               </li>
               <li data-r-flyout-item>
                 <div class="item-wrapper r-flyout__header">

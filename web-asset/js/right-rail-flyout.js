@@ -48,10 +48,10 @@
         toggle.setAttribute("aria-haspopup", "true")
 
         var shouldStartOpen =
-          item.classList.contains("current") ||
-          item.classList.contains("open") ||
-          item.classList.contains("opened") ||
-          panel.getAttribute("aria-hidden") === "false"
+          panel.getAttribute("aria-hidden") === "false" ||
+          !panel.hasAttribute("hidden") ||
+          item.dataset.rflyoutStart === "open" ||
+          item.dataset.rflyoutStart === "true"
 
         function setSticky(enabled) {
           if (enabled) item.dataset.rflyoutSticky = "true"

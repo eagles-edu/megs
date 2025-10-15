@@ -54,6 +54,7 @@
   --menu-text: #616978; /* accessible muted slate on white */
   --menu-text-hover: var(--primary-color);
   --menu-icon-pad-inline: 7px;
+  --menu-link-bg: var(--surface-color);
 
   /* Shape */
   --radius: 3px;
