@@ -506,13 +506,21 @@
 
     /* Right rail flyout menu (critical structure to avoid CLS) */
     #aside .r-flyout-menu {
+      background: var(--surface-color, #fff);
+      border: 1px solid var(--border-color, #d0d6e4);
+      border-radius: var(--radius, 3px);
       list-style: none;
       margin: 0;
       padding: 0;
     }
 
     #aside .r-flyout-menu>[data-r-flyout-item] {
+      border-top: 1px solid var(--divider-color, #e1e7f0);
       position: relative;
+    }
+
+    #aside .r-flyout-menu>[data-r-flyout-item]:first-child {
+      border-top: none;
     }
 
     #aside .r-flyout__header {
@@ -522,10 +530,10 @@
       font-family: var(--font-header, "Open Sans", Arial, sans-serif);
       font-size: 0.85em;
       font-weight: 500;
-      gap: var(--menu-toggle-icon-gap, 6px);
+      gap: var(--menu-icon-gap, 8px);
       line-height: 1.2;
       min-height: 42px;
-      padding: 8px 10px;
+      padding: 10px 10px 9px;
     }
 
     #aside .r-flyout__link {
@@ -546,13 +554,18 @@
 
     #aside .r-flyout__toggle {
       align-items: center;
+      background: none;
+      border: 0;
+      color: inherit;
+      cursor: pointer;
       display: inline-flex;
-      flex: 0 0 auto;
-      justify-content: center;
+      flex: 0 0 var(--menu-icon-slot, 24px);
+      justify-content: flex-start;
       margin: 0;
-      min-height: var(--menu-toggle-icon-size);
+      min-height: var(--menu-icon-slot, 24px);
+      padding: 0 0 0 var(--menu-icon-pad-left, 6px);
       position: relative;
-      width: var(--menu-toggle-icon-size);
+      width: var(--menu-icon-slot, 24px);
     }
 
     #aside .r-flyout__toggle svg {
@@ -579,10 +592,11 @@
       background: var(--surface-color, #fff);
       border: 1px solid var(--border-color, #d0d6e4);
       border-radius: var(--radius, 3px);
-      inset-inline-end: calc(100% + 12px);
+      inset-inline-end: 100%;
       min-width: min(var(--flyout-width-desktop, 250px), 90vw);
+      overflow: visible;
       position: absolute;
-      top: 0;
+      top: -1px;
     }
 
     #aside .r-flyout__panel[hidden] {
@@ -2151,9 +2165,9 @@
           <!-- Begin Right Sidebar -->
           <div class="well hidden-phone">
             <ul class="r-flyout-menu" id="flyout_menu_93" data-r-flyout data-flyout-origin="right">
-              <li class="current first is-open" data-r-flyout-item>
+              <li class="current first" data-r-flyout-item>
                 <div class="item-wrapper r-flyout__header">
-                  <button class="r-flyout__toggle" type="button" aria-haspopup="true" aria-expanded="true"
+                  <button class="r-flyout__toggle" type="button" aria-haspopup="true" aria-expanded="false"
                     aria-controls="r-flyout-panel-nouns" aria-label="Toggle submenu for Nouns">
                     <svg class="r-flyout__icon r-flyout__icon--plus" version="1.1" xmlns="http://www.w3.org/2000/svg"
                       width="24" height="24" viewBox="0 0 48 48" fill="currentColor" aria-hidden="true">
@@ -2175,7 +2189,7 @@
                   </div>
 
                 </div>
-                <div class="ul-wrapper r-flyout__panel" id="r-flyout-panel-nouns" aria-hidden="false">
+                <div class="ul-wrapper r-flyout__panel" id="r-flyout-panel-nouns" aria-hidden="true" hidden>
                   <ul class="r-flyout__sublist">
                     <li class="current first">
                       <div class="item-wrapper">

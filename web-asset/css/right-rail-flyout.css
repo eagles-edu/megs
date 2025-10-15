@@ -2,49 +2,48 @@
  * Right rail flyout navigation system
  * Modern, scoped styling for the r-flyout menu pattern.
  */
-
-.r-flyout-menu {
+:root.r-flyout-menu {
   --r-flyout-bg: var(--surface-color, #fff);
   --r-flyout-border: var(--border-color, #d0d6e4);
   --r-flyout-divider: var(--divider-color, #e1e7f0);
-  --r-flyout-shadow: var(--flyout-shadow-menu, 0 12px 26px rgb(24 39 75 / 8%));
-  --r-flyout-panel-shadow: var(--flyout-shadow-panel, 0 18px 40px rgb(24 39 75 / 18%));
-  --r-flyout-highlight: var(--hover-surface-overlay, rgb(224 22 43 / 8%));
+  --r-flyout-highlight: var(--surface-warm, rgb(224 22 43 / 8%));
   --r-flyout-transition: 160ms cubic-bezier(0.4, 0, 0.2, 1);
-  --r-flyout-header-padding-block: 10px;
-  --r-flyout-header-padding-inline: 12px;
   --r-flyout-icon-size: 24px;
-  --r-flyout-icon-gap: 8px;
-  
+}
+
+.r-flyout-menu {
   background-color: var(--r-flyout-bg);
   border: 1px solid var(--r-flyout-border);
   border-radius: var(--radius, 3px);
-  box-shadow: var(--r-flyout-shadow);
   list-style: none;
   margin: 0;
   padding: 0;
 }
 
 .r-flyout-menu > [data-r-flyout-item] {
-  border-bottom: 1px solid var(--r-flyout-divider);
+  border-top: 1px solid var(--r-flyout-divider);
   position: relative;
 }
 
-.r-flyout-menu > [data-r-flyout-item]:last-child {
-  border-bottom: none;
+.r-flyout-menu > [data-r-flyout-item]:first-child {
+  border-top: none;
 }
 
 .r-flyout__header {
   align-items: center;
   color: var(--menu-text, #616978);
   display: flex;
-  gap: var(--r-flyout-icon-gap);
-  min-height: 44px;
-  padding: var(--r-flyout-header-padding-block) var(--r-flyout-header-padding-inline);
+  gap: var(--menu-icon-gap, 8px);
+  min-height: 42px;
+  padding: 10px 10px 9px;
   transition:
     background-color var(--r-flyout-transition),
     box-shadow var(--r-flyout-transition),
     color var(--r-flyout-transition);
+}
+
+.r-flyout-menu > [data-r-flyout-item].current > .r-flyout__header {
+  color: var(--primary-color, #e0162b);
 }
 
 .r-flyout__link-wrap {
@@ -74,16 +73,16 @@
   align-items: center;
   background: none;
   border: 0;
-  color: var(--menu-toggle-icon-color, var(--icon-color-on-lt, #8a94a8));
+  color: inherit;
   cursor: pointer;
   display: inline-flex;
-  flex: 0 0 auto;
-  justify-content: center;
+  flex: 0 0 var(--menu-icon-slot, var(--r-flyout-icon-size));
+  justify-content: flex-start;
   margin: 0;
-  min-height: var(--r-flyout-icon-size);
-  padding: 0;
+  min-height: var(--menu-icon-slot, var(--r-flyout-icon-size));
+  padding: 0 0 0 var(--menu-icon-pad-left, 6px);
   position: relative;
-  width: var(--r-flyout-icon-size);
+  width: var(--menu-icon-slot, var(--r-flyout-icon-size));
   transition: color var(--r-flyout-transition);
 }
 
@@ -102,8 +101,8 @@
 [data-r-flyout-item].is-open > .r-flyout__header,
 [data-r-flyout-item]:hover > .r-flyout__header,
 [data-r-flyout-item]:focus-within > .r-flyout__header {
-  background: linear-gradient(0deg, var(--r-flyout-highlight), var(--r-flyout-highlight)), var(--r-flyout-bg);
-  box-shadow: inset 0 0 0 1px rgb(224 22 43 / 16%);
+  background: var(--r-flyout-highlight, rgb(224 22 43 / 8%));
+  box-shadow: inset 0 0 0 1px var(--primary-color, #e0162b);
   color: var(--primary-color, #e0162b);
 }
 
@@ -125,11 +124,9 @@
   background-color: var(--r-flyout-bg);
   border: 1px solid var(--r-flyout-border);
   border-radius: var(--radius, 3px);
-  box-shadow: var(--r-flyout-panel-shadow);
-  inset-block-start: 0;
-  max-height: min(70vh, 420px);
+  inset-block-start: -1px;
   min-width: min(var(--flyout-width-desktop, 250px), 90vw);
-  overflow-y: auto;
+  overflow: visible;
   padding: 4px 0;
   position: absolute;
   z-index: 20;
@@ -137,11 +134,11 @@
 
 [data-flyout-origin="right"] .r-flyout__panel,
 .r-flyout-menu[data-flyout-origin="right"] .r-flyout__panel {
-  inset-inline-end: calc(100% + 12px);
+  inset-inline-end: 100%;
 }
 
 .r-flyout-menu[data-flyout-origin="left"] .r-flyout__panel {
-  inset-inline-start: calc(100% + 12px);
+  inset-inline-start: 100%;
 }
 
 .r-flyout__panel[hidden] {

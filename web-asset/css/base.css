@@ -29,7 +29,7 @@
   --link-visited: #630094;
   --link-active: var(--primary-color)
 
-  /* Semantic states */
+  /* Semantic states */;
   --success-color: #0f6d2a;
   --success-bg: #e6f7ee;
   --success-border: #2f7d51;
