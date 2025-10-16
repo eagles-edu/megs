@@ -10,7 +10,9 @@
   --r-flyout-shadow-menu: var(--flyout-shadow-menu, 0 12px 26px rgb(24 39 75 / 8%));
   --r-flyout-shadow-panel: var(--flyout-shadow-panel, 0 18px 32px rgb(24 39 75 / 12%));
   --r-flyout-transition: 160ms cubic-bezier(0.4, 0, 0.2, 1);
-  --r-flyout-icon-size: 13.3px;
+
+  /* Shared toggle sizing so a single custom property controls width and height */
+  --flyout-toggle-size: 20px;
 }
 
 .r-flyout-menu {
@@ -79,36 +81,40 @@
 }
 
 .r-flyout__toggle {
-  align-items: center;
-  background: none;
-  border: var(--border-color);
+  appearance: none;
+  background: transparent;
+  border: 0;
   border-radius: 0;
   color: var(--menu-text);
   cursor: pointer;
-  display: inline-flex;
-  flex: 0 0 var(--menu-icon-slot, var(--r-flyout-icon-size));
-  justify-content: flex-start;
+  display: grid;
+  flex: 0 0 var(--flyout-toggle-size);
+  inline-size: var(--flyout-toggle-size);
+  height: var(--flyout-toggle-size);
+  justify-content: center;
   margin: 0;
-  min-height: var(--menu-icon-slot, var(--r-flyout-icon-size));
-  padding: 0 0 0 var(--menu-icon-pad-left, 6px);
-  appearance: none;
+  min-block-size: var(--flyout-toggle-size);
+  min-height: var(--flyout-toggle-size);
+  padding: 0;
+  align-items: center;
   position: relative;
-  width: var(--menu-icon-slot, var(--r-flyout-icon-size));
   transition: color var(--r-flyout-transition);
+  width: var(--flyout-toggle-size);
 }
 
 .r-flyout__icon {
   display: block;
-  height: 100%;
-  width: 100%;
+  grid-area: 1 / 1;
+  block-size: var(--flyout-toggle-size);
+  height: var(--flyout-toggle-size);
+  inline-size: var(--flyout-toggle-size);
+  width: var(--flyout-toggle-size);
   transition: opacity var(--r-flyout-transition);
 }
 
 .r-flyout__icon--minus {
   color: var(--primary-color);
-  inset: 0;
   opacity: 0;
-  position: absolute;
 }
 
 [data-r-flyout-item] > .r-flyout__header {
@@ -119,6 +125,7 @@
 [data-r-flyout-item]:hover,
 [data-r-flyout-item]:focus-within {
   border-color: var(--primary-color, #e0162b);
+  color: var(--primary-color);
 }
 
 [data-r-flyout-item].is-open > .r-flyout__header,

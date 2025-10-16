@@ -41,10 +41,10 @@
       --pager-padding-inline: 0.95rem;
       --pager-text-color: var(--text-color, #212121);
       --menu-icon-pad-inline: 6px;
-      --menu-toggle-icon-size: var(--flyout-icon-size, 24px);
+      --flyout-toggle-size: 20px;
       --menu-toggle-icon-gap: 6px;
       --menu-toggle-minus-color: var(--primary-color);
-      --menu-toggle-minus-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cpath fill='currentColor' d='M10 26h28c1.104 0 2-0.896 2-2s-0.896-2-2-2h-28c-1.104 0-2 0.896-2 2s0.896 2 2 2z'/%3E%3C/svg%3E");
+      --menu-toggle-minus-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='currentColor' d='M5 11a1 1 0 0 0 0 2h14a1 1 0 1 0 0-2H5z'/%3E%3C/svg%3E");
       --txtarea-bg: #f0f2f5;
       --radius: 3px;
       /* pager variables  */
@@ -76,16 +76,11 @@
       width: 9px;
     }
 
-    img[src*="../web-asset/icons/svg/sized/plus3.svg"] {
-      height: 13.3px;
-      max-height:13.3px;
-      width: 13.3px;
-    }
-
+    img[src*="../web-asset/icons/svg/sized/plus3.svg"],
     img[src*="../web-asset/icons/svg/sized/minus5.svg"] {
-      height: 13.3px!important;
-      max-height: 13.3px;
-      width:13.3px;
+      height: var(--flyout-toggle-size);
+      max-height: var(--flyout-toggle-size);
+      width: var(--flyout-toggle-size);
     }
 
     img[src*="../web-asset/icons/svg/sized/angle-left.svg"] {
@@ -335,9 +330,9 @@
 
     ul.accordion-menu .menu-button::after {
       background-color: var(--menu-toggle-minus-color);
-      block-size: var(--menu-toggle-icon-size);
+      block-size: var(--flyout-toggle-size);
       content: "";
-      inline-size: var(--menu-toggle-icon-size);
+      inline-size: var(--flyout-toggle-size);
       inset: auto;
       left: 50%;
       mask-image: var(--menu-toggle-minus-mask);
@@ -374,7 +369,7 @@
     /* Lists toggle: align icon sizing with right rail flyout */
     #lists-menu-item {
       --lists-icon-gap: var(--menu-toggle-icon-gap, 6px);
-      --lists-icon-size: var(--menu-toggle-icon-size);
+      --lists-icon-size: var(--flyout-toggle-size);
       --lists-icon-slot: calc(var(--lists-icon-size) + var(--lists-icon-gap));
       --menu-icon-pad-inline-start: var(--lists-icon-pad-start, 0);
       --menu-icon-pad-inline-end: var(--lists-icon-gap);
@@ -411,8 +406,8 @@
 
     ul.accordion-menu .menu-button>svg {
       flex: 0 0 auto;
-      height: var(--menu-toggle-icon-size);
-      width: var(--menu-toggle-icon-size);
+      height: var(--flyout-toggle-size);
+      width: var(--flyout-toggle-size);
       fill: currentColor;
     }
 
@@ -551,13 +546,13 @@
     }
 
     #aside .r-flyout__link {
-      color: inherit;
+      color: var(--menu-text);
       text-decoration: none;
     }
 
     #aside .r-flyout__link:hover,
     #aside .r-flyout__link:focus {
-      color: inherit;
+      color: var(--primary-color);
       text-decoration: none;
     }
 
@@ -568,40 +563,39 @@
 
     #aside .r-flyout__toggle {
       align-items: center;
+      appearance: none;
       background: none;
       border: 0;
       border-radius: 0;
       color: inherit;
       cursor: pointer;
-      display: inline-flex;
-      flex: 0 0 var(--menu-icon-slot, 24px);
-      justify-content: flex-start;
+      display: grid;
+      flex: 0 0 var(--flyout-toggle-size);
+      height: var(--flyout-toggle-size);
+      inline-size: var(--flyout-toggle-size);
+      justify-content: center;
       margin: 0;
-      min-height: var(--menu-icon-slot, 24px);
-      padding: 0 0 0 var(--menu-icon-pad-left, 6px);
-      -webkit-appearance: none;
-      appearance: none;
+      min-block-size: var(--flyout-toggle-size);
+      min-height: var(--flyout-toggle-size);
+      padding: 0;
       position: relative;
-      width: var(--menu-icon-slot, 24px);
       transition: color 160ms cubic-bezier(0.4, 0, 0.2, 1);
+      width: var(--flyout-toggle-size);
     }
 
-    .r-flyout__icon {
+    #aside .r-flyout__icon {
       display: block;
-      height: 100%;
+      grid-area: 1 / 1;
+      height: var(--flyout-toggle-size);
+      inline-size: var(--flyout-toggle-size);
       pointer-events: none;
       transition: opacity 160ms cubic-bezier(0.4, 0, 0.2, 1);
-      width: 100%;
+      width: var(--flyout-toggle-size);
     }
 
     .r-flyout__icon--minus {
       color: inherit;
-      height: 13.3px;
-      inset: 0;
       opacity: 0;
-      position: absolute;
-      visibility: hidden;
-      width: 13.3px;
     }
 
     [data-r-flyout-item]>.r-flyout__header {
@@ -634,7 +628,6 @@
 
     [data-r-flyout-item].is-open>.r-flyout__header .r-flyout__icon--minus {
       opacity: 1;
-
       visibility: visible;
     }
 
@@ -937,6 +930,18 @@
 </head>
 
 <body class="base exercize">
+  <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true"
+    style="position:absolute;width:0;height:0;overflow:hidden;">
+    <defs>
+      <symbol id="icon-plus" viewBox="0 0 24 24">
+        <path fill="currentColor"
+          d="M12 5a1 1 0 0 0-1 1v5H6a1 1 0 1 0 0 2h5v5a1 1 0 1 0 2 0v-5h5a1 1 0 1 0 0-2h-5V6a1 1 0 0 0-1-1z" />
+      </symbol>
+      <symbol id="icon-minus" viewBox="0 0 24 24">
+        <path fill="currentColor" d="M5 11a1 1 0 0 0 0 2h14a1 1 0 1 0 0-2H5z" />
+      </symbol>
+    </defs>
+  </svg>
   <!-- Body -->
   <div class="body grid-modern" id="top">
     <div class="container">
@@ -2247,17 +2252,11 @@
                 <div class="item-wrapper r-flyout__header">
                   <button class="r-flyout__toggle" type="button" aria-haspopup="true" aria-expanded="false"
                     aria-controls="r-flyout-panel-nouns" aria-label="Toggle submenu for Nouns">
-                    <svg class="r-flyout__icon r-flyout__icon--plus" version="1.1" xmlns="http://www.w3.org/2000/svg"
-                      width="24" height="24" viewBox="0 0 48 48" fill="currentColor" aria-hidden="true">
-                      <title>plus3</title>
-                      <path
-                        d="M10 26h12v12c0 1.104 0.896 2 2 2s2-0.896 2-2v-12h12c1.104 0 2-0.896 2-2s-0.896-2-2-2h-12v-12c0-1.104-0.896-2-2-2s-2 0.896-2 2v12h-12c-1.104 0-2 0.896-2 2s0.896 2 2 2z">
-                      </path>
+                    <svg class="r-flyout__icon r-flyout__icon--plus" aria-hidden="true" focusable="false">
+                      <use href="#icon-plus" xlink:href="#icon-plus"></use>
                     </svg>
-                    <svg class="r-flyout__icon r-flyout__icon--minus" version="1.1" xmlns="http://www.w3.org/2000/svg"
-                      width="24" height="24" viewBox="0 0 48 48" fill="currentColor" aria-hidden="true">
-                      <title>minus</title>
-                      <path d="M10 26h28c1.104 0 2-0.896 2-2s-0.896-2-2-2h-28c-1.104 0-2 0.896-2 2s0.896 2 2 2z"></path>
+                    <svg class="r-flyout__icon r-flyout__icon--minus" aria-hidden="true" focusable="false">
+                      <use href="#icon-minus" xlink:href="#icon-minus"></use>
                     </svg>
                   </button>
                   <div class="menu-link r-flyout__link-wrap">
@@ -2265,7 +2264,6 @@
                       Nouns
                     </a>
                   </div>
-
                 </div>
                 <div class="ul-wrapper r-flyout__panel" id="r-flyout-panel-nouns" aria-hidden="true" hidden>
                   <ul class="r-flyout__sublist">
@@ -2349,17 +2347,11 @@
                 <div class="item-wrapper r-flyout__header">
                   <button class="r-flyout__toggle" type="button" aria-haspopup="true" aria-expanded="false"
                     aria-controls="r-flyout-panel-verbs" aria-label="Toggle submenu for Verbs">
-                    <svg class="r-flyout__icon r-flyout__icon--plus" version="1.1" xmlns="http://www.w3.org/2000/svg"
-                      width="24" height="24" viewBox="0 0 48 48" fill="currentColor" aria-hidden="true">
-                      <title>plus3</title>
-                      <path
-                        d="M10 26h12v12c0 1.104 0.896 2 2 2s2-0.896 2-2v-12h12c1.104 0 2-0.896 2-2s-0.896-2-2-2h-12v-12c0-1.104-0.896-2-2-2s-2 0.896-2 2v12h-12c-1.104 0-2 0.896-2 2s0.896 2 2 2z">
-                      </path>
+                    <svg class="r-flyout__icon r-flyout__icon--plus" aria-hidden="true" focusable="false">
+                      <use href="#icon-plus" xlink:href="#icon-plus"></use>
                     </svg>
-                    <svg class="r-flyout__icon r-flyout__icon--minus" version="1.1" xmlns="http://www.w3.org/2000/svg"
-                      width="24" height="24" viewBox="0 0 48 48" fill="currentColor" aria-hidden="true">
-                      <title>minus</title>
-                      <path d="M10 26h28c1.104 0 2-0.896 2-2s-0.896-2-2-2h-28c-1.104 0-2 0.896-2 2s0.896 2 2 2z"></path>
+                    <svg class="r-flyout__icon r-flyout__icon--minus" aria-hidden="true" focusable="false">
+                      <use href="#icon-minus" xlink:href="#icon-minus"></use>
                     </svg>
                   </button>
                   <div class="menu-link r-flyout__link-wrap">
@@ -2367,7 +2359,6 @@
                       Verbs
                     </a>
                   </div>
-
                 </div>
                 <div class="ul-wrapper r-flyout__panel" id="r-flyout-panel-verbs" aria-hidden="true" hidden>
                   <ul class="r-flyout__sublist">
@@ -2425,17 +2416,11 @@
                 <div class="item-wrapper r-flyout__header">
                   <button class="r-flyout__toggle" type="button" aria-haspopup="true" aria-expanded="false"
                     aria-controls="r-flyout-panel-adjectives" aria-label="Toggle submenu for Adjectives">
-                    <svg class="r-flyout__icon r-flyout__icon--plus" version="1.1" xmlns="http://www.w3.org/2000/svg"
-                      width="24" height="24" viewBox="0 0 48 48" fill="currentColor" aria-hidden="true">
-                      <title>plus3</title>
-                      <path
-                        d="M10 26h12v12c0 1.104 0.896 2 2 2s2-0.896 2-2v-12h12c1.104 0 2-0.896 2-2s-0.896-2-2-2h-12v-12c0-1.104-0.896-2-2-2s-2 0.896-2 2v12h-12c-1.104 0-2 0.896-2 2s0.896 2 2 2z">
-                      </path>
+                    <svg class="r-flyout__icon r-flyout__icon--plus" aria-hidden="true" focusable="false">
+                      <use href="#icon-plus" xlink:href="#icon-plus"></use>
                     </svg>
-                    <svg class="r-flyout__icon r-flyout__icon--minus" version="1.1" xmlns="http://www.w3.org/2000/svg"
-                      width="24" height="24" viewBox="0 0 48 48" fill="currentColor" aria-hidden="true">
-                      <title>minus</title>
-                      <path d="M10 26h28c1.104 0 2-0.896 2-2s-0.896-2-2-2h-28c-1.104 0-2 0.896-2 2s0.896 2 2 2z"></path>
+                    <svg class="r-flyout__icon r-flyout__icon--minus" aria-hidden="true" focusable="false">
+                      <use href="#icon-minus" xlink:href="#icon-minus"></use>
                     </svg>
                   </button>
                   <div class="menu-link r-flyout__link-wrap">
@@ -2534,25 +2519,18 @@
                 <div class="item-wrapper r-flyout__header">
                   <button class="r-flyout__toggle" type="button" aria-haspopup="true" aria-expanded="false"
                     aria-controls="r-flyout-panel-adverbs" aria-label="Toggle submenu for Adverbs">
-                    <svg class="r-flyout__icon r-flyout__icon--plus" version="1.1" xmlns="http://www.w3.org/2000/svg"
-                      width="24" height="24" viewBox="0 0 48 48" fill="currentColor" aria-hidden="true">
-                      <title>plus3</title>
-                      <path
-                        d="M10 26h12v12c0 1.104 0.896 2 2 2s2-0.896 2-2v-12h12c1.104 0 2-0.896 2-2s-0.896-2-2-2h-12v-12c0-1.104-0.896-2-2-2s-2 0.896-2 2v12h-12c-1.104 0-2 0.896-2 2s0.896 2 2 2z">
-                      </path>
-                    </svg>
-                    <svg class="r-flyout__icon r-flyout__icon--minus" version="1.1" xmlns="http://www.w3.org/2000/svg"
-                      width="24" height="24" viewBox="0 0 48 48" fill="currentColor" aria-hidden="true">
-                      <title>minus</title>
-                      <path d="M10 26h28c1.104 0 2-0.896 2-2s-0.896-2-2-2h-28c-1.104 0-2 0.896-2 2s0.896 2 2 2z"></path>
-                    </svg>
+                  <svg class="r-flyout__icon r-flyout__icon--plus" aria-hidden="true" focusable="false">
+                    <use href="#icon-plus" xlink:href="#icon-plus"></use>
+                  </svg>
+                  <svg class="r-flyout__icon r-flyout__icon--minus" aria-hidden="true" focusable="false">
+                    <use href="#icon-minus" xlink:href="#icon-minus"></use>
+                  </svg>
                   </button>
                   <div class="menu-link r-flyout__link-wrap">
                     <a class="r-flyout__link" href="../exercise-4-adverbs.html" aria-label="Menu Link">
                       Adverbs
                     </a>
                   </div>
-
                 </div>
                 <div class="ul-wrapper r-flyout__panel" id="r-flyout-panel-adverbs" aria-hidden="true" hidden>
                   <ul class="r-flyout__sublist">
@@ -2644,17 +2622,11 @@
                 <div class="item-wrapper r-flyout__header">
                   <button class="r-flyout__toggle" type="button" aria-haspopup="true" aria-expanded="false"
                     aria-controls="r-flyout-panel-pronouns" aria-label="Toggle submenu for Pronouns">
-                    <svg class="r-flyout__icon r-flyout__icon--plus" version="1.1" xmlns="http://www.w3.org/2000/svg"
-                      width="24" height="24" viewBox="0 0 48 48" fill="currentColor" aria-hidden="true">
-                      <title>plus3</title>
-                      <path
-                        d="M10 26h12v12c0 1.104 0.896 2 2 2s2-0.896 2-2v-12h12c1.104 0 2-0.896 2-2s-0.896-2-2-2h-12v-12c0-1.104-0.896-2-2-2s-2 0.896-2 2v12h-12c-1.104 0-2 0.896-2 2s0.896 2 2 2z">
-                      </path>
+                    <svg class="r-flyout__icon r-flyout__icon--plus" aria-hidden="true" focusable="false">
+                      <use href="#icon-plus" xlink:href="#icon-plus"></use>
                     </svg>
-                    <svg class="r-flyout__icon r-flyout__icon--minus" version="1.1" xmlns="http://www.w3.org/2000/svg"
-                      width="24" height="24" viewBox="0 0 48 48" fill="currentColor" aria-hidden="true">
-                      <title>minus</title>
-                      <path d="M10 26h28c1.104 0 2-0.896 2-2s-0.896-2-2-2h-28c-1.104 0-2 0.896-2 2s0.896 2 2 2z"></path>
+                    <svg class="r-flyout__icon r-flyout__icon--minus" aria-hidden="true" focusable="false">
+                      <use href="#icon-minus" xlink:href="#icon-minus"></use>
                     </svg>
                   </button>
                   <div class="menu-link r-flyout__link-wrap">
@@ -2848,17 +2820,11 @@
                 <div class="item-wrapper r-flyout__header">
                   <button class="r-flyout__toggle" type="button" aria-haspopup="true" aria-expanded="false"
                     aria-controls="r-flyout-panel-prepositions" aria-label="Toggle submenu for Prepositions">
-                    <svg class="r-flyout__icon r-flyout__icon--plus" version="1.1" xmlns="http://www.w3.org/2000/svg"
-                      width="24" height="24" viewBox="0 0 48 48" fill="currentColor" aria-hidden="true">
-                      <title>plus3</title>
-                      <path
-                        d="M10 26h12v12c0 1.104 0.896 2 2 2s2-0.896 2-2v-12h12c1.104 0 2-0.896 2-2s-0.896-2-2-2h-12v-12c0-1.104-0.896-2-2-2s-2 0.896-2 2v12h-12c-1.104 0-2 0.896-2 2s0.896 2 2 2z">
-                      </path>
+                    <svg class="r-flyout__icon r-flyout__icon--plus" aria-hidden="true" focusable="false">
+                      <use href="#icon-plus" xlink:href="#icon-plus"></use>
                     </svg>
-                    <svg class="r-flyout__icon r-flyout__icon--minus" version="1.1" xmlns="http://www.w3.org/2000/svg"
-                      width="24" height="24" viewBox="0 0 48 48" fill="currentColor" aria-hidden="true">
-                      <title>minus</title>
-                      <path d="M10 26h28c1.104 0 2-0.896 2-2s-0.896-2-2-2h-28c-1.104 0-2 0.896-2 2s0.896 2 2 2z"></path>
+                    <svg class="r-flyout__icon r-flyout__icon--minus" aria-hidden="true" focusable="false">
+                      <use href="#icon-minus" xlink:href="#icon-minus"></use>
                     </svg>
                   </button>
                   <div class="menu-link r-flyout__link-wrap">
@@ -2866,7 +2832,6 @@
                       Prepositions
                     </a>
                   </div>
-
                 </div>
                 <div class="ul-wrapper r-flyout__panel" id="r-flyout-panel-prepositions" aria-hidden="true" hidden>
                   <ul class="r-flyout__sublist">
@@ -2968,17 +2933,11 @@
                 <div class="item-wrapper r-flyout__header">
                   <button class="r-flyout__toggle" type="button" aria-haspopup="true" aria-expanded="false"
                     aria-controls="r-flyout-panel-conjunctions" aria-label="Toggle submenu for Conjunctions">
-                    <svg class="r-flyout__icon r-flyout__icon--plus" version="1.1" xmlns="http://www.w3.org/2000/svg"
-                      width="24" height="24" viewBox="0 0 48 48" fill="currentColor" aria-hidden="true">
-                      <title>plus3</title>
-                      <path
-                        d="M10 26h12v12c0 1.104 0.896 2 2 2s2-0.896 2-2v-12h12c1.104 0 2-0.896 2-2s-0.896-2-2-2h-12v-12c0-1.104-0.896-2-2-2s-2 0.896-2 2v12h-12c-1.104 0-2 0.896-2 2s0.896 2 2 2z">
-                      </path>
+                    <svg class="r-flyout__icon r-flyout__icon--plus" aria-hidden="true" focusable="false">
+                      <use href="#icon-plus" xlink:href="#icon-plus"></use>
                     </svg>
-                    <svg class="r-flyout__icon r-flyout__icon--minus" version="1.1" xmlns="http://www.w3.org/2000/svg"
-                      width="24" height="24" viewBox="0 0 48 48" fill="currentColor" aria-hidden="true">
-                      <title>minus</title>
-                      <path d="M10 26h28c1.104 0 2-0.896 2-2s-0.896-2-2-2h-28c-1.104 0-2 0.896-2 2s0.896 2 2 2z"></path>
+                    <svg class="r-flyout__icon r-flyout__icon--minus" aria-hidden="true" focusable="false">
+                      <use href="#icon-minus" xlink:href="#icon-minus"></use>
                     </svg>
                   </button>
                   <div class="menu-link r-flyout__link-wrap">
@@ -3067,17 +3026,11 @@
                 <div class="item-wrapper r-flyout__header">
                   <button class="r-flyout__toggle" type="button" aria-haspopup="true" aria-expanded="false"
                     aria-controls="r-flyout-panel-agreement" aria-label="Toggle submenu for S plus V Agreement">
-                    <svg class="r-flyout__icon r-flyout__icon--plus" version="1.1" xmlns="http://www.w3.org/2000/svg"
-                      width="24" height="24" viewBox="0 0 48 48" fill="currentColor" aria-hidden="true">
-                      <title>plus3</title>
-                      <path
-                        d="M10 26h12v12c0 1.104 0.896 2 2 2s2-0.896 2-2v-12h12c1.104 0 2-0.896 2-2s-0.896-2-2-2h-12v-12c0-1.104-0.896-2-2-2s-2 0.896-2 2v12h-12c-1.104 0-2 0.896-2 2s0.896 2 2 2z">
-                      </path>
+                    <svg class="r-flyout__icon r-flyout__icon--plus" aria-hidden="true" focusable="false">
+                      <use href="#icon-plus" xlink:href="#icon-plus"></use>
                     </svg>
-                    <svg class="r-flyout__icon r-flyout__icon--minus" version="1.1" xmlns="http://www.w3.org/2000/svg"
-                      width="24" height="24" viewBox="0 0 48 48" fill="currentColor" aria-hidden="true">
-                      <title>minus</title>
-                      <path d="M10 26h28c1.104 0 2-0.896 2-2s-0.896-2-2-2h-28c-1.104 0-2 0.896-2 2s0.896 2 2 2z"></path>
+                    <svg class="r-flyout__icon r-flyout__icon--minus" aria-hidden="true" focusable="false">
+                      <use href="#icon-minus" xlink:href="#icon-minus"></use>
                     </svg>
                   </button>
                   <div class="menu-link r-flyout__link-wrap">
@@ -3123,17 +3076,11 @@
                 <div class="item-wrapper r-flyout__header">
                   <button class="r-flyout__toggle" type="button" aria-haspopup="true" aria-expanded="false"
                     aria-controls="r-flyout-panel-articles" aria-label="Toggle submenu for Articles">
-                    <svg class="r-flyout__icon r-flyout__icon--plus" version="1.1" xmlns="http://www.w3.org/2000/svg"
-                      width="24" height="24" viewBox="0 0 48 48" fill="currentColor" aria-hidden="true">
-                      <title>plus3</title>
-                      <path
-                        d="M10 26h12v12c0 1.104 0.896 2 2 2s2-0.896 2-2v-12h12c1.104 0 2-0.896 2-2s-0.896-2-2-2h-12v-12c0-1.104-0.896-2-2-2s-2 0.896-2 2v12h-12c-1.104 0-2 0.896-2 2s0.896 2 2 2z">
-                      </path>
+                    <svg class="r-flyout__icon r-flyout__icon--plus" aria-hidden="true" focusable="false">
+                      <use href="#icon-plus" xlink:href="#icon-plus"></use>
                     </svg>
-                    <svg class="r-flyout__icon r-flyout__icon--minus" version="1.1" xmlns="http://www.w3.org/2000/svg"
-                      width="24" height="24" viewBox="0 0 48 48" fill="currentColor" aria-hidden="true">
-                      <title>minus</title>
-                      <path d="M10 26h28c1.104 0 2-0.896 2-2s-0.896-2-2-2h-28c-1.104 0-2 0.896-2 2s0.896 2 2 2z"></path>
+                    <svg class="r-flyout__icon r-flyout__icon--minus" aria-hidden="true" focusable="false">
+                      <use href="#icon-minus" xlink:href="#icon-minus"></use>
                     </svg>
                   </button>
                   <div class="menu-link r-flyout__link-wrap">
@@ -3179,17 +3126,11 @@
                 <div class="item-wrapper r-flyout__header">
                   <button class="r-flyout__toggle" type="button" aria-haspopup="true" aria-expanded="false"
                     aria-controls="r-flyout-panel-conditionals" aria-label="Toggle submenu for Conditionals">
-                    <svg class="r-flyout__icon r-flyout__icon--plus" version="1.1" xmlns="http://www.w3.org/2000/svg"
-                      width="24" height="24" viewBox="0 0 48 48" fill="currentColor" aria-hidden="true">
-                      <title>plus3</title>
-                      <path
-                        d="M10 26h12v12c0 1.104 0.896 2 2 2s2-0.896 2-2v-12h12c1.104 0 2-0.896 2-2s-0.896-2-2-2h-12v-12c0-1.104-0.896-2-2-2s-2 0.896-2 2v12h-12c-1.104 0-2 0.896-2 2s0.896 2 2 2z">
-                      </path>
+                    <svg class="r-flyout__icon r-flyout__icon--plus" aria-hidden="true" focusable="false">
+                      <use href="#icon-plus" xlink:href="#icon-plus"></use>
                     </svg>
-                    <svg class="r-flyout__icon r-flyout__icon--minus" version="1.1" xmlns="http://www.w3.org/2000/svg"
-                      width="24" height="24" viewBox="0 0 48 48" fill="currentColor" aria-hidden="true">
-                      <title>minus</title>
-                      <path d="M10 26h28c1.104 0 2-0.896 2-2s-0.896-2-2-2h-28c-1.104 0-2 0.896-2 2s0.896 2 2 2z"></path>
+                    <svg class="r-flyout__icon r-flyout__icon--minus" aria-hidden="true" focusable="false">
+                      <use href="#icon-minus" xlink:href="#icon-minus"></use>
                     </svg>
                   </button>
                   <div class="menu-link r-flyout__link-wrap">
@@ -3235,17 +3176,11 @@
                 <div class="item-wrapper r-flyout__header">
                   <button class="r-flyout__toggle" type="button" aria-haspopup="true" aria-expanded="false"
                     aria-controls="r-flyout-panel-modifiers" aria-label="Toggle submenu for Modifiers">
-                    <svg class="r-flyout__icon r-flyout__icon--plus" version="1.1" xmlns="http://www.w3.org/2000/svg"
-                      width="24" height="24" viewBox="0 0 48 48" fill="currentColor" aria-hidden="true">
-                      <title>plus3</title>
-                      <path
-                        d="M10 26h12v12c0 1.104 0.896 2 2 2s2-0.896 2-2v-12h12c1.104 0 2-0.896 2-2s-0.896-2-2-2h-12v-12c0-1.104-0.896-2-2-2s-2 0.896-2 2v12h-12c-1.104 0-2 0.896-2 2s0.896 2 2 2z">
-                      </path>
+                    <svg class="r-flyout__icon r-flyout__icon--plus" aria-hidden="true" focusable="false">
+                      <use href="#icon-plus" xlink:href="#icon-plus"></use>
                     </svg>
-                    <svg class="r-flyout__icon r-flyout__icon--minus" version="1.1" xmlns="http://www.w3.org/2000/svg"
-                      width="24" height="24" viewBox="0 0 48 48" fill="currentColor" aria-hidden="true">
-                      <title>minus</title>
-                      <path d="M10 26h28c1.104 0 2-0.896 2-2s-0.896-2-2-2h-28c-1.104 0-2 0.896-2 2s0.896 2 2 2z"></path>
+                    <svg class="r-flyout__icon r-flyout__icon--minus" aria-hidden="true" focusable="false">
+                      <use href="#icon-minus" xlink:href="#icon-minus"></use>
                     </svg>
                   </button>
                   <div class="menu-link r-flyout__link-wrap">
@@ -3312,17 +3247,11 @@
                 <div class="item-wrapper r-flyout__header">
                   <button class="r-flyout__toggle" type="button" aria-haspopup="true" aria-expanded="false"
                     aria-controls="r-flyout-panel-speech" aria-label="Toggle submenu for Speech Direction">
-                    <svg class="r-flyout__icon r-flyout__icon--plus" version="1.1" xmlns="http://www.w3.org/2000/svg"
-                      width="24" height="24" viewBox="0 0 48 48" fill="currentColor" aria-hidden="true">
-                      <title>plus3</title>
-                      <path
-                        d="M10 26h12v12c0 1.104 0.896 2 2 2s2-0.896 2-2v-12h12c1.104 0 2-0.896 2-2s-0.896-2-2-2h-12v-12c0-1.104-0.896-2-2-2s-2 0.896-2 2v12h-12c-1.104 0-2 0.896-2 2s0.896 2 2 2z">
-                      </path>
+                    <svg class="r-flyout__icon r-flyout__icon--plus" aria-hidden="true" focusable="false">
+                      <use href="#icon-plus" xlink:href="#icon-plus"></use>
                     </svg>
-                    <svg class="r-flyout__icon r-flyout__icon--minus" version="1.1" xmlns="http://www.w3.org/2000/svg"
-                      width="24" height="24" viewBox="0 0 48 48" fill="currentColor" aria-hidden="true">
-                      <title>minus</title>
-                      <path d="M10 26h28c1.104 0 2-0.896 2-2s-0.896-2-2-2h-28c-1.104 0-2 0.896-2 2s0.896 2 2 2z"></path>
+                    <svg class="r-flyout__icon r-flyout__icon--minus" aria-hidden="true" focusable="false">
+                      <use href="#icon-minus" xlink:href="#icon-minus"></use>
                     </svg>
                   </button>
                   <div class="menu-link r-flyout__link-wrap">
@@ -3330,7 +3259,6 @@
                       Speech Direction
                     </a>
                   </div>
-
                 </div>
                 <div class="ul-wrapper r-flyout__panel" id="r-flyout-panel-speech" aria-hidden="true" hidden>
                   <ul class="r-flyout__sublist">
@@ -3399,38 +3327,28 @@
               </li>
               <li data-r-flyout-item>
                 <div class="item-wrapper r-flyout__header">
-
                   <button class="r-flyout__toggle" type="button" aria-haspopup="true" aria-expanded="false"
                     aria-controls="r-flyout-panel-passive" aria-label="Toggle submenu for Active-Passive">
-                    <svg class="r-flyout__icon r-flyout__icon--plus" version="1.1" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                      viewBox="0 0 48 48" fill="currentColor" aria-hidden="true">
-                      <title>plus3</title>
-                      <path
-                        d="M10 26h12v12c0 1.104 0.896 2 2 2s2-0.896 2-2v-12h12c1.104 0 2-0.896 2-2s-0.896-2-2-2h-12v-12c0-1.104-0.896-2-2-2s-2 0.896-2 2v12h-12c-1.104 0-2 0.896-2 2s0.896 2 2 2z">
-                      </path>
-                    </svg></button>
-                    <div class="menu-link r-flyout__link-wrap">
+                  <svg class="r-flyout__icon r-flyout__icon--plus" aria-hidden="true" focusable="false">
+                    <use href="#icon-plus" xlink:href="#icon-plus"></use>
+                  </svg>
+                  </button>
+                  <div class="menu-link r-flyout__link-wrap">
                     <a class="r-flyout__link" href="../exercise-14-either-neither.html" aria-label="Menu Link">
                       Either-Neither
                     </a>
+                  </div>
                 </div>
-              </div>
               </li>
               <li data-r-flyout-item>
                 <div class="item-wrapper r-flyout__header">
                   <button class="r-flyout__toggle" type="button" aria-haspopup="true" aria-expanded="false"
                     aria-controls="r-flyout-panel-passive" aria-label="Toggle submenu for Active-Passive">
-                    <svg class="r-flyout__icon r-flyout__icon--plus" version="1.1" xmlns="http://www.w3.org/2000/svg"
-                      width="24" height="24" viewBox="0 0 48 48" fill="currentColor" aria-hidden="true">
-                      <title>plus3</title>
-                      <path
-                        d="M10 26h12v12c0 1.104 0.896 2 2 2s2-0.896 2-2v-12h12c1.104 0 2-0.896 2-2s-0.896-2-2-2h-12v-12c0-1.104-0.896-2-2-2s-2 0.896-2 2v12h-12c-1.104 0-2 0.896-2 2s0.896 2 2 2z">
-                      </path>
+                    <svg class="r-flyout__icon r-flyout__icon--plus" aria-hidden="true" focusable="false">
+                      <use href="#icon-plus" xlink:href="#icon-plus"></use>
                     </svg>
-                    <svg class="r-flyout__icon r-flyout__icon--minus" version="1.1" xmlns="http://www.w3.org/2000/svg"
-                      width="24" height="24" viewBox="0 0 48 48" fill="currentColor" aria-hidden="true">
-                      <title>minus</title>
-                      <path d="M10 26h28c1.104 0 2-0.896 2-2s-0.896-2-2-2h-28c-1.104 0-2 0.896-2 2s0.896 2 2 2z"></path>
+                    <svg class="r-flyout__icon r-flyout__icon--minus" aria-hidden="true" focusable="false">
+                      <use href="#icon-minus" xlink:href="#icon-minus"></use>
                     </svg>
                   </button>
                   <div class="menu-link r-flyout__link-wrap">
@@ -3529,17 +3447,11 @@
                 <div class="item-wrapper r-flyout__header">
                   <button class="r-flyout__toggle" type="button" aria-haspopup="true" aria-expanded="false"
                     aria-controls="r-flyout-panel-clauses" aria-label="Toggle submenu for Clauses">
-                    <svg class="r-flyout__icon r-flyout__icon--plus" version="1.1" xmlns="http://www.w3.org/2000/svg"
-                      width="24" height="24" viewBox="0 0 48 48" fill="currentColor" aria-hidden="true">
-                      <title>plus3</title>
-                      <path
-                        d="M10 26h12v12c0 1.104 0.896 2 2 2s2-0.896 2-2v-12h12c1.104 0 2-0.896 2-2s-0.896-2-2-2h-12v-12c0-1.104-0.896-2-2-2s-2 0.896-2 2v12h-12c-1.104 0-2 0.896-2 2s0.896 2 2 2z">
-                      </path>
+                    <svg class="r-flyout__icon r-flyout__icon--plus" aria-hidden="true" focusable="false">
+                      <use href="#icon-plus" xlink:href="#icon-plus"></use>
                     </svg>
-                    <svg class="r-flyout__icon r-flyout__icon--minus" version="1.1" xmlns="http://www.w3.org/2000/svg"
-                      width="24" height="24" viewBox="0 0 48 48" fill="currentColor" aria-hidden="true">
-                      <title>minus</title>
-                      <path d="M10 26h28c1.104 0 2-0.896 2-2s-0.896-2-2-2h-28c-1.104 0-2 0.896-2 2s0.896 2 2 2z"></path>
+                    <svg class="r-flyout__icon r-flyout__icon--minus" aria-hidden="true" focusable="false">
+                      <use href="#icon-minus" xlink:href="#icon-minus"></use>
                     </svg>
                   </button>
                   <div class="menu-link r-flyout__link-wrap">
@@ -3585,17 +3497,11 @@
                 <div class="item-wrapper r-flyout__header">
                   <button class="r-flyout__toggle" type="button" aria-haspopup="true" aria-expanded="false"
                     aria-controls="r-flyout-panel-verbing" aria-label="Toggle submenu for Verb-ing">
-                    <svg class="r-flyout__icon r-flyout__icon--plus" version="1.1" xmlns="http://www.w3.org/2000/svg"
-                      width="24" height="24" viewBox="0 0 48 48" fill="currentColor" aria-hidden="true">
-                      <title>plus3</title>
-                      <path
-                        d="M10 26h12v12c0 1.104 0.896 2 2 2s2-0.896 2-2v-12h12c1.104 0 2-0.896 2-2s-0.896-2-2-2h-12v-12c0-1.104-0.896-2-2-2s-2 0.896-2 2v12h-12c-1.104 0-2 0.896-2 2s0.896 2 2 2z">
-                      </path>
+                    <svg class="r-flyout__icon r-flyout__icon--plus" aria-hidden="true" focusable="false">
+                      <use href="#icon-plus" xlink:href="#icon-plus"></use>
                     </svg>
-                    <svg class="r-flyout__icon r-flyout__icon--minus" version="1.1" xmlns="http://www.w3.org/2000/svg"
-                      width="24" height="24" viewBox="0 0 48 48" fill="currentColor" aria-hidden="true">
-                      <title>minus</title>
-                      <path d="M10 26h28c1.104 0 2-0.896 2-2s-0.896-2-2-2h-28c-1.104 0-2 0.896-2 2s0.896 2 2 2z"></path>
+                    <svg class="r-flyout__icon r-flyout__icon--minus" aria-hidden="true" focusable="false">
+                      <use href="#icon-minus" xlink:href="#icon-minus"></use>
                     </svg>
                   </button>
                   <div class="menu-link r-flyout__link-wrap">
@@ -3665,17 +3571,11 @@
                 <div class="item-wrapper r-flyout__header">
                   <button class="r-flyout__toggle" type="button" aria-haspopup="true" aria-expanded="false"
                     aria-controls="r-flyout-panel-determiners" aria-label="Toggle submenu for Determiners">
-                    <svg class="r-flyout__icon r-flyout__icon--plus" version="1.1" xmlns="http://www.w3.org/2000/svg"
-                      width="24" height="24" viewBox="0 0 48 48" fill="currentColor" aria-hidden="true">
-                      <title>plus3</title>
-                      <path
-                        d="M10 26h12v12c0 1.104 0.896 2 2 2s2-0.896 2-2v-12h12c1.104 0 2-0.896 2-2s-0.896-2-2-2h-12v-12c0-1.104-0.896-2-2-2s-2 0.896-2 2v12h-12c-1.104 0-2 0.896-2 2s0.896 2 2 2z">
-                      </path>
+                    <svg class="r-flyout__icon r-flyout__icon--plus" aria-hidden="true" focusable="false">
+                      <use href="#icon-plus" xlink:href="#icon-plus"></use>
                     </svg>
-                    <svg class="r-flyout__icon r-flyout__icon--minus" version="1.1" xmlns="http://www.w3.org/2000/svg"
-                      width="24" height="24" viewBox="0 0 48 48" fill="currentColor" aria-hidden="true">
-                      <title>minus</title>
-                      <path d="M10 26h28c1.104 0 2-0.896 2-2s-0.896-2-2-2h-28c-1.104 0-2 0.896-2 2s0.896 2 2 2z"></path>
+                    <svg class="r-flyout__icon r-flyout__icon--minus" aria-hidden="true" focusable="false">
+                      <use href="#icon-minus" xlink:href="#icon-minus"></use>
                     </svg>
                   </button>
                   <div class="menu-link r-flyout__link-wrap">
@@ -3725,17 +3625,11 @@
                 <div class="item-wrapper r-flyout__header">
                   <button class="r-flyout__toggle" type="button" aria-haspopup="true" aria-expanded="false"
                     aria-controls="r-flyout-panel-pos" aria-label="Toggle submenu for Part of Speech">
-                    <svg class="r-flyout__icon r-flyout__icon--plus" version="1.1" xmlns="http://www.w3.org/2000/svg"
-                      width="24" height="24" viewBox="0 0 48 48" fill="currentColor" aria-hidden="true">
-                      <title>plus3</title>
-                      <path
-                        d="M10 26h12v12c0 1.104 0.896 2 2 2s2-0.896 2-2v-12h12c1.104 0 2-0.896 2-2s-0.896-2-2-2h-12v-12c0-1.104-0.896-2-2-2s-2 0.896-2 2v12h-12c-1.104 0-2 0.896-2 2s0.896 2 2 2z">
-                      </path>
+                    <svg class="r-flyout__icon r-flyout__icon--plus" aria-hidden="true" focusable="false">
+                      <use href="#icon-plus" xlink:href="#icon-plus"></use>
                     </svg>
-                    <svg class="r-flyout__icon r-flyout__icon--minus" version="1.1" xmlns="http://www.w3.org/2000/svg"
-                      width="24" height="24" viewBox="0 0 48 48" fill="currentColor" aria-hidden="true">
-                      <title>minus</title>
-                      <path d="M10 26h28c1.104 0 2-0.896 2-2s-0.896-2-2-2h-28c-1.104 0-2 0.896-2 2s0.896 2 2 2z"></path>
+                    <svg class="r-flyout__icon r-flyout__icon--minus" aria-hidden="true" focusable="false">
+                      <use href="#icon-minus" xlink:href="#icon-minus"></use>
                     </svg>
                   </button>
                   <div class="menu-link r-flyout__link-wrap">
@@ -3791,18 +3685,12 @@
                 <div class="item-wrapper r-flyout__header">
                   <button class="r-flyout__toggle" type="button" aria-haspopup="true" aria-expanded="false"
                     aria-controls="r-flyout-panel-vocabulary" aria-label="Toggle submenu for Vocabulary">
-                    <svg class="r-flyout__icon r-flyout__icon--plus" version="1.1" xmlns="http://www.w3.org/2000/svg"
-                      width="24" height="24" viewBox="0 0 48 48" fill="currentColor" aria-hidden="true">
-                      <title>plus3</title>
-                      <path
-                        d="M10 26h12v12c0 1.104 0.896 2 2 2s2-0.896 2-2v-12h12c1.104 0 2-0.896 2-2s-0.896-2-2-2h-12v-12c0-1.104-0.896-2-2-2s-2 0.896-2 2v12h-12c-1.104 0-2 0.896-2 2s0.896 2 2 2z">
-                      </path>
-                    </svg>
-                    <svg class="r-flyout__icon r-flyout__icon--minus" version="1.1" xmlns="http://www.w3.org/2000/svg"
-                      width="24" height="24" viewBox="0 0 48 48" fill="currentColor" aria-hidden="true">
-                      <title>minus</title>
-                      <path d="M10 26h28c1.104 0 2-0.896 2-2s-0.896-2-2-2h-28c-1.104 0-2 0.896-2 2s0.896 2 2 2z"></path>
-                    </svg>
+                  <svg class="r-flyout__icon r-flyout__icon--plus" aria-hidden="true" focusable="false">
+                    <use href="#icon-plus" xlink:href="#icon-plus"></use>
+                  </svg>
+                  <svg class="r-flyout__icon r-flyout__icon--minus" aria-hidden="true" focusable="false">
+                    <use href="#icon-minus" xlink:href="#icon-minus"></use>
+                  </svg>
                   </button>
                   <div class="menu-link r-flyout__link-wrap">
                     <a class="r-flyout__link" href="../exercise-22-test-your-vocabulary.html" aria-label="Vocabulary">
