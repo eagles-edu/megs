@@ -32,6 +32,7 @@
 .r-flyout-menu > [data-r-flyout-item] {
   border-bottom: 1px solid var(--r-flyout-divider);
   position: relative;
+  transition: border-color var(--r-flyout-transition);
 }
 
 .r-flyout-menu > [data-r-flyout-item]:last-child {
@@ -40,6 +41,7 @@
 
 .r-flyout__header {
   align-items: center;
+  border: 1px solid transparent;
   color: var(--menu-text, #616978);
   display: flex;
   gap: var(--menu-icon-gap, 8px);
@@ -48,6 +50,7 @@
   padding: 4px 6px;
   transition:
     background-color var(--r-flyout-transition),
+    border-color var(--r-flyout-transition),
     box-shadow var(--r-flyout-transition),
     color var(--r-flyout-transition);
 }
@@ -63,8 +66,8 @@
 
 .r-flyout__link {
   align-items: center;
-  color: var(--menu-text);
   border: none;
+  color: inherit;
   display: inline-flex;
   font-family: var(--font-header, "Open Sans", Arial, sans-serif);
   font-size: 0.85em;
@@ -82,7 +85,7 @@
 
 .r-flyout__toggle {
   appearance: none;
-  background: transparent;
+  background: none;
   border: 0;
   border-radius: 0;
   color: var(--menu-text);
@@ -124,16 +127,26 @@
 [data-r-flyout-item].is-open,
 [data-r-flyout-item]:hover,
 [data-r-flyout-item]:focus-within {
-  border-color: var(--primary-color, #e0162b);
-  color: var(--primary-color);
+  border-color: transparent;
 }
 
 [data-r-flyout-item].is-open > .r-flyout__header,
 [data-r-flyout-item]:hover > .r-flyout__header,
 [data-r-flyout-item]:focus-within > .r-flyout__header {
-  background: var(--white);
-  box-shadow: inset 0 0 0 1px var(--primary-color, #e0162b);
+  background: var(--r-flyout-bg, var(--surface-color, #fff));
+  border-color: var(--primary-color, #e0162b);
+  box-shadow: none;
   color: var(--primary-color, #e0162b);
+}
+
+.r-flyout-menu > [data-r-flyout-item]:has(+ [data-r-flyout-item]:is(.is-open, :hover, :focus-within)) {
+  border-bottom-color: transparent;
+}
+
+[data-r-flyout-item].is-open > .r-flyout__header .r-flyout__link,
+[data-r-flyout-item]:hover > .r-flyout__header .r-flyout__link,
+[data-r-flyout-item]:focus-within > .r-flyout__header .r-flyout__link {
+  color: inherit;
 }
 
 [data-r-flyout-item].is-open > .r-flyout__header .r-flyout__toggle,

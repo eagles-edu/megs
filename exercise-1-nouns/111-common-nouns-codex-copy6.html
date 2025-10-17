@@ -41,10 +41,8 @@
       --pager-padding-inline: 0.95rem;
       --pager-text-color: var(--text-color, #212121);
       --menu-icon-pad-inline: 6px;
-      --flyout-toggle-size: 20px;
+      --flyout-toggle-size: 24px;
       --menu-toggle-icon-gap: 6px;
-      --menu-toggle-minus-color: var(--primary-color);
-      --menu-toggle-minus-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='currentColor' d='M5 11a1 1 0 0 0 0 2h14a1 1 0 1 0 0-2H5z'/%3E%3C/svg%3E");
       --txtarea-bg: #f0f2f5;
       --radius: 3px;
       /* pager variables  */
@@ -325,39 +323,40 @@
     }
 
     ul.accordion-menu .menu-button {
-      --menu-toggle-minus-color: currentColor;
+      display: grid;
+      margin-inline-start: 0;
+      min-block-size: var(--flyout-toggle-size);
+      min-inline-size: var(--flyout-toggle-size);
+      padding: 0;
+      place-items: center;
+      position: relative;
     }
 
-    ul.accordion-menu .menu-button::after {
-      background-color: var(--menu-toggle-minus-color);
+    ul.accordion-menu .menu-button .menu-toggle-icon {
       block-size: var(--flyout-toggle-size);
-      content: "";
+      grid-area: 1 / 1;
       inline-size: var(--flyout-toggle-size);
-      inset: auto;
-      left: 50%;
-      mask-image: var(--menu-toggle-minus-mask);
-      mask-mode: alpha;
-      mask-position: center;
-      mask-repeat: no-repeat;
-      mask-size: contain;
-      opacity: 0;
-      pointer-events: none;
-      position: absolute;
-      top: 50%;
-      transform: translate(-50%, -50%);
       transition: opacity 0.2s ease;
-      -webkit-mask-image: var(--menu-toggle-minus-mask);
-      -webkit-mask-mode: alpha;
-      -webkit-mask-position: center;
-      -webkit-mask-repeat: no-repeat;
-      -webkit-mask-size: contain;
+    }
+
+    ul.accordion-menu .menu-button .menu-toggle-icon--minus {
+      color: var(--primary-color);
+      opacity: 0;
+    }
+
+    ul.accordion-menu li.opened>.item-wrapper>.menu-button .menu-toggle-icon--plus {
+      opacity: 0;
+    }
+
+    ul.accordion-menu li.opened>.item-wrapper>.menu-button .menu-toggle-icon--minus {
+      opacity: 1;
     }
 
     /* Match left/right toggle padding with linked CSS defaults */
     #sidebar ul.accordion-menu.button-left li>.item-wrapper>.menu-button,
     #sidebar ul.accordion-menu.button-right li>.item-wrapper>.menu-button {
-      line-height: 10px;
-      padding-block: 12px;
+      line-height: 1;
+      padding: 0;
     }
 
     #sidebar ul.accordion-menu.button-right li>.item-wrapper>.menu-button {
@@ -371,6 +370,7 @@
       --lists-icon-gap: var(--menu-toggle-icon-gap, 6px);
       --lists-icon-size: var(--flyout-toggle-size);
       --lists-icon-slot: calc(var(--lists-icon-size) + var(--lists-icon-gap));
+      --lists-icon-pad-block: 0;
       --menu-icon-pad-inline-start: var(--lists-icon-pad-start, 0);
       --menu-icon-pad-inline-end: var(--lists-icon-gap);
       --icon-slot: var(--lists-icon-slot);
@@ -378,18 +378,9 @@
 
     #lists-menu-item>.item-wrapper>.menu-button {
       color: var(--menu-toggle-icon-color, var(--icon-color-on-lt));
-      justify-content: flex-end;
       min-block-size: var(--lists-icon-size);
       padding-block: var(--lists-icon-pad-block, 12px);
       transition: color 0.2s ease;
-    }
-
-    #lists-menu-item>.item-wrapper>.menu-button::after {
-      inset: auto;
-      left: auto;
-      right: var(--lists-icon-gap, 6px);
-      top: 50%;
-      transform: translate(50%, -50%);
     }
 
     #lists-menu-item:hover>.item-wrapper>.menu-button,
@@ -405,29 +396,13 @@
     }
 
     ul.accordion-menu .menu-button>svg {
-      flex: 0 0 auto;
-      height: var(--flyout-toggle-size);
-      width: var(--flyout-toggle-size);
+      block-size: var(--flyout-toggle-size);
       fill: currentColor;
+      inline-size: var(--flyout-toggle-size);
     }
 
     ul.accordion-menu.button-right li>.item-wrapper>.menu-button>img {
       padding-right: 10px;
-    }
-
-    ul.accordion-menu li:hover>.item-wrapper>.menu-button>img,
-    ul.accordion-menu li:hover>.item-wrapper>.menu-button>svg,
-    ul.accordion-menu li:focus-within>.item-wrapper>.menu-button>img,
-    ul.accordion-menu li:focus-within>.item-wrapper>.menu-button>svg,
-    ul.accordion-menu li.opened>.item-wrapper>.menu-button>img,
-    ul.accordion-menu li.opened>.item-wrapper>.menu-button>svg {
-      opacity: 0;
-    }
-
-    ul.accordion-menu li:hover>.item-wrapper>.menu-button::after,
-    ul.accordion-menu li:focus-within>.item-wrapper>.menu-button::after,
-    ul.accordion-menu li.opened>.item-wrapper>.menu-button::after {
-      opacity: 1;
     }
 
     ul.accordion-menu li {
@@ -473,16 +448,6 @@
 
     ul.accordion-menu li.opened>.ul-wrapper {
       display: block;
-    }
-
-    ul.accordion-menu li.opened>.item-wrapper>.menu-button>svg {
-      opacity: 0;
-    }
-
-    ul.accordion-menu li:hover>.item-wrapper>.menu-button::after,
-    ul.accordion-menu li:focus-within>.item-wrapper>.menu-button::after,
-    ul.accordion-menu li.opened>.item-wrapper>.menu-button::after {
-      opacity: 1;
     }
 
     /* Pager arrows: reserve space */
@@ -605,7 +570,7 @@
     [data-r-flyout-item].is-open>.r-flyout__header,
     [data-r-flyout-item]:hover>.r-flyout__header,
     [data-r-flyout-item]:focus-within>.r-flyout__header {
-      background: var(--surface-warm, rgb(224 22 43 / 8%));
+      background: var(--r-flyout-bg, var(--surface-color, #fff));
       box-shadow: inset 0 0 0 1px var(--primary-color, #e0162b);
       color: var(--primary-color, #e0162b);
     }
@@ -613,8 +578,15 @@
     #aside .r-flyout-menu>[data-r-flyout-item].is-open,
     #aside .r-flyout-menu>[data-r-flyout-item]:hover,
     #aside .r-flyout-menu>[data-r-flyout-item]:focus-within {
-      border-color: var(--primary-color, #e0162b);
+      border-color: transparent;
     }
+
+    [data-r-flyout-item].is-open>.r-flyout__header .r-flyout__link,
+    [data-r-flyout-item]:hover>.r-flyout__header .r-flyout__link,
+    [data-r-flyout-item]:focus-within>.r-flyout__header .r-flyout__link {
+      color: inherit;
+    }
+
 
     [data-r-flyout-item].is-open>.r-flyout__header .r-flyout__toggle,
     [data-r-flyout-item]:hover>.r-flyout__header .r-flyout__toggle,
@@ -938,7 +910,7 @@
           d="M12 5a1 1 0 0 0-1 1v5H6a1 1 0 1 0 0 2h5v5a1 1 0 1 0 2 0v-5h5a1 1 0 1 0 0-2h-5V6a1 1 0 0 0-1-1z" />
       </symbol>
       <symbol id="icon-minus" viewBox="0 0 24 24">
-        <path fill="currentColor" d="M5 11a1 1 0 0 0 0 2h14a1 1 0 1 0 0-2H5z" />
+        <rect x="9" y="11" width="6" height="2" rx="1" fill="currentColor" />
       </symbol>
     </defs>
   </svg>
@@ -1077,13 +1049,12 @@
                   </li>
                   <li id="lists-menu-item">
                     <div class="item-wrapper">
-                      <div class="menu-button">
-                        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 48 48"
-                          fill="currentColor">
-                          <title>plus3</title>
-                          <path
-                            d="M10 26h12v12c0 1.104 0.896 2 2 2s2-0.896 2-2v-12h12c1.104 0 2-0.896 2-2s-0.896-2-2-2h-12v-12c0-1.104-0.896-2-2-2s-2 0.896-2 2v12h-12c-1.104 0-2 0.896-2 2s0.896 2 2 2z">
-                          </path>
+                      <div class="menu-button" aria-hidden="true">
+                        <svg class="menu-toggle-icon menu-toggle-icon--plus" aria-hidden="true" focusable="false">
+                          <use href="#icon-plus"></use>
+                        </svg>
+                        <svg class="menu-toggle-icon menu-toggle-icon--minus" aria-hidden="true" focusable="false">
+                          <use href="#icon-minus"></use>
                         </svg>
                       </div>
                       <div class="menu-link">
