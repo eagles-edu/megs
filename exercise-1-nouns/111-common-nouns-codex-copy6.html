@@ -339,6 +339,15 @@
       transition: opacity 0.2s ease;
     }
 
+    ul.accordion-menu .menu-button .menu-toggle-icon use {
+      transform-box: fill-box;
+      transform-origin: center;
+    }
+
+    ul.accordion-menu .menu-button .menu-toggle-icon--minus use {
+      transform: scaleX(var(--menu-minus-scale, 1.35));
+    }
+
     ul.accordion-menu .menu-button .menu-toggle-icon--minus {
       color: var(--primary-color);
       opacity: 0;
@@ -491,6 +500,8 @@
 
     #aside .r-flyout__header {
       align-items: center;
+      border: 1px solid transparent;
+      border-radius: var(--radius, 3px);
       color: var(--menu-text, #616978);
       display: flex;
       font-family: var(--font-header, "Open Sans", Arial, sans-serif);
@@ -502,6 +513,7 @@
       padding: 4px 6px;
       transition:
         background-color 160ms cubic-bezier(0.4, 0, 0.2, 1),
+        border-color 160ms cubic-bezier(0.4, 0, 0.2, 1),
         box-shadow 160ms cubic-bezier(0.4, 0, 0.2, 1),
         color 160ms cubic-bezier(0.4, 0, 0.2, 1);
     }
@@ -511,7 +523,7 @@
     }
 
     #aside .r-flyout__link {
-      color: var(--menu-text);
+      color: currentColor;
       text-decoration: none;
     }
 
@@ -558,9 +570,18 @@
       width: var(--flyout-toggle-size);
     }
 
+    #aside .r-flyout__icon use {
+      transform-box: fill-box;
+      transform-origin: center;
+    }
+
     .r-flyout__icon--minus {
       color: inherit;
       opacity: 0;
+    }
+
+    .r-flyout__icon--minus use {
+      transform: scaleX(var(--flyout-minus-scale, 1.95));
     }
 
     [data-r-flyout-item]>.r-flyout__header {
@@ -571,14 +592,23 @@
     [data-r-flyout-item]:hover>.r-flyout__header,
     [data-r-flyout-item]:focus-within>.r-flyout__header {
       background: var(--r-flyout-bg, var(--surface-color, #fff));
-      box-shadow: inset 0 0 0 1px var(--primary-color, #e0162b);
+      border-color: var(--primary-color, #e0162b);
+      box-shadow: none;
       color: var(--primary-color, #e0162b);
     }
 
-    #aside .r-flyout-menu>[data-r-flyout-item].is-open,
-    #aside .r-flyout-menu>[data-r-flyout-item]:hover,
-    #aside .r-flyout-menu>[data-r-flyout-item]:focus-within {
-      border-color: transparent;
+    #aside .r-flyout__header:is(:hover, :focus-within),
+    #aside .r-flyout__header:has(.r-flyout__toggle:hover) {
+      background: var(--white);
+      border-color: var(--primary-color, #e0162b);
+      color: var(--primary-color, #e0162b);
+    }
+
+    #aside .r-flyout__header:is(:hover, :focus-within) .r-flyout__toggle,
+    #aside .r-flyout__header:has(.r-flyout__toggle:hover) .r-flyout__toggle,
+    #aside .r-flyout__header:is(:hover, :focus-within) .r-flyout__link,
+    #aside .r-flyout__header:has(.r-flyout__toggle:hover) .r-flyout__link {
+      color: currentColor;
     }
 
     [data-r-flyout-item].is-open>.r-flyout__header .r-flyout__link,
@@ -586,7 +616,6 @@
     [data-r-flyout-item]:focus-within>.r-flyout__header .r-flyout__link {
       color: inherit;
     }
-
 
     [data-r-flyout-item].is-open>.r-flyout__header .r-flyout__toggle,
     [data-r-flyout-item]:hover>.r-flyout__header .r-flyout__toggle,
@@ -2490,12 +2519,12 @@
                 <div class="item-wrapper r-flyout__header">
                   <button class="r-flyout__toggle" type="button" aria-haspopup="true" aria-expanded="false"
                     aria-controls="r-flyout-panel-adverbs" aria-label="Toggle submenu for Adverbs">
-                  <svg class="r-flyout__icon r-flyout__icon--plus" aria-hidden="true" focusable="false">
-                    <use href="#icon-plus" xlink:href="#icon-plus"></use>
-                  </svg>
-                  <svg class="r-flyout__icon r-flyout__icon--minus" aria-hidden="true" focusable="false">
-                    <use href="#icon-minus" xlink:href="#icon-minus"></use>
-                  </svg>
+                    <svg class="r-flyout__icon r-flyout__icon--plus" aria-hidden="true" focusable="false">
+                      <use href="#icon-plus" xlink:href="#icon-plus"></use>
+                    </svg>
+                    <svg class="r-flyout__icon r-flyout__icon--minus" aria-hidden="true" focusable="false">
+                      <use href="#icon-minus" xlink:href="#icon-minus"></use>
+                    </svg>
                   </button>
                   <div class="menu-link r-flyout__link-wrap">
                     <a class="r-flyout__link" href="../exercise-4-adverbs.html" aria-label="Menu Link">
@@ -3300,9 +3329,9 @@
                 <div class="item-wrapper r-flyout__header">
                   <button class="r-flyout__toggle" type="button" aria-haspopup="true" aria-expanded="false"
                     aria-controls="r-flyout-panel-passive" aria-label="Toggle submenu for Active-Passive">
-                  <svg class="r-flyout__icon r-flyout__icon--plus" aria-hidden="true" focusable="false">
-                    <use href="#icon-plus" xlink:href="#icon-plus"></use>
-                  </svg>
+                    <svg class="r-flyout__icon r-flyout__icon--plus" aria-hidden="true" focusable="false">
+                      <use href="#icon-plus" xlink:href="#icon-plus"></use>
+                    </svg>
                   </button>
                   <div class="menu-link r-flyout__link-wrap">
                     <a class="r-flyout__link" href="../exercise-14-either-neither.html" aria-label="Menu Link">
@@ -3656,12 +3685,12 @@
                 <div class="item-wrapper r-flyout__header">
                   <button class="r-flyout__toggle" type="button" aria-haspopup="true" aria-expanded="false"
                     aria-controls="r-flyout-panel-vocabulary" aria-label="Toggle submenu for Vocabulary">
-                  <svg class="r-flyout__icon r-flyout__icon--plus" aria-hidden="true" focusable="false">
-                    <use href="#icon-plus" xlink:href="#icon-plus"></use>
-                  </svg>
-                  <svg class="r-flyout__icon r-flyout__icon--minus" aria-hidden="true" focusable="false">
-                    <use href="#icon-minus" xlink:href="#icon-minus"></use>
-                  </svg>
+                    <svg class="r-flyout__icon r-flyout__icon--plus" aria-hidden="true" focusable="false">
+                      <use href="#icon-plus" xlink:href="#icon-plus"></use>
+                    </svg>
+                    <svg class="r-flyout__icon r-flyout__icon--minus" aria-hidden="true" focusable="false">
+                      <use href="#icon-minus" xlink:href="#icon-minus"></use>
+                    </svg>
                   </button>
                   <div class="menu-link r-flyout__link-wrap">
                     <a class="r-flyout__link" href="../exercise-22-test-your-vocabulary.html" aria-label="Vocabulary">

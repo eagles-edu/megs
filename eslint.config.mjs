@@ -11,6 +11,9 @@ const ignores = [
   ".history-memo/",
   ".zencoder/",
   "tmp/",
+  "docs/",
+  "sto/",
+  ".sto/",
   "persistence/",
   // legacy dirs you said are not source
   "modules/",
@@ -23,6 +26,7 @@ const ignores = [
   "web-asset/js/*.min.js",
   "web-asset/js/vendor/**",
   "web-asset/js/template*.js",
+  "web-asset/icons/svg/.sto",
   // demo junk
   "web-asset/icons/demo-files/*",
   "**/demo.html",
