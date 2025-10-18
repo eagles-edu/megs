@@ -23,7 +23,7 @@ ul.accordion-menu {
   overflow: hidden;
   line-height: normal;
   list-style: none !important; /* stylelint-disable-line declaration-no-important */
-  font-size: 0.85em;
+  font-size: var(--left-menu-font-size); /* apply responsive font sizing */
   max-width: 100%;
   box-shadow: var(--flyout-shadow-menu, 0 12px 26px rgb(24 39 75 / 8%));
 }
@@ -71,9 +71,9 @@ ul.accordion-menu .menu-link > a,
 ul.accordion-menu .menu-link > p {
   display: flex;
   align-items: center;
-  gap: 8px;
-  white-space: normal;
-  overflow-wrap: anywhere;
+  gap: var(--icon-gap); /* reuse responsive spacing token inside link */
+  white-space: nowrap; /* keep labels on one line until mobile nav hides sidebar */
+  overflow-wrap: normal; /* avoid forced breaks that fight nowrap */
 }
 
 ul.accordion-menu > li.first,

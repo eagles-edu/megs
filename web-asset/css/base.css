@@ -50,11 +50,19 @@
   --answer-txtcolor-alt: #0b501e; /* suggested themed */
   --answer-border: #0c5a1e; /* suggested themed */
 
-  /* Navigation/menu */
+  /* Navigation/menu links */
   --menu-text: #616978; /* accessible muted slate on white */
   --menu-text-hover: var(--primary-color);
   --menu-icon-pad-inline: 7px;
   --menu-link-bg: var(--surface-color);
+
+ /*  Left Menu  */
+  --left-menu-font-size: clamp(0.84rem, calc(0.78rem + 0.22vw), 0.98rem); /* scale text with viewport while desktop menu remains visible */
+  --left-menu-icon-size: calc(var(--left-menu-font-size) * 1.05); /* keep icon height proportionate to responsive text */
+  --left-menu-icon-slot: calc(var(--left-menu-icon-size) * 1.35); /* reserve matching horizontal space for icons */
+  --icon-gap: calc(var(--left-menu-font-size) * 0.55); /* let spacing scale with type/icon sizing */
+  --icon-size: var(--left-menu-icon-size); /* re-use global icon hook with responsive size */
+  --icon-slot: var(--left-menu-icon-slot); /* sync button column with icon growth */
 
   /* Shape */
   --radius: 3px;
@@ -93,7 +101,7 @@
   --flyout-shadow-menu: 0 2px 10px rgb(0 0 0 / 6%);
   --flyout-shadow-panel: 0 8px 24px rgb(0 0 0 / 12%);
   --hover-surface-overlay: rgb(0 0 0 / 2%);
-  --flyout-anim-duration: 0.18s;
+  --flyout-anim-duration: 0.25s;
   --flyout-anim-ease: ease;
 
   /* Focus ring shadow (for accessibility states) */
@@ -111,11 +119,6 @@
   --flyout-item-min-width: 16ch;
   --flyout-item-min-width-left: 140px;
   --flyout-item-min-width-right: 155px;
-
-  /* Icon sizing (menu + UI) */
-  --icon-size: 1em; /* ties icon height to text size for rhythm */
-  --icon-slot: 1.25em; /* reserved horizontal space for the icon column */
-  --icon-gap: 8px; /* space between icon and label */
 }
 
 /* 1) Global resets and defaults */
