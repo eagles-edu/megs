@@ -57,12 +57,15 @@
   --menu-link-bg: var(--surface-color);
 
  /*  Left Menu  */
-  --left-menu-font-size: clamp(0.84rem, calc(0.78rem + 0.22vw), 0.98rem); /* scale text with viewport while desktop menu remains visible */
-  --left-menu-icon-size: calc(var(--left-menu-font-size) * 1.05); /* keep icon height proportionate to responsive text */
-  --left-menu-icon-slot: calc(var(--left-menu-icon-size) * 1.35); /* reserve matching horizontal space for icons */
+  --left-menu-font-size: clamp(0.95rem, calc(0.85rem + 0.35vw), 1.18rem); /* scale text responsively across breakpoints */
+  --left-menu-icon-size: clamp(0.9rem, calc(var(--left-menu-font-size) * 1.05), 1.35rem); /* keep icon height proportionate and enforce a floor */
+  --left-menu-icon-slot: calc(var(--left-menu-icon-size) * 1.32); /* reserve matching horizontal space for icons */
+  --left-menu-icon-gap: calc(var(--left-menu-font-size) * 0.6); /* allow sidebar spacing to track responsive sizing */
   --icon-gap: calc(var(--left-menu-font-size) * 0.55); /* let spacing scale with type/icon sizing */
   --icon-size: var(--left-menu-icon-size); /* re-use global icon hook with responsive size */
   --icon-slot: var(--left-menu-icon-slot); /* sync button column with icon growth */
+  --left-menu-font-weight: 500; /* keep navigation copy readable without heavy bolding */
+  --flyout-toggle-size: max(var(--left-menu-icon-size), 24px); /* keep flyout toggles in step with icon scale */
 
   /* Shape */
   --radius: 3px;

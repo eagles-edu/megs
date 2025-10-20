@@ -180,7 +180,7 @@ ul.accordion-menu-right li > .item-wrapper > .menu-link > p {
 
 ul.accordion-menu > li > .item-wrapper > .menu-link > a,
 ul.accordion-menu > li > .item-wrapper > .menu-link > p {
-  font-weight: bold;
+  font-weight: var(--left-menu-font-weight, 500);
 }
 
 ul.accordion-menu li > .ul-wrapper {
