@@ -1,4 +1,4 @@
- ^AGENTS.md^
+ _AGENTS.md_
 
 ## Instructions for Coding
 
@@ -44,8 +44,9 @@ Mindset of a 15+ yr full-stack, AI-enabled app dev.
 
 ### Front-end navigation notes:
 
-- The left sidebar menu sizes typography and icons through `--left-menu-font-size`; override the variable instead of hard-coding new sizes when extending layouts.
+- The left sidebar menu scales via the responsive `--left-menu-font-size` clamp with a paired icon clamp; adjust those tokens instead of hard-coding pixel values.
+- Critical inline CSS in `exercise-1-nouns/111-common-nouns-codex-copy6.html` mirrors `web-asset/css/left-menu.css` for the sidebar; keep the custom property values and layout rules in sync when updating either file.
 
 - Keep sidebar labels single-line on desktop. If you must wrap, document the rationale in-code.
 
-**KISS**: craft the simplest, best practices, solutions or tweaks aligning with current user's instructions; stay focused, on-task, perform tests, meet user's requirements, ensure future-proof choices, and respect existing project arch.
+**KISS**: simplest, best practices,solution or tweak that aligns with current instructions, stay focused, on-task, passes tests, meets requirements, ensures future-proof choices, and respects existing arch.

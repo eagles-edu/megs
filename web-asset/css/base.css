@@ -119,6 +119,14 @@
   --flyout-item-min-width: 16ch;
   --flyout-item-min-width-left: 140px;
   --flyout-item-min-width-right: 155px;
+
+  /* Flyout item spacing */
+  --lists-icon-gap: var(--menu-toggle-icon-gap, 6px);
+  --lists-icon-size: var(--flyout-toggle-size);
+  --lists-icon-slot: calc(var(--lists-icon-size) + var(--lists-icon-gap));
+  --lists-icon-pad-block: 0;
+  --menu-icon-pad-inline-start: var(--lists-icon-pad-start, 0);
+  --menu-icon-pad-inline-end: var(--lists-icon-gap);
 }
 
 /* 1) Global resets and defaults */

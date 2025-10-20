@@ -41,7 +41,21 @@
       --pager-padding-inline: 0.95rem;
       --pager-text-color: var(--text-color, #212121);
       --menu-icon-pad-inline: 6px;
-      --flyout-toggle-size: 24px;
+      --left-menu-font-size: clamp(0.96rem, calc(0.82rem + 0.35vw), 1.2rem);
+      --left-menu-icon-size: clamp(1.05rem, calc(var(--left-menu-font-size) * 1.05), 1.45rem);
+      --left-menu-icon-slot: calc(var(--left-menu-icon-size) * 1.32);
+      --left-menu-icon-gap: calc(var(--left-menu-font-size) * 0.6);
+      --flyout-toggle-size: max(var(--left-menu-icon-size), 24px);
+      --r-flyout-bg: var(--menu-link-bg, var(--surface-color, #fff));
+      --r-flyout-border: var(--border-color, #d0d6e4);
+      --r-flyout-divider: var(--divider-color, #d0d6e4);
+      --r-flyout-highlight: var(--surface-warm, #fff);
+      --r-flyout-shadow-menu: var(--flyout-shadow-menu, 0 12px 26px rgb(24 39 75 / 8%));
+      --r-flyout-shadow-panel: var(--flyout-shadow-panel, 0 18px 32px rgb(24 39 75 / 12%));
+      --r-flyout-transition: 160ms cubic-bezier(0.4, 0, 0.2, 1);
+      --menu-toggle-icon-gap: 6px;
+      --txtarea-bg: #f0f2f5;
+      --radius: 3px;
       --menu-toggle-icon-gap: 6px;
       --txtarea-bg: #f0f2f5;
       --radius: 3px;
@@ -374,17 +388,6 @@
       padding-inline-end: var(--menu-icon-pad-inline-end, 7px);
     }
 
-    /* Lists toggle: align icon sizing with right rail flyout */
-    #lists-menu-item {
-      --lists-icon-gap: var(--menu-toggle-icon-gap, 6px);
-      --lists-icon-size: var(--flyout-toggle-size);
-      --lists-icon-slot: calc(var(--lists-icon-size) + var(--lists-icon-gap));
-      --lists-icon-pad-block: 0;
-      --menu-icon-pad-inline-start: var(--lists-icon-pad-start, 0);
-      --menu-icon-pad-inline-end: var(--lists-icon-gap);
-      --icon-slot: var(--lists-icon-slot);
-    }
-
     #lists-menu-item>.item-wrapper>.menu-button {
       color: var(--menu-toggle-icon-color, var(--icon-color-on-lt));
       min-block-size: var(--lists-icon-size);
@@ -466,26 +469,6 @@
       list-style: none;
       margin: 1rem 0;
       padding: 0;
-    }
-
-    .pager img {
-      height: 12px;
-      width: 12px;
-    }
-
-    /* Right rail flyout menu (critical structure to avoid CLS) */
-    #aside .r-flyout-menu {
-      background: var(--surface-color);
-      border: 1px solid var(--border-color);
-      border-radius: var(--radius, 3px);
-      box-shadow: var(--flyout-shadow-menu, 0 12px 26px rgb(24 39 75 / 8%));
-      list-style: none;
-      margin: 0;
-      min-width: 0;
-      overflow: visible;
-      padding: 0;
-      position: relative;
-      z-index: 6000;
     }
 
     #aside .r-flyout-menu>[data-r-flyout-item] {
