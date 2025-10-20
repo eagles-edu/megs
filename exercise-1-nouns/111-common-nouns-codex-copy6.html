@@ -56,9 +56,6 @@
       --menu-toggle-icon-gap: 6px;
       --txtarea-bg: #f0f2f5;
       --radius: 3px;
-      --menu-toggle-icon-gap: 6px;
-      --txtarea-bg: #f0f2f5;
-      --radius: 3px;
       /* pager variables  */
       /* Brand core */
       /* locked */
@@ -306,9 +303,11 @@
       border: 1px solid var(--border-color);
       border-radius: var(--radius);
       background: var(--surface-color, #fff);
-      font-size: 0.85em;
+      box-shadow: var(--flyout-shadow-menu, 0 12px 26px rgb(24 39 75 / 8%));
+      font-size: var(--left-menu-font-size, 1rem);
       list-style: none;
       margin: 0;
+      max-width: 100%;
       overflow: hidden;
       padding: 0;
     }
@@ -316,17 +315,20 @@
     ul.accordion-menu .item-wrapper {
       align-items: center;
       display: flex;
-      gap: var(--icon-gap, 8px);
+      gap: var(--left-menu-icon-gap, var(--icon-gap));
       justify-content: flex-start;
     }
 
     ul.accordion-menu .menu-button {
       align-items: center;
       display: flex;
-      flex: 0 0 var(--icon-slot, 24px);
+      flex: 0 0 var(--left-menu-icon-slot, var(--icon-slot));
       justify-content: center;
       margin-inline-start: auto;
+      min-block-size: var(--flyout-toggle-size);
+      min-inline-size: var(--flyout-toggle-size);
       order: 2;
+      padding: 0;
       padding-inline-start: var(--menu-icon-pad-inline-start, 0);
       padding-inline-end: var(--menu-icon-pad-inline-end, 0);
       position: relative;
@@ -334,16 +336,6 @@
 
     ul.accordion-menu .menu-button:empty {
       display: none;
-    }
-
-    ul.accordion-menu .menu-button {
-      display: grid;
-      margin-inline-start: 0;
-      min-block-size: var(--flyout-toggle-size);
-      min-inline-size: var(--flyout-toggle-size);
-      padding: 0;
-      place-items: center;
-      position: relative;
     }
 
     ul.accordion-menu .menu-button .menu-toggle-icon {
@@ -433,24 +425,28 @@
       align-items: center;
       background: none;
       display: flex;
-      gap: 8px;
+      gap: var(--left-menu-icon-gap, var(--icon-gap));
       padding: 10px 10px 9px 7px;
       text-decoration: none;
+      white-space: nowrap;
       width: auto;
     }
 
     ul.accordion-menu .menu-link>a>img,
     ul.accordion-menu .menu-link>p>img {
+      aspect-ratio: 1 / 1;
       border: 0;
-      height: auto;
+      height: var(--left-menu-icon-size, var(--icon-size));
       max-width: 100%;
+      object-fit: contain;
       padding: 0 5px 0 0;
       vertical-align: middle;
+      width: auto;
     }
 
     ul.accordion-menu>li>.item-wrapper>.menu-link>a,
     ul.accordion-menu>li>.item-wrapper>.menu-link>p {
-      font-weight: bold;
+      font-weight: var(--left-menu-font-weight, 500);
     }
 
     /* Ensure nested lists default to collapsed before left-menu.css loads */

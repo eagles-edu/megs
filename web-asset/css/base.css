@@ -57,8 +57,8 @@
   --menu-link-bg: var(--surface-color);
 
  /*  Left Menu  */
-  --left-menu-font-size: clamp(0.95rem, calc(0.85rem + 0.35vw), 1.18rem); /* scale text responsively across breakpoints */
-  --left-menu-icon-size: clamp(0.9rem, calc(var(--left-menu-font-size) * 1.05), 1.35rem); /* keep icon height proportionate and enforce a floor */
+  --left-menu-font-size: clamp(0.96rem, calc(0.82rem + 0.35vw), 1.2rem); /* scale text responsively across breakpoints */
+  --left-menu-icon-size: clamp(1.05rem, calc(var(--left-menu-font-size) * 1.05), 1.45rem); /* keep icon height proportionate and enforce a floor */
   --left-menu-icon-slot: calc(var(--left-menu-icon-size) * 1.32); /* reserve matching horizontal space for icons */
   --left-menu-icon-gap: calc(var(--left-menu-font-size) * 0.6); /* allow sidebar spacing to track responsive sizing */
   --icon-gap: calc(var(--left-menu-font-size) * 0.55); /* let spacing scale with type/icon sizing */
