@@ -20,6 +20,7 @@ node_modules/
 # ── Project caches / local-only data
 hts-cache/
 .codex/
+.gemini/
 .continue/
 .history-memo/
 .zencoder/
@@ -119,3 +120,4 @@ docs/*.md
 docs/*.js
 docs/*.pdf
 docs/*.json
+docs/git-cmds-1.js.txt

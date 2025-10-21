@@ -9,7 +9,7 @@ git diff
 git diff origin/<branch>
 git show-branch --more=20
 
-// </branch>Commands to Handle Local Changes Before Syncing
+// </branch> Commands to Handle Local Changes Before Syncing
 
 git add <files>
 git commit -m "<message>"
@@ -32,7 +32,7 @@ git reset --hard origin/<branch> (discard local changes)
 
 // Commands for Conflict Resolution
 
-git status (identify conflicted files)
+q (identify conflicted files)
 Edit files to resolve conflicts
 git add <resolved-file>
 git rebase --continue
