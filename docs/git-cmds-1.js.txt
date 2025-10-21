@@ -85,6 +85,8 @@ And to list unmerged ones:
 
 git branch --no-merged
 
+# make remote branch
+git push --set-upstream origin Prototype_BETA_0.0.01
 
 Syncing Local and Remote Git Branches
 1. Verify your working tree
