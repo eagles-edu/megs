@@ -1,12 +1,14 @@
 name: Summarize new issues
 
 on:
-  issues:
-    types: [opened]
+  push:
+    branches: [ Prototype_BETA_0.0.01 ]
+  pull_request:
+    branches: [ Prototype_BETA_0.0.01 ]
 
 jobs:
   summary:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     permissions:
       issues: write
       models: read
