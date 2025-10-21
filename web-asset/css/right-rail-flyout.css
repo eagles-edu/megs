@@ -126,7 +126,8 @@
   color: var(--primary-color, #e0162b);
 }
 
-.r-flyout-menu > [data-r-flyout-item]:has(+ [data-r-flyout-item]:is(.is-open, :hover, :focus-within)) {
+.r-flyout-menu
+  > [data-r-flyout-item]:has(+ [data-r-flyout-item]:is(.is-open, :hover, :focus-within)) {
   border-bottom-color: transparent;
 }
 

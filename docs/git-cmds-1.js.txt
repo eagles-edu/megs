@@ -84,3 +84,29 @@ git branch --merged
 And to list unmerged ones:
 
 git branch --no-merged
+
+
+Syncing Local and Remote Git Branches
+1. Verify your working tree
+
+git status
+
+Ensure you’re on the right branch and have no uncommitted changes you don’t want to rebase.
+
+2. Fetch remote updates
+git fetch origin refactor-2025-08-25
+3. Switch to (or confirm you’re on) the branch
+git switch refactor-2025-08-25
+4. Rebase local work on top of the remote branch
+git pull --rebase origin refactor-2025-08-25
+If conflicts occur: fix them, then run
+
+git add <files>
+git rebase --continue
+5. Push local commits back to the remote
+git push origin refactor-2025-08-25
+If you rewrote history during the rebase and must overwrite the remote branch:
+
+git push --force-with-lease origin refactor-2025-08-25
+6. Optional cleanup
+git fetch --prune

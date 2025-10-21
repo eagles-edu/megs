@@ -154,6 +154,15 @@ ul.accordion-menu li > .item-wrapper > .menu-link > p > img {
   padding: 0 5px 0 0;
 }
 
+ul.accordion-menu li > .item-wrapper > .menu-link > a > svg,
+ul.accordion-menu li > .item-wrapper > .menu-link > p > svg {
+  flex: 0 0 auto;
+  height: var(--left-menu-icon-size, var(--icon-size));
+  width: var(--left-menu-icon-size, var(--icon-size));
+  max-width: 100%;
+  padding: 0 5px 0 0;
+}
+
 /* Prevent CLS: reserve consistent space for menu icons */
 
 /* Prefer width + aspect-ratio so SVGs scale correctly without distortion */
