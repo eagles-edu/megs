@@ -1,4 +1,4 @@
-name: Summarize new issues
+name: Summarize new repo issues
 
 on:
   issues:
@@ -40,3 +40,4 @@ jobs:
           response_file="$(mktemp)"
           printf '%s' "$RESPONSE" > "$response_file"
           gh issue comment "$ISSUE_NUMBER" --body-file "$response_file"
+nt "$ISSUE_NUMBER" --body-file "$response_file"
