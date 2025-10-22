@@ -93,7 +93,7 @@
 
 .pager li > a:hover {
   color: var(--link-hover);
-  text-decoration: none;
+    text-decoration: none;
 }
 
 /* Breadcrumb */
@@ -118,4 +118,205 @@
   display: block;
   margin-bottom: .75rem;
   padding: 1.25rem 1.25rem .01rem;
+}
+
+/* Exercise gating UI */
+
+.exercise-form {
+  background-color: var(--surface-color, #fff);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  margin-bottom: 1.5rem;
+  padding: 1.5rem;
+}
+
+.exercise-form__intro {
+  border: 0;
+  margin: 0 0 1.25rem;
+  padding: 0;
+}
+
+.exercise-form__email-label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.exercise-form__email {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.exercise-form__email-input {
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  font: inherit;
+  max-width: min(320px, 100%);
+  padding: 0.6rem 0.75rem;
+  width: min(320px, 100%);
+}
+
+.exercise-form__email-input:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgb(224 22 43 / 15%);
+  outline: none;
+}
+
+.exercise-form__email-input--invalid {
+  border-color: var(--exercise-error);
+  box-shadow: 0 0 0 3px rgb(179 38 30 / 20%);
+}
+
+.exercise-form__note {
+  color: var(--color-muted);
+  margin: 0 0 0.75rem;
+}
+
+.exercise-form__progress {
+  font-weight: 600;
+  margin: 0 0 0.5rem;
+}
+
+.exercise-form__last-attempt {
+  align-items: center;
+  color: var(--exercise-success);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin: 0 0 0.75rem;
+}
+
+.exercise-form__last-attempt-icon {
+  font-size: 1.15rem;
+  line-height: 1;
+}
+
+.exercise-form__feedback {
+  border-radius: var(--radius);
+  font-weight: 500;
+  margin: 0;
+  min-height: 1.5rem;
+  padding: 0.25rem 0;
+}
+
+.exercise-form__feedback--error {
+  color: var(--exercise-error);
+}
+
+.exercise-form__feedback--success {
+  color: var(--exercise-success);
+}
+
+.exercise-submit-row {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 1.5rem;
+}
+
+.exercise-submit-button {
+  background-color: var(--primary-color);
+  border: none;
+  border-radius: var(--radius);
+  color: #fff;
+  cursor: pointer;
+  font-weight: 600;
+  padding: 0.75rem 1.75rem;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.exercise-submit-button:hover:not(:disabled) {
+  box-shadow: 0 6px 18px rgb(224 22 43 / 18%);
+  transform: translateY(-1px);
+}
+
+.exercise-submit-button:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.exercise-submit-button:disabled,
+.exercise-submit-button[aria-disabled="true"] {
+  background-color: var(--border-color);
+  box-shadow: none;
+  color: var(--color-muted);
+  cursor: not-allowed;
+}
+
+.exercise-response-field[hidden] {
+  display: none !important;
+}
+
+.exercise-response-input--locked {
+  cursor: not-allowed;
+}
+
+.exercise-response-input--locked:focus {
+  outline: 2px solid var(--exercise-success);
+  outline-offset: 2px;
+}
+
+.exercise-response-row--correct .exercise-response-input {
+  background-color: var(--exercise-success-bg);
+  border-color: var(--exercise-success);
+}
+
+.exercise-response-row--incorrect .exercise-response-input {
+  background-color: var(--exercise-error-bg);
+  border-color: var(--exercise-error);
+}
+
+.exercise-response-row--flash-success .exercise-response-input {
+  animation: exercise-flash-success 6s ease-in-out;
+}
+
+.exercise-response-row--flash-error .exercise-response-input {
+  animation: exercise-flash-error 1.2s ease-in-out;
+}
+
+@keyframes exercise-flash-success {
+  0% {
+    box-shadow: 0 0 0 0 rgb(46 125 50 / 40%);
+  }
+
+  30% {
+    box-shadow: 0 0 0 6px rgb(46 125 50 / 18%);
+  }
+
+  60% {
+    box-shadow: 0 0 0 0 rgb(46 125 50 / 0%);
+  }
+
+  100% {
+    box-shadow: 0 0 0 0 rgb(46 125 50 / 0%);
+  }
+}
+
+@keyframes exercise-flash-error {
+  0% {
+    box-shadow: 0 0 0 0 rgb(179 38 30 / 45%);
+  }
+
+  60% {
+    box-shadow: 0 0 0 6px rgb(179 38 30 / 20%);
+  }
+
+  100% {
+    box-shadow: 0 0 0 0 rgb(179 38 30 / 0%);
+  }
+}
+
+@media (width <= 600px) {
+  .exercise-form {
+    padding: 1.125rem;
+  }
+
+  .exercise-submit-row {
+    justify-content: stretch;
+  }
+
+  .exercise-submit-button {
+    width: 100%;
+  }
 }

@@ -148,6 +148,12 @@
   --lists-icon-pad-block: 0;
   --menu-icon-pad-inline-start: var(--lists-icon-pad-start, 0);
   --menu-icon-pad-inline-end: var(--lists-icon-gap);
+
+  /* Exercise vars */
+  --exercise-success: #2e7d32;
+  --exercise-success-bg: #e6f4ea;
+  --exercise-error: #b3261e;
+  --exercise-error-bg: #fdecea;
 }
 
 /* 1) Global resets and defaults */
