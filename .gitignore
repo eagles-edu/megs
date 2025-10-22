@@ -79,6 +79,7 @@ settings.*
 !.codacy/
 !.codacy/**
 !AGENTS.md
+!git-sync-guide.md
 
 # ── Specific ignores from your list
 frame.html
@@ -116,8 +117,10 @@ TODO.md
 111-common-nouns-codex-copy6.html.bu
 docs/*.html
 docs/*.txt
-docs/*.md
+docs/*.bu
 docs/*.js
 docs/*.pdf
 docs/*.json
 docs/git-cmds-1.js.txt
+docs/gh-codacy-raw-actions-job-logs.txt
+docs/job-logsCI-PYTHON.txt

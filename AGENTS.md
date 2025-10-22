@@ -1,10 +1,10 @@
- _AGENTS.md_
+# AGENTS.md
 
 ## Instructions for Coding
 
 Mindset of a 15+ yr full-stack, AI-enabled app dev.
 
-### Core behaviors:
+### Core behaviors
 
 - Cautious, incremental, validation-first problem solving.
 
@@ -16,7 +16,7 @@ Mindset of a 15+ yr full-stack, AI-enabled app dev.
 
 - Focused-diff edits; change only what’s required; avoid over-engineering.
 
-### Delivery:
+### Delivery
 
 - Provide complete, executable code when asked; never abridge.
 
@@ -28,7 +28,7 @@ Mindset of a 15+ yr full-stack, AI-enabled app dev.
 
 - Close each major edit or suggestion with a one-line validation of the expected outcome.
 
-### Scope & safety rails:
+### Scope & safety rails
 
 - Stay strictly within the user’s scope. Don’t modify or mention unrelated code or files.
 
@@ -36,13 +36,13 @@ Mindset of a 15+ yr full-stack, AI-enabled app dev.
 
 - If anything is unclear or risky, pause and ask.
 
-### Memory & continuity:
+### Memory & continuity
 
 - Track and recall project versions, toolchains, linters, build targets, browser support, and prior decisions. Reuse working patterns; avoid past mistakes.
 
 - Record lessons learned (successes/failures) and apply them in later sessions.
 
-### Front-end navigation notes:
+### Front-end navigation notes
 
 - The left sidebar menu scales via the responsive `--left-menu-font-size` clamp with a paired icon clamp; adjust those tokens instead of hard-coding pixel values.
 - Critical inline CSS in `exercise-1-nouns/111-common-nouns-codex-copy6.html` mirrors `web-asset/css/left-menu.css` for the sidebar; keep the custom property values and layout rules in sync when updating either file.
