@@ -93,7 +93,7 @@
 
 .pager li > a:hover {
   color: var(--link-hover);
-    text-decoration: none;
+  text-decoration: none;
 }
 
 /* Breadcrumb */
@@ -121,6 +121,14 @@
 }
 
 /* Exercise gating UI */
+:root {
+  --exercise-success: #2e7d32;
+  --exercise-success-glow: #4caf50;
+  --exercise-success-bg: #e6f4ea;
+  --exercise-error: #b3261e;
+  --exercise-error-glow: #cf3b32;
+  --exercise-error-bg: #fdecea;
+}
 
 .exercise-form {
   background-color: var(--surface-color, #fff);
@@ -268,42 +276,36 @@
 }
 
 .exercise-response-row--flash-success .exercise-response-input {
-  animation: exercise-flash-success 6s ease-in-out;
+  animation: exercise-flash-success 1s ease-in-out infinite both;
 }
 
 .exercise-response-row--flash-error .exercise-response-input {
-  animation: exercise-flash-error 1.2s ease-in-out;
+  animation: exercise-flash-error 1s ease-in-out infinite both;
 }
 
 @keyframes exercise-flash-success {
-  0% {
-    box-shadow: 0 0 0 0 rgb(46 125 50 / 40%);
-  }
-
-  30% {
-    box-shadow: 0 0 0 6px rgb(46 125 50 / 18%);
-  }
-
-  60% {
-    box-shadow: 0 0 0 0 rgb(46 125 50 / 0%);
-  }
-
+  0%,
   100% {
+    border-color: var(--exercise-success);
     box-shadow: 0 0 0 0 rgb(46 125 50 / 0%);
+  }
+
+  50% {
+    border-color: var(--exercise-success-glow);
+    box-shadow: 0 0 0 8px rgb(76 175 80 / 30%);
   }
 }
 
 @keyframes exercise-flash-error {
-  0% {
-    box-shadow: 0 0 0 0 rgb(179 38 30 / 45%);
-  }
-
-  60% {
-    box-shadow: 0 0 0 6px rgb(179 38 30 / 20%);
-  }
-
+  0%,
   100% {
+    border-color: var(--exercise-error);
     box-shadow: 0 0 0 0 rgb(179 38 30 / 0%);
+  }
+
+  50% {
+    border-color: var(--exercise-error-glow);
+    box-shadow: 0 0 0 8px rgb(207 59 50 / 32%);
   }
 }
 

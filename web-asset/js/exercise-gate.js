@@ -12,18 +12,6 @@
     return Array.prototype.slice.call(list)
   }
 
-  function closest(element, selector) {
-    if (!element) return null
-    if (element.closest) return element.closest(selector)
-    var node = element
-    while (node && node.nodeType === 1) {
-      var matches = node.matches || node.msMatchesSelector || node.webkitMatchesSelector
-      if (matches && matches.call(node, selector)) return node
-      node = node.parentElement || node.parentNode
-    }
-    return null
-  }
-
   function normalizeAnswer(value) {
     if (!value) return ""
     var text = String(value).toLowerCase()
@@ -122,19 +110,6 @@
           if (text) answers.push(text)
         }
       }
-      var hiddenInputs = []
-      if (answers.length && inputs.length > answers.length) {
-        for (var h = answers.length; h < inputs.length; h++) {
-          var extraInput = inputs[h]
-          extraInput.value = ""
-          extraInput.setAttribute("disabled", "disabled")
-          extraInput.setAttribute("data-extra", "true")
-          var parent = closest(extraInput, ".exercise-response-field")
-          if (parent) parent.setAttribute("hidden", "hidden")
-          hiddenInputs.push(extraInput)
-        }
-        inputs = inputs.slice(0, answers.length)
-      }
       questions.push({
         id: String(node.getAttribute("data-exercise-question") || i + 1),
         node: node,
@@ -143,7 +118,6 @@
         panel: panel,
         inputs: inputs,
         answers: answers,
-        hiddenInputs: hiddenInputs,
         complete: false,
         flashTimer: null,
       })
@@ -275,7 +249,7 @@
       }
       question.flashTimer = setTimeout(function () {
         if (question.row) question.row.classList.remove("exercise-response-row--flash-error")
-      }, 1200)
+      }, 5000)
     }
 
     function markQuestionCorrect(question) {
@@ -300,26 +274,27 @@
       }
       question.flashTimer = setTimeout(function () {
         if (question.row) question.row.classList.remove("exercise-response-row--flash-success")
-      }, 6000)
+      }, 5000)
       return true
     }
 
     function evaluateQuestion(question) {
       var expected = question.answers.slice()
-      var actual = []
+      var requiredCount = expected.length
+      var filled = []
       for (var i = 0; i < question.inputs.length; i++) {
         var raw = question.inputs[i].value
         var normalized = normalizeAnswer(raw)
-        if (!normalized) return { ready: false, correct: false }
-        actual.push(normalized)
+        if (normalized) filled.push(normalized)
       }
-      if (!expected.length) {
-        return { ready: actual.length > 0, correct: actual.length > 0 }
+      if (!requiredCount) {
+        return { ready: filled.length > 0, correct: filled.length > 0 }
       }
-      if (actual.length !== expected.length) return { ready: true, correct: false }
+      if (filled.length < requiredCount) return { ready: false, correct: false }
+      if (filled.length > requiredCount) return { ready: true, correct: false }
       var remaining = expected.slice()
-      for (var a = 0; a < actual.length; a++) {
-        var value = actual[a]
+      for (var a = 0; a < filled.length; a++) {
+        var value = filled[a]
         var index = -1
         for (var r = 0; r < remaining.length; r++) {
           if (remaining[r] === value) {
@@ -330,7 +305,7 @@
         if (index === -1) return { ready: true, correct: false }
         remaining.splice(index, 1)
       }
-      return { ready: true, correct: true }
+      return { ready: true, correct: remaining.length === 0 }
     }
 
     function guardQuestion(question) {
