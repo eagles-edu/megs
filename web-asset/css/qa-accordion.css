@@ -72,7 +72,7 @@
 
 /* Answer highlight (green) */
 .panel-body {
-  background-color: var(--answer-bgcolor-alt);
+  background-color: var(--answer-bgcolor);
   border: 0.0625rem solid var(--answer-border);
   margin-bottom: -1px;
   padding: 7px;
@@ -80,7 +80,7 @@
 
 div.accordion-inner > p {
   color: var(--answer-txtcolor);
-  font-weight: bold;
+  font-weight: n;
 }
 
 /* Hide duplicated legacy heading inside accordion body */
