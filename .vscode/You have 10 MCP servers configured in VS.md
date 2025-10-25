@@ -1,4 +1,4 @@
-You have 10 MCP servers configured in VS Code:
+# You have 10 MCP servers configured in VS Code:
 
 • github
 Command: undefined

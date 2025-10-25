@@ -81,6 +81,7 @@
     "css-declaration-sorter": "^7.2.0",
     "cssnano": "^7.1.1",
     "dotenv": "^17.2.1",
+    "nodemailer": "^7.0.10",
     "postcss": "^8.5.6"
   }
 }

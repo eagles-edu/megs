@@ -479,7 +479,8 @@
     "flyout.css",
     "page-classes.css",
     "qa-accordion.css",
-    "exercise-1-nouns/111-common-nouns-codex.html"
+    "exercise-1-nouns/111-common-nouns-codex.html",
+    "left-menu.css"
   ],
   "cssVarHover.ignoredFiles": ["lists/68-grammar-lists/619-list-12-conjunctions.html"]
 }

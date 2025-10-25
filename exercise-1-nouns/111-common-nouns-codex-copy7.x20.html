@@ -911,10 +911,10 @@
     <defs>
       <symbol id="icon-plus" viewBox="0 0 24 24">
         <path fill="currentColor"
-          d="M12 5a1 1 0 0 0-1 1v5H6a1 1 0 1 0 0 2h5v5a1 1 0 1 0 2 0v-5h5a1 1 0 1 0 0-2h-5V6a1 1 0 0 0-1-1z" />
+          d="M12 5a1 1 0 0 0-1 1v5H6a1 1 0 1 0 0 2h5v5a1 1 0 1 0 2 0v-5h5a1 1 0 1 0 0-2h-5V6a1 1 0 0 0-1-1z"></path>
       </symbol>
       <symbol id="icon-minus" viewBox="0 0 24 24">
-        <rect x="9" y="11" width="6" height="2" rx="1" fill="currentColor" />
+        <rect x="9" y="11" width="6" height="2" rx="1" fill="currentColor"></rect>
       </symbol>
     </defs>
   </svg>
@@ -1145,7 +1145,7 @@
               </ul>
               <p>Identify and enter the Common Nouns in the following sentences. Click on the sentence for the answer.
                 Enter your email address to begin.</p>
-              <form class="exercise-form" data-exercise-form data-storage-key="exercise-111-common-nouns" novalidate>
+              <form class="exercise-form" data-exercise-form="" data-storage-key="exercise-111-common-nouns" novalidate>
                 <fieldset class="exercise-form__intro">
                   <legend class="visually-hidden">Exercise setup</legend>
                   <label class="exercise-form__email-label" for="exercise-email">
@@ -1153,13 +1153,13 @@
                   </label>
                   <div class="exercise-form__email">
                     <input class="exercise-form__email-input" type="email" id="exercise-email" name="exerciseEmail"
-                      autocomplete="email" required data-exercise-email placeholder="you@example.com">
+                      autocomplete="email" required data-exercise-email="" placeholder="you@example.com">
                   </div>
 
-                  <p class="exercise-form__progress" data-exercise-progress aria-live="polite">0 of 20 questions
+                  <p class="exercise-form__progress" data-exercise-progress="" aria-live="polite">0 of 20 questions
                     completed.</p>
-                  <p class="exercise-form__last-attempt" data-exercise-last-attempt hidden aria-live="polite"></p>
-                  <div class="exercise-form__feedback" data-exercise-feedback aria-live="polite"></div>
+                  <p class="exercise-form__last-attempt" data-exercise-last-attempt="" hidden aria-live="polite"></p>
+                  <div class="exercise-form__feedback" data-exercise-feedback="" aria-live="polite"></div>
                 </fieldset>
                 <div class="quest-bg" data-exercise-question="1">
                   <div class="nn_sliders accordion panel-group" id="set-nn_sliders-1">
@@ -2261,21 +2261,42 @@
                     </div>
                   </div>
                 </div>
-                <div class="exercise-submit-row" data-exercise-submit-row hidden>
-                  <button type="submit" class="exercise-submit-button" data-exercise-submit disabled>
+                <div class="exercise-submit-row" data-exercise-submit-row="" hidden>
+                  <button type="submit" class="exercise-submit-button" data-exercise-submit="" disabled>
                     Submit answers
                   </button>
                   <div id="exercise-status" class="status-warn" aria-live="polite" style="margin-top:.5rem;"></div>
                 </div>
               </form>
-
               <!-- Page config: set recipients and where to POST -->
               <script type="application/json" id="exercise-config" data-exercise-config>
+                  {
+                    "recipients": ["kimthanh@eaglesvn.online", "admin@eaglesvn.online", "thanh.eaglesclub@gmail.com"],
+                    "submitUrl": ""
+                  }
+              </script>
+
+              <!-- Auto-switch submitUrl: runs only when submitUrl === "" -->
+              <script>
+                  ( () => {
+                    const cfgEl = document.querySelector( '#exercise-config[data-exercise-config]' );
+                    if ( !cfgEl ) return;
+                    const cfg = JSON.parse( cfgEl.textContent || '{}' );
+
+                    if ( !cfg.submitUrl )
                     {
-                      "recipients": ["kimthanh@eaglesvn.online", "admin@eaglesvn.online", "thanh.eaglesclub@gmail.com"],
-                      "submitUrl": "/api/exercise-submission"
+                      const host = location.host;
+                      if ( host === '127.0.0.1:5500' || host === 'localhost:5500' )
+                      {
+                        cfg.submitUrl = 'http://127.0.0.1:8787/api/exercise-submission'; // dev: Node directly
+                      } else
+                      {
+                        cfg.submitUrl = 'https://thuvien.eagles.edu.vn/api/exercise-submission'; // prod: via nginx
+                      }
+                      cfgEl.textContent = JSON.stringify( cfg );
                     }
-                  </script>
+                  } )();
+              </script>
 
               <ul class="pager pagenav">
                 <li class="prev">
@@ -2307,7 +2328,7 @@
           </div>
 
           <div class="clearfix"></div>
-          <ul class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+          <ul class="breadcrumb" itemscope="" itemtype="https://schema.org/BreadcrumbList">
             <li class="active">
               <span class="divider icon-location"></span>
             </li>
@@ -2343,16 +2364,16 @@
         <div id="aside" class="span2">
           <!-- Begin Right Sidebar -->
           <div class="well hidden-phone">
-            <ul class="r-flyout-menu" id="flyout_menu_93" data-r-flyout data-flyout-origin="right">
-              <li class="current first" data-r-flyout-item>
+            <ul class="r-flyout-menu" id="flyout_menu_93" data-r-flyout="" data-flyout-origin="right">
+              <li class="current first" data-r-flyout-item="">
                 <div class="item-wrapper r-flyout__header">
                   <button class="r-flyout__toggle" type="button" aria-haspopup="true" aria-expanded="false"
                     aria-controls="r-flyout-panel-nouns" aria-label="Toggle submenu for Nouns">
                     <svg class="r-flyout__icon r-flyout__icon--plus" aria-hidden="true" focusable="false">
-                      <use href="#icon-plus" xlink:href="#icon-plus"></use>
+                      <use xlink:href="#icon-plus"></use>
                     </svg>
                     <svg class="r-flyout__icon r-flyout__icon--minus" aria-hidden="true" focusable="false">
-                      <use href="#icon-minus" xlink:href="#icon-minus"></use>
+                      <use xlink:href="#icon-minus"></use>
                     </svg>
                   </button>
                   <div class="menu-link r-flyout__link-wrap">
@@ -2439,15 +2460,15 @@
                   </ul>
                 </div>
               </li>
-              <li data-r-flyout-item>
+              <li data-r-flyout-item="">
                 <div class="item-wrapper r-flyout__header">
                   <button class="r-flyout__toggle" type="button" aria-haspopup="true" aria-expanded="false"
                     aria-controls="r-flyout-panel-verbs" aria-label="Toggle submenu for Verbs">
                     <svg class="r-flyout__icon r-flyout__icon--plus" aria-hidden="true" focusable="false">
-                      <use href="#icon-plus" xlink:href="#icon-plus"></use>
+                      <use xlink:href="#icon-plus"></use>
                     </svg>
                     <svg class="r-flyout__icon r-flyout__icon--minus" aria-hidden="true" focusable="false">
-                      <use href="#icon-minus" xlink:href="#icon-minus"></use>
+                      <use xlink:href="#icon-minus"></use>
                     </svg>
                   </button>
                   <div class="menu-link r-flyout__link-wrap">
@@ -2508,15 +2529,15 @@
                   </ul>
                 </div>
               </li>
-              <li data-r-flyout-item>
+              <li data-r-flyout-item="">
                 <div class="item-wrapper r-flyout__header">
                   <button class="r-flyout__toggle" type="button" aria-haspopup="true" aria-expanded="false"
                     aria-controls="r-flyout-panel-adjectives" aria-label="Toggle submenu for Adjectives">
                     <svg class="r-flyout__icon r-flyout__icon--plus" aria-hidden="true" focusable="false">
-                      <use href="#icon-plus" xlink:href="#icon-plus"></use>
+                      <use xlink:href="#icon-plus"></use>
                     </svg>
                     <svg class="r-flyout__icon r-flyout__icon--minus" aria-hidden="true" focusable="false">
-                      <use href="#icon-minus" xlink:href="#icon-minus"></use>
+                      <use xlink:href="#icon-minus"></use>
                     </svg>
                   </button>
                   <div class="menu-link r-flyout__link-wrap">
@@ -2610,15 +2631,15 @@
                   </ul>
                 </div>
               </li>
-              <li data-r-flyout-item>
+              <li data-r-flyout-item="">
                 <div class="item-wrapper r-flyout__header">
                   <button class="r-flyout__toggle" type="button" aria-haspopup="true" aria-expanded="false"
                     aria-controls="r-flyout-panel-adverbs" aria-label="Toggle submenu for Adverbs">
                     <svg class="r-flyout__icon r-flyout__icon--plus" aria-hidden="true" focusable="false">
-                      <use href="#icon-plus" xlink:href="#icon-plus"></use>
+                      <use xlink:href="#icon-plus"></use>
                     </svg>
                     <svg class="r-flyout__icon r-flyout__icon--minus" aria-hidden="true" focusable="false">
-                      <use href="#icon-minus" xlink:href="#icon-minus"></use>
+                      <use xlink:href="#icon-minus"></use>
                     </svg>
                   </button>
                   <div class="menu-link r-flyout__link-wrap">
@@ -2713,15 +2734,15 @@
                   </ul>
                 </div>
               </li>
-              <li data-r-flyout-item>
+              <li data-r-flyout-item="">
                 <div class="item-wrapper r-flyout__header">
                   <button class="r-flyout__toggle" type="button" aria-haspopup="true" aria-expanded="false"
                     aria-controls="r-flyout-panel-pronouns" aria-label="Toggle submenu for Pronouns">
                     <svg class="r-flyout__icon r-flyout__icon--plus" aria-hidden="true" focusable="false">
-                      <use href="#icon-plus" xlink:href="#icon-plus"></use>
+                      <use xlink:href="#icon-plus"></use>
                     </svg>
                     <svg class="r-flyout__icon r-flyout__icon--minus" aria-hidden="true" focusable="false">
-                      <use href="#icon-minus" xlink:href="#icon-minus"></use>
+                      <use xlink:href="#icon-minus"></use>
                     </svg>
                   </button>
                   <div class="menu-link r-flyout__link-wrap">
@@ -2910,15 +2931,15 @@
                   </ul>
                 </div>
               </li>
-              <li data-r-flyout-item>
+              <li data-r-flyout-item="">
                 <div class="item-wrapper r-flyout__header">
                   <button class="r-flyout__toggle" type="button" aria-haspopup="true" aria-expanded="false"
                     aria-controls="r-flyout-panel-prepositions" aria-label="Toggle submenu for Prepositions">
                     <svg class="r-flyout__icon r-flyout__icon--plus" aria-hidden="true" focusable="false">
-                      <use href="#icon-plus" xlink:href="#icon-plus"></use>
+                      <use xlink:href="#icon-plus"></use>
                     </svg>
                     <svg class="r-flyout__icon r-flyout__icon--minus" aria-hidden="true" focusable="false">
-                      <use href="#icon-minus" xlink:href="#icon-minus"></use>
+                      <use xlink:href="#icon-minus"></use>
                     </svg>
                   </button>
                   <div class="menu-link r-flyout__link-wrap">
@@ -3023,15 +3044,15 @@
                   </ul>
                 </div>
               </li>
-              <li data-r-flyout-item>
+              <li data-r-flyout-item="">
                 <div class="item-wrapper r-flyout__header">
                   <button class="r-flyout__toggle" type="button" aria-haspopup="true" aria-expanded="false"
                     aria-controls="r-flyout-panel-conjunctions" aria-label="Toggle submenu for Conjunctions">
                     <svg class="r-flyout__icon r-flyout__icon--plus" aria-hidden="true" focusable="false">
-                      <use href="#icon-plus" xlink:href="#icon-plus"></use>
+                      <use xlink:href="#icon-plus"></use>
                     </svg>
                     <svg class="r-flyout__icon r-flyout__icon--minus" aria-hidden="true" focusable="false">
-                      <use href="#icon-minus" xlink:href="#icon-minus"></use>
+                      <use xlink:href="#icon-minus"></use>
                     </svg>
                   </button>
                   <div class="menu-link r-flyout__link-wrap">
@@ -3115,15 +3136,15 @@
                   </ul>
                 </div>
               </li>
-              <li data-r-flyout-item>
+              <li data-r-flyout-item="">
                 <div class="item-wrapper r-flyout__header">
                   <button class="r-flyout__toggle" type="button" aria-haspopup="true" aria-expanded="false"
                     aria-controls="r-flyout-panel-agreement" aria-label="Toggle submenu for S plus V Agreement">
                     <svg class="r-flyout__icon r-flyout__icon--plus" aria-hidden="true" focusable="false">
-                      <use href="#icon-plus" xlink:href="#icon-plus"></use>
+                      <use xlink:href="#icon-plus"></use>
                     </svg>
                     <svg class="r-flyout__icon r-flyout__icon--minus" aria-hidden="true" focusable="false">
-                      <use href="#icon-minus" xlink:href="#icon-minus"></use>
+                      <use xlink:href="#icon-minus"></use>
                     </svg>
                   </button>
                   <div class="menu-link r-flyout__link-wrap">
@@ -3164,15 +3185,15 @@
                   </ul>
                 </div>
               </li>
-              <li data-r-flyout-item>
+              <li data-r-flyout-item="">
                 <div class="item-wrapper r-flyout__header">
                   <button class="r-flyout__toggle" type="button" aria-haspopup="true" aria-expanded="false"
                     aria-controls="r-flyout-panel-articles" aria-label="Toggle submenu for Articles">
                     <svg class="r-flyout__icon r-flyout__icon--plus" aria-hidden="true" focusable="false">
-                      <use href="#icon-plus" xlink:href="#icon-plus"></use>
+                      <use xlink:href="#icon-plus"></use>
                     </svg>
                     <svg class="r-flyout__icon r-flyout__icon--minus" aria-hidden="true" focusable="false">
-                      <use href="#icon-minus" xlink:href="#icon-minus"></use>
+                      <use xlink:href="#icon-minus"></use>
                     </svg>
                   </button>
                   <div class="menu-link r-flyout__link-wrap">
@@ -3213,15 +3234,15 @@
                   </ul>
                 </div>
               </li>
-              <li data-r-flyout-item>
+              <li data-r-flyout-item="">
                 <div class="item-wrapper r-flyout__header">
                   <button class="r-flyout__toggle" type="button" aria-haspopup="true" aria-expanded="false"
                     aria-controls="r-flyout-panel-conditionals" aria-label="Toggle submenu for Conditionals">
                     <svg class="r-flyout__icon r-flyout__icon--plus" aria-hidden="true" focusable="false">
-                      <use href="#icon-plus" xlink:href="#icon-plus"></use>
+                      <use xlink:href="#icon-plus"></use>
                     </svg>
                     <svg class="r-flyout__icon r-flyout__icon--minus" aria-hidden="true" focusable="false">
-                      <use href="#icon-minus" xlink:href="#icon-minus"></use>
+                      <use xlink:href="#icon-minus"></use>
                     </svg>
                   </button>
                   <div class="menu-link r-flyout__link-wrap">
@@ -3262,15 +3283,15 @@
                   </ul>
                 </div>
               </li>
-              <li data-r-flyout-item>
+              <li data-r-flyout-item="">
                 <div class="item-wrapper r-flyout__header">
                   <button class="r-flyout__toggle" type="button" aria-haspopup="true" aria-expanded="false"
                     aria-controls="r-flyout-panel-modifiers" aria-label="Toggle submenu for Modifiers">
                     <svg class="r-flyout__icon r-flyout__icon--plus" aria-hidden="true" focusable="false">
-                      <use href="#icon-plus" xlink:href="#icon-plus"></use>
+                      <use xlink:href="#icon-plus"></use>
                     </svg>
                     <svg class="r-flyout__icon r-flyout__icon--minus" aria-hidden="true" focusable="false">
-                      <use href="#icon-minus" xlink:href="#icon-minus"></use>
+                      <use xlink:href="#icon-minus"></use>
                     </svg>
                   </button>
                   <div class="menu-link r-flyout__link-wrap">
@@ -3332,15 +3353,15 @@
                   </ul>
                 </div>
               </li>
-              <li data-r-flyout-item>
+              <li data-r-flyout-item="">
                 <div class="item-wrapper r-flyout__header">
                   <button class="r-flyout__toggle" type="button" aria-haspopup="true" aria-expanded="false"
                     aria-controls="r-flyout-panel-speech" aria-label="Toggle submenu for Speech Direction">
                     <svg class="r-flyout__icon r-flyout__icon--plus" aria-hidden="true" focusable="false">
-                      <use href="#icon-plus" xlink:href="#icon-plus"></use>
+                      <use xlink:href="#icon-plus"></use>
                     </svg>
                     <svg class="r-flyout__icon r-flyout__icon--minus" aria-hidden="true" focusable="false">
-                      <use href="#icon-minus" xlink:href="#icon-minus"></use>
+                      <use xlink:href="#icon-minus"></use>
                     </svg>
                   </button>
                   <div class="menu-link r-flyout__link-wrap">
@@ -3414,12 +3435,12 @@
                   </ul>
                 </div>
               </li>
-              <li data-r-flyout-item>
+              <li data-r-flyout-item="">
                 <div class="item-wrapper r-flyout__header">
                   <button class="r-flyout__toggle" type="button" aria-haspopup="true" aria-expanded="false"
                     aria-controls="r-flyout-panel-passive" aria-label="Toggle submenu for Active-Passive">
                     <svg class="r-flyout__icon r-flyout__icon--plus" aria-hidden="true" focusable="false">
-                      <use href="#icon-plus" xlink:href="#icon-plus"></use>
+                      <use xlink:href="#icon-plus"></use>
                     </svg>
                   </button>
                   <div class="menu-link r-flyout__link-wrap">
@@ -3429,15 +3450,15 @@
                   </div>
                 </div>
               </li>
-              <li data-r-flyout-item>
+              <li data-r-flyout-item="">
                 <div class="item-wrapper r-flyout__header">
                   <button class="r-flyout__toggle" type="button" aria-haspopup="true" aria-expanded="false"
                     aria-controls="r-flyout-panel-passive" aria-label="Toggle submenu for Active-Passive">
                     <svg class="r-flyout__icon r-flyout__icon--plus" aria-hidden="true" focusable="false">
-                      <use href="#icon-plus" xlink:href="#icon-plus"></use>
+                      <use xlink:href="#icon-plus"></use>
                     </svg>
                     <svg class="r-flyout__icon r-flyout__icon--minus" aria-hidden="true" focusable="false">
-                      <use href="#icon-minus" xlink:href="#icon-minus"></use>
+                      <use xlink:href="#icon-minus"></use>
                     </svg>
                   </button>
                   <div class="menu-link r-flyout__link-wrap">
@@ -3531,15 +3552,15 @@
                   </ul>
                 </div>
               </li>
-              <li data-r-flyout-item>
+              <li data-r-flyout-item="">
                 <div class="item-wrapper r-flyout__header">
                   <button class="r-flyout__toggle" type="button" aria-haspopup="true" aria-expanded="false"
                     aria-controls="r-flyout-panel-clauses" aria-label="Toggle submenu for Clauses">
                     <svg class="r-flyout__icon r-flyout__icon--plus" aria-hidden="true" focusable="false">
-                      <use href="#icon-plus" xlink:href="#icon-plus"></use>
+                      <use xlink:href="#icon-plus"></use>
                     </svg>
                     <svg class="r-flyout__icon r-flyout__icon--minus" aria-hidden="true" focusable="false">
-                      <use href="#icon-minus" xlink:href="#icon-minus"></use>
+                      <use xlink:href="#icon-minus"></use>
                     </svg>
                   </button>
                   <div class="menu-link r-flyout__link-wrap">
@@ -3580,15 +3601,15 @@
                   </ul>
                 </div>
               </li>
-              <li data-r-flyout-item>
+              <li data-r-flyout-item="">
                 <div class="item-wrapper r-flyout__header">
                   <button class="r-flyout__toggle" type="button" aria-haspopup="true" aria-expanded="false"
                     aria-controls="r-flyout-panel-verbing" aria-label="Toggle submenu for Verb-ing">
                     <svg class="r-flyout__icon r-flyout__icon--plus" aria-hidden="true" focusable="false">
-                      <use href="#icon-plus" xlink:href="#icon-plus"></use>
+                      <use xlink:href="#icon-plus"></use>
                     </svg>
                     <svg class="r-flyout__icon r-flyout__icon--minus" aria-hidden="true" focusable="false">
-                      <use href="#icon-minus" xlink:href="#icon-minus"></use>
+                      <use xlink:href="#icon-minus"></use>
                     </svg>
                   </button>
                   <div class="menu-link r-flyout__link-wrap">
@@ -3653,15 +3674,15 @@
                   </ul>
                 </div>
               </li>
-              <li data-r-flyout-item>
+              <li data-r-flyout-item="">
                 <div class="item-wrapper r-flyout__header">
                   <button class="r-flyout__toggle" type="button" aria-haspopup="true" aria-expanded="false"
                     aria-controls="r-flyout-panel-determiners" aria-label="Toggle submenu for Determiners">
                     <svg class="r-flyout__icon r-flyout__icon--plus" aria-hidden="true" focusable="false">
-                      <use href="#icon-plus" xlink:href="#icon-plus"></use>
+                      <use xlink:href="#icon-plus"></use>
                     </svg>
                     <svg class="r-flyout__icon r-flyout__icon--minus" aria-hidden="true" focusable="false">
-                      <use href="#icon-minus" xlink:href="#icon-minus"></use>
+                      <use xlink:href="#icon-minus"></use>
                     </svg>
                   </button>
                   <div class="menu-link r-flyout__link-wrap">
@@ -3706,15 +3727,15 @@
                   </ul>
                 </div>
               </li>
-              <li data-r-flyout-item>
+              <li data-r-flyout-item="">
                 <div class="item-wrapper r-flyout__header">
                   <button class="r-flyout__toggle" type="button" aria-haspopup="true" aria-expanded="false"
                     aria-controls="r-flyout-panel-pos" aria-label="Toggle submenu for Part of Speech">
                     <svg class="r-flyout__icon r-flyout__icon--plus" aria-hidden="true" focusable="false">
-                      <use href="#icon-plus" xlink:href="#icon-plus"></use>
+                      <use xlink:href="#icon-plus"></use>
                     </svg>
                     <svg class="r-flyout__icon r-flyout__icon--minus" aria-hidden="true" focusable="false">
-                      <use href="#icon-minus" xlink:href="#icon-minus"></use>
+                      <use xlink:href="#icon-minus"></use>
                     </svg>
                   </button>
                   <div class="menu-link r-flyout__link-wrap">
@@ -3765,15 +3786,15 @@
                   </ul>
                 </div>
               </li>
-              <li class="last" data-r-flyout-item>
+              <li class="last" data-r-flyout-item="">
                 <div class="item-wrapper r-flyout__header">
                   <button class="r-flyout__toggle" type="button" aria-haspopup="true" aria-expanded="false"
                     aria-controls="r-flyout-panel-vocabulary" aria-label="Toggle submenu for Vocabulary">
                     <svg class="r-flyout__icon r-flyout__icon--plus" aria-hidden="true" focusable="false">
-                      <use href="#icon-plus" xlink:href="#icon-plus"></use>
+                      <use xlink:href="#icon-plus"></use>
                     </svg>
                     <svg class="r-flyout__icon r-flyout__icon--minus" aria-hidden="true" focusable="false">
-                      <use href="#icon-minus" xlink:href="#icon-minus"></use>
+                      <use xlink:href="#icon-minus"></use>
                     </svg>
                   </button>
                   <div class="menu-link r-flyout__link-wrap">
@@ -3827,95 +3848,95 @@
     </div>
   </footer>
   <script>
-      // nn_sliders fallback: enable toggles without jQuery/Bootstrap
-      ; ( function () {
-        if ( typeof window.jQuery === "undefined" && !window._qaAccordionBound )
+    // nn_sliders fallback: enable toggles without jQuery/Bootstrap
+    ; ( function () {
+      if ( typeof window.jQuery === "undefined" && !window._qaAccordionBound )
+      {
+        try
         {
-          try
-          {
-            var toggles = document.querySelectorAll( ".nn_sliders-toggle" )
-            function getTargetId( toggle ) {
-              var dataId = toggle.getAttribute( "data-id" )
-              if ( dataId ) return dataId
-              var href = toggle.getAttribute( "href" ) || ""
-              var hashIndex = href.indexOf( "#" )
-              return hashIndex > -1 ? href.slice( hashIndex + 1 ) : ""
-            }
-            function setExpanded( toggle, panel, expanded ) {
-              if ( !panel ) return
-              if ( expanded )
-              {
-                panel.classList.add( "in" )
-                panel.classList.add( "show" )
-                panel.classList.remove( "collapse" )
-                panel.style.height = "auto"
-                panel.style.display = "block"
-                panel.setAttribute( "aria-hidden", "false" )
-                toggle.setAttribute( "aria-expanded", "true" )
-              } else
-              {
-                panel.classList.remove( "in" )
-                panel.classList.remove( "show" )
-                panel.classList.add( "collapse" )
-                panel.style.height = ""
-                panel.style.display = ""
-                panel.setAttribute( "aria-hidden", "true" )
-                toggle.setAttribute( "aria-expanded", "false" )
-              }
-            }
-            function collapseSiblings( currentToggle, currentPanel ) {
-              var parentSelector = currentToggle.getAttribute( "data-parent" )
-              if ( !parentSelector ) return
-              var parent = document.querySelector( parentSelector )
-              if ( !parent ) return
-              var siblingToggles = parent.querySelectorAll( ".nn_sliders-toggle" )
-              for ( var i = 0; i < siblingToggles.length; i++ )
-              {
-                var siblingToggle = siblingToggles[ i ]
-                if ( siblingToggle === currentToggle ) continue
-                var siblingId = getTargetId( siblingToggle )
-                if ( !siblingId ) continue
-                var siblingPanel = document.getElementById( siblingId )
-                if ( !siblingPanel || siblingPanel === currentPanel ) continue
-                setExpanded( siblingToggle, siblingPanel, false )
-              }
-            }
-            function onToggle( e ) {
-              if ( e ) e.preventDefault()
-              var id = getTargetId( this )
-              if ( !id ) return
-              var panel = document.getElementById( id )
-              if ( !panel ) return
-              var open = panel.classList.contains( "in" ) || panel.classList.contains( "show" )
-              if ( open )
-              {
-                setExpanded( this, panel, false )
-              } else
-              {
-                collapseSiblings( this, panel )
-                setExpanded( this, panel, true )
-              }
-            }
-            for ( var i = 0; i < toggles.length; i++ )
-            {
-              var toggle = toggles[ i ]
-              var id = getTargetId( toggle )
-              if ( !id ) continue
-              var panel = document.getElementById( id )
-              if ( !panel ) continue
-              toggle.addEventListener( "click", onToggle )
-              toggle.setAttribute( "aria-controls", id )
-              var expanded =
-                toggle.getAttribute( "aria-expanded" ) === "true" || panel.classList.contains( "in" ) || panel.classList.contains( "show" )
-              setExpanded( toggle, panel, expanded )
-            }
-            window._qaAccordionBound = true
-          } catch ( e )
-          {
-            /* no-op */
+          var toggles = document.querySelectorAll( ".nn_sliders-toggle" )
+          function getTargetId( toggle ) {
+            var dataId = toggle.getAttribute( "data-id" )
+            if ( dataId ) return dataId
+            var href = toggle.getAttribute( "href" ) || ""
+            var hashIndex = href.indexOf( "#" )
+            return hashIndex > -1 ? href.slice( hashIndex + 1 ) : ""
           }
+          function setExpanded( toggle, panel, expanded ) {
+            if ( !panel ) return
+            if ( expanded )
+            {
+              panel.classList.add( "in" )
+              panel.classList.add( "show" )
+              panel.classList.remove( "collapse" )
+              panel.style.height = "auto"
+              panel.style.display = "block"
+              panel.setAttribute( "aria-hidden", "false" )
+              toggle.setAttribute( "aria-expanded", "true" )
+            } else
+            {
+              panel.classList.remove( "in" )
+              panel.classList.remove( "show" )
+              panel.classList.add( "collapse" )
+              panel.style.height = ""
+              panel.style.display = ""
+              panel.setAttribute( "aria-hidden", "true" )
+              toggle.setAttribute( "aria-expanded", "false" )
+            }
+          }
+          function collapseSiblings( currentToggle, currentPanel ) {
+            var parentSelector = currentToggle.getAttribute( "data-parent" )
+            if ( !parentSelector ) return
+            var parent = document.querySelector( parentSelector )
+            if ( !parent ) return
+            var siblingToggles = parent.querySelectorAll( ".nn_sliders-toggle" )
+            for ( var i = 0; i < siblingToggles.length; i++ )
+            {
+              var siblingToggle = siblingToggles[ i ]
+              if ( siblingToggle === currentToggle ) continue
+              var siblingId = getTargetId( siblingToggle )
+              if ( !siblingId ) continue
+              var siblingPanel = document.getElementById( siblingId )
+              if ( !siblingPanel || siblingPanel === currentPanel ) continue
+              setExpanded( siblingToggle, siblingPanel, false )
+            }
+          }
+          function onToggle( e ) {
+            if ( e ) e.preventDefault()
+            var id = getTargetId( this )
+            if ( !id ) return
+            var panel = document.getElementById( id )
+            if ( !panel ) return
+            var open = panel.classList.contains( "in" ) || panel.classList.contains( "show" )
+            if ( open )
+            {
+              setExpanded( this, panel, false )
+            } else
+            {
+              collapseSiblings( this, panel )
+              setExpanded( this, panel, true )
+            }
+          }
+          for ( var i = 0; i < toggles.length; i++ )
+          {
+            var toggle = toggles[ i ]
+            var id = getTargetId( toggle )
+            if ( !id ) continue
+            var panel = document.getElementById( id )
+            if ( !panel ) continue
+            toggle.addEventListener( "click", onToggle )
+            toggle.setAttribute( "aria-controls", id )
+            var expanded =
+              toggle.getAttribute( "aria-expanded" ) === "true" || panel.classList.contains( "in" ) || panel.classList.contains( "show" )
+            setExpanded( toggle, panel, expanded )
+          }
+          window._qaAccordionBound = true
+        } catch ( e )
+        {
+          /* no-op */
         }
-      } )()
+      }
+    } )()
   </script>
   <!-- Client script: collector + autosave + POST -->
   <script>
@@ -4184,6 +4205,7 @@
   </script>
 
   <!-- Mobile navigation is handled globally via template asset -->
+
 </body>
 
 </html>
