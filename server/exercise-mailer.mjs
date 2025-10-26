@@ -337,7 +337,7 @@ async function handleRequest(request, response, transporter) {
 }
 
 /* =========================
-   Server Bootstrap
+    Server Bootstrap
    ========================= */
 
 export function startExerciseMailer(options = {}) {

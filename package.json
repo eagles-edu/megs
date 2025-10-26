@@ -43,7 +43,9 @@
     "mcp:context7": "npx --no-update-notifier -y @upstash/context7-mcp",
     "mcp:seq-think": "npx --no-update-notifier -y @modelcontextprotocol/sequential-thinking-mcp",
     "verify:prototype:strict": "VERIFY_STRICT=1 node js/verify-prototype.mjs",
-    "verify:prototype:quiet": "VERIFY_QUIET=1 node js/verify-prototype.mjs"
+    "verify:prototype:quiet": "VERIFY_QUIET=1 node js/verify-prototype.mjs",
+    "test": "node --test test/**/*.spec.mjs",
+    "test:watch": "node --test --watch test/**/*.spec.mjs"
   },
   "repository": {
     "type": "git",

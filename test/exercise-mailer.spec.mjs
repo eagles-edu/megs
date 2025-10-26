@@ -1,0 +1,122 @@
+// test/exercise-mailer.spec.mjs
+import test from "node:test"
+import assert from "node:assert/strict"
+
+process.env.NODE_ENV = "test"
+// allow any origin during test, then override in a CORS test
+process.env.EXERCISE_MAILER_ORIGIN = "*"
+// Keep logs quiet for tests
+process.env.MAILER_DEBUG = "false"
+
+// build a mock nodemailer-like transporter
+function makeMockTransport() {
+  const calls = { verify: 0, sendMail: 0, last: null }
+  return {
+    calls,
+    verify(cb) {
+      calls.verify += 1
+      // async-ish
+      setImmediate(() => cb(null, true))
+    },
+    async sendMail(mail) {
+      calls.sendMail += 1
+      calls.last = mail
+      return { messageId: "test-message-id" }
+    },
+  }
+}
+
+// tiny fetch helper against a chosen port
+async function fetchLocal(port, path, init = {}) {
+  const url = `http://127.0.0.1:${port}${path}`
+  const res = await fetch(url, init)
+  return res
+}
+
+let server
+let basePort
+let transport
+
+test("start server on a random port (0) with mock transport", async () => {
+  // import after env is set
+  const { startExerciseMailer } = await import(process.cwd() + "/server/exercise-mailer.mjs")
+
+  transport = makeMockTransport()
+  server = await startExerciseMailer({ transporter: transport, port: 0 })
+
+  // wait until bound
+  await new Promise((resolve) => server.once("listening", resolve))
+
+  basePort = server.address().port
+  assert.ok(Number.isInteger(basePort) && basePort > 0, "server bound to a random port")
+})
+
+test("GET /healthz returns ok + endpoint", async () => {
+  const res = await fetchLocal(basePort, "/healthz")
+  assert.equal(res.status, 200)
+  assert.equal(res.headers.get("content-type"), "application/json")
+  const body = await res.json()
+  assert.equal(body.status, "ok")
+  assert.equal(body.endpoint, "/api/exercise-submission")
+})
+
+test("POST /api/exercise-submission succeeds (204) and calls sendMail once", async () => {
+  const payload = {
+    email: "student@example.com",
+    pageTitle: "Test Page",
+    recipients: ["recipient@example.com"],
+    answers: [{ id: 1, answers: ["ok"] }],
+  }
+  const res = await fetchLocal(basePort, "/api/exercise-submission", {
+    method: "POST",
+    headers: { "content-type": "application/json" },
+    body: JSON.stringify(payload),
+  })
+  assert.equal(res.status, 204)
+  assert.equal(transport.calls.sendMail, 1, "sendMail was invoked once")
+  assert.ok(transport.calls.last, "sendMail received a payload")
+  assert.equal(transport.calls.last.to[0], "recipient@example.com")
+})
+
+test("POST /api/exercise-submission with missing answers returns 400", async () => {
+  const bad = { email: "x@example.com", answers: [] }
+  const res = await fetchLocal(basePort, "/api/exercise-submission", {
+    method: "POST",
+    headers: { "content-type": "application/json" },
+    body: JSON.stringify(bad),
+  })
+  assert.equal(res.status, 400)
+  const b = await res.json()
+  assert.match(b.error, /Missing answers/i)
+})
+
+test("CORS echoes back allowed origin when specific origin is configured", async () => {
+  // Spawn a one-off server with a specific origin to test the echo behavior
+  const { startExerciseMailer } = await import(process.cwd() + "/server/exercise-mailer.mjs")
+  const t2Transport = makeMockTransport()
+
+  // Set a specific origin and start a temp server
+  process.env.EXERCISE_MAILER_ORIGIN = "http://example.com"
+  const tmp = await startExerciseMailer({ transporter: t2Transport, port: 0 })
+  await new Promise((r) => tmp.once("listening", r))
+  const tmpPort = tmp.address().port
+
+  // Preflight
+  const pre = await fetch(`http://127.0.0.1:${tmpPort}/api/exercise-submission`, {
+    method: "OPTIONS",
+    headers: {
+      Origin: "http://example.com",
+      "Access-Control-Request-Method": "POST",
+      "Access-Control-Request-Headers": "Content-Type",
+    },
+  })
+  assert.equal(pre.status, 204)
+  assert.equal(pre.headers.get("access-control-allow-origin"), "http://example.com")
+
+  // Cleanup temp
+  await new Promise((res) => tmp.close(res))
+})
+
+test("shutdown", async () => {
+  await new Promise((res) => server.close(res))
+})

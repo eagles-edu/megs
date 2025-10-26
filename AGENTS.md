@@ -1,4 +1,4 @@
-# AGENTS.md
+# AGENTS.md - Agents Operating Manual
 
 ## Instructions for Coding
 
@@ -50,3 +50,46 @@ Mindset of a 15+ yr full-stack, AI-enabled app dev.
 - Keep sidebar labels single-line on desktop. If you must wrap, document the rationale in-code.
 
 **KISS**: simplest, best practices,solution or tweak that aligns with current instructions, stay focused, on-task, passes tests, meets requirements, ensures future-proof choices, and respects existing arch.
+
+## Edit Instruction Standards
+
+When proposing code changes, the assistant MUST provide:
+
+1) **File path** (absolute from repo root).
+2) **Exact line numbers** and **context** (3–5 lines around changes).
+   - If line numbers aren’t known, include a grep to locate anchors:
+
+     ```bash
+     nl -ba path/to/file | sed -n '120,150p'  # preview range
+     rg -n 'anchor text' path/to/file         # ripgrep
+     ```
+
+3) **Unified diff** (copy-pasteable) *and* a shell-ready way to apply it:
+   - Prefer `git apply` or `patch`; if small, provide `sed -i` commands.
+4) **Post-change verification** steps (lint/test/run commands).
+5) **Rollback** note (how to revert the commit or restore backup).
+
+### Patch Template
+
+**File:** `path/to/file.ext` (anchor: lines 120–150)
+
+## 1. Mandatory Edit Instruction Format
+
+When proposing code or config changes, instructions MUST include:
+
+1. **File path** (absolute from repo root), e.g. `/server/exercise-mailer.mjs`
+2. **Exact search anchor(s)** to locate position (unique lines to match)
+3. **Precise change type**: *insert above/below*, *replace lines X–Y*, or *append at EOF*
+4. **Before/After blocks** with enough context (≥3 lines) to avoid ambiguity
+5. **Unified diff** (optional but preferred) with context lines
+6. **Post-change verification commands** (e.g., lint/test/reload)
+7. **Rollback note** (how to revert quickly)
+
+> Never use vague phrases like “after the config block” or “near the top”.
+
+---
+
+## 2. Edit Instruction Template
+
+**File:** `/PATH/TO/FILE.ext`
+**Anchor (find this exact text):**
