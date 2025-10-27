@@ -58,6 +58,7 @@ git branch -a                      # list all branches
 git branch --merged                # branches already merged into current
 git branch --no-merged             # branches still unmerged
 git branch -vv                     # branches with upstream and last commit info
+git push --set-upstream origin PT-BETA-0.0.04.01  # create remote branches
 ```
 
 ### Commands to Pull Remote Updates Cleanly
