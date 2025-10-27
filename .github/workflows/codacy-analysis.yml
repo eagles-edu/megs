@@ -2,9 +2,9 @@ name: Codacy Analysis (ESLint + Trivy)
 
 on:
   push:
-    branches: [ Prototype_BETA_0.0.01 ]
+    branches: [ PT_BETA_0.0.04.01 ]
   pull_request:
-    branches: [ Prototype_BETA_0.0.01 ]
+    branches: [ PT_BETA_0.0.04.01 ]
   workflow_dispatch:
 
 concurrency:
