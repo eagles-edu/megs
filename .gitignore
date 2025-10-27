@@ -124,3 +124,4 @@ docs/*.json
 docs/git-cmds-1.js.txt
 docs/gh-codacy-raw-actions-job-logs.txt
 docs/job-logsCI-PYTHON.txt
+axe-linter.yml

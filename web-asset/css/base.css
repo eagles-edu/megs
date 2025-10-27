@@ -699,3 +699,8 @@ h4.box-head4 {
 .trans {
   color: transparent;
 }
+
+.tm01 {
+  display: block;
+  margin-top: 1rem!important;
+}

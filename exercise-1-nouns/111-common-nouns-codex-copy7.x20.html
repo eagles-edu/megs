@@ -1144,21 +1144,26 @@
                 </li>
               </ul>
               <p>Identify and enter the Common Nouns in the following sentences. Click on the sentence for the answer.
-                Enter your email address to begin.</p>
-              <form class="exercise-form" data-exercise-form="" data-storage-key="exercise-111-common-nouns" novalidate>
+                Enter your email address and student ID to begin.</p>
+              <form class="exercise-form exercise-gate" data-exercise-form data-storage-key="exercise-111-common-nouns"
+                novalidate>
                 <fieldset class="exercise-form__intro">
                   <legend class="visually-hidden">Exercise setup</legend>
-                  <label class="exercise-form__email-label" for="exercise-email">
-                    Enter your email address to begin.
-                  </label>
                   <div class="exercise-form__email">
                     <input class="exercise-form__email-input" type="email" id="exercise-email" name="exerciseEmail"
-                      autocomplete="email" required data-exercise-email="" placeholder="you@example.com">
+                      autocomplete="email" required data-exercise-email placeholder="you@example.com">
                   </div>
-
-                  <p class="exercise-form__progress" data-exercise-progress="" aria-live="polite">0 of 20 questions
-                    completed.</p>
-                  <p class="exercise-form__last-attempt" data-exercise-last-attempt="" hidden aria-live="polite"></p>
+                  <div class="exercise-form__student-id">
+                    <input class="exercise-form__email-input exercise-form__student-id-input" type="text"
+                      id="exercise-student-id" name="exerciseStudentId" inputmode="text" autocomplete="off"
+                      autocapitalize="none" spellcheck="false" required pattern="^[a-z]+\d{3}$" data-exercise-student-id
+                      placeholder="abc123" aria-describedby="exercise-student-id-note">
+                  </div>
+                  <p class="exercise-form__progress tm01" data-exercise-progress="" aria-live="polite">
+                    0 of 20 questions completed.
+                  </p>
+                  <span class="exercise-form__last-attempt" data-exercise-last-attempt="" hidden
+                    aria-live="polite"></span>
                   <div class="exercise-form__feedback" data-exercise-feedback="" aria-live="polite"></div>
                 </fieldset>
                 <div class="quest-bg" data-exercise-question="1">
@@ -1181,7 +1186,8 @@
                           <h2 class="nn_sliders-title">1. They arrived early but at the wrong station.</h2>
                           <p>
                             1. They arrived early but at the wrong
-                            <span class="in-text-decoration-underline__14j0pz">station</span>.
+                            <span class="in-text-decoration-underline__14j0pz">station</span>
+                            .
                           </p>
                         </div>
                       </div>
@@ -1285,8 +1291,7 @@
                         id="sec-3-the-man-was-trying-to-steal-a-horse-with-a-cart-full-of-apples" aria-hidden="true">
                         <div class="accordion-inner panel-body">
                           <h2 class="nn_sliders-title">3. The man was trying to steal a horse with a cart full of
-                            apples.
-                          </h2>
+                            apples.</h2>
                           <p>
                             3. The
                             <span class="in-text-decoration-underline__14j0pz">man</span>
@@ -2265,7 +2270,7 @@
                   <button type="submit" class="exercise-submit-button" data-exercise-submit="" disabled>
                     Submit answers
                   </button>
-                  <div id="exercise-status" class="status-warn" aria-live="polite" style="margin-top:.5rem;"></div>
+                  <div id="exercise-status" class="status-warn" aria-live="polite" style="margin-top: 0.5rem"></div>
                 </div>
               </form>
               <!-- Page config: set recipients and where to POST -->
@@ -2274,28 +2279,28 @@
                     "recipients": ["kimthanh@eaglesvn.online", "admin@eaglesvn.online", "thanh.eaglesclub@gmail.com"],
                     "submitUrl": ""
                   }
-              </script>
+                </script>
 
               <!-- Auto-switch submitUrl: runs only when submitUrl === "" -->
               <script>
-                  ( () => {
-                    const cfgEl = document.querySelector( '#exercise-config[data-exercise-config]' );
-                    if ( !cfgEl ) return;
-                    const cfg = JSON.parse( cfgEl.textContent || '{}' );
+                  ; ( () => {
+                    const cfgEl = document.querySelector( "#exercise-config[data-exercise-config]" )
+                    if ( !cfgEl ) return
+                    const cfg = JSON.parse( cfgEl.textContent || "{}" )
 
                     if ( !cfg.submitUrl )
                     {
-                      const host = location.host;
-                      if ( host === '127.0.0.1:5500' || host === 'localhost:5500' )
+                      const host = location.host
+                      if ( host === "127.0.0.1:5500" || host === "localhost:5500" )
                       {
-                        cfg.submitUrl = 'http://127.0.0.1:8787/api/exercise-submission'; // dev: Node directly
+                        cfg.submitUrl = "http://127.0.0.1:8787/api/exercise-submission" // dev: Node directly
                       } else
                       {
-                        cfg.submitUrl = 'https://thuvien.eagles.edu.vn/api/exercise-submission'; // prod: via nginx
+                        cfg.submitUrl = "https://thuvien.eagles.edu.vn/api/exercise-submission" // prod: via nginx
                       }
-                      cfgEl.textContent = JSON.stringify( cfg );
+                      cfgEl.textContent = JSON.stringify( cfg )
                     }
-                  } )();
+                  } )()
               </script>
 
               <ul class="pager pagenav">
@@ -3848,226 +3853,242 @@
     </div>
   </footer>
   <script>
-    // nn_sliders fallback: enable toggles without jQuery/Bootstrap
-    ; ( function () {
-      if ( typeof window.jQuery === "undefined" && !window._qaAccordionBound )
-      {
-        try
+      // nn_sliders fallback: enable toggles without jQuery/Bootstrap
+      ; ( function () {
+        if ( typeof window.jQuery === "undefined" && !window._qaAccordionBound )
         {
-          var toggles = document.querySelectorAll( ".nn_sliders-toggle" )
-          function getTargetId( toggle ) {
-            var dataId = toggle.getAttribute( "data-id" )
-            if ( dataId ) return dataId
-            var href = toggle.getAttribute( "href" ) || ""
-            var hashIndex = href.indexOf( "#" )
-            return hashIndex > -1 ? href.slice( hashIndex + 1 ) : ""
-          }
-          function setExpanded( toggle, panel, expanded ) {
-            if ( !panel ) return
-            if ( expanded )
-            {
-              panel.classList.add( "in" )
-              panel.classList.add( "show" )
-              panel.classList.remove( "collapse" )
-              panel.style.height = "auto"
-              panel.style.display = "block"
-              panel.setAttribute( "aria-hidden", "false" )
-              toggle.setAttribute( "aria-expanded", "true" )
-            } else
-            {
-              panel.classList.remove( "in" )
-              panel.classList.remove( "show" )
-              panel.classList.add( "collapse" )
-              panel.style.height = ""
-              panel.style.display = ""
-              panel.setAttribute( "aria-hidden", "true" )
-              toggle.setAttribute( "aria-expanded", "false" )
-            }
-          }
-          function collapseSiblings( currentToggle, currentPanel ) {
-            var parentSelector = currentToggle.getAttribute( "data-parent" )
-            if ( !parentSelector ) return
-            var parent = document.querySelector( parentSelector )
-            if ( !parent ) return
-            var siblingToggles = parent.querySelectorAll( ".nn_sliders-toggle" )
-            for ( var i = 0; i < siblingToggles.length; i++ )
-            {
-              var siblingToggle = siblingToggles[ i ]
-              if ( siblingToggle === currentToggle ) continue
-              var siblingId = getTargetId( siblingToggle )
-              if ( !siblingId ) continue
-              var siblingPanel = document.getElementById( siblingId )
-              if ( !siblingPanel || siblingPanel === currentPanel ) continue
-              setExpanded( siblingToggle, siblingPanel, false )
-            }
-          }
-          function onToggle( e ) {
-            if ( e ) e.preventDefault()
-            var id = getTargetId( this )
-            if ( !id ) return
-            var panel = document.getElementById( id )
-            if ( !panel ) return
-            var open = panel.classList.contains( "in" ) || panel.classList.contains( "show" )
-            if ( open )
-            {
-              setExpanded( this, panel, false )
-            } else
-            {
-              collapseSiblings( this, panel )
-              setExpanded( this, panel, true )
-            }
-          }
-          for ( var i = 0; i < toggles.length; i++ )
+          try
           {
-            var toggle = toggles[ i ]
-            var id = getTargetId( toggle )
-            if ( !id ) continue
-            var panel = document.getElementById( id )
-            if ( !panel ) continue
-            toggle.addEventListener( "click", onToggle )
-            toggle.setAttribute( "aria-controls", id )
-            var expanded =
-              toggle.getAttribute( "aria-expanded" ) === "true" || panel.classList.contains( "in" ) || panel.classList.contains( "show" )
-            setExpanded( toggle, panel, expanded )
+            var toggles = document.querySelectorAll( ".nn_sliders-toggle" )
+            function getTargetId( toggle ) {
+              var dataId = toggle.getAttribute( "data-id" )
+              if ( dataId ) return dataId
+              var href = toggle.getAttribute( "href" ) || ""
+              var hashIndex = href.indexOf( "#" )
+              return hashIndex > -1 ? href.slice( hashIndex + 1 ) : ""
+            }
+            function setExpanded( toggle, panel, expanded ) {
+              if ( !panel ) return
+              if ( expanded )
+              {
+                panel.classList.add( "in" )
+                panel.classList.add( "show" )
+                panel.classList.remove( "collapse" )
+                panel.style.height = "auto"
+                panel.style.display = "block"
+                panel.setAttribute( "aria-hidden", "false" )
+                toggle.setAttribute( "aria-expanded", "true" )
+              } else
+              {
+                panel.classList.remove( "in" )
+                panel.classList.remove( "show" )
+                panel.classList.add( "collapse" )
+                panel.style.height = ""
+                panel.style.display = ""
+                panel.setAttribute( "aria-hidden", "true" )
+                toggle.setAttribute( "aria-expanded", "false" )
+              }
+            }
+            function collapseSiblings( currentToggle, currentPanel ) {
+              var parentSelector = currentToggle.getAttribute( "data-parent" )
+              if ( !parentSelector ) return
+              var parent = document.querySelector( parentSelector )
+              if ( !parent ) return
+              var siblingToggles = parent.querySelectorAll( ".nn_sliders-toggle" )
+              for ( var i = 0; i < siblingToggles.length; i++ )
+              {
+                var siblingToggle = siblingToggles[ i ]
+                if ( siblingToggle === currentToggle ) continue
+                var siblingId = getTargetId( siblingToggle )
+                if ( !siblingId ) continue
+                var siblingPanel = document.getElementById( siblingId )
+                if ( !siblingPanel || siblingPanel === currentPanel ) continue
+                setExpanded( siblingToggle, siblingPanel, false )
+              }
+            }
+            function onToggle( e ) {
+              if ( e ) e.preventDefault()
+              var id = getTargetId( this )
+              if ( !id ) return
+              var panel = document.getElementById( id )
+              if ( !panel ) return
+              var open = panel.classList.contains( "in" ) || panel.classList.contains( "show" )
+              if ( open )
+              {
+                setExpanded( this, panel, false )
+              } else
+              {
+                collapseSiblings( this, panel )
+                setExpanded( this, panel, true )
+              }
+            }
+            for ( var i = 0; i < toggles.length; i++ )
+            {
+              var toggle = toggles[ i ]
+              var id = getTargetId( toggle )
+              if ( !id ) continue
+              var panel = document.getElementById( id )
+              if ( !panel ) continue
+              toggle.addEventListener( "click", onToggle )
+              toggle.setAttribute( "aria-controls", id )
+              var expanded =
+                toggle.getAttribute( "aria-expanded" ) === "true" || panel.classList.contains( "in" ) || panel.classList.contains( "show" )
+              setExpanded( toggle, panel, expanded )
+            }
+            window._qaAccordionBound = true
+          } catch ( e )
+          {
+            /* no-op */
           }
-          window._qaAccordionBound = true
-        } catch ( e )
-        {
-          /* no-op */
         }
-      }
-    } )()
+      } )()
   </script>
   <!-- Client script: collector + autosave + POST -->
   <script>
-      ( () => {
-        const $ = ( s, r = document ) => r.querySelector( s );
-        const $$ = ( s, r = document ) => Array.from( r.querySelectorAll( s ) );
+      ; ( () => {
+        const $ = ( s, r = document ) => r.querySelector( s )
+        const $$ = ( s, r = document ) => Array.from( r.querySelectorAll( s ) )
+        const STUDENT_ID_PATTERN = /^[a-z]+\d{3}$/;
 
         // ---------- config ----------
         function readConfig() {
-          const el = $( '#exercise-config[data-exercise-config]' );
-          if ( !el ) throw new Error( 'Missing #exercise-config block' );
-          const cfg = JSON.parse( el.textContent || '{}' );
-          const recipients = Array.isArray( cfg.recipients ) ? cfg.recipients.map( String ).map( s => s.trim() ).filter( Boolean ) : [];
-          const submitUrl = typeof cfg.submitUrl === 'string' ? cfg.submitUrl.trim() : '';
-          if ( !submitUrl ) throw new Error( 'submitUrl missing in config' );
-          return { recipients, submitUrl };
+          const el = $( "#exercise-config[data-exercise-config]" )
+          if ( !el ) throw new Error( "Missing #exercise-config block" )
+          const cfg = JSON.parse( el.textContent || "{}" )
+          const recipients = Array.isArray( cfg.recipients )
+            ? cfg.recipients
+              .map( String )
+              .map( ( s ) => s.trim() )
+              .filter( Boolean )
+            : []
+          const submitUrl = typeof cfg.submitUrl === "string" ? cfg.submitUrl.trim() : ""
+          if ( !submitUrl ) throw new Error( "submitUrl missing in config" )
+          return { recipients, submitUrl }
         }
 
         // ---------- collect answers (tailored to your structure) ----------
         // For each [data-exercise-question="<id>"], collect all inputs having [data-item="<id>"] and [data-field]
         function collectAnswers( form ) {
-          const blocks = $$( '[data-exercise-question]', form );
-          const results = [];
+          const blocks = $$( "[data-exercise-question]", form )
+          const results = []
 
           for ( const block of blocks )
           {
-            const id = String( block.getAttribute( 'data-exercise-question' ) || '' ).trim();
-            if ( !id ) continue;
+            const id = String( block.getAttribute( "data-exercise-question" ) || "" ).trim()
+            if ( !id ) continue
 
-            const fields = $$( `[data-item="${CSS.escape( id )}"][data-field]`, block );
+            const fields = $$( `[data-item="${CSS.escape( id )}"][data-field]`, block )
             if ( !fields.length )
             {
-              results.push( { id, answers: [] } );
-              continue;
+              results.push( { id, answers: [] } )
+              continue
             }
 
             // Keep a stable field order, then append unexpected fields
-            const order = [ 'response', 'notes', 'confidence', 'extension' ];
-            const found = new Map();
+            const order = [ "response", "notes", "confidence", "extension" ]
+            const found = new Map()
             for ( const el of fields )
             {
-              const key = String( el.getAttribute( 'data-field' ) || '' ).trim().toLowerCase();
-              const val = ( el.value ?? '' ).toString().trim();
-              if ( key ) found.set( key, val );
+              const key = String( el.getAttribute( "data-field" ) || "" )
+                .trim()
+                .toLowerCase()
+              const val = ( el.value ?? "" ).toString().trim()
+              if ( key ) found.set( key, val )
             }
 
-            const values = [];
+            const values = []
             for ( const k of order )
             {
-              const v = found.get( k );
-              if ( typeof v === 'string' && v.length ) values.push( v );
+              const v = found.get( k )
+              if ( typeof v === "string" && v.length ) values.push( v )
             }
             for ( const [ k, v ] of found.entries() )
             {
-              if ( !order.includes( k ) && v ) values.push( v );
+              if ( !order.includes( k ) && v ) values.push( v )
             }
 
-            results.push( { id, answers: values } );
+            results.push( { id, answers: values } )
           }
 
           // Filter out questions with truly no values, but leave empty arrays if you want to see all IDs:
-          return results.filter( q => q.answers.some( Boolean ) );
+          return results.filter( ( q ) => q.answers.some( Boolean ) )
         }
 
         // ---------- progress ----------
         function updateProgress( form ) {
-          const blocks = $$( '[data-exercise-question]', form );
-          const total = blocks.length;
-          let answered = 0;
+          const blocks = $$( "[data-exercise-question]", form )
+          const total = blocks.length
+          let answered = 0
           for ( const b of blocks )
           {
-            const id = b.getAttribute( 'data-exercise-question' );
-            const inputs = $$( `[data-item="${CSS.escape( id )}"][data-field]`, b );
-            if ( inputs.some( i => ( i.value ?? '' ).trim().length > 0 ) ) answered++;
+            const id = b.getAttribute( "data-exercise-question" )
+            const inputs = $$( `[data-item="${CSS.escape( id )}"][data-field]`, b )
+            if ( inputs.some( ( i ) => ( i.value ?? "" ).trim().length > 0 ) ) answered++
           }
-          const label = $( '[data-exercise-progress]', form );
-          if ( label ) label.textContent = `${answered} of ${total} questions completed.`;
-          return { answered, total };
+          const label = $( "[data-exercise-progress]", form )
+          if ( label ) label.textContent = `${answered} of ${total} questions completed.`
+          return { answered, total }
         }
 
         // ---------- autosave (localStorage) ----------
         function getStorageKey( form ) {
-          return form?.getAttribute( 'data-storage-key' ) || '';
+          return form?.getAttribute( "data-storage-key" ) || ""
         }
 
         function loadSaved( form ) {
-          const key = getStorageKey( form );
-          if ( !key ) return null;
+          const key = getStorageKey( form )
+          if ( !key ) return null
           try
           {
-            const raw = localStorage.getItem( key );
-            if ( !raw ) return null;
-            const data = JSON.parse( raw );
+            const raw = localStorage.getItem( key )
+            if ( !raw ) return null
+            const data = JSON.parse( raw )
             // restore email
             if ( data.email )
             {
-              const emailInput = $( '[data-exercise-email]', form );
-              if ( emailInput ) emailInput.value = data.email;
+              const emailInput = $( "[data-exercise-email]", form )
+              if ( emailInput ) emailInput.value = data.email
+            }
+            if ( data.studentId )
+            {
+              const studentInput = $( '[data-exercise-student-id]', form );
+              if ( studentInput ) studentInput.value = data.studentId;
             }
             // restore answers
             if ( Array.isArray( data.answers ) )
             {
               for ( const q of data.answers )
               {
-                const id = q.id;
-                if ( !id || !Array.isArray( q.answers ) ) continue;
-                const fields = $$( `[data-item="${CSS.escape( String( id ) )}"][data-field]`, form );
-                const order = [ 'response', 'notes', 'confidence', 'extension' ];
-                const map = new Map();
+                const id = q.id
+                if ( !id || !Array.isArray( q.answers ) ) continue
+                const fields = $$( `[data-item="${CSS.escape( String( id ) )}"][data-field]`, form )
+                const order = [ "response", "notes", "confidence", "extension" ]
+                const map = new Map()
                 // rebuild map from saved answers by assumed order
                 for ( let i = 0; i < q.answers.length; i++ )
                 {
-                  const k = order[ i ] || `extra${i - order.length + 1}`;
-                  map.set( k, q.answers[ i ] );
+                  const k = order[ i ] || `extra${i - order.length + 1}`
+                  map.set( k, q.answers[ i ] )
                 }
                 for ( const el of fields )
                 {
-                  const keyName = String( el.getAttribute( 'data-field' ) || '' ).toLowerCase();
-                  if ( map.has( keyName ) ) el.value = map.get( keyName );
+                  const keyName = String( el.getAttribute( "data-field" ) || "" ).toLowerCase()
+                  if ( map.has( keyName ) ) el.value = map.get( keyName )
                 }
               }
             }
             // announce last attempt
-            const last = $( '[data-exercise-last-attempt]', form );
+            const last = $( "[data-exercise-last-attempt]", form )
             if ( last && data.savedAt )
             {
-              last.hidden = false;
-              last.textContent = `Restored previous attempt from ${new Date( data.savedAt ).toLocaleString()}.`;
+              last.hidden = false
+              last.textContent = `Restored previous attempt from ${new Date( data.savedAt ).toLocaleString()}.`
             }
-            return data;
-          } catch ( _ ) { return null; }
+            return data
+          } catch ( _ )
+          {
+            return null
+          }
         }
 
         function saveNow( form ) {
@@ -4076,136 +4097,178 @@
           try
           {
             const email = $( '[data-exercise-email]', form )?.value?.trim() || '';
+            const studentId = $( '[data-exercise-student-id]', form )?.value?.trim() || '';
             const answers = collectAnswers( form );
-            const payload = { email, answers, savedAt: new Date().toISOString() };
+            const payload = { email, studentId, answers, savedAt: new Date().toISOString() };
             localStorage.setItem( key, JSON.stringify( payload ) );
           } catch ( _ ) { }
         }
 
         function debounce( fn, ms = 300 ) {
-          let t;
+          let t
           return ( ...args ) => {
-            clearTimeout( t );
-            t = setTimeout( () => fn( ...args ), ms );
-          };
+            clearTimeout( t )
+            t = setTimeout( () => fn( ...args ), ms )
+          }
         }
 
         // ---------- UX helpers ----------
         function setSubmitting( state ) {
-          const row = $( '[data-exercise-submit-row]' );
-          const btn = $( '[data-exercise-submit]' );
-          if ( state ) btn?.setAttribute( 'disabled', 'disabled' ); else btn?.removeAttribute( 'disabled' );
-          row?.removeAttribute( 'hidden' );
+          const row = $( "[data-exercise-submit-row]" )
+          const btn = $( "[data-exercise-submit]" )
+          if ( state ) btn?.setAttribute( "disabled", "disabled" )
+          else btn?.removeAttribute( "disabled" )
+          row?.removeAttribute( "hidden" )
         }
 
         function showStatus( type, message ) {
-          const box = $( '#exercise-status' );
-          if ( !box ) return;
-          box.className = type === 'ok' ? 'status-ok' : ( type === 'warn' ? 'status-warn' : 'status-err' );
-          box.textContent = message;
+          const box = $( "#exercise-status" )
+          if ( !box ) return
+          box.className = type === "ok" ? "status-ok" : type === "warn" ? "status-warn" : "status-err"
+          box.textContent = message
         }
 
         async function postJSON( url, data ) {
           const res = await fetch( url, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
             body: JSON.stringify( data ),
-            credentials: 'omit'
-          } );
-          return res;
+            credentials: "omit",
+          } )
+          return res
         }
 
-        // ---------- main ----------
-        document.addEventListener( 'DOMContentLoaded', () => {
-          const form = document.querySelector( 'form.exercise-form[data-exercise-form]' ) || document.querySelector( 'form' );
-          const emailInput = $( '[data-exercise-email]', form );
-          const submitBtn = $( '[data-exercise-submit]', form );
-          const submitRow = $( '[data-exercise-submit-row]', form );
-
-          // enable submit UI on load
-          submitRow?.removeAttribute( 'hidden' );
-          submitBtn?.removeAttribute( 'disabled' );
-
-          // load config
-          let recipients = [];
-          let submitUrl = '';
+        function saveNow( form ) {
+          const key = getStorageKey( form );
+          if ( !key ) return;
           try
           {
-            const cfg = readConfig();
-            recipients = cfg.recipients;
-            submitUrl = cfg.submitUrl;
+            const email = $( '[data-exercise-email]', form )?.value?.trim() || '';
+            const studentId = $( '[data-exercise-student-id]', form )?.value?.trim() || '';
+            const answers = collectAnswers( form );
+            const payload = { email, studentId, answers, savedAt: new Date().toISOString() };
+            localStorage.setItem( key, JSON.stringify( payload ) );
+          } catch ( _ ) { }
+        }
+          // enable submit UI on load
+          submitRow?.removeAttribute( "hidden" )
+          submitBtn?.removeAttribute( "disabled" )
+
+          // load config
+          let recipients = []
+          let submitUrl = ""
+          try
+          {
+            const cfg = readConfig()
+            recipients = cfg.recipients
+            submitUrl = cfg.submitUrl
           } catch ( e )
           {
-            showStatus( 'err', e.message );
-            return;
+            showStatus( "err", e.message )
+            return
           }
 
-          // autosave restore
-          loadSaved( form );
-          updateProgress( form );
+        // autosave restore
+        loadSaved( form );
+        refreshStatus();
+        updateProgress( form );
 
-          // input listeners for progress + autosave
-          const onChanged = debounce( () => { updateProgress( form ); saveNow( form ); }, 250 );
-          form.addEventListener( 'input', onChanged );
-          form.addEventListener( 'change', onChanged );
+        // input listeners for progress + autosave
+        const onChanged = debounce( () => { updateProgress( form ); saveNow( form ); }, 250 );
+        form.addEventListener( 'input', onChanged );
+        form.addEventListener( 'change', onChanged );
 
-          // optional: simple email hint gating (does not block submission)
-          emailInput?.addEventListener( 'input', () => {
-            const ok = emailInput.validity.valid;
-            if ( !ok ) showStatus( 'warn', 'Enter a valid email (used for Reply-To).' );
-            else showStatus( 'ok', 'Ready to submit.' );
-          } );
+        // optional: simple email hint gating (does not block submission)
+        emailInput?.addEventListener( 'input', () => {
+          if ( isEmailValid() ) emailInput.classList.remove( 'exercise-form__email-input--invalid' );
+          refreshStatus();
+        } );
+        emailInput?.addEventListener( 'blur', () => {
+          if ( !isEmailValid() ) emailInput.classList.add( 'exercise-form__email-input--invalid' );
+          else emailInput.classList.remove( 'exercise-form__email-input--invalid' );
+        } );
+
+        studentIdInput?.addEventListener( 'input', () => {
+          if ( isStudentIdValid() ) studentIdInput.classList.remove( 'exercise-form__email-input--invalid' );
+          refreshStatus();
+        } );
+        studentIdInput?.addEventListener( 'blur', () => {
+          if ( !isStudentIdValid() ) studentIdInput.classList.add( 'exercise-form__email-input--invalid' );
+          else studentIdInput.classList.remove( 'exercise-form__email-input--invalid' );
+        } );
 
           // submit handler
-          form.addEventListener( 'submit', async ( ev ) => {
-            ev.preventDefault();
-            try
-            {
-              setSubmitting( true );
-              showStatus( 'warn', 'Submitting…' );
-
-              const email = emailInput?.value?.trim() || '';
-              const answers = collectAnswers( form );
-              if ( !answers.length )
+          form.addEventListener(
+            "submit",
+            async ( ev ) => {
+              ev.preventDefault()
+              try
               {
-                showStatus( 'err', 'No answers detected. Please fill at least one response.' );
-                setSubmitting( false );
-                return;
+                setSubmitting( true )
+                showStatus( "warn", "Submitting…" )
+                if ( !isEmailValid() )
+                {
+                  showStatus( 'err', 'Enter your valid email (used for Reply-To).' );
+                  emailInput?.classList.add( 'exercise-form__email-input--invalid' );
+                  emailInput?.focus();
+                  setSubmitting( false );
+                  return;
+                }
+
+                if ( !isStudentIdValid() )
+                {
+                  showStatus( 'err', 'Enter an Eagles Club user ID like tina001 (all lowercase letters followed by three numbers).' );
+                  studentIdInput?.classList.add( 'exercise-form__email-input--invalid' );
+                  studentIdInput?.focus();
+                  setSubmitting( false );
+                  return;
+                }
+
+                const email = emailInput?.value?.trim() || '';
+                const studentId = studentIdInput?.value?.trim() || '';
+                const answers = collectAnswers( form )
+                if ( !answers.length )
+                {
+                  showStatus( "err", "No answers detected. Please fill one or more response per question." )
+                  setSubmitting( false )
+                  return
+                }
+
+                const payload = {
+                  email,
+                  studentId,
+                  pageTitle: document.title || "",
+                  completedAt: new Date().toISOString(),
+                  recipients, // from config; server will fallback to env if empty
+                  answers,
+                }
+
+                const res = await postJSON( submitUrl, payload )
+
+                if ( res.status === 204 )
+                {
+                  showStatus( "ok", "✅ Submitted! Check your inbox." )
+                  saveNow( form ) // capture final state/time
+                } else
+                {
+                  const data = await res.json().catch( () => ( {} ) )
+                  showStatus( "err", `❌ Submit failed: ${data.error || `HTTP ${res.status}`}` )
+                }
+              } catch ( err )
+              {
+                showStatus( "err", `❌ Submit failed: ${err.message || err}` )
+              } finally
+              {
+                setSubmitting( false )
               }
-
-              const payload = {
-                email,
-                pageTitle: document.title || '',
-                completedAt: new Date().toISOString(),
-                recipients,       // from config; server will fallback to env if empty
-                answers
-              };
-
-              const res = await postJSON( submitUrl, payload );
-
-              if ( res.status === 204 )
-              {
-                showStatus( 'ok', '✅ Submitted! Check your inbox.' );
-                saveNow( form ); // capture final state/time
-              } else
-              {
-                const data = await res.json().catch( () => ( {} ) );
-                showStatus( 'err', `❌ Submit failed: ${data.error || `HTTP ${res.status}`}` );
-              }
-            } catch ( err )
-            {
-              showStatus( 'err', `❌ Submit failed: ${err.message || err}` );
-            } finally
-            {
-              setSubmitting( false );
-            }
-          }, { passive: false } );
-        } );
-      } )();
+            },
+            { passive: false }
+          )
+        } )
+      } )()
   </script>
 
   <!-- Mobile navigation is handled globally via template asset -->
-
 </body>
 
 </html>

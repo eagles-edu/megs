@@ -80,6 +80,7 @@
     if (!form) return
 
     var emailInput = form.querySelector("[data-exercise-email]")
+    var studentIdInput = form.querySelector("[data-exercise-student-id]")
     var submitRow = form.querySelector("[data-exercise-submit-row]")
     var submitButton = form.querySelector("[data-exercise-submit]")
     var progressEl = form.querySelector("[data-exercise-progress]")
@@ -167,6 +168,8 @@
       lastAttemptEl.appendChild(icon)
       if (emailInput && data.email && !emailInput.value) {
         emailInput.value = data.email
+      }if (studentIdInput && data.studentId && !studentIdInput.value) {
+        studentIdInput.value = data.studentId
       }
     }
 
@@ -180,6 +183,20 @@
       return /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(value)
     }
 
+    function isStudentIdValid() {
+      if (!studentIdInput) return true
+      var value = (studentIdInput.value || "").trim()
+      if (!value) return false
+      if (typeof studentIdInput.checkValidity === "function") {
+        try {
+          return studentIdInput.checkValidity()
+        } catch (err) {
+          /* fallback below */
+        }
+      }
+      return /^[a-z]+\d{3}$/.test(value)
+    }
+
     function ensureEmail() {
       if (isEmailValid()) return true
       setFeedback("Enter a valid email address before checking answers.", "error")
@@ -189,6 +206,24 @@
       }
       return false
     }
+
+      function ensureStudentId() {
+        if (isStudentIdValid()) return true
+        setFeedback(
+          "Enter your student ID using lowercase letters followed by three digits (example: abc123) before checking answers.",
+          "error"
+        )
+        if (studentIdInput) {
+          studentIdInput.classList.add("exercise-form__email-input--invalid")
+          studentIdInput.focus()
+        }
+        return false
+      }
+
+      function ensureContactInfo() {
+        if (!ensureEmail()) return false
+        return ensureStudentId()
+      }
 
     function allQuestionsComplete() {
       if (!questions.length) return false
@@ -200,7 +235,7 @@
 
     function updateSubmitState() {
       if (!submitButton) return
-      var ready = allQuestionsComplete() && isEmailValid()
+      var ready = allQuestionsComplete() && isEmailValid() && isStudentIdValid()
       if (submitRow && submitRow.hasAttribute("hidden")) ready = false
       submitButton.disabled = !ready
       submitButton.setAttribute("aria-disabled", ready ? "false" : "true")
@@ -311,7 +346,7 @@
     function guardQuestion(question) {
       if (!question) return true
       if (question.complete) return true
-      if (!ensureEmail()) return false
+      if (!ensureContactInfo()) return false
       var result = evaluateQuestion(question)
       if (!result.ready) {
         markQuestionIncorrect(question)
@@ -421,6 +456,7 @@
       }
       return {
         email: emailInput ? (emailInput.value || "").trim() : "",
+        studentId: studentIdInput ? (studentIdInput.value || "").trim() : "",
         pageTitle: document.title,
         completedAt: new Date().toISOString(),
         recipients: config.recipients.slice(),
@@ -468,7 +504,7 @@
         setFeedback("Finish every question before submitting.", "error")
         return false
       }
-      if (!ensureEmail()) return false
+      if (!ensureContactInfo()) return false
       if (submitButton) submitButton.disabled = true
       var payload = collectPayload()
       setFeedback("Submitting answers...", "success")
@@ -477,6 +513,7 @@
           var stored = {
             timestamp: Date.now(),
             email: payload.email,
+            studentId: payload.studentId,
             answers: payload.answers,
           }
           writeStoredAttempt(storageKey, stored)
@@ -510,6 +547,18 @@
       })
       emailInput.addEventListener("blur", function () {
         if (isEmailValid()) emailInput.classList.remove("exercise-form__email-input--invalid")
+      })
+    }
+
+    if (studentIdInput) {
+      studentIdInput.addEventListener("input", function () {
+        studentIdInput.classList.remove("exercise-form__email-input--invalid")
+        updateSubmitState()
+      })
+
+      studentIdInput.addEventListener("blur", function () {
+        if (isStudentIdValid())
+          studentIdInput.classList.remove("exercise-form__email-input--invalid")
       })
     }
 
