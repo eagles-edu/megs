@@ -190,7 +190,7 @@
       if (typeof studentIdInput.checkValidity === "function") {
         try {
           return studentIdInput.checkValidity()
-        } catch (err) {
+        } catch {
           /* fallback below */
         }
       }

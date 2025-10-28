@@ -26,7 +26,6 @@ jobs:
     timeout-minutes: 30
     env:
       ESLINT_USE_FLAT_CONFIG: "true"
-      CODACY_PROJECT_TOKEN: ${{ secrets.CODACY_PROJECT_TOKEN }}
 
     steps:
       - name: Checkout
@@ -68,11 +67,13 @@ jobs:
           sarif_file: results-eslint.sarif
           wait-for-processing: true
 
-      # ── Trivy via Codacy CLI → SARIF
+            # ── Trivy via Codacy CLI → SARIF
       # Run only when token is available and the event is not a forked PR
       - name: Codacy CLI (Trivy → SARIF)
-        if: ${{ github.event_name != 'pull_request' && env.CODACY_PROJECT_TOKEN != '' }}
+        if: ${{ github.event_name != 'pull_request' && secrets.CODACY_PROJECT_TOKEN != '' }}
         uses: codacy/codacy-analysis-cli-action@v4
+        env:
+          CODACY_PROJECT_TOKEN: ${{ secrets.CODACY_PROJECT_TOKEN }}
         with:
           tool: trivy
           directory: /src                 # absolute; DO NOT use "."
@@ -81,7 +82,7 @@ jobs:
           format: sarif
           output: results-trivy.sarif
           gh-code-scanning-compat: true
-          project-token: ${{ env.CODACY_PROJECT_TOKEN }}
+          project-token: ${{ secrets.CODACY_PROJECT_TOKEN }}
           upload: true
           fail-if-incomplete: true
 

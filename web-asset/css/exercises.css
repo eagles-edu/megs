@@ -144,6 +144,16 @@
   padding: 0;
 }
 
+.exercise-form__intro-fields {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.exercise-form__intro-fields .exercise-form__email,
+.exercise-form__intro-fields .exercise-form__student-id {
+  margin-bottom: 0;
+}
+
 .exercise-form__email-label {
   display: block;
   font-weight: 600;
@@ -216,6 +226,13 @@
 
 .exercise-form__feedback--success {
   color: var(--exercise-success);
+}
+
+@media (width >= 640px) {
+  .exercise-form__intro-fields {
+    align-items: end; /* keep inputs aligned along their baselines */
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
 .exercise-submit-row {
