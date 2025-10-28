@@ -43,7 +43,7 @@ jobs:
       - name: Install deps
         run: npm ci
 
-      # ── ESLint (native, flat) → SARIF
+      # ── ESLint (native, flat, proud) → SARIF
       - name: ESLint → SARIF
         run: |
           npx eslint . \
@@ -83,6 +83,7 @@ jobs:
           gh-code-scanning-compat: true
           upload: true
           fail-if-incomplete: true
+          project-token: ${{ secrets.CODACY_PROJECT_TOKEN }}
 
       - name: Validate Trivy SARIF
         id: validate_trivy
