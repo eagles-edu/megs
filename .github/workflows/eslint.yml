@@ -11,12 +11,12 @@ name: ESLint
 
 on:
   push:
-    branches: [ "PT-BETA-0.0.04.01"]
+    branches: ["PT-BETA-0.0.04.01"]
   pull_request:
     # The branches below must be a subset of the branches above
-    branches: [ "PT-BETA-0.0.04.01" ]
+    branches: ["PT-BETA-0.0.04.01"]
   schedule:
-    - cron: '38 17 * * 5'
+    - cron: "38 17 * * 5"
 
 jobs:
   eslint:
@@ -45,11 +45,23 @@ jobs:
         env:
           SARIF_ESLINT_IGNORE_SUPPRESSED: "true"
         run: |
+          set -o errexit
+          set -o nounset
+          set -o pipefail
+
+          EXIT_CODE=0
+
           npx eslint . \
             --config eslint.config.mjs \
             --ext .js,.mjs,.cjs,.ts,.tsx \
             --format @microsoft/eslint-formatter-sarif \
-            --output-file eslint-results.sarif
+            --output-file eslint-results.sarif || EXIT_CODE=$?
+
+          if [ ! -s eslint-results.sarif ]; then
+            node -e "process.stdout.write(JSON.stringify({version: '2.1.0', runs: []}, null, 2));" > eslint-results.sarif
+          fi
+
+          exit $EXIT_CODE
         continue-on-error: true
 
       - name: Upload analysis results to GitHub

@@ -5,9 +5,9 @@ permissions:
 
 on:
   push:
-    branches: [ PT_BETA_0.0.04.01 ]
+    branches: [ PT-BETA-0.0.04.01 ]
   pull_request:
-    branches: [ PT_BETA_0.0.04.01 ]
+    branches: [ PT-BETA-0.0.04.01 ]
 
 jobs:
   ci:
