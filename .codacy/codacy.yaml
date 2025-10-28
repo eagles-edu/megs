@@ -27,3 +27,5 @@ exclude_paths:
     - "**/**/_notes/**"
     - "**/**/sto/**"
     - "**/**/.sto/**"
+    - "**/*copy*.html"
+    - "**/*.backup.html"
