@@ -21,7 +21,7 @@ jobs:
   codacy-analysis:
     name: Codacy Analysis
     runs-on: ubuntu-22.04
-    # If your token is stored in an Environment, uncomment this and set the right name:
+    # If token is stored in an Environment, uncomment this and set the right name:
     environment: megs_env
     timeout-minutes: 30
     env:

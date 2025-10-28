@@ -70,17 +70,6 @@ secrets.*
 credentials.*
 settings.*
 
-# ── Keep essential tracked items despite broad ignores above
-!.gitignore
-!.github/
-!.github/**
-!js/
-!js/**
-!.codacy/
-!.codacy/**
-!AGENTS.md
-!git-sync-guide.md
-
 # ── Specific ignores from your list
 frame.html
 .github/instructions/codacy.instructions.md
@@ -125,3 +114,23 @@ docs/git-cmds-1.js.txt
 docs/gh-codacy-raw-actions-job-logs.txt
 docs/job-logsCI-PYTHON.txt
 axe-linter.yml
+codacy-analysis.yml-edit
+
+#── Keep essential tracked items despite broad ignores above
+!.gitignore
+!.github/
+!.github/**
+!js/
+!js/**
+!.codacy/
+!.codacy/**
+!AGENTS.md
+!git-sync-guide.md
+!codacy-analysis.yml
+!summary.yml
+!ci.yml
+!codeql.yml
+
+#  more
+111-common-nouns-codex-copy2.html
+
