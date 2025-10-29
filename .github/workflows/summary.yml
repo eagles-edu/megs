@@ -2,17 +2,27 @@ name: Summarize new issues
 
 on:
   issues:
-    types:
-      - opened
+    types: [opened]                      # OK: run only when a new issue is opened
+
+# ADD: explicit minimal token scopes (workflow-level)
+# Rationale: 'gh issue comment' needs issues:write; ai-inference needs models:read.
+permissions:
+  contents: read
+  issues: write
+  models: read
+
+# ADD: avoid duplicate runs per issue
+concurrency:
+  group: summarize-issue-${{ github.event.issue.number || github.run_id }}
+  cancel-in-progress: true
 
 jobs:
   summary:
     runs-on: ubuntu-22.04
-    environment: megs_env
-    permissions:
-      issues: write
-      models: read
-      contents: read
+
+    # CHG: environment removed (commented) unless you have an existing env named "megs_env".
+    # Environments with required reviewers can block runs on 'issues' events.
+    # environment: megs_env
 
     steps:
       - name: Checkout repository
@@ -22,6 +32,9 @@ jobs:
         id: inference
         uses: actions/ai-inference@v1
         with:
+          # ADD: pin model to a stable default to avoid org/global defaults changing
+          model: openai/gpt-4o-mini
+          # Keep prompt; multi-line is fine.
           prompt: |
             Summarize the following GitHub issue in one paragraph:
             Title: ${{ github.event.issue.title }}
@@ -29,15 +42,18 @@ jobs:
 
       - name: Comment with AI summary
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}                       # required by gh CLI
           ISSUE_NUMBER: ${{ github.event.issue.number }}
-          RESPONSE: ${{ steps.inference.outputs.response }}
+          # CHG: use response-file to avoid output-size/encoding limits
+          RESPONSE_FILE: ${{ steps.inference.outputs['response-file'] }}
         run: |
+          set -euo pipefail
           if [ -z "${ISSUE_NUMBER:-}" ]; then
             echo "No issue number available; skipping comment."
             exit 0
           fi
-
-          response_file="$(mktemp)"
-          printf '%s' "$RESPONSE" > "$response_file"
-          gh issue comment "$ISSUE_NUMBER" --body-file "$response_file"
+          if [ -z "${RESPONSE_FILE:-}" ] || [ ! -s "${RESPONSE_FILE}" ]; then
+            echo "AI inference returned no content."
+            exit 1
+          fi
+          gh issue comment "$ISSUE_NUMBER" --body-file "$RESPONSE_FILE"
