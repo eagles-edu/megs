@@ -33,7 +33,7 @@ jobs:
         uses: actions/ai-inference@v1
         with:
           # ADD: pin model to a stable default to avoid org/global defaults changing
-          model: openai/gpt-4o-mini
+          model: openai/gpt-5-mini
           # Keep prompt; multi-line is fine.
           prompt: |
             Summarize the following GitHub issue in one paragraph:
