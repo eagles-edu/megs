@@ -22,6 +22,7 @@ jobs:
   eslint:
     name: Run eslint scanning
     runs-on: ubuntu-22.04
+    environment: megs_env
     permissions:
       contents: read
       security-events: write

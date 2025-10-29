@@ -21,7 +21,6 @@ jobs:
   codacy-analysis:
     name: Codacy Analysis
     runs-on: ubuntu-22.04
-    # If token is stored in an Environment, uncomment this and set the right name:
     environment: megs_env
     timeout-minutes: 30
     env:
@@ -68,10 +67,12 @@ jobs:
           sarif_file: results-eslint.sarif
           wait-for-processing: true
 
-            # ── Trivy via Codacy CLI → SARIF
+      # ── Trivy via Codacy CLI → SARIF
       # Run only when token is available and the event is not a forked PR
       - name: Codacy CLI (Trivy → SARIF)
-        if: github.event_name != 'pull_request' && env.CODACY_PROJECT_TOKEN != ''
+        id: codacy_trivy
+        if: github.event_name != 'pull_request'
+        continue-on-error: true
         uses: codacy/codacy-analysis-cli-action@v4
         with:
           tool: trivy
@@ -81,9 +82,14 @@ jobs:
           format: sarif
           output: results-trivy.sarif
           gh-code-scanning-compat: true
-          upload: true
-          fail-if-incomplete: true
-          project-token: ${{ secrets.CODACY_PROJECT_TOKEN }}
+          project-token: ${{ env.CODACY_PROJECT_TOKEN }}
+          upload: ${{ env.CODACY_PROJECT_TOKEN != '' }}
+          fail-if-incomplete: false
+
+      - name: Flag Codacy upload issues
+        if: steps.codacy_trivy.outcome == 'failure'
+        run: |
+          echo "Codacy CLI reported a failure; continuing without Codacy upload." >&2
 
       - name: Validate Trivy SARIF
         id: validate_trivy
