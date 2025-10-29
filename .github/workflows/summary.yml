@@ -2,16 +2,15 @@ name: Summarize new issues
 
 on:
   issues:
-    types: [opened]                      # OK: run only when a new issue is opened
+    types: [opened]                      # OK: triggers when a new issue is opened
 
-# ADD: explicit minimal token scopes (workflow-level)
-# Rationale: 'gh issue comment' needs issues:write; ai-inference needs models:read.
+# ADD: set minimal, explicit permissions once at workflow scope
 permissions:
   contents: read
   issues: write
   models: read
 
-# ADD: avoid duplicate runs per issue
+# ADD: prevent duplicate runs per issue
 concurrency:
   group: summarize-issue-${{ github.event.issue.number || github.run_id }}
   cancel-in-progress: true
@@ -19,9 +18,7 @@ concurrency:
 jobs:
   summary:
     runs-on: ubuntu-22.04
-
-    # CHG: environment removed (commented) unless you have an existing env named "megs_env".
-    # Environments with required reviewers can block runs on 'issues' events.
+    # CHG: no environment gate; environments with approvals can block 'issues' runs
     # environment: megs_env
 
     steps:
@@ -31,29 +28,127 @@ jobs:
       - name: Run AI inference
         id: inference
         uses: actions/ai-inference@v1
-        with:
-          # ADD: pin model to a stable default to avoid org/global defaults changing
+        with: # CHG: make prompt resilient when the issue body is empty or null
           model: openai/gpt-4o-mini
-          # Keep prompt; multi-line is fine.
           prompt: |
-            Summarize the following GitHub issue in one paragraph:
+            ROLE
+            You are a cautious senior (15+ yrs) software engineering assistant. Read a newly opened GitHub issue and produce an actionable, COMPLETE CI digest using ONLY the issue’s Title and Body. Do NOT invent data or infer results that are not present.
+
+            GOAL
+            Create a GitHub-Markdown comment that:
+            1) Reports per-workflow status for:
+              - ci.yml
+              - codacy-analysis.yml
+              - codeql.yml
+              - eslint.yml
+            2) Enumerates EVERY relevant error/warning/finding present in the Body.
+            3) Groups identical messages with counts and file:line occurrences.
+            4) Proposes concrete next steps.
+
+            INPUTS
+            - Title: ${{ github.event.issue.title }}
+            - Body:  ${{ github.event.issue.body || '(No body provided.)' }}
+            - URL:   ${{ github.event.issue.html_url }}
+
+            STRICT RULES
+            - Use ONLY the Body (Title for context). If Body lacks logs for a workflow, mark it ❔ Unknown and request the exact artifact or link.
+            - NO artificial length limits. List ALL findings. If extremely long, keep the comment readable by grouping duplicates and placing full expansions inside <details> blocks.
+            - Prefer structured data: severity, rule/CVE ID, file:line, package@version, exit codes, counts.
+            - Never summarize away specifics that are present in Body.
+
+            PARSING HINTS
+            - Treat lines containing “ERROR”, “ERR”, “E ”, “✖”, “failed”, “exit code”, “severity”, “CVE-”, “WARN”, “warning”, “W ”, “eslint”, “trivy”, “sarif”, “codeql”, “lint” as candidates.
+            - Extract (when present): severity, rule/vuln ID, package/module, version & fixed version, file path, line:col, exit status.
+            - Group identical messages: show the message once with “(N occurrences)”, then list file:line entries underneath. Keep order stable.
+
+            OUTPUT FORMAT (exact sections)
+            ## CI Digest — ${{ github.event.issue.title }}
+
+            **Action Checklist**
+            - [ ] Highest-impact fix first (one sentence + command/path if clear)
+            - [ ] Provide missing artifacts/logs for any ❔ Unknown workflow (specify exactly which)
+
+            ### Workflows
+            - **ci.yml:** STATUS (✅/❌/⚠️/❔) — one-sentence outcome.
+              **Findings (grouped):**
+              - Message A (N occurrences)
+                - path/to/file1:line
+                - path/to/file2:line
+              - Message B (N occurrences)
+              <details><summary>All ci.yml findings (expanded)</summary>
+
+              ```text
+              # Full list of ALL findings for ci.yml (verbatim lines as needed)
+              ```
+              </details>
+              **Next steps:** bullet list of concrete actions (commands/paths/flags when known).
+
+            - **codacy-analysis.yml:** STATUS — one-sentence outcome.
+              **Findings (grouped):** (e.g., Trivy/Codacy issues with CVE IDs, severity, pkg@ver)
+              <details><summary>All Codacy/Trivy findings (expanded)</summary>
+
+              ```text
+              # Full list, including CVEs and fix versions if present
+              ```
+              </details>
+              **Next steps:** …
+
+            - **codeql.yml:** STATUS — one-sentence outcome.
+              **Findings (grouped):** rule IDs, locations, summaries
+              <details><summary>All CodeQL findings (expanded)</summary>
+
+              ```text
+              # Full list verbatim from Body if available
+              ```
+              </details>
+              **Next steps:** …
+
+            - **eslint.yml:** STATUS — one-sentence outcome.
+              **Findings (grouped):** rule IDs (e.g., no-unused-vars), file:line:col, counts
+              <details><summary>All ESLint findings (expanded)</summary>
+
+              ```text
+              # Full list with rule IDs and locations
+              ```
+              </details>
+              **Next steps:** …
+
+            ### Notable Errors (top 3 by severity/impact if present)
+            > Quote 1–2 most informative lines per item (trimmed).
+
+            ### If Body is empty
+            If Body equals “(No body provided.)”, instead output:
+            - One brief sentence inferring topic from the Title.
+            - A 4-bullet polite request for:
+              1) steps to reproduce
+              2) expected vs. actual
+              3) environment (OS, versions, logs/links)
+              4) minimal repro (link or code)
+
+
             Title: ${{ github.event.issue.title }}
-            Body: ${{ github.event.issue.body }}
+            Body: ${{ github.event.issue.body || '(No body provided.)' }}
+            URL: ${{ github.event.issue.html_url }}
 
       - name: Comment with AI summary
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}                       # required by gh CLI
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           ISSUE_NUMBER: ${{ github.event.issue.number }}
-          # CHG: use response-file to avoid output-size/encoding limits
+          # ADD: prefer file output if available to avoid quoting/length issues
           RESPONSE_FILE: ${{ steps.inference.outputs['response-file'] }}
+          RESPONSE: ${{ steps.inference.outputs.response }}
         run: |
           set -euo pipefail
           if [ -z "${ISSUE_NUMBER:-}" ]; then
             echo "No issue number available; skipping comment."
             exit 0
           fi
-          if [ -z "${RESPONSE_FILE:-}" ] || [ ! -s "${RESPONSE_FILE}" ]; then
-            echo "AI inference returned no content."
-            exit 1
+
+          body_file="$(mktemp)"
+          if [ -n "${RESPONSE_FILE:-}" ] && [ -s "${RESPONSE_FILE}" ]; then
+            cp "${RESPONSE_FILE}" "${body_file}"     # USE FILE if action provided it
+          else
+            printf '%s' "${RESPONSE:-"(AI returned no content)"}" > "${body_file}"  # Fallback
           fi
-          gh issue comment "$ISSUE_NUMBER" --body-file "$RESPONSE_FILE"
+
+          gh issue comment "${ISSUE_NUMBER}" --body-file "${body_file}"
