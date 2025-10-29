@@ -2,41 +2,41 @@ name: Summarize new issues
 
 on:
   issues:
-    types: [opened] # OK: triggers when a new issue is opened
+    types: [opened]  # triggers when a new issue is opened
 
-# CHG: add actions: read so we can query workflow runs via GitHub API
+# Explicit minimal permissions; 'models: read' for ai-inference;
+# 'actions: read' so we can query workflow runs via gh api if using GITHUB_TOKEN.
 permissions:
   contents: read
   issues: write
   models: read
-  actions: read   # ADD: needed for gh api /actions/* endpoints
+  actions: read
 
 # Avoid duplicate runs per issue
 concurrency:
-  group: summarize-issue-${{ github.event.issue.number || github.run_id }}
+  group: summarize-issue-${{ github.event.issue.number }}
   cancel-in-progress: true
 
 jobs:
   summary:
     runs-on: ubuntu-22.04
-    # environment: megs_env   # (optional) keep disabled to avoid env approval gates
+    environment: megs_env   # USE env so we can access env-scoped secrets like PERSONAL_ACCESS_TOKEN_GITHUB
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # ADD: (optional) ensure jq exists for JSON shaping; GitHub runners often include it,
-      # but we install to be robust on all images.
       - name: Install jq (robustness)
         run: |
           sudo apt-get update
           sudo apt-get install -y jq
 
-      # ADD: Gather latest results for three workflows via GitHub API
+      # Gathers latest run + job results for ci.yml, codacy-analysis.yml, codeql.yml
+      # CHG: Use PAT secret 'PERSONAL_ACCESS_TOKEN_GITHUB' via GH_TOKEN (NOT GITHUB_TOKEN)
       - name: Gather latest workflow results (ci/codacy/codeql)
         id: wf
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # gh will pick this up
+          GH_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN_GITHUB }}   # CHG: use your PAT; no GITHUB_* secret names
         run: |
           set -euo pipefail
 
@@ -50,7 +50,7 @@ jobs:
             case "${1:-}" in
               success) echo "✅" ;;
               failure) echo "❌" ;;
-              canceled|timed_out|stale) echo "⚠️" ;;
+              canceled|timed_out|stale) echo "⚠️" ;;   # NOTE: only US spelling
               in_progress|queued|waiting|pending|requested) echo "⏳" ;;
               *) echo "❔" ;;
             esac
@@ -93,10 +93,12 @@ jobs:
             fi
           done
 
+          # Robust multi-line output with a unique, unquoted delimiter
+          delim="WF_SUMMARY_$(date +%s%N)"
           {
-            echo "workflow_summary<<'EOF'"
+            printf 'workflow_summary<<%s\n' "$delim"
             cat "$tmp"
-            echo "EOF"
+            printf '%s\n' "$delim"
           } >> "$GITHUB_OUTPUT"
 
       - name: Run AI inference
@@ -104,8 +106,7 @@ jobs:
         uses: actions/ai-inference@v1
         with:
           model: openai/gpt-4o-mini
-          # CHG: prompt now **includes** the fetched workflow summary so the bot can
-          # summarize the 3 workflow results even if the issue body is empty.
+          # Prompt includes GitHub API context + exhaustive grouping/expansion rules
           prompt: |
             ROLE
             You are a cautious senior (15+ yrs) software engineering assistant. Produce an actionable, COMPLETE CI digest using ONLY the inputs below (Issue Title/Body + Workflow Context). Do NOT invent data.
@@ -143,9 +144,9 @@ jobs:
             - [ ] Provide missing artifacts/logs for any unclear items
 
             ### Workflows
-            - **ci.yml:** STATUS (✅/❌/⚠️/⏳/❔) — one-sentence outcome.  
-              **Jobs:** (from context) list each job and its status.  
-              **Findings from Body (grouped):**  
+            - **ci.yml:** STATUS (✅/❌/⚠️/⏳/❔) — one-sentence outcome.
+              **Jobs:** (from context) list each job and its status.
+              **Findings from Body (grouped):**
               - Message A (N occurrences)
                 - path/to/file1:line
                 - path/to/file2:line
@@ -157,9 +158,9 @@ jobs:
               </details>
               **Next steps:** concrete actions.
 
-            - **codacy-analysis.yml:** STATUS — one-sentence outcome.  
-              **Jobs:** (from context) …  
-              **Findings from Body (grouped):** CVEs/rules with counts & locations  
+            - **codacy-analysis.yml:** STATUS — one-sentence outcome.
+              **Jobs:** (from context) …
+              **Findings from Body (grouped):** CVEs/rules with counts & locations
               <details><summary>All Codacy/Trivy findings (expanded)</summary>
 
               ```text
@@ -168,9 +169,9 @@ jobs:
               </details>
               **Next steps:** …
 
-            - **codeql.yml:** STATUS — one-sentence outcome.  
-              **Jobs:** (from context) …  
-              **Findings from Body (grouped):** rule IDs, locations, summaries  
+            - **codeql.yml:** STATUS — one-sentence outcome.
+              **Jobs:** (from context) …
+              **Findings from Body (grouped):** rule IDs, locations, summaries
               <details><summary>All CodeQL findings (expanded)</summary>
 
               ```text
@@ -191,9 +192,10 @@ jobs:
               3) environment (OS, versions, logs/links)
               4) minimal repro (link or code)
 
+      # Post the comment using gh; use your PAT via GH_TOKEN (not GITHUB_TOKEN)
       - name: Comment with AI summary
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # required by gh CLI
+          GH_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN_GITHUB }}  # CHG: use PAT secret
           ISSUE_NUMBER: ${{ github.event.issue.number }}
           RESPONSE_FILE: ${{ steps.inference.outputs['response-file'] }}
           RESPONSE: ${{ steps.inference.outputs.response }}
@@ -206,9 +208,9 @@ jobs:
 
           body_file="$(mktemp)"
           if [ -n "${RESPONSE_FILE:-}" ] && [ -s "${RESPONSE_FILE}" ]; then
-            cp "${RESPONSE_FILE}" "${body_file}"    # prefer file output
+            cp "${RESPONSE_FILE}" "${body_file}"
           else
-            printf '%s' "${RESPONSE:-"(AI returned no content)"}" > "${body_file}"  # fallback
+            printf '%s' "${RESPONSE:-"(AI returned no content)"}" > "${body_file}"
           fi
 
           gh issue comment "${ISSUE_NUMBER}" --body-file "${body_file}"
