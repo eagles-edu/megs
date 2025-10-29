@@ -2,15 +2,16 @@ name: Summarize new issues
 
 on:
   issues:
-    types: [opened]                      # OK: triggers when a new issue is opened
+    types: [opened] # OK: triggers when a new issue is opened
 
-# ADD: set minimal, explicit permissions once at workflow scope
+# CHG: add actions: read so we can query workflow runs via GitHub API
 permissions:
   contents: read
   issues: write
   models: read
+  actions: read   # ADD: needed for gh api /actions/* endpoints
 
-# ADD: prevent duplicate runs per issue
+# Avoid duplicate runs per issue
 concurrency:
   group: summarize-issue-${{ github.event.issue.number || github.run_id }}
   cancel-in-progress: true
@@ -18,30 +19,104 @@ concurrency:
 jobs:
   summary:
     runs-on: ubuntu-22.04
-    # CHG: no environment gate; environments with approvals can block 'issues' runs
-    # environment: megs_env
+    # environment: megs_env   # (optional) keep disabled to avoid env approval gates
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      # ADD: (optional) ensure jq exists for JSON shaping; GitHub runners often include it,
+      # but we install to be robust on all images.
+      - name: Install jq (robustness)
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y jq
+
+      # ADD: Gather latest results for three workflows via GitHub API
+      - name: Gather latest workflow results (ci/codacy/codeql)
+        id: wf
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # gh will pick this up
+        run: |
+          set -euo pipefail
+
+          repo="${GITHUB_REPOSITORY}"
+          workflows=( "ci.yml" "codacy-analysis.yml" "codeql.yml" )
+          tmp="$(mktemp)"
+
+          echo "### Latest workflow runs" > "$tmp"
+
+          emoji() {
+            case "${1:-}" in
+              success) echo "✅" ;;
+              failure) echo "❌" ;;
+              canceled|timed_out|stale) echo "⚠️" ;;
+              in_progress|queued|waiting|pending|requested) echo "⏳" ;;
+              *) echo "❔" ;;
+            esac
+          }
+
+          for wf in "${workflows[@]}"; do
+            # Fetch most recent run for this workflow file
+            runs_json="$(gh api -H "Accept: application/vnd.github+json" \
+              "/repos/${repo}/actions/workflows/${wf}/runs?per_page=1" \
+              --silent --show-error 2>/dev/null || true)"
+
+            if [ -z "${runs_json}" ] || [ "${runs_json}" = "null" ]; then
+              echo "- **${wf}**: ❔ Workflow not found or no access." >> "$tmp"
+              continue
+            fi
+
+            run_id="$(printf '%s\n' "${runs_json}" | jq -r '.workflow_runs[0].id // empty')"
+            if [ -z "${run_id}" ]; then
+              echo "- **${wf}**: ❔ No runs found." >> "$tmp"
+              continue
+            fi
+
+            status="$(printf '%s\n' "${runs_json}" | jq -r '.workflow_runs[0].status // ""')"
+            conclusion="$(printf '%s\n' "${runs_json}" | jq -r '.workflow_runs[0].conclusion // ""')"
+            url="$(printf '%s\n' "${runs_json}" | jq -r '.workflow_runs[0].html_url // ""')"
+            run_number="$(printf '%s\n' "${runs_json}" | jq -r '.workflow_runs[0].run_number // ""')"
+            updated="$(printf '%s\n' "${runs_json}" | jq -r '.workflow_runs[0].updated_at // ""')"
+
+            em="$(emoji "${conclusion:-$status}")"
+            echo "- **${wf}**: ${em} ${conclusion:-$status} — run #${run_number} at ${updated} — ${url}" >> "$tmp"
+
+            # List job results for this run
+            jobs_json="$(gh api -H "Accept: application/vnd.github+json" \
+              "/repos/${repo}/actions/runs/${run_id}/jobs?per_page=100" \
+              --silent --show-error 2>/dev/null || true)"
+
+            if [ -n "${jobs_json}" ] && [ "${jobs_json}" != "null" ]; then
+              printf '%s\n' "${jobs_json}" \
+                | jq -r '.jobs[] | "  • \(.name): \((.conclusion // .status) // "unknown")"' >> "$tmp"
+            fi
+          done
+
+          {
+            echo "workflow_summary<<'EOF'"
+            cat "$tmp"
+            echo "EOF"
+          } >> "$GITHUB_OUTPUT"
+
       - name: Run AI inference
         id: inference
         uses: actions/ai-inference@v1
-        with: # CHG: make prompt resilient when the issue body is empty or null
+        with:
           model: openai/gpt-4o-mini
+          # CHG: prompt now **includes** the fetched workflow summary so the bot can
+          # summarize the 3 workflow results even if the issue body is empty.
           prompt: |
             ROLE
-            You are a cautious senior (15+ yrs) software engineering assistant. Read a newly opened GitHub issue and produce an actionable, COMPLETE CI digest using ONLY the issue’s Title and Body. Do NOT invent data or infer results that are not present.
+            You are a cautious senior (15+ yrs) software engineering assistant. Produce an actionable, COMPLETE CI digest using ONLY the inputs below (Issue Title/Body + Workflow Context). Do NOT invent data.
 
             GOAL
             Create a GitHub-Markdown comment that:
-            1) Reports per-workflow status for:
-              - ci.yml
-              - codacy-analysis.yml
-              - codeql.yml
-              - eslint.yml
-            2) Enumerates EVERY relevant error/warning/finding present in the Body.
+            1) Reports per-workflow status for EXACTLY these three workflows:
+               - ci.yml
+               - codacy-analysis.yml
+               - codeql.yml
+            2) Enumerates every relevant error/warning/finding present in the Issue Body.
             3) Groups identical messages with counts and file:line occurrences.
             4) Proposes concrete next steps.
 
@@ -50,65 +125,56 @@ jobs:
             - Body:  ${{ github.event.issue.body || '(No body provided.)' }}
             - URL:   ${{ github.event.issue.html_url }}
 
+            WORKFLOW CONTEXT (from GitHub API; latest run per file)
+            ${{ steps.wf.outputs.workflow_summary }}
+
             STRICT RULES
-            - Use ONLY the Body (Title for context). If Body lacks logs for a workflow, mark it ❔ Unknown and request the exact artifact or link.
-            - NO artificial length limits. List ALL findings. If extremely long, keep the comment readable by grouping duplicates and placing full expansions inside <details> blocks.
+            - Treat the WORKFLOW CONTEXT as authoritative for run status and job outcomes.
+            - If Body lacks logs for a workflow, still report its status from the context.
+            - NO artificial length limits: list ALL findings. For very long lists, group duplicates with counts and put full expansions inside <details> blocks.
             - Prefer structured data: severity, rule/CVE ID, file:line, package@version, exit codes, counts.
-            - Never summarize away specifics that are present in Body.
+            - Never summarize away specifics that are present.
 
-            PARSING HINTS
-            - Treat lines containing “ERROR”, “ERR”, “E ”, “✖”, “failed”, “exit code”, “severity”, “CVE-”, “WARN”, “warning”, “W ”, “eslint”, “trivy”, “sarif”, “codeql”, “lint” as candidates.
-            - Extract (when present): severity, rule/vuln ID, package/module, version & fixed version, file path, line:col, exit status.
-            - Group identical messages: show the message once with “(N occurrences)”, then list file:line entries underneath. Keep order stable.
-
-            OUTPUT FORMAT (exact sections)
+            OUTPUT FORMAT
             ## CI Digest — ${{ github.event.issue.title }}
 
             **Action Checklist**
             - [ ] Highest-impact fix first (one sentence + command/path if clear)
-            - [ ] Provide missing artifacts/logs for any ❔ Unknown workflow (specify exactly which)
+            - [ ] Provide missing artifacts/logs for any unclear items
 
             ### Workflows
-            - **ci.yml:** STATUS (✅/❌/⚠️/❔) — one-sentence outcome.
-              **Findings (grouped):**
+            - **ci.yml:** STATUS (✅/❌/⚠️/⏳/❔) — one-sentence outcome.  
+              **Jobs:** (from context) list each job and its status.  
+              **Findings from Body (grouped):**  
               - Message A (N occurrences)
                 - path/to/file1:line
                 - path/to/file2:line
-              - Message B (N occurrences)
               <details><summary>All ci.yml findings (expanded)</summary>
 
               ```text
-              # Full list of ALL findings for ci.yml (verbatim lines as needed)
+              # Full list of ALL findings for ci.yml if present in Body
               ```
               </details>
-              **Next steps:** bullet list of concrete actions (commands/paths/flags when known).
+              **Next steps:** concrete actions.
 
-            - **codacy-analysis.yml:** STATUS — one-sentence outcome.
-              **Findings (grouped):** (e.g., Trivy/Codacy issues with CVE IDs, severity, pkg@ver)
+            - **codacy-analysis.yml:** STATUS — one-sentence outcome.  
+              **Jobs:** (from context) …  
+              **Findings from Body (grouped):** CVEs/rules with counts & locations  
               <details><summary>All Codacy/Trivy findings (expanded)</summary>
 
               ```text
-              # Full list, including CVEs and fix versions if present
+              # Full list if present in Body
               ```
               </details>
               **Next steps:** …
 
-            - **codeql.yml:** STATUS — one-sentence outcome.
-              **Findings (grouped):** rule IDs, locations, summaries
+            - **codeql.yml:** STATUS — one-sentence outcome.  
+              **Jobs:** (from context) …  
+              **Findings from Body (grouped):** rule IDs, locations, summaries  
               <details><summary>All CodeQL findings (expanded)</summary>
 
               ```text
-              # Full list verbatim from Body if available
-              ```
-              </details>
-              **Next steps:** …
-
-            - **eslint.yml:** STATUS — one-sentence outcome.
-              **Findings (grouped):** rule IDs (e.g., no-unused-vars), file:line:col, counts
-              <details><summary>All ESLint findings (expanded)</summary>
-
-              ```text
-              # Full list with rule IDs and locations
+              # Full list if present in Body
               ```
               </details>
               **Next steps:** …
@@ -117,7 +183,7 @@ jobs:
             > Quote 1–2 most informative lines per item (trimmed).
 
             ### If Body is empty
-            If Body equals “(No body provided.)”, instead output:
+            If Body equals “(No body provided.)”, output:
             - One brief sentence inferring topic from the Title.
             - A 4-bullet polite request for:
               1) steps to reproduce
@@ -125,16 +191,10 @@ jobs:
               3) environment (OS, versions, logs/links)
               4) minimal repro (link or code)
 
-
-            Title: ${{ github.event.issue.title }}
-            Body: ${{ github.event.issue.body || '(No body provided.)' }}
-            URL: ${{ github.event.issue.html_url }}
-
       - name: Comment with AI summary
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # required by gh CLI
           ISSUE_NUMBER: ${{ github.event.issue.number }}
-          # ADD: prefer file output if available to avoid quoting/length issues
           RESPONSE_FILE: ${{ steps.inference.outputs['response-file'] }}
           RESPONSE: ${{ steps.inference.outputs.response }}
         run: |
@@ -146,9 +206,9 @@ jobs:
 
           body_file="$(mktemp)"
           if [ -n "${RESPONSE_FILE:-}" ] && [ -s "${RESPONSE_FILE}" ]; then
-            cp "${RESPONSE_FILE}" "${body_file}"     # USE FILE if action provided it
+            cp "${RESPONSE_FILE}" "${body_file}"    # prefer file output
           else
-            printf '%s' "${RESPONSE:-"(AI returned no content)"}" > "${body_file}"  # Fallback
+            printf '%s' "${RESPONSE:-"(AI returned no content)"}" > "${body_file}"  # fallback
           fi
 
           gh issue comment "${ISSUE_NUMBER}" --body-file "${body_file}"
