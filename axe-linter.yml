@@ -1,11 +1,12 @@
+---
 # axe Accessibility Linter configuration
 # Updated: 2025-09-17 (Asia/Bangkok)
 
 # BEGIN CHANGE: Replaced prior `axeOptions.runOnly.tags` with top-level `tags`
 # RATIONALE: axe-linter reads `tags` at the top level; `axeOptions` is not supported here.
 tags:
-  - wcag21a
-  - wcag21aa
+- wcag21a
+- wcag21aa
 # END CHANGE
 
 # BEGIN CHANGE: Rules must be booleans only; severities ("warn"/"error") and objects are not supported
@@ -16,6 +17,7 @@ rules:
   label: true # CHANGED: was 'error' -> true
   region: true # CHANGED: was 'warn' -> true
   landmark-one-main: true # CHANGED: was object/options -> true
+
 # END CHANGE
 
 # NOTE: Removed unsupported sections from the previous file:
