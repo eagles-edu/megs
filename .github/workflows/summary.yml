@@ -2,7 +2,7 @@ name: Summarize new issues
 
 on:
   issues:
-    types: [opened]  # triggers when a new issue is opened
+    types: [opened] # triggers when a new issue is opened
 
 # Explicit minimal permissions for the auto GITHUB_TOKEN (your PAT scopes are separate)
 permissions:
@@ -18,7 +18,7 @@ concurrency:
 jobs:
   summary:
     runs-on: ubuntu-22.04
-    environment: megs_env   # use env-scoped secrets like PERSONAL_ACCESS_TOKEN_GITHUB
+    environment: megs_env # use env-scoped secrets like PERSONAL_ACCESS_TOKEN_GITHUB
 
     steps:
       - name: Checkout repository
@@ -33,7 +33,7 @@ jobs:
       - name: Gather latest workflow results (ci/codacy/codeql)
         id: wf
         env:
-          GH_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN_GITHUB }}   # use your PAT; not GITHUB_*
+          GH_TOKEN: ${{ secrets.CLASSIC_GITHUB_TOKEN }} # use your PAT; not GITHUB_*
         run: |
           set -euo pipefail
 
@@ -157,9 +157,9 @@ jobs:
             GOAL
             Create a GitHub-Markdown comment that:
             1) Reports per-workflow status for EXACTLY these three workflows:
-               - ci.yml
-               - codacy-analysis.yml
-               - codeql.yml
+              - ci.yml
+              - codacy-analysis.yml
+              - codeql.yml
             2) Enumerates every relevant error/warning/finding present in the Issue Body.
             3) Groups identical messages with counts and file:line occurrences.
             4) Proposes concrete next steps.
@@ -268,7 +268,7 @@ jobs:
 
       - name: Comment with AI summary
         env:
-          GH_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN_GITHUB }}  # use your PAT
+          GH_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN_GITHUB }} # use your PAT
           ISSUE_NUMBER: ${{ github.event.issue.number }}
           RESPONSE_FILE: ${{ steps.inference.outputs['response-file'] }}
           RESPONSE: ${{ steps.inference.outputs.response }}

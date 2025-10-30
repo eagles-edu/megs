@@ -37,7 +37,7 @@ jobs:
       - name: Derive context (PR vs push) and change set
         id: ctx
         env:
-          GH_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN_GITHUB }}
+          GH_TOKEN: ${{ secrets.CLASSIC_GITHUB_TOKEN }}
         run: |
           set -euo pipefail
 
@@ -94,7 +94,7 @@ jobs:
         if: ${{ steps.ctx.outputs.pr_number != '' && github.event.pull_request.draft == false }}
         uses: truongnh1992/gemini-ai-code-reviewer@main
         with:
-          GITHUB_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN_GITHUB }}
+          GITHUB_TOKEN: ${{ secrets.CLASSIC_GITHUB_TOKEN }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           GEMINI_MODEL: gemini-2.5-flash
           EXCLUDE: "*.md,*.txt,package-lock.json,*.yml,*.yaml"
