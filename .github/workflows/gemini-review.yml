@@ -1,44 +1,135 @@
+name: Gemini Code Review (terminal report)
+
 on:
-  issue_comment:
-    types: [created]
-  push:
-    branches: [ PT-BETA-0.0.04.01 ]
   pull_request:
     branches: [ PT-BETA-0.0.04.01 ]
+    types: [opened, synchronize, reopened, ready_for_review]
+  push:
+    branches: [ PT-BETA-0.0.04.01 ]
+  workflow_dispatch:
 
-permissions: write-all
+# Minimal permissions (PAT scopes control gh api calls)
+permissions:
+  contents: read
+  pull-requests: write
+
+concurrency:
+  group: gemini-${{ github.event_name }}-${{ github.ref_name || github.run_id }}
+  cancel-in-progress: true
 
 jobs:
   gemini-code-review:
+    name: Gemini terminal report
     runs-on: ubuntu-22.04
-    environment: megs_env
-    if: |
-      github.event.issue.pull_request &&
-      contains(github.event.comment.body, '/gemini-review')
-    steps:
-      - name: PR Info
-        run: |
-          echo "Comment: ${{ github.event.comment.body }}"
-          echo "Issue Number: ${{ github.event.issue.number }}"
-          echo "Repository: ${{ github.repository }}"
+    environment: megs_env  # enables env-scoped secrets like PERSONAL_ACCESS_TOKEN_GITHUB
 
-      - name: Checkout Repo
-        uses: actions/checkout@v3
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
-      - name: Get PR Details
-        id: pr
+      - name: Install jq (for JSON shaping)
         run: |
-          PR_JSON=$(gh api repos/${{ github.repository }}/pulls/${{ github.event.issue.number }})
-          echo "head_sha=$(echo $PR_JSON | jq -r .head.sha)" >> $GITHUB_OUTPUT
-          echo "base_sha=$(echo $PR_JSON | jq -r .base.sha)" >> $GITHUB_OUTPUT
-        env:
-          GITHUB_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN_GITHUB }}
+          sudo apt-get update
+          sudo apt-get install -y jq
 
-      - uses: truongnh1992/gemini-ai-code-reviewer@main
+      - name: Derive context (PR vs push) and change set
+        id: ctx
+        env:
+          GH_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN_GITHUB }}
+        run: |
+          set -euo pipefail
+
+          event="${{ github.event_name }}"
+          repo="${{ github.repository }}"
+          sha="${{ github.sha }}"
+          before="${{ github.event.before || '' }}"
+          pr_number=""
+          changed_files_file="$(mktemp)"
+
+          if [ "$event" = "pull_request" ]; then
+            pr_number="${{ github.event.pull_request.number }}"
+            # List changed files from the PR
+            gh api "repos/${repo}/pulls/${pr_number}/files?per_page=100" \
+              | jq -r '.[].filename' > "$changed_files_file"
+            head_sha="${{ github.event.pull_request.head.sha }}"
+            base_sha="${{ github.event.pull_request.base.sha }}"
+          elif [ "$event" = "push" ] && [ -n "$before" ]; then
+            # List files changed in this push range
+            git diff --name-only "$before" "$sha" > "$changed_files_file" || true
+            head_sha="$sha"
+            base_sha="$before"
+          else
+            # workflow_dispatch or unknown; compare against last commit as fallback
+            git rev-parse HEAD~1 >/dev/null 2>&1 && {
+              base_sha="$(git rev-parse HEAD~1)"
+              head_sha="$(git rev-parse HEAD)"
+              git diff --name-only "$base_sha" "$head_sha" > "$changed_files_file" || true
+            } || {
+              base_sha="$sha"
+              head_sha="$sha"
+              : > "$changed_files_file"
+            }
+          fi
+
+          # Compute counts
+          total_changed=$(wc -l < "$changed_files_file" | tr -d '[:space:]')
+          echo "event_name=$event"        >> "$GITHUB_OUTPUT"
+          echo "pr_number=$pr_number"     >> "$GITHUB_OUTPUT"
+          echo "base_sha=$base_sha"       >> "$GITHUB_OUTPUT"
+          echo "head_sha=$head_sha"       >> "$GITHUB_OUTPUT"
+          echo "total_changed=$total_changed" >> "$GITHUB_OUTPUT"
+
+          # Expose the changed files as a multi-line output (robust delimiter)
+          delim="CHLIST_$(date +%s%N)"
+          {
+            printf 'changed_files<<%s\n' "$delim"
+            cat "$changed_files_file"
+            printf '%s\n' "$delim"
+          } >> "$GITHUB_OUTPUT"
+
+      # Run Gemini review ONLY when a PR exists; still produce terminal report either way
+      - name: Run Gemini AI Code Reviewer (PR only)
+        if: ${{ steps.ctx.outputs.pr_number != '' && github.event.pull_request.draft == false }}
+        uses: truongnh1992/gemini-ai-code-reviewer@main
         with:
           GITHUB_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN_GITHUB }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-          GEMINI_MODEL: gemini-2.5-flash # Optional, default is `gemini-2.5-flash`
+          GEMINI_MODEL: gemini-2.5-flash
           EXCLUDE: "*.md,*.txt,package-lock.json,*.yml,*.yaml"
+
+      # Always print a terminal report, even if no PR or no findings
+      - name: Terminal report (always)
+        if: always()
+        env:
+          EVENT: ${{ steps.ctx.outputs.event_name }}
+          PR_NUMBER: ${{ steps.ctx.outputs.pr_number }}
+          BASE_SHA: ${{ steps.ctx.outputs.base_sha }}
+          HEAD_SHA: ${{ steps.ctx.outputs.head_sha }}
+          TOTAL_CHANGED: ${{ steps.ctx.outputs.total_changed }}
+          CHANGED_FILES: ${{ steps.ctx.outputs.changed_files }}
+        run: |
+          set -euo pipefail
+          echo "============================================================"
+          echo " Gemini Code Review — Terminal Report"
+          echo "============================================================"
+          echo "Event:         ${EVENT}"
+          echo "PR Number:     ${PR_NUMBER:-'(none)'}"
+          echo "Range:         ${BASE_SHA:0:7}..${HEAD_SHA:0:7}"
+          echo "Changed files: ${TOTAL_CHANGED}"
+          echo
+          if [ -n "${CHANGED_FILES:-}" ]; then
+            echo "Files changed:"
+            printf '%s\n' "${CHANGED_FILES}"
+          else
+            echo "Files changed: (none detected)"
+          fi
+          echo
+          if [ -n "${PR_NUMBER:-}" ]; then
+            echo "Gemini review: executed for PR #${PR_NUMBER} (see PR comments for details if any)."
+          else
+            echo "Gemini review: skipped (no PR context)."
+            echo "Tip: open a PR to get inline AI review comments; this log remains as a summary."
+          fi
+          echo "============================================================"

@@ -5,7 +5,7 @@ on:
     types: [opened]  # triggers when a new issue is opened
 
 # Explicit minimal permissions; 'models: read' for ai-inference;
-# 'actions: read' so we can query workflow runs via gh api if using GITHUB_TOKEN.
+# 'actions: read' lets gh api read workflow runs (only affects GITHUB_TOKEN, not your PAT).
 permissions:
   contents: read
   issues: write
@@ -20,7 +20,7 @@ concurrency:
 jobs:
   summary:
     runs-on: ubuntu-22.04
-    environment: megs_env   # USE env so we can access env-scoped secrets like PERSONAL_ACCESS_TOKEN_GITHUB
+    environment: megs_env   # use env-scoped secrets like PERSONAL_ACCESS_TOKEN_GITHUB
 
     steps:
       - name: Checkout repository
@@ -31,12 +31,12 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y jq
 
-      # Gathers latest run + job results for ci.yml, codacy-analysis.yml, codeql.yml
-      # CHG: Use PAT secret 'PERSONAL_ACCESS_TOKEN_GITHUB' via GH_TOKEN (NOT GITHUB_TOKEN)
+      # Gather latest run + job results for ci.yml, codacy-analysis.yml, codeql.yml
+      # Use PAT secret 'PERSONAL_ACCESS_TOKEN_GITHUB' via GH_TOKEN (NOT GITHUB_TOKEN).
       - name: Gather latest workflow results (ci/codacy/codeql)
         id: wf
         env:
-          GH_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN_GITHUB }}   # CHG: use your PAT; no GITHUB_* secret names
+          GH_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN_GITHUB }}
         run: |
           set -euo pipefail
 
@@ -50,7 +50,7 @@ jobs:
             case "${1:-}" in
               success) echo "✅" ;;
               failure) echo "❌" ;;
-              canceled|timed_out|stale) echo "⚠️" ;;   # NOTE: only US spelling
+              canceled|timed_out|stale) echo "⚠️" ;;   # only US spelling
               in_progress|queued|waiting|pending|requested) echo "⏳" ;;
               *) echo "❔" ;;
             esac
@@ -192,10 +192,42 @@ jobs:
               3) environment (OS, versions, logs/links)
               4) minimal repro (link or code)
 
+      # Always print a terminal report (even if AI produced nothing), then post the comment.
+      - name: Terminal report (always)
+        if: always()
+        env:
+          WORKFLOW_SUMMARY: ${{ steps.wf.outputs.workflow_summary }}
+          RESPONSE_FILE: ${{ steps.inference.outputs['response-file'] }}
+          RESPONSE: ${{ steps.inference.outputs.response }}
+        run: |
+          set -euo pipefail
+          echo "============================================================"
+          echo " Summarize New Issues — Terminal Report"
+          echo "============================================================"
+          echo
+          echo "WORKFLOW CONTEXT"
+          echo "------------------------------------------------------------"
+          if [ -n "${WORKFLOW_SUMMARY:-}" ]; then
+            printf '%s\n' "${WORKFLOW_SUMMARY}"
+          else
+            echo "(no workflow context available)"
+          fi
+          echo
+          echo "AI SUMMARY (raw)"
+          echo "------------------------------------------------------------"
+          if [ -n "${RESPONSE_FILE:-}" ] && [ -s "${RESPONSE_FILE}" ]; then
+            cat "${RESPONSE_FILE}" || true
+          elif [ -n "${RESPONSE:-}" ]; then
+            printf '%s\n' "${RESPONSE}"
+          else
+            echo "(AI returned no content)"
+          fi
+          echo "============================================================"
+
       # Post the comment using gh; use your PAT via GH_TOKEN (not GITHUB_TOKEN)
       - name: Comment with AI summary
         env:
-          GH_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN_GITHUB }}  # CHG: use PAT secret
+          GH_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN_GITHUB }}  # use PAT secret
           ISSUE_NUMBER: ${{ github.event.issue.number }}
           RESPONSE_FILE: ${{ steps.inference.outputs['response-file'] }}
           RESPONSE: ${{ steps.inference.outputs.response }}
