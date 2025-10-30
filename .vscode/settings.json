@@ -10,8 +10,7 @@
   "scss.format.enable": false,
   "typescript.format.enable": false,
   "yaml.format.enable": false,
-
-  "html.format.enable": true,
+  "html.format.enable": false,
 
   "css.autoValidation": "Never",
   "css.validate": false,
