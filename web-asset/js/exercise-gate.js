@@ -1,5 +1,5 @@
 /* Gate exercise accordions behind correct answers and collect submissions */
-;(function () {
+(function () {
   "use strict"
 
   function ready(fn) {
