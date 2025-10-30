@@ -4,15 +4,13 @@ on:
   issues:
     types: [opened]  # triggers when a new issue is opened
 
-# Explicit minimal permissions; 'models: read' for ai-inference;
-# 'actions: read' lets gh api read workflow runs (only affects GITHUB_TOKEN, not your PAT).
+# Explicit minimal permissions for the auto GITHUB_TOKEN (your PAT scopes are separate)
 permissions:
   contents: read
   issues: write
   models: read
   actions: read
 
-# Avoid duplicate runs per issue
 concurrency:
   group: summarize-issue-${{ github.event.issue.number }}
   cancel-in-progress: true
@@ -31,69 +29,115 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y jq
 
-      # Gather latest run + job results for ci.yml, codacy-analysis.yml, codeql.yml
-      # Use PAT secret 'PERSONAL_ACCESS_TOKEN_GITHUB' via GH_TOKEN (NOT GITHUB_TOKEN).
+      # CHG: Resolve workflow IDs robustly (yml/yaml, alternate names), then fetch the latest run.
       - name: Gather latest workflow results (ci/codacy/codeql)
         id: wf
         env:
-          GH_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN_GITHUB }}
+          GH_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN_GITHUB }}   # use your PAT; not GITHUB_*
         run: |
           set -euo pipefail
 
           repo="${GITHUB_REPOSITORY}"
-          workflows=( "ci.yml" "codacy-analysis.yml" "codeql.yml" )
           tmp="$(mktemp)"
-
           echo "### Latest workflow runs" > "$tmp"
 
+          # helper emoji
           emoji() {
             case "${1:-}" in
               success) echo "✅" ;;
               failure) echo "❌" ;;
-              canceled|timed_out|stale) echo "⚠️" ;;   # only US spelling
+              canceled|timed_out|stale) echo "⚠️" ;;
               in_progress|queued|waiting|pending|requested) echo "⏳" ;;
               *) echo "❔" ;;
             esac
           }
 
-          for wf in "${workflows[@]}"; do
-            # Fetch most recent run for this workflow file
-            runs_json="$(gh api -H "Accept: application/vnd.github+json" \
-              "/repos/${repo}/actions/workflows/${wf}/runs?per_page=1" \
-              --silent --show-error 2>/dev/null || true)"
+          # Try to list all workflows once; if this fails, it's almost certainly token scope
+          list_json="$(gh api -H "Accept: application/vnd.github+json" \
+            "/repos/${repo}/actions/workflows?per_page=100" \
+            --silent --show-error 2>/dev/null || true)"
 
-            if [ -z "${runs_json}" ] || [ "${runs_json}" = "null" ]; then
-              echo "- **${wf}**: ❔ Workflow not found or no access." >> "$tmp"
-              continue
-            fi
+          if [ -z "${list_json}" ] || [ "${list_json}" = "null" ]; then
+            {
+              echo "- **ci.yml**: ❔ Workflow not found or no access."
+              echo "- **codacy-analysis.yml**: ❔ Workflow not found or no access."
+              echo "- **codeql.yml**: ❔ Workflow not found or no access."
+              echo
+              echo "_Hint: fine-grained PAT must allow this repo and grant **Actions: Read**; classic PAT needs **repo**._"
+            } >> "$tmp"
+          else
+            # Build a table of (id, base filename lowercased)
+            mapfile -t WF_TABLE < <(printf '%s\n' "${list_json}" | jq -r '.workflows[] | "\(.id)\t\(.path | split("/")[-1] | ascii_downcase)"')
 
-            run_id="$(printf '%s\n' "${runs_json}" | jq -r '.workflow_runs[0].id // empty')"
-            if [ -z "${run_id}" ]; then
-              echo "- **${wf}**: ❔ No runs found." >> "$tmp"
-              continue
-            fi
+            find_id() {
+              # args: preferred basename (stem), optional alt stem
+              local stem="${1}" alt="${2:-}"
+              local cands=( "${stem}.yml" "${stem}.yaml" )
+              if [ -n "${alt}" ]; then
+                cands+=( "${alt}.yml" "${alt}.yaml" )
+              fi
+              local id=""
+              for row in "${WF_TABLE[@]}"; do
+                local wid="${row%%$'\t'*}"
+                local base="${row#*$'\t'}"
+                for cand in "${cands[@]}"; do
+                  if [ "${base}" = "${cand}" ]; then
+                    id="${wid}"; break 2
+                  fi
+                done
+              done
+              printf '%s' "${id}"
+            }
 
-            status="$(printf '%s\n' "${runs_json}" | jq -r '.workflow_runs[0].status // ""')"
-            conclusion="$(printf '%s\n' "${runs_json}" | jq -r '.workflow_runs[0].conclusion // ""')"
-            url="$(printf '%s\n' "${runs_json}" | jq -r '.workflow_runs[0].html_url // ""')"
-            run_number="$(printf '%s\n' "${runs_json}" | jq -r '.workflow_runs[0].run_number // ""')"
-            updated="$(printf '%s\n' "${runs_json}" | jq -r '.workflow_runs[0].updated_at // ""')"
+            # Resolve IDs for the three logical workflows
+            ci_id="$(find_id "ci")"
+            codacy_id="$(find_id "codacy-analysis" "codacy_analysis")"
+            codeql_id="$(find_id "codeql" "codeql-analysis")"
 
-            em="$(emoji "${conclusion:-$status}")"
-            echo "- **${wf}**: ${em} ${conclusion:-$status} — run #${run_number} at ${updated} — ${url}" >> "$tmp"
+            # Query latest run by numeric ID when available; else print helpful message
+            fetch_latest() {
+              local label="$1" wid="$2"
+              if [ -z "${wid}" ]; then
+                echo "- **${label}**: ❔ Workflow not found in this repository (check filename .yml/.yaml or path)." >> "$tmp"
+                return
+              fi
+              local runs_json
+              runs_json="$(gh api -H "Accept: application/vnd.github+json" \
+                "/repos/${repo}/actions/workflows/${wid}/runs?per_page=1" \
+                --silent --show-error 2>/dev/null || true)"
+              if [ -z "${runs_json}" ] || [ "${runs_json}" = "null" ]; then
+                echo "- **${label}**: ❔ No runs found or no access." >> "$tmp"
+                return
+              fi
+              local run_id status conclusion url run_number updated
+              run_id="$(printf '%s\n' "${runs_json}" | jq -r '.workflow_runs[0].id // empty')"
+              status="$(printf '%s\n' "${runs_json}" | jq -r '.workflow_runs[0].status // ""')"
+              conclusion="$(printf '%s\n' "${runs_json}" | jq -r '.workflow_runs[0].conclusion // ""')"
+              url="$(printf '%s\n' "${runs_json}" | jq -r '.workflow_runs[0].html_url // ""')"
+              run_number="$(printf '%s\n' "${runs_json}" | jq -r '.workflow_runs[0].run_number // ""')"
+              updated="$(printf '%s\n' "${runs_json}" | jq -r '.workflow_runs[0].updated_at // ""')"
+              local em; em="$(emoji "${conclusion:-$status}")"
+              echo "- **${label}**: ${em} ${conclusion:-$status} — run #${run_number} at ${updated} — ${url}" >> "$tmp"
 
-            # List job results for this run
-            jobs_json="$(gh api -H "Accept: application/vnd.github+json" \
-              "/repos/${repo}/actions/runs/${run_id}/jobs?per_page=100" \
-              --silent --show-error 2>/dev/null || true)"
+              # Jobs for this run
+              if [ -n "${run_id}" ]; then
+                local jobs_json
+                jobs_json="$(gh api -H "Accept: application/vnd.github+json" \
+                  "/repos/${repo}/actions/runs/${run_id}/jobs?per_page=100" \
+                  --silent --show-error 2>/dev/null || true)"
+                if [ -n "${jobs_json}" ] && [ "${jobs_json}" != "null" ]; then
+                  printf '%s\n' "${jobs_json}" \
+                    | jq -r '.jobs[] | "  • \(.name): \((.conclusion // .status) // "unknown")"' >> "$tmp"
+                fi
+              fi
+            }
 
-            if [ -n "${jobs_json}" ] && [ "${jobs_json}" != "null" ]; then
-              printf '%s\n' "${jobs_json}" \
-                | jq -r '.jobs[] | "  • \(.name): \((.conclusion // .status) // "unknown")"' >> "$tmp"
-            fi
-          done
+            fetch_latest "ci.yml" "${ci_id}"
+            fetch_latest "codacy-analysis.yml" "${codacy_id}"
+            fetch_latest "codeql.yml" "${codeql_id}"
+          fi
 
-          # Robust multi-line output with a unique, unquoted delimiter
+          # Output for later steps (safe, unique delimiter)
           delim="WF_SUMMARY_$(date +%s%N)"
           {
             printf 'workflow_summary<<%s\n' "$delim"
@@ -106,7 +150,6 @@ jobs:
         uses: actions/ai-inference@v1
         with:
           model: openai/gpt-4o-mini
-          # Prompt includes GitHub API context + exhaustive grouping/expansion rules
           prompt: |
             ROLE
             You are a cautious senior (15+ yrs) software engineering assistant. Produce an actionable, COMPLETE CI digest using ONLY the inputs below (Issue Title/Body + Workflow Context). Do NOT invent data.
@@ -192,7 +235,6 @@ jobs:
               3) environment (OS, versions, logs/links)
               4) minimal repro (link or code)
 
-      # Always print a terminal report (even if AI produced nothing), then post the comment.
       - name: Terminal report (always)
         if: always()
         env:
@@ -224,10 +266,9 @@ jobs:
           fi
           echo "============================================================"
 
-      # Post the comment using gh; use your PAT via GH_TOKEN (not GITHUB_TOKEN)
       - name: Comment with AI summary
         env:
-          GH_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN_GITHUB }}  # use PAT secret
+          GH_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN_GITHUB }}  # use your PAT
           ISSUE_NUMBER: ${{ github.event.issue.number }}
           RESPONSE_FILE: ${{ steps.inference.outputs['response-file'] }}
           RESPONSE: ${{ steps.inference.outputs.response }}
