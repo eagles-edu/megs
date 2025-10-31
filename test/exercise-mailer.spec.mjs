@@ -10,7 +10,7 @@ process.env.MAILER_DEBUG = "false"
 
 // build a mock nodemailer-like transporter
 function makeMockTransport() {
-  const calls = { verify: 0, sendMail: 0, last: null }
+  const calls = { verify: 0, sendMail: 0, last: null, history: [] }
   return {
     calls,
     verify(cb) {
@@ -21,6 +21,7 @@ function makeMockTransport() {
     async sendMail(mail) {
       calls.sendMail += 1
       calls.last = mail
+      calls.history.push(mail)
       return { messageId: "test-message-id" }
     },
   }
@@ -60,24 +61,39 @@ test("GET /healthz returns ok + endpoint", async () => {
   assert.equal(body.endpoint, "/api/exercise-submission")
 })
 
-test("POST /api/exercise-submission succeeds (204) and calls sendMail once", async () => {
+test("POST /api/exercise-submission succeeds (204) and dispatches notifications", async () => {
   const payload = {
     email: "student@example.com",
+    studentId: "abc123",
     pageTitle: "Test Page",
     recipients: ["recipient@example.com"],
     answers: [{ id: 1, answers: ["ok"] }],
   }
-
-  assert.deepEqual(transport.calls.last.cc, ["student@example.com"])
   const res = await fetchLocal(basePort, "/api/exercise-submission", {
     method: "POST",
     headers: { "content-type": "application/json" },
     body: JSON.stringify(payload),
   })
   assert.equal(res.status, 204)
-  assert.equal(transport.calls.sendMail, 1, "sendMail was invoked once")
-  assert.ok(transport.calls.last, "sendMail received a payload")
-  assert.equal(transport.calls.last.to[0], "recipient@example.com")
+  assert.equal(transport.calls.sendMail, 2, "teacher and learner messages were sent")
+  assert.equal(transport.calls.history.length, 2)
+
+  const [teacherMail, learnerMail] = transport.calls.history
+
+  assert.ok(teacherMail, "teacher email payload captured")
+  assert.equal(teacherMail.to[0], "recipient@example.com")
+  assert.equal(teacherMail.subject, "abc123 Exercise submission — Test Page")
+  assert.match(teacherMail.text, /Student ID: abc123/)
+  assert.match(teacherMail.text, /Student email: student@example.com/)
+  assert.match(teacherMail.text, /Question 1:/)
+  assert.equal(teacherMail.cc, undefined)
+
+  assert.ok(learnerMail, "learner confirmation payload captured")
+  assert.equal(learnerMail.to[0], "student@example.com")
+  assert.match(learnerMail.subject, /Confirmation/)
+  assert.match(learnerMail.text, /Test Page/)
+  assert.match(learnerMail.text, /Student ID: abc123/)
+  assert.doesNotMatch(learnerMail.text, /Question 1:/)
 })
 
 test("POST /api/exercise-submission with missing answers returns 400", async () => {

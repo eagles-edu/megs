@@ -37,10 +37,6 @@ reports/
 templates/
 _notes/
 
-# ── Misc scratch dirs anywhere
-**/**/.sto/
-**/**/sto/
-**/**/_notes/
 
 # ── Demo junk
 web-asset/icons/demo-files/*
@@ -134,3 +130,8 @@ codacy-analysis.yml-edit
 #  more
 111-common-nouns-codex-copy2.html
 
+
+# ── Misc scratch dirs anywhere
+**/**/.sto/
+**/**/sto/
+**/**/_notes/

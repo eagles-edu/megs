@@ -1,11 +1,12 @@
 // server/exercise-mailer.mjs
 import "dotenv/config"
 import http from "node:http"
-import { URL } from "node:url"
+import path from "node:path"
+import { URL, fileURLToPath } from "node:url"
 import nodemailer from "nodemailer"
 
 /* =========================
-   Configuration & Defaults
+  Configuration & Defaults
    ========================= */
 
 const DEFAULT_PORT = Number(process.env.EXERCISE_MAILER_PORT || 8787)
@@ -13,14 +14,12 @@ const DEFAULT_PATH = process.env.EXERCISE_MAILER_PATH || "/api/exercise-submissi
 const DEFAULT_HOST = process.env.EXERCISE_MAILER_HOST || "0.0.0.0"
 
 // Multiple origins supported: comma separated string, exact match with scheme+host[:port]
-const ORIGIN_LIST = (
-  process.env.EXERCISE_MAILER_ORIGIN ||
-  process.env.EXERCISE_MAILER_ORIGINS ||
-  "*"
-)
-  .split(",")
-  .map((s) => s.trim())
-  .filter(Boolean)
+function getOriginList() {
+  return (process.env.EXERCISE_MAILER_ORIGIN || process.env.EXERCISE_MAILER_ORIGINS || "*")
+    .split(",")
+    .map((s) => s.trim())
+    .filter(Boolean)
+}
 
 // Toggle verbose logs
 const MAILER_DEBUG =
@@ -35,7 +34,7 @@ const DEFAULT_RECIPIENTS = (process.env.EXERCISE_MAILER_RECIPIENTS || "")
   .filter(Boolean)
 
 /* =========================
-   Runtime Status (healthz)
+  Runtime Status (healthz)
    ========================= */
 
 const STATUS = {
@@ -48,7 +47,7 @@ const STATUS = {
 }
 
 /* =========================
-   Helpers
+    Helpers
    ========================= */
 
 function resolveBoolean(value, fallback) {
@@ -90,17 +89,25 @@ function isEmailLike(value) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(trimmed)
 }
 
-function createEmail({ email, pageTitle, completedAt, recipients, answers }) {
+function createEmail({ email, studentId, pageTitle, completedAt, recipients, answers }) {
   const to = coerceArray(recipients)
-  const cc = isEmailLike(email) ? [email.trim()] : []
-  const subject = `Exercise submission${pageTitle ? ` — ${pageTitle}` : ""}`
+  const trimmedEmail = isEmailLike(email) ? email.trim() : ""
   const submittedAt = completedAt || new Date().toISOString()
+  const subjectBase = `Exercise submission${pageTitle ? ` — ${pageTitle}` : ""}`
+  const teacherSubject = `${studentId ? `${studentId} ` : ""}${subjectBase}`
+
+  const studentLabel = studentId ? `Student ${studentId}` : "A student"
+  const studentIdLine = studentId ? `Student ID: ${studentId}` : "Student ID: (not provided)"
+  const studentEmailLine = trimmedEmail
+    ? `Student email: ${trimmedEmail}`
+    : "Student email: (not provided)"
 
   const textBody = [
-    `A learner just completed ${pageTitle || "an exercise"}.`,
+    `${studentLabel} just completed ${pageTitle || "an exercise"}.`,
     "",
     `Submitted at: ${submittedAt}`,
-    email ? `Learner email: ${email}` : "Learner email: (not provided)",
+    studentEmailLine,
+    studentIdLine,
     "",
     formatAnswers(answers),
   ].join("\n")
@@ -123,22 +130,56 @@ function createEmail({ email, pageTitle, completedAt, recipients, answers }) {
 
   const htmlBody = `
     <div>
-      <p>A learner just completed <strong>${pageTitle || "an exercise"}</strong>.</p>
+      <p>${studentLabel} just completed <strong>${pageTitle || "an exercise"}</strong>.</p>
       <ul>
         <li><strong>Submitted at:</strong> ${submittedAt}</li>
-        <li><strong>Learner email:</strong> ${email || "(not provided)"}</li>
+        <li><strong>Student email:</strong> ${trimmedEmail || "(not provided)"}</li>
+        <li><strong>Student ID:</strong> ${studentId || "(not provided)"}</li>
       </ul>
       ${htmlAnswers}
     </div>
   `
 
-  return {
+  const teacherEmail = {
     to,
-    cc,
-    subject,
+    subject: teacherSubject,
     text: textBody,
     html: htmlBody,
   }
+
+  let learnerEmail = null
+
+  if (trimmedEmail) {
+    const pageName = pageTitle || "your exercise"
+    const learnerSubject = `Confirmation — ${pageTitle || "Exercise submission"}`
+    const learnerText = [
+      `Thanks for completing ${pageName}.`,
+      "",
+      `Submitted at: ${submittedAt}`,
+      `Student ID: ${studentId || "(not provided)"}`,
+      `Email: ${trimmedEmail}`,
+    ].join("\n")
+
+    const learnerHtml = `
+      <div>
+        <p>Thanks for completing <strong>${pageName}</strong>.</p>
+        <ul>
+          <li><strong>Submitted at:</strong> ${submittedAt}</li>
+          <li><strong>Student ID:</strong> ${studentId || "(not provided)"}</li>
+          <li><strong>Email:</strong> ${trimmedEmail}</li>
+        </ul>
+      </div>
+    `
+
+    learnerEmail = {
+      to: [trimmedEmail],
+      subject: learnerSubject,
+      text: learnerText,
+      html: learnerHtml,
+    }
+  }
+
+  return { teacherEmail, learnerEmail }
 }
 
 function parseBody(request) {
@@ -166,10 +207,12 @@ function parseBody(request) {
 function validatePayload(payload) {
   if (!payload || typeof payload !== "object") throw new Error("Invalid payload")
   const email = typeof payload.email === "string" ? payload.email.trim() : ""
+  const studentId = typeof payload.studentId === "string" ? payload.studentId.trim() : ""
   const answers = Array.isArray(payload.answers) ? payload.answers : []
   if (!answers.length) throw new Error("Missing answers")
   return {
     email,
+    studentId,
     pageTitle: typeof payload.pageTitle === "string" ? payload.pageTitle.trim() : "",
     completedAt:
       typeof payload.completedAt === "string" ? payload.completedAt : new Date().toISOString(),
@@ -179,16 +222,17 @@ function validatePayload(payload) {
 }
 
 /* =========================
-   CORS
+    CORS
    ========================= */
 
 function allowCors(request, response) {
   const reqOrigin = String(request.headers.origin || "").trim()
+  const origins = getOriginList()
   let allowOrigin = "null"
 
-  if (ORIGIN_LIST.includes("*")) {
+  if (origins.includes("*")) {
     allowOrigin = "*"
-  } else if (reqOrigin && ORIGIN_LIST.includes(reqOrigin)) {
+  } else if (reqOrigin && origins.includes(reqOrigin)) {
     allowOrigin = reqOrigin // echo back allowed origin
   }
 
@@ -255,7 +299,7 @@ function createTransport() {
 }
 
 /* =========================
-   Request Handler
+    Request Handler
    ========================= */
 
 async function handleRequest(request, response, transporter) {
@@ -303,30 +347,50 @@ async function handleRequest(request, response, transporter) {
     const payload = await parseBody(request)
     const validated = validatePayload(payload)
     const emailData = createEmail(validated)
+    const teacherTo = emailData.teacherEmail.to.length
+      ? emailData.teacherEmail.to
+      : DEFAULT_RECIPIENTS
 
-    if (!emailData.to.length && !DEFAULT_RECIPIENTS.length) {
+    if (!teacherTo.length) {
       throw new Error("No recipients configured")
     }
-    const to = emailData.to.length ? emailData.to : DEFAULT_RECIPIENTS
     const from = process.env.SMTP_FROM || process.env.SMTP_USER || "no-reply@eaglesvn.online"
 
     if (MAILER_DEBUG) {
-      console.log("Sending message →", { from, to, subject: emailData.subject })
+      console.log("Sending message →", {
+        from,
+        to: teacherTo,
+        subject: emailData.teacherEmail.subject,
+      })
     }
 
     await transporter.sendMail({
       from,
-      to,
-      cc: emailData.cc.length ? emailData.cc : undefined,
-      subject: emailData.subject,
-      text: emailData.text,
-      html: emailData.html,
+      to: teacherTo,
+      subject: emailData.teacherEmail.subject,
+      text: emailData.teacherEmail.text,
+      html: emailData.teacherEmail.html,
       replyTo: validated.email || undefined,
     })
 
+    if (emailData.learnerEmail) {
+      await transporter.sendMail({
+        from,
+        to: emailData.learnerEmail.to,
+        subject: emailData.learnerEmail.subject,
+        text: emailData.learnerEmail.text,
+        html: emailData.learnerEmail.html,
+      })
+    }
+
     STATUS.lastSendOk = true
     STATUS.lastSendAt = new Date().toISOString()
-    if (MAILER_DEBUG) console.log("✉️  Mail sent:", { to, subject: emailData.subject })
+    if (MAILER_DEBUG)
+      console.log("✉️  Mail sent:", {
+        to: teacherTo,
+        subject: emailData.teacherEmail.subject,
+        learnerNotified: Boolean(emailData.learnerEmail),
+      })
 
     // CORS + 204 success
     allowCors(request, response)
@@ -352,8 +416,10 @@ async function handleRequest(request, response, transporter) {
 
 export function startExerciseMailer(options = {}) {
   const transporter = options.transporter || createTransport()
-  const port = Number(options.port || DEFAULT_PORT)
-  const host = String(options.host || DEFAULT_HOST)
+  const port =
+    options.port === undefined || options.port === null ? DEFAULT_PORT : Number(options.port)
+  const host =
+    options.host === undefined || options.host === null ? DEFAULT_HOST : String(options.host)
 
   const server = http.createServer((request, response) => {
     handleRequest(request, response, transporter).catch((error) => {
@@ -374,6 +440,10 @@ export function startExerciseMailer(options = {}) {
   return server
 }
 
-if (import.meta.url === `file://${process.argv[1]}`) {
+const modulePath = fileURLToPath(import.meta.url)
+const entryArg = process.argv[1] ? path.resolve(process.argv[1]) : ""
+const invokedDirectly = entryArg && entryArg === modulePath
+
+if (invokedDirectly) {
   startExerciseMailer()
 }
