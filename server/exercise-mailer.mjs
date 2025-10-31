@@ -83,8 +83,16 @@ function formatAnswers(answers) {
   return rows.join("\n\n")
 }
 
+function isEmailLike(value) {
+  if (typeof value !== "string") return false
+  const trimmed = value.trim()
+  if (!trimmed) return false
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(trimmed)
+}
+
 function createEmail({ email, pageTitle, completedAt, recipients, answers }) {
   const to = coerceArray(recipients)
+  const cc = isEmailLike(email) ? [email.trim()] : []
   const subject = `Exercise submission${pageTitle ? ` — ${pageTitle}` : ""}`
   const submittedAt = completedAt || new Date().toISOString()
 
@@ -126,6 +134,7 @@ function createEmail({ email, pageTitle, completedAt, recipients, answers }) {
 
   return {
     to,
+    cc,
     subject,
     text: textBody,
     html: htmlBody,
@@ -308,6 +317,7 @@ async function handleRequest(request, response, transporter) {
     await transporter.sendMail({
       from,
       to,
+      cc: emailData.cc.length ? emailData.cc : undefined,
       subject: emailData.subject,
       text: emailData.text,
       html: emailData.html,

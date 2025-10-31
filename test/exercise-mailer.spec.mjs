@@ -67,6 +67,8 @@ test("POST /api/exercise-submission succeeds (204) and calls sendMail once", asy
     recipients: ["recipient@example.com"],
     answers: [{ id: 1, answers: ["ok"] }],
   }
+
+  assert.deepEqual(transport.calls.last.cc, ["student@example.com"])
   const res = await fetchLocal(basePort, "/api/exercise-submission", {
     method: "POST",
     headers: { "content-type": "application/json" },
