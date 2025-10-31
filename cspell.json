@@ -1,0 +1,13 @@
+{
+  "dictionaryDefinitions": [
+    {
+      "name": "user-words",
+      "path": "/home/eagles/.config/cspell/user-words.txt"
+    },
+    {
+      "name": "workspace-words-megs",
+      "path": "./.vscode/cspell/workspace-words-megs.txt"
+    }
+  ],
+  "dictionaries": ["user-words", "workspace-words-megs"]
+}

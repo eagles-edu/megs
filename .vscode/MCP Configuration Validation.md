@@ -2,10 +2,10 @@
 
 ## MCP Configuration has errors
 
-### Errors
+### Errors flinc
 
 - Server 'github' missing 'command' property
-- Server 'github' missing or invalid 'args' property
+- Server 'github' missing or invalid 'args' propertyflinc
 - Server 'github/github-mcp-server' missing 'command' property
 - Server 'github/github-mcp-server' missing or invalid 'args' property
 - Server 'upstash/context7' missing 'command' property
