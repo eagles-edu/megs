@@ -1,9 +1,37 @@
 // server/exercise-mailer.mjs
-import "dotenv/config"
+import { createRequire } from "node:module"
 import http from "node:http"
 import path from "node:path"
 import { URL, fileURLToPath } from "node:url"
-import nodemailer from "nodemailer"
+
+const require = createRequire(import.meta.url)
+const isDebugEnabled = () =>
+  String(process.env.MAILER_DEBUG || "")
+    .trim()
+    .toLowerCase() === "true"
+
+try {
+  require("dotenv/config")
+} catch (error) {
+  if (error && error.code !== "MODULE_NOT_FOUND") throw error
+  if (isDebugEnabled()) {
+    console.warn("ℹ️  Optional dependency 'dotenv' not found; continuing without loading .env file")
+  }
+}
+
+let nodemailer = null
+
+try {
+  const mod = require("nodemailer")
+  nodemailer = mod?.default || mod
+} catch (error) {
+  if (error && error.code !== "MODULE_NOT_FOUND") throw error
+  if (isDebugEnabled()) {
+    console.warn(
+      "ℹ️  Optional dependency 'nodemailer' not found; provide a transporter or install it"
+    )
+  }
+}
 
 /* =========================
   Configuration & Defaults
@@ -22,10 +50,7 @@ function getOriginList() {
 }
 
 // Toggle verbose logs
-const MAILER_DEBUG =
-  String(process.env.MAILER_DEBUG || "")
-    .trim()
-    .toLowerCase() === "true"
+const MAILER_DEBUG = isDebugEnabled()
 
 // Default recipients (comma-separated email list)
 const DEFAULT_RECIPIENTS = (process.env.EXERCISE_MAILER_RECIPIENTS || "")
@@ -249,6 +274,11 @@ function allowCors(request, response) {
    ========================= */
 
 function createTransport() {
+  if (!nodemailer) {
+    throw new Error(
+      "nodemailer dependency is unavailable. Install it or pass in options.transporter."
+    )
+  }
   const host = process.env.SMTP_HOST || "smtp.gmail.com"
   const port = Number(process.env.SMTP_PORT || 465)
   const secure = resolveBoolean(process.env.SMTP_SECURE, port === 465)

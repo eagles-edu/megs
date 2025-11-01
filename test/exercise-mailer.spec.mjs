@@ -133,6 +133,7 @@ test("CORS echoes back allowed origin when specific origin is configured", async
 
   // Cleanup temp
   await new Promise((res) => tmp.close(res))
+  process.env.EXERCISE_MAILER_ORIGIN = "*"
 })
 
 test("shutdown", async () => {
