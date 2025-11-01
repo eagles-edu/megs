@@ -83,6 +83,7 @@ test("POST /api/exercise-submission succeeds (204) and dispatches notifications"
   assert.ok(teacherMail, "teacher email payload captured")
   assert.equal(teacherMail.to[0], "recipient@example.com")
   assert.equal(teacherMail.subject, "abc123 Exercise submission — Test Page")
+  assert.match(teacherMail.text, /^abc123 just completed Test Page\./m)
   assert.match(teacherMail.text, /Student ID: abc123/)
   assert.match(teacherMail.text, /Student email: student@example.com/)
   assert.match(teacherMail.text, /Question 1:/)

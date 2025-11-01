@@ -121,14 +121,15 @@ function createEmail({ email, studentId, pageTitle, completedAt, recipients, ans
   const subjectBase = `Exercise submission${pageTitle ? ` — ${pageTitle}` : ""}`
   const teacherSubject = `${studentId ? `${studentId} ` : ""}${subjectBase}`
 
-  const studentLabel = studentId ? `Student ${studentId}` : "A student"
-  const studentIdLine = studentId ? `Student ID: ${studentId}` : "Student ID: (not provided)"
+  const studentDisplayId = studentId || "(not provided)"
+  const introIdentifier = studentId ? studentId : "Student ID (not provided)"
+  const studentIdLine = `Student ID: ${studentDisplayId}`
   const studentEmailLine = trimmedEmail
     ? `Student email: ${trimmedEmail}`
     : "Student email: (not provided)"
 
   const textBody = [
-    `${studentLabel} just completed ${pageTitle || "an exercise"}.`,
+    `${introIdentifier} just completed ${pageTitle || "an exercise"}.`,
     "",
     `Submitted at: ${submittedAt}`,
     studentEmailLine,
@@ -155,11 +156,11 @@ function createEmail({ email, studentId, pageTitle, completedAt, recipients, ans
 
   const htmlBody = `
     <div>
-      <p>${studentLabel} just completed <strong>${pageTitle || "an exercise"}</strong>.</p>
+      <p><strong>${introIdentifier}</strong> just completed <strong>${pageTitle || "an exercise"}</strong>.</p>
       <ul>
         <li><strong>Submitted at:</strong> ${submittedAt}</li>
         <li><strong>Student email:</strong> ${trimmedEmail || "(not provided)"}</li>
-        <li><strong>Student ID:</strong> ${studentId || "(not provided)"}</li>
+        <li><strong>Student ID:</strong> ${studentDisplayId}</li>
       </ul>
       ${htmlAnswers}
     </div>
@@ -461,9 +462,18 @@ export function startExerciseMailer(options = {}) {
   })
 
   server.listen(port, host, () => {
+    const boundAddress = server.address()
+    const boundHost =
+      boundAddress && typeof boundAddress === "object" && "address" in boundAddress
+        ? boundAddress.address
+        : host
+    const boundPort =
+      boundAddress && typeof boundAddress === "object" && "port" in boundAddress
+        ? boundAddress.port
+        : port
     const extra = MAILER_DEBUG ? " (MAILER_DEBUG=true)" : ""
     console.log(
-      `exercise-mailer listening on ${host}:${port} at ${DEFAULT_PATH} (health: /healthz)${extra}`
+      `exercise-mailer listening on ${boundHost}:${boundPort} at ${DEFAULT_PATH} (health: /healthz)${extra}`
     )
   })
 
