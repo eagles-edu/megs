@@ -37,11 +37,10 @@
   "editor.formatOnSave": false,
 
   // Keep Prettier away from HTML files entirely
-  "prettier.disableLanguages": ["html", "htm"],
-
+  // "prettier.disableLanguages": ["html", "htm"],
   // Per-language default formatter (keeps things predictable)
   "[html]": {
-    "editor.defaultFormatter": "vscode.html-language-features",
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.formatOnSave": true
   },
   "[vue]": {

@@ -176,11 +176,22 @@ body {
   margin: 0;
 }
 
-/* 1b) Structural container */
+/* Container */
 .container {
   margin: 0 auto;
   max-width: 1100px;
-  padding: 0 16px;
+  padding: 0 18px;
+}
+
+/* Container */
+.container2 {
+  margin: 0 auto;
+  max-width: 1100px;
+  padding: 0 18px;
+}
+
+.mar10 {
+  margin: .625rem;
 }
 
 .padme1 {

@@ -752,6 +752,13 @@
       min-height: 80px;
     }
 
+    .inner-footer {
+      background-color: var(--tertiary-color);
+      border-radius: var(--radius);
+      color: var(--secondary-color);
+      min-height: 80px;
+    }
+
     /* Stabilize sidebar width on desktop to prevent reflow */
     @media (min-width: 768px) {
       #sidebar {
@@ -2279,7 +2286,7 @@
                   <div id="exercise-status" class="status-warn" aria-live="polite" style="margin-top: 0.5rem"></div>
                 </div>
               </form>
-              <!-- Page config: set recipients and where to POST -->
+              <!-- ############### Page config: set recipients and where to POST ##################### -->
               <script type="application/json" id="exercise-config" data-exercise-config>
                   {
                     "recipients": ["kimthanh@eaglesvn.online", "admin@eaglesvn.online", "thanh.eaglesclub@gmail.com"],
@@ -3841,23 +3848,23 @@
               </li>
             </ul>
           </div>
-          <!-- End Right Sidebar -->
+                    <!-- End Right Sidebar -->
         </div>
       </div>
     </div>
-  </div>
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="container">
-      <hr>
-      <p class="pull-right">
-        <a href="#top" id="back-top" aria-label="Back to Top">
-          Back to Top
-        </a>
-      </p>
-      <p>© 2021.</p>
+    <!-- Footer -->
+    <footer class="footer mar10">
+      <div class="container2 inner-footer">
+        <br>
+          <p class="pull-right">
+            <a href="#top" id="back-top" aria-label="Back to Top">
+              Back to Top
+            </a>
+          </p>
+          <p>© 2021.</p>
+      </footer>
     </div>
-  </footer>
+  </div>
   <script>
       // nn_sliders fallback: enable toggles without jQuery/Bootstrap
       ; ( function () {
