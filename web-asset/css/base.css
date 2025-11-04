@@ -15,6 +15,8 @@
 
   /* Layout surfaces */
   --background-color: #798ea4; /* page background behind light content */
+  --footer-background: #3e4b5b;
+  --blkquot-background:#f0f2f5;
   --body-bgcolor: var(--secondary-color); /* body background */
   --surface-color: #eee; /* menu/content surface */
   --surface-muted: #f0f0ee; /* light alt surface */
@@ -186,8 +188,29 @@ body {
 /* Container */
 .container2 {
   margin: 0 auto;
-  max-width: 1100px;
+  max-width: 1085px;
   padding: 0 18px;
+}
+
+
+/* Footer */
+.footer {
+  min-height: 80px;
+}
+
+.footer .inner-footer {
+  background-color: var(--footer-background);
+  border-radius: var(--radius);
+  color: var(--secondary-color);
+  min-height: inherit;
+}
+
+.footer .inner-footer a,
+.footer .inner-footer a:visited,
+.footer .inner-footer a:hover,
+.footer .inner-footer a:focus,
+.footer .inner-footer a:active {
+  color: inherit;
 }
 
 .mar10 {
@@ -714,4 +737,14 @@ h4.box-head4 {
 .tm01 {
   display: block;
   margin-top: 1rem!important;
+}
+
+.blkquot {
+/*  background-color: var(--blkquot-background);
+  border: 1px solid var(--footer-background);
+  border-radius: var(--radius); */
+  color: var(--text-color);
+  font-style: italic;
+  margin: 1.4rem;
+  padding: 5px;
 }

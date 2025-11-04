@@ -23,6 +23,7 @@
       --tertiary-color: #002786;
       --text-color: #212121;
       --background-color: #798ea4;
+      --footer-background:#3e4b5b;
       --icon-color-on-dk: #f5f8ff;
       --icon-color-on-lt: #8a94a8;
       --pager-background: var(--surface-color, #fff);
@@ -63,6 +64,14 @@
       /* locked */
       /* Layout surfaces */
       /* page background behind light content */
+    }
+
+    /* Base shell (padding, top border, background) */
+    body.base,
+    body.site {
+      border-top: 15px solid var(--footer-background);
+      padding: 20px;
+      background-color: var(--background-color);
     }
 
     /* Preload critical image dimensions to prevent CLS */
@@ -200,10 +209,12 @@
       }
     }
   </style>
+
   <!-- Critical resource hints for better performance -->
   <link rel="dns-prefetch" href="../images/">
   <link rel="dns-prefetch" href="../web-asset/">
   <link rel="dns-prefetch" href="../js/">
+
   <style id="critical-inline">
     /* Critical CSS: reset + fast header paint + mobile toggle */
     body {
@@ -805,6 +816,13 @@
     .nn_sliders-toggle:active {
       border-color: var(--link-color);
     }
+
+    .blkquot {
+      color: var(--text-color);
+      font-style: italic;
+      margin: 1.4rem;
+      padding: 5px;
+}
   </style>
 
   <!-- Optimized speculationrules with prerender for better UX -->
@@ -1117,6 +1135,37 @@
           <div class="item-page">
             <div class="page-header">
               <h2>1.1.1 Common Nouns</h2>
+              <div class="clearfix"></div>
+          <ul class="breadcrumb" itemscope="" itemtype="https://schema.org/BreadcrumbList">
+            <li class="active">
+              <span class="divider icon-location"></span>
+            </li>
+
+            <li itemprop="itemListElement" itemscope="" itemtype="https://schema.org/ListItem">
+              <a itemprop="item" href="../index-2.html" class="pathway" aria-label="Home">
+                <span itemprop="name">Home</span>
+              </a>
+
+              <span class="divider">
+                <img src="../images/arrow.svg" alt="" width="9" height="9">
+              </span>
+              <meta itemprop="position" content="1">
+            </li>
+            <li itemprop="itemListElement" itemscope="" itemtype="https://schema.org/ListItem">
+              <a itemprop="item" href="../exercise-1-nouns.html" class="pathway" aria-label="Exercise 1 - Nouns">
+                <span itemprop="name">Exercise 1 - Nouns</span>
+              </a>
+
+              <span class="divider">
+                <img src="../images/arrow.png" alt="" width="9" height="9">
+              </span>
+              <meta itemprop="position" content="2">
+            </li>
+            <li itemprop="itemListElement" itemscope="" itemtype="https://schema.org/ListItem" class="active">
+              <span itemprop="name">1.1.1 Common Nouns</span>
+              <meta itemprop="position" content="3">
+            </li>
+          </ul>
             </div>
             <div itemprop="articleBody">
               <ul class="pager pagenav">
@@ -1144,11 +1193,9 @@
                   </a>
                 </li>
               </ul>
-              <p>Identify and enter the Common Nouns in the following sentences. Click on the sentence for the answer.
-                Enter your<b>email address</b> and Your Eagles Club <b>user ID</b> to begin.
+              <p>Identify and enter the Common Nouns in the following sentences. Click on the sentence for the answer. Enter your <strong>email address</strong> and Your Eagles Club <strong>user ID</strong> to begin.
               </p>
-              <form class="exercise-form exercise-gate" data-exercise-form data-storage-key="exercise-111-common-nouns"
-                novalidate>
+              <form class="exercise-form exercise-gate" data-exercise-form data-storage-key="exercise-111-common-nouns" novalidate>
                 <fieldset class="exercise-form__intro">
                   <legend class="visually-hidden">Exercise setup</legend>
                   <div class="exercise-form__intro-layout">
@@ -1569,8 +1616,7 @@
                           data-id="sec-8-the-children-are-kicking-a-ball-around-in-the-field"
                           data-parent="#set-nn_sliders-8" aria-expanded="false"
                           aria-controls="sec-8-the-children-are-kicking-a-ball-around-in-the-field">
-                          <span class="nn_sliders-toggle-inner">8. The children are kicking a ball around in the
-                            field.</span>
+                          <span class="nn_sliders-toggle-inner">8. The children are kicking a ball around in the field.</span>
                         </a>
                       </div>
                       <div class="accordion-body nn_sliders-body collapse"
@@ -2338,41 +2384,8 @@
               </ul>
             </div>
           </div>
-
-          <div class="clearfix"></div>
-          <ul class="breadcrumb" itemscope="" itemtype="https://schema.org/BreadcrumbList">
-            <li class="active">
-              <span class="divider icon-location"></span>
-            </li>
-
-            <li itemprop="itemListElement" itemscope="" itemtype="https://schema.org/ListItem">
-              <a itemprop="item" href="../index-2.html" class="pathway" aria-label="Home">
-                <span itemprop="name">Home</span>
-              </a>
-
-              <span class="divider">
-                <img src="../images/arrow.png" alt="" width="9" height="9">
-              </span>
-              <meta itemprop="position" content="1">
-            </li>
-            <li itemprop="itemListElement" itemscope="" itemtype="https://schema.org/ListItem">
-              <a itemprop="item" href="../exercise-1-nouns.html" class="pathway" aria-label="Exercise 1 - Nouns">
-                <span itemprop="name">Exercise 1 - Nouns</span>
-              </a>
-
-              <span class="divider">
-                <img src="../images/arrow.png" alt="" width="9" height="9">
-              </span>
-              <meta itemprop="position" content="2">
-            </li>
-            <li itemprop="itemListElement" itemscope="" itemtype="https://schema.org/ListItem" class="active">
-              <span itemprop="name">1.1.1 Common Nouns</span>
-              <meta itemprop="position" content="3">
-            </li>
-          </ul>
-
-          <!-- End Content -->
         </main>
+        <!-- End Content -->
         <div id="aside" class="span2">
           <!-- Begin Right Sidebar -->
           <div class="well hidden-phone">
@@ -3842,7 +3855,7 @@
               </li>
             </ul>
           </div>
-                    <!-- End Right Sidebar -->
+        <!-- End Right Sidebar -->
         </div>
       </div>
     </div>
@@ -3855,10 +3868,21 @@
               Back to Top
             </a>
           </p>
-          <p>© 2021.</p>
+          <p>© <span data-copyright-year></span> All rights reserved.</p>
       </footer>
     </div>
   </div>
+  <!-- NEW: auto-fills current year (or a range if data-start is set) -->
+  <script>
+  (() => {
+    'use strict';
+    const year = new Date().getFullYear(); // NEW: get current year
+    document.querySelectorAll('[data-copyright-year]').forEach(el => {
+      const start = parseInt(el.getAttribute('data-start'), 10); // NEW: optional start year
+      el.textContent = Number.isFinite(start) && start < year ? `${start}–${year}` : String(year); // NEW: write year/range
+    });
+  })();
+  </script>
   <script>
       // nn_sliders fallback: enable toggles without jQuery/Bootstrap
       ; ( function () {

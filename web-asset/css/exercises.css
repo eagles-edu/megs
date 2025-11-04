@@ -94,9 +94,9 @@
   align-items: center;
   color: var(--color-muted);
   display: flex;
-  gap: 8px;
+  gap: 5px;
   list-style: none;
-  margin: 1rem 0;
+  margin: 1.25rem 0;
   padding: 0;
 }
 
