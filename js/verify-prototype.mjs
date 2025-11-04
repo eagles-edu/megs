@@ -15,10 +15,14 @@ const log = (...a) => {
 }
 
 const root = process.cwd()
-const htmlPath = path.join(root, "exercise-1-nouns/111-common-nouns-codex.html")
+const htmlPath = path.join(root, "exercise-1-nouns/111-common-nouns.html")
 const leftMenuJs = path.join(root, "web-asset/js/left-menu.js")
 const flyoutMenuJs = path.join(root, "web-asset/js/flyout-menu.js")
 const qaAccordionJs = path.join(root, "web-asset/js/qa-accordion.js")
+
+// web-asset/js/exercise-gate.js
+// web-asset/js/main.bundle.js
+// web-asset/js/right-rail-flyout.js
 
 ;[htmlPath, leftMenuJs, flyoutMenuJs, qaAccordionJs].forEach((p) => {
   if (!fs.existsSync(p)) {
