@@ -7,7 +7,7 @@ import { JSDOM } from 'jsdom'
 
 const root = process.cwd()
 const pages = [
-  'exercise-1-nouns/111-common-nouns-codex.html',
+  'exercise-1-nouns/111-common-nouns.html',
   'exercise-11-conditionals.html',
   'exercise-5-pronouns.html',
   'vocabulary.html'
