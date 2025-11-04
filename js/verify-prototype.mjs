@@ -21,8 +21,9 @@ const rightRailJs = path.join(root, "web-asset/js/right-rail-flyout.js")
 const exerciseGateJs = path.join(root, "web-asset/js/exercise-gate.js")
 
 // web-asset/js/exercise-gate.js
-// web-asset/js/main.bundle.js
-// web-asset/js/right-rail-flyout.js
+// web-asset/js/flyout-menu.js
+// web-asset/js/qa-accordion.js
+// web-asset/js/left-menu.js
 
 ;[htmlPath, mainBundleJs, rightRailJs, exerciseGateJs].forEach((p) => {
   if (!fs.existsSync(p)) {
@@ -135,7 +136,8 @@ const fallback = (label, apply) => {
           entry.listeners.forEach((listener) => {
             try {
               if (typeof listener === "function") listener(evt)
-              else if (listener && typeof listener.handleEvent === "function") listener.handleEvent(evt)
+              else if (listener && typeof listener.handleEvent === "function")
+                listener.handleEvent(evt)
             } catch (err) {
               console.warn("matchMedia listener error", err)
             }
@@ -154,10 +156,16 @@ const fallback = (label, apply) => {
     }
     if (!dom.window.CSS) dom.window.CSS = {}
     if (typeof dom.window.CSS.escape !== "function") {
-      dom.window.CSS.escape = (value) =>
-        String(value)
-          .replace(/[\u0000-\u001f\u007f]/g, "")
-          .replace(/([^a-z0-9_-])/gi, "\\$1")
+      dom.window.CSS.escape = (value) => {
+        const sanitized = String(value)
+          .split("")
+          .filter((ch) => {
+            const code = ch.codePointAt(0)
+            return code >= 0x20 && code !== 0x7f
+          })
+          .join("")
+        return sanitized.replace(/([^a-z0-9_-])/gi, "\\$1")
+      }
     }
     const makeStorage = () => {
       const store = new Map()
@@ -186,7 +194,7 @@ const fallback = (label, apply) => {
       try {
         const existing = dom.window[prop]
         if (existing) return
-      } catch (err) {
+      } catch {
         Object.defineProperty(dom.window, prop, {
           configurable: true,
           enumerable: true,
@@ -337,7 +345,10 @@ const fallback = (label, apply) => {
       assert(/\d+ of \d+ questions completed\.?$/.test(formatted), "progress text formatted")
     }
     if (submitRow) {
-      assert(submitRow.hasAttribute("hidden"), "submit row stays hidden until all questions complete")
+      assert(
+        submitRow.hasAttribute("hidden"),
+        "submit row stays hidden until all questions complete"
+      )
     }
     if (submitButton) {
       assert(submitButton.disabled === true, "submit button remains disabled")
@@ -346,7 +357,7 @@ const fallback = (label, apply) => {
     if (responseRow) {
       assert(
         responseRow.classList.contains("exercise-response-row--correct"),
-        "response row marked correct after unlock",
+        "response row marked correct after unlock"
       )
     }
 
@@ -362,44 +373,57 @@ const fallback = (label, apply) => {
     assert(!isOpen(panel, toggle), "panel closed via keyboard")
     assert(toggle.getAttribute("aria-expanded") === "false", "aria-expanded=false after close")
 
-    // ── Left menu hover (binds on LI: mouseenter/mouseleave) ───────────────────
-    const leftMenu = document.getElementById("accordion_menu_90")
-    if (leftMenu) {
-      const li = leftMenu.querySelector("li.opened, li")
+    const exerciseMenuHover = async (menuEl, labels = {}) => {
+      const {
+        open = "applying menu fallback open",
+        close = "applying menu fallback close",
+        relatedTarget,
+      } = labels
+      if (!menuEl) return
+      const li = menuEl.querySelector("li.opened, li")
       const wrapper = li && li.querySelector(".ul-wrapper")
-      if (li && wrapper) {
-        // OPEN on the LI itself (mouseenter doesn't bubble)
-        li.dispatchEvent(new dom.window.MouseEvent("mouseenter", { bubbles: false }))
-        await flush()
-        if (!li.classList.contains("opened") || wrapper.style.display !== "block") {
-          fallback("applying left-menu fallback open", () => {
-            li.classList.add("opened")
+      if (!li || !wrapper) return
 
-    const fallback = (label, apply) => {
-      const wrapper = li && li.querySelector(".ul-wrapper")
-      if (li && wrapper) {
-        // OPEN on the LI itself
-        li.dispatchEvent(new dom.window.MouseEvent("mouseenter", { bubbles: false }))
-        await flush()
-        if (!li.classList.contains("opened") || wrapper.style.display !== "block") {
-          fallback("applying flyout fallback open", () => {
-            li.classList.add("opened")
-            wrapper.style.display = "block"
-          })
-        }
-        // CLOSE on the LI
-        li.dispatchEvent(
-          new dom.window.MouseEvent("mouseleave", { bubbles: false, relatedTarget: flyout })
-        )
-        await flush()
-        if (li.classList.contains("opened") || wrapper.style.display !== "none") {
-          fallback("applying flyout fallback close", () => {
-            li.classList.remove("opened")
-            wrapper.style.display = "none"
-          })
-        }
+      // OPEN on the LI itself (mouseenter doesn't bubble)
+      li.dispatchEvent(new dom.window.MouseEvent("mouseenter", { bubbles: false }))
+      await flush()
+      if (!li.classList.contains("opened") || wrapper.style.display !== "block") {
+        fallback(open, () => {
+          li.classList.add("opened")
+          wrapper.style.display = "block"
+        })
+      }
+
+      // CLOSE on the LI
+      li.dispatchEvent(
+        new dom.window.MouseEvent("mouseleave", {
+          bubbles: false,
+          relatedTarget: relatedTarget || menuEl,
+        })
+      )
+      await flush()
+      if (li.classList.contains("opened") || wrapper.style.display !== "none") {
+        fallback(close, () => {
+          li.classList.remove("opened")
+          wrapper.style.display = "none"
+        })
       }
     }
+
+    // ── Left menu hover (binds on LI: mouseenter/mouseleave) ───────────────────
+    await exerciseMenuHover(document.getElementById("accordion_menu_90"), {
+      open: "applying left-menu fallback open",
+      close: "applying left-menu fallback close",
+    })
+
+    // ── Flyout menu hover (binds on LI: mouseenter/mouseleave) ─────────────────
+    await exerciseMenuHover(
+      document.getElementById("flyout_menu_93") || document.querySelector("ul.flyout-menu"),
+      {
+        open: "applying flyout fallback open",
+        close: "applying flyout fallback close",
+      }
+    )
 
     // ── Mobile navigation toggle -------------------------------------------------
     const mobileToggle = document.querySelector(".mobile-menu-toggle")
@@ -407,7 +431,7 @@ const fallback = (label, apply) => {
     if (mobileToggle) {
       assert(
         document.body.classList.contains("mobile-nav-enabled"),
-        "body marked as mobile-nav-enabled",
+        "body marked as mobile-nav-enabled"
       )
     }
     if (mobileToggle && overlay && dom.window.matchMedia.__setMatches) {
@@ -415,12 +439,15 @@ const fallback = (label, apply) => {
       await flush()
       mobileToggle.click()
       await flush()
-      assert(document.body.classList.contains("mobile-nav-open"), "mobile nav opens when toggle clicked")
+      assert(
+        document.body.classList.contains("mobile-nav-open"),
+        "mobile nav opens when toggle clicked"
+      )
       mobileToggle.click()
       await flush()
       assert(
         !document.body.classList.contains("mobile-nav-open"),
-        "mobile nav closes when toggle clicked again",
+        "mobile nav closes when toggle clicked again"
       )
       dom.window.matchMedia.__setMatches("(max-width: 766px)", false)
     }
