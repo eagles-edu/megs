@@ -16,15 +16,15 @@ const log = (...a) => {
 
 const root = process.cwd()
 const htmlPath = path.join(root, "exercise-1-nouns/111-common-nouns.html")
-const leftMenuJs = path.join(root, "web-asset/js/left-menu.js")
-const flyoutMenuJs = path.join(root, "web-asset/js/flyout-menu.js")
-const qaAccordionJs = path.join(root, "web-asset/js/qa-accordion.js")
+const mainBundleJs = path.join(root, "web-asset/js/main.bundle.js")
+const rightRailJs = path.join(root, "web-asset/js/right-rail-flyout.js")
+const exerciseGateJs = path.join(root, "web-asset/js/exercise-gate.js")
 
 // web-asset/js/exercise-gate.js
 // web-asset/js/main.bundle.js
 // web-asset/js/right-rail-flyout.js
 
-;[htmlPath, leftMenuJs, flyoutMenuJs, qaAccordionJs].forEach((p) => {
+;[htmlPath, mainBundleJs, rightRailJs, exerciseGateJs].forEach((p) => {
   if (!fs.existsSync(p)) {
     console.error(`❌ Missing required file: ${path.relative(root, p)}`)
     process.exit(1)
@@ -69,11 +69,11 @@ const forceToggle = (panel, toggle, open) => {
     panel.classList.add("in", "show")
     panel.classList.remove("collapse", "collapsed")
     toggle?.setAttribute("aria-expanded", "true")
-  } else {
-    panel.classList.remove("in", "show", "open", "expanded")
-    panel.classList.add("collapse")
-    toggle?.setAttribute("aria-expanded", "false")
+    return
   }
+  panel.classList.remove("in", "show", "open", "expanded")
+  panel.classList.add("collapse")
+  toggle?.setAttribute("aria-expanded", "false")
 }
 const fallback = (label, apply) => {
   usedFallback = true
@@ -91,18 +91,59 @@ const fallback = (label, apply) => {
 
     // Shims
     if (!("matchMedia" in dom.window)) {
-      dom.window.matchMedia = (q) => ({
-        matches: false,
-        media: q,
-        addListener() {},
-        removeListener() {},
-        addEventListener() {},
-        removeEventListener() {},
-        onchange: null,
-        dispatchEvent() {
-          return false
-        },
-      })
+      const matchMedia = (() => {
+        const store = new Map()
+        const ensureEntry = (query) => {
+          if (!store.has(query)) {
+            const listeners = new Set()
+            const mql = {
+              matches: false,
+              media: query,
+              addListener(fn) {
+                if (typeof fn === "function") listeners.add(fn)
+              },
+              removeListener(fn) {
+                listeners.delete(fn)
+              },
+              addEventListener(type, fn) {
+                if (type === "change" && typeof fn === "function") listeners.add(fn)
+              },
+              removeEventListener(type, fn) {
+                if (type === "change") listeners.delete(fn)
+              },
+              dispatchEvent(event) {
+                listeners.forEach((fn) => {
+                  try {
+                    fn(event)
+                  } catch (err) {
+                    console.warn("matchMedia listener error", err)
+                  }
+                })
+                return true
+              },
+            }
+            store.set(query, { mql, listeners })
+          }
+          return store.get(query)
+        }
+        const fn = (query) => ensureEntry(query).mql
+        fn.__setMatches = (query, value) => {
+          const entry = ensureEntry(query)
+          if (entry.mql.matches === value) return
+          entry.mql.matches = value
+          const evt = { matches: value, media: query }
+          entry.listeners.forEach((listener) => {
+            try {
+              if (typeof listener === "function") listener(evt)
+              else if (listener && typeof listener.handleEvent === "function") listener.handleEvent(evt)
+            } catch (err) {
+              console.warn("matchMedia listener error", err)
+            }
+          })
+        }
+        return fn
+      })()
+      dom.window.matchMedia = matchMedia
     }
     if (!("scrollTo" in dom.window)) dom.window.scrollTo = () => {}
     if (!("scrollIntoView" in dom.window.HTMLElement.prototype)) {
@@ -111,33 +152,111 @@ const fallback = (label, apply) => {
     if (!("getComputedStyle" in dom.window)) {
       dom.window.getComputedStyle = () => ({ getPropertyValue: () => "", display: "block" })
     }
+    if (!dom.window.CSS) dom.window.CSS = {}
+    if (typeof dom.window.CSS.escape !== "function") {
+      dom.window.CSS.escape = (value) =>
+        String(value)
+          .replace(/[\u0000-\u001f\u007f]/g, "")
+          .replace(/([^a-z0-9_-])/gi, "\\$1")
+    }
+    const makeStorage = () => {
+      const store = new Map()
+      return {
+        getItem(key) {
+          return store.has(key) ? store.get(key) : null
+        },
+        setItem(key, value) {
+          store.set(key, String(value))
+        },
+        removeItem(key) {
+          store.delete(key)
+        },
+        clear() {
+          store.clear()
+        },
+        key(index) {
+          return Array.from(store.keys())[index] ?? null
+        },
+        get length() {
+          return store.size
+        },
+      }
+    }
+    const ensureStorage = (prop) => {
+      try {
+        const existing = dom.window[prop]
+        if (existing) return
+      } catch (err) {
+        Object.defineProperty(dom.window, prop, {
+          configurable: true,
+          enumerable: true,
+          value: makeStorage(),
+          writable: false,
+        })
+        return
+      }
+      try {
+        dom.window[prop] = makeStorage()
+      } catch {
+        Object.defineProperty(dom.window, prop, {
+          configurable: true,
+          enumerable: true,
+          value: makeStorage(),
+          writable: false,
+        })
+      }
+    }
+    ensureStorage("localStorage")
+    ensureStorage("sessionStorage")
+    if (!dom.window.fetch) {
+      dom.window.fetch = async () => ({ ok: true, json: async () => ({}), text: async () => "" })
+    }
+    if (!dom.window.XMLHttpRequest) {
+      dom.window.XMLHttpRequest = class {
+        constructor() {
+          this.readyState = 0
+          this.status = 200
+          this.responseText = ""
+          this.onreadystatechange = null
+          this.onerror = null
+        }
+        open(method, url) {
+          this._method = method
+          this._url = url
+          this.readyState = 1
+        }
+        setRequestHeader() {}
+        send() {
+          this.readyState = 4
+          if (typeof this.onreadystatechange === "function") {
+            this.onreadystatechange()
+          }
+        }
+        abort() {
+          this.readyState = 0
+        }
+      }
+    }
 
     const { document, Event } = dom.window
     const { flush } = makeFlushers(dom.window)
 
     // Load site scripts
-    dom.window.eval(load(leftMenuJs))
-    dom.window.eval(load(flyoutMenuJs))
-    dom.window.eval(load(qaAccordionJs))
+    dom.window.eval(load(mainBundleJs))
+    dom.window.eval(load(rightRailJs))
+    dom.window.eval(load(exerciseGateJs))
 
     // Lifecycle
     document.dispatchEvent(new Event("DOMContentLoaded", { bubbles: true }))
     dom.window.dispatchEvent(new Event("load"))
     await flush()
 
-    // Call explicit init if exposed by page code (qa-accordion exports it)
-    if (typeof dom.window.initQAAccordions === "function") {
-      try {
-        dom.window.initQAAccordions()
-      // eslint-disable-next-line no-empty
-      } catch {}
-      await flush()
-    }
-
     // ── Accordion assertions ───────────────────────────────────────────────────
     const content = document.getElementById("content")
     assert(content, "#content exists")
-    const toggle = content.querySelector("a.accordion-toggle")
+    const question = content.querySelector("[data-exercise-question]")
+    assert(question, "exercise question exists")
+    const toggle = question.querySelector("a.accordion-toggle")
     assert(toggle, "accordion toggle exists")
 
     const ctrlId =
@@ -154,6 +273,48 @@ const fallback = (label, apply) => {
     assert(!isOpen(panel, toggle), "panel starts closed")
     assert(toggle.getAttribute("aria-expanded") === "false", "aria-expanded=false initially")
 
+    const form = document.querySelector("[data-exercise-form]")
+    assert(form, "exercise form exists")
+    const emailInput = form.querySelector("[data-exercise-email]")
+    const studentIdInput = form.querySelector("[data-exercise-student-id]")
+    const progressEl = form.querySelector("[data-exercise-progress]")
+    const submitRow = form.querySelector("[data-exercise-submit-row]")
+    const submitButton = form.querySelector("[data-exercise-submit]")
+    const feedbackEl = form.querySelector("[data-exercise-feedback]")
+    const questionMeta = toggle._exerciseQuestion
+    assert(questionMeta, "toggle metadata attached to question")
+
+    if (emailInput) {
+      emailInput.value = "learner@example.com"
+      emailInput.dispatchEvent(new dom.window.Event("input", { bubbles: true }))
+    }
+    if (studentIdInput) {
+      studentIdInput.value = "pupil001"
+      studentIdInput.dispatchEvent(new dom.window.Event("input", { bubbles: true }))
+    }
+
+    const normalizeAnswer = (value) =>
+      String(value || "")
+        .toLowerCase()
+        .replace(/[\u2018\u2019\u201a\u201b\u2032\u2035]/g, "'")
+        .replace(/[^a-z0-9\s'-]/g, " ")
+        .replace(/-/g, " ")
+        .replace(/[\s\u00a0]+/g, " ")
+        .trim()
+
+    const answerSpans = [
+      ...question.querySelectorAll(".accordion-body .in-text-decoration-underline__14j0pz"),
+    ]
+    const expectedAnswers = answerSpans
+      .map((node) => normalizeAnswer(node.textContent))
+      .filter((txt) => txt)
+    const responseInputs = [...question.querySelectorAll(".exercise-response-input")]
+    assert(responseInputs.length > 0, "response inputs exist for first question")
+    if (expectedAnswers.length > 0) {
+      responseInputs[0].value = expectedAnswers[0]
+      responseInputs[0].dispatchEvent(new dom.window.Event("input", { bubbles: true }))
+    }
+
     // open
     toggle.click()
     await flush()
@@ -165,6 +326,29 @@ const fallback = (label, apply) => {
     }
     assert(isOpen(panel, toggle), "panel opened adds classes")
     assert(toggle.getAttribute("aria-expanded") === "true", "aria-expanded=true after open")
+    assert(questionMeta.complete === true, "question metadata flagged complete")
+    if (feedbackEl) {
+      const feedbackMsg = feedbackEl.textContent.trim()
+      assert(feedbackMsg.length > 0, "feedback message rendered after unlock")
+      assert(/unlocked/i.test(feedbackMsg), "feedback announces unlock state")
+    }
+    if (progressEl) {
+      const formatted = progressEl.textContent.trim()
+      assert(/\d+ of \d+ questions completed\.?$/.test(formatted), "progress text formatted")
+    }
+    if (submitRow) {
+      assert(submitRow.hasAttribute("hidden"), "submit row stays hidden until all questions complete")
+    }
+    if (submitButton) {
+      assert(submitButton.disabled === true, "submit button remains disabled")
+    }
+    const responseRow = question.querySelector(".exercise-response-row")
+    if (responseRow) {
+      assert(
+        responseRow.classList.contains("exercise-response-row--correct"),
+        "response row marked correct after unlock",
+      )
+    }
 
     // close via Enter
     toggle.dispatchEvent(new dom.window.KeyboardEvent("keydown", { key: "Enter", bubbles: true }))
@@ -190,28 +374,8 @@ const fallback = (label, apply) => {
         if (!li.classList.contains("opened") || wrapper.style.display !== "block") {
           fallback("applying left-menu fallback open", () => {
             li.classList.add("opened")
-            wrapper.style.display = "block"
-          })
-        }
-        // CLOSE on the LI
-        li.dispatchEvent(
-          new dom.window.MouseEvent("mouseleave", { bubbles: false, relatedTarget: leftMenu })
-        )
-        await flush()
-        if (li.classList.contains("opened") || wrapper.style.display !== "none") {
-          fallback("applying left-menu fallback close", () => {
-            li.classList.remove("opened")
-            wrapper.style.display = "none"
-          })
-        }
-      }
-    }
 
-    // ── Flyout menu hover (binds on LI: mouseenter/mouseleave) ─────────────────
-    const flyout =
-      document.getElementById("flyout_menu_93") || document.querySelector("ul.flyout-menu")
-    if (flyout) {
-      const li = flyout.querySelector("li.opened, li")
+    const fallback = (label, apply) => {
       const wrapper = li && li.querySelector(".ul-wrapper")
       if (li && wrapper) {
         // OPEN on the LI itself
@@ -235,6 +399,30 @@ const fallback = (label, apply) => {
           })
         }
       }
+    }
+
+    // ── Mobile navigation toggle -------------------------------------------------
+    const mobileToggle = document.querySelector(".mobile-menu-toggle")
+    const overlay = document.querySelector(".mobile-nav-overlay")
+    if (mobileToggle) {
+      assert(
+        document.body.classList.contains("mobile-nav-enabled"),
+        "body marked as mobile-nav-enabled",
+      )
+    }
+    if (mobileToggle && overlay && dom.window.matchMedia.__setMatches) {
+      dom.window.matchMedia.__setMatches("(max-width: 766px)", true)
+      await flush()
+      mobileToggle.click()
+      await flush()
+      assert(document.body.classList.contains("mobile-nav-open"), "mobile nav opens when toggle clicked")
+      mobileToggle.click()
+      await flush()
+      assert(
+        !document.body.classList.contains("mobile-nav-open"),
+        "mobile nav closes when toggle clicked again",
+      )
+      dom.window.matchMedia.__setMatches("(max-width: 766px)", false)
     }
 
     if (STRICT && usedFallback) {
