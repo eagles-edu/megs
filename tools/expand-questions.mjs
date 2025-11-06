@@ -1,185 +1,789 @@
 #!/usr/bin/env node
 // tools/expand-questions.mjs
-// Clone the first question block to N questions by renumbering attributes & prefixes.
+// Interactive helper for cloning & normalizing exercise questions based on the
+// prototype markup in exercise-1-nouns/111-common-nouns.html.
+// node /home/eagles/dockerz/megs/tools/expand-questions.mjs /home/eagles/dockerz/megs/exercise-1-nouns/112-proper-nouns-copy.html --dry-run
+//   --no-interactive --to 22 --in-place
 // Requires: npm i cheerio
-import fs from "node:fs/promises"
-import process from "node:process"
-import * as cheerio from "cheerio"
+
+import fs from "node:fs/promises";
+import path from "node:path";
+import process from "node:process";
+import { createInterface } from "node:readline/promises";
+import { stdin as input, stdout as output } from "node:process";
+import * as cheerio from "cheerio";
 
 function usage(code = 0) {
   const msg = `
 Usage:
-  node tools/expand-questions.mjs <input.html> [--to 20] [--out output.html] [--in-place]
+  node tools/expand-questions.mjs <input.html> [options]
 
 Options:
-  --to <n>        Total number of questions to end up with (default: 20)
-  --out <file>    Write to file (default: stdout unless --in-place is used)
-  --in-place      Overwrite the input file
-  --help          Show this help
+  --to <n>            Target number of questions (default: keep existing)
+  --fields <list>     Comma separated data-field names (1-4 items)
+  --out <file>        Write transformed HTML to file
+  --in-place          Overwrite the input file (implies auto-backup unless disabled)
+  --backup            Force backup even if not overwriting
+  --no-backup         Disable automatic backup
+  --dry-run           Compute changes but do not write output
+  --interactive       Force interactive prompts even if not attached to a TTY
+  --no-interactive    Run without prompts (for scripts/CI)
+  --help              Show this help message
 `.trim();
   console.error(msg);
   process.exit(code);
 }
 
-function getArg(name) {
-  const idx = process.argv.indexOf(name);
-  if (idx === -1) return null;
-  return process.argv[idx + 1] || null;
+function parseCLI(argv) {
+  const out = {
+    input: null,
+    goal: null,
+    goalProvided: false,
+    fields: null,
+    fieldsProvided: false,
+    outFile: null,
+    outProvided: false,
+    inPlace: false,
+    inPlaceProvided: false,
+    dryRun: false,
+    dryRunProvided: false,
+    interactive: process.stdin.isTTY && process.stdout.isTTY,
+    interactiveProvided: null,
+    forceBackup: null,
+    forceBackupProvided: false,
+    help: false,
+  };
+
+  const positional = [];
+  for (let i = 2; i < argv.length; i++) {
+    const token = argv[i];
+    if (token === "--help" || token === "-h") {
+      out.help = true;
+    } else if (token === "--to") {
+      if (i + 1 >= argv.length) usage(1);
+      out.goal = parseInt(argv[++i], 10);
+      out.goalProvided = true;
+    } else if (token.startsWith("--to=")) {
+      out.goal = parseInt(token.split("=")[1], 10);
+      out.goalProvided = true;
+    } else if (token === "--fields") {
+      if (i + 1 >= argv.length) usage(1);
+      out.fields = argv[++i].split(",");
+      out.fieldsProvided = true;
+    } else if (token.startsWith("--fields=")) {
+      out.fields = token.split("=")[1].split(",");
+      out.fieldsProvided = true;
+    } else if (token === "--out") {
+      if (i + 1 >= argv.length) usage(1);
+      out.outFile = argv[++i];
+      out.outProvided = true;
+    } else if (token.startsWith("--out=")) {
+      out.outFile = token.split("=")[1];
+      out.outProvided = true;
+    } else if (token === "--in-place") {
+      out.inPlace = true;
+      out.inPlaceProvided = true;
+    } else if (token === "--dry-run") {
+      out.dryRun = true;
+      out.dryRunProvided = true;
+    } else if (token === "--interactive") {
+      out.interactive = true;
+      out.interactiveProvided = "--interactive";
+    } else if (token === "--no-interactive") {
+      out.interactive = false;
+      out.interactiveProvided = "--no-interactive";
+    } else if (token === "--backup") {
+      out.forceBackup = true;
+      out.forceBackupProvided = true;
+    } else if (token === "--no-backup") {
+      out.forceBackup = false;
+      out.forceBackupProvided = true;
+    } else if (token.startsWith("--")) {
+      console.error(`Unknown option: ${token}`);
+      usage(1);
+    } else {
+      positional.push(token);
+    }
+  }
+
+  if (positional.length) out.input = positional[0];
+  return out;
 }
-function hasFlag(name) {
-  return process.argv.includes(name);
+
+function sanitizeFields(fields, fallback) {
+  if (!Array.isArray(fields)) return fallback;
+  const cleaned = fields
+    .map((item) => String(item || "").trim())
+    .filter(Boolean)
+    .map((item) => item.toLowerCase());
+  const unique = [];
+  const seen = new Set();
+  for (const name of cleaned) {
+    if (!seen.has(name)) {
+      seen.add(name);
+      unique.push(name);
+    }
+    if (unique.length === 4) break;
+  }
+  if (unique.length === 0) return fallback;
+  return unique;
+}
+
+function shellQuote(value) {
+  const str = String(value ?? "");
+  if (!str.length) return "''";
+  if (/^[A-Za-z0-9_\-./:]+$/.test(str)) return str;
+  return `'${str.replace(/'/g, "'\\''")}'`;
+}
+
+function buildProcessInvocation(argv = process.argv) {
+  const [nodePath, scriptPath, ...rest] = argv;
+  const nodeName = path.basename(nodePath || "node");
+  const scriptDisplay = scriptPath
+    ? path.relative(process.cwd(), scriptPath) || path.basename(scriptPath)
+    : "tools/expand-questions.mjs";
+  const parts = [nodeName, scriptDisplay, ...rest];
+  return parts.map(shellQuote).join(" ");
+}
+
+function buildReplayCommand(opts, goal, fields) {
+  const scriptDisplay = process.argv[1]
+    ? path.relative(process.cwd(), process.argv[1]) || path.basename(process.argv[1])
+    : "tools/expand-questions.mjs";
+  const parts = ["node", scriptDisplay];
+  if (opts.input) parts.push(opts.input);
+  const normalizedGoal = Number.isInteger(goal) ? goal : opts.goal;
+  if (normalizedGoal && normalizedGoal >= 1) {
+    parts.push("--to", String(normalizedGoal));
+  }
+  const normalizedFields = Array.isArray(fields) && fields.length ? fields : opts.fields;
+  if (normalizedFields && normalizedFields.length) {
+    parts.push("--fields", normalizedFields.join(","));
+  }
+  if (opts.outFile) {
+    parts.push("--out", opts.outFile);
+  }
+  if (opts.inPlace) {
+    parts.push("--in-place");
+  }
+  if (opts.dryRun) {
+    parts.push("--dry-run");
+  }
+  if (opts.forceBackup === true) {
+    parts.push("--backup");
+  } else if (opts.forceBackup === false) {
+    parts.push("--no-backup");
+  }
+  // default to a scripted replay without prompts
+  if (opts.interactiveProvided === "--interactive") {
+    parts.push("--interactive");
+  } else {
+    parts.push("--no-interactive");
+  }
+  return parts.map(shellQuote).join(" ");
+}
+
+function logInvocationSummary(opts, goal, fields) {
+  console.error("Command invocation:");
+  console.error(`  ${buildProcessInvocation()}`);
+  const replay = buildReplayCommand(opts, goal, fields);
+  console.error("Replay with flags (no prompts):");
+  console.error(`  ${replay}`);
+  if (opts.dryRun) {
+    console.error("Tip: drop --dry-run to write the updates.");
+  }
+  console.error("");
+}
+
+function formatList(list) {
+  if (!Array.isArray(list) || !list.length) return "(none)";
+  return list.join(", ");
+}
+
+function gatherDefaultFields($template, $) {
+  const seen = new Set();
+  const fields = [];
+  $template
+    .find("[data-field]")
+    .each((_, el) => {
+      const name = String($(el).attr("data-field") || "").trim().toLowerCase();
+      if (name && !seen.has(name)) {
+        seen.add(name);
+        if (fields.length < 4) fields.push(name);
+      }
+    });
+  return fields;
+}
+
+function createFieldTemplates($, $template) {
+  const map = new Map();
+  $template
+    .find(".exercise-response-row label")
+    .each((_, labelEl) => {
+      const $label = $(labelEl);
+      const field = String($label.find("[data-field]").first().attr("data-field") || "").trim().toLowerCase();
+      if (!field) return;
+      if (!map.has(field)) map.set(field, $.html($label));
+    });
+  return map;
+}
+
+function rewriteAttr(val, n) {
+  if (!val) return val;
+  let out = val;
+  out = out.replace(/(sec-)(?:\d+)(-)/g, (_m, p1, p3) => `${p1}${n}${p3}`);
+  out = out.replace(/(set-nn_sliders-)(?:\d+)/g, (_m, p1) => `${p1}${n}`);
+  out = out.replace(/(nn_sliders-scrollto_)(?:\d+)/g, (_m, p1) => `${p1}${n}`);
+  return out;
+}
+
+function replaceLeadingNumber(text, n) {
+  if (typeof text !== "string") return text;
+  return text.replace(/^\s*\d+\.\s*/, `${n}. `);
+}
+
+function updateHiddenLabelText($label, n, $) {
+  $label.find(".visually-hidden").each((_, span) => {
+    const $span = $(span);
+    const original = String($span.text() || "");
+    const next = original.replace(/(item\s*)(\d+)/i, (_m, p1) => `${p1}${n}`);
+    $span.text(next);
+  });
+}
+
+function renumberQuestion($block, n, $) {
+  $block.attr("data-exercise-question", String(n));
+  $block.find("[data-item]").each((_, el) => {
+    const $el = $(el);
+    $el.attr("data-item", String(n));
+  });
+  $block.find("*").each((_, el) => {
+    const $el = $(el);
+    for (const attr of ["id", "href", "aria-controls", "data-parent", "data-id"]) {
+      const v = $el.attr(attr);
+      if (v) $el.attr(attr, rewriteAttr(v, n));
+    }
+  });
+  $block.find(".nn_sliders-toggle-inner").each((_, el) => {
+    const $el = $(el);
+    $el.text(replaceLeadingNumber($el.text(), n));
+  });
+  $block.find(".nn_sliders-title").each((_, el) => {
+    const $el = $(el);
+    $el.text(replaceLeadingNumber($el.text(), n));
+  });
+  $block.find("p").each((_, p) => {
+    const first = $(p).contents().get(0);
+    if (first && first.type === "text" && typeof first.data === "string") {
+      first.data = replaceLeadingNumber(first.data, n);
+    }
+  });
+}
+
+function applyFieldConfig($block, n, allowedFields, fieldTemplates, stats, $) {
+  if (!allowedFields || !allowedFields.length) {
+    return { fields: [], changed: false };
+  }
+  const $row = $block.find(".exercise-response-row").first();
+  if (!$row.length) {
+    return { fields: [], changed: false };
+  }
+  const previous = [];
+  $row.find("[data-field]").each((_, el) => {
+    previous.push(String($(el).attr("data-field") || "").trim().toLowerCase());
+  });
+  $row.empty();
+  const applied = [];
+  for (const field of allowedFields) {
+    const tpl = fieldTemplates.get(field);
+    if (!tpl) {
+      stats.missingFields.add(field);
+      continue;
+    }
+    const $label = $(tpl);
+    $label.find("[data-item]").each((_, el) => {
+      $(el).attr("data-item", String(n));
+    });
+    $label.find("[data-field]").each((_, el) => {
+      $(el).attr("data-field", field);
+    });
+    updateHiddenLabelText($label, n, $);
+    $row.append("\n");
+    $row.append($label);
+    stats.usedFields.add(field);
+    applied.push(field);
+  }
+  const changed =
+    previous.length !== applied.length ||
+    previous.some((value, idx) => value !== applied[idx]);
+  return { fields: applied, changed };
+}
+
+function normalizeBooleanAttributes(str) {
+  const BOOLS = [
+    "hidden",
+    "required",
+    "disabled",
+    "defer",
+    "nomodule",
+    "novalidate",
+    "checked",
+    "selected",
+    "autofocus",
+    "multiple",
+    "readonly",
+    "formnovalidate",
+    "inert",
+    "loop",
+    "muted",
+    "playsinline",
+    "reversed",
+  ];
+  let out = str;
+  for (const a of BOOLS) {
+    const re = new RegExp(`\\s${a}\\s*=\\s*(?:"[^"]*"|'[^']*'|)`, "gi");
+    out = out.replace(re, ` ${a}`);
+  }
+  return out;
+}
+
+function processHtml(html, options) {
+  const { goal, allowedFields } = options;
+  const $ = cheerio.load(html, { decodeEntities: false });
+  const $template = $('.quest-bg[data-exercise-question="1"]').first();
+  if (!$template.length) {
+    throw new Error(
+      'error: no interactive question blocks (.quest-bg[data-exercise-question="1"]) found in input file'
+    );
+  }
+
+  const desiredTotal = Math.max(1, parseInt(goal, 10) || 1);
+  const fieldTemplates = createFieldTemplates($, $template);
+  const stats = { usedFields: new Set(), missingFields: new Set() };
+  const details = {
+    removedNumbers: [],
+    renumberedPairs: [],
+    appended: [],
+    existingResponseUpdates: [],
+    updatedResponseRows: 0,
+  };
+
+  const allBlocks = $('.quest-bg[data-exercise-question]').toArray();
+  let removed = 0;
+  while (allBlocks.length > desiredTotal) {
+    const el = allBlocks.pop();
+    if (el) {
+      const $el = $(el);
+      const original = parseInt($el.attr("data-exercise-question"), 10);
+      if (Number.isFinite(original)) {
+        details.removedNumbers.push(original);
+      }
+      $el.remove();
+      removed++;
+    }
+  }
+
+  const currentBlocks = $('.quest-bg[data-exercise-question]').toArray();
+  currentBlocks.forEach((el, idx) => {
+    const $block = $(el);
+    const n = idx + 1;
+    const original = parseInt($block.attr("data-exercise-question"), 10);
+    if (Number.isFinite(original) && original !== n) {
+      details.renumberedPairs.push({ from: original, to: n });
+    }
+    renumberQuestion($block, n, $);
+    const { fields: appliedFields, changed } = applyFieldConfig(
+      $block,
+      n,
+      allowedFields,
+      fieldTemplates,
+      stats,
+      $
+    );
+    if (changed) {
+      details.updatedResponseRows += 1;
+      details.existingResponseUpdates.push({ number: n, fields: appliedFields });
+    }
+  });
+
+  let appended = 0;
+  let lastBlock = $('.quest-bg').last();
+  const parent = lastBlock.length ? lastBlock.parent() : $template.parent();
+  for (let n = currentBlocks.length + 1; n <= desiredTotal; n++) {
+    const $clone = $template.clone(false, false);
+    renumberQuestion($clone, n, $);
+    // eslint-disable-next-line no-unused-vars
+    const { fields: appliedFields, changed } = applyFieldConfig(
+      $clone,
+      n,
+      allowedFields,
+      fieldTemplates,
+      stats,
+      $
+    );
+    details.updatedResponseRows += 1;
+    details.appended.push({ number: n, fields: appliedFields });
+    if (lastBlock.length) {
+      lastBlock.after("\n");
+      lastBlock.after($clone);
+      lastBlock = $clone;
+    } else {
+      parent.append("\n");
+      parent.append($clone);
+      lastBlock = $clone;
+    }
+    appended++;
+  }
+
+  const $prog = $('[data-exercise-progress]').first();
+  if ($prog.length) {
+    const txt = $prog.text();
+    if (/of\s+\d+\s+questions/i.test(txt)) {
+      $prog.text(txt.replace(/of\s+\d+\s+questions/i, `of ${desiredTotal} questions`));
+    }
+  }
+
+  let output = $.html();
+  output = normalizeBooleanAttributes(output);
+  return {
+    output,
+    appended,
+    removed,
+    total: desiredTotal,
+    usedFields: Array.from(stats.usedFields),
+    missingFields: Array.from(stats.missingFields),
+    details,
+  };
+}
+
+function gatherAssets(html) {
+  const $ = cheerio.load(html, { decodeEntities: false });
+  const styles = [];
+  $('link[rel="stylesheet"], link[rel="preload"][as="style"]').each((_, el) => {
+    const href = String($(el).attr("href") || "").trim();
+    if (href) styles.push({ href, snippet: $.html(el).trim() });
+  });
+  const scripts = [];
+  $('script[src]').each((_, el) => {
+    const src = String($(el).attr("src") || "").trim();
+    if (src) scripts.push({ src, snippet: $.html(el).trim() });
+  });
+  return { styles, scripts };
+}
+
+async function ensureBackup(filePath, targetDir) {
+  const dir = path.isAbsolute(targetDir)
+    ? targetDir
+    : path.join(path.dirname(filePath), targetDir);
+  await fs.mkdir(dir, { recursive: true });
+  const stamp = new Date().toISOString().replace(/[:.]/g, "-");
+  const base = path.basename(filePath);
+  const dest = path.join(dir, `${base}.${stamp}.bak`);
+  await fs.copyFile(filePath, dest);
+  return dest;
+}
+
+function logApplySummary(result, mode = "run") {
+  const prefix = mode === "dry-run" ? "[dry-run] " : "";
+  console.error(`${prefix}Total questions: ${result.total} (appended ${result.appended}, removed ${result.removed})`);
+  console.error(`${prefix}Answer fields: ${formatList(result.usedFields)}`);
+  if (result.missingFields.length) {
+    console.error(
+      `${prefix}Warning: missing template for fields ${formatList(result.missingFields)} (skipped).`
+    );
+  }
+  const details = result.details || {};
+  if (details.removedNumbers?.length) {
+    const removedList = [...details.removedNumbers].sort((a, b) => a - b);
+    console.error(`${prefix}Removed questions: ${removedList.join(", ")}`);
+  }
+  if (details.renumberedPairs?.length) {
+    const renumbered = [...details.renumberedPairs].sort((a, b) => a.to - b.to);
+    renumbered.forEach((item) => {
+      console.error(`${prefix}Renumbered question ${item.from} -> ${item.to}`);
+    });
+  }
+  if (details.appended?.length) {
+    const appendedNumbers = details.appended.map((item) => item.number).sort((a, b) => a - b);
+    console.error(`${prefix}Appended questions: ${appendedNumbers.join(", ")}`);
+    details.appended.forEach((item) => {
+      console.error(`${prefix}  ↳ #${item.number} fields: ${formatList(item.fields)}`);
+    });
+  }
+  if (details.existingResponseUpdates?.length) {
+    const numbers = details.existingResponseUpdates.map((item) => item.number).sort((a, b) => a - b);
+    const preview = numbers.length > 10 ? `${numbers.slice(0, 10).join(", ")}, …` : numbers.join(", ");
+    console.error(`${prefix}Rebuilt response rows for ${numbers.length} existing question(s): ${preview}`);
+    const previewDetails = details.existingResponseUpdates.slice(0, 5);
+    previewDetails.forEach((item) => {
+      console.error(`${prefix}  ↳ #${item.number} fields: ${formatList(item.fields)}`);
+    });
+    if (details.existingResponseUpdates.length > 5) {
+      console.error(`${prefix}  ↳ …${details.existingResponseUpdates.length - 5} more updated question(s)`);
+    }
+  }
+  if (details.updatedResponseRows) {
+    console.error(`${prefix}Response rows updated: ${details.updatedResponseRows}`);
+  }
+}
+
+async function promptForGoal(rl, currentGoal) {
+  let resolved = currentGoal;
+  let awaitingResponse = true;
+  while (awaitingResponse) {
+    const answer = (await rl.question(`Target number of questions [${currentGoal}] > `)).trim();
+    if (!answer || answer.toLowerCase() === "skip") {
+      awaitingResponse = false;
+      continue;
+    }
+    if (answer.toLowerCase() === "exit") {
+      console.error("Exiting by request.");
+      process.exit(0);
+    }
+    const num = parseInt(answer, 10);
+    if (Number.isInteger(num) && num >= 1) {
+      resolved = num;
+      awaitingResponse = false;
+      continue;
+    }
+    console.error("Enter a positive integer (or type skip to keep current value).");
+  }
+  return resolved;
+}
+
+async function promptForFields(rl, defaults) {
+  const prompt = `Answer fields (1-4, comma separated) [${defaults.join(", ")}] > `;
+  let awaitingResponse = true;
+  let resolved = defaults;
+  while (awaitingResponse) {
+    const answer = (await rl.question(prompt)).trim();
+    if (!answer || answer.toLowerCase() === "skip") {
+      awaitingResponse = false;
+      continue;
+    }
+    if (answer.toLowerCase() === "exit") {
+      console.error("Exiting by request.");
+      process.exit(0);
+    }
+    const fields = answer
+      .split(/[,\s]+/)
+      .map((item) => item.trim().toLowerCase())
+      .filter(Boolean);
+    if (fields.length < 1 || fields.length > 4) {
+      console.error("Provide between 1 and 4 field names.");
+      continue;
+    }
+    resolved = fields;
+    awaitingResponse = false;
+  }
+  return resolved;
+}
+
+async function runStep(rl, title, action, { allowDryRun = true } = {}) {
+  if (!rl) {
+    return action("run");
+  }
+  let awaitingChoice = true;
+  while (awaitingChoice) {
+    const choices = allowDryRun ? "[r]un, [d]ry-run, [s]kip, [e]xit" : "[r]un, [s]kip, [e]xit";
+    const answer = (await rl.question(`${title} (${choices}) > `)).trim().toLowerCase();
+    if (answer === "r" || answer === "run") {
+      return action("run");
+    }
+    if (allowDryRun && (answer === "d" || answer === "dry-run" || answer === "dry")) {
+      await action("dry-run");
+      continue;
+    }
+    if (answer === "s" || answer === "skip") {
+      console.error(`${title}: skipped.`);
+      return null;
+    }
+    if (answer === "e" || answer === "exit" || answer === "q" || answer === "quit") {
+      console.error("Exiting by request.");
+      process.exit(0);
+    }
+    console.error("Please choose run, dry-run, skip, or exit.");
+  }
+  return null;
 }
 
 async function main() {
-  if (hasFlag("--help") || process.argv.length < 3) usage(0)
-
-  const inFile = process.argv[2]
-  const toStr = getArg("--to")
-  const goal = Math.max(1, parseInt(toStr || "20", 10))
-  const outFile = getArg("--out")
-  const inPlace = hasFlag("--in-place")
-
-  if (!inFile) usage(1)
-  if (!/\.html?$/.test(inFile)) {
-    console.error("error: input must be an .html file")
-    process.exit(1)
+  const opts = parseCLI(process.argv);
+  if (opts.help || !opts.input) usage(opts.help ? 0 : 1);
+  if (!/\.html?$/.test(opts.input)) {
+    console.error("error: input must be an .html file");
+    process.exit(1);
   }
-  if (inPlace && outFile) {
-    console.error("error: use either --in-place or --out, not both")
-    process.exit(1)
+  if (opts.inPlace && opts.outFile) {
+    console.error("error: use either --in-place or --out, not both");
+    process.exit(1);
   }
 
-  const html = await fs.readFile(inFile, "utf8")
-  const $ = cheerio.load(html, { decodeEntities: false })
-
-  // Locate the template question block (Question #1)
-  const $template = $('.quest-bg[data-exercise-question="1"]').first()
-  if (!$template.length) {
-    console.error('error: could not find .quest-bg[data-exercise-question="1"] in input file')
-    process.exit(1)
-  }
-
-  const existingIds = new Set(
-    $("[data-exercise-question]")
-      .map((i, el) => String($(el).attr("data-exercise-question")))
-      .get()
-  )
-
-  // Helper: rewrite attribute values that include numeric fragments tied to Q#1
-  function rewriteAttr(val, n) {
-    if (!val) return val
-    let out = val
-
-    // sec-1-* (also matches #sec-1-*)
-    out = out.replace(/(sec-)(?:\d+)(-)/g, (_m, p1, p3) => `${p1}${n}${p3}`)
-
-    // set-nn_sliders-1 → set-nn_sliders-N
-    out = out.replace(/(set-nn_sliders-)(?:\d+)/g, (_m, p1) => `${p1}${n}`)
-
-    // nn_sliders-scrollto_1 → nn_sliders-scrollto_N
-    out = out.replace(/(nn_sliders-scrollto_)(?:\d+)/g, (_m, p1) => `${p1}${n}`)
-
-    return out
-  }
-
-  // Helper: update numeric prefixes like "1. " → "N. "
-  function replaceLeadingNumber(text, n) {
-    if (typeof text !== "string") return text
-    return text.replace(/^\s*\d+\.\s*/, `${n}. `)
-  }
-
-  // Transform a cloned question for question number n
-  function renumberQuestion($block, n) {
-    $block.attr("data-exercise-question", String(n))
-
-    // All inputs/containers for this question: data-item="N"
-    $block.find("[data-item]").each((_, el) => {
-      const $el = $(el)
-      $el.attr("data-item", String(n))
-    })
-
-    // Fix key attributes on *every element* in the cloned block
-    $block.find("*").each((_, el) => {
-      const $el = $(el)
-      for (const attr of ["id", "href", "aria-controls", "data-parent", "data-id"]) {
-        const v = $el.attr(attr)
-        if (v) $el.attr(attr, rewriteAttr(v, n))
+  let html;
+  try {
+    html = await fs.readFile(opts.input, "utf8");
+  } catch (err) {
+    if (err && err.code === "ENOENT") {
+      const resolved = path.resolve(opts.input);
+      console.error(`error: input not found -> ${opts.input}`);
+      console.error(`       resolved path   -> ${resolved}`);
+      try {
+        const dir = path.dirname(resolved);
+        const listing = await fs.readdir(dir);
+        const sample = listing
+          .filter((name) => name.toLowerCase().endsWith(".html"))
+          .slice(0, 10)
+          .join(", ");
+        if (sample) {
+          console.error(`       available *.html in ${dir}: ${sample}`);
+        }
+      } catch {
+        /* directory missing or unreadable; ignore */
       }
-    })
-
-    // Visible "1." → "N." in the standard title spots
-    $block.find(".nn_sliders-toggle-inner").each((_, el) => {
-      const $el = $(el)
-      $el.text(replaceLeadingNumber($el.text(), n))
-    })
-    $block.find(".nn_sliders-title").each((_, el) => {
-      const $el = $(el)
-      $el.text(replaceLeadingNumber($el.text(), n))
-    })
-
-    // Also adjust the first text node of <p> within the block if it starts with "1. "
-    $block.find("p").each((_, p) => {
-      const first = $(p).contents().get(0)
-      if (first && first.type === "text" && typeof first.data === "string") {
-        first.data = replaceLeadingNumber(first.data, n)
-      }
-    })
-
-    return $block
-  }
-
-  // Append clones up to the goal
-  let appended = 0
-  for (let n = 2; n <= goal; n++) {
-    if (existingIds.has(String(n))) continue // already present, skip
-    const $clone = $template.clone(false, false)
-    renumberQuestion($clone, n)
-    // Append after the last .quest-bg (keeps order)
-    $(".quest-bg")
-      .last()
-      .after("\n" + $.html($clone))
-    appended++
-  }
-
-  // Update the progress label text if present: "X of N questions completed."
-  const $prog = $("[data-exercise-progress]").first()
-  if ($prog.length) {
-    const txt = $prog.text()
-    $prog.text(txt.replace(/of\s+\d+\s+questions/i, `of ${goal} questions`))
-  }
-
-  // Serialize and normalize boolean attributes (html-validate prefers bare form)
-  let output = $.html();
-
-  function normalizeBooleanAttributes(str) {
-    // Add more if your linter complains about others
-    const BOOLS = [
-      'hidden','required','disabled','defer','nomodule','novalidate',
-      'checked','selected','autofocus','multiple','readonly',
-      'formnovalidate','inert','loop','muted','playsinline','reversed'
-    ];
-    for (const a of BOOLS) {
-      // Replace patterns: a="", a="a", a='a' → a
-      const re = new RegExp(`\\s${a}\\s*=\\s*(?:"[^"]*"|'[^']*'|)`, 'gi');
-      str = str.replace(re, ` ${a}`);
+      console.error(
+        "hint: use an existing lesson/exercise file such as exercise-1-nouns/111-common-nouns.html"
+      );
+    } else {
+      console.error(`error: unable to read ${opts.input}: ${err?.message || err}`);
     }
-    return str;
+    process.exit(1);
   }
-  output = normalizeBooleanAttributes(output);
-
-  if (inPlace) {
-    await fs.writeFile(inFile, output, "utf8")
-  } else if (outFile) {
-    await fs.writeFile(outFile, output, "utf8")
-  } else {
-    process.stdout.write(output)
+  const $initial = cheerio.load(html, { decodeEntities: false });
+  const $template = $initial('.quest-bg[data-exercise-question="1"]').first();
+  if (!$template.length) {
+    console.error('error: no interactive question blocks (.quest-bg[data-exercise-question="1"]) found.');
+    console.error(
+      'hint: copy the interactive markup from exercise-1-nouns/111-common-nouns.html or run the tool on a page that already includes it.'
+    );
+    process.exit(1);
   }
 
-  // Optional: status to stderr (keeps stdout clean if piping)
-  console.error(`Expanded to ${goal} question(s). Newly appended: ${appended}.`)
+  const defaultFields = gatherDefaultFields($template, $initial);
+  const currentCount = $initial('[data-exercise-question]').length || 0;
+  let goal = opts.goal ?? (currentCount || 1);
+  goal = Math.max(1, goal);
+  let allowedFields = sanitizeFields(opts.fields, defaultFields);
+
+  const interactive = opts.interactive ? createInterface({ input, output }) : null;
+  if (interactive) {
+    console.error(`Loaded ${opts.input}`);
+    console.error(`Existing questions: ${currentCount}`);
+    console.error(`Default fields: ${formatList(defaultFields)}`);
+    console.error("");
+  }
+
+  try {
+    if (interactive && !opts.goalProvided) {
+      goal = await promptForGoal(interactive, goal);
+    }
+    if (interactive && !opts.fields) {
+      allowedFields = await promptForFields(interactive, allowedFields);
+    }
+  } catch (err) {
+    await interactive?.close();
+    throw err;
+  }
+
+  if (interactive) {
+    console.error(`Using goal: ${goal}`);
+    console.error(`Using fields: ${formatList(allowedFields)}`);
+  }
+
+  logInvocationSummary(opts, goal, allowedFields);
+
+  const assets = gatherAssets(html);
+  const rl = interactive;
+  if (rl) {
+    await runStep(rl, "Review external CSS/JS", async (mode) => {
+      const prefix = mode === "dry-run" ? "[dry-run] " : "";
+      if (!assets.styles.length && !assets.scripts.length) {
+        console.error(`${prefix}No external CSS/JS references detected.`);
+        return;
+      }
+      if (assets.styles.length) {
+        console.error(`${prefix}Styles:`);
+        assets.styles.forEach((s) => console.error(`  ${s.href}`));
+      }
+      if (assets.scripts.length) {
+        console.error(`${prefix}Scripts:`);
+        assets.scripts.forEach((s) => console.error(`  ${s.src}`));
+      }
+    });
+  }
+
+  let backupPath = null;
+  const wantsOutputToFile = opts.inPlace || Boolean(opts.outFile);
+  if (!opts.dryRun && wantsOutputToFile) {
+    const backupDir = ".exercise-backups";
+    const runBackup = opts.forceBackup === true || (opts.forceBackup === null && Boolean(opts.inPlace));
+    if (runBackup && !rl) {
+      backupPath = await ensureBackup(opts.input, backupDir);
+      console.error(`Backup created at ${backupPath}`);
+    } else if (runBackup) {
+      await runStep(rl, "Create backup copy", async (mode) => {
+        if (mode === "dry-run") {
+          const plan = path.join(path.dirname(opts.input), backupDir, `${path.basename(opts.input)}.<timestamp>.bak`);
+          console.error(`[dry-run] Would create backup at ${plan}`);
+          return;
+        }
+        backupPath = await ensureBackup(opts.input, backupDir);
+        console.error(`Backup created at ${backupPath}`);
+      });
+    } else if (opts.forceBackup === false) {
+      console.error("Backup disabled via --no-backup.");
+    }
+  }
+
+  let result = null;
+  await runStep(rl, "Apply question updates", async (mode) => {
+    const res = processHtml(html, { goal, allowedFields });
+    logApplySummary(res, mode);
+    if (mode === "run") {
+      result = res;
+    }
+  });
+
+  if (!result) {
+    console.error("No changes were applied. Exiting.");
+    await rl?.close();
+    return;
+  }
+
+  if (opts.dryRun) {
+    console.error("Global dry-run enabled; skipping write.");
+    await rl?.close();
+    return;
+  }
+
+  const dest = opts.inPlace ? opts.input : opts.outFile;
+  if (!dest) {
+    await runStep(rl, "Write output (stdout)", async (mode) => {
+      if (mode === "dry-run") {
+        console.error("[dry-run] Would print HTML to stdout.");
+        return;
+      }
+      if (mode === "run") {
+        process.stdout.write(result.output);
+      }
+    });
+    await rl?.close();
+    return;
+  }
+
+  await runStep(rl, `Write output (${dest})`, async (mode) => {
+    if (mode === "dry-run") {
+      console.error(`[dry-run] Would write to ${dest}`);
+      return;
+    }
+    await fs.writeFile(dest, result.output, "utf8");
+    console.error(`Wrote updated file to ${dest}`);
+  });
+
+  await rl?.close();
 }
 
 main().catch((err) => {
   console.error("fatal:", err?.stack || err?.message || err);
   process.exit(1);
 });
+
