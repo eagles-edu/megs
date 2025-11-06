@@ -2,7 +2,10 @@
 // tools/expand-questions.mjs
 // Interactive helper for cloning & normalizing exercise questions based on the
 // prototype markup in exercise-1-nouns/111-common-nouns.html.
+// node /home/eagles/dockerz/megs/tools/expand-questions.mjs /home/eagles/dockerz/megs/exercise-1-nouns/112-proper-nouns-copy.html --dry-run
+//   --no-interactive --to 22 --in-place
 // Requires: npm i cheerio
+
 import fs from "node:fs/promises"
 import path from "node:path"
 import process from "node:process"
