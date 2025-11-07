@@ -12,6 +12,8 @@
 //    non-form elements untouched, then update the progress label + data attributes using
 //    the resolved question count.
 //
+// Usage:
+// node /home/eagles/dockerz/megs/tools/expand-questions.mjs /home/eagles/dockerz/megs/exercise-1-nouns/112-proper-nouns-copy.html
 // Verification: node tools/expand-questions.mjs <sample.html> --dry-run --no-interactive
 // Rollback: git checkout -- tools/expand-questions.mjs
 // Requires: npm i cheerio
