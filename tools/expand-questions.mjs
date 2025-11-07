@@ -1,9 +1,19 @@
 #!/usr/bin/env node
 // tools/expand-questions.mjs
-// Interactive helper for cloning & normalizing exercise questions based on the
-// prototype markup in exercise-1-nouns/111-common-nouns.html.
-// node /home/eagles/dockerz/megs/tools/expand-questions.mjs /home/eagles/dockerz/megs/exercise-1-nouns/112-proper-nouns-copy.html --dry-run
-//   --no-interactive --to 22 --in-place
+// Parsing + rewrite pipeline for interactive exercise forms.
+// 1. Parse the HTML, log the <body> pipeline stages, and locate legacy accordion blocks.
+// 2. Clone the canonical form scaffold from exercise-1-nouns/111-common-nouns.html
+//    (captured via the "exercise-form exercise-gate" prototype) so that storage keys,
+//    intro fieldset, progress label, and feedback placeholders match production markup.
+// 3. Transform each legacy question into a data-exercise-question block, validating the
+//    anchors, response row, and injecting per-question progress markup before stitching
+//    all questions back into the cloned form.
+// 4. Emit closing tags in reverse order (question, accordion, form, body) while keeping
+//    non-form elements untouched, then update the progress label + data attributes using
+//    the resolved question count.
+//
+// Verification: node tools/expand-questions.mjs <sample.html> --dry-run --no-interactive
+// Rollback: git checkout -- tools/expand-questions.mjs
 // Requires: npm i cheerio
 
 import fs from "node:fs/promises"
@@ -17,6 +27,24 @@ import * as cheerio from "cheerio"
 const SCRIPT_DIR = path.dirname(fileURLToPath(import.meta.url))
 const PROTOTYPE_RELATIVE_PATH = "../exercise-1-nouns/111-common-nouns.html"
 const PROTOTYPE_PATH = path.resolve(SCRIPT_DIR, PROTOTYPE_RELATIVE_PATH)
+const PIPELINE_PREFIX = "[expand-questions]"
+
+function logPipeline(stage, details = "") {
+  if (!stage) return
+  const suffix = details ? `: ${details}` : ""
+  console.error(`${PIPELINE_PREFIX} ${stage}${suffix}`)
+}
+
+function summarizeBody($) {
+  const $body = $("body").first()
+  if (!$body.length) {
+    logPipeline("parse", "no <body> element found; operating on root node")
+    return $.root()
+  }
+  const children = $body.children().length
+  logPipeline("parse", `<body> located with ${children} direct child node(s)`)
+  return $body
+}
 
 function usage(code = 0) {
   const msg = `
@@ -225,6 +253,14 @@ async function loadPrototypeAssets() {
   })
   const autoScriptHtml = $auto.length ? $proto.html($auto.first()) : null
   prototypeCache = { formHtml, responseRowHtml, configHtml, autoScriptHtml }
+  const shellChildren = $formClone.children().length
+  const introFieldsets = $formClone.find("fieldset").length
+  logPipeline(
+    "prototype",
+    `form shell children=${shellChildren}, fieldsets=${introFieldsets}, response-row-template=${Boolean(
+      responseRowHtml
+    )}`
+  )
   return prototypeCache
 }
 
@@ -376,16 +412,51 @@ function ensureResponseRow($accordion, n, $, templateHtml) {
   return $row
 }
 
+function ensureQuestionProgress($quest, n, total, $) {
+  let $progress = $quest.find("[data-exercise-question-progress]").first()
+  if (!$progress.length) {
+    $progress = $(
+      '<p class="exercise-question__progress" data-exercise-question-progress="" aria-hidden="true"></p>'
+    )
+    const $accordion = $quest.find(".nn_sliders").first()
+    if ($accordion.length) {
+      $accordion.before("\n")
+      $accordion.before($progress)
+    } else {
+      $quest.prepend("\n")
+      $quest.prepend($progress)
+    }
+  }
+  $progress.attr("data-item", String(n))
+  $progress.attr("data-total", String(total))
+  $progress.text(`Question ${n} of ${total}`)
+  return $progress
+}
+
 function buildQuestFromLegacy($legacy, n, fileBasename, $, assets) {
   const $clone = $legacy.clone(false, false)
   upgradeLegacyAnchors($clone, $)
   const slug = inferLegacySlug($clone, n)
   normalizeLegacyAccordion($clone, n, fileBasename, slug, $)
+  const $toggle = $clone.find(".nn_sliders-toggle").first()
+  if (!$toggle.length) {
+    throw new Error(`question ${n}: missing .nn_sliders-toggle anchor in legacy markup`)
+  }
+  const $panel = $clone.find(".accordion-body").first()
+  if (!$panel.length) {
+    throw new Error(`question ${n}: missing .accordion-body panel in legacy markup`)
+  }
   ensureResponseRow($clone, n, $, assets.responseRowHtml)
   const $quest = $('<div class="quest-bg"></div>')
   $quest.attr("data-exercise-question", String(n))
   $quest.append("\n")
   $quest.append($clone)
+  const anchorCount = $clone.find(".nn_sliders-scroll").length
+  const inputCount = $clone.find(".exercise-response-input").length
+  logPipeline(
+    "question",
+    `#${n} anchors=${anchorCount}, response-inputs=${inputCount}, slug=${slug || "n/a"}`
+  )
   return $quest
 }
 
@@ -404,7 +475,10 @@ function hasAutoSubmitScript($) {
 
 async function ensureInteractiveScaffold(html, inputPath) {
   const $ = cheerio.load(html, { decodeEntities: false })
-  if ($(".quest-bg[data-exercise-question]").length) {
+  const $bodyRoot = summarizeBody($)
+  logPipeline("scan", "checking for existing interactive scaffold")
+  if ($bodyRoot.find(".quest-bg[data-exercise-question]").length) {
+    logPipeline("scan", "interactive blocks already present; skipping scaffold build")
     return {
       html,
       converted: false,
@@ -413,10 +487,13 @@ async function ensureInteractiveScaffold(html, inputPath) {
       addedQuestions: 0,
     }
   }
-  const legacyAccordions = $(".nn_sliders.accordion.panel-group")
+  const legacyAccordions = $bodyRoot
+    .find(".nn_sliders.accordion.panel-group")
     .filter((_, el) => $(el).parents(".quest-bg").length === 0)
     .toArray()
+  logPipeline("scan", `legacy accordions located=${legacyAccordions.length}`)
   if (!legacyAccordions.length) {
+    logPipeline("scan", "no legacy accordions detected; nothing to convert")
     return {
       html,
       converted: false,
@@ -447,15 +524,25 @@ async function ensureInteractiveScaffold(html, inputPath) {
   const questBlocks = legacyAccordions.map((node, idx) =>
     buildQuestFromLegacy($(node), idx + 1, fileBasename, $, assets)
   )
+  const totalQuestions = questBlocks.length
+  questBlocks.forEach(($quest, index) => {
+    ensureQuestionProgress($quest, index + 1, totalQuestions, $)
+  })
+
+  const $progressLabel = $form.find("[data-exercise-progress]").first()
+  if ($progressLabel.length) {
+    $progressLabel.text(`0 of ${totalQuestions} questions completed.`)
+  }
+  $form.attr("data-exercise-question-count", String(totalQuestions))
 
   const $placeholder = $('<div data-expand-questions-placeholder=""></div>')
   const $firstLegacy = legacyAccordions.length ? $(legacyAccordions[0]) : null
   if ($firstLegacy && $firstLegacy.length) {
     $firstLegacy.before($placeholder)
   } else {
-    const $body = $('[itemprop="articleBody"]').first()
-    if ($body.length) $body.append($placeholder)
-    else $.root().append($placeholder)
+    const $article = $bodyRoot.find('[itemprop="articleBody"]').first()
+    if ($article.length) $article.append($placeholder)
+    else $bodyRoot.append($placeholder)
   }
 
   legacyAccordions.forEach((node) => $(node).remove())
@@ -492,6 +579,11 @@ async function ensureInteractiveScaffold(html, inputPath) {
       addedAutoScript = true
     }
   }
+
+  logPipeline(
+    "scaffold",
+    `converted legacy accordions into ${totalQuestions} interactive question(s)`
+  )
 
   return {
     html: $.html(),
@@ -680,6 +772,8 @@ function processHtml(html, options) {
   }
 
   const desiredTotal = Math.max(1, parseInt(goal, 10) || 1)
+  const existingTotal = $(".quest-bg[data-exercise-question]").length
+  logPipeline("process", `existing questions=${existingTotal}, desired=${desiredTotal}`)
   const fieldTemplates = createFieldTemplates($, $template)
   const stats = { usedFields: new Set(), missingFields: new Set() }
   const details = {
@@ -714,6 +808,7 @@ function processHtml(html, options) {
       details.renumberedPairs.push({ from: original, to: n })
     }
     renumberQuestion($block, n, $)
+    ensureQuestionProgress($block, n, desiredTotal, $)
     const { fields: appliedFields, changed } = applyFieldConfig(
       $block,
       n,
@@ -743,6 +838,7 @@ function processHtml(html, options) {
       stats,
       $
     )
+    ensureQuestionProgress($clone, n, desiredTotal, $)
     details.updatedResponseRows += 1
     details.appended.push({ number: n, fields: appliedFields })
     if (lastBlock.length) {
@@ -759,10 +855,11 @@ function processHtml(html, options) {
 
   const $prog = $("[data-exercise-progress]").first()
   if ($prog.length) {
-    const txt = $prog.text()
-    if (/of\s+\d+\s+questions/i.test(txt)) {
-      $prog.text(txt.replace(/of\s+\d+\s+questions/i, `of ${desiredTotal} questions`))
-    }
+    $prog.text(`0 of ${desiredTotal} questions completed.`)
+  }
+  const $form = $("[data-exercise-form]").first()
+  if ($form.length) {
+    $form.attr("data-exercise-question-count", String(desiredTotal))
   }
 
   let output = $.html()
@@ -893,7 +990,7 @@ async function promptForFields(rl, defaults) {
       process.exit(0)
     }
     const fields = answer
-      .split(/[,\s]+/)
+      .split(/[,\\s]+/)
       .map((item) => item.trim().toLowerCase())
       .filter(Boolean)
     if (fields.length < 1 || fields.length > 4) {
@@ -933,6 +1030,8 @@ async function runStep(rl, title, action, { allowDryRun = true } = {}) {
   }
   return null
 }
+
+export { ensureInteractiveScaffold, processHtml }
 
 async function main() {
   const opts = parseCLI(process.argv)
@@ -1139,7 +1238,12 @@ async function main() {
   await rl?.close()
 }
 
-main().catch((err) => {
-  console.error("fatal:", err?.stack || err?.message || err)
-  process.exit(1)
-})
+const runAsCli =
+  Boolean(process.argv[1]) && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)
+
+if (runAsCli) {
+  main().catch((err) => {
+    console.error("fatal:", err?.stack || err?.message || err)
+    process.exit(1)
+  })
+}
