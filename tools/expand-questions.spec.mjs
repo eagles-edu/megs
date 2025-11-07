@@ -1,7 +1,7 @@
 import { describe, it } from "node:test"
 import assert from "node:assert/strict"
 import * as cheerio from "cheerio"
-import { ensureInteractiveScaffold } from "../tools/expand-questions.mjs"
+import { ensureInteractiveScaffold, processHtml } from "../tools/expand-questions.mjs"
 
 const SAMPLE_HTML = `<!DOCTYPE html>
 <html lang="en">
@@ -87,5 +87,37 @@ describe("ensureInteractiveScaffold", () => {
 
     const trailing = $("article p").last().text().trim()
     assert.equal(trailing, "Trailing content.")
+  })
+})
+
+describe("processHtml", () => {
+  it("rebuilds response rows with fallback labels when templates are missing", () => {
+    const MINIMAL_INTERACTIVE_HTML = `<!DOCTYPE html>
+<html lang="en">
+  <body>
+    <form data-exercise-form data-exercise-question-count="1">
+      <p data-exercise-progress>0 of 1 questions completed.</p>
+      <div class="quest-bg" data-exercise-question="1">
+        <p class="exercise-question__progress" data-exercise-question-progress="" data-item="1" data-total="1">
+          Question 1 of 1
+        </p>
+        <div class="exercise-response-row" data-item="1"></div>
+      </div>
+      <div class="exercise-submit-row"></div>
+    </form>
+  </body>
+</html>`
+
+    const result = processHtml(MINIMAL_INTERACTIVE_HTML, {
+      goal: 1,
+      allowedFields: ["response", "custom"],
+    })
+
+    const $ = cheerio.load(result.output, { decodeEntities: false })
+    const $inputs = $('.quest-bg[data-exercise-question="1"] .exercise-response-input')
+    assert.equal($inputs.length, 2, "fallback inputs should be injected")
+    assert.deepEqual($inputs.map((_, el) => $(el).attr("data-field")).get(), ["response", "custom"])
+    assert.deepEqual(result.fallbackFields, ["custom"])
+    assert.deepEqual(result.missingFields, [])
   })
 })

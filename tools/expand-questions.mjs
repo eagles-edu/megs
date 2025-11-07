@@ -12,8 +12,6 @@
 //    non-form elements untouched, then update the progress label + data attributes using
 //    the resolved question count.
 //
-// Usage:
-// node /home/eagles/dockerz/megs/tools/expand-questions.mjs /home/eagles/dockerz/megs/exercise-1-nouns/112-proper-nouns-copy.html
 // Verification: node tools/expand-questions.mjs <sample.html> --dry-run --no-interactive
 // Rollback: git checkout -- tools/expand-questions.mjs
 // Requires: npm i cheerio
@@ -225,6 +223,8 @@ const FALLBACK_FIELD_DEFS = [
   { field: "extension", label: "Extended response" },
 ]
 
+const FALLBACK_FIELD_LABELS = new Map(FALLBACK_FIELD_DEFS.map(({ field, label }) => [field, label]))
+
 let prototypeCache = null
 
 async function loadPrototypeAssets() {
@@ -362,20 +362,29 @@ function normalizeLegacyAccordion($accordion, n, fileBasename, slug, $) {
   }
 }
 
+function createFallbackLabel($, field, n, labelText = FALLBACK_FIELD_LABELS.get(field) || field) {
+  const $label = $('<label class="exercise-response-field"></label>')
+  const $hidden = $('<span class="visually-hidden"></span>')
+  $hidden.text(`${labelText} for item ${n}`)
+  const $input = $('<input class="exercise-response-input" type="text" placeholder="Answer">')
+  $input.attr("data-item", String(n))
+  $input.attr("data-field", field)
+  $label.append("\n")
+  $label.append($hidden)
+  $label.append("\n")
+  $label.append($input)
+  return $label
+}
+
 function createFallbackResponseRow($, n) {
   const $row = $('<div class="exercise-response-row"></div>')
   $row.attr("data-item", String(n))
   for (const { field, label } of FALLBACK_FIELD_DEFS) {
-    const $label = $('<label class="exercise-response-field"></label>')
-    const $hidden = $('<span class="visually-hidden"></span>')
-    $hidden.text(`${label} for item ${n}`)
-    const $input = $('<input class="exercise-response-input" type="text" placeholder="Answer">')
-    $input.attr("data-item", String(n))
-    $input.attr("data-field", field)
-    $label.append($hidden)
-    $label.append($input)
+    const $label = createFallbackLabel($, field, n, label)
+    $row.append("\n")
     $row.append($label)
   }
+  $row.append("\n")
   return $row
 }
 
