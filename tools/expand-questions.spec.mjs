@@ -88,6 +88,40 @@ describe("ensureInteractiveScaffold", () => {
     const trailing = $("article p").last().text().trim()
     assert.equal(trailing, "Trailing content.")
   })
+
+  it("repairs empty legacy response rows by injecting fallback inputs", async () => {
+    const LEGACY_WITH_EMPTY_ROW = `<!DOCTYPE html>
+<html lang="en">
+  <body>
+    <article>
+      <div class="nn_sliders accordion panel-group">
+        <div class="accordion-group panel nn_sliders-group">
+          <div class="accordion-heading panel-heading">
+            <a class="accordion-toggle nn_sliders-toggle" data-toggle="collapse" href="#legacy-q1">
+              <span class="nn_sliders-toggle-inner">1. Question one?</span>
+            </a>
+          </div>
+          <div class="accordion-body nn_sliders-body collapse" id="legacy-q1" aria-hidden="true">
+            <div class="accordion-inner panel-body">
+              <p>Placeholder text.</p>
+            </div>
+          </div>
+          <div class="exercise-response-row" data-item="1"></div>
+        </div>
+      </div>
+    </article>
+  </body>
+</html>`
+
+    const result = await ensureInteractiveScaffold(LEGACY_WITH_EMPTY_ROW, "empty.html")
+    assert.equal(result.converted, true)
+
+    const $ = cheerio.load(result.html, { decodeEntities: false })
+    const $row = $('.quest-bg[data-exercise-question="1"] .exercise-response-row').first()
+    assert.ok($row.length, "response row should be present")
+    const inputs = $row.find(".exercise-response-input")
+    assert.ok(inputs.length >= 1, "fallback inputs should be injected when missing")
+  })
 })
 
 describe("processHtml", () => {

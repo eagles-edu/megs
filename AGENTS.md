@@ -16,6 +16,8 @@ Mindset of a 15+ yr full-stack, AI-enabled app dev.
 
 - Focused-diff edits; change only what’s required; avoid over-engineering.
 
+- Always rescan the repository for updated files immediately before editing.
+
 ### Delivery
 
 - Provide complete, executable code when asked; never abridge.
@@ -27,6 +29,8 @@ Mindset of a 15+ yr full-stack, AI-enabled app dev.
 - Keep prose purposeful; use short checklists (3–12 items) followed by focused steps when outlining work.
 
 - Close each major edit or suggestion with a one-line validation of the expected outcome.
+
+- Never reprint edits that have already been provided unless additional clarification is explicitly required.
 
 ### Scope & safety rails
 
@@ -68,6 +72,8 @@ When proposing code changes, the assistant MUST provide:
    - Prefer `git apply` or `patch`; if small, provide `sed -i` commands.
 4) **Post-change verification** steps (lint/test/run commands).
 5) **Rollback** note (how to revert the commit or restore backup).
+
+- Ensure any edit spanning more than seven lines is accompanied by a downloadable artifact of the changes.
 
 ### Patch Template
 
