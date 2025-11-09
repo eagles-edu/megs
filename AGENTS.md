@@ -69,11 +69,11 @@ When proposing code changes, the assistant MUST provide:
      ```
 
 3) **Unified diff** (copy-pasteable) *and* a shell-ready way to apply it:
-   - Prefer `git apply` or `patch`; if small, provide `sed -i` commands.
+   - Prefer (in order) `sed`, `in-chat manual code window`, `git apply` then `patch`;
 4) **Post-change verification** steps (lint/test/run commands).
 5) **Rollback** note (how to revert the commit or restore backup).
 
-- Ensure any edit spanning more than seven lines is accompanied by a downloadable artifact of the changes.
+6) **Completed full file-update delivery**: Ensure any file with total number of edits of more than three lines must be accompanied by either a. `sed` or b. `in-chat manual code window` method of acquiring complete updated file with current changes.
 
 ### Patch Template
 
