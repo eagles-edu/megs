@@ -1,4 +1,3 @@
-#!/usr/bin/env node
 // tools/expand-questions.mjs
 // Parsing + rewrite pipeline for interactive exercise forms.
 // 1. Parse the HTML, log the <body> pipeline stages, and locate legacy accordion blocks.
