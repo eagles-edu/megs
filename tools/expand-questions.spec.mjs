@@ -60,6 +60,10 @@ describe("ensureInteractiveScaffold", () => {
     const result = await ensureInteractiveScaffold(SAMPLE_HTML, "sample.html")
     assert.equal(result.converted, true)
     assert.equal(result.addedQuestions, 2)
+    assert.ok(
+      !/<form[^>]*data-exercise-form=""/.test(result.html),
+      "data-exercise-form attribute should not include an empty value"
+    )
 
     const $ = cheerio.load(result.html, { decodeEntities: false })
     const $form = $("form.exercise-form[data-exercise-form]").first()
@@ -148,6 +152,10 @@ describe("processHtml", () => {
     })
 
     const $ = cheerio.load(result.output, { decodeEntities: false })
+    assert.ok(
+      !/<form[^>]*data-exercise-form=""/.test(result.output),
+      "data-exercise-form attribute should not include an empty value"
+    )
     const $inputs = $('.quest-bg[data-exercise-question="1"] .exercise-response-input')
     assert.equal($inputs.length, 2, "fallback inputs should be injected")
     assert.deepEqual($inputs.map((_, el) => $(el).attr("data-field")).get(), ["response", "custom"])

@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 // tools/expand-questions.mjs
 // Parsing + rewrite pipeline for interactive exercise forms.
 // 1. Parse the HTML, log the <body> pipeline stages, and locate legacy accordion blocks.
@@ -39,6 +40,11 @@ const SCRIPT_DIR = path.dirname(fileURLToPath(import.meta.url))
 const PROTOTYPE_RELATIVE_PATH = "../exercise-1-nouns/111-common-nouns.html"
 const PROTOTYPE_PATH = path.resolve(SCRIPT_DIR, PROTOTYPE_RELATIVE_PATH)
 const PIPELINE_PREFIX = "[expand-questions]"
+
+function normalizeInteractiveHtml(html) {
+  if (typeof html !== "string" || !html) return html
+  return html.replace(/(?<=\s)data-exercise-form=""/g, "data-exercise-form")
+}
 
 function logPipeline(stage, details = "") {
   if (!stage) return
@@ -414,16 +420,22 @@ function createResponseRowFromTemplate($, templateHtml, n) {
 
 function ensureResponseRow($accordion, n, $, templateHtml) {
   let $row = $accordion.find(".exercise-response-row").first()
-  if (!$row.length) {
-    $row = createResponseRowFromTemplate($, templateHtml, n)
-    const $group = $accordion.find(".accordion-group").first()
-    if ($group.length) {
-      $group.append("\n")
-      $group.append($row)
+  const hasInputs = $row.length ? $row.find(".exercise-response-input").length > 0 : false
+  if (!$row.length || !hasInputs) {
+    const $replacement = createResponseRowFromTemplate($, templateHtml, n)
+    if ($row.length) {
+      $row.replaceWith($replacement)
     } else {
-      $accordion.append("\n")
-      $accordion.append($row)
+      const $group = $accordion.find(".accordion-group").first()
+      if ($group.length) {
+        $group.append("\n")
+        $group.append($replacement)
+      } else {
+        $accordion.append("\n")
+        $accordion.append($replacement)
+      }
     }
+    $row = $replacement
   } else {
     $row.attr("data-item", String(n))
     $row.find("[data-item]").each((_, el) => {
@@ -607,8 +619,10 @@ async function ensureInteractiveScaffold(html, inputPath) {
     `converted legacy accordions into ${totalQuestions} interactive question(s)`
   )
 
+  const htmlOutput = normalizeInteractiveHtml($.html())
+
   return {
-    html: $.html(),
+    html: htmlOutput,
     converted: true,
     addedConfig,
     addedAutoScript,
@@ -658,6 +672,12 @@ function createFieldTemplates($, $template) {
     if (!field) return
     if (!map.has(field)) map.set(field, $.html($label))
   })
+  if (!map.size) {
+    for (const { field } of FALLBACK_FIELD_DEFS) {
+      const $fallbackLabel = createFallbackLabel($, field, 1)
+      map.set(field, $.html($fallbackLabel))
+    }
+  }
   return map
 }
 
@@ -729,27 +749,29 @@ function applyFieldConfig($block, n, allowedFields, fieldTemplates, stats, $) {
         .toLowerCase()
     )
   })
-  $row.empty()
-  const applied = []
-  for (const field of allowedFields) {
-    const tpl = fieldTemplates.get(field)
-    if (!tpl) {
-      stats.missingFields.add(field)
-      continue
+    $row.empty()
+    const applied = []
+    for (const field of allowedFields) {
+      const tpl = fieldTemplates.get(field)
+      let $label
+      if (!tpl) {
+        if (stats.fallbackFields) stats.fallbackFields.add(field)
+        $label = createFallbackLabel($, field, n)
+      } else {
+        $label = $(tpl)
+      }
+      $label.find("[data-item]").each((_, el) => {
+        $(el).attr("data-item", String(n))
+      })
+      $label.find("[data-field]").each((_, el) => {
+        $(el).attr("data-field", field)
+      })
+      updateHiddenLabelText($label, n, $)
+      $row.append("\n")
+      $row.append($label)
+      stats.usedFields.add(field)
+      applied.push(field)
     }
-    const $label = $(tpl)
-    $label.find("[data-item]").each((_, el) => {
-      $(el).attr("data-item", String(n))
-    })
-    $label.find("[data-field]").each((_, el) => {
-      $(el).attr("data-field", field)
-    })
-    updateHiddenLabelText($label, n, $)
-    $row.append("\n")
-    $row.append($label)
-    stats.usedFields.add(field)
-    applied.push(field)
-  }
   const changed =
     previous.length !== applied.length || previous.some((value, idx) => value !== applied[idx])
   return { fields: applied, changed }
@@ -797,7 +819,7 @@ function processHtml(html, options) {
   const existingTotal = $(".quest-bg[data-exercise-question]").length
   logPipeline("process", `existing questions=${existingTotal}, desired=${desiredTotal}`)
   const fieldTemplates = createFieldTemplates($, $template)
-  const stats = { usedFields: new Set(), missingFields: new Set() }
+  const stats = { usedFields: new Set(), missingFields: new Set(), fallbackFields: new Set() }
   const details = {
     removedNumbers: [],
     renumberedPairs: [],
@@ -886,6 +908,7 @@ function processHtml(html, options) {
 
   let output = $.html()
   output = normalizeBooleanAttributes(output)
+  output = normalizeInteractiveHtml(output)
   return {
     output,
     appended,
@@ -893,6 +916,7 @@ function processHtml(html, options) {
     total: desiredTotal,
     usedFields: Array.from(stats.usedFields),
     missingFields: Array.from(stats.missingFields),
+    fallbackFields: Array.from(stats.fallbackFields),
     details,
   }
 }
