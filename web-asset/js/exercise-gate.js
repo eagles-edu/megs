@@ -168,7 +168,8 @@
       lastAttemptEl.appendChild(icon)
       if (emailInput && data.email && !emailInput.value) {
         emailInput.value = data.email
-      }if (studentIdInput && data.studentId && !studentIdInput.value) {
+      }
+      if (studentIdInput && data.studentId && !studentIdInput.value) {
         studentIdInput.value = data.studentId
       }
     }
@@ -207,23 +208,23 @@
       return false
     }
 
-      function ensureStudentId() {
-        if (isStudentIdValid()) return true
-        setFeedback(
-          "Enter your student ID using lowercase letters followed by three digits (example: abc123) before checking answers.",
-          "error"
-        )
-        if (studentIdInput) {
-          studentIdInput.classList.add("exercise-form__email-input--invalid")
-          studentIdInput.focus()
-        }
-        return false
+    function ensureStudentId() {
+      if (isStudentIdValid()) return true
+      setFeedback(
+        "Enter your student ID using lowercase letters followed by three digits (example: abc123) before checking answers.",
+        "error"
+      )
+      if (studentIdInput) {
+        studentIdInput.classList.add("exercise-form__email-input--invalid")
+        studentIdInput.focus()
       }
+      return false
+    }
 
-      function ensureContactInfo() {
-        if (!ensureEmail()) return false
-        return ensureStudentId()
-      }
+    function ensureContactInfo() {
+      if (!ensureEmail()) return false
+      return ensureStudentId()
+    }
 
     function allQuestionsComplete() {
       if (!questions.length) return false
