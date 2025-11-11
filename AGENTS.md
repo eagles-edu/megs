@@ -53,6 +53,8 @@ Mindset of a 15+ yr full-stack, AI-enabled app dev.
 
 - Keep sidebar labels single-line on desktop. If you must wrap, document the rationale in-code.
 
+- Exercise conversions: when cloning legacy accordion pages, always source the full gate scaffold (form, config JSON, and auto submitUrl helper script) from `exercise-1-nouns/111-common-nouns.html`; ensure the generated markup preserves the boolean `data-exercise-*` attributes without empty values.
+
 **KISS**: simplest, best practices,solution or tweak that aligns with current instructions, stay focused, on-task, passes tests, meets requirements, ensures future-proof choices, and respects existing arch.
 
 ## Edit Instruction Standards

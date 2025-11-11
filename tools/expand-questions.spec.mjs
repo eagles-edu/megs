@@ -64,6 +64,21 @@ describe("ensureInteractiveScaffold", () => {
       !/<form[^>]*data-exercise-form=""/.test(result.html),
       "data-exercise-form attribute should not include an empty value"
     )
+    assert.ok(
+      !/data-exercise-email=""/.test(result.html),
+      "data-exercise-email attribute should not include an empty value"
+    )
+    assert.ok(
+      !/data-exercise-student-id=""/.test(result.html),
+      "data-exercise-student-id attribute should not include an empty value"
+    )
+    assert.ok(result.addedAutoScript, "auto submitUrl script should be injected")
+    assert.ok(result.addedGateScript, "exercise runtime script should be injected")
+    assert.ok(
+      result.html.includes('[data-exercise-question="<id>"]'),
+      "script comments should preserve <id> placeholders"
+    )
+    assert.ok(result.html.includes("collectAnswers("), "gate runtime script should be present")
 
     const $ = cheerio.load(result.html, { decodeEntities: false })
     const $form = $("form.exercise-form[data-exercise-form]").first()

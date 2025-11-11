@@ -1,4 +1,3 @@
-#!/usr/bin/env node
 // tools/expand-questions.mjs
 // Parsing + rewrite pipeline for interactive exercise forms.
 // 1. Parse the HTML, log the <body> pipeline stages, and locate legacy accordion blocks.
@@ -749,29 +748,29 @@ function applyFieldConfig($block, n, allowedFields, fieldTemplates, stats, $) {
         .toLowerCase()
     )
   })
-    $row.empty()
-    const applied = []
-    for (const field of allowedFields) {
-      const tpl = fieldTemplates.get(field)
-      let $label
-      if (!tpl) {
-        if (stats.fallbackFields) stats.fallbackFields.add(field)
-        $label = createFallbackLabel($, field, n)
-      } else {
-        $label = $(tpl)
-      }
-      $label.find("[data-item]").each((_, el) => {
-        $(el).attr("data-item", String(n))
-      })
-      $label.find("[data-field]").each((_, el) => {
-        $(el).attr("data-field", field)
-      })
-      updateHiddenLabelText($label, n, $)
-      $row.append("\n")
-      $row.append($label)
-      stats.usedFields.add(field)
-      applied.push(field)
+  $row.empty()
+  const applied = []
+  for (const field of allowedFields) {
+    const tpl = fieldTemplates.get(field)
+    let $label
+    if (!tpl) {
+      if (stats.fallbackFields) stats.fallbackFields.add(field)
+      $label = createFallbackLabel($, field, n)
+    } else {
+      $label = $(tpl)
     }
+    $label.find("[data-item]").each((_, el) => {
+      $(el).attr("data-item", String(n))
+    })
+    $label.find("[data-field]").each((_, el) => {
+      $(el).attr("data-field", field)
+    })
+    updateHiddenLabelText($label, n, $)
+    $row.append("\n")
+    $row.append($label)
+    stats.usedFields.add(field)
+    applied.push(field)
+  }
   const changed =
     previous.length !== applied.length || previous.some((value, idx) => value !== applied[idx])
   return { fields: applied, changed }
