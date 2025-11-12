@@ -135,3 +135,4 @@ codacy-analysis.yml-edit
 **/**/.sto/
 **/**/sto/
 **/**/_notes/
+.npmrc
