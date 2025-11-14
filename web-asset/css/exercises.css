@@ -121,6 +121,8 @@
   --exercise-error: #b3261e;
   --exercise-error-glow: #cf3b32;
   --exercise-error-bg: #fdecea;
+  --exercise-pending: #b26a00;
+  --exercise-pending-bg: #fff4e5;
 }
 
 .exercise-form {
@@ -295,6 +297,11 @@
 .exercise-response-row--incorrect .exercise-response-input {
   background-color: var(--exercise-error-bg);
   border-color: var(--exercise-error);
+}
+
+.exercise-response-row--pending .exercise-response-input {
+  background-color: var(--exercise-pending-bg);
+  border-color: var(--exercise-pending);
 }
 
 .exercise-response-row--flash-success .exercise-response-input {

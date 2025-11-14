@@ -32,6 +32,14 @@ Mindset of a 15+ yr full-stack, AI-enabled app dev.
 
 - Never reprint edits that have already been provided unless additional clarification is explicitly required.
 
+### Tooling & migration notes
+
+- Node tooling runs against the checked-in `package.json`; do not rely on globally installed dependencies when executing Codex/Node tasks.
+
+- The expand-questions migration (`tools/expand-questions.mjs`) clones the interactive scaffold from `exercise-1-nouns/111-common-nouns.html`; prefer updating that template first when adjusting the gate shell.
+
+- When validating expand-questions output, copy a source HTML page (for example `exercise-1-nouns/112-proper-nouns-copy.html`) to a scratch file and rerun the tool repeatedly—the conversion should deterministically overwrite the scratch copy on every pass.
+
 ### Scope & safety rails
 
 - Stay strictly within the user’s scope. Don’t modify or mention unrelated code or files.

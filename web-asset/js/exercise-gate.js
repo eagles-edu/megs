@@ -22,6 +22,313 @@
     return text.trim()
   }
 
+  function normalizeHashAlgorithm(name) {
+    if (!name) return ""
+    var text = String(name).trim().toLowerCase()
+    if (!text) return ""
+    if (text === "fnv1a" || text === "fnv1a64" || text === "fnv1a-64") return "fnv1a-64"
+    if (text === "fnv1a32" || text === "fnv1a-32") return "fnv1a-32"
+    if (text === "fnv1a128" || text === "fnv1a-128") return "fnv1a-128"
+    return ""
+  }
+
+  function hashFnv1a32(value) {
+    var hash = 0x811c9dc5
+    for (var i = 0; i < value.length; i++) {
+      hash ^= value.charCodeAt(i)
+      hash = Math.imul(hash, 0x01000193)
+      hash >>>= 0
+    }
+    var hex = hash.toString(16)
+    while (hex.length < 8) hex = "0" + hex
+    return hex
+  }
+
+  function hashFnv1a64(value) {
+    var hash = 0xcbf29ce484222325n
+    var prime = 0x100000001b3n
+    for (var i = 0; i < value.length; i++) {
+      hash ^= BigInt(value.charCodeAt(i))
+      hash = (hash * prime) & 0xffffffffffffffffn
+    }
+    var hex = hash.toString(16)
+    while (hex.length < 16) hex = "0" + hex
+    return hex
+  }
+
+  function hashFnv1a128(value) {
+    var hash = 0x6c62272e07bb014262b821756295c58dn
+    var prime = 0x1000000000000000000013bn
+    var mask = 0xffffffffffffffffffffffffffffffffn
+    for (var i = 0; i < value.length; i++) {
+      hash ^= BigInt(value.charCodeAt(i))
+      hash = (hash * prime) & mask
+    }
+    var hex = hash.toString(16)
+    while (hex.length < 32) hex = "0" + hex
+    return hex
+  }
+
+  function hashAnswerValue(value, algorithm) {
+    var algo = normalizeHashAlgorithm(algorithm)
+    if (!algo) algo = "fnv1a-64"
+    if (algo === "fnv1a-32") return hashFnv1a32(value)
+    if (algo === "fnv1a-128") return hashFnv1a128(value)
+    return hashFnv1a64(value)
+  }
+
+  function parseHashedToken(token) {
+    if (typeof token !== "string") return null
+    var trimmed = token.trim()
+    if (!trimmed) return null
+    var splitIndex = trimmed.indexOf(":")
+    if (splitIndex <= 0) return null
+    var prefix = trimmed.slice(0, splitIndex)
+    var algorithm = normalizeHashAlgorithm(prefix)
+    if (!algorithm) return null
+    var remainder = trimmed.slice(splitIndex + 1).trim()
+    if (!remainder) return null
+    return { algorithm: algorithm, hash: remainder }
+  }
+
+  function coerceBoolean(value, defaultValue) {
+    if (typeof value === "boolean") return value
+    if (typeof value === "string") {
+      var lower = value.trim().toLowerCase()
+      if (lower === "true") return true
+      if (lower === "false") return false
+    }
+    return defaultValue
+  }
+
+  function padQuestionNumber(value) {
+    var digits = String(value == null ? "" : value).replace(/[^0-9]/g, "")
+    if (!digits) return ""
+    while (digits.length < 2) digits = "0" + digits
+    return digits
+  }
+
+  function prepareKeyValue(raw, options) {
+    if (raw == null) return ""
+    var text = String(raw)
+    if (options.normalize !== false) {
+      return normalizeAnswer(text)
+    }
+    text = text.trim()
+    if (!options.caseSensitive) text = text.toLowerCase()
+    return text
+  }
+
+  function parseAnswerKey(script) {
+    var empty = { questions: {}, options: {} }
+    if (!script) return empty
+    var raw = script.textContent || script.innerText || ""
+    if (!raw) return empty
+    try {
+      var parsed = JSON.parse(raw)
+      if (!parsed || typeof parsed !== "object") return empty
+      var answerKey = { questions: {}, options: {} }
+      if (parsed.options && typeof parsed.options === "object") {
+        answerKey.options = parsed.options
+      }
+      var defaultHash =
+        parsed.defaultHashAlgorithm ||
+        (answerKey.options ? answerKey.options.defaultHashAlgorithm : null) ||
+        (answerKey.options ? answerKey.options.hashAlgorithm : null)
+      defaultHash = normalizeHashAlgorithm(defaultHash)
+      if (!answerKey.options) answerKey.options = {}
+      if (defaultHash) answerKey.options.defaultHashAlgorithm = defaultHash
+      if (parsed.requireCorrectBeforeReveal != null) {
+        answerKey.options.requireCorrectBeforeReveal = coerceBoolean(
+          parsed.requireCorrectBeforeReveal,
+          true
+        )
+      }
+      var payload = parsed.answerArrays || parsed.answerKey || parsed.answers || null
+      if (payload && typeof payload === "object") {
+        var source = payload.answerArray || payload.questions || payload.items || payload
+        if (Array.isArray(source)) {
+          for (var i = 0; i < source.length; i++) {
+            registerAnswerEntry(answerKey, source[i], i + 1)
+          }
+        } else {
+          for (var key in source) {
+            if (!Object.prototype.hasOwnProperty.call(source, key)) continue
+            registerAnswerEntry(answerKey, source[key], key)
+          }
+        }
+      }
+      return answerKey
+    } catch (err) {
+      if (typeof console !== "undefined" && console.warn) {
+        console.warn("exercise-gate: unable to parse answer key", err)
+      }
+      return empty
+    }
+  }
+
+  function registerAnswerEntry(answerKey, entry, fallbackId) {
+    if (!entry || typeof entry !== "object") return
+    var questionConfig = buildQuestionConfig(entry, answerKey.options)
+    if (!questionConfig) return
+    var id = questionConfig.id || fallbackId
+    if (id == null) return
+    var idStr = String(id)
+    setQuestionConfig(answerKey.questions, idStr, questionConfig)
+    if (fallbackId != null) setQuestionConfig(answerKey.questions, fallbackId, questionConfig)
+  }
+
+  function setQuestionConfig(registry, key, config) {
+    if (key == null) return
+    var str = String(key)
+    registry[str] = config
+    var digits = padQuestionNumber(str)
+    if (digits) {
+      registry[String(parseInt(digits, 10))] = config
+      registry["question" + digits] = config
+      registry["q" + digits] = config
+    }
+  }
+
+  function uniqueLengths(values) {
+    var seen = {}
+    var list = []
+    for (var i = 0; i < values.length; i++) {
+      var value = values[i]
+      if (seen[value]) continue
+      seen[value] = true
+      list.push(value)
+    }
+    return list
+  }
+
+  function buildQuestionConfig(entry, sharedOptions) {
+    var answersAccepted = entry.answersAccepted
+    if (answersAccepted == null) answersAccepted = []
+    var manualReview = coerceBoolean(entry.manualCheckOk, false)
+    var ordered = coerceBoolean(entry.orderedAnswer, false)
+    var normalize = entry.normalizeAnswer
+    if (typeof normalize === "string") normalize = coerceBoolean(normalize, true)
+    else if (normalize == null) normalize = true
+    else normalize = !!normalize
+    var caseSensitive = coerceBoolean(entry.caseSensitive, false)
+    if (caseSensitive && normalize) normalize = false
+    var requireCorrect = entry.requireCorrectBeforeReveal
+    if (requireCorrect != null) requireCorrect = coerceBoolean(requireCorrect, true)
+    var hashAlgorithm =
+      normalizeHashAlgorithm(
+        entry.hashAlgorithm || entry.hashEncoding || entry.hashAlgorithmName || entry.hash
+      ) || normalizeHashAlgorithm(sharedOptions && sharedOptions.defaultHashAlgorithm)
+
+    var options = {
+      manualReview: manualReview,
+      ordered: ordered,
+      normalize: normalize,
+      caseSensitive: caseSensitive,
+      requireCorrectBeforeReveal: requireCorrect,
+    }
+
+    var acceptedAnswers = []
+    if (!Array.isArray(answersAccepted)) answersAccepted = [answersAccepted]
+    for (var i = 0; i < answersAccepted.length; i++) {
+      var combo = answersAccepted[i]
+      if (combo == null) continue
+      var list = Array.isArray(combo) ? combo : [combo]
+      var prepared = []
+      for (var j = 0; j < list.length; j++) {
+        var token = list[j]
+        var parsedToken = parseAnswerToken(token, options, hashAlgorithm)
+        if (!parsedToken) continue
+        if (parsedToken.algorithm && !hashAlgorithm) {
+          hashAlgorithm = parsedToken.algorithm
+        }
+        if (parsedToken.kind === "hash") {
+          prepared.push(parsedToken.value)
+        } else if (parsedToken.kind === "plain") {
+          if (parsedToken.algorithm) {
+            var hashedValue = hashAnswerValue(parsedToken.value, parsedToken.algorithm)
+            prepared.push(hashedValue)
+            if (!hashAlgorithm) hashAlgorithm = parsedToken.algorithm
+          } else if (hashAlgorithm) {
+            prepared.push(hashAnswerValue(parsedToken.value, hashAlgorithm))
+          } else {
+            prepared.push(parsedToken.value)
+          }
+        }
+      }
+      if (prepared.length) acceptedAnswers.push(prepared)
+    }
+
+    var lengths = []
+    for (var a = 0; a < acceptedAnswers.length; a++) lengths.push(acceptedAnswers[a].length)
+    lengths = uniqueLengths(lengths)
+    var minLength = lengths.length ? lengths[0] : 1
+    for (var l = 1; l < lengths.length; l++) if (lengths[l] < minLength) minLength = lengths[l]
+    var maxLength = lengths.length ? lengths[0] : 0
+    for (var m = 1; m < lengths.length; m++) if (lengths[m] > maxLength) maxLength = lengths[m]
+
+    return {
+      id: entry.id != null ? String(entry.id) : null,
+      acceptedAnswers: acceptedAnswers,
+      lengths: lengths,
+      minLength: minLength || 1,
+      maxLength: maxLength || 0,
+      manualReview: options.manualReview,
+      ordered: options.ordered,
+      normalize: options.normalize,
+      caseSensitive: options.caseSensitive,
+      requireCorrectBeforeReveal: options.requireCorrectBeforeReveal,
+      hashAlgorithm: hashAlgorithm,
+    }
+  }
+
+  function parseAnswerToken(token, options, defaultHash) {
+    if (token == null) return null
+    if (typeof token === "string") {
+      var hashed = parseHashedToken(token)
+      if (hashed) {
+        return {
+          kind: "hash",
+          value: hashed.hash,
+          algorithm: hashed.algorithm || normalizeHashAlgorithm(defaultHash) || "fnv1a-64",
+        }
+      }
+      var prepared = prepareKeyValue(token, options)
+      if (!prepared) return null
+      return { kind: "plain", value: prepared, algorithm: defaultHash }
+    }
+    if (typeof token === "object" && !Array.isArray(token)) {
+      if (token.hash != null) {
+        var alg = normalizeHashAlgorithm(
+          token.hashAlgorithm || token.algorithm || token.hashType || defaultHash
+        )
+        if (!alg) alg = "fnv1a-64"
+        return { kind: "hash", value: String(token.hash), algorithm: alg }
+      }
+      var rawValue = token.value != null ? token.value : token.answer
+      if (rawValue != null) {
+        var preparedValue = prepareKeyValue(rawValue, options)
+        if (!preparedValue) return null
+        var algorithm = normalizeHashAlgorithm(
+          token.hashAlgorithm || token.algorithm || token.hashType || defaultHash
+        )
+        return { kind: "plain", value: preparedValue, algorithm: algorithm || defaultHash }
+      }
+    }
+    var fallback = prepareKeyValue(token, options)
+    if (!fallback) return null
+    return { kind: "plain", value: fallback, algorithm: defaultHash }
+  }
+
+  function prepareInputValue(value, config) {
+    if (config && config.normalize === false) {
+      var trimmed = String(value == null ? "" : value).trim()
+      if (!config.caseSensitive) trimmed = trimmed.toLowerCase()
+      return trimmed
+    }
+    return normalizeAnswer(value)
+  }
+
   function parseConfig(script) {
     if (!script) return {}
     var raw = script.textContent || script.innerText || ""
@@ -89,6 +396,11 @@
     var storageKey = "exercise-progress:" + (form.getAttribute("data-storage-key") || "default")
     var config = parseConfig(document.querySelector("[data-exercise-config]"))
     if (!config.recipients) config.recipients = []
+    var answerKey = parseAnswerKey(document.querySelector("[data-exercise-answer-key]"))
+    var globalRequireCorrect = coerceBoolean(
+      answerKey.options && answerKey.options.requireCorrectBeforeReveal,
+      true
+    )
 
     var questionNodes = toArray(form.querySelectorAll("[data-exercise-question]"))
     var questions = []
@@ -111,15 +423,61 @@
           if (text) answers.push(text)
         }
       }
+      var questionId = String(node.getAttribute("data-exercise-question") || i + 1)
+      var configEntry = answerKey.questions[questionId]
+      if (!configEntry) {
+        var padded = padQuestionNumber(questionId || i + 1)
+        if (padded) {
+          configEntry =
+            answerKey.questions["question" + padded] ||
+            answerKey.questions["q" + padded] ||
+            answerKey.questions[String(parseInt(padded, 10))]
+        }
+      }
+      if (!configEntry && answers.length) {
+        configEntry = {
+          id: questionId,
+          acceptedAnswers: [answers.slice()],
+          lengths: [answers.length],
+          minLength: answers.length || 1,
+          maxLength: answers.length || 0,
+          manualReview: false,
+          ordered: false,
+          normalize: true,
+          caseSensitive: false,
+          requireCorrectBeforeReveal: true,
+        }
+      } else if (!configEntry) {
+        configEntry = {
+          id: questionId,
+          acceptedAnswers: [],
+          lengths: [],
+          minLength: 1,
+          maxLength: 0,
+          manualReview: true,
+          ordered: false,
+          normalize: true,
+          caseSensitive: false,
+          requireCorrectBeforeReveal: true,
+        }
+      }
+      var requireCorrect = globalRequireCorrect
+      if (configEntry && configEntry.requireCorrectBeforeReveal != null) {
+        requireCorrect = coerceBoolean(configEntry.requireCorrectBeforeReveal, requireCorrect)
+      }
       questions.push({
-        id: String(node.getAttribute("data-exercise-question") || i + 1),
+        id: questionId,
         node: node,
         toggle: toggle,
         row: row,
         panel: panel,
         inputs: inputs,
         answers: answers,
+        answerConfig: configEntry || null,
+        requireCorrect: requireCorrect,
         complete: false,
+        pendingReview: false,
+        status: "incomplete",
         flashTimer: null,
       })
     }
@@ -267,9 +625,12 @@
       if (!question) return
       clearTimer(question)
       question.complete = false
+      question.pendingReview = false
+      question.status = "incorrect"
       if (question.row) {
         question.row.classList.remove(
           "exercise-response-row--correct",
+          "exercise-response-row--pending",
           "exercise-response-row--flash-success"
         )
         question.row.classList.add(
@@ -292,9 +653,12 @@
       if (!question) return false
       clearTimer(question)
       question.complete = true
+      question.pendingReview = false
+      question.status = "correct"
       if (question.row) {
         question.row.classList.remove(
           "exercise-response-row--incorrect",
+          "exercise-response-row--pending",
           "exercise-response-row--flash-error"
         )
         question.row.classList.add(
@@ -314,39 +678,143 @@
       return true
     }
 
+    function markQuestionPending(question) {
+      if (!question) return
+      clearTimer(question)
+      question.complete = true
+      question.pendingReview = true
+      question.status = "pending"
+      if (question.row) {
+        question.row.classList.remove(
+          "exercise-response-row--incorrect",
+          "exercise-response-row--correct",
+          "exercise-response-row--flash-error",
+          "exercise-response-row--flash-success"
+        )
+        question.row.classList.add("exercise-response-row--pending")
+      }
+      for (var i = 0; i < question.inputs.length; i++) {
+        var input = question.inputs[i]
+        input.readOnly = false
+        input.removeAttribute("aria-readonly")
+        input.classList.remove("exercise-response-input--locked")
+      }
+    }
+
     function evaluateQuestion(question) {
-      var expected = question.answers.slice()
-      var requiredCount = expected.length
+      var configEntry = question.answerConfig
+      var expected = configEntry ? configEntry.acceptedAnswers : []
+      var lengths = configEntry ? configEntry.lengths : []
+      var minLength = configEntry ? configEntry.minLength : 1
+      var maxLength = configEntry ? configEntry.maxLength : 0
+      var allowManual = configEntry ? configEntry.manualReview : false
+      var ordered = configEntry ? configEntry.ordered : false
+      var normalize = configEntry ? configEntry.normalize !== false : true
+      var caseSensitive = configEntry ? configEntry.caseSensitive : false
+      var hashAlgorithm = configEntry ? configEntry.hashAlgorithm : null
+      if (!configEntry && question.answers.length) {
+        expected = [question.answers.slice()]
+        lengths = [question.answers.length]
+        minLength = question.answers.length || 1
+        maxLength = question.answers.length || 0
+        allowManual = false
+        ordered = false
+        normalize = true
+        caseSensitive = false
+      }
       var filled = []
       for (var i = 0; i < question.inputs.length; i++) {
         var raw = question.inputs[i].value
-        var normalized = normalizeAnswer(raw)
-        if (normalized) filled.push(normalized)
+        var prepared = prepareInputValue(raw, {
+          normalize: normalize,
+          caseSensitive: caseSensitive,
+        })
+        if (prepared) {
+          filled.push(prepared)
+        }
       }
-      if (!requiredCount) {
-        return { ready: filled.length > 0, correct: filled.length > 0 }
+      if (hashAlgorithm && filled.length) {
+        var hashedInputs = []
+        for (var h = 0; h < filled.length; h++) {
+          hashedInputs.push(hashAnswerValue(filled[h], hashAlgorithm))
+        }
+        filled = hashedInputs
       }
-      if (filled.length < requiredCount) return { ready: false, correct: false }
-      if (filled.length > requiredCount) return { ready: true, correct: false }
-      var remaining = expected.slice()
-      for (var a = 0; a < filled.length; a++) {
-        var value = filled[a]
-        var index = -1
-        for (var r = 0; r < remaining.length; r++) {
-          if (remaining[r] === value) {
-            index = r
+      if (!expected.length && !question.answers.length) {
+        if (!filled.length) return { ready: false, correct: false }
+        return {
+          ready: true,
+          correct: false,
+          needsReview: allowManual || !question.requireCorrect,
+        }
+      }
+      var minRequired = minLength || 1
+      var maxAllowed = maxLength || 0
+      if (!maxAllowed && expected.length) {
+        for (var comboIndex = 0; comboIndex < expected.length; comboIndex++) {
+          if (expected[comboIndex].length > maxAllowed) maxAllowed = expected[comboIndex].length
+        }
+      }
+      if (filled.length < minRequired) {
+        return { ready: false, correct: false }
+      }
+      if (maxAllowed && filled.length > maxAllowed) {
+        return { ready: true, correct: false }
+      }
+      var hasMatchingLength = !lengths.length
+      if (!hasMatchingLength) {
+        for (var lenIndex = 0; lenIndex < lengths.length; lenIndex++) {
+          if (lengths[lenIndex] === filled.length) {
+            hasMatchingLength = true
             break
           }
         }
-        if (index === -1) return { ready: true, correct: false }
-        remaining.splice(index, 1)
       }
-      return { ready: true, correct: remaining.length === 0 }
+      if (!hasMatchingLength) {
+        return { ready: true, correct: false }
+      }
+      for (var comboIdx = 0; comboIdx < expected.length; comboIdx++) {
+        var combo = expected[comboIdx]
+        if (!combo || combo.length !== filled.length) continue
+        if (ordered) {
+          var orderedMatch = true
+          for (var f = 0; f < filled.length; f++) {
+            if (combo[f] !== filled[f]) {
+              orderedMatch = false
+              break
+            }
+          }
+          if (orderedMatch) return { ready: true, correct: true }
+        } else {
+          var remaining = combo.slice()
+          var matchedAll = true
+          for (var x = 0; x < filled.length; x++) {
+            var value = filled[x]
+            var index = -1
+            for (var r = 0; r < remaining.length; r++) {
+              if (remaining[r] === value) {
+                index = r
+                break
+              }
+            }
+            if (index === -1) {
+              matchedAll = false
+              break
+            }
+            remaining.splice(index, 1)
+          }
+          if (matchedAll && !remaining.length) return { ready: true, correct: true }
+        }
+      }
+      if (allowManual || !question.requireCorrect) {
+        return { ready: true, correct: false, needsReview: true }
+      }
+      return { ready: true, correct: false }
     }
 
     function guardQuestion(question) {
       if (!question) return true
-      if (question.complete) return true
+      if (question.status === "correct") return true
       if (!ensureContactInfo()) return false
       var result = evaluateQuestion(question)
       if (!result.ready) {
@@ -356,8 +824,17 @@
         return false
       }
       if (!result.correct) {
+        if (result.needsReview) {
+          markQuestionPending(question)
+          setFeedback(
+            "Question " + question.id + ": answer recorded and flagged for review.",
+            "success"
+          )
+          updateProgress()
+          return true
+        }
         markQuestionIncorrect(question)
-        setFeedback("Question " + question.id + ": at least one noun is incorrect.", "error")
+        setFeedback("Question " + question.id + ": at least one answer is incorrect.", "error")
         updateSubmitState()
         return false
       }
@@ -420,10 +897,13 @@
     function resetQuestion(question) {
       clearTimer(question)
       question.complete = false
+      question.pendingReview = false
+      question.status = "incomplete"
       if (question.row) {
         question.row.classList.remove(
           "exercise-response-row--correct",
           "exercise-response-row--incorrect",
+          "exercise-response-row--pending",
           "exercise-response-row--flash-success",
           "exercise-response-row--flash-error"
         )
@@ -453,7 +933,12 @@
         for (var j = 0; j < question.inputs.length; j++) {
           values.push(question.inputs[j].value || "")
         }
-        answersPayload.push({ id: question.id, answers: values })
+        answersPayload.push({
+          id: question.id,
+          answers: values,
+          status: question.status,
+          needsReview: !!question.pendingReview,
+        })
       }
       return {
         email: emailInput ? (emailInput.value || "").trim() : "",
