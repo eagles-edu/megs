@@ -54,6 +54,18 @@ Mindset of a 15+ yr full-stack, AI-enabled app dev.
 
 - Record lessons learned (successes/failures) and apply them in later sessions.
 
+## Recent exercise system improvements
+
+- Universal answer keys now live in page-level JSON with hashed `answersAccepted` entries. Update hashes when expected responses change instead of exposing plain text.
+
+- Recipient lists inside exercise configs are obfuscated as numeric code points; always decode before sending mail but keep the stored values unreadable.
+
+- Developer QA helpers ship in `web-asset/js/exercise-devtools.js`. Set `data-exercise-devtools="auto"` on a page to expose the floating “Auto-fill answers” button; use `data-exercise-devtools="manual"` or remove the attribute to hide it.
+
+- Universal gate logic honors per-question flags (ordered comparisons, manual review, case sensitivity). Only add overrides when deviating from defaults to keep payloads lean.
+
+- Accordion gating no longer depends on visual underlines. Clone the scaffold from `exercise-1-nouns/111-common-nouns.html` for new exercises and wire it to the JSON answer key.
+
 ### Front-end navigation notes
 
 - The left sidebar menu scales via the responsive `--left-menu-font-size` clamp with a paired icon clamp; adjust those tokens instead of hard-coding pixel values.

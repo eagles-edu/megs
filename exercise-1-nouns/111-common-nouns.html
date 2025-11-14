@@ -930,7 +930,7 @@
   <script src="../web-asset/js/exercise-devtools.js" defer></script>
 </head>
 
-<body class="base exercize">
+<body class="base exercize" data-exercise-devtools="auto">
   <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true"
     style="position: absolute; width: 0; height: 0; overflow: hidden">
     <defs>
@@ -2337,8 +2337,115 @@
                   <div id="exercise-status" class="status-warn" aria-live="polite" style="margin-top: 0.5rem"></div>
                 </div>
               </form>
-              <!-- Page config: set recipients and where to POST -->
-              <script type="application/json" id="exercise-answer-key" data-exercise-answer-key>{ "title": "111-common-nouns", "version": "0.3.0", "publishDate": "2025-11-13T00:00:00.000Z", "description": "Identify the nouns in each sentence.", "options":{ "requireCorrectBeforeReveal": true, "defaultHashAlgorithm": "fnv1a-64"}, "answerArrays":{ "exerciseName": "111-common-nouns", "totalQuestions": 20, "answerArray":{ "question01":{ "id": "1", "answersAccepted": [["fnv1a-64:2a13e1f055644df3"]]}, "question02":{ "id": "2", "answersAccepted": [["fnv1a-64:42fe2f87e431d171", "fnv1a-64:bb1a3eb9e4c6e529"]]}, "question03":{ "id": "3", "answersAccepted": [["fnv1a-64:080f6319176d3e8f", "fnv1a-64:30bb947b3d7851c6", "fnv1a-64:b5615e90e87b608f", "fnv1a-64:f2636942cc8941a4"]]}, "question04":{ "id": "4", "answersAccepted": [["fnv1a-64:ce46f1198769524b", "fnv1a-64:4d0afd4928726334"]]}, "question05":{ "id": "5", "answersAccepted": [["fnv1a-64:0a8f12cc5f9a0c03", "fnv1a-64:893530843eabf472"]]}, "question06":{ "id": "6", "answersAccepted": [["fnv1a-64:3b460fb03ebafd9a", "fnv1a-64:6031fa18f0b81ef4", "fnv1a-64:857ba31dc6b8878f"]]}, "question07":{ "id": "7", "answersAccepted": [["fnv1a-64:5beddbba52c73a21", "fnv1a-64:d4400ba5f999dc41"]]}, "question08":{ "id": "8", "answersAccepted": [["fnv1a-64:6b725d068c3cf2b2", "fnv1a-64:9a13d89ba9fbca24", "fnv1a-64:2c5d047ff4e6ffc7"]]}, "question09":{ "id": "9", "answersAccepted": [["fnv1a-64:407c48d72a3b365c", "fnv1a-64:e780ca9a7cbdd8eb"]]}, "question10":{ "id": "10", "answersAccepted": [["fnv1a-64:c95d8c6cab54db7d", "fnv1a-64:6b725d068c3cf2b2", "fnv1a-64:82a6b14733b2685a"]]}, "question11":{ "id": "11", "answersAccepted": [["fnv1a-64:bcb01828f0c1fe63", "fnv1a-64:5f8a99af714680ff"]]}, "question12":{ "id": "12", "answersAccepted": [["fnv1a-64:48693db44dd0ef3f", "fnv1a-64:42ef0fa1eda7a88a", "fnv1a-64:4f5c4dd8e884633e"]]}, "question13":{ "id": "13", "answersAccepted": [["fnv1a-64:6fcfdf926f11594e", "fnv1a-64:e925e43a99442f85", "fnv1a-64:1aa9c45c0f9ef371"]]}, "question14":{ "id": "14", "answersAccepted": [["fnv1a-64:14ec7800be9333b4", "fnv1a-64:8b29614672c32250"]]}, "question15":{ "id": "15", "answersAccepted": [["fnv1a-64:7e46454eb744c150", "fnv1a-64:b54c5d3e3853f133"]]}, "question16":{ "id": "16", "answersAccepted": [["fnv1a-64:9009ca6e72116aa5", "fnv1a-64:d0a0f546277287e8"]]}, "question17":{ "id": "17", "answersAccepted": [["fnv1a-64:7197ef9869757539", "fnv1a-64:1c916a8f0aaafd27"]]}, "question18":{ "id": "18", "answersAccepted": [["fnv1a-64:d97f55ef07c42f09", "fnv1a-64:8af97972044b8af2"]]}, "question19":{ "id": "19", "answersAccepted": [["fnv1a-64:cd0ddd9bc6933da2", "fnv1a-64:681cb15e4a577428"]]}, "question20":{ "id": "20", "answersAccepted": [["fnv1a-64:2cdf64868f94a848", "fnv1a-64:d94c56ef0798d723", "fnv1a-64:919ec0f651278ba5"]]}}}} </script><script type="application/json" id="exercise-config" data-exercise-config>{ "recipients": [{ "codes": [107, 105, 109, 116, 104, 97, 110, 104, 64, 101, 97, 103, 108, 101, 115, 118, 110, 46, 111, 110, 108, 105, 110, 101]},{ "codes": [97, 100, 109, 105, 110, 64, 101, 97, 103, 108, 101, 115, 118, 110, 46, 111, 110, 108, 105, 110, 101]},{ "codes": [116, 104, 97, 110, 104, 46, 101, 97, 103, 108, 101, 115, 99, 108, 117, 98, 64, 103, 109, 97, 105, 108, 46, 99, 111, 109]} ], "submitUrl": ""} </script>
+                            <!-- Page config: set recipients and where to POST -->
+              <script type="application/json" id="exercise-answer-key" data-exercise-answer-key>
+                {
+                  "title": "111-common-nouns",
+                  "version": "0.3.0",
+                  "publishDate": "2025-11-13T00:00:00.000Z",
+                  "description": "Identify the nouns in each sentence.",
+                  "options": {
+                    "requireCorrectBeforeReveal": true,
+                    "defaultHashAlgorithm": "fnv1a-64"
+                  },
+                  "answerArrays": {
+                    "exerciseName": "111-common-nouns",
+                    "totalQuestions": 20,
+                    "answerArray": {
+                      "question01": {
+                        "id": "1",
+                        "answersAccepted": [["fnv1a-64:2a13e1f055644df3"]]
+                      },
+                      "question02": {
+                        "id": "2",
+                        "answersAccepted": [["fnv1a-64:42fe2f87e431d171", "fnv1a-64:bb1a3eb9e4c6e529"]]
+                      },
+                      "question03": {
+                        "id": "3",
+                        "answersAccepted": [["fnv1a-64:080f6319176d3e8f", "fnv1a-64:30bb947b3d7851c6", "fnv1a-64:b5615e90e87b608f", "fnv1a-64:f2636942cc8941a4"]]
+                      },
+                      "question04": {
+                        "id": "4",
+                        "answersAccepted": [["fnv1a-64:ce46f1198769524b", "fnv1a-64:4d0afd4928726334"]]
+                      },
+                      "question05": {
+                        "id": "5",
+                        "answersAccepted": [["fnv1a-64:0a8f12cc5f9a0c03", "fnv1a-64:893530843eabf472"]]
+                      },
+                      "question06": {
+                        "id": "6",
+                        "answersAccepted": [["fnv1a-64:3b460fb03ebafd9a", "fnv1a-64:6031fa18f0b81ef4", "fnv1a-64:857ba31dc6b8878f"]]
+                      },
+                      "question07": {
+                        "id": "7",
+                        "answersAccepted": [["fnv1a-64:5beddbba52c73a21", "fnv1a-64:d4400ba5f999dc41"]]
+                      },
+                      "question08": {
+                        "id": "8",
+                        "answersAccepted": [["fnv1a-64:6b725d068c3cf2b2", "fnv1a-64:9a13d89ba9fbca24", "fnv1a-64:2c5d047ff4e6ffc7"]]
+                      },
+                      "question09": {
+                        "id": "9",
+                        "answersAccepted": [["fnv1a-64:407c48d72a3b365c", "fnv1a-64:e780ca9a7cbdd8eb"]]
+                      },
+                      "question10": {
+                        "id": "10",
+                        "answersAccepted": [["fnv1a-64:c95d8c6cab54db7d", "fnv1a-64:6b725d068c3cf2b2", "fnv1a-64:82a6b14733b2685a"]]
+                      },
+                      "question11": {
+                        "id": "11",
+                        "answersAccepted": [["fnv1a-64:bcb01828f0c1fe63", "fnv1a-64:5f8a99af714680ff"]]
+                      },
+                      "question12": {
+                        "id": "12",
+                        "answersAccepted": [["fnv1a-64:48693db44dd0ef3f", "fnv1a-64:42ef0fa1eda7a88a", "fnv1a-64:4f5c4dd8e884633e"]]
+                      },
+                      "question13": {
+                        "id": "13",
+                        "answersAccepted": [["fnv1a-64:6fcfdf926f11594e", "fnv1a-64:e925e43a99442f85", "fnv1a-64:1aa9c45c0f9ef371"]]
+                      },
+                      "question14": {
+                        "id": "14",
+                        "answersAccepted": [["fnv1a-64:14ec7800be9333b4", "fnv1a-64:8b29614672c32250"]]
+                      },
+                      "question15": {
+                        "id": "15",
+                        "answersAccepted": [["fnv1a-64:7e46454eb744c150", "fnv1a-64:b54c5d3e3853f133"]]
+                      },
+                      "question16": {
+                        "id": "16",
+                        "answersAccepted": [["fnv1a-64:9009ca6e72116aa5", "fnv1a-64:d0a0f546277287e8"]]
+                      },
+                      "question17": {
+                        "id": "17",
+                        "answersAccepted": [["fnv1a-64:7197ef9869757539", "fnv1a-64:1c916a8f0aaafd27"]]
+                      },
+                      "question18": {
+                        "id": "18",
+                        "answersAccepted": [["fnv1a-64:d97f55ef07c42f09", "fnv1a-64:8af97972044b8af2"]]
+                      },
+                      "question19": {
+                        "id": "19",
+                        "answersAccepted": [["fnv1a-64:cd0ddd9bc6933da2", "fnv1a-64:681cb15e4a577428"]]
+                      },
+                      "question20": {
+                        "id": "20",
+                        "answersAccepted": [["fnv1a-64:2cdf64868f94a848", "fnv1a-64:d94c56ef0798d723", "fnv1a-64:919ec0f651278ba5"]]
+                      }
+                    }
+                  }
+                }
+              </script>
+              <script type="application/json" id="exercise-config" data-exercise-config>
+                  {
+                    "recipients": [
+                      { "codes": [107, 105, 109, 116, 104, 97, 110, 104, 64, 101, 97, 103, 108, 101, 115, 118, 110, 46, 111, 110, 108, 105, 110, 101] },
+                      { "codes": [97, 100, 109, 105, 110, 64, 101, 97, 103, 108, 101, 115, 118, 110, 46, 111, 110, 108, 105, 110, 101] },
+                      { "codes": [116, 104, 97, 110, 104, 46, 101, 97, 103, 108, 101, 115, 99, 108, 117, 98, 64, 103, 109, 97, 105, 108, 46, 99, 111, 109] }
+                    ],
+                    "submitUrl": ""
+                  }
+                </script>
                 <!-- <script type="application/json" id="exercise-config" data-exercise-config>
                   {
                     "recipients": ["kimthanh@eaglesvn.online", "admin@eaglesvn.online", "thanh.eaglesclub@gmail.com"],
