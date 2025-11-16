@@ -467,11 +467,44 @@
     }
   }
 
+  function readAutoPreference() {
+    if (typeof document === "undefined") return null
+    var hostNode = document.querySelector("[data-exercise-devtools]")
+    if (!hostNode) return null
+    var raw = hostNode.getAttribute("data-exercise-devtools")
+    if (raw == null) return true
+    var normalized = String(raw).trim().toLowerCase()
+    if (!normalized) return true
+    if (
+      normalized === "0" ||
+      normalized === "false" ||
+      normalized === "off" ||
+      normalized === "disable" ||
+      normalized === "disabled" ||
+      normalized === "manual"
+    ) {
+      return false
+    }
+    if (
+      normalized === "1" ||
+      normalized === "true" ||
+      normalized === "on" ||
+      normalized === "enable" ||
+      normalized === "enabled" ||
+      normalized === "auto"
+    ) {
+      return true
+    }
+    return true
+  }
+
   function shouldEnableByDefault() {
     if (typeof window === "undefined") return false
     var search = window.location ? window.location.search || "" : ""
     if (/([?&])dev-fill=1(?![0-9])/i.test(search)) return true
     if (/([?&])dev-fill=0(?![0-9])/i.test(search)) return false
+    var autoPref = readAutoPreference()
+    if (autoPref !== null) return autoPref
     return readStorage(FLAG_KEY) === "1"
   }
 
@@ -707,6 +740,26 @@
 
     if (shouldEnableByDefault() && !hasDisableQuery()) {
       api.enable({ silent: true })
+    }
+    if (!state.fillButton) {
+      var autoPreference = readAutoPreference()
+      if (autoPreference && !hasDisableQuery()) {
+        var fallbackEnable = function () {
+          if (!state.fillButton && !hasDisableQuery()) {
+            api.enable({ silent: true })
+          }
+        }
+        if (typeof window !== "undefined" && window.addEventListener) {
+          var onLoad = function () {
+            window.removeEventListener("load", onLoad)
+            fallbackEnable()
+          }
+          window.addEventListener("load", onLoad)
+        }
+        if (typeof window !== "undefined" && window.setTimeout) {
+          window.setTimeout(fallbackEnable, 800)
+        }
+      }
     }
   })
 })()

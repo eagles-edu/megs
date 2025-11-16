@@ -1,3 +1,4 @@
+
 # AGENTS.md - Agents Operating Manual
 
 ## Instructions for Coding
@@ -17,6 +18,27 @@ Mindset of a 15+ yr full-stack, AI-enabled app dev.
 - Focused-diff edits; change only what’s required; avoid over-engineering.
 
 - Always rescan the repository for updated files immediately before editing.
+
+- Always document that the working tree is clean (e.g., via `git status -sb`) before presenting a diff or set of edits.
+
+- Always prepare shell-ready `sed -i` (or portable `sed` script + redirect) commands for every file you modify so requestors can apply the patch without re-reading prior diffs. Keep the instructions scoped to just the new changes.
+
+- When a request asks for updated files, provide the full post-change file content (per-file) alongside the `sed` commands so downstream users can apply or verify changes without hunting prior diffs.
+
+- File delivery rule: For files under 2000 lines, always include the entire post-change file inline (copy/paste ready). For files 2000 lines or longer, provide a `sed -i` script or download link for the complete file instead of inline content. Use exactly one of these options per file.
+
+#### Using provided full-file outputs
+
+- When a full file is printed in chat, treat it as the canonical post-change source: copy-paste it into the matching path to mirror the assistant’s working tree, or use it to diff against your local copy for verification.
+
+- Step-by-step to apply a full-file output:
+  1) Copy the content block exactly as printed (preserving trailing newlines) into the target file path from repo root.
+
+  2) Run `git diff --stat` and `git diff` to confirm only the intended file changed and the patch matches what was provided.
+
+  3) Execute any requested lint/test commands before committing.
+
+  4) If something looks off, re-copy the printed content and re-run the diff to verify the file matches the canonical output.
 
 ### Delivery
 
@@ -69,6 +91,7 @@ Mindset of a 15+ yr full-stack, AI-enabled app dev.
 ### Front-end navigation notes
 
 - The left sidebar menu scales via the responsive `--left-menu-font-size` clamp with a paired icon clamp; adjust those tokens instead of hard-coding pixel values.
+
 - Critical inline CSS in `exercise-1-nouns/111-common-nouns-codex-copy6.html` mirrors `web-asset/css/left-menu.css` for the sidebar; keep the custom property values and layout rules in sync when updating either file.
 
 - Keep sidebar labels single-line on desktop. If you must wrap, document the rationale in-code.
