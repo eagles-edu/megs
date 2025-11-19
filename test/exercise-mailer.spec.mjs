@@ -97,6 +97,36 @@ test("POST /api/exercise-submission succeeds (204) and dispatches notifications"
   assert.doesNotMatch(learnerMail.text, /Question 1:/)
 })
 
+test("POST /api/exercise-submission decodes obfuscated recipients", async () => {
+  const beforeHistory = transport.calls.history.length
+  const payload = {
+    email: "student2@example.com",
+    studentId: "def456",
+    pageTitle: "Decode Test",
+    recipients: [
+      { utf8: Buffer.from("teacher2@example.com", "utf8").toString("hex") },
+      {
+        codepoints: Array.from("admin@example.com").map((char) => char.codePointAt(0)),
+      },
+    ],
+    answers: [{ id: 1, answers: ["ok"] }],
+  }
+
+  const res = await fetchLocal(basePort, "/api/exercise-submission", {
+    method: "POST",
+    headers: { "content-type": "application/json" },
+    body: JSON.stringify(payload),
+  })
+
+  assert.equal(res.status, 204)
+  const newHistory = transport.calls.history.slice(beforeHistory)
+  assert.equal(newHistory.length, 2, "teacher + learner mails captured for obfuscated payload")
+
+  const [teacherMail, learnerMail] = newHistory
+  assert.deepEqual(teacherMail.to, ["teacher2@example.com", "admin@example.com"])
+  assert.equal(learnerMail.to[0], "student2@example.com")
+})
+
 test("POST /api/exercise-submission with missing answers returns 400", async () => {
   const bad = { email: "x@example.com", answers: [] }
   const res = await fetchLocal(basePort, "/api/exercise-submission", {
