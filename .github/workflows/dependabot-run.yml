@@ -1,12 +1,13 @@
-# .github/workflows/dependabot-run.yml
-name: Dependabot Manual Run
+name: Run Dependabot Manually
 
 on:
-  workflow_dispatch:
+  workflow_dispatch: # Allows manual run from GitHub UI
 
 jobs:
   dependabot:
+    name: Run Dependabot
     runs-on: ubuntu-22.04
+
     permissions:
       contents: read
       pull-requests: write

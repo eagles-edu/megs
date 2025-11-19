@@ -1,14 +1,23 @@
 version: 2
 updates:
   - package-ecosystem: "npm"
-    directory: "/" # adjust if package.json is in a subdir
+    directory: "/" # Adjust if your `package.json` is in a subdirectory
     schedule:
-      interval: "daily"
+      interval: "daily" # Options: "daily", "weekly", "monthly"
+      time: "06:00"
+      timezone: "Etc/UTC"
     open-pull-requests-limit: 5
-    commit-message:
-      prefix: "chore"
     allow:
       - dependency-type: "direct"
+    commit-message:
+      prefix: "chore"
+      include-scope: true
+    groups:
+      npm_and_yarn:
+        patterns:
+          - "*"
+        update-types:
+          - "security"
     ignore:
       - dependency-name: "some-package"
         versions: [">=99.0.0"]
