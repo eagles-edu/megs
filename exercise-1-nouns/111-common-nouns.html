@@ -4134,6 +4134,118 @@
         }
 
         // ---------- config ----------
+        function decodeUtf8Bytes(bytes) {
+          if (!Array.isArray(bytes) || !bytes.length) return '';
+          let output = '';
+          for (let i = 0; i < bytes.length; i++) {
+            const byte1 = Number(bytes[i]);
+            if (!Number.isFinite(byte1)) continue;
+            if (byte1 < 0x80) {
+              output += String.fromCharCode(byte1);
+            } else if (byte1 >= 0xc0 && byte1 < 0xe0 && i + 1 < bytes.length) {
+              const byte2 = Number(bytes[++i]);
+              if (!Number.isFinite(byte2)) break;
+              output += String.fromCharCode(((byte1 & 0x1f) << 6) | (byte2 & 0x3f));
+            } else if (byte1 >= 0xe0 && byte1 < 0xf0 && i + 2 < bytes.length) {
+              const byte2 = Number(bytes[i + 1]);
+              const byte3 = Number(bytes[i + 2]);
+              if (!Number.isFinite(byte2) || !Number.isFinite(byte3)) break;
+              i += 2;
+              output += String.fromCharCode(
+                ((byte1 & 0x0f) << 12) | ((byte2 & 0x3f) << 6) | (byte3 & 0x3f)
+              );
+            } else if (byte1 >= 0xf0 && byte1 < 0xf8 && i + 3 < bytes.length) {
+              const byte2 = Number(bytes[i + 1]);
+              const byte3 = Number(bytes[i + 2]);
+              const byte4 = Number(bytes[i + 3]);
+              if (!Number.isFinite(byte2) || !Number.isFinite(byte3) || !Number.isFinite(byte4)) break;
+              i += 3;
+              let codePoint =
+                ((byte1 & 0x07) << 18) |
+                ((byte2 & 0x3f) << 12) |
+                ((byte3 & 0x3f) << 6) |
+                (byte4 & 0x3f);
+              codePoint -= 0x10000;
+              output += String.fromCharCode(0xd800 + ((codePoint >> 10) & 0x3ff));
+              output += String.fromCharCode(0xdc00 + (codePoint & 0x3ff));
+            } else {
+              output += String.fromCharCode(byte1);
+            }
+          }
+          return output;
+        }
+
+        function decodeHexUtf8(value) {
+          if (typeof value !== 'string') return '';
+          let normalized = value.trim();
+          if (!normalized) return '';
+          normalized = normalized.replace(/[^0-9a-f]/gi, '');
+          if (!normalized) return '';
+          if (normalized.length % 2 === 1) normalized = '0' + normalized;
+          const bytes = [];
+          for (let i = 0; i < normalized.length; i += 2) {
+            const pair = normalized.slice(i, i + 2);
+            const parsed = parseInt(pair, 16);
+            if (!Number.isNaN(parsed)) bytes.push(parsed);
+          }
+          if (!bytes.length) return '';
+          return decodeUtf8Bytes(bytes);
+        }
+
+        function decodeCodePointList(list) {
+          if (!Array.isArray(list) || !list.length) return '';
+          let output = '';
+          for (const entry of list) {
+            const code = Number(entry);
+            if (!Number.isFinite(code)) continue;
+            if (code <= 0xffff) {
+              output += String.fromCharCode(code);
+            } else {
+              const adjusted = code - 0x10000;
+              output += String.fromCharCode(0xd800 + ((adjusted >> 10) & 0x3ff));
+              output += String.fromCharCode(0xdc00 + (adjusted & 0x3ff));
+            }
+          }
+          return output;
+        }
+
+        function decodeRecipientToken(token) {
+          if (token == null) return '';
+          if (typeof token === 'string') return token.trim();
+          if (typeof token === 'number' && Number.isFinite(token)) {
+            return String.fromCharCode(token);
+          }
+          if (Array.isArray(token)) {
+            return token.map((item) => decodeRecipientToken(item)).join('').trim();
+          }
+          if (typeof token === 'object') {
+            if (token.email) return decodeRecipientToken(token.email);
+            if (token.value) return decodeRecipientToken(token.value);
+            if (token.recipients) return decodeRecipientToken(token.recipients);
+            if (token.codepoints) return decodeCodePointList(token.codepoints);
+            if (token.codePoints) return decodeCodePointList(token.codePoints);
+            if (token.points) return decodeCodePointList(token.points);
+            if (token.codes) return decodeCodePointList(token.codes);
+            if (Array.isArray(token.bytes)) return decodeUtf8Bytes(token.bytes);
+            if (typeof token.bytes === 'string') return decodeHexUtf8(token.bytes);
+            if (token.utf8) return decodeHexUtf8(token.utf8);
+            if (token.hex) return decodeHexUtf8(token.hex);
+          }
+          return '';
+        }
+
+        function normalizeRecipientList(entries) {
+          if (!Array.isArray(entries)) return [];
+          const normalized = [];
+          for (const entry of entries) {
+            const decoded = decodeRecipientToken(entry);
+            if (!decoded) continue;
+            const trimmed = decoded.trim();
+            if (trimmed) normalized.push(trimmed);
+          }
+          return normalized;
+        }
+
         function readConfig() {
           const el = $( '#exercise-config[data-exercise-config]' );
           if ( !el ) throw new Error( 'Missing #exercise-config block' );
@@ -4142,9 +4254,7 @@
           /** @type {{recipients?: string[], submitUrl?: string}} */
           const cfg = JSON.parse( raw );
 
-          const recipients = Array.isArray( cfg.recipients )
-            ? cfg.recipients.map( String ).map( ( s ) => s.trim() ).filter( Boolean )
-            : [];
+          const recipients = normalizeRecipientList( cfg.recipients );
 
           let submitUrl = typeof cfg.submitUrl === 'string' ? cfg.submitUrl.trim() : '';
 

@@ -5,7 +5,9 @@
     "dbaeumer.vscode-eslint",
     "stylelint.vscode-stylelint",
     "postman.postman-for-vscode",
-    "gptonce.codepilot-vscode"
+    "gptonce.codepilot-vscode",
+    "ibm.wca-core",
+    "dhananjaysenday.mcp--inspector"
   ],
   "unwantedRecommendations": ["octref.vetur"]
 }
