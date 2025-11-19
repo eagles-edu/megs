@@ -1,0 +1,14 @@
+version: 2
+updates:
+  - package-ecosystem: "npm"
+    directory: "/" # adjust if package.json is in a subdir
+    schedule:
+      interval: "daily"
+    open-pull-requests-limit: 5
+    commit-message:
+      prefix: "chore"
+    allow:
+      - dependency-type: "direct"
+    ignore:
+      - dependency-name: "some-package"
+        versions: [">=99.0.0"]

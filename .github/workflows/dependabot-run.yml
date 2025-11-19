@@ -1,0 +1,20 @@
+# .github/workflows/dependabot-run.yml
+name: Dependabot Manual Run
+
+on:
+  workflow_dispatch:
+
+jobs:
+  dependabot:
+    runs-on: ubuntu-22.04
+    permissions:
+      contents: read
+      pull-requests: write
+
+    steps:
+      - name: Run Dependabot Core
+        uses: github/dependabot-action@main
+        env:
+          DEPENDABOT_DISABLE_CLEANUP: 1
+          DEPENDABOT_ENABLE_CONNECTIVITY_CHECK: 0
+          GITHUB_TOKEN: ${{ secrets.CLASSIC_GITHUB_TOKEN }}
