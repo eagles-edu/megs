@@ -65,7 +65,7 @@
     "@microsoft/eslint-formatter-sarif": "^3.1.0",
     "critical": "^6.0.1",
     "eslint": "^9.33.0",
-    "eslint-config-prettier": "^9.1.0",
+    "eslint-config-prettier": "^10.1.8",
     "globals": "^16.4.0",
     "html-validate": "^10.0.0",
     "html-validate-markdown": "^5.1.0",
