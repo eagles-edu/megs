@@ -16,16 +16,28 @@ Mindset of a 15+ yr full-stack, AI-enabled app dev.
 
 - **Focused-diff edits**; change only what’s required; avoid over-engineering.
 
-- **Always rescan the repository** for updated files immediately **before editing**.
+- **RESCAN REPO mandate**: rerun discovery (`git status -sb`, `rg`, etc.) immediately before changing files, and explicitly note in responses that the working tree was clean at that moment.
+
 - **Always document** that the working tree is clean (e.g., via `git status -sb`) before presenting a diff or set of edits.
-- **Always prepare shell-ready `sed -i`** (or portable `sed` script + redirect) commands for every file you modify so requestors can apply the patch without re-reading prior diffs. Keep the instructions scoped to just the new changes.
+
+- **Note prototype impact**: call out when edits touch prototype vs. live flows and reference the `npm run verify:prototype` script when relevant.
+
+- **Always use Unified Differential Format patches for every file you modify with vscode extension 'nakadehitsujiko.paste-and-apply-patch' so requestors can apply the new edits patch easily.
+
+- Keep the instructions scoped to just the new changes.
+
 - When a request asks for updated files, **provide the full post-change file content (per-file) alongside the `sed` commands** so downstream users can apply or verify changes without hunting prior diffs.
-- **File delivery rule**: For _files under 2000 lines_, always **include the entire post-change file inline (copy/paste ready)**.
+
+- **File delivery rule**: For _files under 2000 lines_, always **include the entire post-change file inline (copy/paste ready)** and skip redundant inline diffs for that same file.
+
 - For files 2000 lines or longer, provide a `sed -i` script or download link for the complete file instead of inline content. Use exactly one of these options per file; never mix both or omit the mandated delivery format.
+
 - "**Inline content**" = the full, ready-to-paste body of a file (no ellipses, no truncation), enclosed in a code fence, matching the exact post-change file.
 
 - For files 2000 lines or longer, provide one or both of the following so requestors can fetch the canonical file without scrolling in chat:
+
   - A shell command using the current repo state, e.g., `git show HEAD:path/to/file > path/to/file` (or substitute a specific commit/branch ref as needed).
+
   - A direct download URL (e.g., GitHub raw link to the targeted ref) if remote retrieval is requested.
 
 #### Using provided full-file outputs
@@ -33,9 +45,13 @@ Mindset of a 15+ yr full-stack, AI-enabled app dev.
 - When a full file is printed in chat, treat it as the canonical post-change source: copy-paste it into the matching path to mirror the assistant’s working tree, or use it to diff against your local copy for verification.
 
 - Step-by-step to apply a full-file output:
+  
   1) Copy the content block exactly as printed (preserving trailing newlines) into the target file path from repo root.
+
   2) Run `git diff --stat` and `git diff` to confirm only the intended file changed and the patch matches what was provided.
+
   3) Execute any requested lint/test commands before committing.
+
   4) If something looks off, re-copy the printed content and re-run the diff to verify the file matches the canonical output.
 
 ### Delivery
@@ -51,6 +67,8 @@ Mindset of a 15+ yr full-stack, AI-enabled app dev.
 - Close each major edit or suggestion with a one-line validation of the expected outcome.
 
 - Never reprint edits that have already been provided unless additional clarification is explicitly required.
+
+- **Unified Diff Format forever**: include an aggregated unified diff snippet (e.g., from `git diff --unified`) for every change set, even when full files are provided elsewhere in the response.
 
 ### Scope & safety rails
 
@@ -69,9 +87,13 @@ Mindset of a 15+ yr full-stack, AI-enabled app dev.
 ## Recent exercise system improvements
 
 - Universal answer keys now live in page-level JSON with hashed `answersAccepted` entries. Update hashes when expected responses change instead of exposing plain text.
+
 - Recipient lists inside exercise configs are obfuscated as numeric code points; always decode before sending mail but keep the stored values unreadable.
+
 - Developer QA helpers ship in `web-asset/js/exercise-devtools.js`. Set `data-exercise-devtools="auto"` on a page to expose the floating “Auto-fill answers” button; use `data-exercise-devtools="manual"` or remove the attribute to hide it.
+
 - Universal gate logic honors per-question flags (ordered comparisons, manual review, case sensitivity). Only add overrides when deviating from defaults to keep payloads lean.
+
 - Accordion gating no longer depends on visual underlines. Clone the scaffold from `exercise-1-nouns/111-common-nouns.html` for new exercises and wire it to the JSON answer key.
 
 ### Front-end navigation notes
@@ -100,7 +122,9 @@ When proposing code changes, the assistant MUST provide:
      ```
 
 3) **Unified diff** (copy-pasteable) **and** a shell-ready way to apply it:
+
    - Prefer (in order) `sed`, `in-chat manual code window`, `git apply` then `patch`;
+
 4) **Post-change verification** steps (lint/test/run commands).
 5) **Rollback** note (how to revert the commit or restore backup).
 
@@ -115,11 +139,17 @@ When proposing code changes, the assistant MUST provide:
 When proposing code or config changes, instructions MUST include:
 
 1. **File path** (absolute from repo root), e.g. `/server/exercise-mailer.mjs`
+
 2. **Exact search anchor(s)** to locate position (unique lines to match)
+
 3. **Precise change type**: **insert above/below**, **replace lines X–Y**, or **append at EOF**
+
 4. **Before/After blocks** with enough context (≥3 lines) to avoid ambiguity
+
 5. **Unified diff** (optional but preferred) with context lines
+
 6. **Post-change verification commands** (e.g., lint/test/reload)
+
 7. **Rollback note** (how to revert quickly)
 
 > Never use vague phrases like “after the config block” or “near the top”.
