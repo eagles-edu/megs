@@ -101,6 +101,119 @@
     return defaultValue
   }
 
+  function fromCodePointSafe(code) {
+    if (typeof code !== "number" || !isFinite(code)) return ""
+    if (typeof String.fromCodePoint === "function") {
+      try {
+        return String.fromCodePoint(code)
+      } catch (err) {
+        void err
+        /* fallback below */
+      }
+    }
+    if (code <= 0xffff) return String.fromCharCode(code)
+    var adjusted = code - 0x10000
+    var high = (adjusted >> 10) + 0xd800
+    var low = (adjusted % 0x400) + 0xdc00
+    return String.fromCharCode(high, low)
+  }
+
+  function decodeCodePoints(value) {
+    if (!value && value !== 0) return ""
+    var list = []
+    if (Array.isArray(value)) list = value.slice()
+    else if (typeof value === "string") list = value.split(/[^0-9]+/g)
+    else list = [value]
+    var result = ""
+    for (var i = 0; i < list.length; i++) {
+      var token = list[i]
+      if (token === "" || token === null || token === undefined) continue
+      var num = typeof token === "number" ? token : parseInt(String(token), 10)
+      if (!isFinite(num)) continue
+      result += fromCodePointSafe(num)
+    }
+    return result.trim()
+  }
+
+  function decodeUtf8Hex(hex) {
+    if (!hex) return ""
+    var normalized = String(hex)
+      .trim()
+      .replace(/[^0-9a-fA-F]/g, "")
+      .toLowerCase()
+    if (!normalized || normalized.length % 2 !== 0) return ""
+    var bytes = []
+    for (var i = 0; i < normalized.length; i += 2) {
+      var slice = normalized.slice(i, i + 2)
+      var value = parseInt(slice, 16)
+      if (!isFinite(value)) return ""
+      bytes.push(value)
+    }
+    if (typeof TextDecoder !== "undefined" && typeof Uint8Array !== "undefined") {
+      try {
+        return new TextDecoder("utf-8").decode(new Uint8Array(bytes)).trim()
+      } catch (err) {
+        void err
+        /* fall through */
+      }
+    }
+    var encoded = ""
+    for (var idx = 0; idx < bytes.length; idx++) {
+      var h = bytes[idx].toString(16)
+      if (h.length < 2) h = "0" + h
+      encoded += "%" + h
+    }
+    try {
+      return decodeURIComponent(encoded).trim()
+    } catch (err) {
+      void err
+      var fallback = ""
+      for (var j = 0; j < bytes.length; j++) fallback += String.fromCharCode(bytes[j])
+      return fallback.trim()
+    }
+  }
+
+  function decodeRecipientToken(token) {
+    if (token == null) return ""
+    if (typeof token === "string") return token.trim()
+    if (typeof token === "number") return fromCodePointSafe(token)
+    if (Array.isArray(token)) return decodeCodePoints(token)
+    if (typeof token === "object") {
+      if (typeof token.email === "string") return token.email.trim()
+      if (typeof token.value === "string") return token.value.trim()
+      if (typeof token.utf8 === "string") return decodeUtf8Hex(token.utf8)
+      if (Array.isArray(token.utf8)) return decodeCodePoints(token.utf8)
+      var codePoints =
+        token.codePoints ||
+        token.codepoints ||
+        token.code_point ||
+        token.codepoint ||
+        token.cp ||
+        token.points ||
+        token.codes
+      if (codePoints != null) {
+        var decoded = decodeCodePoints(codePoints)
+        if (decoded) return decoded
+      }
+      if (typeof token.bytes === "string") return decodeUtf8Hex(token.bytes)
+      if (Array.isArray(token.bytes)) return decodeCodePoints(token.bytes)
+    }
+    return ""
+  }
+
+  function normalizeRecipients(list) {
+    if (!Array.isArray(list)) return []
+    var decoded = []
+    for (var i = 0; i < list.length; i++) {
+      var entry = decodeRecipientToken(list[i])
+      if (!entry) continue
+      var trimmed = entry.trim()
+      if (!trimmed) continue
+      decoded.push(trimmed)
+    }
+    return decoded
+  }
+
   function padQuestionNumber(value) {
     var digits = String(value == null ? "" : value).replace(/[^0-9]/g, "")
     if (!digits) return ""
@@ -337,6 +450,7 @@
       var parsed = JSON.parse(raw)
       if (!parsed || typeof parsed !== "object") return {}
       if (!parsed.recipients || !Array.isArray(parsed.recipients)) parsed.recipients = []
+      parsed.recipients = normalizeRecipients(parsed.recipients)
       return parsed
     } catch (err) {
       if (typeof console !== "undefined" && console.warn) {

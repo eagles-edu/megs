@@ -94,6 +94,93 @@ function coerceArray(value) {
   return [value].filter(Boolean)
 }
 
+function fromCodePointSafe(code) {
+  if (typeof code !== "number" || !Number.isFinite(code)) return ""
+  try {
+    return String.fromCodePoint(code)
+  } catch (error) {
+    void error
+    if (code <= 0xffff) return String.fromCharCode(code)
+    const adjusted = code - 0x10000
+    const high = (adjusted >> 10) + 0xd800
+    const low = (adjusted % 0x400) + 0xdc00
+    return String.fromCharCode(high, low)
+  }
+}
+
+function decodeCodePoints(value) {
+  if (value === undefined || value === null) return ""
+  let list = []
+  if (Array.isArray(value)) list = value.slice()
+  else if (typeof value === "string") list = value.split(/[^0-9]+/g)
+  else list = [value]
+  let result = ""
+  for (let i = 0; i < list.length; i += 1) {
+    const token = list[i]
+    if (token === "" || token === null || token === undefined) continue
+    const num = typeof token === "number" ? token : Number.parseInt(String(token), 10)
+    if (!Number.isFinite(num)) continue
+    result += fromCodePointSafe(num)
+  }
+  return result.trim()
+}
+
+function decodeUtf8Hex(hex) {
+  if (!hex) return ""
+  const normalized = String(hex)
+    .trim()
+    .replace(/[^0-9a-fA-F]/g, "")
+    .toLowerCase()
+  if (!normalized || normalized.length % 2 !== 0) return ""
+  try {
+    return Buffer.from(normalized, "hex").toString("utf8").trim()
+  } catch (error) {
+    void error
+    return ""
+  }
+}
+
+function decodeRecipientToken(token) {
+  if (token === undefined || token === null) return ""
+  if (typeof token === "string") return token.trim()
+  if (typeof token === "number") return fromCodePointSafe(token)
+  if (Array.isArray(token)) return decodeCodePoints(token)
+  if (typeof token === "object") {
+    if (typeof token.email === "string") return token.email.trim()
+    if (typeof token.value === "string") return token.value.trim()
+    if (typeof token.utf8 === "string") return decodeUtf8Hex(token.utf8)
+    if (Array.isArray(token.utf8)) return decodeCodePoints(token.utf8)
+    const codePoints =
+      token.codePoints ||
+      token.codepoints ||
+      token.code_point ||
+      token.codepoint ||
+      token.cp ||
+      token.points ||
+      token.codes
+    if (codePoints != null) {
+      const decoded = decodeCodePoints(codePoints)
+      if (decoded) return decoded
+    }
+    if (typeof token.bytes === "string") return decodeUtf8Hex(token.bytes)
+    if (Array.isArray(token.bytes)) return decodeCodePoints(token.bytes)
+  }
+  return ""
+}
+
+function decodeRecipients(list) {
+  if (!Array.isArray(list)) return []
+  const decoded = []
+  for (let i = 0; i < list.length; i += 1) {
+    const entry = decodeRecipientToken(list[i])
+    if (!entry) continue
+    const trimmed = entry.trim()
+    if (!trimmed) continue
+    decoded.push(trimmed)
+  }
+  return decoded
+}
+
 function formatAnswers(answers) {
   if (!Array.isArray(answers) || !answers.length) return "(no answers recorded)"
   const rows = answers.map((entry) => {
@@ -242,7 +329,7 @@ function validatePayload(payload) {
     pageTitle: typeof payload.pageTitle === "string" ? payload.pageTitle.trim() : "",
     completedAt:
       typeof payload.completedAt === "string" ? payload.completedAt : new Date().toISOString(),
-    recipients: Array.isArray(payload.recipients) ? payload.recipients : [],
+    recipients: decodeRecipients(Array.isArray(payload.recipients) ? payload.recipients : []),
     answers,
   }
 }
