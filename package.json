@@ -40,6 +40,7 @@
     "log:close": "node js/log-history.js close",
     "lh:codex": "lighthouse ${LH_URL:-http://127.0.0.1:8080/exercise-1-nouns/111-common-nouns-codex.html} --preset=perf --form-factor=mobile --no-enable-error-reporting --output=json --output-path=docs/lighthouse.json",
     "critical:inline": "node js/generate-critical.js exercise-1-nouns/111-common-nouns-codex.html",
+    "convert:legacy": "node js/convert-legacy-gated.mjs",
     "mcp:context7": "npx --no-update-notifier -y @upstash/context7-mcp",
     "mcp:seq-think": "npx --no-update-notifier -y @modelcontextprotocol/sequential-thinking-mcp",
     "verify:prototype:strict": "VERIFY_STRICT=1 node js/verify-prototype.mjs",
