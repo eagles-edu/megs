@@ -34,7 +34,6 @@ media/
 persistence/
 others-4/
 reports/
-templates/
 _notes/
 
 
@@ -126,6 +125,8 @@ codacy-analysis.yml-edit
 !summary.yml
 !ci.yml
 !codeql.yml
+!templates/exercise-gate-template.html
+!templates/**
 
 #  more
 111-common-nouns-codex-copy2.html
