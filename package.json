@@ -72,7 +72,7 @@
     "html-validate-markdown": "^5.1.0",
     "html-validate-vue": "^7.3.0",
     "jsdom": "^24.1.0",
-    "lighthouse": "^12.8.1",
+    "lighthouse": "^13.0.1",
     "postcss-html": "^1.8.0",
     "prettier": "^3.6.2",
     "stylelint": "^16.24.0",
