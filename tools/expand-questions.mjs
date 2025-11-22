@@ -233,10 +233,12 @@ function buildReplayCommand(opts, goal, fields) {
 }
 
 const FALLBACK_FIELD_DEFS = [
-  { field: "response", label: "Response" },
-  { field: "notes", label: "Notes" },
-  { field: "confidence", label: "Confidence" },
-  { field: "extension", label: "Extended response" },
+  { field: "answer_01", label: "Answer 1" },
+  { field: "answer_02", label: "Answer 2" },
+  { field: "answer_03", label: "Answer 3" },
+  { field: "answer_04", label: "Answer 4" },
+  { field: "answer_05", label: "Answer 5" },
+  { field: "answer_06", label: "Answer 6" },
 ]
 
 const FALLBACK_FIELD_LABELS = new Map(FALLBACK_FIELD_DEFS.map(({ field, label }) => [field, label]))

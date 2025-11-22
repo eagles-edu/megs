@@ -163,7 +163,7 @@ describe("processHtml", () => {
 
     const result = processHtml(MINIMAL_INTERACTIVE_HTML, {
       goal: 1,
-      allowedFields: ["response", "custom"],
+      allowedFields: ["answer_01", "custom"],
     })
 
     const $ = cheerio.load(result.output, { decodeEntities: false })
@@ -173,7 +173,7 @@ describe("processHtml", () => {
     )
     const $inputs = $('.quest-bg[data-exercise-question="1"] .exercise-response-input')
     assert.equal($inputs.length, 2, "fallback inputs should be injected")
-    assert.deepEqual($inputs.map((_, el) => $(el).attr("data-field")).get(), ["response", "custom"])
+    assert.deepEqual($inputs.map((_, el) => $(el).attr("data-field")).get(), ["answer_01", "custom"])
     assert.deepEqual(result.fallbackFields, ["custom"])
     assert.deepEqual(result.missingFields, [])
   })

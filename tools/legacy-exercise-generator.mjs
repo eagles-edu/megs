@@ -6,20 +6,20 @@ import { parseLegacyExercise } from "./legacy-qa-parser.mjs"
 const TEMPLATE_PATH = path.resolve("templates/exercise-gate-template.html")
 const DEFAULT_CONFIG = {
   recipients: [
-    { utf8: "6b696d7468616e68406561676c6573766e2e6f6e6c696e65" },
-    { utf8: "61646d696e406561676c6573766e2e6f6e6c696e65" },
+    { utf8: "6b696d7468616e68406561676c6573766e2e6f6c696e65" },
+    { utf8: "61646d696e406561676c6573766e2e6f6c696e65" },
     { utf8: "7468616e682e6561676c6573636c756240676d61696c2e636f6d" },
   ],
   submitUrl: "",
 }
 
-function padQuestionNumber(value) {
+export function padQuestionNumber(value) {
   const num = parseInt(value, 10)
   if (Number.isNaN(num)) return String(value)
   return num.toString().padStart(2, "0")
 }
 
-function indentBlock(text, spaces = 0) {
+export function indentBlock(text, spaces = 0) {
   const pad = " ".repeat(spaces)
   return text
     .split("\n")
@@ -37,9 +37,9 @@ function escapeHtml(value) {
 }
 
 function buildResponseRow(questionId, answerCount) {
-  const fields = ["response", "notes", "confidence", "extension"]
+  const fields = ["answer_01", "answer_02", "answer_03", "answer_04", "answer_05", "answer_06"]
   const fieldCount = Math.min(Math.max(answerCount || 1, 1), fields.length)
-  const labels = ["Answer A", "Answer B", "Answer C", "Answer D"]
+  const labels = ["Answer 1", "Answer 2", "Answer 3", "Answer 4", "Answer 5", "Answer 6"]
   const inputs = []
   for (let i = 0; i < fieldCount; i += 1) {
     inputs.push(`
@@ -54,7 +54,7 @@ ${inputs.join("\n")}
       </div>`
 }
 
-function buildQuestionHtml(question, canonical) {
+export function buildQuestionHtml(question, canonical) {
   const groupId = `set-nn_sliders-${question.id}`
   const panelId = `sec-${question.id}-${question.slug}`
   const toggleAnchorId = `nn_sliders-scrollto_${question.id}-${question.slug}`
@@ -82,7 +82,7 @@ ${indentBlock(buildResponseRow(question.id, answerCount), 10)}
     </div>`
 }
 
-function buildAnswerKey(parsed) {
+export function buildAnswerKey(parsed) {
   const answerArray = {}
   parsed.questions.forEach((question) => {
     const key = `question${padQuestionNumber(question.id)}`
@@ -112,7 +112,7 @@ function buildAnswerKey(parsed) {
   }
 }
 
-async function generateLesson(inputPath, templatePath = TEMPLATE_PATH, outputPath) {
+export async function generateLesson(inputPath, templatePath = TEMPLATE_PATH, outputPath) {
   const template = await fs.readFile(templatePath, "utf8")
   const parsed = await parseLegacyExercise(await fs.readFile(inputPath, "utf8"), inputPath)
   const answerKey = buildAnswerKey(parsed)
@@ -121,8 +121,16 @@ async function generateLesson(inputPath, templatePath = TEMPLATE_PATH, outputPat
   const questionBlocks = parsed.questions
     .map((question) => indentBlock(buildQuestionHtml(question, parsed.canonical), 16))
     .join("\n")
-  const assetPrefix = path.relative(path.dirname(outputPath || inputPath), path.resolve(path.dirname(outputPath || inputPath), "..")) || ".."
+  const assetPrefix =
+    path.relative(
+      path.dirname(outputPath || inputPath),
+      path.resolve(path.dirname(outputPath || inputPath), "..")
+    ) || ".."
 
+  // Parsed placeholders come from legacy markup scraped by parseLegacyExercise:
+  // - introHtml: HTML before the first question
+  // - pagerHtml: the first <ul class="pager pagenav"> block
+  // - questions: each .nn_sliders accordion with its toggle/panel HTML
   const replacements = {
     PAGE_TITLE: parsed.title || parsed.heading,
     ARTICLE_HEADING: parsed.heading || parsed.title,
@@ -159,7 +167,9 @@ async function main(argv = process.argv) {
   const outFlagIndex = argv.indexOf("--out")
   const outputPath = outFlagIndex > -1 ? argv[outFlagIndex + 1] : null
   if (!input) {
-    console.error("Usage: node tools/legacy-exercise-generator.mjs <input.html> [--out <output.html>]")
+    console.error(
+      "Usage: node tools/legacy-exercise-generator.mjs <input.html> [--out <output.html>]"
+    )
     process.exit(1)
   }
   const destination = outputPath || input
@@ -170,5 +180,3 @@ async function main(argv = process.argv) {
 if (import.meta.url === `file://${process.argv[1]}`) {
   main()
 }
-
-export { buildAnswerKey, buildQuestionHtml, generateLesson, indentBlock }

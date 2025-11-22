@@ -10,7 +10,7 @@ import { spawnSync } from 'child_process';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const fieldNames = ['response', 'notes', 'confidence', 'extension', 'extra', 'extra2'];
+const fieldNames = ['answer_01', 'answer_02', 'answer_03', 'answer_04', 'answer_05', 'answer_06'];
 
 function slugify(value) {
   return (value || '')
