@@ -6,7 +6,7 @@ import { ensureInteractiveScaffold, processHtml } from "../tools/expand-question
 const SAMPLE_HTML = `<!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8" />
+    <meta charset="utf-8">
     <title>Sample legacy exercise</title>
   </head>
   <body>

@@ -1,0 +1,202 @@
+{
+  "github": {
+    "url": "https://api.githubcopilot.com/mcp/",
+    "type": "http"
+  },
+  "sequentialthinking": {
+    "command": "npx",
+    "args": [
+      "-y",
+      "@modelcontextprotocol/server-sequential-thinking"
+    ],
+    "type": "stdio"
+  },
+  "github-remote": {
+    "url": "https://api.githubcopilot.com/mcp/",
+    "id": "github-copilot",
+    "type": "stdio",
+    "command": "uvx",
+    "args": [
+      "mcp-server-github",
+      "--remote"
+    ]
+  },
+  "context7": {
+    "command": "npm",
+    "args": [
+      "run",
+      "mcp:context7"
+    ],
+    "type": "stdio"
+  },
+  "docker": {
+    "command": "npx",
+    "args": [
+      "mcp-server-docker"
+    ],
+    "type": "stdio"
+  },
+  "everything": {
+    "command": "npx",
+    "args": [
+      "@modelcontextprotocol/server-everything"
+    ],
+    "type": "stdio"
+  },
+  "git": {
+    "command": "uvx",
+    "args": [
+      "mcp-server-git",
+      "--repository",
+      "${workspaceFolder}"
+    ],
+    "type": "stdio"
+  },
+  "filesystem": {
+    "command": "npx",
+    "args": [
+      "@modelcontextprotocol/server-filesystem"
+    ],
+    "type": "stdio"
+  },
+  "memory": {
+    "command": "npx",
+    "args": [
+      "@modelcontextprotocol/server-memory"
+    ],
+    "type": "stdio"
+  },
+  "chromedevtools/chrome-devtools-mcp": {
+    "type": "stdio",
+    "command": "npx",
+    "args": [
+      "chrome-devtools-mcp@latest",
+      "--browserUrl",
+      "${input:browser_url}",
+      "--headless",
+      "${input:headless}",
+      "--isolated",
+      "${input:isolated}",
+      "--channel",
+      "${input:chrome_channel}"
+    ],
+    "gallery": "https://api.mcp.github.com/2025-09-15/v0/servers/13749964-2447-4c31-bcab-32731cced504",
+    "version": "0.0.1-seed"
+  },
+  "github/github-mcp-server": {
+    "type": "http",
+    "url": "https://api.githubcopilot.com/mcp/",
+    "gallery": "https://api.mcp.github.com/2025-09-15/v0/servers/ab12cd34-5678-90ef-1234-567890abcdef",
+    "version": "0.13.0"
+  },
+  "microsoft/playwright-mcp": {
+    "type": "stdio",
+    "command": "npx",
+    "args": [
+      "@playwright/mcp@latest"
+    ],
+    "gallery": "https://api.mcp.github.com",
+    "version": "0.0.1-seed"
+  },
+  "upstash/context7": {
+    "type": "http",
+    "url": "https://mcp.context7.com/mcp",
+    "headers": {
+      "CONTEXT7_API_KEY": "${input:context7_api_key}"
+    },
+    "gallery": "https://api.mcp.github.com/2025-09-15/v0/servers/dcec7705-b81b-4e0f-8615-8032604be7ad",
+    "version": "1.0.0"
+  },
+  "antfu/nuxt-mcp": {
+    "type": "http",
+    "url": "https://mcp.nuxt.com/sse",
+    "gallery": "https://api.mcp.github.com/2025-09-15/v0/servers/7d2aa3fa-ab7a-4609-b27c-7b24037bf6ce",
+    "version": "1.0.0"
+  },
+  "codacy/codacy-mcp-server": {
+    "type": "stdio",
+    "command": "npx",
+    "args": [
+      "-y",
+      "@codacy/codacy-mcp@latest"
+    ],
+    "env": {
+      "CODACY_ACCOUNT_TOKEN": "${input:codacy_account_token}",
+      "CODACY_CLI_VERSION": "${input:codacy_cli_version}"
+    },
+    "gallery": "https://api.mcp.github.com",
+    "version": "1.0.0"
+  },
+  "sequential-thinking": {
+    "command": "npm",
+    "args": [
+      "run",
+      "mcp:seq-think"
+    ],
+    "type": "stdio"
+  },
+  "playwright": {
+    "command": "npx",
+    "args": [
+      "-y",
+      "@playwright/mcp@latest",
+      "--isolated",
+      "--headless",
+      "--browser",
+      "firefox",
+      "--user-agent",
+      "\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.6422.112 Safari/537.36\""
+    ],
+    "type": "stdio"
+  },
+  "microsoft/markitdown": {
+    "type": "stdio",
+    "command": "uvx",
+    "args": [
+      "markitdown-mcp==0.0.1a4"
+    ],
+    "gallery": "https://api.mcp.github.com",
+    "version": "1.0.0"
+  },
+  "io.github.upstash/context7": {
+    "type": "stdio",
+    "command": "npx",
+    "args": [
+      "@upstash/context7-mcp@1.0.25"
+    ],
+    "env": {
+      "CONTEXT7_API_KEY": "${input:CONTEXT7_API_KEY}"
+    },
+    "gallery": "https://api.mcp.github.com",
+    "version": "1.0.0"
+  },
+  "io.github.ChromeDevTools/chrome-devtools-mcp": {
+    "type": "stdio",
+    "command": "npx",
+    "args": [
+      "chrome-devtools-mcp@0.10.2"
+    ],
+    "gallery": "https://api.mcp.github.com",
+    "version": "0.10.2"
+  },
+  "sunriseapps/imagesorcery-mcp": {
+    "type": "stdio",
+    "command": "imagesorcery-mcp",
+    "gallery": "https://api.mcp.github.com",
+    "version": "1.0.0"
+  },
+  "zapier/zapier-mcp": {
+    "type": "http",
+    "url": "{zapier_mcp_url}",
+    "gallery": "https://api.mcp.github.com",
+    "version": "1.0.0"
+  },
+  "DevBox": {
+    "command": "npx",
+    "args": [
+      "-y",
+      "@microsoft/devbox-mcp@latest"
+    ],
+    "type": "stdio"
+  }
+}
