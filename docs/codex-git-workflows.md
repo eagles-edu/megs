@@ -65,6 +65,7 @@ git push --force-with-lease origin main
 At this point:
 
 * `origin/main` == `PT-BETA-0.0.04.01` (same commit).
+
 * Old primordial main is preserved as `origin/archive/main-primordial`.
 
 ### 1.4 Optional clean-up of `PT-BETA-0.0.04.01` (later)
