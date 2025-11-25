@@ -1,5 +1,5 @@
 /* Gate exercise accordions behind correct answers and collect submissions */
-(function () {
+;(function () {
   "use strict"
 
   function ready(fn) {
@@ -303,143 +303,155 @@
     }
   }
 
-  function uniqueLengths(values) {
-    var seen = {}
-    var list = []
-    for (var i = 0; i < values.length; i++) {
-      var value = values[i]
-      if (seen[value]) continue
-      seen[value] = true
-      list.push(value)
-    }
-    return list
-  }
-
-  function buildQuestionConfig(entry, sharedOptions) {
-    var answersAccepted = entry.answersAccepted
-    if (answersAccepted == null) answersAccepted = []
-    var manualReview = coerceBoolean(entry.manualCheckOk, false)
-    var ordered = coerceBoolean(entry.orderedAnswer, false)
-    var normalize = entry.normalizeAnswer
-    if (typeof normalize === "string") normalize = coerceBoolean(normalize, true)
-    else if (normalize == null) normalize = true
-    else normalize = !!normalize
-    var caseSensitive = coerceBoolean(entry.caseSensitive, false)
-    if (caseSensitive && normalize) normalize = false
-    var requireCorrect = entry.requireCorrectBeforeReveal
-    if (requireCorrect != null) requireCorrect = coerceBoolean(requireCorrect, true)
-    var hashAlgorithm =
-      normalizeHashAlgorithm(
-        entry.hashAlgorithm || entry.hashEncoding || entry.hashAlgorithmName || entry.hash
-      ) || normalizeHashAlgorithm(sharedOptions && sharedOptions.defaultHashAlgorithm)
-
-    var options = {
-      manualReview: manualReview,
-      ordered: ordered,
-      normalize: normalize,
-      caseSensitive: caseSensitive,
-      requireCorrectBeforeReveal: requireCorrect,
-    }
-
-    var acceptedAnswers = []
-    if (!Array.isArray(answersAccepted)) answersAccepted = [answersAccepted]
-    for (var i = 0; i < answersAccepted.length; i++) {
-      var combo = answersAccepted[i]
-      if (combo == null) continue
-      var list = Array.isArray(combo) ? combo : [combo]
-      var prepared = []
-      for (var j = 0; j < list.length; j++) {
-        var token = list[j]
-        var parsedToken = parseAnswerToken(token, options, hashAlgorithm)
-        if (!parsedToken) continue
-        if (parsedToken.algorithm && !hashAlgorithm) {
-          hashAlgorithm = parsedToken.algorithm
-        }
-        if (parsedToken.kind === "hash") {
-          prepared.push(parsedToken.value)
-        } else if (parsedToken.kind === "plain") {
-          if (parsedToken.algorithm) {
-            var hashedValue = hashAnswerValue(parsedToken.value, parsedToken.algorithm)
-            prepared.push(hashedValue)
-            if (!hashAlgorithm) hashAlgorithm = parsedToken.algorithm
-          } else if (hashAlgorithm) {
-            prepared.push(hashAnswerValue(parsedToken.value, hashAlgorithm))
-          } else {
-            prepared.push(parsedToken.value)
-          }
-        }
+  function buildQuestionConfig(entry, options) {
+    if (!entry || typeof entry !== "object") return null
+    var config = {}
+    if (entry.id != null) config.id = String(entry.id)
+    else if (entry.key != null) config.id = String(entry.key)
+    else if (entry.storageKey != null) config.id = String(entry.storageKey)
+    else if (entry.questionId != null) config.id = String(entry.questionId)
+    var accepted = prepareAcceptedAnswers(entry.answersAccepted || entry.answers || entry.options, {
+      normalize: entry.normalize,
+      caseSensitive: entry.caseSensitive,
+      hashAlgorithm: entry.hashAlgorithm || entry.algorithm || entry.hashType,
+      defaultHash: options ? options.defaultHashAlgorithm : null,
+    })
+    config.acceptedAnswers = accepted.entries
+    config.hashAlgorithm = accepted.hashAlgorithm
+    if (Array.isArray(entry.lengths)) config.lengths = entry.lengths.slice()
+    var minLength =
+      entry.minLength || entry.min || (accepted.entries[0] ? accepted.entries[0].length : 0)
+    var maxLength = entry.maxLength || entry.max || 0
+    if (!maxLength && config.lengths && config.lengths.length) {
+      for (var i = 0; i < config.lengths.length; i++) {
+        if (config.lengths[i] > maxLength) maxLength = config.lengths[i]
       }
-      if (prepared.length) acceptedAnswers.push(prepared)
     }
-
-    var lengths = []
-    for (var a = 0; a < acceptedAnswers.length; a++) lengths.push(acceptedAnswers[a].length)
-    lengths = uniqueLengths(lengths)
-    var minLength = lengths.length ? lengths[0] : 1
-    for (var l = 1; l < lengths.length; l++) if (lengths[l] < minLength) minLength = lengths[l]
-    var maxLength = lengths.length ? lengths[0] : 0
-    for (var m = 1; m < lengths.length; m++) if (lengths[m] > maxLength) maxLength = lengths[m]
-
-    return {
-      id: entry.id != null ? String(entry.id) : null,
-      acceptedAnswers: acceptedAnswers,
-      lengths: lengths,
-      minLength: minLength || 1,
-      maxLength: maxLength || 0,
-      manualReview: options.manualReview,
-      ordered: options.ordered,
-      normalize: options.normalize,
-      caseSensitive: options.caseSensitive,
-      requireCorrectBeforeReveal: options.requireCorrectBeforeReveal,
-      hashAlgorithm: hashAlgorithm,
-    }
+    config.minLength = minLength || 1
+    config.maxLength = maxLength || 0
+    config.ordered = coerceBoolean(entry.ordered, false)
+    config.manualReview = coerceBoolean(entry.manualReview || entry.manualCheckOk, false)
+    config.normalize = coerceBoolean(
+      entry.normalize,
+      entry.normalize === false || entry.caseSensitive ? false : true
+    )
+    config.caseSensitive = coerceBoolean(entry.caseSensitive, false)
+    config.requireCorrectBeforeReveal = coerceBoolean(
+      entry.requireCorrectBeforeReveal,
+      options ? coerceBoolean(options.requireCorrectBeforeReveal, true) : true
+    )
+    return config
   }
 
-  function parseAnswerToken(token, options, defaultHash) {
-    if (token == null) return null
-    if (typeof token === "string") {
-      var hashed = parseHashedToken(token)
-      if (hashed) {
-        return {
-          kind: "hash",
-          value: hashed.hash,
-          algorithm: hashed.algorithm || normalizeHashAlgorithm(defaultHash) || "fnv1a-64",
+  function prepareAcceptedAnswers(rawList, options) {
+    var list = Array.isArray(rawList) ? rawList : rawList ? [rawList] : []
+    var entries = []
+    var hashAlgorithm = normalizeHashAlgorithm(options.hashAlgorithm || options.defaultHash)
+    for (var i = 0; i < list.length; i++) {
+      var token = list[i]
+      if (token == null) continue
+      if (token.hash) {
+        var parsed = parseHashedToken(token.hash)
+        if (parsed) {
+          entries.push(parsed.value || parsed.hash)
+          if (!hashAlgorithm && parsed.algorithm) hashAlgorithm = parsed.algorithm
+          continue
         }
       }
       var prepared = prepareKeyValue(token, options)
-      if (!prepared) return null
-      return { kind: "plain", value: prepared, algorithm: defaultHash }
+      if (!prepared) continue
+      entries.push(prepared)
     }
-    if (typeof token === "object" && !Array.isArray(token)) {
-      if (token.hash != null) {
-        var alg = normalizeHashAlgorithm(
-          token.hashAlgorithm || token.algorithm || token.hashType || defaultHash
-        )
-        if (!alg) alg = "fnv1a-64"
-        return { kind: "hash", value: String(token.hash), algorithm: alg }
-      }
-      var rawValue = token.value != null ? token.value : token.answer
-      if (rawValue != null) {
-        var preparedValue = prepareKeyValue(rawValue, options)
-        if (!preparedValue) return null
-        var algorithm = normalizeHashAlgorithm(
-          token.hashAlgorithm || token.algorithm || token.hashType || defaultHash
-        )
-        return { kind: "plain", value: preparedValue, algorithm: algorithm || defaultHash }
-      }
+    return {
+      entries: entries.length ? [entries] : [],
+      hashAlgorithm: hashAlgorithm || options.defaultHash || "fnv1a-64",
     }
-    var fallback = prepareKeyValue(token, options)
-    if (!fallback) return null
-    return { kind: "plain", value: fallback, algorithm: defaultHash }
   }
 
-  function prepareInputValue(value, config) {
-    if (config && config.normalize === false) {
-      var trimmed = String(value == null ? "" : value).trim()
-      if (!config.caseSensitive) trimmed = trimmed.toLowerCase()
-      return trimmed
+  function normalizeAnswerFromNode(node, options) {
+    if (!node) return ""
+    if (node.getAttribute("data-answer")) {
+      return prepareKeyValue(node.getAttribute("data-answer") || "", options)
     }
-    return normalizeAnswer(value)
+    if (node.getAttribute("data-answers")) {
+      var parts = node.getAttribute("data-answers").split(",")
+      var answers = []
+      for (var i = 0; i < parts.length; i++) {
+        var token = prepareKeyValue(parts[i], options)
+        if (token) answers.push(token)
+      }
+      if (answers.length) return answers
+    }
+    var text = node.textContent || node.innerText || ""
+    text = text.replace(/[\r\n]+/g, " ")
+    return prepareKeyValue(text, options)
+  }
+
+  function normalizeAnswerListFromNodes(nodes, options) {
+    var answers = []
+    for (var i = 0; i < nodes.length; i++) {
+      var prepared = normalizeAnswerFromNode(nodes[i], options)
+      if (!prepared) continue
+      if (Array.isArray(prepared)) answers.push(prepared)
+      else answers.push([prepared])
+    }
+    return answers
+  }
+
+  function registerAnswersFromNodes(answerKey, nodes) {
+    for (var i = 0; i < nodes.length; i++) {
+      var node = nodes[i]
+      var id =
+        node.getAttribute("data-id") ||
+        node.getAttribute("data-question-id") ||
+        node.getAttribute("data-storage-key") ||
+        node.getAttribute("data-key") ||
+        node.getAttribute("data-question") ||
+        ""
+      if (!id) continue
+      var options = {
+        normalize: node.getAttribute("data-normalize") !== "false",
+        caseSensitive: node.getAttribute("data-case-sensitive") === "true",
+        hashAlgorithm:
+          node.getAttribute("data-hash-algorithm") || answerKey.options.defaultHashAlgorithm,
+        defaultHash: answerKey.options.defaultHashAlgorithm,
+      }
+      var answers = normalizeAnswerListFromNodes(
+        node.querySelectorAll("[data-accepted-answer]"),
+        options
+      )
+      if (!answers.length) answers = normalizeAnswerListFromNodes([node], options)
+      if (!answers.length) continue
+      setQuestionConfig(
+        answerKey.questions,
+        id,
+        buildQuestionConfig(
+          {
+            id: id,
+            answersAccepted: answers,
+            lengths: [answers[0] ? answers[0].length : 1],
+            minLength: answers[0] ? answers[0].length : 1,
+            maxLength: answers[0] ? answers[0].length : 1,
+            ordered: node.getAttribute("data-ordered") === "true",
+            manualReview: node.getAttribute("data-manual-review") === "true",
+            normalize: options.normalize,
+            caseSensitive: options.caseSensitive,
+            requireCorrectBeforeReveal: coerceBoolean(
+              node.getAttribute("data-require-correct"),
+              answerKey.options.requireCorrectBeforeReveal
+            ),
+          },
+          answerKey.options
+        )
+      )
+    }
+  }
+
+  function normalizeAnswerKey(answerKeyScript) {
+    var answerKey = parseAnswerKey(answerKeyScript)
+    registerAnswersFromNodes(answerKey, document.querySelectorAll("[data-accepted-answer]"))
+    registerAnswersFromNodes(answerKey, document.querySelectorAll("[data-answer-container]"))
+    return answerKey
   }
 
   function parseConfig(script) {
@@ -473,6 +485,19 @@
     }
   }
 
+  function readStoredList(key) {
+    try {
+      if (typeof window === "undefined" || !window.localStorage) return []
+      var raw = window.localStorage.getItem(key)
+      if (!raw) return []
+      var parsed = JSON.parse(raw)
+      if (!Array.isArray(parsed)) return []
+      return parsed
+    } catch {
+      return []
+    }
+  }
+
   function writeStoredAttempt(key, data) {
     try {
       if (typeof window === "undefined" || !window.localStorage) return
@@ -480,6 +505,31 @@
     } catch {
       /* storage disabled */
     }
+  }
+
+  function writeStoredList(key, list) {
+    try {
+      if (typeof window === "undefined" || !window.localStorage) return
+      window.localStorage.setItem(key, JSON.stringify(list))
+    } catch {
+      /* storage disabled */
+    }
+  }
+
+  function addContactHistory(list, value, limit) {
+    var normalized = (value || "").trim()
+    if (!normalized) return Array.isArray(list) ? list.slice() : []
+    var history = Array.isArray(list) ? list.slice() : []
+    for (var i = 0; i < history.length; i++) {
+      if ((history[i] || "").trim() === normalized) {
+        history.splice(i, 1)
+        break
+      }
+    }
+    history.unshift(normalized)
+    var max = limit && limit > 0 ? limit : 5
+    while (history.length > max) history.pop()
+    return history
   }
 
   function formatTimestamp(timestamp) {
@@ -531,6 +581,10 @@
     var feedbackEl = form.querySelector("[data-exercise-feedback]")
     var lastAttemptEl = form.querySelector("[data-exercise-last-attempt]")
     var storageKey = "exercise-progress:" + (form.getAttribute("data-storage-key") || "default")
+    var emailListId = storageKey + ":email"
+    var studentListId = storageKey + ":student"
+    var emailHistoryKey = storageKey + ":email-history"
+    var studentHistoryKey = storageKey + ":student-history"
     var config = parseConfig(document.querySelector("[data-exercise-config]"))
     if (!config.recipients) config.recipients = []
     var answerKey = parseAnswerKey(document.querySelector("[data-exercise-answer-key]"))
@@ -538,6 +592,19 @@
       answerKey.options && answerKey.options.requireCorrectBeforeReveal,
       true
     )
+    var emailHistory = readStoredList(emailHistoryKey)
+    var studentHistory = readStoredList(studentHistoryKey)
+
+    if (emailInput) {
+      for (var eh = 0; eh < emailHistory.length; eh++) {
+        rememberContactValue(emailInput, emailHistory[eh], emailListId)
+      }
+    }
+    if (studentIdInput) {
+      for (var sh = 0; sh < studentHistory.length; sh++) {
+        rememberContactValue(studentIdInput, studentHistory[sh], studentListId)
+      }
+    }
 
     var questionNodes = toArray(form.querySelectorAll("[data-exercise-question]"))
     var questions = []
@@ -662,10 +729,14 @@
       icon.textContent = "✅"
       lastAttemptEl.appendChild(icon)
       if (emailInput && data.email) {
-        rememberContactValue(emailInput, data.email, storageKey + ":email")
+        emailHistory = addContactHistory(emailHistory, data.email, 10)
+        writeStoredList(emailHistoryKey, emailHistory)
+        rememberContactValue(emailInput, data.email, emailListId)
       }
       if (studentIdInput && data.studentId) {
-        rememberContactValue(studentIdInput, data.studentId, storageKey + ":student")
+        studentHistory = addContactHistory(studentHistory, data.studentId, 10)
+        writeStoredList(studentHistoryKey, studentHistory)
+        rememberContactValue(studentIdInput, data.studentId, studentListId)
       }
     }
 
@@ -676,7 +747,7 @@
       if (typeof emailInput.checkValidity === "function") {
         return emailInput.checkValidity()
       }
-      return /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(value)
+      return /^[^\@\s]+@[^\@\s]+\.[^\@\s]+$/.test(value)
     }
 
     function isStudentIdValid() {
@@ -796,7 +867,8 @@
         question.row.classList.remove(
           "exercise-response-row--incorrect",
           "exercise-response-row--pending",
-          "exercise-response-row--flash-error"
+          "exercise-response-row--flash-error",
+          "exercise-response-row--flash-success"
         )
         question.row.classList.add(
           "exercise-response-row--correct",
@@ -921,64 +993,83 @@
               break
             }
           }
-          if (orderedMatch) return { ready: true, correct: true }
+          if (orderedMatch) {
+            return { ready: true, correct: true }
+          }
         } else {
-          var remaining = combo.slice()
-          var matchedAll = true
-          for (var x = 0; x < filled.length; x++) {
-            var value = filled[x]
-            var index = -1
-            for (var r = 0; r < remaining.length; r++) {
-              if (remaining[r] === value) {
-                index = r
-                break
-              }
-            }
-            if (index === -1) {
-              matchedAll = false
+          var copy = combo.slice()
+          var valid = true
+          for (var f = 0; f < filled.length; f++) {
+            var foundIndex = copy.indexOf(filled[f])
+            if (foundIndex === -1) {
+              valid = false
               break
             }
-            remaining.splice(index, 1)
+            copy.splice(foundIndex, 1)
           }
-          if (matchedAll && !remaining.length) return { ready: true, correct: true }
+          if (valid) {
+            return { ready: true, correct: true }
+          }
         }
       }
-      if (allowManual || !question.requireCorrect) {
+      if (allowManual) {
         return { ready: true, correct: false, needsReview: true }
       }
       return { ready: true, correct: false }
     }
 
-    function guardQuestion(question) {
-      if (!question) return true
-      if (question.status === "correct") return true
-      if (!ensureContactInfo()) return false
+    function handleQuestion(question) {
+      if (!question) return
       var result = evaluateQuestion(question)
       if (!result.ready) {
-        markQuestionIncorrect(question)
-        setFeedback("Question " + question.id + ": fill in every answer before checking.", "error")
-        updateSubmitState()
-        return false
+        markQuestionPending(question)
+        updateProgress()
+        return
       }
-      if (!result.correct) {
-        if (result.needsReview) {
-          markQuestionPending(question)
-          setFeedback(
-            "Question " + question.id + ": answer recorded and flagged for review.",
-            "success"
-          )
-          updateProgress()
-          return true
-        }
+      if (result.correct) {
+        markQuestionCorrect(question)
+      } else if (result.needsReview) {
+        markQuestionPending(question)
+      } else {
         markQuestionIncorrect(question)
-        setFeedback("Question " + question.id + ": at least one answer is incorrect.", "error")
-        updateSubmitState()
-        return false
       }
-      markQuestionCorrect(question)
-      setFeedback("Question " + question.id + " unlocked!", "success")
       updateProgress()
-      return true
+    }
+
+    function guardQuestion(question) {
+      if (!question) return false
+      if (!question.requireCorrect) return true
+      if (question.status === "correct") return true
+      var result = evaluateQuestion(question)
+      if (!result.ready) {
+        setFeedback("Please answer the question before checking.", "error")
+        return false
+      }
+      if (result.correct) {
+        markQuestionCorrect(question)
+        updateProgress()
+        setFeedback("", "success")
+        return true
+      }
+      if (result.needsReview) {
+        markQuestionPending(question)
+        updateProgress()
+        setFeedback("Your answer was submitted for review.", "success")
+        return true
+      }
+      markQuestionIncorrect(question)
+      updateProgress()
+      setFeedback("That answer is not correct. Try again.", "error")
+      return false
+    }
+
+    function prepareInputValue(value, config) {
+      if (config && config.normalize === false) {
+        var trimmed = String(value == null ? "" : value).trim()
+        if (!config.caseSensitive) trimmed = trimmed.toLowerCase()
+        return trimmed
+      }
+      return normalizeAnswer(value)
     }
 
     function onToggleClick(event) {
@@ -995,8 +1086,12 @@
     }
 
     function onToggleKeydown(event) {
-      var key = event.key || event.code
-      if (key === " ") key = "Space"
+      if (event.defaultPrevented) return
+      var key = event.key || event.keyCode
+      if (typeof key === "number") {
+        if (key === 13) key = "Enter"
+        else if (key === 32) key = "Space"
+      }
       if (key === "Spacebar") key = "Space"
       if (key !== "Enter" && key !== "Space") return
       var toggle = event.currentTarget
@@ -1148,8 +1243,12 @@
             answers: payload.answers,
           }
           writeStoredAttempt(storageKey, stored)
-          rememberContactValue(emailInput, payload.email, storageKey + ":email")
-          rememberContactValue(studentIdInput, payload.studentId, storageKey + ":student")
+          emailHistory = addContactHistory(emailHistory, payload.email, 10)
+          studentHistory = addContactHistory(studentHistory, payload.studentId, 10)
+          writeStoredList(emailHistoryKey, emailHistory)
+          writeStoredList(studentHistoryKey, studentHistory)
+          rememberContactValue(emailInput, payload.email, emailListId)
+          rememberContactValue(studentIdInput, payload.studentId, studentListId)
           renderLastAttempt(stored)
           resetExercise()
           setFeedback(
