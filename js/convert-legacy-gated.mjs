@@ -243,7 +243,11 @@ function createAnswerKey(scraped, overrideAnswerFieldCount) {
     const answerCount = resolveAnswerFieldCount(question, overrideAnswerFieldCount);
     answerArray[key] = {
       id: question.dataId || question.storageKey || String(index + 1),
-      answersAccepted: Array.from({ length: 1 }, () => Array.from({ length: answerCount }, () => ''))
+      answersAccepted: [],
+      lengths: [answerCount],
+      minLength: answerCount,
+      maxLength: answerCount,
+      manualCheckOk: true
     };
   });
 
@@ -376,7 +380,13 @@ function injectTemplate(templateHtml, scraped, overrideAnswerFieldCount, testMod
     $('.nn_sliders-toggle').attr('aria-expanded', 'true');
   }
 
-  return $.html();
+  return collapseBooleanAttributes($.html());
+}
+
+function collapseBooleanAttributes(html) {
+  const booleanAttrs = ['hidden', 'nomodule', 'defer', 'disabled', 'required', 'novalidate'];
+  const pattern = new RegExp(`(^|[^\\w-])(${booleanAttrs.join('|')})=""`, 'g');
+  return html.replace(pattern, (match, prefix, attr) => `${prefix}${attr}`);
 }
 
 function backupFile(targetPath) {
@@ -415,7 +425,10 @@ function validateCounts(scraped, expectedQuestions, answerKey, overrideAnswerFie
       throw new Error(`Missing answer key entry for ${key}`);
     }
     const expectedFields = resolveAnswerFieldCount(question, overrideAnswerFieldCount);
-    const actualFields = (entry.answersAccepted?.[0] || []).length;
+    const configuredFields = (entry.answersAccepted?.[0] || []).length
+      || (Array.isArray(entry.lengths) && entry.lengths.length ? entry.lengths[0] : 0)
+      || (Number.isInteger(entry.minLength) ? entry.minLength : 0);
+    const actualFields = configuredFields || 0;
     if (actualFields !== expectedFields) {
       throw new Error(
         `Answer field count mismatch for ${key}: expected ${expectedFields}, found ${actualFields}`
