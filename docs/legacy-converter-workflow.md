@@ -11,9 +11,10 @@ This workflow uses the Node CLI at `js/convert-legacy-gated.mjs` to transform a 
    ```
 
 2. Locate the legacy page you plan to convert (e.g., `exercise-1-nouns/111-common-nouns.html`).
+
 3. Ensure the gated template exists (defaults to `exercise-1-nouns/111-common-nouns.html`).
 
-## 1) Inspect the CLI (no file I/O)
+## I) Inspect the CLI (no file I/O)
 
 Example: show options and defaults without touching files.
 
@@ -21,7 +22,7 @@ Example: show options and defaults without touching files.
 node js/convert-legacy-gated.mjs --help
 ```
 
-## 2) Scrape and validate without writing (safe dry-run)
+## II) Scrape and validate without writing (safe dry-run)
 
 Use this to confirm scraping succeeds, counts match, and validation passes.
 
@@ -37,7 +38,7 @@ Add `--diff-preview` to inspect proposed changes while keeping the source untouc
 node js/convert-legacy-gated.mjs exercise-1-nouns/111-common-nouns.html --dry-run --diff-preview
 ```
 
-## 3) Override checks before applying (if needed)
+## III) Override checks before applying (if needed)
 
 If you must enforce a specific question count or answer-field count, set the overrides while still in dry-run mode first.
 
@@ -45,7 +46,7 @@ If you must enforce a specific question count or answer-field count, set the ove
 node js/convert-legacy-gated.mjs path/to/page.html --questions 12 --answer-fields 3 --dry-run
 ```
 
-## 4) Conversion with safety nets
+## IV) Conversion with safety nets
 
 When dry-run output looks good, run the converter without `--dry-run` to write in place. A timestamped backup is created automatically.
 
@@ -70,7 +71,7 @@ node js/convert-legacy-gated.mjs path/to/page.html --test-mode --dry-run
 node js/convert-legacy-gated.mjs path/to/page.html --test-mode
 ```
 
-## 5) Post-write validation
+## V) Post-write validation
 
 1. Re-open the converted HTML in a browser to verify the accordion gating, breadcrumb/pager links, and injected answer/config JSON.
 2. Run repository linters/tests as needed (example):
@@ -86,7 +87,7 @@ node js/convert-legacy-gated.mjs path/to/page.html --test-mode
    git diff
    ```
 
-## 6) Rollback
+## VI) Rollback
 
 - To restore the pre-conversion file, copy the generated backup over the converted file:
 
@@ -100,7 +101,7 @@ node js/convert-legacy-gated.mjs path/to/page.html --test-mode
   git revert <commit_sha>
   ```
 
-## 7) Checklist for conservative runs
+## VII) Checklist for conservative runs
 
 - [ ] Working tree clean before starting.
 - [ ] `--dry-run` passes without errors.
