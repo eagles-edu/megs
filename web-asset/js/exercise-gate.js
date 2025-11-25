@@ -496,6 +496,29 @@
     }
   }
 
+  function rememberContactValue(input, value, listId) {
+    if (!input) return
+    var normalized = (value || "").trim()
+    if (!normalized) return
+    var existingList = input.list
+    var list = existingList && existingList.id === listId ? existingList : null
+    if (!list) {
+      list = document.createElement("datalist")
+      list.id = listId
+      input.setAttribute("list", listId)
+      if (input.parentNode) {
+        input.parentNode.insertBefore(list, input.nextSibling)
+      }
+    }
+    var options = list.querySelectorAll("option")
+    for (var i = 0; i < options.length; i++) {
+      if ((options[i].value || "").trim() === normalized) return
+    }
+    var option = document.createElement("option")
+    option.value = normalized
+    list.appendChild(option)
+  }
+
   ready(function () {
     var form = document.querySelector("[data-exercise-form]")
     if (!form) return
@@ -638,11 +661,11 @@
       icon.setAttribute("aria-hidden", "true")
       icon.textContent = "✅"
       lastAttemptEl.appendChild(icon)
-      if (emailInput && data.email && !emailInput.value) {
-        emailInput.value = data.email
+      if (emailInput && data.email) {
+        rememberContactValue(emailInput, data.email, storageKey + ":email")
       }
-      if (studentIdInput && data.studentId && !studentIdInput.value) {
-        studentIdInput.value = data.studentId
+      if (studentIdInput && data.studentId) {
+        rememberContactValue(studentIdInput, data.studentId, storageKey + ":student")
       }
     }
 
@@ -1034,6 +1057,14 @@
 
     function resetExercise() {
       for (var i = 0; i < questions.length; i++) resetQuestion(questions[i])
+      if (emailInput) {
+        emailInput.value = ""
+        emailInput.classList.remove("exercise-form__email-input--invalid")
+      }
+      if (studentIdInput) {
+        studentIdInput.value = ""
+        studentIdInput.classList.remove("exercise-form__email-input--invalid")
+      }
       updateProgress()
       clearFeedback()
       updateSubmitState()
@@ -1117,6 +1148,8 @@
             answers: payload.answers,
           }
           writeStoredAttempt(storageKey, stored)
+          rememberContactValue(emailInput, payload.email, storageKey + ":email")
+          rememberContactValue(studentIdInput, payload.studentId, storageKey + ":student")
           renderLastAttempt(stored)
           resetExercise()
           setFeedback(

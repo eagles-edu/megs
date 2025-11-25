@@ -236,31 +236,39 @@ function resolveAnswerFieldCount(question, overrideCount) {
   return 1;
 }
 
+
 function createAnswerKey(scraped, overrideAnswerFieldCount) {
-  const answerArray = {};
+  const answerArray = {}
   scraped.questions.forEach((question, index) => {
-    const key = `question${String(index + 1).padStart(2, '0')}`;
-    const answerCount = resolveAnswerFieldCount(question, overrideAnswerFieldCount);
+    const key = `question${String(index + 1).padStart(2, "0")}`
+    const answerCount = resolveAnswerFieldCount(question, overrideAnswerFieldCount)
     answerArray[key] = {
       id: question.dataId || question.storageKey || String(index + 1),
       answersAccepted: [],
       lengths: [answerCount],
       minLength: answerCount,
       maxLength: answerCount,
-      manualCheckOk: true
-    };
-  });
+      manualCheckOk: true,
+    }
+  })
 
   return {
-    meta: {
-      defaultHashAlgorithm: 'fnv1a-64'
+    title:
+      slugify(path.basename(scraped.legacyPath, path.extname(scraped.legacyPath))) || "exercise",
+    version: "0.3.0",
+    publishDate: new Date().toISOString(),
+    description: scraped.title,
+    options: {
+      requireCorrectBeforeReveal: true,
+      defaultHashAlgorithm: "fnv1a-64",
     },
     answerArrays: {
-      exerciseName: slugify(path.basename(scraped.legacyPath, path.extname(scraped.legacyPath))) || 'exercise',
+      exerciseName:
+        slugify(path.basename(scraped.legacyPath, path.extname(scraped.legacyPath))) || "exercise",
       totalQuestions: scraped.totalQuestions,
-      answerArray
-    }
-  };
+      answerArray,
+    },
+  }
 }
 
 function createExerciseConfig(scraped) {
@@ -411,30 +419,36 @@ function showDiff(original, updated) {
 
 function validateCounts(scraped, expectedQuestions, answerKey, overrideAnswerFieldCount) {
   if (expectedQuestions && expectedQuestions !== scraped.totalQuestions) {
-    throw new Error(`Question count mismatch: scraped ${scraped.totalQuestions} vs expected ${expectedQuestions}`);
+    throw new Error(
+      `Question count mismatch: scraped ${scraped.totalQuestions} vs expected ${expectedQuestions}`
+    )
   }
-  const answerEntries = Object.keys(answerKey.answerArrays.answerArray || {}).length;
+  const answerEntries = Object.keys(answerKey.answerArrays.answerArray || {}).length
   if (answerEntries !== scraped.totalQuestions) {
-    throw new Error(`Answer key entries (${answerEntries}) do not match question count (${scraped.totalQuestions})`);
+    throw new Error(
+      `Answer key entries (${answerEntries}) do not match question count (${scraped.totalQuestions})`
+    )
   }
 
   scraped.questions.forEach((question, index) => {
-    const key = `question${String(index + 1).padStart(2, '0')}`;
-    const entry = answerKey.answerArrays.answerArray[key];
+    const key = `question${String(index + 1).padStart(2, "0")}`
+    const entry = answerKey.answerArrays.answerArray[key]
     if (!entry) {
-      throw new Error(`Missing answer key entry for ${key}`);
+      throw new Error(`Missing answer key entry for ${key}`)
     }
-    const expectedFields = resolveAnswerFieldCount(question, overrideAnswerFieldCount);
-    const configuredFields = (entry.answersAccepted?.[0] || []).length
-      || (Array.isArray(entry.lengths) && entry.lengths.length ? entry.lengths[0] : 0)
-      || (Number.isInteger(entry.minLength) ? entry.minLength : 0);
-    const actualFields = configuredFields || 0;
+
+    const expectedFields = resolveAnswerFieldCount(question, overrideAnswerFieldCount)
+    const configuredFields =
+      (entry.answersAccepted?.[0] || []).length ||
+      (Array.isArray(entry.lengths) && entry.lengths.length ? entry.lengths[0] : 0) ||
+      (Number.isInteger(entry.minLength) ? entry.minLength : 0)
+    const actualFields = configuredFields || 0
     if (actualFields !== expectedFields) {
       throw new Error(
         `Answer field count mismatch for ${key}: expected ${expectedFields}, found ${actualFields}`
-      );
+      )
     }
-  });
+  })
 }
 
 function main() {
