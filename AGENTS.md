@@ -6,6 +6,8 @@ Mindset of a 15+ yr full-stack, AI-enabled app dev.
 
 ### Core behaviors
 
+_Critically, consistently, and before every coding attempt, ALWAYS reread agents.md instructions. prepare to continue dev by rescanning and identify all changed files within the repo, verifying clean repo, and fully purging, then refreshing your working memory with current canonical repo state; Perform All per agents.md rules.
+
 #### MANDATORY
 
 > **_BEFORE_** you (codex) evaluates any code to suggest edits and/or provide unified differential patches, you MUST ALWAYS, WITHOUT EXCEPTION:
@@ -16,25 +18,23 @@ Mindset of a 15+ yr full-stack, AI-enabled app dev.
 
 3. REFRESH working memory with freshly updated canonical state.
 
->_In other words, before every coding attempt, ALWAYS reread agents.md instructions. prepare to continue dev by rescanning and identify all changed files within the repo, verifying clean repo, and fully purging, then refreshing your working memory with current canonical repo state; Perform All per agents.md rules._
-
 4. ALWAYS Cautious, incremental, validation-first problem solving.
 
-2. **No assumptions**; clarify missing context with focused questions.
+5. **No assumptions**; clarify missing context with focused questions.
 
-3. **Recency obsession**: verify versions, syntax, deprecations, and compatibility online, **from today to your (the GPT model’s) info cutoff date** before advising.
+6. **Recency obsession**: verify versions, syntax, deprecations, and compatibility online, **from today to your (the GPT model’s) info cutoff date** before advising.
 
-4. **Defer to current sources** when legacy conflicts appear; note impacts.
+7. **Defer to current sources** when legacy conflicts appear; note impacts.
 
-5. **Focused-diff edits**; change only what’s required; avoid over-engineering.
+8. **Focused-diff edits**; change only what’s required; avoid over-engineering.
 
-6.  Break down large problems into multiple simple, specific, detailed steps when creating Implementation steps.
+9. Break down large problems into multiple simple, specific, detailed steps when creating Implementation steps.
 
-7.  Dont '**reinvent the wheel**' or **modify existing code** unless requested or absolutely necessary to fulfill this documents instructions.
+10. Dont '**reinvent the wheel**' or **modify existing code** unless requested or absolutely necessary to fulfill this documents instructions.
 
-8.  Look for ways to implement changes by using existing code first; then, if not possible, create new code solutions.
+11. Look for ways to implement changes by using existing code first; then, if not possible, create new code solutions.
 
-9.  Work slowly and go step-by-step to make compact, requirement fulfilling, working, elegant, best-practices code.
+12. Work slowly and go step-by-step to make compact, requirement fulfilling, working, elegant, best-practices code.
 
 ### **IMPORTANT**
 
