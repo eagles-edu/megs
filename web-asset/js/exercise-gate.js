@@ -79,20 +79,6 @@
     return hashFnv1a64(value)
   }
 
-  function parseHashedToken(token) {
-    if (typeof token !== "string") return null
-    var trimmed = token.trim()
-    if (!trimmed) return null
-    var splitIndex = trimmed.indexOf(":")
-    if (splitIndex <= 0) return null
-    var prefix = trimmed.slice(0, splitIndex)
-    var algorithm = normalizeHashAlgorithm(prefix)
-    if (!algorithm) return null
-    var remainder = trimmed.slice(splitIndex + 1).trim()
-    if (!remainder) return null
-    return { algorithm: algorithm, hash: remainder }
-  }
-
   function coerceBoolean(value, defaultValue) {
     if (typeof value === "boolean") return value
     if (typeof value === "string") {
@@ -282,10 +268,6 @@
     }
   }
 
-  function normalizeAnswerKey(script) {
-    return parseAnswerKey(script)
-  }
-
   function registerAnswerEntry(answerKey, entry, fallbackId) {
     if (!entry || typeof entry !== "object") return
     var questionConfig = buildQuestionConfig(entry, answerKey.options)
@@ -334,142 +316,126 @@
     if (caseSensitive && normalize) normalize = false
     var requireCorrect = entry.requireCorrectBeforeReveal
     if (requireCorrect != null) requireCorrect = coerceBoolean(requireCorrect, true)
-    var hashAlgorithm = entry.hashAlgorithm
-    if (!hashAlgorithm && sharedOptions) {
-      hashAlgorithm =
-        sharedOptions.defaultHashAlgorithm || sharedOptions.hashAlgorithm || "fnv1a-64"
-    }
-    var accepted = []
-    var lengths = []
-    if (Array.isArray(answersAccepted)) {
-      for (var i = 0; i < answersAccepted.length; i++) {
-        var entrySet = answersAccepted[i]
-        if (!Array.isArray(entrySet)) continue
-        var normalizedSet = []
-        for (var j = 0; j < entrySet.length; j++) {
-          var token = prepareKeyValue(entrySet[j], {
-            normalize: normalize,
-            caseSensitive: caseSensitive,
-          })
-          if (token) normalizedSet.push(token)
-        }
-        if (normalizedSet.length) {
-          accepted.push(normalizedSet)
-          lengths.push(normalizedSet.length)
-        }
-      }
-    }
-    if (!accepted.length) {
-      accepted.push([])
-      if (entry.lengths) lengths = uniqueLengths(entry.lengths)
-      else if (entry.minLength && entry.maxLength) {
-        for (var len = entry.minLength; len <= entry.maxLength; len++) lengths.push(len)
-      } else if (entry.maxLength) lengths.push(entry.maxLength)
-      else if (entry.minLength) lengths.push(entry.minLength)
-    }
-    var config = {
-      id: entry.id || entry.key || entry.questionId || entry.storageKey || "",
-      acceptedAnswers: accepted,
-      lengths: lengths,
-      minLength: entry.minLength || entry.min || (lengths.length ? lengths[0] : 1),
-      maxLength: entry.maxLength || entry.max || (lengths.length ? lengths[lengths.length - 1] : 0),
+    var hashAlgorithm =
+      normalizeHashAlgorithm(
+        entry.hashAlgorithm || entry.hashEncoding || entry.hashAlgorithmName || entry.hash
+      ) || normalizeHashAlgorithm(sharedOptions && sharedOptions.defaultHashAlgorithm)
+
+    var options = {
       manualReview: manualReview,
       ordered: ordered,
       normalize: normalize,
       caseSensitive: caseSensitive,
-      requireCorrectBeforeReveal:
-        requireCorrect != null
-          ? requireCorrect
-          : sharedOptions && sharedOptions.requireCorrectBeforeReveal,
-      hashAlgorithm: normalizeHashAlgorithm(hashAlgorithm),
+      requireCorrectBeforeReveal: requireCorrect,
     }
-    return config
-  }
 
-  function normalizeAnswerFromNode(node, options) {
-    if (!node) return ""
-    if (node.getAttribute("data-answer")) {
-      return prepareKeyValue(node.getAttribute("data-answer") || "", options)
-    }
-    if (node.getAttribute("data-answers")) {
-      var parts = node.getAttribute("data-answers").split(",")
-      var answers = []
-      for (var i = 0; i < parts.length; i++) {
-        var token = prepareKeyValue(parts[i], options)
-        if (token) answers.push(token)
+    var acceptedAnswers = []
+    if (!Array.isArray(answersAccepted)) answersAccepted = [answersAccepted]
+    for (var i = 0; i < answersAccepted.length; i++) {
+      var combo = answersAccepted[i]
+      if (combo == null) continue
+      var list = Array.isArray(combo) ? combo : [combo]
+      var prepared = []
+      for (var j = 0; j < list.length; j++) {
+        var token = list[j]
+        var parsedToken = parseAnswerToken(token, options, hashAlgorithm)
+        if (!parsedToken) continue
+        if (parsedToken.algorithm && !hashAlgorithm) {
+          hashAlgorithm = parsedToken.algorithm
+        }
+        if (parsedToken.kind === "hash") {
+          prepared.push(parsedToken.value)
+        } else if (parsedToken.kind === "plain") {
+          if (parsedToken.algorithm) {
+            var hashedValue = hashAnswerValue(parsedToken.value, parsedToken.algorithm)
+            prepared.push(hashedValue)
+            if (!hashAlgorithm) hashAlgorithm = parsedToken.algorithm
+          } else if (hashAlgorithm) {
+            prepared.push(hashAnswerValue(parsedToken.value, hashAlgorithm))
+          } else {
+            prepared.push(parsedToken.value)
+          }
+        }
       }
-      if (answers.length) return answers
+      if (prepared.length) acceptedAnswers.push(prepared)
     }
-    var text = node.textContent || node.innerText || ""
-    text = text.replace(/[\r\n]+/g, " ")
-    return prepareKeyValue(text, options)
+
+    var lengths = []
+    for (var a = 0; a < acceptedAnswers.length; a++) lengths.push(acceptedAnswers[a].length)
+    lengths = uniqueLengths(lengths)
+    var minLength = lengths.length ? lengths[0] : 1
+    for (var l = 1; l < lengths.length; l++) if (lengths[l] < minLength) minLength = lengths[l]
+    var maxLength = lengths.length ? lengths[0] : 0
+    for (var m = 1; m < lengths.length; m++) if (lengths[m] > maxLength) maxLength = lengths[m]
+
+    return {
+      id: entry.id != null ? String(entry.id) : null,
+      acceptedAnswers: acceptedAnswers,
+      lengths: lengths,
+      minLength: minLength || 1,
+      maxLength: maxLength || 0,
+      manualReview: options.manualReview,
+      ordered: options.ordered,
+      normalize: options.normalize,
+      caseSensitive: options.caseSensitive,
+      requireCorrectBeforeReveal: options.requireCorrectBeforeReveal,
+      hashAlgorithm: hashAlgorithm,
+    }
   }
 
-  function normalizeAnswerListFromNodes(nodes, options) {
-    var answers = []
-    for (var i = 0; i < nodes.length; i++) {
-      var prepared = normalizeAnswerFromNode(nodes[i], options)
-      if (!prepared) continue
-      if (Array.isArray(prepared)) answers.push(prepared)
-      else answers.push([prepared])
-    }
-    return answers
-  }
-
-  function registerAnswersFromNodes(answerKey, nodes) {
-    for (var i = 0; i < nodes.length; i++) {
-      var node = nodes[i]
-      var id =
-        node.getAttribute("data-id") ||
-        node.getAttribute("data-question-id") ||
-        node.getAttribute("data-storage-key") ||
-        node.getAttribute("data-key") ||
-        node.getAttribute("data-question") ||
-        ""
-      if (!id) continue
-      var options = {
-        normalize: node.getAttribute("data-normalize") !== "false",
-        caseSensitive: node.getAttribute("data-case-sensitive") === "true",
-        hashAlgorithm:
-          node.getAttribute("data-hash-algorithm") || answerKey.options.defaultHashAlgorithm,
-        defaultHash: answerKey.options.defaultHashAlgorithm,
+  function parseAnswerToken(token, options, defaultHash) {
+    if (token == null) return null
+    if (typeof token === "string") {
+      var trimmedToken = token.trim()
+      if (trimmedToken) {
+        var splitIndex = trimmedToken.indexOf(":")
+        if (splitIndex > 0) {
+          var prefix = trimmedToken.slice(0, splitIndex)
+          var parsedAlgorithm = normalizeHashAlgorithm(prefix)
+          var remainder = trimmedToken.slice(splitIndex + 1).trim()
+          if (parsedAlgorithm && remainder) {
+            return {
+              kind: "hash",
+              value: remainder,
+              algorithm: parsedAlgorithm || normalizeHashAlgorithm(defaultHash) || "fnv1a-64",
+            }
+          }
+        }
       }
-      var answers = normalizeAnswerListFromNodes(
-        node.querySelectorAll("[data-accepted-answer]"),
-        options
-      )
-      if (!answers.length) answers = normalizeAnswerListFromNodes([node], options)
-      if (!answers.length) continue
-      setQuestionConfig(
-        answerKey.questions,
-        id,
-        buildQuestionConfig(
-          {
-            id: id,
-            answersAccepted: answers,
-            lengths: [answers[0] ? answers[0].length : 1],
-            minLength: answers[0] ? answers[0].length : 1,
-            maxLength: answers[0] ? answers[0].length : 1,
-            ordered: node.getAttribute("data-ordered") === "true",
-            manualReview: node.getAttribute("data-manual-review") === "true",
-            normalize: options.normalize,
-            caseSensitive: options.caseSensitive,
-            requireCorrectBeforeReveal: coerceBoolean(
-              node.getAttribute("data-require-correct"),
-              answerKey.options.requireCorrectBeforeReveal
-            ),
-          },
-          answerKey.options
+      var prepared = prepareKeyValue(trimmedToken, options)
+      if (!prepared) return null
+      return { kind: "plain", value: prepared, algorithm: defaultHash }
+    }
+    if (typeof token === "object" && !Array.isArray(token)) {
+      if (token.hash != null) {
+        var alg = normalizeHashAlgorithm(
+          token.hashAlgorithm || token.algorithm || token.hashType || defaultHash
         )
-      )
+        if (!alg) alg = "fnv1a-64"
+        return { kind: "hash", value: String(token.hash), algorithm: alg }
+      }
+      var rawValue = token.value != null ? token.value : token.answer
+      if (rawValue != null) {
+        var preparedValue = prepareKeyValue(rawValue, options)
+        if (!preparedValue) return null
+        var algorithm = normalizeHashAlgorithm(
+          token.hashAlgorithm || token.algorithm || token.hashType || defaultHash
+        )
+        return { kind: "plain", value: preparedValue, algorithm: algorithm || defaultHash }
+      }
     }
+    var fallback = prepareKeyValue(token, options)
+    if (!fallback) return null
+    return { kind: "plain", value: fallback, algorithm: defaultHash }
   }
 
-  function normalizeAnswerKey(answerKeyScript) {
-    var answerKey = parseAnswerKey(answerKeyScript)
-    registerAnswersFromNodes(answerKey, document.querySelectorAll("[data-accepted-answer]"))
-    registerAnswersFromNodes(answerKey, document.querySelectorAll("[data-answer-container]"))
-    return answerKey
+  function prepareInputValue(value, config) {
+    if (config && config.normalize === false) {
+      var trimmed = String(value == null ? "" : value).trim()
+      if (!config.caseSensitive) trimmed = trimmed.toLowerCase()
+      return trimmed
+    }
+    return normalizeAnswer(value)
   }
 
   function parseConfig(script) {
@@ -607,7 +573,7 @@
     if (studentIdInput) studentIdInput.setAttribute("autocomplete", "off")
     var config = parseConfig(document.querySelector("[data-exercise-config]"))
     if (!config.recipients) config.recipients = []
-    var answerKey = normalizeAnswerKey(document.querySelector("[data-exercise-answer-key]"))
+    var answerKey = parseAnswerKey(document.querySelector("[data-exercise-answer-key]"))
     var globalRequireCorrect = coerceBoolean(
       answerKey.options && answerKey.options.requireCorrectBeforeReveal,
       true
@@ -1083,18 +1049,9 @@
         return false
       }
       markQuestionCorrect(question)
+      setFeedback("Question " + question.id + " unlocked!", "success")
       updateProgress()
-      setFeedback("", "success")
       return true
-    }
-
-    function prepareInputValue(value, config) {
-      if (config && config.normalize === false) {
-        var trimmed = String(value == null ? "" : value).trim()
-        if (!config.caseSensitive) trimmed = trimmed.toLowerCase()
-        return trimmed
-      }
-      return normalizeAnswer(value)
     }
 
     function onToggleClick(event) {
@@ -1111,12 +1068,8 @@
     }
 
     function onToggleKeydown(event) {
-      if (event.defaultPrevented) return
-      var key = event.key || event.keyCode
-      if (typeof key === "number") {
-        if (key === 13) key = "Enter"
-        else if (key === 32) key = "Space"
-      }
+      var key = event.key || event.code
+      if (key === " ") key = "Space"
       if (key === "Spacebar") key = "Space"
       if (key !== "Enter" && key !== "Space") return
       var toggle = event.currentTarget

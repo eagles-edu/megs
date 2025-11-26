@@ -236,7 +236,6 @@ function resolveAnswerFieldCount(question, overrideCount) {
   return 1;
 }
 
-
 function createAnswerKey(scraped, overrideAnswerFieldCount) {
   const answerArray = {}
   scraped.questions.forEach((question, index) => {
@@ -284,118 +283,133 @@ function createExerciseConfig(scraped) {
 }
 
 function injectTemplate(templateHtml, scraped, overrideAnswerFieldCount, testMode, targetPath) {
-  const $ = load(templateHtml, { decodeEntities: false });
-  const fileName = path.basename(targetPath);
+  const $ = load(templateHtml, { decodeEntities: false })
+  const fileName = path.basename(targetPath)
 
-  $('title').first().text(scraped.title);
-  const nonCanonical = $('link[rel="non-canonical"], link[rel="canonical"]').first();
+  $("title").first().text(scraped.title)
+  const nonCanonical = $('link[rel="non-canonical"], link[rel="canonical"]').first()
   if (nonCanonical.length) {
-    nonCanonical.attr('href', scraped.canonical);
+    nonCanonical.attr("href", scraped.canonical)
   }
 
-  $('.page-header h2').first().text(scraped.title);
-  const breadcrumbList = $('ul.breadcrumb').first();
+  $(".page-header h2").first().text(scraped.title)
+  const breadcrumbList = $("ul.breadcrumb").first()
   if (breadcrumbList.length && scraped.breadcrumbs.length) {
-    breadcrumbList.empty();
-    breadcrumbList.append('<li class="active"><span class="divider icon-location"></span></li>');
+    breadcrumbList.empty()
+    breadcrumbList.append('<li class="active"><span class="divider icon-location"></span></li>')
     scraped.breadcrumbs.forEach((crumb, index) => {
-      const li = $('<li>').attr({ itemprop: 'itemListElement', itemscope: '', itemtype: 'https://schema.org/ListItem' });
-      if (index === scraped.breadcrumbs.length - 1 && !crumb.href) li.addClass('active');
+      const li = $("<li>").attr({
+        itemprop: "itemListElement",
+        itemscope: "",
+        itemtype: "https://schema.org/ListItem",
+      })
+      if (index === scraped.breadcrumbs.length - 1 && !crumb.href) li.addClass("active")
       if (crumb.href) {
-        const a = $('<a>').attr({ itemprop: 'item', href: crumb.href, class: 'pathway', 'aria-label': crumb.name });
-        a.append($('<span>').attr('itemprop', 'name').text(crumb.name));
-        li.append(a);
+        const a = $("<a>").attr({
+          itemprop: "item",
+          href: crumb.href,
+          class: "pathway",
+          "aria-label": crumb.name,
+        })
+        a.append($("<span>").attr("itemprop", "name").text(crumb.name))
+        li.append(a)
         li.append(
-          $('<span>').addClass('divider').append(
-            $('<img>').attr({ src: '../images/arrow.svg', alt: '', width: '9', height: '9' })
-          )
-        );
+          $("<span>")
+            .addClass("divider")
+            .append(
+              $("<img>").attr({ src: "../images/arrow.svg", alt: "", width: "9", height: "9" })
+            )
+        )
       } else {
-        li.append($('<span>').attr('itemprop', 'name').text(crumb.name));
+        li.append($("<span>").attr("itemprop", "name").text(crumb.name))
       }
-      li.append($('<meta>').attr({ itemprop: 'position', content: String(index + 1) }));
-      breadcrumbList.append(li);
-    });
+      li.append($("<meta>").attr({ itemprop: "position", content: String(index + 1) }))
+      breadcrumbList.append(li)
+    })
   }
 
-  const pager = $('.pager');
+  const pager = $(".pager")
   if (pager.length) {
-    const prev = pager.find('.previous a').first();
+    const prev = pager.find(".previous a").first()
     if (prev.length && scraped.pager.previous) {
-      prev.attr('href', scraped.pager.previous.href || '#');
-      prev.attr('aria-label', scraped.pager.previous.label || 'Previous');
-      prev.text(scraped.pager.previous.label || 'Previous');
+      prev.attr("href", scraped.pager.previous.href || "#")
+      prev.attr("aria-label", scraped.pager.previous.label || "Previous")
+      prev.text(scraped.pager.previous.label || "Previous")
     }
-    const next = pager.find('.next a').first();
+    const next = pager.find(".next a").first()
     if (next.length && scraped.pager.next) {
-      next.attr('href', scraped.pager.next.href || '#');
-      next.attr('aria-label', scraped.pager.next.label || 'Next');
-      next.text(scraped.pager.next.label || 'Next');
+      next.attr("href", scraped.pager.next.href || "#")
+      next.attr("aria-label", scraped.pager.next.label || "Next")
+      next.text(scraped.pager.next.label || "Next")
     }
   }
 
-  const articleBody = $('[itemprop="articleBody"]').first();
+  const articleBody = $('[itemprop="articleBody"]').first()
   if (articleBody.length) {
-    const introParagraphs = scraped.instructions.split('\n').filter(Boolean);
-    articleBody.find('p').slice(0, introParagraphs.length).remove();
+    const introParagraphs = scraped.instructions.split("\n").filter(Boolean)
+    articleBody.find("p").slice(0, introParagraphs.length).remove()
     introParagraphs
       .slice()
       .reverse()
-      .forEach((text) => articleBody.prepend($('<p>').text(text)));
+      .forEach((text) => articleBody.prepend($("<p>").text(text)))
   }
 
-  const form = $('form.exercise-form').first();
-  if (!form.length) throw new Error('Template form not found');
+  const form = $("form.exercise-form").first()
+  if (!form.length) throw new Error("Template form not found")
   if (testMode) {
-    form.attr('data-exercise-devtools', 'auto');
-    form.attr('data-test-mode', 'true');
+    form.attr("data-exercise-devtools", "auto")
+    form.attr("data-test-mode", "true")
   } else {
-    form.removeAttr('data-exercise-devtools');
-    form.removeAttr('data-test-mode');
+    form.removeAttr("data-exercise-devtools")
+    form.removeAttr("data-test-mode")
   }
-  const progress = form.find('[data-exercise-progress]').first();
+  const progress = form.find("[data-exercise-progress]").first()
   if (progress.length) {
-    progress.text(`0 of ${scraped.totalQuestions} questions completed.`);
+    progress.text(`0 of ${scraped.totalQuestions} questions completed.`)
   }
 
-  form.attr('data-storage-key', `exercise-${slugify(path.basename(targetPath, path.extname(targetPath)))}`);
+  form.attr(
+    "data-storage-key",
+    `exercise-${slugify(path.basename(targetPath, path.extname(targetPath)))}`
+  )
 
-  form.find('.quest-bg').remove();
-  const submitRow = form.find('[data-exercise-submit-row]').first();
-  const insertTarget = submitRow.length ? submitRow : form.children().last();
+  form.find(".quest-bg").remove()
+  const submitRow = form.find("[data-exercise-submit-row]").first()
+  const insertTarget = submitRow.length ? submitRow : form.children().last()
   scraped.questions.forEach((question) => {
-    const resolvedCount = resolveAnswerFieldCount(question, overrideAnswerFieldCount);
-    const questionDom = buildQuestionDom($, question, resolvedCount, testMode, fileName);
-    insertTarget.before(questionDom);
-  });
+    const resolvedCount = resolveAnswerFieldCount(question, overrideAnswerFieldCount)
+    const questionDom = buildQuestionDom($, question, resolvedCount, testMode, fileName)
+    insertTarget.before(questionDom)
+  })
 
-  const answerKey = createAnswerKey(scraped, overrideAnswerFieldCount);
-  const answerKeyScript = $('#exercise-answer-key');
-  if (!answerKeyScript.length) throw new Error('Template answer key script not found');
-  answerKeyScript.text(`\n${JSON.stringify(answerKey, null, 2)}\n                `);
+  const answerKey = createAnswerKey(scraped, overrideAnswerFieldCount)
+  const answerKeyScript = $("#exercise-answer-key")
+  if (!answerKeyScript.length) throw new Error("Template answer key script not found")
+  answerKeyScript.text(`\n${JSON.stringify(answerKey, null, 2)}\n                `)
 
-  const config = createExerciseConfig(scraped);
-  const configScript = $('#exercise-config');
-  if (!configScript.length) throw new Error('Template exercise config script not found');
-  configScript.text(`\n${JSON.stringify(config, null, 2)}\n                `);
+  const config = createExerciseConfig(scraped)
+  const configScript = $("#exercise-config")
+  if (!configScript.length) throw new Error("Template exercise config script not found")
+  configScript.text(`\n${JSON.stringify(config, null, 2)}\n                `)
 
   if (testMode) {
-    $('.nn_sliders-body').each((_, el) => {
-      const bodyEl = $(el);
-      bodyEl.removeClass('collapse');
-      bodyEl.attr('aria-hidden', 'false');
-    });
-    $('.nn_sliders-toggle').attr('aria-expanded', 'true');
+    $(".nn_sliders-body").each((_, el) => {
+      const bodyEl = $(el)
+      bodyEl.removeClass("collapse")
+      bodyEl.attr("aria-hidden", "false")
+    })
+    $(".nn_sliders-toggle").attr("aria-expanded", "true")
   }
 
-  return collapseBooleanAttributes($.html());
+  return collapseBooleanAttributes($.html())
 }
 
 function collapseBooleanAttributes(html) {
-  const booleanAttrs = ['hidden', 'nomodule', 'defer', 'disabled', 'required', 'novalidate'];
-  const pattern = new RegExp(`(^|[^\\w-])(${booleanAttrs.join('|')})=""`, 'g');
-  return html.replace(pattern, (match, prefix, attr) => `${prefix}${attr}`);
+  const booleanAttrs = ["hidden", "nomodule", "defer", "disabled", "required", "novalidate"]
+  const pattern = new RegExp(`(^|[^\\w-])(${booleanAttrs.join("|")})=""`, "gi")
+  return html.replace(pattern, (match, prefix, attr) => `${prefix}${attr.toLowerCase()}`)
 }
+
 
 function backupFile(targetPath) {
   const stamp = new Date().toISOString().replace(/[:.]/g, '-');
@@ -437,18 +451,17 @@ function validateCounts(scraped, expectedQuestions, answerKey, overrideAnswerFie
       throw new Error(`Missing answer key entry for ${key}`)
     }
 
-    const expectedFields = resolveAnswerFieldCount(question, overrideAnswerFieldCount)
-    const configuredFields =
-      (entry.answersAccepted?.[0] || []).length ||
-      (Array.isArray(entry.lengths) && entry.lengths.length ? entry.lengths[0] : 0) ||
-      (Number.isInteger(entry.minLength) ? entry.minLength : 0)
-    const actualFields = configuredFields || 0
+    const expectedFields = resolveAnswerFieldCount(question, overrideAnswerFieldCount);
+    const configuredFields = (entry.answersAccepted?.[0] || []).length
+      || (Array.isArray(entry.lengths) && entry.lengths.length ? entry.lengths[0] : 0)
+      || (Number.isInteger(entry.minLength) ? entry.minLength : 0);
+    const actualFields = configuredFields || 0;
     if (actualFields !== expectedFields) {
       throw new Error(
         `Answer field count mismatch for ${key}: expected ${expectedFields}, found ${actualFields}`
-      )
+      );
     }
-  })
+  });
 }
 
 function main() {
