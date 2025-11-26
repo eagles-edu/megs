@@ -410,7 +410,6 @@ function collapseBooleanAttributes(html) {
   return html.replace(pattern, (match, prefix, attr) => `${prefix}${attr.toLowerCase()}`)
 }
 
-
 function backupFile(targetPath) {
   const stamp = new Date().toISOString().replace(/[:.]/g, '-');
   const backupName = `${path.basename(targetPath)}.bak-${stamp}`;
@@ -451,17 +450,18 @@ function validateCounts(scraped, expectedQuestions, answerKey, overrideAnswerFie
       throw new Error(`Missing answer key entry for ${key}`)
     }
 
-    const expectedFields = resolveAnswerFieldCount(question, overrideAnswerFieldCount);
-    const configuredFields = (entry.answersAccepted?.[0] || []).length
-      || (Array.isArray(entry.lengths) && entry.lengths.length ? entry.lengths[0] : 0)
-      || (Number.isInteger(entry.minLength) ? entry.minLength : 0);
-    const actualFields = configuredFields || 0;
+    const expectedFields = resolveAnswerFieldCount(question, overrideAnswerFieldCount)
+    const configuredFields =
+      (entry.answersAccepted?.[0] || []).length ||
+      (Array.isArray(entry.lengths) && entry.lengths.length ? entry.lengths[0] : 0) ||
+      (Number.isInteger(entry.minLength) ? entry.minLength : 0)
+    const actualFields = configuredFields || 0
     if (actualFields !== expectedFields) {
       throw new Error(
         `Answer field count mismatch for ${key}: expected ${expectedFields}, found ${actualFields}`
-      );
+      )
     }
-  });
+  })
 }
 
 function main() {

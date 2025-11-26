@@ -1025,7 +1025,6 @@
     function guardQuestion(question) {
       if (!question) return true
       if (question.status === "correct") return true
-      if (!ensureContactInfo()) return false
       var result = evaluateQuestion(question)
       if (!result.ready) {
         markQuestionIncorrect(question)
