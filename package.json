@@ -83,7 +83,7 @@
     "argparse": "^2.0.1",
     "cheerio": "^1.1.2",
     "css-declaration-sorter": "^7.2.0",
-    "cssnano": "^7.1.1",
+    "cssnano": "^7.1.2",
     "dotenv": "^17.2.1",
     "glob": ">=11.1.0",
     "js-yaml": "^4.1.1",
