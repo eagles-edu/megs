@@ -1,948 +1,24 @@
-<!-- prettier-ignore -->
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#e0162b">
-  <meta name="keywords"
-    content="ESL, TOESL, TOEFL, courses, english, english courses, education, english degree, degree, english education, exercises, english exercises, grammar, verb, english grammar, noun, adverb, adjective, english adverb, english noun, english adjective">
-  <meta name="description" content="A comprehensive site for free English courses and exercises.">
-  <meta name="generator" content="English Grammar - intermediate levels A2 and above">
-  <link href="111-common-nouns.html" rel="non-canonical">
-  <title>1.1.1 Common Nouns</title>
-  <link href="../favicon.ico" rel="shortcut icon" type="image/vnd.microsoft.icon">
-  <!-- theme-vars.css eliminated; variables live in base.css -->
-
-  <!-- Minimal theme tokens inline to avoid var() FOUC when base.css loads async -->
-  <style id="theme-vars-critical">
-    :root {
-      --primary-color: #e0162b;
-      --secondary-color: #f5f8ff;
-      --tertiary-color: #002786;
-      --text-color: #212121;
-      --background-color: #798ea4;
-      --footer-background:#3e4b5b;
-      --icon-color-on-dk: #f5f8ff;
-      --icon-color-on-lt: #8a94a8;
-      --pager-background: var(--surface-color, #fff);
-      --pager-border-color: var(--border-color, #d0d6e4);
-      --pager-border-radius: 3px;
-      --pager-font-size: clamp(0.9rem, 0.85rem + 0.2vw, 1.05rem);
-      --pager-font-weight: 600;
-      --pager-gap-x: 14px;
-      --pager-gap-y: 10px;
-      --pager-hover-shadow: 0 0 0 3px rgb(224 22 43 / 15%);
-      --pager-icon-size: 1.25rem;
-      --pager-label-truncate: ellipsis;
-      --pager-label-wrap: nowrap;
-      --pager-link-shadow: inset 0 0 0 1px rgb(255 255 255 / 35%);
-      --pager-padding-block: 0.6rem;
-      --pager-padding-inline: 0.95rem;
-      --pager-text-color: var(--text-color, #212121);
-      --menu-icon-pad-inline: 6px;
-      --left-menu-font-size: clamp(0.86rem, calc(0.72rem + 0.45vw), 0.96rem);
-      --left-menu-icon-size: clamp(1.25rem, calc(var(--left-menu-font-size) * 1.2), 1.45rem);
-      --left-menu-icon-slot: calc(var(--left-menu-icon-size) * 1.32);
-      --left-menu-icon-gap: calc(var(--left-menu-font-size) * 0.6);
-      --flyout-toggle-size: max(var(--left-menu-icon-size), 24px);
-      --r-flyout-bg: var(--menu-link-bg, var(--surface-color, #fff));
-      --r-flyout-border: var(--border-color, #d0d6e4);
-      --r-flyout-divider: var(--divider-color, #d0d6e4);
-      --r-flyout-highlight: var(--surface-warm, #fff);
-      --r-flyout-shadow-menu: var(--flyout-shadow-menu, 0 12px 26px rgb(24 39 75 / 8%));
-      --r-flyout-shadow-panel: var(--flyout-shadow-panel, 0 18px 32px rgb(24 39 75 / 12%));
-      --r-flyout-transition: 160ms cubic-bezier(0.4, 0, 0.2, 1);
-      /* pager variables  */
-      /* Brand core */
-      /* locked */
-      /* white */
-      /* locked */
-      /* locked */
-      /* locked */
-      /* locked */
-      /* Layout surfaces */
-      /* page background behind light content */
-    }
-
-    /* Base shell (padding, top border, background) */
-    body.base,
-    body.site {
-      border-top: 15px solid var(--footer-background);
-      padding: 20px;
-      background-color: var(--background-color);
-    }
-
-    /* Preload critical image dimensions to prevent CLS */
-    img[src*="../images/banner.png"] {
-      height: 120;
-      width: 650;
-    }
-
-    img[src*="../favicon.png"] {
-      height: 24px;
-      max-height: 28px;
-      width: 24px;
-    }
-
-    img[src*="../images/arrow.svg"] {
-      height: 9px;
-      width: 9px;
-    }
-
-    img[src*="../web-asset/icons/svg/sized/plus3.svg"],
-    img[src*="../web-asset/icons/svg/sized/minus5.svg"] {
-      height: var(--flyout-toggle-size);
-      max-height: var(--flyout-toggle-size);
-      width: var(--flyout-toggle-size);
-    }
-
-    img[src*="../web-asset/icons/svg/sized/angle-left.svg"] {
-      height: 24px;
-      max-height: 28px;
-    }
-
-    img[src*="../web-asset/icons/svg/sized/angle-right.svg"] {
-      height: 24px;
-      max-height: 28px;
-    }
-  </style>
-  <!-- Base CSS (SSOT) async with print-swap to improve FCP/LCP -->
-  <link rel="preload" href="../web-asset/css/base.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <link rel="stylesheet" href="../web-asset/css/base.css" media="print" onload="this.media='all'">
-  <noscript>
-    <link rel="stylesheet" href="../web-asset/css/base.css">
-  </noscript>
-  <style id="pager-style-overrides">
-    .pager {
-      align-items: stretch;
-      display: flex;
-      flex-wrap: var(--pager-flex-wrap, nowrap);
-      gap: var(--pager-gap-y) var(--pager-gap-x);
-      justify-content: space-between;
-      list-style: none;
-      margin: 1.5rem 0;
-      max-width: 100%;
-      padding: 0;
-      width: 100%;
-    }
-
-    .pager>li {
-      display: flex;
-      flex: 1 1 0;
-      min-width: 0;
-    }
-
-    .pager>li>a {
-      align-items: center;
-      background: var(--pager-background);
-      border: 1px solid var(--pager-border-color);
-      border-radius: var(--radius);
-      box-shadow: var(--pager-link-shadow);
-      color: var(--pager-text-color);
-      display: inline-flex;
-      font-size: var(--pager-font-size);
-      font-weight: var(--pager-font-weight);
-      gap: calc(var(--pager-gap-x) * 0.5);
-      justify-content: space-between;
-      min-height: calc(var(--pager-icon-size) + (var(--pager-padding-block) * 2));
-      overflow: hidden;
-      padding: var(--pager-padding-block) var(--pager-padding-inline);
-      text-decoration: none;
-      text-overflow: var(--pager-label-truncate);
-      transition:
-        color 0.2s ease,
-        background-color 0.2s ease,
-        border-color 0.2s ease,
-        box-shadow 0.2s ease;
-      white-space: var(--pager-label-wrap);
-      width: 100%;
-    }
-
-    .pager>li>a:focus,
-    .pager>li>a:hover {
-      border-color: var(--primary-color);
-      box-shadow: var(--pager-hover-shadow);
-      color: var(--primary-color);
-      outline: none;
-    }
-
-    .pager>li>a:focus-visible {
-      outline: none;
-    }
-
-    .pager>li>a:active {
-      box-shadow: inset 0 0 0 2px rgba(224, 22, 43, 0.15);
-    }
-
-    .pager .previous>a {
-      justify-content: flex-start;
-    }
-
-    .pager .next {
-      margin-left: auto;
-    }
-
-    .pager .next>a {
-      justify-content: flex-end;
-    }
-
-    .pager>li>a svg,
-    .pager>li>a img {
-      flex: 0 0 auto;
-      height: var(--pager-icon-size);
-      width: var(--pager-icon-size);
-    }
-
-    .pager>li>a svg {
-      fill: currentColor;
-    }
-
-    @media (max-width: 599px) {
-      .pager {
-        flex-wrap: var(--pager-flex-wrap-mobile, wrap);
-      }
-
-      .pager>li {
-        flex-basis: var(--pager-mobile-item-width, 100%);
-      }
-    }
-  </style>
-
-  <!-- Critical resource hints for better performance -->
-  <link rel="dns-prefetch" href="../images/">
-  <link rel="dns-prefetch" href="../web-asset/">
-  <link rel="dns-prefetch" href="../js/">
-
-  <style id="critical-inline">
-    /* Critical CSS: reset + fast header paint + mobile toggle */
-    body {
-      margin: 0;
-    }
-
-    .grid-modern .row-fluid {
-      background: var(--secondary-color);
-      border-radius: var(--radius);
-      margin-block: 12px;
-      padding-block: 8px;
-    }
-
-    .header {
-      margin-bottom: 1rem;
-    }
-
-    @media (max-width: 767px) {
-      .mobile-menu-toggle {
-        background: var(--primary-color);
-        border: 1px solid var(--primary-color);
-        border-radius: var(--radius);
-        display: block;
-        height: 40px;
-        position: fixed;
-        right: 12px;
-        top: 12px;
-        width: 40px;
-        z-index: 1200;
-      }
-
-      .mobile-menu-toggle::before {
-        content: "\00E289A1";
-      }
-
-      .mobile-menu-toggle::before {
-        color: var(--white);
-        content: "\2261";
-        display: block;
-        font-size: 22px;
-        line-height: 40px;
-        text-align: center;
-      }
-
-      /* Fallback for browsers not decoding \00E289A1: use explicit ≡ */
-    }
-  </style>
-
-  <!-- Critical augment: stabilize grid/menu to reduce CLS -->
-  <style id="critical-inline-augment">
-    /* Grid layout (avoid block→flex shift when async CSS loads) */
-    .row-fluid {
-      display: flex;
-      flex-wrap: wrap;
-      margin-left: -8px;
-      margin-right: -8px;
-    }
-
-    .row-fluid>[class*="span"] {
-      box-sizing: border-box;
-      flex: 0 0 100%;
-      max-width: 100%;
-      padding-left: 8px;
-      padding-right: 8px;
-    }
-
-    @media (min-width: 768px) {
-      .row-fluid>.span2 {
-        flex: 0 0 16.6667%;
-        max-width: 16.6667%;
-      }
-
-      .row-fluid>.span8 {
-        flex: 0 0 66.6667%;
-        max-width: 66.6667%;
-      }
-    }
-
-    /* Left accordion menu: reserve icon/text layout early */
-    #sidebar {
-      --menu-icon-pad-inline-start: 0;
-      --menu-icon-pad-inline-end: 7px;
-    }
-
-    /* Left accordion menu: reserve icon/text layout early */
-    #sidebar .sidebar-nav {
-      background: var(--surface-color, #fff);
-      border-radius: var(--radius);
-      box-shadow: var(--flyout-shadow-menu, 0 12px 26px rgb(24 39 75 / 8%));
-      padding: 4px;
-    }
-
-    ul.accordion-menu {
-      border: 1px solid var(--border-color);
-      border-radius: var(--radius);
-      background: var(--surface-color, #fff);
-      box-shadow: var(--flyout-shadow-menu, 0 12px 26px rgb(24 39 75 / 8%));
-      font-size: var(--left-menu-font-size, 1rem);
-      list-style: none;
-      margin: 0;
-      max-width: 100%;
-      overflow: hidden;
-      padding: 0;
-    }
-
-    ul.accordion-menu .item-wrapper {
-      align-items: center;
-      display: flex;
-      gap: var(--left-menu-icon-gap, var(--icon-gap));
-      justify-content: flex-start;
-    }
-
-    ul.accordion-menu .menu-button {
-      align-items: center;
-      display: flex;
-      flex: 0 0 var(--left-menu-icon-slot, var(--icon-slot));
-      justify-content: center;
-      margin-inline-start: auto;
-      min-block-size: var(--flyout-toggle-size);
-      min-inline-size: var(--flyout-toggle-size);
-      order: 2;
-      padding: 0;
-      padding-inline-start: var(--menu-icon-pad-inline-start, 0);
-      padding-inline-end: var(--menu-icon-pad-inline-end, 0);
-      position: relative;
-    }
-
-    ul.accordion-menu .menu-button:empty {
-      display: none;
-    }
-
-    ul.accordion-menu .menu-button .menu-toggle-icon {
-      block-size: var(--flyout-toggle-size);
-      grid-area: 1 / 1;
-      inline-size: var(--flyout-toggle-size);
-      transition: opacity 0.2s ease;
-    }
-
-    ul.accordion-menu .menu-button .menu-toggle-icon use {
-      transform-box: fill-box;
-      transform-origin: center;
-    }
-
-    ul.accordion-menu .menu-button .menu-toggle-icon--minus use {
-      transform: scaleX(var(--menu-minus-scale, 1.35));
-    }
-
-    ul.accordion-menu .menu-button .menu-toggle-icon--minus {
-      color: var(--primary-color);
-      opacity: 0;
-    }
-
-    ul.accordion-menu li.opened>.item-wrapper>.menu-button .menu-toggle-icon--plus {
-      opacity: 0;
-    }
-
-    ul.accordion-menu li.opened>.item-wrapper>.menu-button .menu-toggle-icon--minus {
-      opacity: 1;
-    }
-
-    /* Match left/right toggle padding with linked CSS defaults */
-    #sidebar ul.accordion-menu.button-left li>.item-wrapper>.menu-button,
-    #sidebar ul.accordion-menu.button-right li>.item-wrapper>.menu-button {
-      line-height: 1;
-      padding: 0;
-    }
-
-    #sidebar ul.accordion-menu.button-right li>.item-wrapper>.menu-button {
-      justify-content: flex-end;
-      padding-inline-start: var(--menu-icon-pad-inline-start, 0);
-      padding-inline-end: var(--menu-icon-pad-inline-end, 7px);
-    }
-
-    #lists-menu-item>.item-wrapper>.menu-button {
-      color: var(--menu-toggle-icon-color, var(--icon-color-on-lt));
-      min-block-size: var(--lists-icon-size);
-      padding-block: var(--lists-icon-pad-block, 12px);
-      transition: color 0.2s ease;
-    }
-
-    #lists-menu-item:hover>.item-wrapper>.menu-button,
-    #lists-menu-item:focus-within>.item-wrapper>.menu-button,
-    #lists-menu-item.opened>.item-wrapper>.menu-button {
-      color: var(--primary-color);
-    }
-
-    ul.accordion-menu li:hover>.item-wrapper>.menu-button,
-    ul.accordion-menu li:focus-within>.item-wrapper>.menu-button,
-    ul.accordion-menu li.opened>.item-wrapper>.menu-button {
-      color: var(--primary-color);
-    }
-
-    ul.accordion-menu .menu-button>svg {
-      block-size: var(--flyout-toggle-size);
-      fill: currentColor;
-      inline-size: var(--flyout-toggle-size);
-    }
-
-    ul.accordion-menu.button-right li>.item-wrapper>.menu-button>img {
-      padding-right: 10px;
-    }
-
-    ul.accordion-menu li {
-      border-top: 1px solid var(--divider-color);
-    }
-
-    ul.accordion-menu .menu-link {
-      flex: 1 1 auto;
-      min-height: 35px;
-      min-width: 0;
-      overflow: hidden;
-    }
-
-    ul.accordion-menu .menu-link>a,
-    ul.accordion-menu .menu-link>p {
-      align-items: center;
-      background: none;
-      display: flex;
-      gap: var(--left-menu-icon-gap, var(--icon-gap));
-      padding: 10px 10px 9px 7px;
-      text-decoration: none;
-      white-space: nowrap;
-      width: auto;
-    }
-
-    ul.accordion-menu .menu-link>a>img,
-    ul.accordion-menu .menu-link>p>img {
-      aspect-ratio: 1 / 1;
-      border: 0;
-      height: var(--left-menu-icon-size, var(--icon-size));
-      max-width: 100%;
-      object-fit: contain;
-      padding: 0 5px 0 0;
-      vertical-align: middle;
-      width: auto;
-    }
-
-    ul.accordion-menu .menu-link>a>svg,
-    ul.accordion-menu .menu-link>p>svg {
-      flex: 0 0 auto;
-      height: var(--left-menu-icon-size, var(--icon-size));
-      padding: 0 5px 0 0;
-      max-width: 100%;
-      width: var(--left-menu-icon-size, var(--icon-size));
-    }
-
-    ul.accordion-menu>li>.item-wrapper>.menu-link>a,
-    ul.accordion-menu>li>.item-wrapper>.menu-link>p {
-      font-weight: var(--left-menu-font-weight, 500);
-    }
-
-    ul.accordion-menu li.opened>.ul-wrapper {
-      display: block;
-    }
-
-    /* Pager arrows: reserve space */
-    .pager {
-      display: flex;
-      justify-content: space-between;
-      list-style: none;
-      margin: 1rem 0;
-      padding: 0;
-    }
-
-    #aside .r-flyout-menu>[data-r-flyout-item] {
-      border-bottom: 1px solid var(--divider-color, #e1e7f0);
-      position: relative;
-      transition: border-color 160ms cubic-bezier(0.4, 0, 0.2, 1);
-    }
-
-    #aside .r-flyout-menu>[data-r-flyout-item]:last-child {
-      border-bottom: none;
-    }
-
-    #aside .r-flyout__header {
-      align-items: center;
-      border: 1px solid transparent;
-      border-radius: var(--radius, 3px);
-      color: var(--menu-text, #616978);
-      display: flex;
-      font-family: var(--font-header, "Open Sans", Arial, sans-serif);
-      font-size: 0.85em;
-      font-weight: 500;
-      gap: var(--menu-icon-gap, 8px);
-      line-height: 1.3;
-      min-height: 32px;
-      padding: 4px 6px;
-      transition:
-        background-color 160ms cubic-bezier(0.4, 0, 0.2, 1),
-        border-color 160ms cubic-bezier(0.4, 0, 0.2, 1),
-        box-shadow 160ms cubic-bezier(0.4, 0, 0.2, 1),
-        color 160ms cubic-bezier(0.4, 0, 0.2, 1);
-    }
-
-    #aside .r-flyout-menu>[data-r-flyout-item].current>.r-flyout__header {
-      color: var(--primary-color, #e0162b);
-    }
-
-    #aside .r-flyout__link {
-      color: currentColor;
-      text-decoration: none;
-    }
-
-    #aside .r-flyout__link:hover,
-    #aside .r-flyout__link:focus {
-      color: var(--primary-color);
-      text-decoration: none;
-    }
-
-    #aside .r-flyout__link-wrap {
-      flex: 1 1 auto;
-      min-width: 0;
-    }
-
-    #aside .r-flyout__toggle {
-      align-items: center;
-      appearance: none;
-      background: none;
-      border: 0;
-      border-radius: 0;
-      color: inherit;
-      cursor: pointer;
-      display: grid;
-      flex: 0 0 var(--flyout-toggle-size);
-      height: var(--flyout-toggle-size);
-      inline-size: var(--flyout-toggle-size);
-      justify-content: center;
-      margin: 0;
-      min-block-size: var(--flyout-toggle-size);
-      min-height: var(--flyout-toggle-size);
-      padding: 0;
-      position: relative;
-      transition: color 160ms cubic-bezier(0.4, 0, 0.2, 1);
-      width: var(--flyout-toggle-size);
-    }
-
-    #aside .r-flyout__icon {
-      display: block;
-      grid-area: 1 / 1;
-      height: var(--flyout-toggle-size);
-      inline-size: var(--flyout-toggle-size);
-      pointer-events: none;
-      transition: opacity 160ms cubic-bezier(0.4, 0, 0.2, 1);
-      width: var(--flyout-toggle-size);
-    }
-
-    #aside .r-flyout__icon use {
-      transform-box: fill-box;
-      transform-origin: center;
-    }
-
-    .r-flyout__icon--minus {
-      color: inherit;
-      opacity: 0;
-    }
-
-    .r-flyout__icon--minus use {
-      transform: scaleX(var(--flyout-minus-scale, 1.95));
-    }
-
-    [data-r-flyout-item]>.r-flyout__header {
-      border-radius: var(--radius, 3px);
-    }
-
-    [data-r-flyout-item].is-open>.r-flyout__header,
-    [data-r-flyout-item]:hover>.r-flyout__header,
-    [data-r-flyout-item]:focus-within>.r-flyout__header {
-      background: var(--r-flyout-bg, var(--surface-color, #fff));
-      border-color: var(--primary-color, #e0162b);
-      box-shadow: none;
-      color: var(--primary-color, #e0162b);
-    }
-
-    #aside .r-flyout__header:is(:hover, :focus-within),
-    #aside .r-flyout__header:has(.r-flyout__toggle:hover) {
-      background: var(--white);
-      border-color: var(--primary-color, #e0162b);
-      color: var(--primary-color, #e0162b);
-    }
-
-    #aside .r-flyout__header:is(:hover, :focus-within) .r-flyout__toggle,
-    #aside .r-flyout__header:has(.r-flyout__toggle:hover) .r-flyout__toggle,
-    #aside .r-flyout__header:is(:hover, :focus-within) .r-flyout__link,
-    #aside .r-flyout__header:has(.r-flyout__toggle:hover) .r-flyout__link {
-      color: currentColor;
-    }
-
-    [data-r-flyout-item].is-open>.r-flyout__header .r-flyout__link,
-    [data-r-flyout-item]:hover>.r-flyout__header .r-flyout__link,
-    [data-r-flyout-item]:focus-within>.r-flyout__header .r-flyout__link {
-      color: inherit;
-    }
-
-    [data-r-flyout-item].is-open>.r-flyout__header .r-flyout__toggle,
-    [data-r-flyout-item]:hover>.r-flyout__header .r-flyout__toggle,
-    [data-r-flyout-item]:focus-within>.r-flyout__header .r-flyout__toggle {
-      color: var(--primary-color, #e0162b);
-    }
-
-    [data-r-flyout-item].is-open>.r-flyout__header .r-flyout__icon--plus {
-      opacity: 0;
-    }
-
-    [data-r-flyout-item].is-open>.r-flyout__header .r-flyout__icon--minus {
-      opacity: 1;
-      visibility: visible;
-    }
-
-    [data-r-flyout-item]:hover>.r-flyout__header .r-flyout__icon--plus,
-    [data-r-flyout-item]:focus-within>.r-flyout__header .r-flyout__icon--plus {
-      opacity: 0;
-    }
-
-    [data-r-flyout-item]:hover>.r-flyout__header .r-flyout__icon--minus,
-    [data-r-flyout-item]:focus-within>.r-flyout__header .r-flyout__icon--minus {
-      opacity: 1;
-      visibility: visible;
-    }
-
-    [data-r-flyout-item]:hover>.r-flyout__header .r-flyout__icon--plus,
-    [data-r-flyout-item]:focus-within>.r-flyout__header .r-flyout__icon--plus {
-      opacity: 0;
-    }
-
-    [data-r-flyout-item]:hover>.r-flyout__header .r-flyout__icon--minus,
-    [data-r-flyout-item]:focus-within>.r-flyout__header .r-flyout__icon--minus {
-      opacity: 1;
-    }
-
-    #aside .r-flyout__panel {
-      background: var(--menu-link-bg);
-      border: 1px solid var(--border-color);
-      border-radius: var(--radius, 3px);
-      box-shadow: var(--flyout-shadow-panel, 0 18px 32px rgb(24 39 75 / 12%));
-      inset-inline-end: calc(100% - 1px);
-      min-width: min(var(--flyout-width-desktop, 250px), 90vw);
-      overflow: hidden;
-      padding: 4px 0;
-      position: absolute;
-      top: -1px;
-      z-index: 6010;
-    }
-
-    #aside .r-flyout__panel[hidden] {
-      display: none;
-    }
-
-    #aside .r-flyout-menu[data-flyout-origin="left"] .r-flyout__panel {
-      inset-inline: calc(100% - 1px) auto;
-    }
-
-    #content .nn_sliders .accordion-body {
-      max-height: 0;
-      overflow: hidden;
-    }
-
-    #content .nn_sliders .collapse {
-      height: 0;
-      overflow: hidden;
-    }
-
-    /* Hide duplicate legacy title inside body to avoid jump */
-    #content .nn_sliders-title {
-      display: none;
-    }
-
-    /* Breadcrumb divider icon explicit size, belt-and-suspenders */
-    ul.breadcrumb>li>span.divider>img {
-      height: 9px;
-      width: 9px;
-    }
-
-    /* Additional CLS prevention: stabilize accordion toggle heights */
-    .nn_sliders-toggle {
-      align-items: center;
-      display: flex;
-      min-height: 44px;
-    }
-
-    .nn_sliders-toggle-inner {
-      flex: 1;
-    }
-
-    .exercise-response-row {
-      align-items: center;
-      background: var(--surface-soft);
-      border: 1px solid var(--border-color);
-      border-radius: var(--radius);
-      box-sizing: border-box;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      justify-content: space-around;
-      margin-top: 1rem;
-      padding: 0.45rem;
-      width: 100%;
-    }
-
-    .exercise-response-field {
-      flex: 1 1 140px;
-      max-width: 220px;
-      position: relative;
-    }
-
-    .exercise-response-input {
-      background: linear-gradient(to bottom left, #e9e9e9 0%, #ffffff 35%);
-      border: 1px solid var(--border-color, #ccd3e0);
-      border-radius: var(--radius);
-      color: var(--text-color, #212121);
-      font-size: 0.95rem;
-      padding: 0.35rem 0.5rem;
-      width: 100%
-    }
-
-    .exercise-response-input:focus {
-      border-color: var(--link-color);
-      box-shadow: 0 0 0 3px rgba(39, 22, 224, 0.15);
-      outline: none;
-    }
-
-    .visually-hidden {
-      border: 0;
-      clip: rect(0 0 0 0);
-      height: 1px;
-      margin: -1px;
-      overflow: hidden;
-      padding: 0;
-      position: absolute;
-      width: 1px;
-      white-space: nowrap;
-    }
-
-    @media (max-width: 600px) {
-      .exercise-response-row {
-        justify-content: center;
-      }
-
-      .exercise-response-field {
-        flex: 1 1 100%;
-        max-width: none;
-      }
-    }
-
-    /* Preload footer height to prevent footer jump */
-    .footer {
-      min-height: 80px;
-    }
-
-    /* Stabilize sidebar width on desktop to prevent reflow */
-    @media (min-width: 768px) {
-      #sidebar {
-        min-height: 300px;
-      }
-
-      #aside {
-        min-height: 300px;
-      }
-    }
-
-    @media (width <=909px) {
-
-      /* Prevent the right rail from wrapping beneath the article on mid-sized viewports */
-      #aside,
-      ul.accordion-menu .menu-link>a>svg,
-      ul.accordion-menu .menu-link>p>svg {
-        display: none;
-      }
-
-      .row-fluid>#content {
-        flex: 1 1 0%;
-        max-width: 100%;
-      }
-    }
-
-    #content .accordion-heading>a.accordion-toggle,
-    .nn_sliders-toggle {
-      background-color: var(--surface-soft);
-      border: 1px solid transparent;
-      border-radius: var(--radius);
-      transition: border-color 0.2s ease;
-    }
-
-    #content .accordion-heading>a.accordion-toggle:link,
-    .nn_sliders-toggle:link {
-      border-color: var(--link-color);
-    }
-
-    #content .accordion-heading>a.accordion-toggle:visited,
-    .nn_sliders-toggle:visited {
-      border-color: var(--link-visited);
-    }
-
-    #content .accordion-heading>a.accordion-toggle:hover,
-    .nn_sliders-toggle:hover {
-      border-color: var(--primary-color);
-    }
-
-    #content .accordion-heading>a.accordion-toggle:active,
-    .nn_sliders-toggle:active {
-      border-color: var(--link-color);
-    }
-
-    .blkquot {
-      color: var(--text-color);
-      font-style: italic;
-      margin: 1.4rem;
-      padding: 5px;
-    }
-
-    .bm1 {
-      display: inline-block;
-      margin-bottom: 1.5em;
-    }
-
-  </style>
-
-  <!-- Optimized speculationrules with prerender for better UX -->
-  <script>
-    ; ( function () {
-      function injectSpeculation() {
-        try
-        {
-          var s = document.createElement( "script" )
-          s.type = "speculationrules"
-          s.text = JSON.stringify( {
-            prefetch: [
-              {
-                source: "list",
-                urls: [ "112-proper-nouns.html" ],
-              },
-            ],
-            prerender: [
-              {
-                source: "list",
-                urls: [ "112-proper-nouns.html" ],
-                eagerness: "moderate",
-              },
-            ],
-          } )
-          document.head.appendChild( s )
-        } catch ( e )
-        {
-          /* no-op */
-        }
-      }
-      if ( document.readyState === "complete" )
-      {
-        injectSpeculation()
-      } else
-      {
-        window.addEventListener( "load", function () {
-          if ( "requestIdleCallback" in window )
-            requestIdleCallback( injectSpeculation, {
-              timeout: 2000,
-            } )
-          else setTimeout( injectSpeculation, 500 )
-        } )
-      }
-    } )()
-  </script>
-  <!-- Icon font not used on Codex variant; removed icomoon.css includes -->
-
-  <!-- Minimal base for layout/mobile nav used by prototype (async) -->
-  <link rel="preload" href="../web-asset/css/exercises.css" as="style">
-  <link rel="stylesheet" href="../web-asset/css/exercises.css" media="print" onload="this.media='all'">
-  <noscript>
-    <link rel="stylesheet" href="../web-asset/css/exercises.css">
-  </noscript>
-  <!-- Use system default fonts (no webfont preloads) -->
-
-  <!-- Defer non-critical CSS with preload+print media swap -->
-  <link rel="preload" href="../web-asset/css/right-rail-flyout.css" as="style">
-  <link rel="stylesheet" href="../web-asset/css/right-rail-flyout.css" media="print" onload="this.media='all'">
-  <noscript>
-    <link rel="stylesheet" href="../web-asset/css/right-rail-flyout.css">
-  </noscript>
-  <!-- Left-menu.css async; critical inline reserves layout to avoid flash -->
-  <link rel="preload" href="../web-asset/css/left-menu.css" as="style">
-  <link rel="stylesheet" href="../web-asset/css/left-menu.css" media="print" onload="this.media='all'">
-  <noscript>
-    <link rel="stylesheet" href="../web-asset/css/left-menu.css">
-  </noscript>
-  <link rel="preload" href="../web-asset/css/page-classes.css" as="style">
-  <link rel="stylesheet" href="../web-asset/css/page-classes.css" media="print" onload="this.media='all'">
-  <noscript>
-    <link rel="stylesheet" href="../web-asset/css/page-classes.css">
-  </noscript>
-  <!-- Removed jQuery/Bootstrap/nn_sliders/template scripts on codex variant to keep console clean -->
-  <link rel="preload" href="../web-asset/css/exercise-1-nouns_new.css" as="style">
-  <link rel="stylesheet" href="../web-asset/css/exercise-1-nouns_new.css" media="print" onload="this.media='all'">
-  <noscript>
-    <link rel="stylesheet" href="../web-asset/css/exercise-1-nouns_new.css">
-  </noscript>
-  <!-- Codex QA slider scoped overrides (synchronous to avoid flash) -->
-  <link rel="stylesheet" href="../web-asset/css/qa-accordion.css">
-  <!-- No-JS fallback: show all answers if scripting is disabled -->
-  <link rel="stylesheet" href="web-asset/legacy">
-<!-- Removed jQuery/Bootstrap/nn_sliders/template scripts on codex variant to keep console clean -->
-  <link rel="preload" href="../web-asset/css/exercise-1-nouns_new.css" as="style">
-  <link rel="stylesheet" href="../web-asset/css/exercise-1-nouns_new.css" media="print" onload="this.media='all'">
-  <noscript>
-    <link rel="stylesheet" href="../web-asset/css/exercise-1-nouns_new.css">
-  </noscript>
-
-
-  <noscript>
-    <style>
-      #content .accordion-body {
-        height: auto !important;
-        max-height: none !important;
-        overflow: visible !important;
-      }
-    </style>
-  </noscript>
-  <!-- Mobile navigation styles provided globally by base CSS -->
-  <!-- No inline @font-face; system stacks are used (see base.css variables) -->
-  <!-- Bundled JavaScript: Modern module + legacy fallback (4 requests → 1) -->
-  <script type="module" src="../web-asset/js/main.bundle.js"></script>
-  <script nomodule src="../web-asset/js/main.legacy.js" defer></script>
-  <script src="../web-asset/js/right-rail-flyout.js" defer></script>
-  <script src="../web-asset/js/exercise-gate.js" defer></script>
+    <meta charset="utf-8" />
+    <title>Untitled Document</title>
+    <link
+      href="templates/protostar/css/template592f.css"
+      rel="stylesheet"
+      type="text/css" />
   </head>
 
-  <body class="base exercize">
-    <div class="">
-      <div class="">
+  <body>
+    <div class="wrapper1">
+      <div class="main1">
         <h3>The purpose of this Guide</h3>
         <p>
-          English is full of problems for a foreign learner. While some of these problem points are easy to explain, others cause difficulty even for the advanced students and learners. For example, how exactly is the present perfect tense used? What are the differences between big, large and great, between come and go? Is unless the same as if not? This guide is a guide to questions of this kind. It addresses 120 points which regularly cause problems for the foreign learner. Rules and guidelines are given, using as little linguistic terminology as possible.
+          English is full of problems for a foreign learner. While some of these problem points are easy to explain, others cause difficulty
+          even for the advanced students and learners. For example, how exactly is the present perfect tense used? What are the differences
+          between big, large and great, between come and go? Is unless the same as if not? This guide is a guide to questions of this kind.
+          It addresses 120 points which regularly cause problems for the foreign learner. Rules and guidelines are given, using as little
+          linguistic terminology as possible.
         </p>
         <h3>Who will benefit from this guide?</h3>
         <p>
@@ -1041,7 +117,7 @@
               <li><a href="#64">64. Indirect questions</a></li>
               <li><a href="#65">65. Invent and discover</a></li>
               <li><a href="#66">66. Inversion of subject &amp; verb</a></li>
-              <li><a href="#67">67. Its and it&apos;s</a></li>
+              <li><a href="#67">67. Its and it’s</a></li>
               <li><a href="#68">68. Joining sentences</a></li>
               <li><a href="#69">69. Keep and put</a></li>
               <li><a href="#70">70. Kind and kinds, sort and sorts etc.</a></li>
@@ -1063,9 +139,7 @@
               <li><a href="#82">82. No sooner ...than</a></li>
               <li><a href="#83">83. Nouns that do not have a singular form</a></li>
               <li><a href="#84">84. Nouns with no plural forms</a></li>
-              <li>
-                <a href="#85">85. Nouns with identical singular &amp; plural forms</a>
-              </li>
+              <li><a href="#85">85. Nouns with identical singular &amp; plural forms</a></li>
               <li><a href="#86">86. Numbers</a></li>
               <li><a href="#87">87. On and in</a></li>
               <li><a href="#88">88. Only</a></li>
@@ -1110,16 +184,16 @@
               <li><a href="#115">115. Well and good</a></li>
               <li><a href="#116">116. Why not + infinitive</a></li>
               <li><a href="#117">117. Whether and if</a></li>
-              <li><a href="#118">118. Whose and who&apos;s</a></li>
+              <li><a href="#118">118. Whose and who’s</a></li>
               <li><a href="#119">119. Will or shall?</a></li>
               <li><a href="#120">120. Yes and no</a></li>
             </ul>
           </div>
         </div>
 
-        <br>
-        <hr>
-        <h3 id="q1">1. According to</h3>
+        <br />
+        <hr />
+        <h3 id="1">1. According to</h3>
         <ul style="list-style: square; margin-bottom: 1.5em">
           <li>
             <span style="color: #e0162b; font-weight: bold">Incorrect</span>
@@ -1130,7 +204,7 @@
             : In my opinion, she should have resigned earlier. We do not give our own opinions with according to.
           </li>
         </ul>
-        <h3 id="q2">2. Across and through</h3>
+        <h3 id="2">2. Across and through</h3>
         <p>
           The difference between across and through is similar to the difference between on and in. We use through to talk about movement in
           three dimensional spaces with things on all sides.
@@ -1139,7 +213,7 @@
           <li>We walked across the field. (= We were on the field.)</li>
           <li>We walked through the wood. (= We were in the wood.)</li>
         </ul>
-        <h3 id="q3">3. Adjectives ending in -ly</h3>
+        <h3 id="3">3. Adjectives ending in -ly</h3>
         <ul style="list-style: square; margin-bottom: 1.5em">
           <li>
             <span style="color: #e0162b; font-weight: bold">Incorrect</span>
@@ -1166,9 +240,9 @@
           <strong>Examples are</strong>
           :
           <em>costly, friendly, lively, likely, lonely, lovely, silly and ugly</em>
-          . There are no adverbs costlily or friendlily.
+          . There are no adverbs costly/costlily or friendly / friendlily.
         </p>
-        <h3 id="q4">4. Ago and before</h3>
+        <h3 id="4">4. Ago and before</h3>
         <ul style="list-style: square; margin-bottom: 1.5em">
           <li>
             <span style="color: #e0162b; font-weight: bold">Incorrect</span>
@@ -1190,7 +264,7 @@
         <ul style="list-style: square; margin-bottom: 1.5em">
           <li>I saw him two years before I went to England.</li>
         </ul>
-        <h3 id="q5">5. All and every</h3>
+        <h3 id="5">5. All and every</h3>
         <ul style="list-style: square; margin-bottom: 1.5em">
           <li>
             <span style="color: #e0162b; font-weight: bold">Incorrect</span>
@@ -1210,7 +284,7 @@
           </li>
         </ul>
         <p>Every is used with a singular noun. All is used with a plural noun.</p>
-        <h3 id="q6">6. All right and alright</h3>
+        <h3 id="6">6. All right and alright</h3>
         <p>
           The standard spelling is
           <strong>all right</strong>
@@ -1218,7 +292,7 @@
           <strong>alright is more common</strong>
           <em>although many people consider it Incorrect.</em>
         </p>
-        <h3 id="q7">7. Already and all ready</h3>
+        <h3 id="7">7. Already and all ready</h3>
         <ul style="list-style: square; margin-bottom: 1.5em">
           <li>
             <span style="color: #e0162b; font-weight: bold">Incorrect</span>
@@ -1239,7 +313,7 @@
         </ul>
         <p>
           <strong>All ready</strong>
-          means &apos;all are ready&apos;.
+          means ‘all are ready’.
           <strong>Already</strong>
           means 'by now' or 'sooner than expected'.
         </p>
@@ -1247,7 +321,7 @@
           <li>The train had already left before we reached the station.</li>
           <li>The patient had already died before the doctor arrived.</li>
         </ul>
-        <h3 id="q8">8. Alternate and alternative</h3>
+        <h3 id="8">8. Alternate and alternative</h3>
         <p>
           <strong>Alternative</strong>
           means 'different', 'instead', 'on the other hand'.
@@ -1263,24 +337,24 @@
         <ul style="list-style: square; margin-bottom: 1.5em">
           <li>He only comes to work on alternate days.</li>
         </ul>
-        <h3 id="q9">9. Altogether and all together</h3>
+        <h3 id="9">9. Altogether and all together</h3>
         <p>
           <strong>Altogether</strong>
-          means &apos;entirely&apos; or &apos;everything considered&apos;.
+          means ‘entirely’ or ‘everything considered’.
         </p>
         <ul style="list-style: square; margin-bottom: 1.5em">
-          <li>I don&apos;t altogether agree.</li>
+          <li>I don’t altogether agree.</li>
           <li>It is altogether wrong to ill-treat animals.</li>
         </ul>
         <p>
           <strong>All together</strong>
-          simply means &apos;everybody / everything together&apos;.
+          simply means ‘everybody / everything together’.
         </p>
         <ul style="list-style: square; margin-bottom: 1.5em">
           <li>They all went out together.</li>
           <li>She put the glasses all together in the sink.</li>
         </ul>
-        <h3 id="q10">10. Any and some</h3>
+        <h3 id="10">10. Any and some</h3>
         Both some and any suggest an indefinite amount or number. Some is more common in affirmative clauses. Any is used in questions and
         negative clauses. Compare:
         <ul style="list-style: square; margin-bottom: 1.5em">
@@ -1288,7 +362,7 @@
           <li>Have you got any pencils?</li>
           <li>Sorry, I haven't got any pencils.</li>
         </ul>
-        <h3 id="q11">11. Anyhow and somehow</h3>
+        <h3 id="11">11. Anyhow and somehow</h3>
         <ul style="list-style: square; margin-bottom: 1.5em">
           <li>
             <span style="color: #e0162b; font-weight: bold">Incorrect</span>
@@ -1304,7 +378,7 @@
           </li>
           <li>
             <span style="color: #00b30a; font-weight: bold">Correct</span>
-            : He keeps his things anyhow in his desk. (= He doesn&apos;t keep his things in order.)
+            : He keeps his things anyhow in his desk. (= He doesn’t keep his things in order.)
           </li>
           <li>
             <span style="color: #e0162b; font-weight: bold">Incorrect</span>
@@ -1313,10 +387,10 @@
           <li>
             <span style="color: #00b30a; font-weight: bold">Correct</span>
             : He may not come but anyhow I shall.
-            <p>(= I will certainly come.) Use 'anyhow' to mean 'in disorder'. &apos;Anyhow&apos; can also mean 'for certain'.</p>
+            <p>(= I will certainly come.) Use 'anyhow' to mean 'in disorder'. ‘Anyhow’ can also mean 'for certain'.</p>
           </li>
         </ul>
-        <h3 id="q12">12. Articles</h3>
+        <h3 id="12">12. Articles</h3>
         <p>The misuse of the and a is very common. Here are the basic rules for the use and omission of articles.</p>
         <p>Proper nouns (e.g. John, Alice and India) do not take articles.</p>
         <ul style="list-style: square; margin-bottom: 1.5em">
@@ -1374,7 +448,7 @@
             : He is the best player in the team.
           </li>
         </ul>
-        <h3 id="q13">13. Article a – correct use</h3>
+        <h3 id="13">13. Article a – correct use</h3>
         <p>
           The article 'a' placed in front of a noun conveys the idea of 'one'. When writing about two separate objects, a second 'a' must be
           used. If the two objects are considered as one, then the second 'a' may be left out.
@@ -1406,7 +480,7 @@
             <p>(Here we are talking about one object.)</p>
           </li>
         </ul>
-        <h3 id="q14">14. Ask and ask for</h3>
+        <h3 id="14">14. Ask and ask for</h3>
         <p>
           <strong>Ask for</strong>
           : ask somebody to give something
@@ -1419,9 +493,9 @@
           <li>He asked me for a loan. (NOT He asked me a loan.)</li>
           <li>They asked ten dollars for the book.</li>
           <li>If you don't know the answer, ask the teacher.</li>
-          <li>Don't ask me my name. (NOT Don&apos;t ask me for my name)</li>
+          <li>Don't ask me my name. (NOT Don’t ask me for my name)</li>
         </ul>
-        <h3 id="q15">15. At first and first</h3>
+        <h3 id="15">15. At first and first</h3>
         <p>
           At first is used to talk about the beginning of a situation. It is often followed by but. In other cases, we usually use first.
         </p>
@@ -1429,7 +503,7 @@
           <li>At first everything seemed fine, but then things started going wrong.</li>
           <li>I first met her at a restaurant.</li>
         </ul>
-        <h3 id="q16">16. Avenge and revenge</h3>
+        <h3 id="16">16. Avenge and revenge</h3>
         <ul style="list-style: square; margin-bottom: 1.5em">
           <li>
             <span style="color: #e0162b; font-weight: bold">Incorrect</span>
@@ -1448,8 +522,8 @@
             : I must take revenge on my enemy.
           </li>
         </ul>
-        <p>These two words are often confused. To 'avenge my father' means to &apos;punish someone who has hurt my father&apos;.</p>
-        <h3 id="q17">17. Back and again</h3>
+        <p>These two words are often confused. To 'avenge my father' means to ‘punish someone who has hurt my father’.</p>
+        <h3 id="17">17. Back and again</h3>
         <p>When used with a verb, back suggests a return to an earlier situation or a movement in the opposite direction.</p>
         <ul style="list-style: square; margin-bottom: 1.5em">
           <li>Give me my watch back. (NOT Give me my watch again.)</li>
@@ -1459,7 +533,7 @@
           <li>I did not hear what you said. Please say it again.</li>
           <li>That was a lovely song. Can you play it again?</li>
         </ul>
-        <h3 id="q18">18. Bath and bathe</h3>
+        <h3 id="18">18. Bath and bathe</h3>
         <p>In British English, the verb bath is used to mean 'wash oneself in a bath tub'.</p>
         <ul style="list-style: square; margin-bottom: 1.5em">
           <li>Children should bath regularly.</li>
@@ -1480,7 +554,7 @@
           <li>I always bathe before I go to bed. (= I always take a bath before I go to bed.)</li>
         </ul>
         <p>Note that to lie in the sun is to sunbathe.</p>
-        <h3 id="q19">19. Beat and win</h3>
+        <h3 id="19">19. Beat and win</h3>
         <p>Beat is usually followed by an object which refers to the person you are playing or fighting against.</p>
         <ul style="list-style: square; margin-bottom: 1.5em">
           <li>She always beats me at poker.</li>
@@ -1493,7 +567,7 @@
           <li>She won the first prize in the quiz competition.</li>
           <li>She always wins when we play poker.</li>
         </ul>
-        <h3 id="q20">20. Because</h3>
+        <h3 id="20">20. Because</h3>
         <ul style="list-style: square; margin-bottom: 1.5em">
           <li>
             <span style="color: #e0162b; font-weight: bold">Incorrect</span>
@@ -1509,15 +583,15 @@
           <strong>Because</strong>
           is a subordinating conjunction. It must not be separated from its main clause by a full stop.
         </p>
-        <h3 id="q21">21. Because and because of</h3>
+        <h3 id="21">21. Because and because of</h3>
         <p>Because is a conjunction. It is used to join two clauses and is followed by a subject and verb.</p>
         <ul style="list-style: square; margin-bottom: 1.5em">
-          <li>We couldn&apos;t go out because it rained.</li>
+          <li>We couldn’t go out because it rained.</li>
           <li>
             I did it because he told me to do it.
             <p>
               <strong>Note</strong>
-              that the &apos;because clause&apos; can come before or after the main clause.
+              that the ‘because clause’ can come before or after the main clause.
             </p>
           </li>
           <li>Because it was so hot, we went home.</li>
@@ -1525,10 +599,10 @@
             We went home because it was so hot.
             <p>Because of is a two-word preposition. It is used before a noun or a pronoun.</p>
           </li>
-          <li>We couldn&apos;t go out because of the rain.</li>
+          <li>We couldn’t go out because of the rain.</li>
           <li>I did it because of him.</li>
         </ul>
-        <h3 id="q22">22. Because and for</h3>
+        <h3 id="22">22. Because and for</h3>
         <ul style="list-style: square; margin-bottom: 1.5em">
           <li>
             <span style="color: #e0162b; font-weight: bold">Incorrect</span>
@@ -1540,7 +614,7 @@
           </li>
         </ul>
         <p>For is hardly wrong, but it is better to use because to introduce a casual clause.</p>
-        <h3 id="q23">23. Begin and start</h3>
+        <h3 id="23">23. Begin and start</h3>
         <p>There is little or no difference between begin and start. Begin is more common in a formal style.</p>
         <ul style="list-style: square; margin-bottom: 1.5em">
           <li>He started / began working when he was 19.</li>
@@ -1554,7 +628,7 @@
           <li>How do you start a washing machine? (NOT How do you begin a washing machine?)</li>
           <li>At last the train started. (NOT At last the train began.)</li>
         </ul>
-        <h3 id="q24">24. Beside and besides</h3>
+        <h3 id="24">24. Beside and besides</h3>
         <p>
           <strong>Beside</strong>
           is a preposition. It means 'by' or 'next to'.
@@ -1581,7 +655,7 @@
           <li>Besides the violin, he can play the guitar and the piano.</li>
           <li>Who was at the party besides Jane and Peter?</li>
         </ul>
-        <h3 id="q25">25. Besides, except and apart from</h3>
+        <h3 id="25">25. Besides, except and apart from</h3>
         <p>These expressions often cause confusion. Besides usually adds whereas except subtracts.</p>
         <p>
           <strong>Compare</strong>
@@ -1595,7 +669,7 @@
           <li>
             He can play all musical instruments
             <strong>except</strong>
-            the flute. (He can&apos;t play the flute.)
+            the flute. (He can’t play the flute.)
           </li>
         </ul>
         <p>
@@ -1621,7 +695,7 @@
             </p>
           </li>
         </ul>
-        <h3 id="q26">26. Between and among</h3>
+        <h3 id="26">26. Between and among</h3>
         <p>
           We use between with two or more clearly separate people or things. We use among when the reference is to a group, a crowd, or a
           mass of people or things which we do not see separately.
@@ -1639,7 +713,7 @@
         <ul style="list-style: square; margin-bottom: 1.5em">
           <li>What is the main difference between a square and a rectangle?</li>
         </ul>
-        <h3 id="q27">27. Between and during</h3>
+        <h3 id="27">27. Between and during</h3>
         <ul style="list-style: square; margin-bottom: 1.5em">
           <li>
             <span style="color: #e0162b; font-weight: bold">Incorrect</span>
@@ -1659,7 +733,7 @@
             <p><em>Two events must be mentioned if you want to use between.</em></p>
           </li>
         </ul>
-        <h3 id="q28">28. Between and from</h3>
+        <h3 id="28">28. Between and from</h3>
         <p>A common mistake that is often noticed these days is the use of to after between.</p>
         <ul style="list-style: square; margin-bottom: 1.5em">
           <li>
@@ -1684,7 +758,7 @@
           <li>The interview will be held from 2 to 4 pm.</li>
           <li>The conference will take place from the 12th to the 18th of this month.</li>
         </ul>
-        <h3 id="q29">29. Big, large and great</h3>
+        <h3 id="29">29. Big, large and great</h3>
         <p>
           We use big and large with concrete nouns - the names of objects which we can see or touch. In an informal style, big is more
           common than large.
@@ -1706,7 +780,7 @@
           </li>
           <li>I have got a lot of luggage. (NOT I have got big/large/great luggage.)</li>
         </ul>
-        <h3 id="q30">30. Born and borne</h3>
+        <h3 id="30">30. Born and borne</h3>
         <p>The passive form of the verb born (be + born) is used to talk about coming into the world at birth.</p>
         <ul style="list-style: square; margin-bottom: 1.5em">
           <li>He was born to poor parents.</li>
@@ -1717,7 +791,7 @@
           </li>
           <li>She has borne eight children. (= She has given birth to eight children.)</li>
         </ul>
-        <h3 id="q31">31. Bring and take</h3>
+        <h3 id="31">31. Bring and take</h3>
         <ul style="list-style: square; margin-bottom: 1.5em">
           <li>
             <span style="color: #e0162b; font-weight: bold">Incorrect</span>
@@ -1764,7 +838,7 @@
             <p>(Here the file is being moved away from the area of the speaker.)</p>
           </li>
         </ul>
-        <h3 id="q32">32. But</h3>
+        <h3 id="32">32. But</h3>
         <ul style="list-style: square; margin-bottom: 1.5em">
           <li>
             <span style="color: #e0162b; font-weight: bold">Incorrect</span>
@@ -1776,10 +850,10 @@
           </li>
         </ul>
         <p>But is the conjunction to use when the second main clause gives unexpected or contradictory information.</p>
-        <h3 id="q33">33. Change of tense</h3>
+        <h3 id="33">33. Change of tense</h3>
         <p>
-          The first verb in a sentence establishes the tense of any verb that comes later. If you begin writing in the past, don&apos;t change to
-          the present. Similarly, if you begin writing in the present, don&apos;t change to the past.
+          The first verb in a sentence establishes the tense of any verb that comes later. If you begin writing in the past, don’t change to
+          the present. Similarly, if you begin writing in the present, don’t change to the past.
         </p>
         <ul style="list-style: square; margin-bottom: 1.5em">
           <li>
@@ -1799,7 +873,7 @@
             : The team won yesterday, but went and lost this afternoon.
           </li>
         </ul>
-        <h3 id="q34">34. Close and shut</h3>
+        <h3 id="34">34. Close and shut</h3>
         <p>There is little difference of meaning between close and shut.</p>
         <ul style="list-style: square; margin-bottom: 1.5em">
           <li>Shut/close your eyes.</li>
@@ -1811,12 +885,12 @@
         <ul style="list-style: square; margin-bottom: 1.5em">
           <li>You should close your existing account before opening a new account. (NOT You should shut your existing account …)</li>
         </ul>
-        <h3 id="q35">35. Cloth and clothes</h3>
+        <h3 id="35">35. Cloth and clothes</h3>
         <p>Cloth is the material used for making clothes. Clothes are things you wear.</p>
         <ul style="list-style: square; margin-bottom: 1.5em">
           <li>His clothes are made of expensive cloth.</li>
         </ul>
-        <h3 id="q36">36. Collective nouns</h3>
+        <h3 id="36">36. Collective nouns</h3>
         <p>
           Group words or collective nouns take a singular verb if you are talking of the group as a whole. They take a plural verb if you
           are talking about the individual members of the group.
@@ -1830,7 +904,7 @@
           <strong>Note</strong>
           : Collective nouns are always singular in American English.
         </p>
-        <h3 id="q37">37. Come and go</h3>
+        <h3 id="37">37. Come and go</h3>
         Come is used for movements to the place where the speaker or hearer is.
         <ul style="list-style: square; margin-bottom: 1.5em">
           <li>Come to me. (Movement towards the speaker)</li>
@@ -1842,7 +916,7 @@
           <li>Let's go and see them. (NOT Let's come and see them.)</li>
           <li>I want to go and live in the hills. (NOT I want to come and live in the hills.)</li>
         </ul>
-        <h3 id="q38">38. Common preposition + noun combinations</h3>
+        <h3 id="38">38. Common preposition + noun combinations</h3>
         <ul style="list-style: square; margin-bottom: 1.5em">
           <li>At the cinema; at the theatre; at the party; at university</li>
           <li>By car/bike/bus/train/boat/plane/land/sea/air</li>
@@ -1850,7 +924,7 @@
           <li>In pen/pencil/ink</li>
           <li>In a suit/raincoat/shirt/skirt/hat etc</li>
         </ul>
-        <h3 id="q39">39. Comparatives and superlatives</h3>
+        <h3 id="39">39. Comparatives and superlatives</h3>
         <p>
           The comparative (e.g. taller, sharper, stronger, heavier, shorter etc.) is used to compare one person or thing with another person
           or thing.
@@ -1887,7 +961,7 @@
             : She is the prettier of the two sisters.
           </li>
         </ul>
-        <h3 id="q40">40. Comparatives: a common error</h3>
+        <h3 id="40">40. Comparatives: a common error</h3>
         <p>
           In comparative sentences be careful to compare the same part of two things. That of, these of and those of are necessary words
           that are often omitted.
@@ -1918,7 +992,7 @@
             : My books are better than those of my friend.
           </li>
         </ul>
-        <h3 id="q41">41. Conjunctions</h3>
+        <h3 id="41">41. Conjunctions</h3>
         <p>One conjunction is enough to join two clauses. English does not require a second conjunction.</p>
         <ul style="list-style: square; margin-bottom: 1.5em">
           <li>
@@ -1954,7 +1028,7 @@
             : Because he is clever he gets good marks.
           </li>
         </ul>
-        <h3 id="q42">42. Correlatives</h3>
+        <h3 id="42">42. Correlatives</h3>
         <p>
           When the correlatives either...or, neither...nor, both...and, not only...but also are used, you must see that they are placed
           before words of the same part of speech.
@@ -1985,7 +1059,7 @@
             : He neither smokes nor drinks. (verb-verb)
           </li>
         </ul>
-        <h3 id="q43">43. Dead and died</h3>
+        <h3 id="43">43. Dead and died</h3>
         <p>Dead is an adjective. It is used to modify a noun.</p>
         <ul style="list-style: square; margin-bottom: 1.5em">
           <li>He is dead. (NOT He is died.)</li>
@@ -1996,7 +1070,7 @@
           <li>He has died. (NOT He has dead.)</li>
           <li>He died last year. (NOT He dead last year.)</li>
         </ul>
-        <h3 id="q44">44. Determiners</h3>
+        <h3 id="44">44. Determiners</h3>
         <p>
           Articles (a/an, the), possessives (my, your, his, her, their, our etc.) and demonstratives (this, that, these and those) are
           called Group A determiners. Note that we cannot put two Group A determiners together. We can say my cat, the cat or that cat, but
@@ -2008,7 +1082,7 @@
           <li>These shoes of mine pinch me terribly. (NOT These my shoes pinch me terribly.)</li>
           <li>Those dirty fingers of yours have stained the walls. (NOT Those your dirty fingers have ...)</li>
         </ul>
-        <h3 id="q45">45. Do and make</h3>
+        <h3 id="45">45. Do and make</h3>
         <p>Do is sometimes confused with make. Make is used to talk about building or creating.</p>
         <ul style="list-style: square; margin-bottom: 1.5em">
           <li>Let's make a cake.</li>
@@ -2016,7 +1090,7 @@
         </ul>
         <p>Do is sometimes used instead of make. This is common when we want to sound casual about a creative activity.</p>
         <ul style="list-style: square; margin-bottom: 1.5em">
-          <li>'What shall we eat?' 'Well, let me do an omelette.' (More casual than &apos;Let me make an omelette.&apos;)</li>
+          <li>'What shall we eat?' 'Well, let me do an omelette.' (More casual than ‘Let me make an omelette.’)</li>
         </ul>
         <h5>Common fixed expressions with do and make</h5>
         <p>Both do and make are used in some common fixed expressions.</p>
@@ -2025,7 +1099,7 @@
           Make a journey, an offer, arrangements, a suggestion, a decision, an attempt, an effort, an excuse, an exception, a mistake, a
           noise, a phone call, money, a profit, a fortune, love, peace, war, a bed, a fire, progress etc.
         </p>
-        <h3 id="q46">46. Double negatives</h3>
+        <h3 id="46">46. Double negatives</h3>
         <p>Never use a negative verb and a negative qualifier (e.g. nothing, hardly, scarcely, nobody etc.) together.</p>
         <ul style="list-style: square; margin-bottom: 1.5em">
           <li>
@@ -2053,7 +1127,7 @@
             : There was nobody at the door.
           </li>
         </ul>
-        <h3 id="q47">47. During and for</h3>
+        <h3 id="47">47. During and for</h3>
         <p>During is used to say when something happens. For is used to say how long it lasts.</p>
         <ul style="list-style: square; margin-bottom: 1.5em">
           <li>
@@ -2073,7 +1147,7 @@
             : I was in France for two months.
           </li>
         </ul>
-        <h3 id="q48">48. Each and every</h3>
+        <h3 id="48">48. Each and every</h3>
         <p>Use each and every together only if you want to convey very strong emphasis.</p>
         <ul style="list-style: square; margin-bottom: 1.5em">
           <li>
@@ -2089,7 +1163,7 @@
             : Everybody wore a hat.
           </li>
         </ul>
-        <h3 id="q49">49. Each other and one another</h3>
+        <h3 id="49">49. Each other and one another</h3>
         <p>
           In modern English each other and one another are used in the same way. One another is preferred when we are making general
           statements.
@@ -2101,7 +1175,7 @@
         <ul style="list-style: square; margin-bottom: 1.5em">
           <li>They would sit for hours listening to each other's / one another's tales.</li>
         </ul>
-        <h3 id="q50">50. East, eastern, north, northern etc.</h3>
+        <h3 id="50">50. East, eastern, north, northern etc.</h3>
         <p>
           The words east, west etc., are used for clearly defined places. The words eastern, western etc., are used when we are talking
           about vague areas.
@@ -2123,7 +1197,7 @@
           <li>The sun rises in the east.</li>
           <li>He came from the west.</li>
         </ul>
-        <h3 id="q51">51. Elder and eldest</h3>
+        <h3 id="51">51. Elder and eldest</h3>
         <ul style="list-style: square; margin-bottom: 1.5em">
           <li>
             <span style="color: #e0162b; font-weight: bold">Incorrect</span>
@@ -2150,10 +1224,10 @@
           <li>My elder/older brother is a writer.</li>
           <li>His eldest/oldest son is in the Army.</li>
           <li>
-            He is older than me. (NOT He is elder than me. Elder and eldest can&apos;t be used in the predicative (after a verb) position.)
+            He is older than me. (NOT He is elder than me. Elder and eldest can’t be used in the predicative (after a verb) position.)
           </li>
         </ul>
-        <h3 id="q52">52. End and finish</h3>
+        <h3 id="52">52. End and finish</h3>
         <p>When followed by a direct object, finish means complete.</p>
         <ul style="list-style: square; margin-bottom: 1.5em">
           <li>I have finished my job. (= I have completed my job.)</li>
@@ -2169,7 +1243,7 @@
         <ul style="list-style: square; margin-bottom: 1.5em">
           <li>When does the concert finish/end?</li>
         </ul>
-        <h3 id="q53">53. Enough</h3>
+        <h3 id="53">53. Enough</h3>
         <ul style="list-style: square; margin-bottom: 1.5em">
           <li>
             <span style="color: #e0162b; font-weight: bold">Incorrect</span>
@@ -2189,7 +1263,7 @@
           </li>
         </ul>
         <p>The adverb enough comes after the adjective which it qualifies.</p>
-        <h3 id="q54">54. Especially and specially</h3>
+        <h3 id="54">54. Especially and specially</h3>
         <p>Both specially and especially can often be used with the same meaning.</p>
         <ul style="list-style: square; margin-bottom: 1.5em">
           <li>It was not specially / especially cold.</li>
@@ -2202,7 +1276,7 @@
         <ul style="list-style: square; margin-bottom: 1.5em">
           <li>I made this cake specially for you.</li>
         </ul>
-        <h3 id="q55">55. Except and except for</h3>
+        <h3 id="55">55. Except and except for</h3>
         <ul style="list-style: square; margin-bottom: 1.5em">
           <li>
             <span style="color: #e0162b; font-weight: bold">Incorrect</span>
@@ -2236,7 +1310,7 @@
           <li>That was a good essay, except for a few spelling mistakes. (NOT That was a good essay, except a few spelling mistakes.)</li>
         </ul>
         <p>Before prepositions and conjunctions we use except.</p>
-        <h3 id="q56">56. Expect and hope</h3>
+        <h3 id="56">56. Expect and hope</h3>
         <ul style="list-style: square; margin-bottom: 1.5em">
           <li>
             <span style="color: #e0162b; font-weight: bold">Incorrect</span>
@@ -2254,12 +1328,12 @@
         <ul style="list-style: square; margin-bottom: 1.5em">
           <li>She is expecting a baby. (= She is pregnant now.)</li>
           <li>
-            She is hoping that it will be a girl. (She doesn&apos;t know whether it will be a boy or a girl, but she will be happier if it is a
+            She is hoping that it will be a girl. (She doesn’t know whether it will be a boy or a girl, but she will be happier if it is a
             girl.)
           </li>
         </ul>
         <p>We can expect good or bad things to happen, but we only hope for good things.</p>
-        <h3 id="q57">57. Expressions without prepositions</h3>
+        <h3 id="57">57. Expressions without prepositions</h3>
         <p>The verbs discuss, enter, marry, lack, resemble and approach are normally followed by objects without prepositions.</p>
         <ul style="list-style: square; margin-bottom: 1.5em">
           <li>
@@ -2287,7 +1361,7 @@
             : The baby resembles its dad.
           </li>
         </ul>
-        <h3 id="q58">58. Far and a long way</h3>
+        <h3 id="58">58. Far and a long way</h3>
         <p>We use far in questions and negative clauses.</p>
         <ul style="list-style: square; margin-bottom: 1.5em">
           <li>Did you walk far?</li>
@@ -2302,7 +1376,7 @@
         <ul style="list-style: square; margin-bottom: 1.5em">
           <li>You have walked a bit too far.</li>
         </ul>
-        <h3 id="q59">59. Gerund</h3>
+        <h3 id="59">59. Gerund</h3>
         <ul style="list-style: square; margin-bottom: 1.5em">
           <li>
             <span style="color: #e0162b; font-weight: bold">Incorrect</span>
@@ -2354,17 +1428,17 @@
             : There is no danger of the roof crashing.
           </li>
         </ul>
-        <h3 id="q60">60. Historic present</h3>
+        <h3 id="60">60. Historic present</h3>
         <p>
           When writing about a past event, we can use the present tense to make it appear as if the event is actually happening. Even if a
           person is dead, he or she can still be spoken of in the present tense. This is known as using the historic present.
         </p>
         <p>The following sentences are written using the historic present.</p>
         <ul style="list-style: square; margin-bottom: 1.5em">
-          <li>Winston Churchill is one of England&apos;s greatest statesmen.</li>
+          <li>Winston Churchill is one of England’s greatest statesmen.</li>
           <li>Captain Cook is responsible for white settlement in Australia.</li>
         </ul>
-        <h3 id="q61">61. I don't mind</h3>
+        <h3 id="61">61. I don't mind</h3>
         <ul style="list-style: square; margin-bottom: 1.5em">
           <li>
             <span style="color: #e0162b; font-weight: bold">Incorrect</span>
@@ -2375,12 +1449,12 @@
             : 'Will you have some coffee?' 'Thank you' OR 'No, thank you.'
           </li>
         </ul>
-        <p>Say &apos;Thanks&apos; or &apos;Thank you&apos; while accepting an offer. Say &apos;No, thanks&apos; or &apos;No, thank you&apos; while declining an offer.</p>
+        <p>Say ‘Thanks’ or ‘Thank you’ while accepting an offer. Say ‘No, thanks’ or ‘No, thank you’ while declining an offer.</p>
         <p>
           'I don't care' is rude. It shows indifference: that the person does not care whether he drinks coffee or not. 'I don't care'
           should be used only when it is permissible to indicate no strong preference.
         </p>
-        <h3 id="q62">62. If clauses</h3>
+        <h3 id="62">62. If clauses</h3>
         <ul style="list-style: square; margin-bottom: 1.5em">
           <li>
             <span style="color: #e0162b; font-weight: bold">Incorrect</span>
@@ -2428,7 +1502,7 @@
           When the verb in the main clause is in the past perfect tense, we use would/ should/could/might + have + past participle in the
           main clause.
         </p>
-        <h3 id="q63">63. Imperative sentences</h3>
+        <h3 id="63">63. Imperative sentences</h3>
         <ul style="list-style: square; margin-bottom: 1.5em">
           <li>
             <span style="color: #e0162b; font-weight: bold">Incorrect</span>
@@ -2451,7 +1525,7 @@
           It is wrong to use future tense in the subordinate clause when the verb in the main clause is in the imperative mood. In such
           clauses, the simple present should be used instead of the simple future.
         </p>
-        <h3 id="q64">64. Indirect questions</h3>
+        <h3 id="64">64. Indirect questions</h3>
         <p>
           The indirect question is really not a question at all. It has no inversion of subject and predicate as in a direct question. It
           does not use the auxiliary do either.
@@ -2466,7 +1540,7 @@
           <li>Indirect: I want to know when he proposes to start. (NOT I want to know when does he propose to start?)</li>
         </ul>
         <p>Note that we do not use a question mark at the end of an indirect question.</p>
-        <h3 id="q65">65. Invent and discover</h3>
+        <h3 id="65">65. Invent and discover</h3>
         <ul style="list-style: square; margin-bottom: 1.5em">
           <li>
             <span style="color: #e0162b; font-weight: bold">Incorrect</span>
@@ -2489,7 +1563,7 @@
           Use invent of something which did not exist until man created it. Example: a computer or a telephone. Use discover of something
           which existed without man's knowledge. Example: mineral deposits, countries, continents, planets etc.
         </p>
-        <h3 id="q66">66. Inversion of subject and verb</h3>
+        <h3 id="66">66. Inversion of subject and verb</h3>
         <ul style="list-style: square; margin-bottom: 1.5em">
           <li>
             <span style="color: #e0162b; font-weight: bold">Incorrect</span>
@@ -2509,17 +1583,17 @@
           </li>
         </ul>
         <p>When the first word of the sentence is a negative, the main verb comes before the subject, as in a direct question.</p>
-        <h3 id="q67">67. Its and it&apos;s</h3>
+        <h3 id="67">67. Its and it’s</h3>
         <p>These two words often cause confusion. Its is the possessive form of it.</p>
         <ul style="list-style: square; margin-bottom: 1.5em">
           <li>Every country has its traditions.</li>
         </ul>
-        <p>It&apos;s is the contracted form of it is or it has.</p>
+        <p>It’s is the contracted form of it is or it has.</p>
         <ul style="list-style: square; margin-bottom: 1.5em">
-          <li>It&apos;s raining. (= It is raining.)</li>
-          <li>It&apos;s gone. (= It has gone.)</li>
+          <li>It’s raining. (= It is raining.)</li>
+          <li>It’s gone. (= It has gone.)</li>
         </ul>
-        <h3 id="q68">68. Joining sentences</h3>
+        <h3 id="68">68. Joining sentences</h3>
         <ul style="list-style: square; margin-bottom: 1.5em">
           <li>
             <span style="color: #e0162b; font-weight: bold">Incorrect</span>
@@ -2547,7 +1621,7 @@
           </li>
         </ul>
         <p>Two main clauses which are not separated by a full stop should be linked by a conjunction or a relative pronoun.</p>
-        <h3 id="q69">69. Keep and put</h3>
+        <h3 id="69">69. Keep and put</h3>
         <ul style="list-style: square; margin: 1.5em 0">
           <li>
             <span style="color: #e0162b; font-weight: bold">Incorrect</span>
@@ -2573,7 +1647,7 @@
           <strong>put</strong>
           for only a temporary one.
         </p>
-        <h3 id="q70">70. Kind and kinds, sort and sorts etc.</h3>
+        <h3 id="70">70. Kind and kinds, sort and sorts etc.</h3>
         <p>
           The words kind, sort, type and class are singular and should be used with this or that to modify a singular noun. The words kinds,
           sorts, types and classes are plural and should be used with these or those to modify plural nouns.
@@ -2612,7 +1686,7 @@
             : These types of cars are very fast.
           </li>
         </ul>
-        <h3 id="q71">71. Less and fewer</h3>
+        <h3 id="71">71. Less and fewer</h3>
         <p>Less refers to a quantity that cannot be counted. Fewer refers to a number that can be counted. Compare:</p>
         <ul style="list-style: square; margin-bottom: 1.5em">
           <li>I am eating less meat.</li>
@@ -2620,7 +1694,7 @@
           <li>There were fewer children in the class than expected.</li>
           <li>We did less work today than yesterday.</li>
         </ul>
-        <h3 id="q72">72. Lie and lay</h3>
+        <h3 id="72">72. Lie and lay</h3>
         <ul style="list-style: square; margin-bottom: 1.5em">
           <li>
             <span style="color: #e0162b; font-weight: bold">Incorrect</span>
@@ -2669,7 +1743,7 @@
           <li>I have lain on the bed.</li>
         </ul>
         <p>
-          To lie also means &apos;to not tell the truth&apos;. Its different forms are given below: Infinitive: lie; -ing form: lying; past tense:
+          To lie also means ‘to not tell the truth’. Its different forms are given below: Infinitive: lie; -ing form: lying; past tense:
           lied; past participle: lied
         </p>
         <ul style="list-style: square; margin-bottom: 1.5em">
@@ -2680,7 +1754,7 @@
           <li>I have lied.</li>
         </ul>
         <p>
-          To lay means &apos;to put something down.&apos; Its different forms are: Infinitive: lay; -ing form: laying; past tense: laid; past
+          To lay means ‘to put something down.’ Its different forms are: Infinitive: lay; -ing form: laying; past tense: laid; past
           participle: laid
         </p>
         <ul style="list-style: square; margin-bottom: 1.5em">
@@ -2690,7 +1764,7 @@
           <li>I laid the plate on the table.</li>
           <li>I have laid the plate on the table.</li>
         </ul>
-        <h3 id="q73">73. Like and as</h3>
+        <h3 id="73">73. Like and as</h3>
         <p>As is followed by a clause. Like is followed by a noun.</p>
         <ul style="list-style: square; margin-bottom: 1.5em">
           <li>
@@ -2714,19 +1788,19 @@
             : He fought as a tiger does.
           </li>
         </ul>
-        <h3 id="q74">74. Look after and look for</h3>
-        <p>Look after means &apos;take care of&apos;. Look for means &apos;try to find&apos;.</p>
+        <h3 id="74">74. Look after and look for</h3>
+        <p>Look after means ‘take care of’. Look for means ‘try to find’.</p>
         <ul style="list-style: square; margin-bottom: 1.5em">
           <li>Nurses look after sick people. (= Nurses take care of sick people.)</li>
           <li>I am looking for my keys. (= I am trying to find my keys.)</li>
         </ul>
-        <h3 id="q75">75. Lose and loose</h3>
+        <h3 id="75">75. Lose and loose</h3>
         <p>Lose is an irregular verb (lose – lost – lost). Loose is the opposite of tight. It is an adjective.</p>
         <ul style="list-style: square; margin-bottom: 1.5em">
           <li>She needs to lose oodles of weight. (NOT She needs to loose oodles of weight.)</li>
           <li>This shirt is loose for me. (NOT This shirt is lose for me.)</li>
         </ul>
-        <h3 id="q76">76. Many/much and plenty of/a lot of</h3>
+        <h3 id="76">76. Many/much and plenty of/a lot of</h3>
         <p>
           The expressions a lot of, plenty of and a great deal of are preferred in affirmative clauses. In questions and negatives, we
           usually use much or many.
@@ -2734,19 +1808,19 @@
         <p><strong>Compare:</strong></p>
         <ul style="list-style: square; margin-bottom: 1.5em">
           <li>I have a lot of work to do. (NOT I have much work to do.)</li>
-          <li>Do you have much work to do? (More natural than &apos;Do you have a lot of work to do?&apos;)</li>
+          <li>Do you have much work to do? (More natural than ‘Do you have a lot of work to do?’)</li>
         </ul>
         <ul style="list-style: square; margin-bottom: 1.5em">
-          <li>No, I don&apos;t have much work to do. (More natural than &apos;No, I don&apos;t have a lot of work to do&apos;)</li>
+          <li>No, I don’t have much work to do. (More natural than ‘No, I don’t have a lot of work to do’)</li>
           <li>Plenty of people want to buy cars.</li>
           <li>Are there many people who want cars?</li>
-          <li>Yes, but there aren&apos;t many people who can afford them. (NOT There aren&apos;t plenty of people who can afford them.)</li>
+          <li>Yes, but there aren’t many people who can afford them. (NOT There aren’t plenty of people who can afford them.)</li>
         </ul>
         <p>
           Many is occasionally used in the affirmative, but much is almost never used in that way. The expressions a lot of, plenty of and a
           great deal of are almost never used in the negative, but they are occasionally used in questions.
         </p>
-        <h3 id="q77">77. May and can</h3>
+        <h3 id="77">77. May and can</h3>
         <p>Can expresses ability.</p>
         <ul style="list-style: square; margin-bottom: 1.5em">
           <li>She can speak English.</li>
@@ -2760,9 +1834,9 @@
         </ul>
         <p>Nowadays, can is also being increasingly used to ask permission.</p>
         <ul style="list-style: square; margin-bottom: 1.5em">
-          <li>&apos;Can I come in, Sir?&apos;</li>
+          <li>‘Can I come in, Sir?’</li>
         </ul>
-        <h3 id="q78">78. Maybe and perhaps</h3>
+        <h3 id="78">78. Maybe and perhaps</h3>
         <p>
           <strong>Maybe and perhaps</strong>
           mean the same.
@@ -2772,11 +1846,11 @@
         <ul style="list-style: square; margin-bottom: 1.5em">
           <li>Maybe/perhaps he will come.</li>
         </ul>
-        <p>Perhaps is often pronounced &apos;praps&apos; by British people. In American English, perhaps is rather formal.</p>
-        <h3 id="q79">79. Much and many</h3>
+        <p>Perhaps is often pronounced ‘praps’ by British people. In American English, perhaps is rather formal.</p>
+        <h3 id="79">79. Much and many</h3>
         <p>Much is used with singular nouns. Many is used with plural nouns.</p>
         <ul style="list-style: square; margin-bottom: 1.5em">
-          <li>There aren&apos;t many people who can afford cars.</li>
+          <li>There aren’t many people who can afford cars.</li>
           <li>Have you got much work to do?</li>
         </ul>
         <p>
@@ -2784,9 +1858,9 @@
           as, so and too.
         </p>
         <ul style="list-style: square; margin-bottom: 1.5em">
-          <li>She has got lots of friends. (More natural than &apos;She has got many friends.&apos;)</li>
+          <li>She has got lots of friends. (More natural than ‘She has got many friends.’)</li>
         </ul>
-        <h3 id="q80">80. Neither, nor and not...either</h3>
+        <h3 id="80">80. Neither, nor and not...either</h3>
         <p>Negative additions to negative remarks are made with nor/neither + auxiliary verb + subject</p>
         <ul style="list-style: square; margin-bottom: 1.5em">
           <li>
@@ -2817,7 +1891,7 @@
             : 'I can't swim.' 'I can't either.'
           </li>
         </ul>
-        <h3 id="q81">81. Nominative and objective case</h3>
+        <h3 id="81">81. Nominative and objective case</h3>
         <p>Pronouns that are used as subjects of verbs are: I, he, she, we, they and you</p>
         <ul style="list-style: square; margin-bottom: 1.5em">
           <li>
@@ -2866,7 +1940,7 @@
           <li>It is me. (More natural than It is I.)</li>
           <li>That was him. (More natural than That was he.)</li>
         </ul>
-        <h3 id="q82">82. No sooner ...than</h3>
+        <h3 id="82">82. No sooner ...than</h3>
         <p>
           It is wrong to use when instead of than in these sentences. If no sooner begins the sentence, the auxiliary did or had must come
           immediately after it.
@@ -2889,7 +1963,7 @@
             : No sooner did I hear the shot than I rushed to the spot.
           </li>
         </ul>
-        <h3 id="q83">83. Nouns that do not have a singular form</h3>
+        <h3 id="83">83. Nouns that do not have a singular form</h3>
         <p>
           Some nouns do not have a singular form. Examples are: oats, cattle, pants, scissors, tongs, shears, trousers, binoculars, shorts
           and tweezers. We cannot say a pants or a cattle.
@@ -2908,7 +1982,7 @@
           <li>Trousers were hanging in the cupboard.</li>
           <li>A pair of trousers was hanging in the cupboard.</li>
         </ul>
-        <h3 id="q84">84. Nouns with no plural forms</h3>
+        <h3 id="84">84. Nouns with no plural forms</h3>
         <p>
           Some nouns do not have a plural form. Examples are: scenery, furniture, wheat, dust, silverware, information, news, luggage,
           bread, advice, chess, chewing gum, equipment, grass, permission, publicity, rubbish, traffic etc.
@@ -2940,13 +2014,13 @@
           <li>I am learning a new poem. (NOT I am learning a new poetry.)</li>
           <li>He gave me some advice. OR He gave me a piece of advice. (NOT He gave me an advice.)</li>
         </ul>
-        <h3 id="q85">85. Nouns with identical singular and plural forms</h3>
+        <h3 id="85">85. Nouns with identical singular and plural forms</h3>
         <p>Some nouns have identical singular and plural forms. Examples are: sheep and deer.</p>
         <ul style="list-style: square; margin-bottom: 1.5em">
           <li>This deer is hungry.</li>
           <li>These deer are hungry.</li>
         </ul>
-        <h3 id="q86">86. Numbers</h3>
+        <h3 id="86">86. Numbers</h3>
         <p>Write the numbers of kings and queens in Roman characters.</p>
         <ul style="list-style: square; margin-bottom: 1.5em">
           <li>Elizabeth II</li>
@@ -2982,7 +2056,7 @@
             as seems in each case the more convenient.
           </li>
         </ol>
-        <h3 id="q87">87. On and in</h3>
+        <h3 id="87">87. On and in</h3>
         <p>Use on when the meaning is clearly 'on top of'. Example: 'on a table'. Use in when 'on top of' is not appropriate.</p>
         <ul style="list-style: square; margin-bottom: 1.5em">
           <li>
@@ -3010,7 +2084,7 @@
             : He sat in a tree.
           </li>
         </ul>
-        <h3 id="q88">88. Only</h3>
+        <h3 id="88">88. Only</h3>
         <p>The word only should be written in front of and next to the word or phrase it modifies.</p>
         <p>Compare:</p>
         <ul style="list-style: square; margin-bottom: 1.5em">
@@ -3018,7 +2092,7 @@
           <li>John may play only in the garden. (= John may play nowhere else.)</li>
           <li>John may only play in the garden. (= John may play - but do nothing else - in the garden.)</li>
         </ul>
-        <h3 id="q89">89. On time and in time</h3>
+        <h3 id="89">89. On time and in time</h3>
         <ul style="list-style: square; margin-bottom: 1.5em">
           <li>
             <span style="color: #e0162b; font-weight: bold">Incorrect</span>
@@ -3030,7 +2104,7 @@
           </li>
         </ul>
         <p>In time = before the last moment; with enough time to spare</p>
-        <h3 id="q90">90. On the whole and the whole of</h3>
+        <h3 id="90">90. On the whole and the whole of</h3>
         <p>
           On the whole is used to sum up your opinion of something which is good and bad in parts. For instance, you may say, 'The script of
           the film was bad, but the story was excellent. On the whole I enjoyed it.'
@@ -3045,7 +2119,7 @@
             : It is a very good film. I liked the whole of it.
           </li>
         </ul>
-        <h3 id="q91">91. Participles</h3>
+        <h3 id="91">91. Participles</h3>
         <ul style="list-style: square; margin-bottom: 1.5em">
           <li>
             <span style="color: #e0162b; font-weight: bold">Incorrect</span>
@@ -3079,7 +2153,7 @@
             : The watch being too costly for him, he could not buy it.
           </li>
         </ul>
-        <h3 id="q92">92. Positive or comparative?</h3>
+        <h3 id="92">92. Positive or comparative?</h3>
         <ul style="list-style: square; margin-bottom: 1.5em">
           <li>
             <span style="color: #e0162b; font-weight: bold">Incorrect</span>
@@ -3103,7 +2177,7 @@
           comparative adjective, instead of a positive adjective, when growth or change is implied in a sentence. For example when we are
           talking of a boy's progress in class, we often say 'He is working better now' thinking of a time past when he worked less.
         </p>
-        <h3 id="q93">93. Past perfect tense</h3>
+        <h3 id="93">93. Past perfect tense</h3>
         <ul style="list-style: square; margin-bottom: 1.5em">
           <li>
             <span style="color: #e0162b; font-weight: bold">Incorrect</span>
@@ -3131,7 +2205,7 @@
           </li>
         </ul>
         <p>The past perfect tense should be used when the time of one past tense verb is more past than that of another.</p>
-        <h3 id="q94">94. Possessive case</h3>
+        <h3 id="94">94. Possessive case</h3>
         <p>The use of the possessive case should be confined to the following:</p>
         <p>1) Names of living beings and personified objects.</p>
         <p>Examples are:</p>
@@ -3156,11 +2230,9 @@
           <li>A hand's breadth</li>
           <li>In a year's time</li>
         </ul>
-        <h3 id="q95">95. Prepositions</h3>
+        <h3 id="95">95. Prepositions</h3>
         <p>We do not use prepositions before some common expressions, such as:</p>
-        <blockquote>
-          <em>next, last, this, that, one, every, each, some, any, all etc.</em>
-        </blockquote>
+        <blockquote><em>next, last, this, that, one, every, each, some, any, all etc.</em></blockquote>
         <ul style="list-style: square; margin-bottom: 1.5em">
           <li>
             <span style="color: #e0162b; font-weight: bold">Incorrect</span>
@@ -3189,7 +2261,7 @@
             : The party lasted all night.
           </li>
         </ul>
-        <h3 id="q96">96. Present perfect tense</h3>
+        <h3 id="96">96. Present perfect tense</h3>
         <p>
           The present perfect is a present tense. So when you use the present perfect tense, the action cannot be placed at a point of time
           in the past. However, a period of time extending up to the time of speaking can be mentioned - for two hours, for three years, in
@@ -3226,7 +2298,7 @@
           to that city.
         </p>
         <p>'He has gone to Sydney' means that he is still in Sydney; he hasn't come back yet.</p>
-        <h3 id="q97">97. Price and prize</h3>
+        <h3 id="97">97. Price and prize</h3>
         <p>The price is what you pay when you buy something. A prize is what you are given if you win a competition.</p>
         <ul style="list-style: square; margin-bottom: 1.5em">
           <li>
@@ -3246,7 +2318,7 @@
             : The boy was given a prize.
           </li>
         </ul>
-        <h3 id="q98">98. Pronouns</h3>
+        <h3 id="98">98. Pronouns</h3>
         <p>A pronoun used as subject should not be separated from its verb if possible.</p>
         <ul style="list-style: square; margin-bottom: 1.5em">
           <li>
@@ -3263,15 +2335,15 @@
         <ul style="list-style: square; margin-bottom: 1.5em">
           <li>
             All passengers were asked to show their tickets.
-            <p>(Here the pronoun &apos;their&apos; agrees with its antecedent passengers in number, gender and person.)</p>
+            <p>(Here the pronoun ‘their’ agrees with its antecedent passengers in number, gender and person.)</p>
           </li>
           <li>
-            Each girl gave her own version of the story. (Here the pronoun &apos;her&apos; agrees with its antecedent girl in number, gender and
+            Each girl gave her own version of the story. (Here the pronoun ‘her’ agrees with its antecedent girl in number, gender and
             person.)
           </li>
           <li>Every man must bear his own burden.</li>
         </ul>
-        <h3 id="q99">99. Say and tell</h3>
+        <h3 id="99">99. Say and tell</h3>
         <p>The verb tell is followed by an indirect object without to.</p>
         <ul style="list-style: square; margin-bottom: 1.5em">
           <li>
@@ -3306,7 +2378,7 @@
             : She said that she would come.
           </li>
         </ul>
-        <h3 id="q100">100. Scarcely...when</h3>
+        <h3 id="100">100. Scarcely...when</h3>
         <p>It is wrong to use than instead of when in these sentences.</p>
         <ul style="list-style: square; margin-bottom: 1.5em">
           <li>
@@ -3333,7 +2405,7 @@
             : I had scarcely solved one problem when another cropped up.
           </li>
         </ul>
-        <h3 id="q101">101. Search and search for</h3>
+        <h3 id="101">101. Search and search for</h3>
         <ul style="list-style: square; margin-bottom: 1.5em">
           <li>
             <span style="color: #e0162b; font-weight: bold">Incorrect</span>
@@ -3353,7 +2425,7 @@
           </li>
         </ul>
         <p>'I searched him' is only correct when it means 'I looked in his pockets' or something similar</p>
-        <h3 id="q102">102. Sincerely</h3>
+        <h3 id="102">102. Sincerely</h3>
         <ul style="list-style: square; margin-bottom: 1.5em">
           <li>
             <span style="color: #e0162b; font-weight: bold">Incorrect</span>
@@ -3368,7 +2440,7 @@
             : Yours sincerely
           </li>
         </ul>
-        <h3 id="q103">103. Singular and plural nouns</h3>
+        <h3 id="103">103. Singular and plural nouns</h3>
         <p>
           The pronouns another, anything, each, everyone, everybody, anyone, someone, somebody, no one, none, much, person, either and
           neither are
@@ -3411,7 +2483,7 @@
             : Each of the boys was given a prize yesterday.
           </li>
         </ul>
-        <h3 id="q104">104. Subordinate clause</h3>
+        <h3 id="104">104. Subordinate clause</h3>
         <ul style="list-style: square; margin-bottom: 1.5em">
           <li>
             <span style="color: #e0162b; font-weight: bold">Incorrect</span>
@@ -3434,7 +2506,7 @@
           When the verb in the main clause is in the future tense, the verb in the subordinate clause should be in the present and not in
           the future.
         </p>
-        <h3 id="q105">105. Suggest</h3>
+        <h3 id="105">105. Suggest</h3>
         <p>The verb suggest is used with a that-clause or a gerund (-ing form). It cannot be used with a to-infinitive.</p>
         <ul style="list-style: square; margin-bottom: 1.5em">
           <li>
@@ -3450,7 +2522,7 @@
             : She suggested that I (should) consult a doctor.
           </li>
         </ul>
-        <h3 id="q106">106. Than and as</h3>
+        <h3 id="106">106. Than and as</h3>
         <p>Object pronouns (me, him, her etc) can be used after as and than, especially in an informal style.</p>
         <ul style="list-style: square; margin-bottom: 1.5em">
           <li>She is taller than me.</li>
@@ -3465,9 +2537,9 @@
         </ul>
         <p>Note that a subject form without a verb (e.g. than I) is unusual in this structure in modern English.</p>
         <ul style="list-style: square; margin-bottom: 1.5em">
-          <li>He ran as fast as me. OR He ran as fast as I did. (More natural than &apos;He ran as fast as I&apos;.)</li>
+          <li>He ran as fast as me. OR He ran as fast as I did. (More natural than ‘He ran as fast as I’.)</li>
         </ul>
-        <h3 id="q107">107. Thank you and please</h3>
+        <h3 id="107">107. Thank you and please</h3>
         <ul style="list-style: square; margin-bottom: 1.5em">
           <li>
             <span style="color: #e0162b; font-weight: bold">Incorrect</span>
@@ -3479,7 +2551,7 @@
           </li>
         </ul>
         <p>
-          To ask people what they have said, we use 'I beg your pardon' (formal) or 'sorry' (informal). &apos;Please' cannot be used with this
+          To ask people what they have said, we use 'I beg your pardon' (formal) or 'sorry' (informal). ‘Please' cannot be used with this
           meaning.
         </p>
         <ul style="list-style: square; margin-bottom: 1.5em">
@@ -3522,7 +2594,7 @@
           </li>
         </ul>
         <p>'No, please' is always wrong. 'Yes, please' and 'No, thank you' are the polite replies when accepting and declining an offer.</p>
-        <h3 id="q108">108. Told and asked</h3>
+        <h3 id="108">108. Told and asked</h3>
         <ul style="list-style: square; margin-bottom: 1.5em">
           <li>
             <span style="color: #e0162b; font-weight: bold">Incorrect</span>
@@ -3545,7 +2617,7 @@
           Use 'I told him to...' only towards a person to whom you have a right to give an order. Use 'I asked him to...' towards a person
           of whom you can or want to make a request only.
         </p>
-        <h3 id="q109">109. Too and very</h3>
+        <h3 id="109">109. Too and very</h3>
         <ul style="list-style: square; margin-bottom: 1.5em">
           <li>
             <span style="color: #e0162b; font-weight: bold">Incorrect</span>
@@ -3564,7 +2636,7 @@
           <li>He is too fat.</li>
           <li>It is too hot to go out.</li>
         </ul>
-        <h3 id="q110">110. Transitive verbs</h3>
+        <h3 id="110">110. Transitive verbs</h3>
         <ul style="list-style: square; margin-bottom: 1.5em">
           <li>
             <span style="color: #e0162b; font-weight: bold">Incorrect</span>
@@ -3600,7 +2672,7 @@
             <p>(Here the pronouns it and me are the objects of the verb give.)</p>
           </li>
         </ul>
-        <h3 id="q111">111. Two words or one</h3>
+        <h3 id="111">111. Two words or one</h3>
         <p>The following are written as one word:</p>
         <blockquote>
           Nowadays, somehow, anyhow, everybody, into, moreover, cannot, together, today, sometimes, everyone, afterwards, everywhere,
@@ -3608,8 +2680,8 @@
         </blockquote>
         <p>The following are written as two words:</p>
         <blockquote>All right, at once, some time, at least, no one, on to</blockquote>
-        <h3 id="q112">112. Unless and if</h3>
-        <p>Unless means &apos;if not&apos; and, therefore, it is superfluous to introduce another not into the following clause.</p>
+        <h3 id="112">112. Unless and if</h3>
+        <p>Unless means ‘if not’ and, therefore, it is superfluous to introduce another not into the following clause.</p>
         <ul style="list-style: square; margin-bottom: 1.5em">
           <li>
             <span style="color: #e0162b; font-weight: bold">Incorrect</span>
@@ -3624,7 +2696,7 @@
             : If you do not give the keys of the safe, you will be shot.
           </li>
         </ul>
-        <h3 id="q113">113. Verbs</h3>
+        <h3 id="113">113. Verbs</h3>
         <p>The verbs enjoy, avoid, miss, postpone and suggest should be used with a gerund, and not an infinitive.</p>
         <ul style="list-style: square; margin-bottom: 1.5em">
           <li>
@@ -3652,22 +2724,22 @@
             : Mother suggested consulting a doctor.
           </li>
         </ul>
-        <h3 id="q114">114. -ward and –wards</h3>
+        <h3 id="114">114. -ward and –wards</h3>
         <ul style="list-style: square; margin-bottom: 1.5em">
           <li>
             <span style="color: #e0162b; font-weight: bold">Incorrect</span>
-            : You can&apos;t make a forwards pass in rugby.
+            : You can’t make a forwards pass in rugby.
           </li>
           <li>
             <span style="color: #00b30a; font-weight: bold">Correct</span>
-            : You can&apos;t make a forward pass in rugby.
+            : You can’t make a forward pass in rugby.
           </li>
         </ul>
         <p>
           The words backward(s), forward(s), upward(s), northward(s) etc., do not have the –s when they are used as adjectives. When these
           words are adverbs, they can be used with or without –s.
         </p>
-        <h3 id="q115">115. Well and good</h3>
+        <h3 id="115">115. Well and good</h3>
         <ul style="list-style: square; margin-bottom: 1.5em">
           <li>
             <span style="color: #e0162b; font-weight: bold">Incorrect</span>
@@ -3688,7 +2760,7 @@
         </ul>
         <p>
           Well is an adverb. Good is an adjective. Adverbs are used to modify verbs. Adjectives are used to modify nouns. In the sentence
-          &apos;He speaks English well&apos;, the adverb well modifies the verb speaks. Similarly, in the sentence &apos;She speaks good English&apos;, the
+          ‘He speaks English well’, the adverb well modifies the verb speaks. Similarly, in the sentence ‘She speaks good English’, the
           adjective good modifies the noun English.
         </p>
         <ul style="list-style: square; margin-bottom: 1.5em">
@@ -3702,11 +2774,11 @@
           </li>
         </ul>
         <p>Adverbs cannot usually go between the verb and the object.</p>
-        <h3 id="q116">116. Why not + infinitive</h3>
+        <h3 id="116">116. Why not + infinitive</h3>
         <p>Read the following sentence:</p>
         <p>
-          Why not arrange a party in his honor? This means &apos;Why should we not arrange a party in his honor?&apos; It is a way of suggesting
-          something for other people&apos;s consideration and acceptance.
+          Why not arrange a party in his honor? This means ‘Why should we not arrange a party in his honor?’ It is a way of suggesting
+          something for other people’s consideration and acceptance.
         </p>
         <ul style="list-style: square; margin-bottom: 1.5em">
           <li>
@@ -3727,34 +2799,34 @@
           </li>
         </ul>
         <p>This is a very common error which should be carefully avoided. No noun or pronoun should come after why not.</p>
-        <h3 id="q117">117. Whether and if</h3>
+        <h3 id="117">117. Whether and if</h3>
         <ul style="list-style: square; margin-bottom: 1.5em">
           <li>
             <span style="color: #e0162b; font-weight: bold">Incorrect</span>
-            : We haven&apos;t settled the question of if we should move to a new house.
+            : We haven’t settled the question of if we should move to a new house.
           </li>
           <li>
             <span style="color: #00b30a; font-weight: bold">Correct</span>
-            : We haven&apos;t settled the question of whether we should move to a new house.
+            : We haven’t settled the question of whether we should move to a new house.
           </li>
         </ul>
         <p>Only whether is possible after a preposition.</p>
         <ul style="list-style: square; margin-bottom: 1.5em">
           <li>
             <span style="color: #e0162b; font-weight: bold">Incorrect</span>
-            : They can&apos;t decide if to wait or leave.
+            : They can’t decide if to wait or leave.
           </li>
           <li>
             <span style="color: #00b30a; font-weight: bold">Correct</span>
-            : They can&apos;t decide whether to wait or leave. Only whether can be used before to-infinitives.
+            : They can’t decide whether to wait or leave. Only whether can be used before to-infinitives.
           </li>
         </ul>
-        <h3 id="q118">118. Whose and who&apos;s</h3>
-        <p>Whose is a possessive word. It is used in questions and relative clauses. Who&apos;s is the contraction of who is or who has.</p>
+        <h3 id="118">118. Whose and who’s</h3>
+        <p>Whose is a possessive word. It is used in questions and relative clauses. Who’s is the contraction of who is or who has.</p>
         <ul style="list-style: square; margin-bottom: 1.5em">
           <li>
             <span style="color: #e0162b; font-weight: bold">Incorrect</span>
-            : Who&apos;s is this coat?
+            : Who’s is this coat?
           </li>
           <li>
             <span style="color: #00b30a; font-weight: bold">Correct</span>
@@ -3766,41 +2838,44 @@
           </li>
           <li>
             <span style="color: #00b30a; font-weight: bold">Correct</span>
-            : Who&apos;s that over there?
+            : Who’s that over there?
           </li>
         </ul>
-        <h3 id="q119">119. Will or shall?</h3>
+        <h3 id="119">119. Will or shall?</h3>
         <p>
           The distinctions between will and shall are now strictly observed only by precise speakers. Shall is becoming less common
           especially with the second and third person pronouns. With first person pronouns, however, shall is still being used to indicate
-          the simple future. In conversation people generally use the shortened form &apos;ll.
+          the simple future. In conversation people generally use the shortened form ’ll.
         </p>
         <ul style="list-style: square; margin-bottom: 1.5em">
-          <li>We&apos;ll have a party tomorrow.</li>
-          <li>I think I&apos;ll send him a letter.</li>
+          <li>We’ll have a party tomorrow.</li>
+          <li>I think I’ll send him a letter.</li>
         </ul>
         <p>
-          In these sentences, according to strict grammatical rules, one has to use shall. But &apos;ll may be the contraction of either shall or will. However, research has shown that most people consider &apos;ll to be a contraction of will, which proves that in actual usage will has been replacing shall. Instead of using shall with second and third person pronouns to express a command, promise, threat or determination, people often use other verbs and forms of expression.
+          In these sentences, according to strict grammatical rules, one has to use shall. But ’ll may be the contraction of either shall or
+          will. However, research has shown that most people consider ’ll to be a contraction of will, which proves that in actual usage
+          will has been replacing shall. Instead of using shall with second and third person pronouns to express a command, promise, threat
+          or determination, people often use other verbs and forms of expression.
         </p>
-        <p>For example, instead of saying &apos;You shall go at once&apos;, people often say:</p>
+        <p>For example, instead of saying ‘You shall go at once’, people often say:</p>
         <ul style="list-style: square; margin-bottom: 1.5em">
           <li>You will have to go at once.</li>
           <li>You are to go at once.</li>
           <li>You must go at once.</li>
         </ul>
-        <h3 id="q120">120. Yes and no</h3>
+        <h3 id="120">120. Yes and no</h3>
         <ul style="list-style: square; margin-bottom: 1.5em">
           <li>
             <span style="color: #e0162b; font-weight: bold">Incorrect</span>
-            : &apos;Aren&apos;t you going out?&apos; &apos;Yes, I&apos;m not.&apos;
+            : ‘Aren’t you going out?’ ‘Yes, I’m not.’
           </li>
           <li>
             <span style="color: #00b30a; font-weight: bold">Correct</span>
-            : &apos;No, I&apos;m not.&apos;
+            : ‘No, I’m not.’
           </li>
           <li>
             <span style="color: #00b30a; font-weight: bold">Correct</span>
-            : &apos;Yes, I am.&apos;
+            : ‘Yes, I am.’
           </li>
         </ul>
         <p>Yes is used with affirmative sentences and no with negative sentences.</p>
