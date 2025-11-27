@@ -1,6 +1,7 @@
 Abrahamic
 actus
 ador
+Aren
 autofocus
 autoplay
 Ballmer
@@ -19,6 +20,7 @@ chzn
 classicus
 colortransforms
 costlily
+couldn
 Crêpe
 crosslint
 cspell
@@ -29,6 +31,7 @@ dedupe
 defence
 denominal
 Distributives
+doesn
 downarrow
 drey
 dropup

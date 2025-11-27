@@ -797,12 +797,13 @@
     }
 
     function updateProgress() {
-      if (!progressEl) return
       var count = 0
       for (var i = 0; i < questions.length; i++) {
         if (questions[i].complete) count++
       }
-      progressEl.textContent = count + " of " + totalQuestions + " questions completed."
+      if (progressEl) {
+        progressEl.textContent = count + " of " + totalQuestions + " questions completed."
+      }
       if (submitRow) {
         if (count === totalQuestions) submitRow.removeAttribute("hidden")
         else submitRow.setAttribute("hidden", "hidden")
