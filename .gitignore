@@ -137,3 +137,5 @@ codacy-analysis.yml-edit
 **/**/sto/
 **/**/_notes/
 .npmrc
+legacy/**
+template592f.css
