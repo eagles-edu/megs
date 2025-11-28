@@ -1,117 +1,140 @@
 #!/usr/bin/env node
-import { ArgumentParser } from 'argparse';
-import { load } from 'cheerio';
-import fs from 'fs';
-import os from 'os';
-import path from 'path';
-import { fileURLToPath } from 'url';
-import { spawnSync } from 'child_process';
+import { ArgumentParser } from "argparse"
+import { load } from "cheerio"
+import fs from "fs"
+import os from "os"
+import path from "path"
+import { fileURLToPath } from "url"
+import { spawnSync } from "child_process"
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = path.dirname(__filename)
 
 // Keep aligned with tools/legacy-exercise-generator.mjs and tools/expand-questions.mjs
-const fieldNames = ['answer_01', 'answer_02', 'answer_03', 'answer_04', 'answer_05', 'answer_06'];
+const fieldNames = ["answer_01", "answer_02", "answer_03", "answer_04", "answer_05", "answer_06"]
 
 function slugify(value) {
-  return (value || '')
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g, '-')
-    .replace(/^-+|-+$/g, '')
-    .slice(0, 80) || 'question';
+  return (
+    (value || "")
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, "-")
+      .replace(/^-+|-+$/g, "")
+      .slice(0, 80) || "question"
+  )
 }
 
 function loadHtml(targetPath) {
   try {
-    return fs.readFileSync(targetPath, 'utf8');
+    return fs.readFileSync(targetPath, "utf8")
   } catch (error) {
-    throw new Error(`Unable to read ${targetPath}: ${error.message}`);
+    throw new Error(`Unable to read ${targetPath}: ${error.message}`)
   }
 }
 
 function ensureFileExists(targetPath) {
   if (!fs.existsSync(targetPath)) {
-    throw new Error(`File not found: ${targetPath}`);
+    throw new Error(`File not found: ${targetPath}`)
   }
 }
 
 function resolvePathMaybe(relativePath) {
-  return path.isAbsolute(relativePath)
-    ? relativePath
-    : path.resolve(process.cwd(), relativePath);
+  return path.isAbsolute(relativePath) ? relativePath : path.resolve(process.cwd(), relativePath)
 }
 
 function extractInstructions($) {
-  const firstAccordion = $('.nn_sliders').first();
+  const firstAccordion = $(".nn_sliders").first()
   if (!firstAccordion.length) {
-    return '';
+    return ""
   }
 
-  const paragraphs = [];
-  let cursor = firstAccordion.prev();
+  const paragraphs = []
+  let cursor = firstAccordion.prev()
   while (cursor && cursor.length) {
-    if (cursor[0].tagName === 'p') {
-      const text = $(cursor).text().trim();
-      if (text) paragraphs.unshift(text);
+    if (cursor[0].tagName === "p") {
+      const text = $(cursor).text().trim()
+      if (text) paragraphs.unshift(text)
     }
-    cursor = cursor.prev();
+    cursor = cursor.prev()
   }
 
-  if (paragraphs.length) return paragraphs.join('\n');
-  return $('p').slice(0, 3).map((_, el) => $(el).text().trim()).get().filter(Boolean).join('\n');
+  if (paragraphs.length) return paragraphs.join("\n")
+  return $("p")
+    .slice(0, 3)
+    .map((_, el) => $(el).text().trim())
+    .get()
+    .filter(Boolean)
+    .join("\n")
 }
 
 function scrapeBreadcrumbs($) {
-  const crumbs = [];
-  $('ul.breadcrumb li').each((index, li) => {
-    const anchor = $(li).find('a').first();
-    const name = anchor.length ? anchor.text().trim() : $(li).text().trim();
-    const href = anchor.attr('href') || '';
+  const crumbs = []
+  $("ul.breadcrumb li").each((index, li) => {
+    const anchor = $(li).find("a").first()
+    const name = anchor.length ? anchor.text().trim() : $(li).text().trim()
+    const href = anchor.attr("href") || ""
     if (name) {
-      crumbs.push({ name, href, position: index });
+      crumbs.push({ name, href, position: index })
     }
-  });
-  return crumbs;
+  })
+  return crumbs
 }
 
 function scrapePager($) {
-  const pager = {};
-  const prev = $('.pager .previous a').first();
+  const pager = {}
+  const prev = $(".pager .previous a").first()
   if (prev.length) {
     pager.previous = {
-      href: prev.attr('href') || '',
-      label: prev.text().trim() || prev.attr('aria-label') || ''
-    };
+      href: prev.attr("href") || "",
+      label: prev.text().trim() || prev.attr("aria-label") || "",
+      ariaLabel: prev.attr("aria-label") || "",
+      rel: prev.attr("rel") || "prev",
+      html: prev.html() || "",
+    }
   }
-  const next = $('.pager .next a').first();
+  const next = $(".pager .next a").first()
   if (next.length) {
     pager.next = {
-      href: next.attr('href') || '',
-      label: next.text().trim() || next.attr('aria-label') || ''
-    };
+      href: next.attr("href") || "",
+      label: next.text().trim() || next.attr("aria-label") || "",
+      ariaLabel: next.attr("aria-label") || "",
+      rel: next.attr("rel") || "next",
+      html: next.html() || "",
+    }
   }
-  return pager;
+  return pager
+}
+
+function scrapeAside($) {
+  const aside = $("#aside").first()
+  if (!aside.length) return ""
+  return aside.html() || ""
 }
 
 function scrapeQuestions($) {
-  const questions = [];
-  $('.nn_sliders').each((i, element) => {
-    const wrapper = $(element);
-    const toggle = wrapper.find('.nn_sliders-toggle').first();
-    const body = wrapper.find('.nn_sliders-body').first();
-    const number = i + 1;
-    const questionText = (toggle.find('.nn_sliders-toggle-inner').text() || toggle.text() || '').trim();
-    const ariaControls = toggle.attr('aria-controls') || (toggle.attr('href') || '').replace(/^#/, '');
-    const dataId = toggle.attr('data-id') || ariaControls || `q${number}`;
-    const dataParent = toggle.attr('data-parent') || '';
-    const scrollTarget = wrapper.find('[id^="nn_sliders-scrollto"]').first().attr('id') || '';
-    const storageKey = body.attr('id') || ariaControls || dataId;
-    const answerFieldCount = wrapper
-      .find('.exercise-response-row input, .exercise-response-row textarea, .exercise-response-row select')
-      .length || 1;
+  const questions = []
+  $(".nn_sliders").each((i, element) => {
+    const wrapper = $(element)
+    const toggle = wrapper.find(".nn_sliders-toggle").first()
+    const body = wrapper.find(".nn_sliders-body").first()
+    const number = i + 1
+    const questionText = (
+      toggle.find(".nn_sliders-toggle-inner").text() ||
+      toggle.text() ||
+      ""
+    ).trim()
+    const ariaControls =
+      toggle.attr("aria-controls") || (toggle.attr("href") || "").replace(/^#/, "")
+    const dataId = toggle.attr("data-id") || ariaControls || `q${number}`
+    const dataParent = toggle.attr("data-parent") || ""
+    const scrollTarget = wrapper.find('[id^="nn_sliders-scrollto"]').first().attr("id") || ""
+    const storageKey = body.attr("id") || ariaControls || dataId
+    const answerFieldCount =
+      wrapper.find(
+        ".exercise-response-row input, .exercise-response-row textarea, .exercise-response-row select"
+      ).length || 1
 
     if (!questionText) {
-      throw new Error(`Missing question text for item ${number}`);
+      throw new Error(`Missing question text for item ${number}`)
     }
 
     questions.push({
@@ -122,26 +145,26 @@ function scrapeQuestions($) {
       dataParent,
       scrollTarget,
       storageKey,
-      answerFieldCount
-    });
-  });
-  return questions;
+      answerFieldCount,
+    })
+  })
+  return questions
 }
 
 function scrapeLegacy(legacyHtml, legacyPath) {
-  const $ = load(legacyHtml);
-  const title = $('title').first().text().trim();
-  const canonical = $('link[rel="canonical"]').attr('href')
-    || $('link[rel="non-canonical"]').attr('href')
-    || '';
-  const breadcrumbs = scrapeBreadcrumbs($);
-  const pager = scrapePager($);
-  const instructions = extractInstructions($);
-  const questions = scrapeQuestions($);
+  const $ = load(legacyHtml)
+  const title = $("title").first().text().trim()
+  const canonical =
+    $('link[rel="canonical"]').attr("href") || $('link[rel="non-canonical"]').attr("href") || ""
+  const breadcrumbs = scrapeBreadcrumbs($)
+  const pager = scrapePager($)
+  const asideHtml = scrapeAside($)
+  const instructions = extractInstructions($)
+  const questions = scrapeQuestions($)
 
-  if (!title) throw new Error('Missing <title> content');
-  if (!canonical) throw new Error('Missing canonical or rel="non-canonical" link');
-  if (!questions.length) throw new Error('No questions found (expected .nn_sliders elements)');
+  if (!title) throw new Error("Missing <title> content")
+  if (!canonical) throw new Error('Missing canonical or rel="non-canonical" link')
+  if (!questions.length) throw new Error("No questions found (expected .nn_sliders elements)")
 
   return {
     legacyPath,
@@ -149,91 +172,105 @@ function scrapeLegacy(legacyHtml, legacyPath) {
     canonical,
     breadcrumbs,
     pager,
+    asideHtml,
     instructions,
     questions,
-    totalQuestions: questions.length
-  };
+    totalQuestions: questions.length,
+  }
 }
 
 function buildResponseFields($, number, count, testMode) {
-  const row = $('<div>').addClass('exercise-response-row').attr('data-item', String(number));
-  const labelPrefix = testMode ? 'Auto-filled' : 'Response';
+  const row = $("<div>").addClass("exercise-response-row").attr("data-item", String(number))
+  const labelPrefix = testMode ? "Auto-filled" : "Response"
   for (let i = 0; i < count; i += 1) {
-    const name = fieldNames[i] || `field${i + 1}`;
-    const label = $('<label>').addClass('exercise-response-field');
+    const name = fieldNames[i] || `field${i + 1}`
+    const label = $("<label>").addClass("exercise-response-field")
     label.append(
-      $('<span>')
-        .addClass('visually-hidden')
-        .text(`${labelPrefix} for item ${number} (${name})`)
-    );
-    const input = $('<input>')
-      .addClass('exercise-response-input')
-      .attr({ type: 'text', placeholder: 'Answer', 'data-item': String(number), 'data-field': name });
+      $("<span>").addClass("visually-hidden").text(`${labelPrefix} for item ${number} (${name})`)
+    )
+    const input = $("<input>")
+      .addClass("exercise-response-input")
+      .attr({
+        type: "text",
+        placeholder: "Answer",
+        "data-item": String(number),
+        "data-field": name,
+      })
 
     if (testMode) {
-      input.attr('value', `Answer ${number}.${i + 1}`);
+      input.attr("value", `Answer ${number}.${i + 1}`)
     }
-    label.append(input);
-    row.append(label);
+    label.append(input)
+    row.append(label)
   }
-  return row;
+  return row
 }
 
 function buildQuestionDom($, question, answerFieldCount, testMode, fileName) {
-  const questBg = $('<div>').addClass('quest-bg').attr('data-exercise-question', String(question.number));
-  const groupId = `set-nn_sliders-${question.number}`;
-  const accordion = $('<div>').addClass('nn_sliders accordion panel-group').attr('id', groupId);
-  const scrollAnchorId = question.scrollTarget || `nn_sliders-scrollto_${question.number}`;
-  accordion.append($('<span>').attr('id', scrollAnchorId).addClass('anchor nn_sliders-scroll'));
+  const questBg = $("<div>")
+    .addClass("quest-bg")
+    .attr("data-exercise-question", String(question.number))
+  const groupId = `set-nn_sliders-${question.number}`
+  const accordion = $("<div>").addClass("nn_sliders accordion panel-group").attr("id", groupId)
+  const scrollAnchorId = question.scrollTarget || `nn_sliders-scrollto_${question.number}`
+  accordion.append($("<span>").attr("id", scrollAnchorId).addClass("anchor nn_sliders-scroll"))
 
-  const group = $('<div>').addClass('accordion-group panel nn_sliders-group');
-  accordion.append(group);
+  const group = $("<div>").addClass("accordion-group panel nn_sliders-group")
+  accordion.append(group)
 
-  const innerScrollId = `${scrollAnchorId}-${slugify(question.questionText)}`;
-  group.append($('<span>').attr('id', innerScrollId).addClass('anchor nn_sliders-scroll'));
+  const innerScrollId = `${scrollAnchorId}-${slugify(question.questionText)}`
+  group.append($("<span>").attr("id", innerScrollId).addClass("anchor nn_sliders-scroll"))
 
-  const heading = $('<div>').addClass('accordion-heading panel-heading');
-  const toggle = $('<a>')
-    .addClass('accordion-toggle nn_sliders-toggle')
+  const heading = $("<div>").addClass("accordion-heading panel-heading")
+  const toggle = $("<a>")
+    .addClass("accordion-toggle nn_sliders-toggle")
     .attr({
       href: `${fileName}#${question.ariaControls || question.storageKey}`,
-      'aria-label': 'Answer',
-      'data-toggle': 'collapse',
-      'data-parent': question.dataParent || `#${groupId}`,
-      'data-id': question.dataId || question.storageKey || `q${question.number}`,
-      'aria-expanded': testMode ? 'true' : 'false'
-    });
+      "aria-label": "Answer",
+      "data-toggle": "collapse",
+      "data-parent": question.dataParent || `#${groupId}`,
+      "data-id": question.dataId || question.storageKey || `q${question.number}`,
+      "aria-expanded": testMode ? "true" : "false",
+    })
   if (question.ariaControls) {
-    toggle.attr('aria-controls', question.ariaControls);
+    toggle.attr("aria-controls", question.ariaControls)
   }
-  toggle.append($('<span>').addClass('nn_sliders-toggle-inner').text(question.questionText));
-  heading.append(toggle);
-  group.append(heading);
+  toggle.append($("<span>").addClass("nn_sliders-toggle-inner").text(question.questionText))
+  heading.append(toggle)
+  group.append(heading)
 
-  const bodyId = question.storageKey || question.ariaControls || `q${question.number}`;
-  const body = $('<div>')
-    .addClass(`accordion-body nn_sliders-body${testMode ? '' : ' collapse'}`)
-    .attr({ id: bodyId, 'aria-hidden': testMode ? 'false' : 'true' });
-  const inner = $('<div>').addClass('accordion-inner panel-body');
-  inner.append($('<h2>').addClass('nn_sliders-title').text(question.questionText));
-  inner.append($('<p>').text(question.questionText));
-  body.append(inner);
+  const bodyId = question.storageKey || question.ariaControls || `q${question.number}`
+  const body = $("<div>")
+    .addClass(`accordion-body nn_sliders-body${testMode ? "" : " collapse"}`)
+    .attr({ id: bodyId, "aria-hidden": testMode ? "false" : "true" })
+  const inner = $("<div>").addClass("accordion-inner panel-body")
+  inner.append($("<h2>").addClass("nn_sliders-title").text(question.questionText))
+  inner.append($("<p>").text(question.questionText))
+  body.append(inner)
   if (testMode) {
-    body.append($('<div>').addClass('accordion-test-mode-note').text('Test mode: accordion open, answers auto-filled.'));
+    body.append(
+      $("<div>")
+        .addClass("accordion-test-mode-note")
+        .text("Test mode: accordion open, answers auto-filled.")
+    )
   }
-  group.append(body);
-  group.append(buildResponseFields($, question.number, answerFieldCount, testMode));
+  group.append(body)
+  group.append(buildResponseFields($, question.number, answerFieldCount, testMode))
 
-  questBg.append(accordion);
-  return questBg;
+  questBg.append(accordion)
+  return questBg
 }
 
 function resolveAnswerFieldCount(question, overrideCount) {
-  if (overrideCount && Number.isInteger(overrideCount) && overrideCount > 0) return overrideCount;
-  if (question.answerFieldCount && Number.isInteger(question.answerFieldCount) && question.answerFieldCount > 0) {
-    return question.answerFieldCount;
+  if (overrideCount && Number.isInteger(overrideCount) && overrideCount > 0) return overrideCount
+  if (
+    question.answerFieldCount &&
+    Number.isInteger(question.answerFieldCount) &&
+    question.answerFieldCount > 0
+  ) {
+    return question.answerFieldCount
   }
-  return 1;
+  return 1
 }
 
 function createAnswerKey(scraped, overrideAnswerFieldCount) {
@@ -275,11 +312,11 @@ function createExerciseConfig(scraped) {
     title: scraped.title,
     canonical: scraped.canonical,
     totalQuestions: scraped.totalQuestions,
-    submitUrl: '',
+    submitUrl: "",
     recipients: [],
     breadcrumbs: scraped.breadcrumbs,
-    pager: scraped.pager
-  };
+    pager: scraped.pager,
+  }
 }
 
 function injectTemplate(templateHtml, scraped, overrideAnswerFieldCount, testMode, targetPath) {
@@ -328,19 +365,38 @@ function injectTemplate(templateHtml, scraped, overrideAnswerFieldCount, testMod
     })
   }
 
-  const pager = $(".pager")
-  if (pager.length) {
-    const prev = pager.find(".previous a").first()
-    if (prev.length && scraped.pager.previous) {
-      prev.attr("href", scraped.pager.previous.href || "#")
-      prev.attr("aria-label", scraped.pager.previous.label || "Previous")
-      prev.text(scraped.pager.previous.label || "Previous")
+  const updatePagerLink = (link, data, fallbackRel) => {
+    link.attr("href", data.href || "#")
+    link.attr("rel", data.rel || fallbackRel)
+    if (data.ariaLabel || data.label) {
+      link.attr("aria-label", data.ariaLabel || data.label)
     }
-    const next = pager.find(".next a").first()
-    if (next.length && scraped.pager.next) {
-      next.attr("href", scraped.pager.next.href || "#")
-      next.attr("aria-label", scraped.pager.next.label || "Next")
-      next.text(scraped.pager.next.label || "Next")
+    if (data.html) {
+      link.html(data.html)
+    } else if (data.label) {
+      link.text(data.label)
+    }
+  }
+
+  const pagers = $(".pager")
+  if (pagers.length) {
+    pagers.each((_, pagerEl) => {
+      const pager = $(pagerEl)
+      const prev = pager.find(".previous a").first()
+      if (prev.length && scraped.pager.previous) {
+        updatePagerLink(prev, scraped.pager.previous, "prev")
+      }
+      const next = pager.find(".next a").first()
+      if (next.length && scraped.pager.next) {
+        updatePagerLink(next, scraped.pager.next, "next")
+      }
+    })
+  }
+
+  if (scraped.asideHtml) {
+    const aside = $("#aside").first()
+    if (aside.length) {
+      aside.html(scraped.asideHtml)
     }
   }
 
@@ -410,24 +466,32 @@ function collapseBooleanAttributes(html) {
   return html.replace(pattern, (match, prefix, attr) => `${prefix}${attr.toLowerCase()}`)
 }
 
+function trimTrailingWhitespace(text) {
+  return text.replace(/[ \t]+$/gm, "")
+}
+
 function backupFile(targetPath) {
-  const stamp = new Date().toISOString().replace(/[:.]/g, '-');
-  const backupName = `${path.basename(targetPath)}.bak-${stamp}`;
-  const backupPath = path.join(path.dirname(targetPath), backupName);
-  fs.copyFileSync(targetPath, backupPath);
-  return backupPath;
+  const stamp = new Date().toISOString().replace(/[:.]/g, "-")
+  const backupName = `${path.basename(targetPath)}.bak-${stamp}`
+  const backupPath = path.join(path.dirname(targetPath), backupName)
+  fs.copyFileSync(targetPath, backupPath)
+  return backupPath
 }
 
 function showDiff(original, updated) {
-  const tempDir = fs.mkdtempSync(path.join(os.tmpdir(), 'legacy-gate-'));
-  const beforePath = path.join(tempDir, 'before.html');
-  const afterPath = path.join(tempDir, 'after.html');
-  fs.writeFileSync(beforePath, original, 'utf8');
-  fs.writeFileSync(afterPath, updated, 'utf8');
-  const result = spawnSync('git', ['--no-pager', 'diff', '--no-index', '--color=always', beforePath, afterPath], {
-    encoding: 'utf8'
-  });
-  return result.stdout || result.stderr;
+  const tempDir = fs.mkdtempSync(path.join(os.tmpdir(), "legacy-gate-"))
+  const beforePath = path.join(tempDir, "before.html")
+  const afterPath = path.join(tempDir, "after.html")
+  fs.writeFileSync(beforePath, original, "utf8")
+  fs.writeFileSync(afterPath, updated, "utf8")
+  const result = spawnSync(
+    "git",
+    ["--no-pager", "diff", "--no-index", "--color=always", beforePath, afterPath],
+    {
+      encoding: "utf8",
+    }
+  )
+  return result.stdout || result.stderr
 }
 
 function validateCounts(scraped, expectedQuestions, answerKey, overrideAnswerFieldCount) {
@@ -466,51 +530,67 @@ function validateCounts(scraped, expectedQuestions, answerKey, overrideAnswerFie
 
 function main() {
   const parser = new ArgumentParser({
-    description: 'Convert legacy accordion HTML into gated exercise template.'
-  });
-  parser.add_argument('htmlPath', { help: 'Path to the legacy HTML file to convert' });
-  parser.add_argument('--questions', { type: 'int', help: 'Override question count validation' });
-  parser.add_argument('--answer-fields', {
-    type: 'int',
+    description: "Convert legacy accordion HTML into gated exercise template.",
+  })
+  parser.add_argument("htmlPath", { help: "Path to the legacy HTML file to convert" })
+  parser.add_argument("--questions", { type: "int", help: "Override question count validation" })
+  parser.add_argument("--answer-fields", {
+    type: "int",
     default: null,
-    dest: 'answerFields',
-    help: 'Override number of answer input fields per question (defaults to scraped count)'
-  });
-  parser.add_argument('--template', {
-    default: path.join(__dirname, '..', 'exercise-1-nouns', '111-common-nouns.html'),
-    help: 'Path to the gated template HTML clone'
-  });
-  parser.add_argument('--dry-run', { action: 'store_true', help: 'Skip writing, only report actions' });
-  parser.add_argument('--diff-preview', { action: 'store_true', help: 'Show git-style diff preview' });
-  parser.add_argument('--test-mode', { action: 'store_true', help: 'Auto-fill answers and bypass accordion gating' });
+    dest: "answerFields",
+    help: "Override number of answer input fields per question (defaults to scraped count)",
+  })
+  parser.add_argument("--template", {
+    default: path.join(__dirname, "..", "exercise-1-nouns", "111-common-nouns.html"),
+    help: "Path to the gated template HTML clone",
+  })
+  parser.add_argument("--dry-run", {
+    action: "store_true",
+    help: "Skip writing, only report actions",
+  })
+  parser.add_argument("--diff-preview", {
+    action: "store_true",
+    help: "Show git-style diff preview",
+  })
+  parser.add_argument("--test-mode", {
+    action: "store_true",
+    help: "Auto-fill answers and bypass accordion gating",
+  })
 
-  const args = parser.parse_args();
-  const legacyPath = resolvePathMaybe(args.htmlPath);
-  const templatePath = resolvePathMaybe(args.template);
-  ensureFileExists(legacyPath);
-  ensureFileExists(templatePath);
+  const args = parser.parse_args()
+  const legacyPath = resolvePathMaybe(args.htmlPath)
+  const templatePath = resolvePathMaybe(args.template)
+  ensureFileExists(legacyPath)
+  ensureFileExists(templatePath)
 
-  const legacyHtml = loadHtml(legacyPath);
-  const templateHtml = loadHtml(templatePath);
-  const scraped = scrapeLegacy(legacyHtml, legacyPath);
-  const answerKey = createAnswerKey(scraped, args.answerFields);
-  validateCounts(scraped, args.questions, answerKey, args.answerFields);
-  const updatedHtml = injectTemplate(templateHtml, scraped, args.answerFields, args.test_mode, legacyPath);
+  const legacyHtml = loadHtml(legacyPath)
+  const templateHtml = loadHtml(templatePath)
+  const scraped = scrapeLegacy(legacyHtml, legacyPath)
+  const answerKey = createAnswerKey(scraped, args.answerFields)
+  validateCounts(scraped, args.questions, answerKey, args.answerFields)
+  const updatedHtml = injectTemplate(
+    templateHtml,
+    scraped,
+    args.answerFields,
+    args.test_mode,
+    legacyPath
+  )
+  const cleanedHtml = trimTrailingWhitespace(updatedHtml)
 
   if (args.diff_preview) {
-    const diff = showDiff(legacyHtml, updatedHtml);
-    console.log(diff);
+    const diff = showDiff(legacyHtml, cleanedHtml)
+    console.log(diff)
   }
 
   if (args.dry_run) {
-    console.log('[dry-run] conversion complete; no files written');
-    return;
+    console.log("[dry-run] conversion complete; no files written")
+    return
   }
 
-  const backupPath = backupFile(legacyPath);
-  fs.writeFileSync(legacyPath, updatedHtml, 'utf8');
-  console.log(`Backed up original to ${backupPath}`);
-  console.log(`Wrote updated gated exercise to ${legacyPath}`);
+  const backupPath = backupFile(legacyPath)
+  fs.writeFileSync(legacyPath, cleanedHtml, "utf8")
+  console.log(`Backed up original to ${backupPath}`)
+  console.log(`Wrote updated gated exercise to ${legacyPath}`)
 }
 
-main();
+main()
