@@ -278,13 +278,14 @@ function createAnswerKey(scraped, overrideAnswerFieldCount) {
   scraped.questions.forEach((question, index) => {
     const key = `question${String(index + 1).padStart(2, "0")}`
     const answerCount = resolveAnswerFieldCount(question, overrideAnswerFieldCount)
+
     answerArray[key] = {
       id: question.dataId || question.storageKey || String(index + 1),
       answersAccepted: [],
       lengths: [answerCount],
       minLength: answerCount,
       maxLength: answerCount,
-      manualCheckOk: true,
+      manualCheckOk: false,
     }
   })
 
@@ -307,6 +308,32 @@ function createAnswerKey(scraped, overrideAnswerFieldCount) {
   }
 }
 
+function ensureAnswerKeyIsJsonSafe(answerKey) {
+  const entries = (answerKey && answerKey.answerArrays && answerKey.answerArrays.answerArray) || {}
+  Object.keys(entries).forEach((key) => {
+    const entry = entries[key] || {}
+    if (!Array.isArray(entry.answersAccepted)) entry.answersAccepted = []
+    entry.answersAccepted = entry.answersAccepted.map((combo, comboIndex) => {
+      const list = Array.isArray(combo) ? combo : [combo]
+      list.forEach((token, tokenIndex) => {
+        if (typeof token !== "string") {
+          throw new Error(
+            `Invalid answer token for ${key} at [${comboIndex}][${tokenIndex}]: expected string`
+          )
+        }
+        const trimmed = token.trim()
+        if (/^(\/\/|\/\*|#)/.test(trimmed)) {
+          throw new Error(
+            `Invalid answer token for ${key} at [${comboIndex}][${tokenIndex}]: comment-like content detected`
+          )
+        }
+      })
+      return list
+    })
+    if (entry.manualCheckOk == null) entry.manualCheckOk = false
+  })
+}
+
 function createExerciseConfig(scraped) {
   return {
     title: scraped.title,
@@ -316,6 +343,26 @@ function createExerciseConfig(scraped) {
     recipients: [],
     breadcrumbs: scraped.breadcrumbs,
     pager: scraped.pager,
+  }
+}
+
+function applyPagerLink($, target, link) {
+  if (!target.length || !link) return
+  target.attr("href", link.href || "#")
+  const ariaLabel = link.ariaLabel || link.label || target.attr("aria-label") || ""
+  if (ariaLabel) {
+    target.attr("aria-label", ariaLabel)
+  }
+  if (link.html) {
+    target.html(link.html)
+  } else if (link.label) {
+    const icons = target
+      .find("svg")
+      .toArray()
+      .map((icon) => $(icon).clone())
+    target.empty()
+    icons.forEach((icon) => target.append(icon))
+    target.append(`\u00a0\u00a0${link.label}`)
   }
 }
 
@@ -365,38 +412,30 @@ function injectTemplate(templateHtml, scraped, overrideAnswerFieldCount, testMod
     })
   }
 
-  const updatePagerLink = (link, data, fallbackRel) => {
-    link.attr("href", data.href || "#")
-    link.attr("rel", data.rel || fallbackRel)
-    if (data.ariaLabel || data.label) {
-      link.attr("aria-label", data.ariaLabel || data.label)
+  const pager = $(".pager")
+  if (pager.length) {
+    const prev = pager.find(".previous a").first()
+    if (prev.length && scraped.pager.previous) {
+      applyPagerLink($, prev, scraped.pager.previous)
     }
-    if (data.html) {
-      link.html(data.html)
-    } else if (data.label) {
-      link.text(data.label)
-    }
-  }
 
-  const pagers = $(".pager")
-  if (pagers.length) {
-    pagers.each((_, pagerEl) => {
-      const pager = $(pagerEl)
-      const prev = pager.find(".previous a").first()
-      if (prev.length && scraped.pager.previous) {
-        updatePagerLink(prev, scraped.pager.previous, "prev")
-      }
-      const next = pager.find(".next a").first()
-      if (next.length && scraped.pager.next) {
-        updatePagerLink(next, scraped.pager.next, "next")
-      }
-    })
+    const next = pager.find(".next a").first()
+    if (next.length && scraped.pager.next) {
+      applyPagerLink($, next, scraped.pager.next)
+    }
   }
 
   if (scraped.asideHtml) {
     const aside = $("#aside").first()
     if (aside.length) {
-      aside.html(scraped.asideHtml)
+      const recipient = aside.find(".r-flyout__link-wrap a").first()
+      const source = $(scraped.asideHtml).find(".r-flyout__link-wrap a").first()
+      if (recipient.length && source.length) {
+        recipient.attr("href", source.attr("href") || recipient.attr("href") || "#")
+        recipient.text(source.text() || recipient.text())
+      } else {
+        aside.html(scraped.asideHtml)
+      }
     }
   }
 
@@ -567,6 +606,7 @@ function main() {
   const templateHtml = loadHtml(templatePath)
   const scraped = scrapeLegacy(legacyHtml, legacyPath)
   const answerKey = createAnswerKey(scraped, args.answerFields)
+  ensureAnswerKeyIsJsonSafe(answerKey)
   validateCounts(scraped, args.questions, answerKey, args.answerFields)
   const updatedHtml = injectTemplate(
     templateHtml,
@@ -591,6 +631,7 @@ function main() {
   fs.writeFileSync(legacyPath, cleanedHtml, "utf8")
   console.log(`Backed up original to ${backupPath}`)
   console.log(`Wrote updated gated exercise to ${legacyPath}`)
+  console.log("Shift + Alt + s")
 }
 
 main()
