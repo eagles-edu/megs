@@ -102,3 +102,32 @@ div.accordion-inner > p {
 div .accordion-inner > p {
   margin: 0;
 }
+
+#exercise-status {
+  margin-top: 2em;
+  padding: 1rem 1.25rem;
+  border-top: 2px solid #cde7d8;
+  border-radius: 0 0 var(--radius, 6px) var(--radius, 6px);
+  text-align: center;
+  font-weight: 600;
+  line-height: 1.5;
+  white-space: pre-line;
+}
+
+.status-ok {
+  color: var(--success-color);
+  background: var(--secondary-color);
+  border-top-color: var(--success-border);
+}
+
+.status-warn {
+  color: var(--warning-color);
+  background: var(--warning-bg);
+  border-top-color: var(--warning-border);
+}
+
+.status-err {
+  color: var(--danger-color);
+  background: var(--danger-bg);
+  border-top-color: var(--danger-border);
+}

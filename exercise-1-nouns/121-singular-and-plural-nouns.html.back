@@ -1,30 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
+    <meta charset="utf-8" />
     <meta
       name="viewport"
-      content="width=device-width, initial-scale=1.0">
+      content="width=device-width, initial-scale=1.0" />
     <meta
       name="theme-color"
-      content="#e0162b">
+      content="#e0162b" />
     <meta
       name="keywords"
-      content="ESL, TOESL, TOEFL, courses, english, english courses, education, english degree, degree, english education, exercises, english exercises, grammar, verb, english grammar, noun, adverb, adjective, english adverb, english noun, english adjective">
+      content="ESL, TOESL, TOEFL, courses, english, english courses, education, english degree, degree, english education, exercises, english exercises, grammar, verb, english grammar, noun, adverb, adjective, english adverb, english noun, english adjective" />
     <meta
       name="description"
-      content="A comprehensive site for free English courses and exercises.">
+      content="A comprehensive site for free English courses and exercises." />
     <meta
       name="generator"
-      content="English Grammar - intermediate levels A2 and above">
+      content="English Grammar - intermediate levels A2 and above" />
     <link
       href="121-singular-and-plural-nouns.html"
-      rel="non-canonical">
+      rel="non-canonical" />
     <title>1.2.1 Singular and Plural Nouns</title>
     <link
       href="../favicon.ico"
       rel="shortcut icon"
-      type="image/vnd.microsoft.icon">
+      type="image/vnd.microsoft.icon" />
     <!-- theme-vars.css eliminated; variables live in base.css -->
 
     <!-- Minimal theme tokens inline to avoid var() FOUC when base.css loads async -->
@@ -126,16 +126,16 @@
       rel="preload"
       href="../web-asset/css/base.css"
       as="style"
-      onload="this.onload=null;this.rel='stylesheet'">
+      onload="this.onload=null;this.rel='stylesheet'" />
     <link
       rel="stylesheet"
       href="../web-asset/css/base.css"
       media="print"
-      onload="this.media='all'">
+      onload="this.media='all'" />
     <noscript>
       <link
         rel="stylesheet"
-        href="../web-asset/css/base.css">
+        href="../web-asset/css/base.css" />
     </noscript>
     <style id="pager-style-overrides">
       .pager {
@@ -236,13 +236,13 @@
     <!-- Critical resource hints for better performance -->
     <link
       rel="dns-prefetch"
-      href="../images/">
+      href="../images/" />
     <link
       rel="dns-prefetch"
-      href="../web-asset/">
+      href="../web-asset/" />
     <link
       rel="dns-prefetch"
-      href="../js/">
+      href="../js/" />
 
     <style id="critical-inline">
       /* Critical CSS: reset + fast header paint + mobile toggle */
@@ -904,16 +904,16 @@
     <link
       rel="preload"
       href="../web-asset/css/exercises.css"
-      as="style">
+      as="style" />
     <link
       rel="stylesheet"
       href="../web-asset/css/exercises.css"
       media="print"
-      onload="this.media='all'">
+      onload="this.media='all'" />
     <noscript>
       <link
         rel="stylesheet"
-        href="../web-asset/css/exercises.css">
+        href="../web-asset/css/exercises.css" />
     </noscript>
     <!-- Use system default fonts (no webfont preloads) -->
 
@@ -921,65 +921,65 @@
     <link
       rel="preload"
       href="../web-asset/css/right-rail-flyout.css"
-      as="style">
+      as="style" />
     <link
       rel="stylesheet"
       href="../web-asset/css/right-rail-flyout.css"
       media="print"
-      onload="this.media='all'">
+      onload="this.media='all'" />
     <noscript>
       <link
         rel="stylesheet"
-        href="../web-asset/css/right-rail-flyout.css">
+        href="../web-asset/css/right-rail-flyout.css" />
     </noscript>
     <!-- Left-menu.css async; critical inline reserves layout to avoid flash -->
     <link
       rel="preload"
       href="../web-asset/css/left-menu.css"
-      as="style">
+      as="style" />
     <link
       rel="stylesheet"
       href="../web-asset/css/left-menu.css"
       media="print"
-      onload="this.media='all'">
+      onload="this.media='all'" />
     <noscript>
       <link
         rel="stylesheet"
-        href="../web-asset/css/left-menu.css">
+        href="../web-asset/css/left-menu.css" />
     </noscript>
     <link
       rel="preload"
       href="../web-asset/css/page-classes.css"
-      as="style">
+      as="style" />
     <link
       rel="stylesheet"
       href="../web-asset/css/page-classes.css"
       media="print"
-      onload="this.media='all'">
+      onload="this.media='all'" />
     <noscript>
       <link
         rel="stylesheet"
-        href="../web-asset/css/page-classes.css">
+        href="../web-asset/css/page-classes.css" />
     </noscript>
     <!-- Removed jQuery/Bootstrap/nn_sliders/template scripts on codex variant to keep console clean -->
     <link
       rel="preload"
       href="../web-asset/css/exercise-1-nouns_new.css"
-      as="style">
+      as="style" />
     <link
       rel="stylesheet"
       href="../web-asset/css/exercise-1-nouns_new.css"
       media="print"
-      onload="this.media='all'">
+      onload="this.media='all'" />
     <noscript>
       <link
         rel="stylesheet"
-        href="../web-asset/css/exercise-1-nouns_new.css">
+        href="../web-asset/css/exercise-1-nouns_new.css" />
     </noscript>
     <!-- Codex QA slider scoped overrides (synchronous to avoid flash) -->
     <link
       rel="stylesheet"
-      href="../web-asset/css/qa-accordion.css">
+      href="../web-asset/css/qa-accordion.css" />
     <!-- No-JS fallback: show all answers if scripting is disabled -->
     <noscript>
       <style>
@@ -1096,7 +1096,8 @@
                               viewBox="0 0 48 48"
                               fill="currentColor">
                               <title>display</title>
-                              <path d="M0 3v30h48v-30h-48zM45 30h-42v-24h42v24zM31.5 36h-15l-1.5 6-3 3h24l-3-3z"></path>
+                              <path
+                                d="M0 3v30h48v-30h-48zM45 30h-42v-24h42v24zM31.5 36h-15l-1.5 6-3 3h24l-3-3z"></path>
                             </svg>
                             Lessons
                           </a>
@@ -1322,11 +1323,11 @@
                         src="../images/arrow.svg"
                         alt=""
                         width="9"
-                        height="9">
+                        height="9" />
                     </span>
                     <meta
                       itemprop="position"
-                      content="1">
+                      content="1" />
                   </li>
                   <li
                     itemprop="itemListElement"
@@ -1344,11 +1345,11 @@
                         src="../images/arrow.svg"
                         alt=""
                         width="9"
-                        height="9">
+                        height="9" />
                     </span>
                     <meta
                       itemprop="position"
-                      content="2">
+                      content="2" />
                   </li>
                   <li
                     itemprop="itemListElement"
@@ -1358,12 +1359,15 @@
                     <span itemprop="name">1.2.1 Singular and Plural Nouns</span>
                     <meta
                       itemprop="position"
-                      content="3">
+                      content="3" />
                   </li>
                 </ul>
               </div>
               <div itemprop="articleBody">
-                <p>Rewrite the following sentences making them plural. Click the sentence for the answer.</p>
+                <p>
+                  Rewrite the following sentences making them plural. Click the sentence for the
+                  answer.
+                </p>
                 <ul class="pager pagenav">
                   <li class="previous">
                     <a
@@ -1420,7 +1424,7 @@
                             autocomplete="email"
                             required
                             data-exercise-email=""
-                            placeholder="name@example.com">
+                            placeholder="name@example.com" />
                         </div>
                         <div class="exercise-form__student-id">
                           <input
@@ -1436,7 +1440,7 @@
                             pattern="^[a-z]+\d{3}$"
                             data-exercise-student-id=""
                             placeholder="Eagles user ID - e.g., tammy001"
-                            aria-describedby="exercise-student-id-note">
+                            aria-describedby="exercise-student-id-note" />
                         </div>
                       </div>
                       <p
@@ -1480,7 +1484,9 @@
                             data-id="q1-the-child-asks-for-a-toy-hippopotamus"
                             aria-expanded="false"
                             aria-controls="121-singular-and-plural-nouns.html#1-the-child-asks-for-a-toy-hippopotamus">
-                            <span class="nn_sliders-toggle-inner">1. The child asks for a toy hippopotamus.</span>
+                            <span class="nn_sliders-toggle-inner">
+                              1. The child asks for a toy hippopotamus.
+                            </span>
                           </a>
                         </div>
                         <div
@@ -1488,23 +1494,68 @@
                           id="q1-the-child-asks-for-a-toy-hippopotamus"
                           aria-hidden="true">
                           <div class="accordion-inner panel-body">
-                            <h2 class="nn_sliders-title">1. The child asks for a toy hippopotamus.</h2>
+                            <h2 class="nn_sliders-title">
+                              1. The child asks for a toy hippopotamus.
+                            </h2>
                             <p>1. The child asks for a toy hippopotamus.</p>
                           </div>
                         </div>
                         <div
-                          class="exercise-response-row exercise-response-row--long"
-                          data-item="1"
-                          data-answer-ui="textarea">
-                          <label class="exercise-response-field exercise-response-field--long">
+                          class="exercise-response-row"
+                          data-item="1">
+                          <label class="exercise-response-field">
                             <span class="visually-hidden">Response for item 1 (answer_01)</span>
-                            <textarea
-                              class="exercise-response-input exercise-response-input--textarea"
-                              rows="3"
-                              placeholder="Rewrite here"
+                            <input
+                              class="exercise-response-input"
+                              type="text"
+                              placeholder="Answer"
                               data-item="1"
-                              data-field="answer_01"
-                              data-autosize="true"></textarea>
+                              data-field="answer_01" />
+                          </label>
+                          <label class="exercise-response-field">
+                            <span class="visually-hidden">Response for item 1 (answer_02)</span>
+                            <input
+                              class="exercise-response-input"
+                              type="text"
+                              placeholder="Answer"
+                              data-item="1"
+                              data-field="answer_02" />
+                          </label>
+                          <label class="exercise-response-field">
+                            <span class="visually-hidden">Response for item 1 (answer_03)</span>
+                            <input
+                              class="exercise-response-input"
+                              type="text"
+                              placeholder="Answer"
+                              data-item="1"
+                              data-field="answer_03" />
+                          </label>
+                          <label class="exercise-response-field">
+                            <span class="visually-hidden">Response for item 1 (answer_04)</span>
+                            <input
+                              class="exercise-response-input"
+                              type="text"
+                              placeholder="Answer"
+                              data-item="1"
+                              data-field="answer_04" />
+                          </label>
+                          <label class="exercise-response-field">
+                            <span class="visually-hidden">Response for item 1 (answer_05)</span>
+                            <input
+                              class="exercise-response-input"
+                              type="text"
+                              placeholder="Answer"
+                              data-item="1"
+                              data-field="answer_05" />
+                          </label>
+                          <label class="exercise-response-field">
+                            <span class="visually-hidden">Response for item 1 (answer_06)</span>
+                            <input
+                              class="exercise-response-input"
+                              type="text"
+                              placeholder="Answer"
+                              data-item="1"
+                              data-field="answer_06" />
                           </label>
                         </div>
                       </div>
@@ -1533,7 +1584,9 @@
                             data-id="q2-the-baby-cries-but-its-mother-is-missing"
                             aria-expanded="false"
                             aria-controls="121-singular-and-plural-nouns.html#2-the-baby-cries-but-its-mother-is-missing">
-                            <span class="nn_sliders-toggle-inner">2. The baby cries; but its mother is missing.</span>
+                            <span class="nn_sliders-toggle-inner">
+                              2. The baby cries; but its mother is missing.
+                            </span>
                           </a>
                         </div>
                         <div
@@ -1541,23 +1594,68 @@
                           id="q2-the-baby-cries-but-its-mother-is-missing"
                           aria-hidden="true">
                           <div class="accordion-inner panel-body">
-                            <h2 class="nn_sliders-title">2. The baby cries; but its mother is missing.</h2>
+                            <h2 class="nn_sliders-title">
+                              2. The baby cries; but its mother is missing.
+                            </h2>
                             <p>2. The baby cries; but its mother is missing.</p>
                           </div>
                         </div>
                         <div
-                          class="exercise-response-row exercise-response-row--long"
-                          data-item="2"
-                          data-answer-ui="textarea">
-                          <label class="exercise-response-field exercise-response-field--long">
+                          class="exercise-response-row"
+                          data-item="2">
+                          <label class="exercise-response-field">
                             <span class="visually-hidden">Response for item 2 (answer_01)</span>
-                            <textarea
-                              class="exercise-response-input exercise-response-input--textarea"
-                              rows="3"
-                              placeholder="Rewrite here"
+                            <input
+                              class="exercise-response-input"
+                              type="text"
+                              placeholder="Answer"
                               data-item="2"
-                              data-field="answer_01"
-                              data-autosize="true"></textarea>
+                              data-field="answer_01" />
+                          </label>
+                          <label class="exercise-response-field">
+                            <span class="visually-hidden">Response for item 2 (answer_02)</span>
+                            <input
+                              class="exercise-response-input"
+                              type="text"
+                              placeholder="Answer"
+                              data-item="2"
+                              data-field="answer_02" />
+                          </label>
+                          <label class="exercise-response-field">
+                            <span class="visually-hidden">Response for item 2 (answer_03)</span>
+                            <input
+                              class="exercise-response-input"
+                              type="text"
+                              placeholder="Answer"
+                              data-item="2"
+                              data-field="answer_03" />
+                          </label>
+                          <label class="exercise-response-field">
+                            <span class="visually-hidden">Response for item 2 (answer_04)</span>
+                            <input
+                              class="exercise-response-input"
+                              type="text"
+                              placeholder="Answer"
+                              data-item="2"
+                              data-field="answer_04" />
+                          </label>
+                          <label class="exercise-response-field">
+                            <span class="visually-hidden">Response for item 2 (answer_05)</span>
+                            <input
+                              class="exercise-response-input"
+                              type="text"
+                              placeholder="Answer"
+                              data-item="2"
+                              data-field="answer_05" />
+                          </label>
+                          <label class="exercise-response-field">
+                            <span class="visually-hidden">Response for item 2 (answer_06)</span>
+                            <input
+                              class="exercise-response-input"
+                              type="text"
+                              placeholder="Answer"
+                              data-item="2"
+                              data-field="answer_06" />
                           </label>
                         </div>
                       </div>
@@ -1596,23 +1694,70 @@
                           id="q3-i-look-up-and-a-leaf-falls-from-a-branch-and-lands-on-my-forehead"
                           aria-hidden="true">
                           <div class="accordion-inner panel-body">
-                            <h2 class="nn_sliders-title">3. I look up, and a leaf falls from a branch and lands on my forehead.</h2>
-                            <p>3. I look up, and a leaf falls from a branch and lands on my forehead.</p>
+                            <h2 class="nn_sliders-title">
+                              3. I look up, and a leaf falls from a branch and lands on my forehead.
+                            </h2>
+                            <p>
+                              3. I look up, and a leaf falls from a branch and lands on my forehead.
+                            </p>
                           </div>
                         </div>
                         <div
-                          class="exercise-response-row exercise-response-row--long"
-                          data-item="3"
-                          data-answer-ui="textarea">
-                          <label class="exercise-response-field exercise-response-field--long">
+                          class="exercise-response-row"
+                          data-item="3">
+                          <label class="exercise-response-field">
                             <span class="visually-hidden">Response for item 3 (answer_01)</span>
-                            <textarea
-                              class="exercise-response-input exercise-response-input--textarea"
-                              rows="3"
-                              placeholder="Rewrite here"
+                            <input
+                              class="exercise-response-input"
+                              type="text"
+                              placeholder="Answer"
                               data-item="3"
-                              data-field="answer_01"
-                              data-autosize="true"></textarea>
+                              data-field="answer_01" />
+                          </label>
+                          <label class="exercise-response-field">
+                            <span class="visually-hidden">Response for item 3 (answer_02)</span>
+                            <input
+                              class="exercise-response-input"
+                              type="text"
+                              placeholder="Answer"
+                              data-item="3"
+                              data-field="answer_02" />
+                          </label>
+                          <label class="exercise-response-field">
+                            <span class="visually-hidden">Response for item 3 (answer_03)</span>
+                            <input
+                              class="exercise-response-input"
+                              type="text"
+                              placeholder="Answer"
+                              data-item="3"
+                              data-field="answer_03" />
+                          </label>
+                          <label class="exercise-response-field">
+                            <span class="visually-hidden">Response for item 3 (answer_04)</span>
+                            <input
+                              class="exercise-response-input"
+                              type="text"
+                              placeholder="Answer"
+                              data-item="3"
+                              data-field="answer_04" />
+                          </label>
+                          <label class="exercise-response-field">
+                            <span class="visually-hidden">Response for item 3 (answer_05)</span>
+                            <input
+                              class="exercise-response-input"
+                              type="text"
+                              placeholder="Answer"
+                              data-item="3"
+                              data-field="answer_05" />
+                          </label>
+                          <label class="exercise-response-field">
+                            <span class="visually-hidden">Response for item 3 (answer_06)</span>
+                            <input
+                              class="exercise-response-input"
+                              type="text"
+                              placeholder="Answer"
+                              data-item="3"
+                              data-field="answer_06" />
                           </label>
                         </div>
                       </div>
@@ -1641,7 +1786,9 @@
                             data-id="q4-the-lady-uses-a-knife-to-cut-a-potato-and-a-chilli"
                             aria-expanded="false"
                             aria-controls="121-singular-and-plural-nouns.html#4-the-lady-uses-a-knife-to-cut-a-potato-and-a-chilli">
-                            <span class="nn_sliders-toggle-inner">4. The lady uses a knife to cut a potato and a chilli.</span>
+                            <span class="nn_sliders-toggle-inner">
+                              4. The lady uses a knife to cut a potato and a chilli.
+                            </span>
                           </a>
                         </div>
                         <div
@@ -1649,23 +1796,68 @@
                           id="q4-the-lady-uses-a-knife-to-cut-a-potato-and-a-chilli"
                           aria-hidden="true">
                           <div class="accordion-inner panel-body">
-                            <h2 class="nn_sliders-title">4. The lady uses a knife to cut a potato and a chilli.</h2>
+                            <h2 class="nn_sliders-title">
+                              4. The lady uses a knife to cut a potato and a chilli.
+                            </h2>
                             <p>4. The lady uses a knife to cut a potato and a chilli.</p>
                           </div>
                         </div>
                         <div
-                          class="exercise-response-row exercise-response-row--long"
-                          data-item="4"
-                          data-answer-ui="textarea">
-                          <label class="exercise-response-field exercise-response-field--long">
+                          class="exercise-response-row"
+                          data-item="4">
+                          <label class="exercise-response-field">
                             <span class="visually-hidden">Response for item 4 (answer_01)</span>
-                            <textarea
-                              class="exercise-response-input exercise-response-input--textarea"
-                              rows="3"
-                              placeholder="Rewrite here"
+                            <input
+                              class="exercise-response-input"
+                              type="text"
+                              placeholder="Answer"
                               data-item="4"
-                              data-field="answer_01"
-                              data-autosize="true"></textarea>
+                              data-field="answer_01" />
+                          </label>
+                          <label class="exercise-response-field">
+                            <span class="visually-hidden">Response for item 4 (answer_02)</span>
+                            <input
+                              class="exercise-response-input"
+                              type="text"
+                              placeholder="Answer"
+                              data-item="4"
+                              data-field="answer_02" />
+                          </label>
+                          <label class="exercise-response-field">
+                            <span class="visually-hidden">Response for item 4 (answer_03)</span>
+                            <input
+                              class="exercise-response-input"
+                              type="text"
+                              placeholder="Answer"
+                              data-item="4"
+                              data-field="answer_03" />
+                          </label>
+                          <label class="exercise-response-field">
+                            <span class="visually-hidden">Response for item 4 (answer_04)</span>
+                            <input
+                              class="exercise-response-input"
+                              type="text"
+                              placeholder="Answer"
+                              data-item="4"
+                              data-field="answer_04" />
+                          </label>
+                          <label class="exercise-response-field">
+                            <span class="visually-hidden">Response for item 4 (answer_05)</span>
+                            <input
+                              class="exercise-response-input"
+                              type="text"
+                              placeholder="Answer"
+                              data-item="4"
+                              data-field="answer_05" />
+                          </label>
+                          <label class="exercise-response-field">
+                            <span class="visually-hidden">Response for item 4 (answer_06)</span>
+                            <input
+                              class="exercise-response-input"
+                              type="text"
+                              placeholder="Answer"
+                              data-item="4"
+                              data-field="answer_06" />
                           </label>
                         </div>
                       </div>
@@ -1694,7 +1886,9 @@
                             data-id="q5-the-man-is-sure-a-mouse-bit-his-foot-while-he-was-asleep"
                             aria-expanded="false"
                             aria-controls="121-singular-and-plural-nouns.html#5-the-man-is-sure-a-mouse-bit-his-foot-while-he-was-asleep">
-                            <span class="nn_sliders-toggle-inner">5. The man is sure a mouse bit his foot while he was asleep.</span>
+                            <span class="nn_sliders-toggle-inner">
+                              5. The man is sure a mouse bit his foot while he was asleep.
+                            </span>
                           </a>
                         </div>
                         <div
@@ -1702,23 +1896,68 @@
                           id="q5-the-man-is-sure-a-mouse-bit-his-foot-while-he-was-asleep"
                           aria-hidden="true">
                           <div class="accordion-inner panel-body">
-                            <h2 class="nn_sliders-title">5. The man is sure a mouse bit his foot while he was asleep.</h2>
+                            <h2 class="nn_sliders-title">
+                              5. The man is sure a mouse bit his foot while he was asleep.
+                            </h2>
                             <p>5. The man is sure a mouse bit his foot while he was asleep.</p>
                           </div>
                         </div>
                         <div
-                          class="exercise-response-row exercise-response-row--long"
-                          data-item="5"
-                          data-answer-ui="textarea">
-                          <label class="exercise-response-field exercise-response-field--long">
+                          class="exercise-response-row"
+                          data-item="5">
+                          <label class="exercise-response-field">
                             <span class="visually-hidden">Response for item 5 (answer_01)</span>
-                            <textarea
-                              class="exercise-response-input exercise-response-input--textarea"
-                              rows="3"
-                              placeholder="Rewrite here"
+                            <input
+                              class="exercise-response-input"
+                              type="text"
+                              placeholder="Answer"
                               data-item="5"
-                              data-field="answer_01"
-                              data-autosize="true"></textarea>
+                              data-field="answer_01" />
+                          </label>
+                          <label class="exercise-response-field">
+                            <span class="visually-hidden">Response for item 5 (answer_02)</span>
+                            <input
+                              class="exercise-response-input"
+                              type="text"
+                              placeholder="Answer"
+                              data-item="5"
+                              data-field="answer_02" />
+                          </label>
+                          <label class="exercise-response-field">
+                            <span class="visually-hidden">Response for item 5 (answer_03)</span>
+                            <input
+                              class="exercise-response-input"
+                              type="text"
+                              placeholder="Answer"
+                              data-item="5"
+                              data-field="answer_03" />
+                          </label>
+                          <label class="exercise-response-field">
+                            <span class="visually-hidden">Response for item 5 (answer_04)</span>
+                            <input
+                              class="exercise-response-input"
+                              type="text"
+                              placeholder="Answer"
+                              data-item="5"
+                              data-field="answer_04" />
+                          </label>
+                          <label class="exercise-response-field">
+                            <span class="visually-hidden">Response for item 5 (answer_05)</span>
+                            <input
+                              class="exercise-response-input"
+                              type="text"
+                              placeholder="Answer"
+                              data-item="5"
+                              data-field="answer_05" />
+                          </label>
+                          <label class="exercise-response-field">
+                            <span class="visually-hidden">Response for item 5 (answer_06)</span>
+                            <input
+                              class="exercise-response-input"
+                              type="text"
+                              placeholder="Answer"
+                              data-item="5"
+                              data-field="answer_06" />
                           </label>
                         </div>
                       </div>
@@ -1747,7 +1986,9 @@
                             data-id="q6-i-took-this-photo-of-an-ox-that-is-not-mine"
                             aria-expanded="false"
                             aria-controls="121-singular-and-plural-nouns.html#6-i-took-this-photo-of-an-ox-that-is-not-mine">
-                            <span class="nn_sliders-toggle-inner">6. I took this photo of an ox that is not mine.</span>
+                            <span class="nn_sliders-toggle-inner">
+                              6. I took this photo of an ox that is not mine.
+                            </span>
                           </a>
                         </div>
                         <div
@@ -1755,23 +1996,68 @@
                           id="q6-i-took-this-photo-of-an-ox-that-is-not-mine"
                           aria-hidden="true">
                           <div class="accordion-inner panel-body">
-                            <h2 class="nn_sliders-title">6. I took this photo of an ox that is not mine.</h2>
+                            <h2 class="nn_sliders-title">
+                              6. I took this photo of an ox that is not mine.
+                            </h2>
                             <p>6. I took this photo of an ox that is not mine.</p>
                           </div>
                         </div>
                         <div
-                          class="exercise-response-row exercise-response-row--long"
-                          data-item="6"
-                          data-answer-ui="textarea">
-                          <label class="exercise-response-field exercise-response-field--long">
+                          class="exercise-response-row"
+                          data-item="6">
+                          <label class="exercise-response-field">
                             <span class="visually-hidden">Response for item 6 (answer_01)</span>
-                            <textarea
-                              class="exercise-response-input exercise-response-input--textarea"
-                              rows="3"
-                              placeholder="Rewrite here"
+                            <input
+                              class="exercise-response-input"
+                              type="text"
+                              placeholder="Answer"
                               data-item="6"
-                              data-field="answer_01"
-                              data-autosize="true"></textarea>
+                              data-field="answer_01" />
+                          </label>
+                          <label class="exercise-response-field">
+                            <span class="visually-hidden">Response for item 6 (answer_02)</span>
+                            <input
+                              class="exercise-response-input"
+                              type="text"
+                              placeholder="Answer"
+                              data-item="6"
+                              data-field="answer_02" />
+                          </label>
+                          <label class="exercise-response-field">
+                            <span class="visually-hidden">Response for item 6 (answer_03)</span>
+                            <input
+                              class="exercise-response-input"
+                              type="text"
+                              placeholder="Answer"
+                              data-item="6"
+                              data-field="answer_03" />
+                          </label>
+                          <label class="exercise-response-field">
+                            <span class="visually-hidden">Response for item 6 (answer_04)</span>
+                            <input
+                              class="exercise-response-input"
+                              type="text"
+                              placeholder="Answer"
+                              data-item="6"
+                              data-field="answer_04" />
+                          </label>
+                          <label class="exercise-response-field">
+                            <span class="visually-hidden">Response for item 6 (answer_05)</span>
+                            <input
+                              class="exercise-response-input"
+                              type="text"
+                              placeholder="Answer"
+                              data-item="6"
+                              data-field="answer_05" />
+                          </label>
+                          <label class="exercise-response-field">
+                            <span class="visually-hidden">Response for item 6 (answer_06)</span>
+                            <input
+                              class="exercise-response-input"
+                              type="text"
+                              placeholder="Answer"
+                              data-item="6"
+                              data-field="answer_06" />
                           </label>
                         </div>
                       </div>
@@ -1800,7 +2086,9 @@
                             data-id="q7-that-goose-belongs-to-his-wife"
                             aria-expanded="false"
                             aria-controls="121-singular-and-plural-nouns.html#7-that-goose-belongs-to-his-wife">
-                            <span class="nn_sliders-toggle-inner">7. That goose belongs to his wife.</span>
+                            <span class="nn_sliders-toggle-inner">
+                              7. That goose belongs to his wife.
+                            </span>
                           </a>
                         </div>
                         <div
@@ -1813,18 +2101,61 @@
                           </div>
                         </div>
                         <div
-                          class="exercise-response-row exercise-response-row--long"
-                          data-item="7"
-                          data-answer-ui="textarea">
-                          <label class="exercise-response-field exercise-response-field--long">
+                          class="exercise-response-row"
+                          data-item="7">
+                          <label class="exercise-response-field">
                             <span class="visually-hidden">Response for item 7 (answer_01)</span>
-                            <textarea
-                              class="exercise-response-input exercise-response-input--textarea"
-                              rows="3"
-                              placeholder="Rewrite here"
+                            <input
+                              class="exercise-response-input"
+                              type="text"
+                              placeholder="Answer"
                               data-item="7"
-                              data-field="answer_01"
-                              data-autosize="true"></textarea>
+                              data-field="answer_01" />
+                          </label>
+                          <label class="exercise-response-field">
+                            <span class="visually-hidden">Response for item 7 (answer_02)</span>
+                            <input
+                              class="exercise-response-input"
+                              type="text"
+                              placeholder="Answer"
+                              data-item="7"
+                              data-field="answer_02" />
+                          </label>
+                          <label class="exercise-response-field">
+                            <span class="visually-hidden">Response for item 7 (answer_03)</span>
+                            <input
+                              class="exercise-response-input"
+                              type="text"
+                              placeholder="Answer"
+                              data-item="7"
+                              data-field="answer_03" />
+                          </label>
+                          <label class="exercise-response-field">
+                            <span class="visually-hidden">Response for item 7 (answer_04)</span>
+                            <input
+                              class="exercise-response-input"
+                              type="text"
+                              placeholder="Answer"
+                              data-item="7"
+                              data-field="answer_04" />
+                          </label>
+                          <label class="exercise-response-field">
+                            <span class="visually-hidden">Response for item 7 (answer_05)</span>
+                            <input
+                              class="exercise-response-input"
+                              type="text"
+                              placeholder="Answer"
+                              data-item="7"
+                              data-field="answer_05" />
+                          </label>
+                          <label class="exercise-response-field">
+                            <span class="visually-hidden">Response for item 7 (answer_06)</span>
+                            <input
+                              class="exercise-response-input"
+                              type="text"
+                              placeholder="Answer"
+                              data-item="7"
+                              data-field="answer_06" />
                           </label>
                         </div>
                       </div>
@@ -1853,7 +2184,9 @@
                             data-id="q8-my-loaf-of-bread-is-enough-to-feed-the-fish"
                             aria-expanded="false"
                             aria-controls="121-singular-and-plural-nouns.html#8-my-loaf-of-bread-is-enough-to-feed-the-fish">
-                            <span class="nn_sliders-toggle-inner">8. My loaf of bread is enough to feed the fish.</span>
+                            <span class="nn_sliders-toggle-inner">
+                              8. My loaf of bread is enough to feed the fish.
+                            </span>
                           </a>
                         </div>
                         <div
@@ -1861,23 +2194,68 @@
                           id="q8-my-loaf-of-bread-is-enough-to-feed-the-fish"
                           aria-hidden="true">
                           <div class="accordion-inner panel-body">
-                            <h2 class="nn_sliders-title">8. My loaf of bread is enough to feed the fish.</h2>
+                            <h2 class="nn_sliders-title">
+                              8. My loaf of bread is enough to feed the fish.
+                            </h2>
                             <p>8. My loaf of bread is enough to feed the fish.</p>
                           </div>
                         </div>
                         <div
-                          class="exercise-response-row exercise-response-row--long"
-                          data-item="8"
-                          data-answer-ui="textarea">
-                          <label class="exercise-response-field exercise-response-field--long">
+                          class="exercise-response-row"
+                          data-item="8">
+                          <label class="exercise-response-field">
                             <span class="visually-hidden">Response for item 8 (answer_01)</span>
-                            <textarea
-                              class="exercise-response-input exercise-response-input--textarea"
-                              rows="3"
-                              placeholder="Rewrite here"
+                            <input
+                              class="exercise-response-input"
+                              type="text"
+                              placeholder="Answer"
                               data-item="8"
-                              data-field="answer_01"
-                              data-autosize="true"></textarea>
+                              data-field="answer_01" />
+                          </label>
+                          <label class="exercise-response-field">
+                            <span class="visually-hidden">Response for item 8 (answer_02)</span>
+                            <input
+                              class="exercise-response-input"
+                              type="text"
+                              placeholder="Answer"
+                              data-item="8"
+                              data-field="answer_02" />
+                          </label>
+                          <label class="exercise-response-field">
+                            <span class="visually-hidden">Response for item 8 (answer_03)</span>
+                            <input
+                              class="exercise-response-input"
+                              type="text"
+                              placeholder="Answer"
+                              data-item="8"
+                              data-field="answer_03" />
+                          </label>
+                          <label class="exercise-response-field">
+                            <span class="visually-hidden">Response for item 8 (answer_04)</span>
+                            <input
+                              class="exercise-response-input"
+                              type="text"
+                              placeholder="Answer"
+                              data-item="8"
+                              data-field="answer_04" />
+                          </label>
+                          <label class="exercise-response-field">
+                            <span class="visually-hidden">Response for item 8 (answer_05)</span>
+                            <input
+                              class="exercise-response-input"
+                              type="text"
+                              placeholder="Answer"
+                              data-item="8"
+                              data-field="answer_05" />
+                          </label>
+                          <label class="exercise-response-field">
+                            <span class="visually-hidden">Response for item 8 (answer_06)</span>
+                            <input
+                              class="exercise-response-input"
+                              type="text"
+                              placeholder="Answer"
+                              data-item="8"
+                              data-field="answer_06" />
                           </label>
                         </div>
                       </div>
@@ -1906,7 +2284,9 @@
                             data-id="q9-his-lorry-nearly-collided-with-the-boy-s-bicycle"
                             aria-expanded="false"
                             aria-controls="121-singular-and-plural-nouns.html#9-his-lorry-nearly-collided-with-the-boy-s-bicycle">
-                            <span class="nn_sliders-toggle-inner">9. His lorry nearly collided with the boy's bicycle.</span>
+                            <span class="nn_sliders-toggle-inner">
+                              9. His lorry nearly collided with the boy's bicycle.
+                            </span>
                           </a>
                         </div>
                         <div
@@ -1914,23 +2294,68 @@
                           id="q9-his-lorry-nearly-collided-with-the-boy-s-bicycle"
                           aria-hidden="true">
                           <div class="accordion-inner panel-body">
-                            <h2 class="nn_sliders-title">9. His lorry nearly collided with the boy's bicycle.</h2>
+                            <h2 class="nn_sliders-title">
+                              9. His lorry nearly collided with the boy's bicycle.
+                            </h2>
                             <p>9. His lorry nearly collided with the boy's bicycle.</p>
                           </div>
                         </div>
                         <div
-                          class="exercise-response-row exercise-response-row--long"
-                          data-item="9"
-                          data-answer-ui="textarea">
-                          <label class="exercise-response-field exercise-response-field--long">
+                          class="exercise-response-row"
+                          data-item="9">
+                          <label class="exercise-response-field">
                             <span class="visually-hidden">Response for item 9 (answer_01)</span>
-                            <textarea
-                              class="exercise-response-input exercise-response-input--textarea"
-                              rows="3"
-                              placeholder="Rewrite here"
+                            <input
+                              class="exercise-response-input"
+                              type="text"
+                              placeholder="Answer"
                               data-item="9"
-                              data-field="answer_01"
-                              data-autosize="true"></textarea>
+                              data-field="answer_01" />
+                          </label>
+                          <label class="exercise-response-field">
+                            <span class="visually-hidden">Response for item 9 (answer_02)</span>
+                            <input
+                              class="exercise-response-input"
+                              type="text"
+                              placeholder="Answer"
+                              data-item="9"
+                              data-field="answer_02" />
+                          </label>
+                          <label class="exercise-response-field">
+                            <span class="visually-hidden">Response for item 9 (answer_03)</span>
+                            <input
+                              class="exercise-response-input"
+                              type="text"
+                              placeholder="Answer"
+                              data-item="9"
+                              data-field="answer_03" />
+                          </label>
+                          <label class="exercise-response-field">
+                            <span class="visually-hidden">Response for item 9 (answer_04)</span>
+                            <input
+                              class="exercise-response-input"
+                              type="text"
+                              placeholder="Answer"
+                              data-item="9"
+                              data-field="answer_04" />
+                          </label>
+                          <label class="exercise-response-field">
+                            <span class="visually-hidden">Response for item 9 (answer_05)</span>
+                            <input
+                              class="exercise-response-input"
+                              type="text"
+                              placeholder="Answer"
+                              data-item="9"
+                              data-field="answer_05" />
+                          </label>
+                          <label class="exercise-response-field">
+                            <span class="visually-hidden">Response for item 9 (answer_06)</span>
+                            <input
+                              class="exercise-response-input"
+                              type="text"
+                              placeholder="Answer"
+                              data-item="9"
+                              data-field="answer_06" />
                           </label>
                         </div>
                       </div>
@@ -1959,7 +2384,9 @@
                             data-id="q10-he-lost-a-tooth-in-a-fight-with-a-bully"
                             aria-expanded="false"
                             aria-controls="121-singular-and-plural-nouns.html#10-he-lost-a-tooth-in-a-fight-with-a-bully">
-                            <span class="nn_sliders-toggle-inner">10. He lost a tooth in a fight with a bully.</span>
+                            <span class="nn_sliders-toggle-inner">
+                              10. He lost a tooth in a fight with a bully.
+                            </span>
                           </a>
                         </div>
                         <div
@@ -1967,23 +2394,68 @@
                           id="q10-he-lost-a-tooth-in-a-fight-with-a-bully"
                           aria-hidden="true">
                           <div class="accordion-inner panel-body">
-                            <h2 class="nn_sliders-title">10. He lost a tooth in a fight with a bully.</h2>
+                            <h2 class="nn_sliders-title">
+                              10. He lost a tooth in a fight with a bully.
+                            </h2>
                             <p>10. He lost a tooth in a fight with a bully.</p>
                           </div>
                         </div>
                         <div
-                          class="exercise-response-row exercise-response-row--long"
-                          data-item="10"
-                          data-answer-ui="textarea">
-                          <label class="exercise-response-field exercise-response-field--long">
+                          class="exercise-response-row"
+                          data-item="10">
+                          <label class="exercise-response-field">
                             <span class="visually-hidden">Response for item 10 (answer_01)</span>
-                            <textarea
-                              class="exercise-response-input exercise-response-input--textarea"
-                              rows="3"
-                              placeholder="Rewrite here"
+                            <input
+                              class="exercise-response-input"
+                              type="text"
+                              placeholder="Answer"
                               data-item="10"
-                              data-field="answer_01"
-                              data-autosize="true"></textarea>
+                              data-field="answer_01" />
+                          </label>
+                          <label class="exercise-response-field">
+                            <span class="visually-hidden">Response for item 10 (answer_02)</span>
+                            <input
+                              class="exercise-response-input"
+                              type="text"
+                              placeholder="Answer"
+                              data-item="10"
+                              data-field="answer_02" />
+                          </label>
+                          <label class="exercise-response-field">
+                            <span class="visually-hidden">Response for item 10 (answer_03)</span>
+                            <input
+                              class="exercise-response-input"
+                              type="text"
+                              placeholder="Answer"
+                              data-item="10"
+                              data-field="answer_03" />
+                          </label>
+                          <label class="exercise-response-field">
+                            <span class="visually-hidden">Response for item 10 (answer_04)</span>
+                            <input
+                              class="exercise-response-input"
+                              type="text"
+                              placeholder="Answer"
+                              data-item="10"
+                              data-field="answer_04" />
+                          </label>
+                          <label class="exercise-response-field">
+                            <span class="visually-hidden">Response for item 10 (answer_05)</span>
+                            <input
+                              class="exercise-response-input"
+                              type="text"
+                              placeholder="Answer"
+                              data-item="10"
+                              data-field="answer_05" />
+                          </label>
+                          <label class="exercise-response-field">
+                            <span class="visually-hidden">Response for item 10 (answer_06)</span>
+                            <input
+                              class="exercise-response-input"
+                              type="text"
+                              placeholder="Answer"
+                              data-item="10"
+                              data-field="answer_06" />
                           </label>
                         </div>
                       </div>
@@ -2012,7 +2484,9 @@
                             data-id="q11-a-passerby-stops-to-watch-a-dwarf-performs-a-dance"
                             aria-expanded="false"
                             aria-controls="121-singular-and-plural-nouns.html#11-a-passerby-stops-to-watch-a-dwarf-performs-a-dance">
-                            <span class="nn_sliders-toggle-inner">11. A passerby stops to watch a dwarf performs a dance.</span>
+                            <span class="nn_sliders-toggle-inner">
+                              11. A passerby stops to watch a dwarf performs a dance.
+                            </span>
                           </a>
                         </div>
                         <div
@@ -2020,23 +2494,68 @@
                           id="q11-a-passerby-stops-to-watch-a-dwarf-performs-a-dance"
                           aria-hidden="true">
                           <div class="accordion-inner panel-body">
-                            <h2 class="nn_sliders-title">11. A passerby stops to watch a dwarf performs a dance.</h2>
+                            <h2 class="nn_sliders-title">
+                              11. A passerby stops to watch a dwarf performs a dance.
+                            </h2>
                             <p>11. A passerby stops to watch a dwarf performs a dance.</p>
                           </div>
                         </div>
                         <div
-                          class="exercise-response-row exercise-response-row--long"
-                          data-item="11"
-                          data-answer-ui="textarea">
-                          <label class="exercise-response-field exercise-response-field--long">
+                          class="exercise-response-row"
+                          data-item="11">
+                          <label class="exercise-response-field">
                             <span class="visually-hidden">Response for item 11 (answer_01)</span>
-                            <textarea
-                              class="exercise-response-input exercise-response-input--textarea"
-                              rows="3"
-                              placeholder="Rewrite here"
+                            <input
+                              class="exercise-response-input"
+                              type="text"
+                              placeholder="Answer"
                               data-item="11"
-                              data-field="answer_01"
-                              data-autosize="true"></textarea>
+                              data-field="answer_01" />
+                          </label>
+                          <label class="exercise-response-field">
+                            <span class="visually-hidden">Response for item 11 (answer_02)</span>
+                            <input
+                              class="exercise-response-input"
+                              type="text"
+                              placeholder="Answer"
+                              data-item="11"
+                              data-field="answer_02" />
+                          </label>
+                          <label class="exercise-response-field">
+                            <span class="visually-hidden">Response for item 11 (answer_03)</span>
+                            <input
+                              class="exercise-response-input"
+                              type="text"
+                              placeholder="Answer"
+                              data-item="11"
+                              data-field="answer_03" />
+                          </label>
+                          <label class="exercise-response-field">
+                            <span class="visually-hidden">Response for item 11 (answer_04)</span>
+                            <input
+                              class="exercise-response-input"
+                              type="text"
+                              placeholder="Answer"
+                              data-item="11"
+                              data-field="answer_04" />
+                          </label>
+                          <label class="exercise-response-field">
+                            <span class="visually-hidden">Response for item 11 (answer_05)</span>
+                            <input
+                              class="exercise-response-input"
+                              type="text"
+                              placeholder="Answer"
+                              data-item="11"
+                              data-field="answer_05" />
+                          </label>
+                          <label class="exercise-response-field">
+                            <span class="visually-hidden">Response for item 11 (answer_06)</span>
+                            <input
+                              class="exercise-response-input"
+                              type="text"
+                              placeholder="Answer"
+                              data-item="11"
+                              data-field="answer_06" />
                           </label>
                         </div>
                       </div>
@@ -2065,7 +2584,9 @@
                             data-id="q12-she-likes-to-cook-spicy-octopus-with-tomato"
                             aria-expanded="false"
                             aria-controls="121-singular-and-plural-nouns.html#12-she-likes-to-cook-spicy-octopus-with-tomato">
-                            <span class="nn_sliders-toggle-inner">12. She likes to cook spicy octopus with tomato.</span>
+                            <span class="nn_sliders-toggle-inner">
+                              12. She likes to cook spicy octopus with tomato.
+                            </span>
                           </a>
                         </div>
                         <div
@@ -2073,23 +2594,68 @@
                           id="q12-she-likes-to-cook-spicy-octopus-with-tomato"
                           aria-hidden="true">
                           <div class="accordion-inner panel-body">
-                            <h2 class="nn_sliders-title">12. She likes to cook spicy octopus with tomato.</h2>
+                            <h2 class="nn_sliders-title">
+                              12. She likes to cook spicy octopus with tomato.
+                            </h2>
                             <p>12. She likes to cook spicy octopus with tomato.</p>
                           </div>
                         </div>
                         <div
-                          class="exercise-response-row exercise-response-row--long"
-                          data-item="12"
-                          data-answer-ui="textarea">
-                          <label class="exercise-response-field exercise-response-field--long">
+                          class="exercise-response-row"
+                          data-item="12">
+                          <label class="exercise-response-field">
                             <span class="visually-hidden">Response for item 12 (answer_01)</span>
-                            <textarea
-                              class="exercise-response-input exercise-response-input--textarea"
-                              rows="3"
-                              placeholder="Rewrite here"
+                            <input
+                              class="exercise-response-input"
+                              type="text"
+                              placeholder="Answer"
                               data-item="12"
-                              data-field="answer_01"
-                              data-autosize="true"></textarea>
+                              data-field="answer_01" />
+                          </label>
+                          <label class="exercise-response-field">
+                            <span class="visually-hidden">Response for item 12 (answer_02)</span>
+                            <input
+                              class="exercise-response-input"
+                              type="text"
+                              placeholder="Answer"
+                              data-item="12"
+                              data-field="answer_02" />
+                          </label>
+                          <label class="exercise-response-field">
+                            <span class="visually-hidden">Response for item 12 (answer_03)</span>
+                            <input
+                              class="exercise-response-input"
+                              type="text"
+                              placeholder="Answer"
+                              data-item="12"
+                              data-field="answer_03" />
+                          </label>
+                          <label class="exercise-response-field">
+                            <span class="visually-hidden">Response for item 12 (answer_04)</span>
+                            <input
+                              class="exercise-response-input"
+                              type="text"
+                              placeholder="Answer"
+                              data-item="12"
+                              data-field="answer_04" />
+                          </label>
+                          <label class="exercise-response-field">
+                            <span class="visually-hidden">Response for item 12 (answer_05)</span>
+                            <input
+                              class="exercise-response-input"
+                              type="text"
+                              placeholder="Answer"
+                              data-item="12"
+                              data-field="answer_05" />
+                          </label>
+                          <label class="exercise-response-field">
+                            <span class="visually-hidden">Response for item 12 (answer_06)</span>
+                            <input
+                              class="exercise-response-input"
+                              type="text"
+                              placeholder="Answer"
+                              data-item="12"
+                              data-field="answer_06" />
                           </label>
                         </div>
                       </div>
@@ -2118,7 +2684,9 @@
                             data-id="q13-my-mother-in-law-owns-a-buffalo"
                             aria-expanded="false"
                             aria-controls="121-singular-and-plural-nouns.html#13-my-mother-in-law-owns-a-buffalo">
-                            <span class="nn_sliders-toggle-inner">13. My mother-in-law owns a buffalo.</span>
+                            <span class="nn_sliders-toggle-inner">
+                              13. My mother-in-law owns a buffalo.
+                            </span>
                           </a>
                         </div>
                         <div
@@ -2131,18 +2699,61 @@
                           </div>
                         </div>
                         <div
-                          class="exercise-response-row exercise-response-row--long"
-                          data-item="13"
-                          data-answer-ui="textarea">
-                          <label class="exercise-response-field exercise-response-field--long">
+                          class="exercise-response-row"
+                          data-item="13">
+                          <label class="exercise-response-field">
                             <span class="visually-hidden">Response for item 13 (answer_01)</span>
-                            <textarea
-                              class="exercise-response-input exercise-response-input--textarea"
-                              rows="3"
-                              placeholder="Rewrite here"
+                            <input
+                              class="exercise-response-input"
+                              type="text"
+                              placeholder="Answer"
                               data-item="13"
-                              data-field="answer_01"
-                              data-autosize="true"></textarea>
+                              data-field="answer_01" />
+                          </label>
+                          <label class="exercise-response-field">
+                            <span class="visually-hidden">Response for item 13 (answer_02)</span>
+                            <input
+                              class="exercise-response-input"
+                              type="text"
+                              placeholder="Answer"
+                              data-item="13"
+                              data-field="answer_02" />
+                          </label>
+                          <label class="exercise-response-field">
+                            <span class="visually-hidden">Response for item 13 (answer_03)</span>
+                            <input
+                              class="exercise-response-input"
+                              type="text"
+                              placeholder="Answer"
+                              data-item="13"
+                              data-field="answer_03" />
+                          </label>
+                          <label class="exercise-response-field">
+                            <span class="visually-hidden">Response for item 13 (answer_04)</span>
+                            <input
+                              class="exercise-response-input"
+                              type="text"
+                              placeholder="Answer"
+                              data-item="13"
+                              data-field="answer_04" />
+                          </label>
+                          <label class="exercise-response-field">
+                            <span class="visually-hidden">Response for item 13 (answer_05)</span>
+                            <input
+                              class="exercise-response-input"
+                              type="text"
+                              placeholder="Answer"
+                              data-item="13"
+                              data-field="answer_05" />
+                          </label>
+                          <label class="exercise-response-field">
+                            <span class="visually-hidden">Response for item 13 (answer_06)</span>
+                            <input
+                              class="exercise-response-input"
+                              type="text"
+                              placeholder="Answer"
+                              data-item="13"
+                              data-field="answer_06" />
                           </label>
                         </div>
                       </div>
@@ -2171,7 +2782,9 @@
                             data-id="q14-the-trio-has-been-playing-a-piano-for-an-hour"
                             aria-expanded="false"
                             aria-controls="121-singular-and-plural-nouns.html#14-the-trio-has-been-playing-a-piano-for-an-hour">
-                            <span class="nn_sliders-toggle-inner">14. The trio has been playing a piano for an hour.</span>
+                            <span class="nn_sliders-toggle-inner">
+                              14. The trio has been playing a piano for an hour.
+                            </span>
                           </a>
                         </div>
                         <div
@@ -2179,23 +2792,68 @@
                           id="q14-the-trio-has-been-playing-a-piano-for-an-hour"
                           aria-hidden="true">
                           <div class="accordion-inner panel-body">
-                            <h2 class="nn_sliders-title">14. The trio has been playing a piano for an hour.</h2>
+                            <h2 class="nn_sliders-title">
+                              14. The trio has been playing a piano for an hour.
+                            </h2>
                             <p>14. The trio has been playing a piano for an hour.</p>
                           </div>
                         </div>
                         <div
-                          class="exercise-response-row exercise-response-row--long"
-                          data-item="14"
-                          data-answer-ui="textarea">
-                          <label class="exercise-response-field exercise-response-field--long">
+                          class="exercise-response-row"
+                          data-item="14">
+                          <label class="exercise-response-field">
                             <span class="visually-hidden">Response for item 14 (answer_01)</span>
-                            <textarea
-                              class="exercise-response-input exercise-response-input--textarea"
-                              rows="3"
-                              placeholder="Rewrite here"
+                            <input
+                              class="exercise-response-input"
+                              type="text"
+                              placeholder="Answer"
                               data-item="14"
-                              data-field="answer_01"
-                              data-autosize="true"></textarea>
+                              data-field="answer_01" />
+                          </label>
+                          <label class="exercise-response-field">
+                            <span class="visually-hidden">Response for item 14 (answer_02)</span>
+                            <input
+                              class="exercise-response-input"
+                              type="text"
+                              placeholder="Answer"
+                              data-item="14"
+                              data-field="answer_02" />
+                          </label>
+                          <label class="exercise-response-field">
+                            <span class="visually-hidden">Response for item 14 (answer_03)</span>
+                            <input
+                              class="exercise-response-input"
+                              type="text"
+                              placeholder="Answer"
+                              data-item="14"
+                              data-field="answer_03" />
+                          </label>
+                          <label class="exercise-response-field">
+                            <span class="visually-hidden">Response for item 14 (answer_04)</span>
+                            <input
+                              class="exercise-response-input"
+                              type="text"
+                              placeholder="Answer"
+                              data-item="14"
+                              data-field="answer_04" />
+                          </label>
+                          <label class="exercise-response-field">
+                            <span class="visually-hidden">Response for item 14 (answer_05)</span>
+                            <input
+                              class="exercise-response-input"
+                              type="text"
+                              placeholder="Answer"
+                              data-item="14"
+                              data-field="answer_05" />
+                          </label>
+                          <label class="exercise-response-field">
+                            <span class="visually-hidden">Response for item 14 (answer_06)</span>
+                            <input
+                              class="exercise-response-input"
+                              type="text"
+                              placeholder="Answer"
+                              data-item="14"
+                              data-field="answer_06" />
                           </label>
                         </div>
                       </div>
@@ -2224,7 +2882,9 @@
                             data-id="q15-the-child-s-pet-is-a-gold-fish"
                             aria-expanded="false"
                             aria-controls="121-singular-and-plural-nouns.html#15-the-child-s-pet-is-a-gold-fish">
-                            <span class="nn_sliders-toggle-inner">15. The child's pet is a gold fish.</span>
+                            <span class="nn_sliders-toggle-inner">
+                              15. The child's pet is a gold fish.
+                            </span>
                           </a>
                         </div>
                         <div
@@ -2237,18 +2897,61 @@
                           </div>
                         </div>
                         <div
-                          class="exercise-response-row exercise-response-row--long"
-                          data-item="15"
-                          data-answer-ui="textarea">
-                          <label class="exercise-response-field exercise-response-field--long">
+                          class="exercise-response-row"
+                          data-item="15">
+                          <label class="exercise-response-field">
                             <span class="visually-hidden">Response for item 15 (answer_01)</span>
-                            <textarea
-                              class="exercise-response-input exercise-response-input--textarea"
-                              rows="3"
-                              placeholder="Rewrite here"
+                            <input
+                              class="exercise-response-input"
+                              type="text"
+                              placeholder="Answer"
                               data-item="15"
-                              data-field="answer_01"
-                              data-autosize="true"></textarea>
+                              data-field="answer_01" />
+                          </label>
+                          <label class="exercise-response-field">
+                            <span class="visually-hidden">Response for item 15 (answer_02)</span>
+                            <input
+                              class="exercise-response-input"
+                              type="text"
+                              placeholder="Answer"
+                              data-item="15"
+                              data-field="answer_02" />
+                          </label>
+                          <label class="exercise-response-field">
+                            <span class="visually-hidden">Response for item 15 (answer_03)</span>
+                            <input
+                              class="exercise-response-input"
+                              type="text"
+                              placeholder="Answer"
+                              data-item="15"
+                              data-field="answer_03" />
+                          </label>
+                          <label class="exercise-response-field">
+                            <span class="visually-hidden">Response for item 15 (answer_04)</span>
+                            <input
+                              class="exercise-response-input"
+                              type="text"
+                              placeholder="Answer"
+                              data-item="15"
+                              data-field="answer_04" />
+                          </label>
+                          <label class="exercise-response-field">
+                            <span class="visually-hidden">Response for item 15 (answer_05)</span>
+                            <input
+                              class="exercise-response-input"
+                              type="text"
+                              placeholder="Answer"
+                              data-item="15"
+                              data-field="answer_05" />
+                          </label>
+                          <label class="exercise-response-field">
+                            <span class="visually-hidden">Response for item 15 (answer_06)</span>
+                            <input
+                              class="exercise-response-input"
+                              type="text"
+                              placeholder="Answer"
+                              data-item="15"
+                              data-field="answer_06" />
                           </label>
                         </div>
                       </div>
@@ -2277,7 +2980,9 @@
                             data-id="q16-the-tribal-chief-tells-his-wife-to-learn-mathematics"
                             aria-expanded="false"
                             aria-controls="121-singular-and-plural-nouns.html#16-the-tribal-chief-tells-his-wife-to-learn-mathematics">
-                            <span class="nn_sliders-toggle-inner">16. The tribal chief tells his wife to learn mathematics.</span>
+                            <span class="nn_sliders-toggle-inner">
+                              16. The tribal chief tells his wife to learn mathematics.
+                            </span>
                           </a>
                         </div>
                         <div
@@ -2285,23 +2990,68 @@
                           id="q16-the-tribal-chief-tells-his-wife-to-learn-mathematics"
                           aria-hidden="true">
                           <div class="accordion-inner panel-body">
-                            <h2 class="nn_sliders-title">16. The tribal chief tells his wife to learn mathematics.</h2>
+                            <h2 class="nn_sliders-title">
+                              16. The tribal chief tells his wife to learn mathematics.
+                            </h2>
                             <p>16. The tribal chief tells his wife to learn mathematics.</p>
                           </div>
                         </div>
                         <div
-                          class="exercise-response-row exercise-response-row--long"
-                          data-item="16"
-                          data-answer-ui="textarea">
-                          <label class="exercise-response-field exercise-response-field--long">
+                          class="exercise-response-row"
+                          data-item="16">
+                          <label class="exercise-response-field">
                             <span class="visually-hidden">Response for item 16 (answer_01)</span>
-                            <textarea
-                              class="exercise-response-input exercise-response-input--textarea"
-                              rows="3"
-                              placeholder="Rewrite here"
+                            <input
+                              class="exercise-response-input"
+                              type="text"
+                              placeholder="Answer"
                               data-item="16"
-                              data-field="answer_01"
-                              data-autosize="true"></textarea>
+                              data-field="answer_01" />
+                          </label>
+                          <label class="exercise-response-field">
+                            <span class="visually-hidden">Response for item 16 (answer_02)</span>
+                            <input
+                              class="exercise-response-input"
+                              type="text"
+                              placeholder="Answer"
+                              data-item="16"
+                              data-field="answer_02" />
+                          </label>
+                          <label class="exercise-response-field">
+                            <span class="visually-hidden">Response for item 16 (answer_03)</span>
+                            <input
+                              class="exercise-response-input"
+                              type="text"
+                              placeholder="Answer"
+                              data-item="16"
+                              data-field="answer_03" />
+                          </label>
+                          <label class="exercise-response-field">
+                            <span class="visually-hidden">Response for item 16 (answer_04)</span>
+                            <input
+                              class="exercise-response-input"
+                              type="text"
+                              placeholder="Answer"
+                              data-item="16"
+                              data-field="answer_04" />
+                          </label>
+                          <label class="exercise-response-field">
+                            <span class="visually-hidden">Response for item 16 (answer_05)</span>
+                            <input
+                              class="exercise-response-input"
+                              type="text"
+                              placeholder="Answer"
+                              data-item="16"
+                              data-field="answer_05" />
+                          </label>
+                          <label class="exercise-response-field">
+                            <span class="visually-hidden">Response for item 16 (answer_06)</span>
+                            <input
+                              class="exercise-response-input"
+                              type="text"
+                              placeholder="Answer"
+                              data-item="16"
+                              data-field="answer_06" />
                           </label>
                         </div>
                       </div>
@@ -2330,7 +3080,9 @@
                             data-id="q17-the-farmer-has-a-sheep-a-deer-and-a-rhinoceros-on-his-farm"
                             aria-expanded="false"
                             aria-controls="121-singular-and-plural-nouns.html#17-the-farmer-has-a-sheep-a-deer-and-a-rhinoceros-on-his-farm">
-                            <span class="nn_sliders-toggle-inner">17. The farmer has a sheep, a deer and a rhinoceros on his farm.</span>
+                            <span class="nn_sliders-toggle-inner">
+                              17. The farmer has a sheep, a deer and a rhinoceros on his farm.
+                            </span>
                           </a>
                         </div>
                         <div
@@ -2338,23 +3090,68 @@
                           id="q17-the-farmer-has-a-sheep-a-deer-and-a-rhinoceros-on-his-farm"
                           aria-hidden="true">
                           <div class="accordion-inner panel-body">
-                            <h2 class="nn_sliders-title">17. The farmer has a sheep, a deer and a rhinoceros on his farm.</h2>
+                            <h2 class="nn_sliders-title">
+                              17. The farmer has a sheep, a deer and a rhinoceros on his farm.
+                            </h2>
                             <p>17. The farmer has a sheep, a deer and a rhinoceros on his farm.</p>
                           </div>
                         </div>
                         <div
-                          class="exercise-response-row exercise-response-row--long"
-                          data-item="17"
-                          data-answer-ui="textarea">
-                          <label class="exercise-response-field exercise-response-field--long">
+                          class="exercise-response-row"
+                          data-item="17">
+                          <label class="exercise-response-field">
                             <span class="visually-hidden">Response for item 17 (answer_01)</span>
-                            <textarea
-                              class="exercise-response-input exercise-response-input--textarea"
-                              rows="3"
-                              placeholder="Rewrite here"
+                            <input
+                              class="exercise-response-input"
+                              type="text"
+                              placeholder="Answer"
                               data-item="17"
-                              data-field="answer_01"
-                              data-autosize="true"></textarea>
+                              data-field="answer_01" />
+                          </label>
+                          <label class="exercise-response-field">
+                            <span class="visually-hidden">Response for item 17 (answer_02)</span>
+                            <input
+                              class="exercise-response-input"
+                              type="text"
+                              placeholder="Answer"
+                              data-item="17"
+                              data-field="answer_02" />
+                          </label>
+                          <label class="exercise-response-field">
+                            <span class="visually-hidden">Response for item 17 (answer_03)</span>
+                            <input
+                              class="exercise-response-input"
+                              type="text"
+                              placeholder="Answer"
+                              data-item="17"
+                              data-field="answer_03" />
+                          </label>
+                          <label class="exercise-response-field">
+                            <span class="visually-hidden">Response for item 17 (answer_04)</span>
+                            <input
+                              class="exercise-response-input"
+                              type="text"
+                              placeholder="Answer"
+                              data-item="17"
+                              data-field="answer_04" />
+                          </label>
+                          <label class="exercise-response-field">
+                            <span class="visually-hidden">Response for item 17 (answer_05)</span>
+                            <input
+                              class="exercise-response-input"
+                              type="text"
+                              placeholder="Answer"
+                              data-item="17"
+                              data-field="answer_05" />
+                          </label>
+                          <label class="exercise-response-field">
+                            <span class="visually-hidden">Response for item 17 (answer_06)</span>
+                            <input
+                              class="exercise-response-input"
+                              type="text"
+                              placeholder="Answer"
+                              data-item="17"
+                              data-field="answer_06" />
                           </label>
                         </div>
                       </div>
@@ -2383,7 +3180,9 @@
                             data-id="q18-he-has-a-tattoo-of-a-beauty-on-his-arm"
                             aria-expanded="false"
                             aria-controls="121-singular-and-plural-nouns.html#18-he-has-a-tattoo-of-a-beauty-on-his-arm">
-                            <span class="nn_sliders-toggle-inner">18. He has a tattoo of a beauty on his arm.</span>
+                            <span class="nn_sliders-toggle-inner">
+                              18. He has a tattoo of a beauty on his arm.
+                            </span>
                           </a>
                         </div>
                         <div
@@ -2391,23 +3190,68 @@
                           id="q18-he-has-a-tattoo-of-a-beauty-on-his-arm"
                           aria-hidden="true">
                           <div class="accordion-inner panel-body">
-                            <h2 class="nn_sliders-title">18. He has a tattoo of a beauty on his arm.</h2>
+                            <h2 class="nn_sliders-title">
+                              18. He has a tattoo of a beauty on his arm.
+                            </h2>
                             <p>18. He has a tattoo of a beauty on his arm.</p>
                           </div>
                         </div>
                         <div
-                          class="exercise-response-row exercise-response-row--long"
-                          data-item="18"
-                          data-answer-ui="textarea">
-                          <label class="exercise-response-field exercise-response-field--long">
+                          class="exercise-response-row"
+                          data-item="18">
+                          <label class="exercise-response-field">
                             <span class="visually-hidden">Response for item 18 (answer_01)</span>
-                            <textarea
-                              class="exercise-response-input exercise-response-input--textarea"
-                              rows="3"
-                              placeholder="Rewrite here"
+                            <input
+                              class="exercise-response-input"
+                              type="text"
+                              placeholder="Answer"
                               data-item="18"
-                              data-field="answer_01"
-                              data-autosize="true"></textarea>
+                              data-field="answer_01" />
+                          </label>
+                          <label class="exercise-response-field">
+                            <span class="visually-hidden">Response for item 18 (answer_02)</span>
+                            <input
+                              class="exercise-response-input"
+                              type="text"
+                              placeholder="Answer"
+                              data-item="18"
+                              data-field="answer_02" />
+                          </label>
+                          <label class="exercise-response-field">
+                            <span class="visually-hidden">Response for item 18 (answer_03)</span>
+                            <input
+                              class="exercise-response-input"
+                              type="text"
+                              placeholder="Answer"
+                              data-item="18"
+                              data-field="answer_03" />
+                          </label>
+                          <label class="exercise-response-field">
+                            <span class="visually-hidden">Response for item 18 (answer_04)</span>
+                            <input
+                              class="exercise-response-input"
+                              type="text"
+                              placeholder="Answer"
+                              data-item="18"
+                              data-field="answer_04" />
+                          </label>
+                          <label class="exercise-response-field">
+                            <span class="visually-hidden">Response for item 18 (answer_05)</span>
+                            <input
+                              class="exercise-response-input"
+                              type="text"
+                              placeholder="Answer"
+                              data-item="18"
+                              data-field="answer_05" />
+                          </label>
+                          <label class="exercise-response-field">
+                            <span class="visually-hidden">Response for item 18 (answer_06)</span>
+                            <input
+                              class="exercise-response-input"
+                              type="text"
+                              placeholder="Answer"
+                              data-item="18"
+                              data-field="answer_06" />
                           </label>
                         </div>
                       </div>
@@ -2436,7 +3280,9 @@
                             data-id="q19-he-uses-a-lasso-to-catch-an-elephant-calf"
                             aria-expanded="false"
                             aria-controls="121-singular-and-plural-nouns.html#19-he-uses-a-lasso-to-catch-an-elephant-calf">
-                            <span class="nn_sliders-toggle-inner">19. He uses a lasso to catch an elephant calf.</span>
+                            <span class="nn_sliders-toggle-inner">
+                              19. He uses a lasso to catch an elephant calf.
+                            </span>
                           </a>
                         </div>
                         <div
@@ -2444,23 +3290,68 @@
                           id="q19-he-uses-a-lasso-to-catch-an-elephant-calf"
                           aria-hidden="true">
                           <div class="accordion-inner panel-body">
-                            <h2 class="nn_sliders-title">19. He uses a lasso to catch an elephant calf.</h2>
+                            <h2 class="nn_sliders-title">
+                              19. He uses a lasso to catch an elephant calf.
+                            </h2>
                             <p>19. He uses a lasso to catch an elephant calf.</p>
                           </div>
                         </div>
                         <div
-                          class="exercise-response-row exercise-response-row--long"
-                          data-item="19"
-                          data-answer-ui="textarea">
-                          <label class="exercise-response-field exercise-response-field--long">
+                          class="exercise-response-row"
+                          data-item="19">
+                          <label class="exercise-response-field">
                             <span class="visually-hidden">Response for item 19 (answer_01)</span>
-                            <textarea
-                              class="exercise-response-input exercise-response-input--textarea"
-                              rows="3"
-                              placeholder="Rewrite here"
+                            <input
+                              class="exercise-response-input"
+                              type="text"
+                              placeholder="Answer"
                               data-item="19"
-                              data-field="answer_01"
-                              data-autosize="true"></textarea>
+                              data-field="answer_01" />
+                          </label>
+                          <label class="exercise-response-field">
+                            <span class="visually-hidden">Response for item 19 (answer_02)</span>
+                            <input
+                              class="exercise-response-input"
+                              type="text"
+                              placeholder="Answer"
+                              data-item="19"
+                              data-field="answer_02" />
+                          </label>
+                          <label class="exercise-response-field">
+                            <span class="visually-hidden">Response for item 19 (answer_03)</span>
+                            <input
+                              class="exercise-response-input"
+                              type="text"
+                              placeholder="Answer"
+                              data-item="19"
+                              data-field="answer_03" />
+                          </label>
+                          <label class="exercise-response-field">
+                            <span class="visually-hidden">Response for item 19 (answer_04)</span>
+                            <input
+                              class="exercise-response-input"
+                              type="text"
+                              placeholder="Answer"
+                              data-item="19"
+                              data-field="answer_04" />
+                          </label>
+                          <label class="exercise-response-field">
+                            <span class="visually-hidden">Response for item 19 (answer_05)</span>
+                            <input
+                              class="exercise-response-input"
+                              type="text"
+                              placeholder="Answer"
+                              data-item="19"
+                              data-field="answer_05" />
+                          </label>
+                          <label class="exercise-response-field">
+                            <span class="visually-hidden">Response for item 19 (answer_06)</span>
+                            <input
+                              class="exercise-response-input"
+                              type="text"
+                              placeholder="Answer"
+                              data-item="19"
+                              data-field="answer_06" />
                           </label>
                         </div>
                       </div>
@@ -2489,7 +3380,9 @@
                             data-id="q20-the-life-of-a-fly-and-a-mosquito-is-rather-short"
                             aria-expanded="false"
                             aria-controls="121-singular-and-plural-nouns.html#20-the-life-of-a-fly-and-a-mosquito-is-rather-short">
-                            <span class="nn_sliders-toggle-inner">20. The life of a fly and a mosquito is rather short.</span>
+                            <span class="nn_sliders-toggle-inner">
+                              20. The life of a fly and a mosquito is rather short.
+                            </span>
                           </a>
                         </div>
                         <div
@@ -2497,23 +3390,68 @@
                           id="q20-the-life-of-a-fly-and-a-mosquito-is-rather-short"
                           aria-hidden="true">
                           <div class="accordion-inner panel-body">
-                            <h2 class="nn_sliders-title">20. The life of a fly and a mosquito is rather short.</h2>
+                            <h2 class="nn_sliders-title">
+                              20. The life of a fly and a mosquito is rather short.
+                            </h2>
                             <p>20. The life of a fly and a mosquito is rather short.</p>
                           </div>
                         </div>
                         <div
-                          class="exercise-response-row exercise-response-row--long"
-                          data-item="20"
-                          data-answer-ui="textarea">
-                          <label class="exercise-response-field exercise-response-field--long">
+                          class="exercise-response-row"
+                          data-item="20">
+                          <label class="exercise-response-field">
                             <span class="visually-hidden">Response for item 20 (answer_01)</span>
-                            <textarea
-                              class="exercise-response-input exercise-response-input--textarea"
-                              rows="3"
-                              placeholder="Rewrite here"
+                            <input
+                              class="exercise-response-input"
+                              type="text"
+                              placeholder="Answer"
                               data-item="20"
-                              data-field="answer_01"
-                              data-autosize="true"></textarea>
+                              data-field="answer_01" />
+                          </label>
+                          <label class="exercise-response-field">
+                            <span class="visually-hidden">Response for item 20 (answer_02)</span>
+                            <input
+                              class="exercise-response-input"
+                              type="text"
+                              placeholder="Answer"
+                              data-item="20"
+                              data-field="answer_02" />
+                          </label>
+                          <label class="exercise-response-field">
+                            <span class="visually-hidden">Response for item 20 (answer_03)</span>
+                            <input
+                              class="exercise-response-input"
+                              type="text"
+                              placeholder="Answer"
+                              data-item="20"
+                              data-field="answer_03" />
+                          </label>
+                          <label class="exercise-response-field">
+                            <span class="visually-hidden">Response for item 20 (answer_04)</span>
+                            <input
+                              class="exercise-response-input"
+                              type="text"
+                              placeholder="Answer"
+                              data-item="20"
+                              data-field="answer_04" />
+                          </label>
+                          <label class="exercise-response-field">
+                            <span class="visually-hidden">Response for item 20 (answer_05)</span>
+                            <input
+                              class="exercise-response-input"
+                              type="text"
+                              placeholder="Answer"
+                              data-item="20"
+                              data-field="answer_05" />
+                          </label>
+                          <label class="exercise-response-field">
+                            <span class="visually-hidden">Response for item 20 (answer_06)</span>
+                            <input
+                              class="exercise-response-input"
+                              type="text"
+                              placeholder="Answer"
+                              data-item="20"
+                              data-field="answer_06" />
                           </label>
                         </div>
                       </div>
@@ -2545,7 +3483,7 @@
                   {
                     "title": "121-singular-and-plural-nouns",
                     "version": "0.3.0",
-                    "publishDate": "2025-11-30T11:19:47.345Z",
+                    "publishDate": "2025-11-29T18:02:37.633Z",
                     "description": "1.2.1 Singular and Plural Nouns",
                     "options": {
                       "requireCorrectBeforeReveal": true,
@@ -2557,7 +3495,10 @@
                       "answerArray": {
                         "question01": {
                           "id": "q1-the-child-asks-for-a-toy-hippopotamus",
-                          "answersAccepted": [["fnv1a-64:e55689e6ec893c74"], ["fnv1a-64:d7407cc15febbd8d"]],
+                          "answersAccepted": [
+                            ["fnv1a-64:e55689e6ec893c74"],
+                            ["fnv1a-64:d7407cc15febbd8d"]
+                          ],
                           "lengths": [1],
                           "minLength": 1,
                           "maxLength": 1,
@@ -2613,7 +3554,10 @@
                         },
                         "question08": {
                           "id": "q8-my-loaf-of-bread-is-enough-to-feed-the-fish",
-                          "answersAccepted": [["fnv1a-64:213e9c12ae3398b2"], ["fnv1a-64:ced178de33d16366"]],
+                          "answersAccepted": [
+                            ["fnv1a-64:213e9c12ae3398b2"],
+                            ["fnv1a-64:ced178de33d16366"]
+                          ],
                           "lengths": [1],
                           "minLength": 1,
                           "maxLength": 1,
@@ -2645,7 +3589,10 @@
                         },
                         "question12": {
                           "id": "q12-she-likes-to-cook-spicy-octopus-with-tomato",
-                          "answersAccepted": [["fnv1a-64:3259f8b23c98e91e"], ["fnv1a-64:d35071e91560bcfb"]],
+                          "answersAccepted": [
+                            ["fnv1a-64:3259f8b23c98e91e"],
+                            ["fnv1a-64:d35071e91560bcfb"]
+                          ],
                           "lengths": [1],
                           "minLength": 1,
                           "maxLength": 1,
@@ -2653,7 +3600,10 @@
                         },
                         "question13": {
                           "id": "q13-my-mother-in-law-owns-a-buffalo",
-                          "answersAccepted": [["fnv1a-64:dabb44c82e3e65bb"], ["fnv1a-64:d9bb016fe75b8453"]],
+                          "answersAccepted": [
+                            ["fnv1a-64:dabb44c82e3e65bb"],
+                            ["fnv1a-64:d9bb016fe75b8453"]
+                          ],
                           "lengths": [1],
                           "minLength": 1,
                           "maxLength": 1,
@@ -4823,7 +5773,7 @@
       <!-- Footer -->
       <footer class="footer mar10">
         <div class="container2 inner-footer">
-          <br>
+          <br />
           <p class="pull-right">
             <a
               href="#top"
@@ -4848,7 +5798,8 @@
         const year = new Date().getFullYear() // NEW: get current year
         document.querySelectorAll("[data-copyright-year]").forEach((el) => {
           const start = parseInt(el.getAttribute("data-start"), 10) // NEW: optional start year
-          el.textContent = Number.isFinite(start) && start < year ? `${start}–${year}` : String(year) // NEW: write year/range
+          el.textContent =
+            Number.isFinite(start) && start < year ? `${start}–${year}` : String(year) // NEW: write year/range
         })
       })()
     </script>
@@ -4924,7 +5875,9 @@
               toggle.addEventListener("click", onToggle)
               toggle.setAttribute("aria-controls", id)
               var expanded =
-                toggle.getAttribute("aria-expanded") === "true" || panel.classList.contains("in") || panel.classList.contains("show")
+                toggle.getAttribute("aria-expanded") === "true" ||
+                panel.classList.contains("in") ||
+                panel.classList.contains("show")
               setExpanded(toggle, panel, expanded)
             }
             window._qaAccordionBound = true
@@ -4943,7 +5896,8 @@
         // ---------- tiny helpers ----------
         const $ = (sel, root = document) => root.querySelector(sel)
         const $$ = (sel, root = document) => Array.from(root.querySelectorAll(sel))
-        const esc = (s) => (window.CSS && CSS.escape ? CSS.escape(String(s)) : String(s).replace(/[^\w-]/g, "\\$&"))
+        const esc = (s) =>
+          window.CSS && CSS.escape ? CSS.escape(String(s)) : String(s).replace(/[^\w-]/g, "\\$&")
 
         // ---------- basic validators ----------
         const STUDENT_ID_PATTERN = /^[a-z]+\d{3}$/ // e.g., tina001
@@ -4989,14 +5943,21 @@
               const byte3 = Number(bytes[i + 2])
               if (!Number.isFinite(byte2) || !Number.isFinite(byte3)) break
               i += 2
-              output += String.fromCharCode(((byte1 & 0x0f) << 12) | ((byte2 & 0x3f) << 6) | (byte3 & 0x3f))
+              output += String.fromCharCode(
+                ((byte1 & 0x0f) << 12) | ((byte2 & 0x3f) << 6) | (byte3 & 0x3f)
+              )
             } else if (byte1 >= 0xf0 && byte1 < 0xf8 && i + 3 < bytes.length) {
               const byte2 = Number(bytes[i + 1])
               const byte3 = Number(bytes[i + 2])
               const byte4 = Number(bytes[i + 3])
-              if (!Number.isFinite(byte2) || !Number.isFinite(byte3) || !Number.isFinite(byte4)) break
+              if (!Number.isFinite(byte2) || !Number.isFinite(byte3) || !Number.isFinite(byte4))
+                break
               i += 3
-              let codePoint = ((byte1 & 0x07) << 18) | ((byte2 & 0x3f) << 12) | ((byte3 & 0x3f) << 6) | (byte4 & 0x3f)
+              let codePoint =
+                ((byte1 & 0x07) << 18) |
+                ((byte2 & 0x3f) << 12) |
+                ((byte3 & 0x3f) << 6) |
+                (byte4 & 0x3f)
               codePoint -= 0x10000
               output += String.fromCharCode(0xd800 + ((codePoint >> 10) & 0x3ff))
               output += String.fromCharCode(0xdc00 + (codePoint & 0x3ff))
@@ -5247,7 +6208,8 @@
         function showStatus(type, message) {
           const box = $("#exercise-status")
           if (!box) return
-          box.className = type === "ok" ? "status-ok" : type === "warn" ? "status-warn" : "status-err"
+          box.className =
+            type === "ok" ? "status-ok" : type === "warn" ? "status-warn" : "status-err"
           box.textContent = message
         }
 
@@ -5301,11 +6263,13 @@
         })
 
         studentIdInput?.addEventListener("input", () => {
-          if (isStudentIdValid()) studentIdInput.classList.remove("exercise-form__email-input--invalid")
+          if (isStudentIdValid())
+            studentIdInput.classList.remove("exercise-form__email-input--invalid")
           refreshStatus()
         })
         studentIdInput?.addEventListener("blur", () => {
-          if (!isStudentIdValid()) studentIdInput.classList.add("exercise-form__email-input--invalid")
+          if (!isStudentIdValid())
+            studentIdInput.classList.add("exercise-form__email-input--invalid")
           else studentIdInput.classList.remove("exercise-form__email-input--invalid")
         })
 
@@ -5327,7 +6291,10 @@
               }
 
               if (!isStudentIdValid()) {
-                showStatus("err", "Enter an Eagles Club user ID like tina001 (lowercase letters + three digits).")
+                showStatus(
+                  "err",
+                  "Enter an Eagles Club user ID like tina001 (lowercase letters + three digits)."
+                )
                 studentIdInput?.classList.add("exercise-form__email-input--invalid")
                 studentIdInput?.focus()
                 setSubmitting(false)
@@ -5339,7 +6306,10 @@
               const answers = collectAnswers(form)
 
               if (!answers.length) {
-                showStatus("err", "No answers detected. Please fill one or more response per question.")
+                showStatus(
+                  "err",
+                  "No answers detected. Please fill one or more response per question."
+                )
                 setSubmitting(false)
                 return
               }

@@ -1,4 +1,26 @@
 #!/usr/bin/env node
+/*
+Usage:
+  node js/convert-legacy-gated.mjs /path/to/legacy.html [options]
+
+Flags:
+  --questions <int>             Override expected question count validation.
+  --answer-fields <int>         Force number of answer inputs, 1 to 6 per question (defaults to scraped).
+  --answer-ui <kind>            Force answer UI for all questions (e.g., textarea).
+  --template <path>             Set gated template path (defaults to exercise-1-nouns/111-common-nouns.html).
+  --dry-run                     Report actions without writing changes.
+  --diff-preview                Show git-style diff between legacy and converted output.
+  --test-mode                   Auto-fill answers and leave accordions open for QA.
+
+Flag combos:
+  --dry-run --diff-preview       Inspect the generated diff without touching files.
+  --test-mode --answer-fields N  Generate QA-friendly output with N answer inputs per item.
+  --test-mode --diff-preview     Open accordions for review while previewing the diff.
+
+Per-question options:
+  Add data-answer-ui="textarea" ****on a legacy .nn_sliders block**** to force a single, full-width, auto-resizing textarea (ignores --answer-fields overrides).
+  The --answer-ui flag applies this to all questions; per-question data attributes still win.
+*/
 import { ArgumentParser } from "argparse"
 import { load } from "cheerio"
 import fs from "fs"
@@ -128,10 +150,18 @@ function scrapeQuestions($) {
     const dataParent = toggle.attr("data-parent") || ""
     const scrollTarget = wrapper.find('[id^="nn_sliders-scrollto"]').first().attr("id") || ""
     const storageKey = body.attr("id") || ariaControls || dataId
-    const answerFieldCount =
+    const answerUi =
+      (wrapper.attr("data-answer-ui") ||
+        toggle.attr("data-answer-ui") ||
+        body.attr("data-answer-ui") ||
+        "")
+        .trim()
+        .toLowerCase()
+    const scrapedAnswerFieldCount =
       wrapper.find(
         ".exercise-response-row input, .exercise-response-row textarea, .exercise-response-row select"
       ).length || 1
+    const answerFieldCount = answerUi === "textarea" ? 1 : scrapedAnswerFieldCount
 
     if (!questionText) {
       throw new Error(`Missing question text for item ${number}`)
@@ -146,6 +176,7 @@ function scrapeQuestions($) {
       scrollTarget,
       storageKey,
       answerFieldCount,
+      answerUi,
     })
   })
   return questions
@@ -179,27 +210,42 @@ function scrapeLegacy(legacyHtml, legacyPath) {
   }
 }
 
-function buildResponseFields($, number, count, testMode) {
-  const row = $("<div>").addClass("exercise-response-row").attr("data-item", String(number))
+function buildResponseFields($, number, count, testMode, answerUi) {
+  const longForm = (answerUi || "").toLowerCase() === "textarea"
+  const row = $("<div>")
+    .addClass("exercise-response-row")
+    .attr("data-item", String(number))
+  if (longForm) {
+    row.addClass("exercise-response-row--long")
+    row.attr("data-answer-ui", "textarea")
+  }
   const labelPrefix = testMode ? "Auto-filled" : "Response"
   for (let i = 0; i < count; i += 1) {
     const name = fieldNames[i] || `field${i + 1}`
     const label = $("<label>").addClass("exercise-response-field")
+    if (longForm) label.addClass("exercise-response-field--long")
     label.append(
       $("<span>").addClass("visually-hidden").text(`${labelPrefix} for item ${number} (${name})`)
     )
-    const input = $("<input>")
-      .addClass("exercise-response-input")
-      .attr({
-        type: "text",
-        placeholder: "Answer",
-        "data-item": String(number),
-        "data-field": name,
-      })
-
-    if (testMode) {
-      input.attr("value", `Answer ${number}.${i + 1}`)
-    }
+    const input = longForm
+      ? $("<textarea>")
+          .addClass("exercise-response-input exercise-response-input--textarea")
+          .attr({
+            rows: 3,
+            placeholder: "Rewrite here",
+            "data-item": String(number),
+            "data-field": name,
+            "data-autosize": "true",
+          })
+      : $("<input>")
+          .addClass("exercise-response-input")
+          .attr({
+            type: "text",
+            placeholder: "Answer",
+            "data-item": String(number),
+            "data-field": name,
+          })
+    if (testMode) input.val(`Answer ${number}.${i + 1}`)
     label.append(input)
     row.append(label)
   }
@@ -255,13 +301,16 @@ function buildQuestionDom($, question, answerFieldCount, testMode, fileName) {
     )
   }
   group.append(body)
-  group.append(buildResponseFields($, question.number, answerFieldCount, testMode))
+  group.append(
+    buildResponseFields($, question.number, answerFieldCount, testMode, question.answerUi)
+  )
 
   questBg.append(accordion)
   return questBg
 }
 
 function resolveAnswerFieldCount(question, overrideCount) {
+  if (question && (question.answerUi || "").toLowerCase() === "textarea") return 1
   if (overrideCount && Number.isInteger(overrideCount) && overrideCount > 0) return overrideCount
   if (
     question.answerFieldCount &&
@@ -366,9 +415,17 @@ function applyPagerLink($, target, link) {
   }
 }
 
-function injectTemplate(templateHtml, scraped, overrideAnswerFieldCount, testMode, targetPath) {
+function injectTemplate(
+  templateHtml,
+  scraped,
+  overrideAnswerFieldCount,
+  testMode,
+  targetPath,
+  defaultAnswerUi
+) {
   const $ = load(templateHtml, { decodeEntities: false })
   const fileName = path.basename(targetPath)
+  const normalizedDefaultUi = (defaultAnswerUi || "").trim().toLowerCase()
 
   $("title").first().text(scraped.title)
   const nonCanonical = $('link[rel="non-canonical"], link[rel="canonical"]').first()
@@ -472,8 +529,12 @@ function injectTemplate(templateHtml, scraped, overrideAnswerFieldCount, testMod
   const submitRow = form.find("[data-exercise-submit-row]").first()
   const insertTarget = submitRow.length ? submitRow : form.children().last()
   scraped.questions.forEach((question) => {
-    const resolvedCount = resolveAnswerFieldCount(question, overrideAnswerFieldCount)
-    const questionDom = buildQuestionDom($, question, resolvedCount, testMode, fileName)
+    const mergedQuestion = { ...question }
+    if (!mergedQuestion.answerUi && normalizedDefaultUi) {
+      mergedQuestion.answerUi = normalizedDefaultUi
+    }
+    const resolvedCount = resolveAnswerFieldCount(mergedQuestion, overrideAnswerFieldCount)
+    const questionDom = buildQuestionDom($, mergedQuestion, resolvedCount, testMode, fileName)
     insertTarget.before(questionDom)
   })
 
@@ -579,6 +640,11 @@ function main() {
     dest: "answerFields",
     help: "Override number of answer input fields per question (defaults to scraped count)",
   })
+  parser.add_argument("--answer-ui", {
+    default: null,
+    dest: "answerUi",
+    help: 'Override answer UI for all questions (e.g., "textarea")',
+  })
   parser.add_argument("--template", {
     default: path.join(__dirname, "..", "exercise-1-nouns", "111-common-nouns.html"),
     help: "Path to the gated template HTML clone",
@@ -613,7 +679,8 @@ function main() {
     scraped,
     args.answerFields,
     args.test_mode,
-    legacyPath
+    legacyPath,
+    args.answerUi
   )
   const cleanedHtml = trimTrailingWhitespace(updatedHtml)
 

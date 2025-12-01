@@ -299,6 +299,26 @@
   border-color: var(--exercise-error);
 }
 
+.exercise-response-row--long {
+  align-items: stretch;
+}
+
+.exercise-response-row--long .exercise-response-field {
+  flex: 1 1 100%;
+  max-width: none;
+}
+
+.exercise-response-input--textarea {
+  line-height: 1.5;
+  min-height: 120px;
+  resize: vertical;
+  width: 100%;
+}
+
+.exercise-response-input--textarea[data-autosize="true"] {
+  overflow: hidden;
+}
+
 .exercise-response-row--pending .exercise-response-input {
   background-color: var(--exercise-pending-bg);
   border-color: var(--exercise-pending);

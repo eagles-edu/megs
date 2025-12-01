@@ -1009,6 +1009,36 @@
     <script
       src="../web-asset/js/exercise-devtools.js"
       defer></script>
+    <style id="exercise-status-inline">
+      #exercise-status {
+        margin-top: 2em;
+        padding: 1rem 1.25rem;
+        border-top: 2px solid #cde7d8;
+        border-radius: 0 0 var(--radius, 6px) var(--radius, 6px);
+        text-align: center;
+        font-weight: 600;
+        line-height: 1.5;
+        white-space: pre-line;
+      }
+
+      .status-ok {
+        color: #0b6b2f;
+        background: #f1fff4;
+        border-top-color: #9ad1a8;
+      }
+
+      .status-warn {
+        color: #845700;
+        background: #fff8e5;
+        border-top-color: #f1d59a;
+      }
+
+      .status-err {
+        color: #8b1a1a;
+        background: #fff3f3;
+        border-top-color: #f3c5c5;
+      }
+    </style>
   </head>
 
   <body
@@ -1985,8 +2015,7 @@
                     <div
                       id="exercise-status"
                       class="status-warn"
-                      aria-live="polite"
-                      style="margin-top: 0.5rem"></div>
+                      aria-live="polite"></div>
                   </div>
                 </form>
                 <!-- Page config: set recipients and where to POST -->
@@ -2009,7 +2038,7 @@
                       "answerArray": {
                         "question01": {
                           "id": "q1-a-_____-of-birds-flew-over-our-heads",
-                          "answersAccepted": [["fnv1a-64:a01173a942b83cf6", "fnv1a-64:4d15cccd2bc1bf83"]],
+                          "answersAccepted": [["fnv1a-64:a01173a942b83cf6"], ["fnv1a-64:4d15cccd2bc1bf83"]],
                           "lengths": [1],
                           "minLength": 1,
                           "maxLength": 1,
@@ -2017,7 +2046,7 @@
                         },
                         "question02": {
                           "id": "q2-he-saw-a-_____-of-roaring-lions-in-his-dream",
-                          "answersAccepted": [["fnv1a-64:357f11a6f611bab3", "fnv1a-64:2f2987248c9a341d"]],
+                          "answersAccepted": [["fnv1a-64:357f11a6f611bab3"], ["fnv1a-64:2f2987248c9a341d"]],
                           "lengths": [1],
                           "minLength": 1,
                           "maxLength": 1,
@@ -2065,7 +2094,7 @@
                         },
                         "question08": {
                           "id": "q8-she-bought-a-_____-of-bananas-for-her-pet-monkey",
-                          "answersAccepted": [["fnv1a-64:ab7dece2b15660c9", "fnv1a-64:0bcd1c91195fde74"]],
+                          "answersAccepted": [["fnv1a-64:ab7dece2b15660c9"], ["fnv1a-64:0bcd1c91195fde74"]],
                           "lengths": [1],
                           "minLength": 1,
                           "maxLength": 1,
@@ -4727,7 +4756,10 @@
               const res = await postJSON(submitUrl, payload)
 
               if (res.status === 204) {
-                showStatus("ok", "✅ Submitted! Check your inbox.")
+                showStatus(
+                  "ok",
+                  "✅ Submitted! Check your inbox.\nAll answers submitted successfully. Answers have been cleared for your next attempt."
+                )
                 saveNow(form) // capture final state/time
               } else {
                 const data = await res.json().catch(() => ({}))

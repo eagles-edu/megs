@@ -212,11 +212,14 @@
   function prepareKeyValue(raw, options) {
     if (raw == null) return ""
     var text = String(raw)
-    if (options.normalize !== false) {
+    var normalize = options && options.normalize === true
+    var caseSensitive = true
+    if (options && options.caseSensitive != null) caseSensitive = !!options.caseSensitive
+    if (normalize) {
       return normalizeAnswer(text)
     }
     text = text.trim()
-    if (!options.caseSensitive) text = text.toLowerCase()
+    if (!caseSensitive) text = text.toLowerCase()
     return text
   }
 
@@ -309,11 +312,13 @@
     var manualReview = coerceBoolean(entry.manualCheckOk, false)
     var ordered = coerceBoolean(entry.orderedAnswer, false)
     var normalize = entry.normalizeAnswer
-    if (typeof normalize === "string") normalize = coerceBoolean(normalize, true)
-    else if (normalize == null) normalize = true
+    if (typeof normalize === "string") normalize = coerceBoolean(normalize, false)
+    else if (normalize == null) normalize = false
     else normalize = !!normalize
-    var caseSensitive = coerceBoolean(entry.caseSensitive, false)
-    if (caseSensitive && normalize) normalize = false
+    var caseSensitive = entry.caseSensitive
+    if (caseSensitive == null) caseSensitive = true
+    else caseSensitive = coerceBoolean(caseSensitive, true)
+    if (normalize && caseSensitive) caseSensitive = false
     var requireCorrect = entry.requireCorrectBeforeReveal
     if (requireCorrect != null) requireCorrect = coerceBoolean(requireCorrect, true)
     var hashAlgorithm =
@@ -430,12 +435,16 @@
   }
 
   function prepareInputValue(value, config) {
-    if (config && config.normalize === false) {
-      var trimmed = String(value == null ? "" : value).trim()
-      if (!config.caseSensitive) trimmed = trimmed.toLowerCase()
-      return trimmed
+    var normalize = config && config.normalize === true
+    var caseSensitive = true
+    if (config && config.caseSensitive != null) caseSensitive = !!config.caseSensitive
+    var text = String(value == null ? "" : value)
+    if (!normalize) {
+      text = text.trim()
+      if (!caseSensitive) text = text.toLowerCase()
+      return text
     }
-    return normalizeAnswer(value)
+    return normalizeAnswer(text)
   }
 
   function parseConfig(script) {
@@ -597,6 +606,30 @@
     var questionNodes = toArray(form.querySelectorAll("[data-exercise-question]"))
     var questions = []
 
+    function autosizeTextarea(input) {
+      if (!input || input.tagName !== "TEXTAREA") return
+      var minHeightAttr = input.getAttribute("data-min-height")
+      var minHeight = parseInt(minHeightAttr, 10)
+      if (isNaN(minHeight)) {
+        var rows = parseInt(input.getAttribute("rows"), 10)
+        if (!isNaN(rows) && rows > 0) minHeight = rows * 24
+        else minHeight = 0
+        if (minHeight) input.setAttribute("data-min-height", String(minHeight))
+      }
+      input.style.height = "auto"
+      var scrollHeight = input.scrollHeight || 0
+      var target = Math.max(scrollHeight, minHeight)
+      if (target) input.style.height = target + "px"
+    }
+
+    function attachAutosize(input) {
+      if (!input || input.tagName !== "TEXTAREA") return
+      autosizeTextarea(input)
+      input.addEventListener("input", function () {
+        autosizeTextarea(input)
+      })
+    }
+
     for (var i = 0; i < questionNodes.length; i++) {
       var node = questionNodes[i]
       var toggle = node.querySelector(".nn_sliders-toggle")
@@ -611,8 +644,8 @@
       if (panel) {
         var spans = panel.querySelectorAll(".in-text-decoration-underline__14j0pz")
         for (var s = 0; s < spans.length; s++) {
-          var text = normalizeAnswer(spans[s].textContent || spans[s].innerText || "")
-          if (text) answers.push(text)
+          var text = (spans[s].textContent || spans[s].innerText || "").trim()
+          if (text && answers.indexOf(text) === -1) answers.push(text)
         }
       }
       var questionId = String(node.getAttribute("data-exercise-question") || i + 1)
@@ -635,8 +668,8 @@
           maxLength: answers.length || 0,
           manualReview: false,
           ordered: false,
-          normalize: true,
-          caseSensitive: false,
+          normalize: false,
+          caseSensitive: true,
           requireCorrectBeforeReveal: true,
         }
       } else if (!configEntry) {
@@ -648,14 +681,17 @@
           maxLength: 0,
           manualReview: true,
           ordered: false,
-          normalize: true,
-          caseSensitive: false,
+          normalize: false,
+          caseSensitive: true,
           requireCorrectBeforeReveal: true,
         }
       }
       var requireCorrect = globalRequireCorrect
       if (configEntry && configEntry.requireCorrectBeforeReveal != null) {
         requireCorrect = coerceBoolean(configEntry.requireCorrectBeforeReveal, requireCorrect)
+      }
+      for (var ai = 0; ai < inputs.length; ai++) {
+        attachAutosize(inputs[ai])
       }
       questions.push({
         id: questionId,
@@ -920,8 +956,9 @@
       var maxLength = configEntry ? configEntry.maxLength : 0
       var allowManual = configEntry ? configEntry.manualReview : false
       var ordered = configEntry ? configEntry.ordered : false
-      var normalize = configEntry ? configEntry.normalize !== false : true
-      var caseSensitive = configEntry ? configEntry.caseSensitive : false
+      var normalize = configEntry ? configEntry.normalize === true : false
+      var caseSensitive =
+        configEntry && configEntry.caseSensitive != null ? configEntry.caseSensitive : true
       var hashAlgorithm = configEntry ? configEntry.hashAlgorithm : null
       if (!configEntry && question.answers.length) {
         expected = [question.answers.slice()]
@@ -930,8 +967,8 @@
         maxLength = question.answers.length || 0
         allowManual = false
         ordered = false
-        normalize = true
-        caseSensitive = false
+        normalize = false
+        caseSensitive = true
       }
       var filled = []
       for (var i = 0; i < question.inputs.length; i++) {
@@ -1124,6 +1161,7 @@
         input.removeAttribute("aria-readonly")
         input.classList.remove("exercise-response-input--locked")
         input.value = ""
+        autosizeTextarea(input)
       }
       closePanel(question)
     }
@@ -1223,7 +1261,7 @@
           renderLastAttempt(stored)
           resetExercise()
           setFeedback(
-            "All answers submitted successfully. Answers have been cleared for your next attempt.",
+            "✅ Submitted! Check your inbox.\nAll answers submitted successfully. Answers have been cleared for your next attempt.",
             "success"
           )
           updateSubmitState()
