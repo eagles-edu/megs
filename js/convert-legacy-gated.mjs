@@ -1,7 +1,11 @@
 #!/usr/bin/env node
 /*
 Usage:
-  node js/convert-legacy-gated.mjs /path/to/legacy.html [options]
+  - node js/convert-legacy-gated.mjs /path/to/legacy.html [options]
+
+  - node js/convert-legacy-gated.mjs exercise-1-nouns/141-forming-nouns.html --answer-fields 1 --diff-preview
+
+  - node js/convert-legacy-gated.mjs exercise-1-nouns/141-forming-nouns.html --answer-fields 1 --answer-ui textarea --diff-preview
 
 Flags:
   --questions <int>             Override expected question count validation.

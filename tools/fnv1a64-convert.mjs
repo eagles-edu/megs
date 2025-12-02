@@ -7,6 +7,23 @@
  * - By default, answers are hashed exactly as provided (case/punctuation preserved).
  * - Pass --normalize to lowercase and strip punctuation/extra whitespace (legacy behavior).
  *
+ * *********  PROMPT
+ * 1. exercise-1-nouns/141-forming-nouns.html
+ * read instructions paragraph, extract the correct answers, destructively place them in tools/input.txt - each answer separated by a blank line
+ *
+ * 2. exercise-1-nouns/141-forming-nouns.html using tools/hashes.txt put the sequential hashes into the answer array json as
+    "answersAccepted": [],  FOR single answers
+        OR
+    FOR multiple answers
+    "answersAccepted": [
+        [],
+        []
+    ]
+  3. format each question's <p> tag exactly like #2:
+  <h2 class="nn_sliders-title">2. I forgot to renew my _____ (member) in the sailing club.</h2>
+  <p>2. I forgot to renew my <b>&#109;&#101;&#109;&#98;&#101;&#114;&#115;&#104;&#105;&#112;</b> in the sailing club.</p>
+ * ***********
+
  * Usage:
  *   node tools/fnv1a64-convert.mjs --encode --input tools/input.txt > tools/hashes.txt
  *   node tools/fnv1a64-convert.mjs --decode --dictionary tools/dict.txt --input hashes.txt

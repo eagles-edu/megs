@@ -18,9 +18,9 @@
       name="generator"
       content="English Grammar - intermediate levels A2 and above">
     <link
-      href="131-countable-and-uncountable-nouns.html"
+      href="121-singular-and-plural-nouns.html"
       rel="non-canonical">
-    <title>1.3.1 Countable and Uncountable Nouns</title>
+    <title>1.2.1 Singular and Plural Nouns</title>
     <link
       href="../favicon.ico"
       rel="shortcut icon"
@@ -995,8 +995,7 @@
     <!-- Bundled JavaScript: Modern module + legacy fallback (4 requests → 1) -->
     <script
       type="module"
-      src="../web-asset/js/main.bundle.js">
-    </script>
+      src="../web-asset/js/main.bundle.js"></script>
     <script
       nomodule
       src="../web-asset/js/main.legacy.js"
@@ -1300,7 +1299,7 @@
             <div id="system-message-container"></div>
             <div class="item-page">
               <div class="page-header">
-                <h2>1.3.1 Countable and Uncountable Nouns</h2>
+                <h2>1.2.1 Singular and Plural Nouns</h2>
                 <div class="clearfix"></div>
                 <ul
                   class="breadcrumb"
@@ -1356,7 +1355,7 @@
                     itemscope=""
                     itemtype="https://schema.org/ListItem"
                     class="active">
-                    <span itemprop="name">1.3.1 Countable and Uncountable Nouns</span>
+                    <span itemprop="name">1.2.1 Singular and Plural Nouns</span>
                     <meta
                       itemprop="position"
                       content="3">
@@ -1364,11 +1363,11 @@
                 </ul>
               </div>
               <div itemprop="articleBody">
-                <p>Complete each sentence by choosing the correct word in the bracket. Click the question for the answer.</p>
+                <p>Rewrite the following sentences making them plural. Click the sentence for the answer.</p>
                 <ul class="pager pagenav">
                   <li class="previous">
                     <a
-                      href="121-singular-and-plural-nouns.html"
+                      href="114-collective-nouns.html"
                       rel="prev"
                       aria-label="Next">
                       <svg
@@ -1380,15 +1379,15 @@
                         <path
                           d="M16.795 14.571c0 0.214-0.107 0.455-0.268 0.616l-10.527 10.527 10.527 10.527c0.161 0.161 0.268 0.402 0.268 0.616s-0.107 0.455-0.268 0.616l-1.339 1.339c-0.161 0.161-0.402 0.268-0.616 0.268s-0.455-0.107-0.616-0.268l-12.482-12.482c-0.161-0.161-0.268-0.402-0.268-0.616s0.107-0.455 0.268-0.616l12.482-12.482c0.161-0.161 0.402-0.268 0.616-0.268s0.455 0.107 0.616 0.268l1.339 1.339c0.161 0.161 0.268 0.375 0.268 0.616z"></path>
                       </svg>
-                      &nbsp;&nbsp; 1.2.1 Singular and Plural Nouns
+                      &nbsp;&nbsp; 1.1.4 Collective Nouns
                     </a>
                   </li>
                   <li class="next">
                     <a
-                      href="141-forming-nouns.html"
+                      href="131-countable-and-uncountable-nouns.html"
                       rel="next"
                       aria-label="Previous">
-                      1.4.1 Forming Nouns &nbsp;&nbsp;
+                      1.3.1 Countable and Uncountable Nouns &nbsp;&nbsp;
                       <svg
                         version="1.1"
                         xmlns="http://www.w3.org/2000/svg"
@@ -1406,7 +1405,7 @@
                 <form
                   class="exercise-form exercise-gate"
                   data-exercise-form=""
-                  data-storage-key="exercise-131-countable-and-uncountable-nouns"
+                  data-storage-key="exercise-121-singular-and-plural-nouns"
                   novalidate>
                   <fieldset class="exercise-form__intro">
                     <legend class="visually-hidden">Exercise setup</legend>
@@ -1444,7 +1443,7 @@
                         class="exercise-form__progress tm01"
                         data-exercise-progress=""
                         aria-live="polite">
-                        0 of 10 questions completed.
+                        0 of 20 questions completed.
                       </p>
                       <span
                         class="exercise-form__last-attempt"
@@ -1469,41 +1468,43 @@
                         class="anchor nn_sliders-scroll"></span>
                       <div class="accordion-group panel nn_sliders-group">
                         <span
-                          id="nn_sliders-scrollto_1-1-there-is-so-many-much-smoke-coming-out-of-the-chimney"
+                          id="nn_sliders-scrollto_1-1-the-child-asks-for-a-toy-hippopotamus"
                           class="anchor nn_sliders-scroll"></span>
                         <div class="accordion-heading panel-heading">
                           <a
                             class="accordion-toggle nn_sliders-toggle"
-                            href="131-countable-and-uncountable-nouns.html#131-countable-and-uncountable-nouns.html#1-there-is-so-many-much-smoke-coming-out-of-the-chimney"
+                            href="121-singular-and-plural-nouns.html#121-singular-and-plural-nouns.html#1-the-child-asks-for-a-toy-hippopotamus"
                             aria-label="Answer"
                             data-toggle="collapse"
                             data-parent="#set-nn_sliders-1"
-                            data-id="q1-there-is-so-many-much-smoke-coming-out-of-the-chimney"
+                            data-id="q1-the-child-asks-for-a-toy-hippopotamus"
                             aria-expanded="false"
-                            aria-controls="131-countable-and-uncountable-nouns.html#1-there-is-so-many-much-smoke-coming-out-of-the-chimney">
-                            <span class="nn_sliders-toggle-inner">1. There is so (many, much) smoke coming out of the chimney.</span>
+                            aria-controls="121-singular-and-plural-nouns.html#1-the-child-asks-for-a-toy-hippopotamus">
+                            <span class="nn_sliders-toggle-inner">1. The child asks for a toy hippopotamus.</span>
                           </a>
                         </div>
                         <div
                           class="accordion-body nn_sliders-body collapse"
-                          id="q1-there-is-so-many-much-smoke-coming-out-of-the-chimney"
+                          id="q1-the-child-asks-for-a-toy-hippopotamus"
                           aria-hidden="true">
                           <div class="accordion-inner panel-body">
-                            <h2 class="nn_sliders-title">1. There is so (many, much) smoke coming out of the chimney.</h2>
-                            <p>1. There is so <b>much</b> smoke coming out of the chimney.</p>
+                            <h2 class="nn_sliders-title">1. The children ask for toy hippopotamuses / hippopotami.</h2>
+                            <p>1. The children ask for toy hippopotamuses / hippopotami.</p>
                           </div>
                         </div>
                         <div
-                          class="exercise-response-row"
-                          data-item="1">
-                          <label class="exercise-response-field">
+                          class="exercise-response-row exercise-response-row--long"
+                          data-item="1"
+                          data-answer-ui="textarea">
+                          <label class="exercise-response-field exercise-response-field--long">
                             <span class="visually-hidden">Response for item 1 (answer_01)</span>
-                            <input
-                              class="exercise-response-input"
-                              type="text"
-                              placeholder="Answer"
+                            <textarea
+                              class="exercise-response-input exercise-response-input--textarea"
+                              rows="1"
+                              placeholder="Rewrite here"
                               data-item="1"
-                              data-field="answer_01">
+                              data-field="answer_01"
+                              data-autosize="true"></textarea>
                           </label>
                         </div>
                       </div>
@@ -1520,43 +1521,43 @@
                         class="anchor nn_sliders-scroll"></span>
                       <div class="accordion-group panel nn_sliders-group">
                         <span
-                          id="nn_sliders-scrollto_2-2-mrs-fisher-keeps-plenty-of-a-large-amount-of-tropical-fish-in-her-pond"
+                          id="nn_sliders-scrollto_2-2-the-baby-cries-but-its-mother-is-missing"
                           class="anchor nn_sliders-scroll"></span>
                         <div class="accordion-heading panel-heading">
                           <a
                             class="accordion-toggle nn_sliders-toggle"
-                            href="131-countable-and-uncountable-nouns.html#131-countable-and-uncountable-nouns.html#2-mrs-fisher-keeps-plenty-of-a-large-amount-of-tropical-fish-in-her-pond"
+                            href="121-singular-and-plural-nouns.html#121-singular-and-plural-nouns.html#2-the-baby-cries-but-its-mother-is-missing"
                             aria-label="Answer"
                             data-toggle="collapse"
                             data-parent="#set-nn_sliders-2"
-                            data-id="q2-mrs-fisher-keeps-plenty-of-a-large-amount-of-tropical-fish-in-her-pond"
+                            data-id="q2-the-baby-cries-but-its-mother-is-missing"
                             aria-expanded="false"
-                            aria-controls="131-countable-and-uncountable-nouns.html#2-mrs-fisher-keeps-plenty-of-a-large-amount-of-tropical-fish-in-her-pond">
-                            <span class="nn_sliders-toggle-inner">
-                              2. Mrs. Fisher keeps (plenty of, a large amount of) tropical fish in her pond.
-                            </span>
+                            aria-controls="121-singular-and-plural-nouns.html#2-the-baby-cries-but-its-mother-is-missing">
+                            <span class="nn_sliders-toggle-inner">2. The baby cries; but its mother is missing.</span>
                           </a>
                         </div>
                         <div
                           class="accordion-body nn_sliders-body collapse"
-                          id="q2-mrs-fisher-keeps-plenty-of-a-large-amount-of-tropical-fish-in-her-pond"
+                          id="q2-the-baby-cries-but-its-mother-is-missing"
                           aria-hidden="true">
                           <div class="accordion-inner panel-body">
-                            <h2 class="nn_sliders-title">2. Mrs. Fisher keeps (plenty of, a large amount of) tropical fish in her pond.</h2>
-                            <p>2. Mrs. Fisher keeps <b>plenty of</b> tropical fish in her pond.</p>
+                            <h2 class="nn_sliders-title">2. The babies cry; but their mothers are missing.</h2>
+                            <p>2. The babies cry; but their mothers are missing.</p>
                           </div>
                         </div>
                         <div
-                          class="exercise-response-row"
-                          data-item="2">
-                          <label class="exercise-response-field">
+                          class="exercise-response-row exercise-response-row--long"
+                          data-item="2"
+                          data-answer-ui="textarea">
+                          <label class="exercise-response-field exercise-response-field--long">
                             <span class="visually-hidden">Response for item 2 (answer_01)</span>
-                            <input
-                              class="exercise-response-input"
-                              type="text"
-                              placeholder="Answer"
+                            <textarea
+                              class="exercise-response-input exercise-response-input--textarea"
+                              rows="1"
+                              placeholder="Rewrite here"
                               data-item="2"
-                              data-field="answer_01">
+                              data-field="answer_01"
+                              data-autosize="true"></textarea>
                           </label>
                         </div>
                       </div>
@@ -1573,41 +1574,45 @@
                         class="anchor nn_sliders-scroll"></span>
                       <div class="accordion-group panel nn_sliders-group">
                         <span
-                          id="nn_sliders-scrollto_3-3-mr-shaver-takes-only-a-little-few-minutes-to-shave"
+                          id="nn_sliders-scrollto_3-3-i-look-up-and-a-leaf-falls-from-a-branch-and-lands-on-my-forehead"
                           class="anchor nn_sliders-scroll"></span>
                         <div class="accordion-heading panel-heading">
                           <a
                             class="accordion-toggle nn_sliders-toggle"
-                            href="131-countable-and-uncountable-nouns.html#131-countable-and-uncountable-nouns.html#3-mr-shaver-takes-only-a-little-few-minutes-to-shave"
+                            href="121-singular-and-plural-nouns.html#121-singular-and-plural-nouns.html#3-i-look-up-and-a-leaf-falls-from-a-branch-and-lands-on-my-forehead"
                             aria-label="Answer"
                             data-toggle="collapse"
                             data-parent="#set-nn_sliders-3"
-                            data-id="q3-mr-shaver-takes-only-a-little-few-minutes-to-shave"
+                            data-id="q3-i-look-up-and-a-leaf-falls-from-a-branch-and-lands-on-my-forehead"
                             aria-expanded="false"
-                            aria-controls="131-countable-and-uncountable-nouns.html#3-mr-shaver-takes-only-a-little-few-minutes-to-shave">
-                            <span class="nn_sliders-toggle-inner">3. Mr. Shaver takes only a (little, few) minutes to shave.</span>
+                            aria-controls="121-singular-and-plural-nouns.html#3-i-look-up-and-a-leaf-falls-from-a-branch-and-lands-on-my-forehead">
+                            <span class="nn_sliders-toggle-inner">
+                              3. I look up, and a leaf falls from a branch and lands on my forehead.
+                            </span>
                           </a>
                         </div>
                         <div
                           class="accordion-body nn_sliders-body collapse"
-                          id="q3-mr-shaver-takes-only-a-little-few-minutes-to-shave"
+                          id="q3-i-look-up-and-a-leaf-falls-from-a-branch-and-lands-on-my-forehead"
                           aria-hidden="true">
                           <div class="accordion-inner panel-body">
-                            <h2 class="nn_sliders-title">3. Mr. Shaver takes only a (little, few) minutes to shave.</h2>
-                            <p>3. Mr. Shaver takes only a <b>&#102;&#101;&#119;</b> minutes to shave.</p>
+                            <h2 class="nn_sliders-title">3. We look up, and leaves fall from branches and land on our foreheads.</h2>
+                            <p>3. We look up, and leaves fall from branches and land on our foreheads.</p>
                           </div>
                         </div>
                         <div
-                          class="exercise-response-row"
-                          data-item="3">
-                          <label class="exercise-response-field">
+                          class="exercise-response-row exercise-response-row--long"
+                          data-item="3"
+                          data-answer-ui="textarea">
+                          <label class="exercise-response-field exercise-response-field--long">
                             <span class="visually-hidden">Response for item 3 (answer_01)</span>
-                            <input
-                              class="exercise-response-input"
-                              type="text"
-                              placeholder="Answer"
+                            <textarea
+                              class="exercise-response-input exercise-response-input--textarea"
+                              rows="1"
+                              placeholder="Rewrite here"
                               data-item="3"
-                              data-field="answer_01">
+                              data-field="answer_01"
+                              data-autosize="true"></textarea>
                           </label>
                         </div>
                       </div>
@@ -1624,43 +1629,43 @@
                         class="anchor nn_sliders-scroll"></span>
                       <div class="accordion-group panel nn_sliders-group">
                         <span
-                          id="nn_sliders-scrollto_4-4-the-postman-put-a-great-deal-of-a-lot-of-letters-into-the-bag"
+                          id="nn_sliders-scrollto_4-4-the-lady-uses-a-knife-to-cut-a-potato-and-a-chilli"
                           class="anchor nn_sliders-scroll"></span>
                         <div class="accordion-heading panel-heading">
                           <a
                             class="accordion-toggle nn_sliders-toggle"
-                            href="131-countable-and-uncountable-nouns.html#131-countable-and-uncountable-nouns.html#4-the-postman-put-a-great-deal-of-a-lot-of-letters-into-the-bag"
+                            href="121-singular-and-plural-nouns.html#121-singular-and-plural-nouns.html#4-the-lady-uses-a-knife-to-cut-a-potato-and-a-chilli"
                             aria-label="Answer"
                             data-toggle="collapse"
                             data-parent="#set-nn_sliders-4"
-                            data-id="q4-the-postman-put-a-great-deal-of-a-lot-of-letters-into-the-bag"
+                            data-id="q4-the-lady-uses-a-knife-to-cut-a-potato-and-a-chilli"
                             aria-expanded="false"
-                            aria-controls="131-countable-and-uncountable-nouns.html#4-the-postman-put-a-great-deal-of-a-lot-of-letters-into-the-bag">
-                            <span class="nn_sliders-toggle-inner">
-                              4. The postman put (a great deal of, a lot of) letters into the bag.
-                            </span>
+                            aria-controls="121-singular-and-plural-nouns.html#4-the-lady-uses-a-knife-to-cut-a-potato-and-a-chilli">
+                            <span class="nn_sliders-toggle-inner">4. The lady uses a knife to cut a potato and a chilli.</span>
                           </a>
                         </div>
                         <div
                           class="accordion-body nn_sliders-body collapse"
-                          id="q4-the-postman-put-a-great-deal-of-a-lot-of-letters-into-the-bag"
+                          id="q4-the-lady-uses-a-knife-to-cut-a-potato-and-a-chilli"
                           aria-hidden="true">
                           <div class="accordion-inner panel-body">
-                            <h2 class="nn_sliders-title">4. The postman put (a great deal of, a lot of) letters into the bag.</h2>
-                            <p>4. The postman put <b>&#97;&#32;&#108;&#111;&#116;&#32;&#111;&#102;</b> letters into the bag.</p>
+                            <h2 class="nn_sliders-title">4. The lady uses a knife to cut a potato and a chilli.</h2>
+                            <p>4. The lady uses a knife to cut a potato and a chilli.</p>
                           </div>
                         </div>
                         <div
-                          class="exercise-response-row"
-                          data-item="4">
-                          <label class="exercise-response-field">
+                          class="exercise-response-row exercise-response-row--long"
+                          data-item="4"
+                          data-answer-ui="textarea">
+                          <label class="exercise-response-field exercise-response-field--long">
                             <span class="visually-hidden">Response for item 4 (answer_01)</span>
-                            <input
-                              class="exercise-response-input"
-                              type="text"
-                              placeholder="Answer"
+                            <textarea
+                              class="exercise-response-input exercise-response-input--textarea"
+                              rows="1"
+                              placeholder="Rewrite here"
                               data-item="4"
-                              data-field="answer_01">
+                              data-field="answer_01"
+                              data-autosize="true"></textarea>
                           </label>
                         </div>
                       </div>
@@ -1677,41 +1682,43 @@
                         class="anchor nn_sliders-scroll"></span>
                       <div class="accordion-group panel nn_sliders-group">
                         <span
-                          id="nn_sliders-scrollto_5-5-he-threw-much-some-stones-at-the-monkeys"
+                          id="nn_sliders-scrollto_5-5-the-man-is-sure-a-mouse-bit-his-foot-while-he-was-asleep"
                           class="anchor nn_sliders-scroll"></span>
                         <div class="accordion-heading panel-heading">
                           <a
                             class="accordion-toggle nn_sliders-toggle"
-                            href="131-countable-and-uncountable-nouns.html#131-countable-and-uncountable-nouns.html#5-he-threw-much-some-stones-at-the-monkeys"
+                            href="121-singular-and-plural-nouns.html#121-singular-and-plural-nouns.html#5-the-man-is-sure-a-mouse-bit-his-foot-while-he-was-asleep"
                             aria-label="Answer"
                             data-toggle="collapse"
                             data-parent="#set-nn_sliders-5"
-                            data-id="q5-he-threw-much-some-stones-at-the-monkeys"
+                            data-id="q5-the-man-is-sure-a-mouse-bit-his-foot-while-he-was-asleep"
                             aria-expanded="false"
-                            aria-controls="131-countable-and-uncountable-nouns.html#5-he-threw-much-some-stones-at-the-monkeys">
-                            <span class="nn_sliders-toggle-inner">5. He threw (much, some) stones at the monkeys.</span>
+                            aria-controls="121-singular-and-plural-nouns.html#5-the-man-is-sure-a-mouse-bit-his-foot-while-he-was-asleep">
+                            <span class="nn_sliders-toggle-inner">5. The man is sure a mouse bit his foot while he was asleep.</span>
                           </a>
                         </div>
                         <div
                           class="accordion-body nn_sliders-body collapse"
-                          id="q5-he-threw-much-some-stones-at-the-monkeys"
+                          id="q5-the-man-is-sure-a-mouse-bit-his-foot-while-he-was-asleep"
                           aria-hidden="true">
                           <div class="accordion-inner panel-body">
-                            <h2 class="nn_sliders-title">5. He threw (much, some) stones at the monkeys.</h2>
-                            <p>5. He threw <b>&#115;&#111;&#109;&#101;</b> stones at the monkeys.</p>
+                            <h2 class="nn_sliders-title">5. The man is sure a mouse bit his foot while he was asleep.</h2>
+                            <p>5. The man is sure a mouse bit his foot while he was asleep.</p>
                           </div>
                         </div>
                         <div
-                          class="exercise-response-row"
-                          data-item="5">
-                          <label class="exercise-response-field">
+                          class="exercise-response-row exercise-response-row--long"
+                          data-item="5"
+                          data-answer-ui="textarea">
+                          <label class="exercise-response-field exercise-response-field--long">
                             <span class="visually-hidden">Response for item 5 (answer_01)</span>
-                            <input
-                              class="exercise-response-input"
-                              type="text"
-                              placeholder="Answer"
+                            <textarea
+                              class="exercise-response-input exercise-response-input--textarea"
+                              rows="1"
+                              placeholder="Rewrite here"
                               data-item="5"
-                              data-field="answer_01">
+                              data-field="answer_01"
+                              data-autosize="true"></textarea>
                           </label>
                         </div>
                       </div>
@@ -1728,41 +1735,43 @@
                         class="anchor nn_sliders-scroll"></span>
                       <div class="accordion-group panel nn_sliders-group">
                         <span
-                          id="nn_sliders-scrollto_6-6-she-uses-only-a-few-a-little-cooking-oil-in-her-cooking"
+                          id="nn_sliders-scrollto_6-6-i-took-this-photo-of-an-ox-that-is-not-mine"
                           class="anchor nn_sliders-scroll"></span>
                         <div class="accordion-heading panel-heading">
                           <a
                             class="accordion-toggle nn_sliders-toggle"
-                            href="131-countable-and-uncountable-nouns.html#131-countable-and-uncountable-nouns.html#6-she-uses-only-a-few-a-little-cooking-oil-in-her-cooking"
+                            href="121-singular-and-plural-nouns.html#121-singular-and-plural-nouns.html#6-i-took-this-photo-of-an-ox-that-is-not-mine"
                             aria-label="Answer"
                             data-toggle="collapse"
                             data-parent="#set-nn_sliders-6"
-                            data-id="q6-she-uses-only-a-few-a-little-cooking-oil-in-her-cooking"
+                            data-id="q6-i-took-this-photo-of-an-ox-that-is-not-mine"
                             aria-expanded="false"
-                            aria-controls="131-countable-and-uncountable-nouns.html#6-she-uses-only-a-few-a-little-cooking-oil-in-her-cooking">
-                            <span class="nn_sliders-toggle-inner">6. She uses only (a few, a little) cooking oil in her cooking.</span>
+                            aria-controls="121-singular-and-plural-nouns.html#6-i-took-this-photo-of-an-ox-that-is-not-mine">
+                            <span class="nn_sliders-toggle-inner">6. I took this photo of an ox that is not mine.</span>
                           </a>
                         </div>
                         <div
                           class="accordion-body nn_sliders-body collapse"
-                          id="q6-she-uses-only-a-few-a-little-cooking-oil-in-her-cooking"
+                          id="q6-i-took-this-photo-of-an-ox-that-is-not-mine"
                           aria-hidden="true">
                           <div class="accordion-inner panel-body">
-                            <h2 class="nn_sliders-title">6. She uses only (a few, a little) cooking oil in her cooking.</h2>
-                            <p>6. She uses only <b>&#97;&#32;&#108;&#105;&#116;&#116;&#108;&#101;</b> cooking oil in her cooking.</p>
+                            <h2 class="nn_sliders-title">6. I took this photo of an ox that is not mine.</h2>
+                            <p>6. I took this photo of an ox that is not mine.</p>
                           </div>
                         </div>
                         <div
-                          class="exercise-response-row"
-                          data-item="6">
-                          <label class="exercise-response-field">
+                          class="exercise-response-row exercise-response-row--long"
+                          data-item="6"
+                          data-answer-ui="textarea">
+                          <label class="exercise-response-field exercise-response-field--long">
                             <span class="visually-hidden">Response for item 6 (answer_01)</span>
-                            <input
-                              class="exercise-response-input"
-                              type="text"
-                              placeholder="Answer"
+                            <textarea
+                              class="exercise-response-input exercise-response-input--textarea"
+                              rows="1"
+                              placeholder="Rewrite here"
                               data-item="6"
-                              data-field="answer_01">
+                              data-field="answer_01"
+                              data-autosize="true"></textarea>
                           </label>
                         </div>
                       </div>
@@ -1779,41 +1788,43 @@
                         class="anchor nn_sliders-scroll"></span>
                       <div class="accordion-group panel nn_sliders-group">
                         <span
-                          id="nn_sliders-scrollto_7-7-my-hens-lay-a-large-amount-of-several-eggs-every-morning"
+                          id="nn_sliders-scrollto_7-7-that-goose-belongs-to-his-wife"
                           class="anchor nn_sliders-scroll"></span>
                         <div class="accordion-heading panel-heading">
                           <a
                             class="accordion-toggle nn_sliders-toggle"
-                            href="131-countable-and-uncountable-nouns.html#131-countable-and-uncountable-nouns.html#7-my-hens-lay-a-large-amount-of-several-eggs-every-morning"
+                            href="121-singular-and-plural-nouns.html#121-singular-and-plural-nouns.html#7-that-goose-belongs-to-his-wife"
                             aria-label="Answer"
                             data-toggle="collapse"
                             data-parent="#set-nn_sliders-7"
-                            data-id="q7-my-hens-lay-a-large-amount-of-several-eggs-every-morning"
+                            data-id="q7-that-goose-belongs-to-his-wife"
                             aria-expanded="false"
-                            aria-controls="131-countable-and-uncountable-nouns.html#7-my-hens-lay-a-large-amount-of-several-eggs-every-morning">
-                            <span class="nn_sliders-toggle-inner">7. My hens lay (a large amount of, several) eggs every morning.</span>
+                            aria-controls="121-singular-and-plural-nouns.html#7-that-goose-belongs-to-his-wife">
+                            <span class="nn_sliders-toggle-inner">7. That goose belongs to his wife.</span>
                           </a>
                         </div>
                         <div
                           class="accordion-body nn_sliders-body collapse"
-                          id="q7-my-hens-lay-a-large-amount-of-several-eggs-every-morning"
+                          id="q7-that-goose-belongs-to-his-wife"
                           aria-hidden="true">
                           <div class="accordion-inner panel-body">
-                            <h2 class="nn_sliders-title">7. My hens lay (a large amount of, several) eggs every morning.</h2>
-                            <p>7. My hens lay <b>&#115;&#101;&#118;&#101;&#114;&#97;&#108;</b> eggs every morning.</p>
+                            <h2 class="nn_sliders-title">7. That goose belongs to his wife.</h2>
+                            <p>7. That goose belongs to his wife.</p>
                           </div>
                         </div>
                         <div
-                          class="exercise-response-row"
-                          data-item="7">
-                          <label class="exercise-response-field">
+                          class="exercise-response-row exercise-response-row--long"
+                          data-item="7"
+                          data-answer-ui="textarea">
+                          <label class="exercise-response-field exercise-response-field--long">
                             <span class="visually-hidden">Response for item 7 (answer_01)</span>
-                            <input
-                              class="exercise-response-input"
-                              type="text"
-                              placeholder="Answer"
+                            <textarea
+                              class="exercise-response-input exercise-response-input--textarea"
+                              rows="1"
+                              placeholder="Rewrite here"
                               data-item="7"
-                              data-field="answer_01">
+                              data-field="answer_01"
+                              data-autosize="true"></textarea>
                           </label>
                         </div>
                       </div>
@@ -1830,43 +1841,43 @@
                         class="anchor nn_sliders-scroll"></span>
                       <div class="accordion-group panel nn_sliders-group">
                         <span
-                          id="nn_sliders-scrollto_8-8-a-great-deal-of-a-large-number-of-dust-has-collected-on-the-unused-desk"
+                          id="nn_sliders-scrollto_8-8-my-loaf-of-bread-is-enough-to-feed-the-fish"
                           class="anchor nn_sliders-scroll"></span>
                         <div class="accordion-heading panel-heading">
                           <a
                             class="accordion-toggle nn_sliders-toggle"
-                            href="131-countable-and-uncountable-nouns.html#131-countable-and-uncountable-nouns.html#8-a-great-deal-of-a-large-number-of-dust-has-collected-on-the-unused-desk"
+                            href="121-singular-and-plural-nouns.html#121-singular-and-plural-nouns.html#8-my-loaf-of-bread-is-enough-to-feed-the-fish"
                             aria-label="Answer"
                             data-toggle="collapse"
                             data-parent="#set-nn_sliders-8"
-                            data-id="q8-a-great-deal-of-a-large-number-of-dust-has-collected-on-the-unused-desk"
+                            data-id="q8-my-loaf-of-bread-is-enough-to-feed-the-fish"
                             aria-expanded="false"
-                            aria-controls="131-countable-and-uncountable-nouns.html#8-a-great-deal-of-a-large-number-of-dust-has-collected-on-the-unused-desk">
-                            <span class="nn_sliders-toggle-inner">
-                              8. (A great deal of, A large number of) dust has collected on the unused desk.
-                            </span>
+                            aria-controls="121-singular-and-plural-nouns.html#8-my-loaf-of-bread-is-enough-to-feed-the-fish">
+                            <span class="nn_sliders-toggle-inner">8. My loaf of bread is enough to feed the fish.</span>
                           </a>
                         </div>
                         <div
                           class="accordion-body nn_sliders-body collapse"
-                          id="q8-a-great-deal-of-a-large-number-of-dust-has-collected-on-the-unused-desk"
+                          id="q8-my-loaf-of-bread-is-enough-to-feed-the-fish"
                           aria-hidden="true">
                           <div class="accordion-inner panel-body">
-                            <h2 class="nn_sliders-title">8. (A great deal of, A large number of) dust has collected on the unused desk.</h2>
-                            <p>8. <b>&#65;&#32;&#103;&#114;&#101;&#97;&#116;&#32;&#100;&#101;&#97;&#108;&#32;&#111;&#102;</b> dust has collected on the unused desk.</p>
+                            <h2 class="nn_sliders-title">8. My loaf of bread is enough to feed the fish.</h2>
+                            <p>8. My loaf of bread is enough to feed the fish.</p>
                           </div>
                         </div>
                         <div
-                          class="exercise-response-row"
-                          data-item="8">
-                          <label class="exercise-response-field">
+                          class="exercise-response-row exercise-response-row--long"
+                          data-item="8"
+                          data-answer-ui="textarea">
+                          <label class="exercise-response-field exercise-response-field--long">
                             <span class="visually-hidden">Response for item 8 (answer_01)</span>
-                            <input
-                              class="exercise-response-input"
-                              type="text"
-                              placeholder="Answer"
+                            <textarea
+                              class="exercise-response-input exercise-response-input--textarea"
+                              rows="1"
+                              placeholder="Rewrite here"
                               data-item="8"
-                              data-field="answer_01">
+                              data-field="answer_01"
+                              data-autosize="true"></textarea>
                           </label>
                         </div>
                       </div>
@@ -1883,41 +1894,43 @@
                         class="anchor nn_sliders-scroll"></span>
                       <div class="accordion-group panel nn_sliders-group">
                         <span
-                          id="nn_sliders-scrollto_9-9-we-saw-a-large-amount-of-many-cows-grazing-in-the-field"
+                          id="nn_sliders-scrollto_9-9-his-lorry-nearly-collided-with-the-boy-s-bicycle"
                           class="anchor nn_sliders-scroll"></span>
                         <div class="accordion-heading panel-heading">
                           <a
                             class="accordion-toggle nn_sliders-toggle"
-                            href="131-countable-and-uncountable-nouns.html#131-countable-and-uncountable-nouns.html#9-we-saw-a-large-amount-of-many-cows-grazing-in-the-field"
+                            href="121-singular-and-plural-nouns.html#121-singular-and-plural-nouns.html#9-his-lorry-nearly-collided-with-the-boy-s-bicycle"
                             aria-label="Answer"
                             data-toggle="collapse"
                             data-parent="#set-nn_sliders-9"
-                            data-id="q9-we-saw-a-large-amount-of-many-cows-grazing-in-the-field"
+                            data-id="q9-his-lorry-nearly-collided-with-the-boy-s-bicycle"
                             aria-expanded="false"
-                            aria-controls="131-countable-and-uncountable-nouns.html#9-we-saw-a-large-amount-of-many-cows-grazing-in-the-field">
-                            <span class="nn_sliders-toggle-inner">9. We saw (a large amount of, many) cows grazing in the field.</span>
+                            aria-controls="121-singular-and-plural-nouns.html#9-his-lorry-nearly-collided-with-the-boy-s-bicycle">
+                            <span class="nn_sliders-toggle-inner">9. His lorry nearly collided with the boy's bicycle.</span>
                           </a>
                         </div>
                         <div
                           class="accordion-body nn_sliders-body collapse"
-                          id="q9-we-saw-a-large-amount-of-many-cows-grazing-in-the-field"
+                          id="q9-his-lorry-nearly-collided-with-the-boy-s-bicycle"
                           aria-hidden="true">
                           <div class="accordion-inner panel-body">
-                            <h2 class="nn_sliders-title">9. We saw (a large amount of, many) cows grazing in the field.</h2>
-                            <p>9. We saw <b>&#109;&#97;&#110;&#121;</b> cows grazing in the field.</p>
+                            <h2 class="nn_sliders-title">9. His lorry nearly collided with the boy's bicycle.</h2>
+                            <p>9. His lorry nearly collided with the boy's bicycle.</p>
                           </div>
                         </div>
                         <div
-                          class="exercise-response-row"
-                          data-item="9">
-                          <label class="exercise-response-field">
+                          class="exercise-response-row exercise-response-row--long"
+                          data-item="9"
+                          data-answer-ui="textarea">
+                          <label class="exercise-response-field exercise-response-field--long">
                             <span class="visually-hidden">Response for item 9 (answer_01)</span>
-                            <input
-                              class="exercise-response-input"
-                              type="text"
-                              placeholder="Answer"
+                            <textarea
+                              class="exercise-response-input exercise-response-input--textarea"
+                              rows="1"
+                              placeholder="Rewrite here"
                               data-item="9"
-                              data-field="answer_01">
+                              data-field="answer_01"
+                              data-autosize="true"></textarea>
                           </label>
                         </div>
                       </div>
@@ -1934,43 +1947,573 @@
                         class="anchor nn_sliders-scroll"></span>
                       <div class="accordion-group panel nn_sliders-group">
                         <span
-                          id="nn_sliders-scrollto_10-10-those-butchers-eat-a-large-amount-of-a-large-number-of-meat-every-day"
+                          id="nn_sliders-scrollto_10-10-he-lost-a-tooth-in-a-fight-with-a-bully"
                           class="anchor nn_sliders-scroll"></span>
                         <div class="accordion-heading panel-heading">
                           <a
                             class="accordion-toggle nn_sliders-toggle"
-                            href="131-countable-and-uncountable-nouns.html#131-countable-and-uncountable-nouns.html#10-those-butchers-eat-a-large-amount-of-a-large-number-of-meat-every-day"
+                            href="121-singular-and-plural-nouns.html#121-singular-and-plural-nouns.html#10-he-lost-a-tooth-in-a-fight-with-a-bully"
                             aria-label="Answer"
                             data-toggle="collapse"
                             data-parent="#set-nn_sliders-10"
-                            data-id="q10-those-butchers-eat-a-large-amount-of-a-large-number-of-meat-every-day"
+                            data-id="q10-he-lost-a-tooth-in-a-fight-with-a-bully"
                             aria-expanded="false"
-                            aria-controls="131-countable-and-uncountable-nouns.html#10-those-butchers-eat-a-large-amount-of-a-large-number-of-meat-every-day">
-                            <span class="nn_sliders-toggle-inner">
-                              10. Those butchers eat (a large amount of, a large number of) meat every day.
-                            </span>
+                            aria-controls="121-singular-and-plural-nouns.html#10-he-lost-a-tooth-in-a-fight-with-a-bully">
+                            <span class="nn_sliders-toggle-inner">10. He lost a tooth in a fight with a bully.</span>
                           </a>
                         </div>
                         <div
                           class="accordion-body nn_sliders-body collapse"
-                          id="q10-those-butchers-eat-a-large-amount-of-a-large-number-of-meat-every-day"
+                          id="q10-he-lost-a-tooth-in-a-fight-with-a-bully"
                           aria-hidden="true">
                           <div class="accordion-inner panel-body">
-                            <h2 class="nn_sliders-title">10. Those butchers eat (a large amount of, a large number of) meat every day.</h2>
-                            <p>10. Those butchers eat <b>&#97;&#32;&#108;&#97;&#114;&#103;&#101;&#32;&#97;&#109;&#111;&#117;&#110;&#116;&#32;&#111;&#102;</b> meat every day.</p>
+                            <h2 class="nn_sliders-title">10. He lost a tooth in a fight with a bully.</h2>
+                            <p>10. He lost a tooth in a fight with a bully.</p>
                           </div>
                         </div>
                         <div
-                          class="exercise-response-row"
-                          data-item="10">
-                          <label class="exercise-response-field">
+                          class="exercise-response-row exercise-response-row--long"
+                          data-item="10"
+                          data-answer-ui="textarea">
+                          <label class="exercise-response-field exercise-response-field--long">
                             <span class="visually-hidden">Response for item 10 (answer_01)</span>
-                            <input
-                              class="exercise-response-input"
-                              type="text"
-                              placeholder="Answer"
+                            <textarea
+                              class="exercise-response-input exercise-response-input--textarea"
+                              rows="1"
+                              placeholder="Rewrite here"
                               data-item="10"
-                              data-field="answer_01">
+                              data-field="answer_01"
+                              data-autosize="true"></textarea>
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="quest-bg"
+                    data-exercise-question="11">
+                    <div
+                      class="nn_sliders accordion panel-group"
+                      id="set-nn_sliders-11">
+                      <span
+                        id="nn_sliders-scrollto_11"
+                        class="anchor nn_sliders-scroll"></span>
+                      <div class="accordion-group panel nn_sliders-group">
+                        <span
+                          id="nn_sliders-scrollto_11-11-a-passerby-stops-to-watch-a-dwarf-performs-a-dance"
+                          class="anchor nn_sliders-scroll"></span>
+                        <div class="accordion-heading panel-heading">
+                          <a
+                            class="accordion-toggle nn_sliders-toggle"
+                            href="121-singular-and-plural-nouns.html#121-singular-and-plural-nouns.html#11-a-passerby-stops-to-watch-a-dwarf-performs-a-dance"
+                            aria-label="Answer"
+                            data-toggle="collapse"
+                            data-parent="#set-nn_sliders-11"
+                            data-id="q11-a-passerby-stops-to-watch-a-dwarf-performs-a-dance"
+                            aria-expanded="false"
+                            aria-controls="121-singular-and-plural-nouns.html#11-a-passerby-stops-to-watch-a-dwarf-performs-a-dance">
+                            <span class="nn_sliders-toggle-inner">11. A passerby stops to watch a dwarf performs a dance.</span>
+                          </a>
+                        </div>
+                        <div
+                          class="accordion-body nn_sliders-body collapse"
+                          id="q11-a-passerby-stops-to-watch-a-dwarf-performs-a-dance"
+                          aria-hidden="true">
+                          <div class="accordion-inner panel-body">
+                            <h2 class="nn_sliders-title">11. A passerby stops to watch a dwarf performs a dance.</h2>
+                            <p>11. A passerby stops to watch a dwarf performs a dance.</p>
+                          </div>
+                        </div>
+                        <div
+                          class="exercise-response-row exercise-response-row--long"
+                          data-item="11"
+                          data-answer-ui="textarea">
+                          <label class="exercise-response-field exercise-response-field--long">
+                            <span class="visually-hidden">Response for item 11 (answer_01)</span>
+                            <textarea
+                              class="exercise-response-input exercise-response-input--textarea"
+                              rows="1"
+                              placeholder="Rewrite here"
+                              data-item="11"
+                              data-field="answer_01"
+                              data-autosize="true"></textarea>
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="quest-bg"
+                    data-exercise-question="12">
+                    <div
+                      class="nn_sliders accordion panel-group"
+                      id="set-nn_sliders-12">
+                      <span
+                        id="nn_sliders-scrollto_12"
+                        class="anchor nn_sliders-scroll"></span>
+                      <div class="accordion-group panel nn_sliders-group">
+                        <span
+                          id="nn_sliders-scrollto_12-12-she-likes-to-cook-spicy-octopus-with-tomato"
+                          class="anchor nn_sliders-scroll"></span>
+                        <div class="accordion-heading panel-heading">
+                          <a
+                            class="accordion-toggle nn_sliders-toggle"
+                            href="121-singular-and-plural-nouns.html#121-singular-and-plural-nouns.html#12-she-likes-to-cook-spicy-octopus-with-tomato"
+                            aria-label="Answer"
+                            data-toggle="collapse"
+                            data-parent="#set-nn_sliders-12"
+                            data-id="q12-she-likes-to-cook-spicy-octopus-with-tomato"
+                            aria-expanded="false"
+                            aria-controls="121-singular-and-plural-nouns.html#12-she-likes-to-cook-spicy-octopus-with-tomato">
+                            <span class="nn_sliders-toggle-inner">12. She likes to cook spicy octopus with tomato.</span>
+                          </a>
+                        </div>
+                        <div
+                          class="accordion-body nn_sliders-body collapse"
+                          id="q12-she-likes-to-cook-spicy-octopus-with-tomato"
+                          aria-hidden="true">
+                          <div class="accordion-inner panel-body">
+                            <h2 class="nn_sliders-title">12. She likes to cook spicy octopus with tomato.</h2>
+                            <p>12. She likes to cook spicy octopus with tomato.</p>
+                          </div>
+                        </div>
+                        <div
+                          class="exercise-response-row exercise-response-row--long"
+                          data-item="12"
+                          data-answer-ui="textarea">
+                          <label class="exercise-response-field exercise-response-field--long">
+                            <span class="visually-hidden">Response for item 12 (answer_01)</span>
+                            <textarea
+                              class="exercise-response-input exercise-response-input--textarea"
+                              rows="1"
+                              placeholder="Rewrite here"
+                              data-item="12"
+                              data-field="answer_01"
+                              data-autosize="true"></textarea>
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="quest-bg"
+                    data-exercise-question="13">
+                    <div
+                      class="nn_sliders accordion panel-group"
+                      id="set-nn_sliders-13">
+                      <span
+                        id="nn_sliders-scrollto_13"
+                        class="anchor nn_sliders-scroll"></span>
+                      <div class="accordion-group panel nn_sliders-group">
+                        <span
+                          id="nn_sliders-scrollto_13-13-my-mother-in-law-owns-a-buffalo"
+                          class="anchor nn_sliders-scroll"></span>
+                        <div class="accordion-heading panel-heading">
+                          <a
+                            class="accordion-toggle nn_sliders-toggle"
+                            href="121-singular-and-plural-nouns.html#121-singular-and-plural-nouns.html#13-my-mother-in-law-owns-a-buffalo"
+                            aria-label="Answer"
+                            data-toggle="collapse"
+                            data-parent="#set-nn_sliders-13"
+                            data-id="q13-my-mother-in-law-owns-a-buffalo"
+                            aria-expanded="false"
+                            aria-controls="121-singular-and-plural-nouns.html#13-my-mother-in-law-owns-a-buffalo">
+                            <span class="nn_sliders-toggle-inner">13. My mother-in-law owns a buffalo.</span>
+                          </a>
+                        </div>
+                        <div
+                          class="accordion-body nn_sliders-body collapse"
+                          id="q13-my-mother-in-law-owns-a-buffalo"
+                          aria-hidden="true">
+                          <div class="accordion-inner panel-body">
+                            <h2 class="nn_sliders-title">13. My mother-in-law owns a buffalo.</h2>
+                            <p>13. My mother-in-law owns a buffalo.</p>
+                          </div>
+                        </div>
+                        <div
+                          class="exercise-response-row exercise-response-row--long"
+                          data-item="13"
+                          data-answer-ui="textarea">
+                          <label class="exercise-response-field exercise-response-field--long">
+                            <span class="visually-hidden">Response for item 13 (answer_01)</span>
+                            <textarea
+                              class="exercise-response-input exercise-response-input--textarea"
+                              rows="1"
+                              placeholder="Rewrite here"
+                              data-item="13"
+                              data-field="answer_01"
+                              data-autosize="true"></textarea>
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="quest-bg"
+                    data-exercise-question="14">
+                    <div
+                      class="nn_sliders accordion panel-group"
+                      id="set-nn_sliders-14">
+                      <span
+                        id="nn_sliders-scrollto_14"
+                        class="anchor nn_sliders-scroll"></span>
+                      <div class="accordion-group panel nn_sliders-group">
+                        <span
+                          id="nn_sliders-scrollto_14-14-the-trio-has-been-playing-a-piano-for-an-hour"
+                          class="anchor nn_sliders-scroll"></span>
+                        <div class="accordion-heading panel-heading">
+                          <a
+                            class="accordion-toggle nn_sliders-toggle"
+                            href="121-singular-and-plural-nouns.html#121-singular-and-plural-nouns.html#14-the-trio-has-been-playing-a-piano-for-an-hour"
+                            aria-label="Answer"
+                            data-toggle="collapse"
+                            data-parent="#set-nn_sliders-14"
+                            data-id="q14-the-trio-has-been-playing-a-piano-for-an-hour"
+                            aria-expanded="false"
+                            aria-controls="121-singular-and-plural-nouns.html#14-the-trio-has-been-playing-a-piano-for-an-hour">
+                            <span class="nn_sliders-toggle-inner">14. The trio has been playing a piano for an hour.</span>
+                          </a>
+                        </div>
+                        <div
+                          class="accordion-body nn_sliders-body collapse"
+                          id="q14-the-trio-has-been-playing-a-piano-for-an-hour"
+                          aria-hidden="true">
+                          <div class="accordion-inner panel-body">
+                            <h2 class="nn_sliders-title">14. The trio has been playing a piano for an hour.</h2>
+                            <p>14. The trio has been playing a piano for an hour.</p>
+                          </div>
+                        </div>
+                        <div
+                          class="exercise-response-row exercise-response-row--long"
+                          data-item="14"
+                          data-answer-ui="textarea">
+                          <label class="exercise-response-field exercise-response-field--long">
+                            <span class="visually-hidden">Response for item 14 (answer_01)</span>
+                            <textarea
+                              class="exercise-response-input exercise-response-input--textarea"
+                              rows="1"
+                              placeholder="Rewrite here"
+                              data-item="14"
+                              data-field="answer_01"
+                              data-autosize="true"></textarea>
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="quest-bg"
+                    data-exercise-question="15">
+                    <div
+                      class="nn_sliders accordion panel-group"
+                      id="set-nn_sliders-15">
+                      <span
+                        id="nn_sliders-scrollto_15"
+                        class="anchor nn_sliders-scroll"></span>
+                      <div class="accordion-group panel nn_sliders-group">
+                        <span
+                          id="nn_sliders-scrollto_15-15-the-child-s-pet-is-a-gold-fish"
+                          class="anchor nn_sliders-scroll"></span>
+                        <div class="accordion-heading panel-heading">
+                          <a
+                            class="accordion-toggle nn_sliders-toggle"
+                            href="121-singular-and-plural-nouns.html#121-singular-and-plural-nouns.html#15-the-child-s-pet-is-a-gold-fish"
+                            aria-label="Answer"
+                            data-toggle="collapse"
+                            data-parent="#set-nn_sliders-15"
+                            data-id="q15-the-child-s-pet-is-a-gold-fish"
+                            aria-expanded="false"
+                            aria-controls="121-singular-and-plural-nouns.html#15-the-child-s-pet-is-a-gold-fish">
+                            <span class="nn_sliders-toggle-inner">15. The child's pet is a gold fish.</span>
+                          </a>
+                        </div>
+                        <div
+                          class="accordion-body nn_sliders-body collapse"
+                          id="q15-the-child-s-pet-is-a-gold-fish"
+                          aria-hidden="true">
+                          <div class="accordion-inner panel-body">
+                            <h2 class="nn_sliders-title">15. The child's pet is a gold fish.</h2>
+                            <p>15. The child's pet is a gold fish.</p>
+                          </div>
+                        </div>
+                        <div
+                          class="exercise-response-row exercise-response-row--long"
+                          data-item="15"
+                          data-answer-ui="textarea">
+                          <label class="exercise-response-field exercise-response-field--long">
+                            <span class="visually-hidden">Response for item 15 (answer_01)</span>
+                            <textarea
+                              class="exercise-response-input exercise-response-input--textarea"
+                              rows="1"
+                              placeholder="Rewrite here"
+                              data-item="15"
+                              data-field="answer_01"
+                              data-autosize="true"></textarea>
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="quest-bg"
+                    data-exercise-question="16">
+                    <div
+                      class="nn_sliders accordion panel-group"
+                      id="set-nn_sliders-16">
+                      <span
+                        id="nn_sliders-scrollto_16"
+                        class="anchor nn_sliders-scroll"></span>
+                      <div class="accordion-group panel nn_sliders-group">
+                        <span
+                          id="nn_sliders-scrollto_16-16-the-tribal-chief-tells-his-wife-to-learn-mathematics"
+                          class="anchor nn_sliders-scroll"></span>
+                        <div class="accordion-heading panel-heading">
+                          <a
+                            class="accordion-toggle nn_sliders-toggle"
+                            href="121-singular-and-plural-nouns.html#121-singular-and-plural-nouns.html#16-the-tribal-chief-tells-his-wife-to-learn-mathematics"
+                            aria-label="Answer"
+                            data-toggle="collapse"
+                            data-parent="#set-nn_sliders-16"
+                            data-id="q16-the-tribal-chief-tells-his-wife-to-learn-mathematics"
+                            aria-expanded="false"
+                            aria-controls="121-singular-and-plural-nouns.html#16-the-tribal-chief-tells-his-wife-to-learn-mathematics">
+                            <span class="nn_sliders-toggle-inner">16. The tribal chief tells his wife to learn mathematics.</span>
+                          </a>
+                        </div>
+                        <div
+                          class="accordion-body nn_sliders-body collapse"
+                          id="q16-the-tribal-chief-tells-his-wife-to-learn-mathematics"
+                          aria-hidden="true">
+                          <div class="accordion-inner panel-body">
+                            <h2 class="nn_sliders-title">16. The tribal chief tells his wife to learn mathematics.</h2>
+                            <p>16. The tribal chief tells his wife to learn mathematics.</p>
+                          </div>
+                        </div>
+                        <div
+                          class="exercise-response-row exercise-response-row--long"
+                          data-item="16"
+                          data-answer-ui="textarea">
+                          <label class="exercise-response-field exercise-response-field--long">
+                            <span class="visually-hidden">Response for item 16 (answer_01)</span>
+                            <textarea
+                              class="exercise-response-input exercise-response-input--textarea"
+                              rows="1"
+                              placeholder="Rewrite here"
+                              data-item="16"
+                              data-field="answer_01"
+                              data-autosize="true"></textarea>
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="quest-bg"
+                    data-exercise-question="17">
+                    <div
+                      class="nn_sliders accordion panel-group"
+                      id="set-nn_sliders-17">
+                      <span
+                        id="nn_sliders-scrollto_17"
+                        class="anchor nn_sliders-scroll"></span>
+                      <div class="accordion-group panel nn_sliders-group">
+                        <span
+                          id="nn_sliders-scrollto_17-17-the-farmer-has-a-sheep-a-deer-and-a-rhinoceros-on-his-farm"
+                          class="anchor nn_sliders-scroll"></span>
+                        <div class="accordion-heading panel-heading">
+                          <a
+                            class="accordion-toggle nn_sliders-toggle"
+                            href="121-singular-and-plural-nouns.html#121-singular-and-plural-nouns.html#17-the-farmer-has-a-sheep-a-deer-and-a-rhinoceros-on-his-farm"
+                            aria-label="Answer"
+                            data-toggle="collapse"
+                            data-parent="#set-nn_sliders-17"
+                            data-id="q17-the-farmer-has-a-sheep-a-deer-and-a-rhinoceros-on-his-farm"
+                            aria-expanded="false"
+                            aria-controls="121-singular-and-plural-nouns.html#17-the-farmer-has-a-sheep-a-deer-and-a-rhinoceros-on-his-farm">
+                            <span class="nn_sliders-toggle-inner">17. The farmer has a sheep, a deer and a rhinoceros on his farm.</span>
+                          </a>
+                        </div>
+                        <div
+                          class="accordion-body nn_sliders-body collapse"
+                          id="q17-the-farmer-has-a-sheep-a-deer-and-a-rhinoceros-on-his-farm"
+                          aria-hidden="true">
+                          <div class="accordion-inner panel-body">
+                            <h2 class="nn_sliders-title">17. The farmer has a sheep, a deer and a rhinoceros on his farm.</h2>
+                            <p>17. The farmer has a sheep, a deer and a rhinoceros on his farm.</p>
+                          </div>
+                        </div>
+                        <div
+                          class="exercise-response-row exercise-response-row--long"
+                          data-item="17"
+                          data-answer-ui="textarea">
+                          <label class="exercise-response-field exercise-response-field--long">
+                            <span class="visually-hidden">Response for item 17 (answer_01)</span>
+                            <textarea
+                              class="exercise-response-input exercise-response-input--textarea"
+                              rows="1"
+                              placeholder="Rewrite here"
+                              data-item="17"
+                              data-field="answer_01"
+                              data-autosize="true"></textarea>
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="quest-bg"
+                    data-exercise-question="18">
+                    <div
+                      class="nn_sliders accordion panel-group"
+                      id="set-nn_sliders-18">
+                      <span
+                        id="nn_sliders-scrollto_18"
+                        class="anchor nn_sliders-scroll"></span>
+                      <div class="accordion-group panel nn_sliders-group">
+                        <span
+                          id="nn_sliders-scrollto_18-18-he-has-a-tattoo-of-a-beauty-on-his-arm"
+                          class="anchor nn_sliders-scroll"></span>
+                        <div class="accordion-heading panel-heading">
+                          <a
+                            class="accordion-toggle nn_sliders-toggle"
+                            href="121-singular-and-plural-nouns.html#121-singular-and-plural-nouns.html#18-he-has-a-tattoo-of-a-beauty-on-his-arm"
+                            aria-label="Answer"
+                            data-toggle="collapse"
+                            data-parent="#set-nn_sliders-18"
+                            data-id="q18-he-has-a-tattoo-of-a-beauty-on-his-arm"
+                            aria-expanded="false"
+                            aria-controls="121-singular-and-plural-nouns.html#18-he-has-a-tattoo-of-a-beauty-on-his-arm">
+                            <span class="nn_sliders-toggle-inner">18. He has a tattoo of a beauty on his arm.</span>
+                          </a>
+                        </div>
+                        <div
+                          class="accordion-body nn_sliders-body collapse"
+                          id="q18-he-has-a-tattoo-of-a-beauty-on-his-arm"
+                          aria-hidden="true">
+                          <div class="accordion-inner panel-body">
+                            <h2 class="nn_sliders-title">18. He has a tattoo of a beauty on his arm.</h2>
+                            <p>18. He has a tattoo of a beauty on his arm.</p>
+                          </div>
+                        </div>
+                        <div
+                          class="exercise-response-row exercise-response-row--long"
+                          data-item="18"
+                          data-answer-ui="textarea">
+                          <label class="exercise-response-field exercise-response-field--long">
+                            <span class="visually-hidden">Response for item 18 (answer_01)</span>
+                            <textarea
+                              class="exercise-response-input exercise-response-input--textarea"
+                              rows="1"
+                              placeholder="Rewrite here"
+                              data-item="18"
+                              data-field="answer_01"
+                              data-autosize="true"></textarea>
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="quest-bg"
+                    data-exercise-question="19">
+                    <div
+                      class="nn_sliders accordion panel-group"
+                      id="set-nn_sliders-19">
+                      <span
+                        id="nn_sliders-scrollto_19"
+                        class="anchor nn_sliders-scroll"></span>
+                      <div class="accordion-group panel nn_sliders-group">
+                        <span
+                          id="nn_sliders-scrollto_19-19-he-uses-a-lasso-to-catch-an-elephant-calf"
+                          class="anchor nn_sliders-scroll"></span>
+                        <div class="accordion-heading panel-heading">
+                          <a
+                            class="accordion-toggle nn_sliders-toggle"
+                            href="121-singular-and-plural-nouns.html#121-singular-and-plural-nouns.html#19-he-uses-a-lasso-to-catch-an-elephant-calf"
+                            aria-label="Answer"
+                            data-toggle="collapse"
+                            data-parent="#set-nn_sliders-19"
+                            data-id="q19-he-uses-a-lasso-to-catch-an-elephant-calf"
+                            aria-expanded="false"
+                            aria-controls="121-singular-and-plural-nouns.html#19-he-uses-a-lasso-to-catch-an-elephant-calf">
+                            <span class="nn_sliders-toggle-inner">19. He uses a lasso to catch an elephant calf.</span>
+                          </a>
+                        </div>
+                        <div
+                          class="accordion-body nn_sliders-body collapse"
+                          id="q19-he-uses-a-lasso-to-catch-an-elephant-calf"
+                          aria-hidden="true">
+                          <div class="accordion-inner panel-body">
+                            <h2 class="nn_sliders-title">19. He uses a lasso to catch an elephant calf.</h2>
+                            <p>19. He uses a lasso to catch an elephant calf.</p>
+                          </div>
+                        </div>
+                        <div
+                          class="exercise-response-row exercise-response-row--long"
+                          data-item="19"
+                          data-answer-ui="textarea">
+                          <label class="exercise-response-field exercise-response-field--long">
+                            <span class="visually-hidden">Response for item 19 (answer_01)</span>
+                            <textarea
+                              class="exercise-response-input exercise-response-input--textarea"
+                              rows="1"
+                              placeholder="Rewrite here"
+                              data-item="19"
+                              data-field="answer_01"
+                              data-autosize="true"></textarea>
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="quest-bg"
+                    data-exercise-question="20">
+                    <div
+                      class="nn_sliders accordion panel-group"
+                      id="set-nn_sliders-20">
+                      <span
+                        id="nn_sliders-scrollto_20"
+                        class="anchor nn_sliders-scroll"></span>
+                      <div class="accordion-group panel nn_sliders-group">
+                        <span
+                          id="nn_sliders-scrollto_20-20-the-life-of-a-fly-and-a-mosquito-is-rather-short"
+                          class="anchor nn_sliders-scroll"></span>
+                        <div class="accordion-heading panel-heading">
+                          <a
+                            class="accordion-toggle nn_sliders-toggle"
+                            href="121-singular-and-plural-nouns.html#121-singular-and-plural-nouns.html#20-the-life-of-a-fly-and-a-mosquito-is-rather-short"
+                            aria-label="Answer"
+                            data-toggle="collapse"
+                            data-parent="#set-nn_sliders-20"
+                            data-id="q20-the-life-of-a-fly-and-a-mosquito-is-rather-short"
+                            aria-expanded="false"
+                            aria-controls="121-singular-and-plural-nouns.html#20-the-life-of-a-fly-and-a-mosquito-is-rather-short">
+                            <span class="nn_sliders-toggle-inner">20. The life of a fly and a mosquito is rather short.</span>
+                          </a>
+                        </div>
+                        <div
+                          class="accordion-body nn_sliders-body collapse"
+                          id="q20-the-life-of-a-fly-and-a-mosquito-is-rather-short"
+                          aria-hidden="true">
+                          <div class="accordion-inner panel-body">
+                            <h2 class="nn_sliders-title">20. The life of a fly and a mosquito is rather short.</h2>
+                            <p>20. The life of a fly and a mosquito is rather short.</p>
+                          </div>
+                        </div>
+                        <div
+                          class="exercise-response-row exercise-response-row--long"
+                          data-item="20"
+                          data-answer-ui="textarea">
+                          <label class="exercise-response-field exercise-response-field--long">
+                            <span class="visually-hidden">Response for item 20 (answer_01)</span>
+                            <textarea
+                              class="exercise-response-input exercise-response-input--textarea"
+                              rows="1"
+                              placeholder="Rewrite here"
+                              data-item="20"
+                              data-field="answer_01"
+                              data-autosize="true"></textarea>
                           </label>
                         </div>
                       </div>
@@ -2000,114 +2543,174 @@
                   id="exercise-answer-key"
                   data-exercise-answer-key="">
                   {
-                    "title": "131-countable-and-uncountable-nouns",
+                    "title": "121-singular-and-plural-nouns",
                     "version": "0.3.0",
-                    "publishDate": "2025-12-01T18:37:54.052Z",
-                    "description": "1.3.1 Countable and Uncountable Nouns",
+                    "publishDate": "2025-11-30T11:19:47.345Z",
+                    "description": "1.2.1 Singular and Plural Nouns",
                     "options": {
                       "requireCorrectBeforeReveal": true,
                       "defaultHashAlgorithm": "fnv1a-64"
                     },
                     "answerArrays": {
-                      "exerciseName": "131-countable-and-uncountable-nouns",
-                      "totalQuestions": 10,
+                      "exerciseName": "121-singular-and-plural-nouns",
+                      "totalQuestions": 20,
                       "answerArray": {
                         "question01": {
-                          "id": "q1-there-is-so-many-much-smoke-coming-out-of-the-chimney",
-                          "answersAccepted": [fnv1a-64:b6a278a293108b7c],
-                          "lengths": [
-                            1
-                          ],
+                          "id": "q1-the-child-asks-for-a-toy-hippopotamus",
+                          "answersAccepted": [["fnv1a-64:e55689e6ec893c74"], ["fnv1a-64:d7407cc15febbd8d"]],
+                          "lengths": [1],
                           "minLength": 1,
                           "maxLength": 1,
                           "manualCheckOk": false
                         },
                         "question02": {
-                          "id": "q2-mrs-fisher-keeps-plenty-of-a-large-amount-of-tropical-fish-in-her-pond",
-                          "answersAccepted": [fnv1a-64:0fb38167a87cd132],
-                          "lengths": [
-                            1
-                          ],
+                          "id": "q2-the-baby-cries-but-its-mother-is-missing",
+                          "answersAccepted": [["fnv1a-64:a798f136d9c06312"]],
+                          "lengths": [1],
                           "minLength": 1,
                           "maxLength": 1,
                           "manualCheckOk": false
                         },
                         "question03": {
-                          "id": "q3-mr-shaver-takes-only-a-little-few-minutes-to-shave",
-                          "answersAccepted": [fnv1a-64:dcc67d18feea8c19],
-                          "lengths": [
-                            1
-                          ],
+                          "id": "q3-i-look-up-and-a-leaf-falls-from-a-branch-and-lands-on-my-forehead",
+                          "answersAccepted": [["fnv1a-64:8408ed13218b47a3"]],
+                          "lengths": [1],
                           "minLength": 1,
                           "maxLength": 1,
                           "manualCheckOk": false
                         },
                         "question04": {
-                          "id": "q4-the-postman-put-a-great-deal-of-a-lot-of-letters-into-the-bag",
-                          "answersAccepted": [fnv1a-64:b7089d6367dbc2bc],
-                          "lengths": [
-                            1
-                          ],
+                          "id": "q4-the-lady-uses-a-knife-to-cut-a-potato-and-a-chilli",
+                          "answersAccepted": [["fnv1a-64:71d2838bee5a1b13"]],
+                          "lengths": [1],
                           "minLength": 1,
                           "maxLength": 1,
                           "manualCheckOk": false
                         },
                         "question05": {
-                          "id": "q5-he-threw-much-some-stones-at-the-monkeys",
-                          "answersAccepted": [fnv1a-64:6035dc18f0bbd4d1],
-                          "lengths": [
-                            1
-                          ],
+                          "id": "q5-the-man-is-sure-a-mouse-bit-his-foot-while-he-was-asleep",
+                          "answersAccepted": [["fnv1a-64:cdc79cb314929a72"]],
+                          "lengths": [1],
                           "minLength": 1,
                           "maxLength": 1,
                           "manualCheckOk": false
                         },
                         "question06": {
-                          "id": "q6-she-uses-only-a-few-a-little-cooking-oil-in-her-cooking",
-                          "answersAccepted": [fnv1a-64:ec46fc7220db8e38],
-                          "lengths": [
-                            1
-                          ],
+                          "id": "q6-i-took-this-photo-of-an-ox-that-is-not-mine",
+                          "answersAccepted": [["fnv1a-64:20c1b26bb35923d8"]],
+                          "lengths": [1],
                           "minLength": 1,
                           "maxLength": 1,
                           "manualCheckOk": false
                         },
                         "question07": {
-                          "id": "q7-my-hens-lay-a-large-amount-of-several-eggs-every-morning",
-                          "answersAccepted": [fnv1a-64:20311bc8cf7920ef],
-                          "lengths": [
-                            1
-                          ],
+                          "id": "q7-that-goose-belongs-to-his-wife",
+                          "answersAccepted": [["fnv1a-64:dfa84648d81b8073"]],
+                          "lengths": [1],
                           "minLength": 1,
                           "maxLength": 1,
                           "manualCheckOk": false
                         },
                         "question08": {
-                          "id": "q8-a-great-deal-of-a-large-number-of-dust-has-collected-on-the-unused-desk",
-                          "answersAccepted": [fnv1a-64:0e72409a15df0f42],
-                          "lengths": [
-                            1
-                          ],
+                          "id": "q8-my-loaf-of-bread-is-enough-to-feed-the-fish",
+                          "answersAccepted": [["fnv1a-64:213e9c12ae3398b2"], ["fnv1a-64:ced178de33d16366"]],
+                          "lengths": [1],
                           "minLength": 1,
                           "maxLength": 1,
                           "manualCheckOk": false
                         },
                         "question09": {
-                          "id": "q9-we-saw-a-large-amount-of-many-cows-grazing-in-the-field",
-                          "answersAccepted": [fnv1a-64:1f6459a2cea1fc02],
-                          "lengths": [
-                            1
-                          ],
+                          "id": "q9-his-lorry-nearly-collided-with-the-boy-s-bicycle",
+                          "answersAccepted": [["fnv1a-64:1e38008c584b6e39"]],
+                          "lengths": [1],
                           "minLength": 1,
                           "maxLength": 1,
                           "manualCheckOk": false
                         },
                         "question10": {
-                          "id": "q10-those-butchers-eat-a-large-amount-of-a-large-number-of-meat-every-day",
-                          "answersAccepted": [fnv1a-64:c7dbed738a1ce8a2],
-                          "lengths": [
-                            1
-                          ],
+                          "id": "q10-he-lost-a-tooth-in-a-fight-with-a-bully",
+                          "answersAccepted": [["fnv1a-64:400a1fdd85851bc5"]],
+                          "lengths": [1],
+                          "minLength": 1,
+                          "maxLength": 1,
+                          "manualCheckOk": false
+                        },
+                        "question11": {
+                          "id": "q11-a-passerby-stops-to-watch-a-dwarf-performs-a-dance",
+                          "answersAccepted": [["fnv1a-64:535b556b76723883"]],
+                          "lengths": [1],
+                          "minLength": 1,
+                          "maxLength": 1,
+                          "manualCheckOk": false
+                        },
+                        "question12": {
+                          "id": "q12-she-likes-to-cook-spicy-octopus-with-tomato",
+                          "answersAccepted": [["fnv1a-64:3259f8b23c98e91e"], ["fnv1a-64:d35071e91560bcfb"]],
+                          "lengths": [1],
+                          "minLength": 1,
+                          "maxLength": 1,
+                          "manualCheckOk": false
+                        },
+                        "question13": {
+                          "id": "q13-my-mother-in-law-owns-a-buffalo",
+                          "answersAccepted": [["fnv1a-64:dabb44c82e3e65bb"], ["fnv1a-64:d9bb016fe75b8453"]],
+                          "lengths": [1],
+                          "minLength": 1,
+                          "maxLength": 1,
+                          "manualCheckOk": false
+                        },
+                        "question14": {
+                          "id": "q14-the-trio-has-been-playing-a-piano-for-an-hour",
+                          "answersAccepted": [["fnv1a-64:db540126526ab6b9"]],
+                          "lengths": [1],
+                          "minLength": 1,
+                          "maxLength": 1,
+                          "manualCheckOk": false
+                        },
+                        "question15": {
+                          "id": "q15-the-child-s-pet-is-a-gold-fish",
+                          "answersAccepted": [["fnv1a-64:29a7db248a6c9cdb"]],
+                          "lengths": [1],
+                          "minLength": 1,
+                          "maxLength": 1,
+                          "manualCheckOk": false
+                        },
+                        "question16": {
+                          "id": "q16-the-tribal-chief-tells-his-wife-to-learn-mathematics",
+                          "answersAccepted": [["fnv1a-64:70e4b94d4b79704a"]],
+                          "lengths": [1],
+                          "minLength": 1,
+                          "maxLength": 1,
+                          "manualCheckOk": false
+                        },
+                        "question17": {
+                          "id": "q17-the-farmer-has-a-sheep-a-deer-and-a-rhinoceros-on-his-farm",
+                          "answersAccepted": [["fnv1a-64:888c9c3db3fbb542"], ["fnv1a-64:e94cb16e29d0da5e"]],
+                          "lengths": [1],
+                          "minLength": 1,
+                          "maxLength": 1,
+                          "manualCheckOk": false
+                        },
+                        "question18": {
+                          "id": "q18-he-has-a-tattoo-of-a-beauty-on-his-arm",
+                          "answersAccepted": [["fnv1a-64:4a95ce74ce5cddd0"]],
+                          "lengths": [1],
+                          "minLength": 1,
+                          "maxLength": 1,
+                          "manualCheckOk": false
+                        },
+                        "question19": {
+                          "id": "q19-he-uses-a-lasso-to-catch-an-elephant-calf",
+                          "answersAccepted": [["fnv1a-64:1f881cefcfc9a68c"]],
+                          "lengths": [1],
+                          "minLength": 1,
+                          "maxLength": 1,
+                          "manualCheckOk": false
+                        },
+                        "question20": {
+                          "id": "q20-the-life-of-a-fly-and-a-mosquito-is-rather-short",
+                          "answersAccepted": [["fnv1a-64:347b00c9f4a6fa8f"]],
+                          "lengths": [1],
                           "minLength": 1,
                           "maxLength": 1,
                           "manualCheckOk": false
@@ -2121,9 +2724,9 @@
                   id="exercise-config"
                   data-exercise-config="">
                   {
-                    "title": "1.3.1 Countable and Uncountable Nouns",
-                    "canonical": "131-countable-and-uncountable-nouns.html",
-                    "totalQuestions": 10,
+                    "title": "1.2.1 Singular and Plural Nouns",
+                    "canonical": "121-singular-and-plural-nouns.html",
+                    "totalQuestions": 20,
                     "submitUrl": "",
                     "recipients": [],
                     "breadcrumbs": [
@@ -2138,25 +2741,25 @@
                         "position": 2
                       },
                       {
-                        "name": "1.3.1 Countable and Uncountable Nouns",
+                        "name": "1.2.1 Singular and Plural Nouns",
                         "href": "",
                         "position": 3
                       }
                     ],
                     "pager": {
                       "previous": {
-                        "href": "121-singular-and-plural-nouns.html",
-                        "label": "angle-left\n                        \n                      \n                         1.2.1 Singular and Plural Nouns",
+                        "href": "114-collective-nouns.html",
+                        "label": "angle-left\n                        \n                      \n                         1.1.4 Collective Nouns",
                         "ariaLabel": "Next",
                         "rel": "next",
-                        "html": "\n                      <svg version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 18 48\" fill=\"currentColor\">\n                        <title>angle-left</title>\n                        <path d=\"M16.795 14.571c0 0.214-0.107 0.455-0.268 0.616l-10.527 10.527 10.527 10.527c0.161 0.161 0.268 0.402 0.268 0.616s-0.107 0.455-0.268 0.616l-1.339 1.339c-0.161 0.161-0.402 0.268-0.616 0.268s-0.455-0.107-0.616-0.268l-12.482-12.482c-0.161-0.161-0.268-0.402-0.268-0.616s0.107-0.455 0.268-0.616l12.482-12.482c0.161-0.161 0.402-0.268 0.616-0.268s0.455 0.107 0.616 0.268l1.339 1.339c0.161 0.161 0.268 0.375 0.268 0.616z\"></path>\n                      </svg>\n                      &nbsp;&nbsp; 1.2.1 Singular and Plural Nouns\n                    "
+                        "html": "\n                      <svg version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 18 48\" fill=\"currentColor\">\n                        <title>angle-left</title>\n                        <path d=\"M16.795 14.571c0 0.214-0.107 0.455-0.268 0.616l-10.527 10.527 10.527 10.527c0.161 0.161 0.268 0.402 0.268 0.616s-0.107 0.455-0.268 0.616l-1.339 1.339c-0.161 0.161-0.402 0.268-0.616 0.268s-0.455-0.107-0.616-0.268l-12.482-12.482c-0.161-0.161-0.268-0.402-0.268-0.616s0.107-0.455 0.268-0.616l12.482-12.482c0.161-0.161 0.402-0.268 0.616-0.268s0.455 0.107 0.616 0.268l1.339 1.339c0.161 0.161 0.268 0.375 0.268 0.616z\"></path>\n                      </svg>\n                      &nbsp;&nbsp; 1.1.4 Collective Nouns\n                    "
                       },
                       "next": {
-                        "href": "141-forming-nouns.html",
-                        "label": "1.4.1 Forming Nouns   \n                      \n                        angle-right",
+                        "href": "131-countable-and-uncountable-nouns.html",
+                        "label": "1.3.1 Countable and Uncountable Nouns   \n                      \n                        angle-right",
                         "ariaLabel": "Previous",
                         "rel": "prev",
-                        "html": "\n                      1.4.1 Forming Nouns &nbsp;&nbsp;\n                      <svg version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" height=\"24px\" viewBox=\"0 0 18 48\" fill=\"currentColor\">\n                        <title>angle-right</title>\n                        <path d=\"M15.938 25.714c0 0.214-0.107 0.455-0.268 0.616l-12.482 12.482c-0.161 0.161-0.402 0.268-0.616 0.268s-0.455-0.107-0.616-0.268l-1.339-1.339c-0.161-0.161-0.268-0.375-0.268-0.616 0-0.214 0.107-0.455 0.268-0.616l10.527-10.527-10.527-10.527c-0.161-0.161-0.268-0.402-0.268-0.616s0.107-0.455 0.268-0.616l1.339-1.339c0.161-0.161 0.402-0.268 0.616-0.268s0.455 0.107 0.616 0.268l12.482 12.482c0.161 0.161 0.268 0.402 0.268 0.616z\"></path>\n                      </svg>\n                    "
+                        "html": "\n                      1.3.1 Countable and Uncountable Nouns &nbsp;&nbsp;\n                      <svg version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" height=\"24px\" viewBox=\"0 0 18 48\" fill=\"currentColor\">\n                        <title>angle-right</title>\n                        <path d=\"M15.938 25.714c0 0.214-0.107 0.455-0.268 0.616l-12.482 12.482c-0.161 0.161-0.402 0.268-0.616 0.268s-0.455-0.107-0.616-0.268l-1.339-1.339c-0.161-0.161-0.268-0.375-0.268-0.616 0-0.214 0.107-0.455 0.268-0.616l10.527-10.527-10.527-10.527c-0.161-0.161-0.268-0.402-0.268-0.616s0.107-0.455 0.268-0.616l1.339-1.339c0.161-0.161 0.402-0.268 0.616-0.268s0.455 0.107 0.616 0.268l12.482 12.482c0.161 0.161 0.268 0.402 0.268 0.616z\"></path>\n                      </svg>\n                    "
                       }
                     }
                   }

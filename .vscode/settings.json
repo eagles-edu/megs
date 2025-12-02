@@ -362,4 +362,14 @@
     "left-menu.css"
   ],
   "cssVarHover.ignoredFiles": ["lists/68-grammar-lists/619-list-12-conjunctions.html"]
+},
+{
+  "boldify.customFormats": {
+    "html": "<strong>{text}</strong>",
+    "markdown": "**{text}**",
+    "typescript": "<b>{text}</b>",
+    "javascript": "<b>{text}</b>",
+    "python": "**{text}**",
+    "java": "/* BOLD: {text} */"
+  }
 }
