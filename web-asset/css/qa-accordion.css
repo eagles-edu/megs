@@ -24,11 +24,11 @@
 }
 
 #content .accordion-heading > a.accordion-toggle {
+  cursor: pointer;
   display: block;
   padding: 0.75rem 1rem;
   position: relative;
   text-decoration: none;
-  cursor: pointer;
 }
 
 /* Arrow indicator controlled via aria-expanded */
@@ -104,13 +104,15 @@ div .accordion-inner > p {
 }
 
 #exercise-status {
-  margin-top: 2em;
-  padding: 1rem 1.25rem;
-  border-top: 2px solid #cde7d8;
+  background-color: transparent;
   border-radius: 0 0 var(--radius, 6px) var(--radius, 6px);
-  text-align: center;
+  border-top: 0 solid transparent;
+  border-top-color:transparent;
   font-weight: 600;
   line-height: 1.5;
+  margin-top: 2em;
+  padding: 1rem 1.25rem;
+  text-align: center;
   white-space: pre-line;
 }
 

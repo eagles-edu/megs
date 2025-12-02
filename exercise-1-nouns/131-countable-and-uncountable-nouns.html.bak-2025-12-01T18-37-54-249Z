@@ -1,7 +1,7 @@
 <!-- prettier-ignore -->
 <!DOCTYPE html>
 <html lang="en">
-  <!-- /exercise-1-nouns/141-forming-nouns.html, Tue, 24 Nov 2020 12:32:16 GMT -->
+  <!-- /exercise-1-nouns/131-countable-and-uncountable-nouns.html, Tue, 24 Nov 2020 12:32:15 GMT -->
 
   <head>
     <meta
@@ -18,15 +18,15 @@
     <meta
       name="generator"
       content="English Grammar - intermediate levels A2 and above">
-    <title>1.4.1 Forming Nouns</title>
+    <title>1.3.1 Countable and Uncountable Nouns</title>
     <link
-      href="141-forming-nouns.html"
+      href="131-countable-and-uncountable-nouns.html"
       rel="non-canonical">
     <link
-      href="../favicon.ico"
+      href="../web-asset/icons/favicon.ico"
       rel="shortcut icon"
       type="image/vnd.microsoft.icon">
-    <!-- theme-vars.css eliminated; variables live in base.css -->
+   <!-- theme-vars.css eliminated; variables live in base.css -->
 
   <!-- Minimal theme tokens inline to avoid var() FOUC when base.css loads async -->
 
@@ -1156,7 +1156,7 @@
                 content="en-GB">
 
               <div class="page-header">
-                <h2 itemprop="headline">1.4.1 Forming Nouns</h2>
+                <h2 itemprop="headline">1.3.1 Countable and Uncountable Nouns</h2>
               </div>
               <!--
               <div class="icons">
@@ -1164,7 +1164,7 @@
                   <button
                     class="btn dropdown-toggle"
                     type="button"
-                    id="dropdownMenuButton-456"
+                    id="dropdownMenuButton-455"
                     aria-label="User tools"
                     data-toggle="dropdown"
                     aria-haspopup="true"
@@ -1172,11 +1172,11 @@
                     <span class="icon-cog" aria-hidden="true"></span>
                     <span class="caret" aria-hidden="true"></span>
                   </button>
-                  <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton-456">
+                  <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton-455">
                     <li class="print-icon">
                       <a
-                        href="141-forming-nouns87e8.html?tmpl=component&amp;print=1"
-                        title="Print article -- 1.4.1 Forming Nouns --"
+                        href="131-countable-and-uncountable-nouns87e8.html?tmpl=component&amp;print=1"
+                        title="Print article -- 1.3.1 Countable and Uncountable Nouns --"
                         onclick="window.open(this.href,'win2','status=no,toolbar=no,scrollbars=yes,titlebar=no,menubar=no,resizable=yes,width=640,height=480,directories=no,location=no'); return false;"
                         rel="nofollow">
                         Print
@@ -1184,7 +1184,7 @@
                     </li>
                     <li class="email-icon">
                       <a
-                        href="../component/mailto/index0d5f.html?tmpl=component&amp;template=protostar&amp;link=442d1389073c923d83ee94d4f5684945ce335ddb"
+                        href="../component/mailto/indexcaa4.html?tmpl=component&amp;template=protostar&amp;link=03e28b8319eb24151d9ba4b4c76440bdb76f50f8"
                         title="Email this link to a friend"
                         onclick="window.open(this.href,'win2','width=400,height=450,menubar=yes,resizable=yes'); return false;"
                         rel="nofollow">
@@ -1200,7 +1200,7 @@
                 <ul class="pager pagenav">
                   <li class="previous">
                     <a
-                      href="131-countable-and-uncountable-nouns.html"
+                      href="121-singular-and-plural-nouns.html"
                       rel="next"
                       aria-label="Next">
                       <svg
@@ -1212,15 +1212,15 @@
                         <path
                           d="M16.795 14.571c0 0.214-0.107 0.455-0.268 0.616l-10.527 10.527 10.527 10.527c0.161 0.161 0.268 0.402 0.268 0.616s-0.107 0.455-0.268 0.616l-1.339 1.339c-0.161 0.161-0.402 0.268-0.616 0.268s-0.455-0.107-0.616-0.268l-12.482-12.482c-0.161-0.161-0.268-0.402-0.268-0.616s0.107-0.455 0.268-0.616l12.482-12.482c0.161-0.161 0.402-0.268 0.616-0.268s0.455 0.107 0.616 0.268l1.339 1.339c0.161 0.161 0.268 0.375 0.268 0.616z"></path>
                       </svg>
-                      &nbsp;&nbsp; 1.3.1 Countable and Uncountable Nouns
+                      &nbsp;&nbsp; 1.2.1 Singular and Plural Nouns
                     </a>
                   </li>
                   <li class="next">
                     <a
-                      href="151-gender.html"
+                      href="141-forming-nouns.html"
                       rel="prev"
                       aria-label="Previous">
-                      1.5.1 Gender &nbsp;&nbsp;
+                      1.4.1 Forming Nouns &nbsp;&nbsp;
                       <svg
                         version="1.1"
                         xmlns="http://www.w3.org/2000/svg"
@@ -1234,7 +1234,7 @@
                     </a>
                   </li>
                 </ul>
-                <p>Fill in the blanks with abstract nouns from the nouns in brackets. Click the question for the answer.</p>
+                <p>Complete each sentence by choosing the correct word in the bracket. Click the question for the answer.</p>
 
                 <div
                   class="nn_sliders accordion panel-group"
@@ -1244,27 +1244,28 @@
                     class="anchor nn_sliders-scroll"></a>
                   <div class="accordion-group panel nn_sliders-group">
                     <a
-                      id="nn_sliders-scrollto_1-i-had-a-very-happy-______-child"
+                      id="nn_sliders-scrollto_1-there-is-so-many-much-smoke-coming-out-of-the-chimney"
                       class="anchor nn_sliders-scroll"></a>
                     <div class="accordion-heading panel-heading">
                       <a
-                        href="141-forming-nouns.html#1-i-had-a-very-happy-______-child"
+                        href="131-countable-and-uncountable-nouns.html#1-there-is-so-many-much-smoke-coming-out-of-the-chimney"
                         aria-label="Answer"
                         class="accordion-toggle nn_sliders-toggle"
                         data-toggle="collapse"
-                        data-id="q1-i-had-a-very-happy-______-child"
+                        data-id="q1-there-is-so-many-much-smoke-coming-out-of-the-chimney"
                         data-parent="#set-nn_sliders-1">
-                        <span class="nn_sliders-toggle-inner">1. I had a very happy ______ (child).</span>
+                        <span class="nn_sliders-toggle-inner">1. There is so (many, much) smoke coming out of the chimney.</span>
                       </a>
                     </div>
                     <div
                       class="accordion-body nn_sliders-body collapse"
-                      id="q1-i-had-a-very-happy-______-child">
+                      id="q1-there-is-so-many-much-smoke-coming-out-of-the-chimney">
                       <div class="accordion-inner panel-body">
-                        <h2 class="nn_sliders-title">1. I had a very happy ______ (child).</h2>
+                        <h2 class="nn_sliders-title">1. There is so (many, much) smoke coming out of the chimney.</h2>
                         <p>
-                          1. I had a very happy
-                          <span class="in-text-decoration-underline__14j0pz">childhood.</span>
+                          1. There is so
+                          <span class="in-text-decoration-underline__14j0pz">much</span>
+                          smoke coming out of the chimney.
                         </p>
                       </div>
                     </div>
@@ -1279,28 +1280,30 @@
                     class="anchor nn_sliders-scroll"></a>
                   <div class="accordion-group panel nn_sliders-group">
                     <a
-                      id="nn_sliders-scrollto_2-i-forgot-to-renew-my-_____-member-in-the-sailing-club"
+                      id="nn_sliders-scrollto_2-mrs-fisher-keeps-plenty-of-a-large-amount-of-tropical-fish-in-her-pond"
                       class="anchor nn_sliders-scroll"></a>
                     <div class="accordion-heading panel-heading">
                       <a
-                        href="141-forming-nouns.html#2-i-forgot-to-renew-my-_____-member-in-the-sailing-club"
+                        href="131-countable-and-uncountable-nouns.html#2-mrs-fisher-keeps-plenty-of-a-large-amount-of-tropical-fish-in-her-pond"
                         aria-label="Answer"
                         class="accordion-toggle nn_sliders-toggle"
                         data-toggle="collapse"
-                        data-id="q2-i-forgot-to-renew-my-_____-member-in-the-sailing-club"
+                        data-id="q2-mrs-fisher-keeps-plenty-of-a-large-amount-of-tropical-fish-in-her-pond"
                         data-parent="#set-nn_sliders-2">
-                        <span class="nn_sliders-toggle-inner">2. I forgot to renew my _____ (member) in the sailing club.</span>
+                        <span class="nn_sliders-toggle-inner">
+                          2. Mrs. Fisher keeps (plenty of, a large amount of) tropical fish in her pond.
+                        </span>
                       </a>
                     </div>
                     <div
                       class="accordion-body nn_sliders-body collapse"
-                      id="q2-i-forgot-to-renew-my-_____-member-in-the-sailing-club">
+                      id="q2-mrs-fisher-keeps-plenty-of-a-large-amount-of-tropical-fish-in-her-pond">
                       <div class="accordion-inner panel-body">
-                        <h2 class="nn_sliders-title">2. I forgot to renew my _____ (member) in the sailing club.</h2>
+                        <h2 class="nn_sliders-title">2. Mrs. Fisher keeps (plenty of, a large amount of) tropical fish in her pond.</h2>
                         <p>
-                          2. I forgot to renew my
-                          <span class="in-text-decoration-underline__14j0pz">membership</span>
-                          in the sailing club.
+                          2. Mrs. Fisher keeps
+                          <span class="in-text-decoration-underline__14j0pz">plenty of</span>
+                          tropical fish in her pond.
                         </p>
                       </div>
                     </div>
@@ -1315,27 +1318,28 @@
                     class="anchor nn_sliders-scroll"></a>
                   <div class="accordion-group panel nn_sliders-group">
                     <a
-                      id="nn_sliders-scrollto_3-we-formed-a-deep-and-lasting-_____-friend"
+                      id="nn_sliders-scrollto_3-mr-shaver-takes-only-a-little-few-minutes-to-shave"
                       class="anchor nn_sliders-scroll"></a>
                     <div class="accordion-heading panel-heading">
                       <a
-                        href="141-forming-nouns.html#3-we-formed-a-deep-and-lasting-_____-friend"
+                        href="131-countable-and-uncountable-nouns.html#3-mr-shaver-takes-only-a-little-few-minutes-to-shave"
                         aria-label="Answer"
                         class="accordion-toggle nn_sliders-toggle"
                         data-toggle="collapse"
-                        data-id="q3-we-formed-a-deep-and-lasting-_____-friend"
+                        data-id="q3-mr-shaver-takes-only-a-little-few-minutes-to-shave"
                         data-parent="#set-nn_sliders-3">
-                        <span class="nn_sliders-toggle-inner">3. We formed a deep and lasting _____ (friend).</span>
+                        <span class="nn_sliders-toggle-inner">3. Mr. Shaver takes only a (little, few) minutes to shave.</span>
                       </a>
                     </div>
                     <div
                       class="accordion-body nn_sliders-body collapse"
-                      id="q3-we-formed-a-deep-and-lasting-_____-friend">
+                      id="q3-mr-shaver-takes-only-a-little-few-minutes-to-shave">
                       <div class="accordion-inner panel-body">
-                        <h2 class="nn_sliders-title">3. We formed a deep and lasting _____ (friend).</h2>
+                        <h2 class="nn_sliders-title">3. Mr. Shaver takes only a (little, few) minutes to shave.</h2>
                         <p>
-                          3. We formed a deep and lasting
-                          <span class="in-text-decoration-underline__14j0pz">friendship.</span>
+                          3. Mr. Shaver takes only a
+                          <span class="in-text-decoration-underline__14j0pz">few</span>
+                          minutes to shave.
                         </p>
                       </div>
                     </div>
@@ -1350,28 +1354,28 @@
                     class="anchor nn_sliders-scroll"></a>
                   <div class="accordion-group panel nn_sliders-group">
                     <a
-                      id="nn_sliders-scrollto_4-he-hopes-to-take-over-the-_____-leader-of-the-party"
+                      id="nn_sliders-scrollto_4-the-postman-put-a-great-deal-of-a-lot-of-letters-into-the-bag"
                       class="anchor nn_sliders-scroll"></a>
                     <div class="accordion-heading panel-heading">
                       <a
-                        href="141-forming-nouns.html#4-he-hopes-to-take-over-the-_____-leader-of-the-party"
+                        href="131-countable-and-uncountable-nouns.html#4-the-postman-put-a-great-deal-of-a-lot-of-letters-into-the-bag"
                         aria-label="Answer"
                         class="accordion-toggle nn_sliders-toggle"
                         data-toggle="collapse"
-                        data-id="q4-he-hopes-to-take-over-the-_____-leader-of-the-party"
+                        data-id="q4-the-postman-put-a-great-deal-of-a-lot-of-letters-into-the-bag"
                         data-parent="#set-nn_sliders-4">
-                        <span class="nn_sliders-toggle-inner">4. He hopes to take over the _____ (leader) of the party.</span>
+                        <span class="nn_sliders-toggle-inner">4. The postman put (a great deal of, a lot of) letters into the bag.</span>
                       </a>
                     </div>
                     <div
                       class="accordion-body nn_sliders-body collapse"
-                      id="q4-he-hopes-to-take-over-the-_____-leader-of-the-party">
+                      id="q4-the-postman-put-a-great-deal-of-a-lot-of-letters-into-the-bag">
                       <div class="accordion-inner panel-body">
-                        <h2 class="nn_sliders-title">4. He hopes to take over the _____ (leader) of the party.</h2>
+                        <h2 class="nn_sliders-title">4. The postman put (a great deal of, a lot of) letters into the bag.</h2>
                         <p>
-                          4. He hopes to take over the
-                          <span class="in-text-decoration-underline__14j0pz">leadership</span>
-                          of the party.
+                          4. The postman put
+                          <span class="in-text-decoration-underline__14j0pz">a lot of</span>
+                          letters into the bag.
                         </p>
                       </div>
                     </div>
@@ -1386,27 +1390,28 @@
                     class="anchor nn_sliders-scroll"></a>
                   <div class="accordion-group panel nn_sliders-group">
                     <a
-                      id="nn_sliders-scrollto_5-there-are-lots-of-nice-people-in-the-_____-neighbour"
+                      id="nn_sliders-scrollto_5-he-threw-much-some-stones-at-the-monkeys"
                       class="anchor nn_sliders-scroll"></a>
                     <div class="accordion-heading panel-heading">
                       <a
-                        href="141-forming-nouns.html#5-there-are-lots-of-nice-people-in-the-_____-neighbour"
+                        href="131-countable-and-uncountable-nouns.html#5-he-threw-much-some-stones-at-the-monkeys"
                         aria-label="Answer"
                         class="accordion-toggle nn_sliders-toggle"
                         data-toggle="collapse"
-                        data-id="q5-there-are-lots-of-nice-people-in-the-_____-neighbour"
+                        data-id="q5-he-threw-much-some-stones-at-the-monkeys"
                         data-parent="#set-nn_sliders-5">
-                        <span class="nn_sliders-toggle-inner">5. There are lots of nice people in the _____ (neighbor).</span>
+                        <span class="nn_sliders-toggle-inner">5. He threw (much, some) stones at the monkeys.</span>
                       </a>
                     </div>
                     <div
                       class="accordion-body nn_sliders-body collapse"
-                      id="q5-there-are-lots-of-nice-people-in-the-_____-neighbour">
+                      id="q5-he-threw-much-some-stones-at-the-monkeys">
                       <div class="accordion-inner panel-body">
-                        <h2 class="nn_sliders-title">5. There are lots of nice people in the _____ (neighbor).</h2>
+                        <h2 class="nn_sliders-title">5. He threw (much, some) stones at the monkeys.</h2>
                         <p>
-                          5. There are lots of nice people in the
-                          <span class="in-text-decoration-underline__14j0pz">neighborhood.</span>
+                          5. He threw
+                          <span class="in-text-decoration-underline__14j0pz">some</span>
+                          stones at the monkeys.
                         </p>
                       </div>
                     </div>
@@ -1421,32 +1426,28 @@
                     class="anchor nn_sliders-scroll"></a>
                   <div class="accordion-group panel nn_sliders-group">
                     <a
-                      id="nn_sliders-scrollto_6-in-the-_____-king-of-thailand-the-king-commands-the-respect-of-almost-every-citizen"
+                      id="nn_sliders-scrollto_6-she-uses-only-a-few-a-little-cooking-oil-in-her-cooking"
                       class="anchor nn_sliders-scroll"></a>
                     <div class="accordion-heading panel-heading">
                       <a
-                        href="141-forming-nouns.html#6-in-the-_____-king-of-thailand-the-king-commands-the-respect-of-almost-every-citizen"
+                        href="131-countable-and-uncountable-nouns.html#6-she-uses-only-a-few-a-little-cooking-oil-in-her-cooking"
                         aria-label="Answer"
                         class="accordion-toggle nn_sliders-toggle"
                         data-toggle="collapse"
-                        data-id="q6-in-the-_____-king-of-thailand-the-king-commands-the-respect-of-almost-every-citizen"
+                        data-id="q6-she-uses-only-a-few-a-little-cooking-oil-in-her-cooking"
                         data-parent="#set-nn_sliders-6">
-                        <span class="nn_sliders-toggle-inner">
-                          6. In the _____ (king) of Thailand, the king commands the respect of almost every citizen.
-                        </span>
+                        <span class="nn_sliders-toggle-inner">6. She uses only (a few, a little) cooking oil in her cooking.</span>
                       </a>
                     </div>
                     <div
                       class="accordion-body nn_sliders-body collapse"
-                      id="q6-in-the-_____-king-of-thailand-the-king-commands-the-respect-of-almost-every-citizen">
+                      id="q6-she-uses-only-a-few-a-little-cooking-oil-in-her-cooking">
                       <div class="accordion-inner panel-body">
-                        <h2 class="nn_sliders-title">
-                          6. In the _____ (king) of Thailand, the king commands the respect of almost every citizen.
-                        </h2>
+                        <h2 class="nn_sliders-title">6. She uses only (a few, a little) cooking oil in her cooking.</h2>
                         <p>
-                          6. In the
-                          <span class="in-text-decoration-underline__14j0pz">kingdom</span>
-                          of Thailand, the king commands the respect of almost every citizen.
+                          6. She uses only
+                          <span class="in-text-decoration-underline__14j0pz">a little</span>
+                          cooking oil in her cooking.
                         </p>
                       </div>
                     </div>
@@ -1461,27 +1462,28 @@
                     class="anchor nn_sliders-scroll"></a>
                   <div class="accordion-group panel nn_sliders-group">
                     <a
-                      id="nn_sliders-scrollto_7-she-seems-to-be-enjoying-_____-mother"
+                      id="nn_sliders-scrollto_7-my-hens-lay-a-large-amount-of-several-eggs-every-morning"
                       class="anchor nn_sliders-scroll"></a>
                     <div class="accordion-heading panel-heading">
                       <a
-                        href="141-forming-nouns.html#7-she-seems-to-be-enjoying-_____-mother"
+                        href="131-countable-and-uncountable-nouns.html#7-my-hens-lay-a-large-amount-of-several-eggs-every-morning"
                         aria-label="Answer"
                         class="accordion-toggle nn_sliders-toggle"
                         data-toggle="collapse"
-                        data-id="q7-she-seems-to-be-enjoying-_____-mother"
+                        data-id="q7-my-hens-lay-a-large-amount-of-several-eggs-every-morning"
                         data-parent="#set-nn_sliders-7">
-                        <span class="nn_sliders-toggle-inner">7. She seems to be enjoying _____ (mother).</span>
+                        <span class="nn_sliders-toggle-inner">7. My hens lay (a large amount of, several) eggs every morning.</span>
                       </a>
                     </div>
                     <div
                       class="accordion-body nn_sliders-body collapse"
-                      id="q7-she-seems-to-be-enjoying-_____-mother">
+                      id="q7-my-hens-lay-a-large-amount-of-several-eggs-every-morning">
                       <div class="accordion-inner panel-body">
-                        <h2 class="nn_sliders-title">7. She seems to be enjoying _____ (mother).</h2>
+                        <h2 class="nn_sliders-title">7. My hens lay (a large amount of, several) eggs every morning.</h2>
                         <p>
-                          7. She seems to be enjoying
-                          <span class="in-text-decoration-underline__14j0pz">motherhood.</span>
+                          7. My hens lay
+                          <span class="in-text-decoration-underline__14j0pz">several</span>
+                          eggs every morning.
                         </p>
                       </div>
                     </div>
@@ -1496,28 +1498,30 @@
                     class="anchor nn_sliders-scroll"></a>
                   <div class="accordion-group panel nn_sliders-group">
                     <a
-                      id="nn_sliders-scrollto_8-he-had-barely-reached-_____-man-when-he-married"
+                      id="nn_sliders-scrollto_8-a-great-deal-of-a-large-number-of-dust-has-collected-on-the-unused-desk"
                       class="anchor nn_sliders-scroll"></a>
                     <div class="accordion-heading panel-heading">
                       <a
-                        href="141-forming-nouns.html#8-he-had-barely-reached-_____-man-when-he-married"
+                        href="131-countable-and-uncountable-nouns.html#8-a-great-deal-of-a-large-number-of-dust-has-collected-on-the-unused-desk"
                         aria-label="Answer"
                         class="accordion-toggle nn_sliders-toggle"
                         data-toggle="collapse"
-                        data-id="q8-he-had-barely-reached-_____-man-when-he-married"
+                        data-id="q8-a-great-deal-of-a-large-number-of-dust-has-collected-on-the-unused-desk"
                         data-parent="#set-nn_sliders-8">
-                        <span class="nn_sliders-toggle-inner">8. He had barely reached _____ (man) when he married.</span>
+                        <span class="nn_sliders-toggle-inner">
+                          8. (A great deal of, A large number of) dust has collected on the unused desk.
+                        </span>
                       </a>
                     </div>
                     <div
                       class="accordion-body nn_sliders-body collapse"
-                      id="q8-he-had-barely-reached-_____-man-when-he-married">
+                      id="q8-a-great-deal-of-a-large-number-of-dust-has-collected-on-the-unused-desk">
                       <div class="accordion-inner panel-body">
-                        <h2 class="nn_sliders-title">8. He had barely reached _____ (man) when he married.</h2>
+                        <h2 class="nn_sliders-title">8. (A great deal of, A large number of) dust has collected on the unused desk.</h2>
                         <p>
-                          8. He had barely reached
-                          <span class="in-text-decoration-underline__14j0pz">manhood</span>
-                          when he married.
+                          8.
+                          <span class="in-text-decoration-underline__14j0pz">A great deal of</span>
+                          dust has collected on the unused desk.
                         </p>
                       </div>
                     </div>
@@ -1532,28 +1536,28 @@
                     class="anchor nn_sliders-scroll"></a>
                   <div class="accordion-group panel nn_sliders-group">
                     <a
-                      id="nn_sliders-scrollto_9-the-fund-awards-only-five-_____-scholars-every-year"
+                      id="nn_sliders-scrollto_9-we-saw-a-large-amount-of-many-cows-grazing-in-the-field"
                       class="anchor nn_sliders-scroll"></a>
                     <div class="accordion-heading panel-heading">
                       <a
-                        href="141-forming-nouns.html#9-the-fund-awards-only-five-_____-scholars-every-year"
+                        href="131-countable-and-uncountable-nouns.html#9-we-saw-a-large-amount-of-many-cows-grazing-in-the-field"
                         aria-label="Answer"
                         class="accordion-toggle nn_sliders-toggle"
                         data-toggle="collapse"
-                        data-id="q9-the-fund-awards-only-five-_____-scholars-every-year"
+                        data-id="q9-we-saw-a-large-amount-of-many-cows-grazing-in-the-field"
                         data-parent="#set-nn_sliders-9">
-                        <span class="nn_sliders-toggle-inner">9. The Fund awards only five _____ (scholars) every year.</span>
+                        <span class="nn_sliders-toggle-inner">9. We saw (a large amount of, many) cows grazing in the field.</span>
                       </a>
                     </div>
                     <div
                       class="accordion-body nn_sliders-body collapse"
-                      id="q9-the-fund-awards-only-five-_____-scholars-every-year">
+                      id="q9-we-saw-a-large-amount-of-many-cows-grazing-in-the-field">
                       <div class="accordion-inner panel-body">
-                        <h2 class="nn_sliders-title">9. The Fund awards only five _____ (scholars) every year.</h2>
+                        <h2 class="nn_sliders-title">9. We saw (a large amount of, many) cows grazing in the field.</h2>
                         <p>
-                          9. The Fund awards only five
-                          <span class="in-text-decoration-underline__14j0pz">scholarships</span>
-                          every year.
+                          9. We saw
+                          <span class="in-text-decoration-underline__14j0pz">many</span>
+                          cows grazing in the field..
                         </p>
                       </div>
                     </div>
@@ -1568,42 +1572,39 @@
                     class="anchor nn_sliders-scroll"></a>
                   <div class="accordion-group panel nn_sliders-group">
                     <a
-                      id="nn_sliders-scrollto_10-he-didn-t-think-of-the-great-responsibility-of-_____-father-before-he-got-married"
+                      id="nn_sliders-scrollto_10-those-butchers-eat-a-large-amount-of-a-large-number-of-meat-every-day"
                       class="anchor nn_sliders-scroll"></a>
                     <div class="accordion-heading panel-heading">
                       <a
-                        href="141-forming-nouns.html#10-he-didn-t-think-of-the-great-responsibility-of-_____-father-before-he-got-married"
+                        href="131-countable-and-uncountable-nouns.html#10-those-butchers-eat-a-large-amount-of-a-large-number-of-meat-every-day"
                         aria-label="Answer"
                         class="accordion-toggle nn_sliders-toggle"
                         data-toggle="collapse"
-                        data-id="q10-he-didn-t-think-of-the-great-responsibility-of-_____-father-before-he-got-married"
+                        data-id="q10-those-butchers-eat-a-large-amount-of-a-large-number-of-meat-every-day"
                         data-parent="#set-nn_sliders-10">
                         <span class="nn_sliders-toggle-inner">
-                          10. He didn't think of the great responsibility of _____ (father) before he got married.
+                          10. Those butchers eat (a large amount of, a large number of) meat every day.
                         </span>
                       </a>
                     </div>
                     <div
                       class="accordion-body nn_sliders-body collapse"
-                      id="q10-he-didn-t-think-of-the-great-responsibility-of-_____-father-before-he-got-married">
+                      id="q10-those-butchers-eat-a-large-amount-of-a-large-number-of-meat-every-day">
                       <div class="accordion-inner panel-body">
-                        <h2 class="nn_sliders-title">
-                          10. He didn't think of the great responsibility of _____ (father) before he got married.
-                        </h2>
+                        <h2 class="nn_sliders-title">10. Those butchers eat (a large amount of, a large number of) meat every day.</h2>
                         <p>
-                          10. He didn't think of the great responsibility of
-                          <span class="in-text-decoration-underline__14j0pz">fatherhood</span>
-                          before he got married.
+                          10. Those butchers eat
+                          <span class="in-text-decoration-underline__14j0pz">a large amount of</span>
+                          meat every day.
                         </p>
                       </div>
                     </div>
                   </div>
                 </div>
-
                 <ul class="pager pagenav">
                   <li class="previous">
                     <a
-                      href="131-countable-and-uncountable-nouns.html"
+                      href="121-singular-and-plural-nouns.html"
                       rel="next"
                       aria-label="Next">
                       <svg
@@ -1615,15 +1616,15 @@
                         <path
                           d="M16.795 14.571c0 0.214-0.107 0.455-0.268 0.616l-10.527 10.527 10.527 10.527c0.161 0.161 0.268 0.402 0.268 0.616s-0.107 0.455-0.268 0.616l-1.339 1.339c-0.161 0.161-0.402 0.268-0.616 0.268s-0.455-0.107-0.616-0.268l-12.482-12.482c-0.161-0.161-0.268-0.402-0.268-0.616s0.107-0.455 0.268-0.616l12.482-12.482c0.161-0.161 0.402-0.268 0.616-0.268s0.455 0.107 0.616 0.268l1.339 1.339c0.161 0.161 0.268 0.375 0.268 0.616z"></path>
                       </svg>
-                      &nbsp;&nbsp; 1.3.1 Countable and Uncountable Nouns
+                      &nbsp;&nbsp; 1.2.1 Singular and Plural Nouns
                     </a>
                   </li>
                   <li class="next">
                     <a
-                      href="151-gender.html"
+                      href="141-forming-nouns.html"
                       rel="prev"
                       aria-label="Previous">
-                      1.5.1 Gender &nbsp;&nbsp;
+                      1.4.1 Forming Nouns &nbsp;&nbsp;
                       <svg
                         version="1.1"
                         xmlns="http://www.w3.org/2000/svg"
@@ -1693,7 +1694,7 @@
                 itemscope=""
                 itemtype="https://schema.org/ListItem"
                 class="active">
-                <span itemprop="name">1.4.1 Forming Nouns</span>
+                <span itemprop="name">1.3.1 Countable and Uncountable Nouns</span>
                 <meta
                   itemprop="position"
                   content="3">

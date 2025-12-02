@@ -244,7 +244,9 @@
 
 .exercise-submit-row {
   display: flex;
-  justify-content: flex-end;
+  flex-direction: column;
+  gap: 0.75rem;
+  align-items: stretch;
   margin-top: 1.5rem;
 }
 
@@ -253,6 +255,7 @@
   border: none;
   border-radius: var(--radius);
   color: #fff;
+  align-self: flex-end;
   cursor: pointer;
   font-weight: 600;
   padding: 0.75rem 1.75rem;
@@ -310,13 +313,17 @@
 
 .exercise-response-input--textarea {
   line-height: 1.5;
-  min-height: 120px;
+  min-height: calc(1.5em + 0.7rem);
   resize: vertical;
   width: 100%;
 }
 
 .exercise-response-input--textarea[data-autosize="true"] {
   overflow: hidden;
+}
+
+#exercise-status {
+  align-self: stretch;
 }
 
 .exercise-response-row--pending .exercise-response-input {
