@@ -11,7 +11,7 @@
  * 1. exercise-1-nouns/141-forming-nouns.html
  * read instructions paragraph, extract the correct answers, destructively place them in tools/input.txt - each answer separated by a blank line
  *
- * 2. exercise-1-nouns/141-forming-nouns.html using tools/hashes.txt put the sequential hashes into the answer array json as
+ * 2. exercise-1-nouns/151-gender.html using tools/hashes.txt put the sequential hashes into the answer array json as
     "answersAccepted": [],  FOR single answers
         OR
     FOR multiple answers

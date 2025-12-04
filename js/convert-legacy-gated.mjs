@@ -5,7 +5,7 @@ Usage:
 
   - node js/convert-legacy-gated.mjs exercise-1-nouns/141-forming-nouns.html --answer-fields 1 --diff-preview
 
-  - node js/convert-legacy-gated.mjs exercise-1-nouns/141-forming-nouns.html --answer-fields 1 --answer-ui textarea --diff-preview
+  - node js/convert-legacy-gated.mjs exercise-1-nouns/151-gender.html --answer-fields 1 --answer-ui textarea --diff-preview
 
 Flags:
   --questions <int>             Override expected question count validation.
@@ -214,30 +214,32 @@ function scrapeLegacy(legacyHtml, legacyPath) {
   }
 }
 
-function buildResponseFields($, number, count, testMode, answerUi) {
-  const longForm = (answerUi || "").toLowerCase() === "textarea"
+function buildResponseFields($, questionKey, count, testMode, answerUi) {
+  const isTextarea = (answerUi || "").toLowerCase() === "textarea"
   const row = $("<div>")
     .addClass("exercise-response-row")
-    .attr("data-item", String(number))
-  if (longForm) {
+    .attr("data-item", String(questionKey))
+    .attr("data-answer-ui", isTextarea ? "textarea" : "")
+  if (isTextarea) {
     row.addClass("exercise-response-row--long")
-    row.attr("data-answer-ui", "textarea")
   }
   const labelPrefix = testMode ? "Auto-filled" : "Response"
   for (let i = 0; i < count; i += 1) {
     const name = fieldNames[i] || `field${i + 1}`
     const label = $("<label>").addClass("exercise-response-field")
-    if (longForm) label.addClass("exercise-response-field--long")
+    if (isTextarea) {
+      label.addClass("exercise-response-field--long")
+    }
     label.append(
-      $("<span>").addClass("visually-hidden").text(`${labelPrefix} for item ${number} (${name})`)
+      $("<span>").addClass("visually-hidden").text(`${labelPrefix} for item ${questionKey} (${name})`)
     )
-    const input = longForm
+    const input = isTextarea
       ? $("<textarea>")
           .addClass("exercise-response-input exercise-response-input--textarea")
           .attr({
             rows: 3,
             placeholder: "Rewrite here",
-            "data-item": String(number),
+            "data-item": String(questionKey),
             "data-field": name,
             "data-autosize": "true",
           })
@@ -246,10 +248,11 @@ function buildResponseFields($, number, count, testMode, answerUi) {
           .attr({
             type: "text",
             placeholder: "Answer",
-            "data-item": String(number),
+            "data-item": String(questionKey),
             "data-field": name,
+            inputmode: "text",
           })
-    if (testMode) input.val(`Answer ${number}.${i + 1}`)
+    if (testMode) input.val(`Answer ${questionKey}.${i + 1}`)
     label.append(input)
     row.append(label)
   }
@@ -257,9 +260,10 @@ function buildResponseFields($, number, count, testMode, answerUi) {
 }
 
 function buildQuestionDom($, question, answerFieldCount, testMode, fileName) {
+  const questionKey = question.storageKey || question.dataId || `q${question.number}`
   const questBg = $("<div>")
     .addClass("quest-bg")
-    .attr("data-exercise-question", String(question.number))
+    .attr("data-exercise-question", String(questionKey))
   const groupId = `set-nn_sliders-${question.number}`
   const accordion = $("<div>").addClass("nn_sliders accordion panel-group").attr("id", groupId)
   const scrollAnchorId = question.scrollTarget || `nn_sliders-scrollto_${question.number}`
@@ -268,18 +272,18 @@ function buildQuestionDom($, question, answerFieldCount, testMode, fileName) {
   const group = $("<div>").addClass("accordion-group panel nn_sliders-group")
   accordion.append(group)
 
-  const innerScrollId = `${scrollAnchorId}-${slugify(question.questionText)}`
+  const innerScrollId = `${scrollAnchorId}-${questionKey}`
   group.append($("<span>").attr("id", innerScrollId).addClass("anchor nn_sliders-scroll"))
 
   const heading = $("<div>").addClass("accordion-heading panel-heading")
   const toggle = $("<a>")
     .addClass("accordion-toggle nn_sliders-toggle")
     .attr({
-      href: `${fileName}#${question.ariaControls || question.storageKey}`,
+      href: `${fileName}#${question.ariaControls || questionKey}`,
       "aria-label": "Answer",
       "data-toggle": "collapse",
       "data-parent": question.dataParent || `#${groupId}`,
-      "data-id": question.dataId || question.storageKey || `q${question.number}`,
+      "data-id": question.dataId || questionKey,
       "aria-expanded": testMode ? "true" : "false",
     })
   if (question.ariaControls) {
@@ -289,7 +293,7 @@ function buildQuestionDom($, question, answerFieldCount, testMode, fileName) {
   heading.append(toggle)
   group.append(heading)
 
-  const bodyId = question.storageKey || question.ariaControls || `q${question.number}`
+  const bodyId = question.storageKey || question.ariaControls || questionKey
   const body = $("<div>")
     .addClass(`accordion-body nn_sliders-body${testMode ? "" : " collapse"}`)
     .attr({ id: bodyId, "aria-hidden": testMode ? "false" : "true" })
@@ -306,7 +310,7 @@ function buildQuestionDom($, question, answerFieldCount, testMode, fileName) {
   }
   group.append(body)
   group.append(
-    buildResponseFields($, question.number, answerFieldCount, testMode, question.answerUi)
+    buildResponseFields($, questionKey, answerFieldCount, testMode, question.answerUi)
   )
 
   questBg.append(accordion)
@@ -326,14 +330,15 @@ function resolveAnswerFieldCount(question, overrideCount) {
   return 1
 }
 
-function createAnswerKey(scraped, overrideAnswerFieldCount) {
+function createAnswerKey(scraped, overrideAnswerFieldCount, testMode = false) {
   const answerArray = {}
   scraped.questions.forEach((question, index) => {
     const key = `question${String(index + 1).padStart(2, "0")}`
     const answerCount = resolveAnswerFieldCount(question, overrideAnswerFieldCount)
+    const questionKey = question.storageKey || question.dataId || String(index + 1)
 
     answerArray[key] = {
-      id: question.dataId || question.storageKey || String(index + 1),
+      id: questionKey,
       answersAccepted: [],
       lengths: [answerCount],
       minLength: answerCount,
@@ -349,7 +354,7 @@ function createAnswerKey(scraped, overrideAnswerFieldCount) {
     publishDate: new Date().toISOString(),
     description: scraped.title,
     options: {
-      requireCorrectBeforeReveal: true,
+      requireCorrectBeforeReveal: !testMode,
       defaultHashAlgorithm: "fnv1a-64",
     },
     answerArrays: {
@@ -542,7 +547,7 @@ function injectTemplate(
     insertTarget.before(questionDom)
   })
 
-  const answerKey = createAnswerKey(scraped, overrideAnswerFieldCount)
+  const answerKey = createAnswerKey(scraped, overrideAnswerFieldCount, testMode)
   const answerKeyScript = $("#exercise-answer-key")
   if (!answerKeyScript.length) throw new Error("Template answer key script not found")
   answerKeyScript.text(`\n${JSON.stringify(answerKey, null, 2)}\n                `)
@@ -675,7 +680,7 @@ function main() {
   const legacyHtml = loadHtml(legacyPath)
   const templateHtml = loadHtml(templatePath)
   const scraped = scrapeLegacy(legacyHtml, legacyPath)
-  const answerKey = createAnswerKey(scraped, args.answerFields)
+  const answerKey = createAnswerKey(scraped, args.answerFields, args.test_mode)
   ensureAnswerKeyIsJsonSafe(answerKey)
   validateCounts(scraped, args.questions, answerKey, args.answerFields)
   const updatedHtml = injectTemplate(
