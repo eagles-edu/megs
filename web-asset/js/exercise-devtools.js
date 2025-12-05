@@ -194,10 +194,10 @@
     var manualReview = coerceBoolean(entry.manualCheckOk, false)
     var ordered = coerceBoolean(entry.orderedAnswer, false)
     var normalize = entry.normalizeAnswer
-    if (typeof normalize === "string") normalize = coerceBoolean(normalize, true)
-    else if (normalize == null) normalize = true
+    if (typeof normalize === "string") normalize = coerceBoolean(normalize, false)
+    else if (normalize == null) normalize = false
     else normalize = !!normalize
-    var caseSensitive = coerceBoolean(entry.caseSensitive, false)
+    var caseSensitive = coerceBoolean(entry.caseSensitive, true)
     if (caseSensitive && normalize) normalize = false
     var requireCorrect = entry.requireCorrectBeforeReveal
     if (requireCorrect != null) requireCorrect = coerceBoolean(requireCorrect, true)
@@ -323,17 +323,49 @@
 
   function gatherHints(panel) {
     if (!panel) return []
-    var spans = panel.querySelectorAll(".in-text-decoration-underline__14j0pz")
     var hints = []
-    for (var i = 0; i < spans.length; i++) {
-      var text = spans[i].textContent || spans[i].innerText || ""
-      var trimmed = text.trim()
-      if (!trimmed) continue
+    var seen = {}
+
+    function addHint(raw) {
+      var trimmed = (raw || "").trim()
+      if (!trimmed) return
+      var withoutNumber = trimmed.replace(/^\s*\d+[.)-]?\s*/, "")
+      var normalized = normalizeAnswer(withoutNumber)
+      var rawText = withoutNumber.trim()
+      var dedupeKey = rawText || normalized
+      if (!dedupeKey) return
+      if (seen[dedupeKey]) return
+      seen[dedupeKey] = true
       hints.push({
-        text: trimmed,
-        normalized: normalizeAnswer(trimmed),
+        text: withoutNumber,
+        normalized: normalized,
+        raw: rawText,
       })
     }
+
+    function splitHintText(raw) {
+      if (!raw) return []
+      var parts = String(raw)
+        .split(/\r?\n+/)
+        .map(function (chunk) {
+          return String(chunk)
+            .split(/\s+(?=\d+[.)-]\s+)/)
+            .filter(Boolean)
+        })
+      return Array.prototype.concat.apply([], parts)
+    }
+
+    var spans = panel.querySelectorAll(".in-text-decoration-underline__14j0pz")
+    for (var i = 0; i < spans.length; i++) addHint(spans[i].textContent || spans[i].innerText || "")
+
+    var paragraphs = panel.querySelectorAll(".accordion-inner p")
+    for (var p = 0; p < paragraphs.length; p++) {
+      var raw = paragraphs[p].textContent || paragraphs[p].innerText || ""
+      var chunks = splitHintText(raw)
+      if (!chunks.length) addHint(raw)
+      for (var c = 0; c < chunks.length; c++) addHint(chunks[c])
+    }
+
     return hints
   }
 
@@ -391,12 +423,21 @@
     if (!question.candidateMaps) question.candidateMaps = {}
     if (question.candidateMaps[key]) return question.candidateMaps[key]
     var map = {}
+    function add(hash, display) {
+      if (!hash) return
+      if (!map[hash]) map[hash] = []
+      map[hash].push(display)
+    }
     for (var i = 0; i < question.hints.length; i++) {
       var hint = question.hints[i]
-      if (!hint.normalized) continue
-      var hash = hashAnswerValue(hint.normalized, algorithm)
-      if (!map[hash]) map[hash] = []
-      map[hash].push(hint.text)
+      if (!hint) continue
+      var rawValue = hint.raw || ""
+      var normalizedValue = hint.normalized || ""
+      var display = hint.text || rawValue || normalizedValue
+      if (rawValue) add(hashAnswerValue(rawValue, algorithm), display)
+      if (normalizedValue && normalizedValue !== rawValue) {
+        add(hashAnswerValue(normalizedValue, algorithm), display)
+      }
     }
     question.candidateMaps[key] = map
     return map
@@ -547,20 +588,24 @@
     if (!question || !question.config || !question.config.combos.length) {
       return Promise.resolve({ success: false, reason: "missing-config" })
     }
+    var combos = question.config.combos || []
+    if (question.isSingleField && combos.length > 1) {
+      combos = [combos[0]]
+    }
     var defaultAlgorithm =
       question.config.hashAlgorithm ||
       (state.answerKey.options ? state.answerKey.options.defaultHashAlgorithm : "") ||
       ""
     var resolved = null
-    for (var i = 0; i < question.config.combos.length; i++) {
+    for (var i = 0; i < combos.length; i++) {
       var attempt = resolveCombination(
         question,
         question.config,
-        question.config.combos[i],
+        combos[i],
         defaultAlgorithm
       )
       if (attempt) {
-        resolved = { values: attempt, combo: question.config.combos[i] }
+        resolved = { values: attempt, combo: combos[i] }
         break
       }
     }
@@ -659,10 +704,18 @@
       var toggle = node.querySelector(".nn_sliders-toggle")
       var row = node.querySelector(".exercise-response-row")
       var inputs = toArray(node.querySelectorAll(".exercise-response-input"))
+    var isTextarea = false
+    if (row && row.getAttribute("data-answer-ui")) {
+      isTextarea = row.getAttribute("data-answer-ui").toLowerCase() === "textarea"
+    }
+    if (!isTextarea && inputs.length && inputs[0].tagName === "TEXTAREA") isTextarea = true
+    var isSingleField = inputs.length === 1
       var questionId = String(node.getAttribute("data-exercise-question") || i + 1)
       var panel = null
       if (toggle) {
         var controlId = toggle.getAttribute("aria-controls") || toggle.getAttribute("data-id") || ""
+        if (controlId && controlId.indexOf("#") !== -1) controlId = controlId.split("#").pop()
+        if (!controlId) controlId = toggle.getAttribute("data-id") || ""
         if (controlId) panel = document.getElementById(controlId)
       }
       var hints = gatherHints(panel)
@@ -676,6 +729,8 @@
         panel: panel,
         hints: hints,
         config: config,
+        isTextarea: isTextarea,
+        isSingleField: isSingleField,
         candidateMaps: {},
       })
     }
