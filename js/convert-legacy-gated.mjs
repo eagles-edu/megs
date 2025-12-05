@@ -237,7 +237,7 @@ function buildResponseFields($, questionKey, count, testMode, answerUi) {
       ? $("<textarea>")
           .addClass("exercise-response-input exercise-response-input--textarea")
           .attr({
-            rows: 3,
+            rows: 1,
             placeholder: "Rewrite here",
             "data-item": String(questionKey),
             "data-field": name,

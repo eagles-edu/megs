@@ -80,6 +80,20 @@ function normalizeUnderlines($, $panel) {
   })
 }
 
+function normalizeBreadcrumbArrows($, $article) {
+  $article.find("ul.breadcrumb span.divider svg").each((_, svg) => {
+    const $span = $(svg).closest("span.divider")
+    if (!$span.length) return
+    $span.empty().append('<img src="../images/arrow.svg" alt="" width="9" height="9">')
+  })
+
+  $article.find("ul.breadcrumb span.divider").each((_, span) => {
+    const $span = $(span)
+    if (($span.html() || "").trim()) return
+    $span.remove()
+  })
+}
+
 function buildIntroHtml($, $article) {
   if (!$article || !$article.length) return ""
   const blocks = []
@@ -109,6 +123,7 @@ function parseLegacyExercise(html, filePath = "") {
   const description = ($("meta[name='description']").attr("content") || DEFAULT_DESCRIPTION).trim()
 
   const $article = $("[itemprop='articleBody']").first()
+  normalizeBreadcrumbArrows($, $article)
   const pagerHtml = $article.find("ul.pager.pagenav").first().prop("outerHTML") || ""
   const introHtml = buildIntroHtml($, $article)
 

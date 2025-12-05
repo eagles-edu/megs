@@ -312,8 +312,8 @@
 }
 
 .exercise-response-input--textarea {
-  line-height: 1.5;
-  min-height: calc(1.5em + 0.7rem);
+  line-height: 1.25;
+  min-height: calc(1.25em + 0.35rem);
   resize: vertical;
   width: 100%;
 }

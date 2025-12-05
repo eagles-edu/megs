@@ -60,6 +60,35 @@
 - `manualCheckOk` is `false` unless a question truly needs manual review.
 - Ensure answer key JSON stays valid (quoted hash strings) so the gate can parse it.
 
+### Obfuscating GUI Answer Text
+
+- **Why**: Keep visible answers hidden from learners while preserving formatting inside `<p>` blocks (bold, `<br>`, etc.). Only encode text nodes; HTML tags must remain intact.
+
+- **Tool**: `tools/encode-p-text.mjs` (Node 20, cheerio + dom-serializer). It converts raw text in `<p>` tags to decimal HTML entities and skips already-encoded runs and whitespace-only nodes.
+
+- **Dry-run preview**:
+
+  ```bash
+  node tools/encode-p-text.mjs exercise-1-nouns/151-gender.html
+  ```
+
+  Streams the transformed HTML to stdout so you can diff without touching files.
+
+- **Apply in place**:
+
+  ```bash
+  node tools/encode-p-text.mjs --write exercise-1-nouns/151-gender.html
+  ```
+
+  Use `--apply` as an alias. The script reports how many `<p>` elements were encoded.
+
+- **Safety checks**:
+  - Run on pages where answers must be obscured; do not run on non-answer content.
+  - The encoder skips runs that look already encoded (`&#…;`) to avoid double-encoding.
+  - Verify output keeps tags and `<br>` line breaks unchanged; confirm decoded text still matches the intended answer strings.
+  - After applying, re-open the page locally and confirm rendered text remains readable and hashes still match expected answers.
+- **Validation**: After obfuscation, run `npm run verify:prototype` (or the relevant smoke/lint target) to ensure gating and markup still pass checks.
+
 ### Operational Tips
 
 - Keep `answersAccepted` hashes quoted strings; avoid bare tokens.

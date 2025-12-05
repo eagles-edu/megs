@@ -6,7 +6,16 @@ Mindset of a 15+ yr full-stack, AI-enabled app dev.
 
 ### Core behaviors
 
-_Critically, consistently, and before every coding attempt, ALWAYS reread agents.md instructions. prepare to continue dev by rescanning and identify all changed files within the repo, verifying clean repo, and fully purging, then refreshing your working memory with current canonical repo state; Perform All per agents.md rules.
+_Critically, consistently, and before every coding attempt, ALWAYS reread agents.md instructions._
+
+**Prepare to continue** dev by:
+
+1. rescanning repo,
+2. identifying all changed files in  repo,
+3. fully purging your working memory,
+4. refreshing repo working memory with current canonical repo state,
+5. verifying repo working memory state is equal to canonical repo state, and
+6. performing All per agents.md rules.
 
 #### MANDATORY
 
@@ -36,7 +45,25 @@ _Critically, consistently, and before every coding attempt, ALWAYS reread agents
 
 12. Work slowly and go step-by-step to make compact, requirement fulfilling, working, elegant, best-practices code.
 
-### **IMPORTANT**
+### CRITICAL RESOURCES
+
+**Always rescan docs/exercise-system.md on startup!** Maintain current, regularly updated ancilary repositories of _critical_ systems' information.
+
+#### I. Exercise System and Conversion Guide
+
+**CONTENTS** of docs/exercise-system.md
+
+    1. Exercise Runtime (Gate) Behavior
+    2. Conversion Pipeline (js/convert-legacy-gated.mjs)
+      -- Key options (CLI)
+      -- CMD line flags
+    3. Behavioral Overview
+      -- Hash generation
+      -- Defaults/Requirement
+    4. Obfuscating GUI Answer Text
+      -- Safety checks
+
+### IMPORTANT
 
 - **RESCAN REPO mandate**: rerun discovery (`git status -sb`, `rg`, etc.) immediately before changing files, and explicitly note in responses that the working tree was clean, updated, working memory was flushed, then refreshed at that moment.
 
@@ -48,7 +75,7 @@ _Critically, consistently, and before every coding attempt, ALWAYS reread agents
 
 - **Note prototype impact**: call out when edits touch prototype vs. live flows and reference the `npm run verify:prototype` script when relevant.
 
-- \*\*Always use Unified Differential Format patches for every file you modify; ensure compatibility with vscode extension 'nakadehitsujiko.paste-and-apply-patch' so requestors can apply the new new patches easily.
+- **Always use Unified Differential Format** patches for every file you modify; ensure compatibility with vscode extension 'nakadehitsujiko.paste-and-apply-patch' so requestors can apply the new new patches easily.
 
 - **Keep the instructions scoped** to just the new changes.
 
@@ -61,7 +88,7 @@ _Critically, consistently, and before every coding attempt, ALWAYS reread agents
 - "**Inline content**" = the full, ready-to-paste body of a file (no ellipses, no truncation), enclosed in a code fence, matching the exact post-change file.
 
 - (POIA) For files 2000 lines or longer, provide one or both of the following so requestors can fetch the canonical file without scrolling in chat:
-  
+
   - A shell command using the current repo state, e.g., `git show HEAD:path/to/file > path/to/file` (or substitute a specific commit/branch ref as needed).
 
   - A direct download URL (e.g., GitHub raw link to the targeted ref) if remote retrieval is requested.
@@ -143,19 +170,19 @@ When proposing code changes, the assistant MUST provide:
 2. **Exact line numbers** and **context** (3–5 lines around changes).
    - If line numbers aren’t known, include a grep to locate anchors:
 
-     ```bash
-     nl -ba path/to/file | sed -n '120,150p'  # preview range
-     rg -n 'anchor text' path/to/file         # ripgrep
-     ```
+  ```bash
+    nl -ba path/to/file | sed -n '120,150p'  # preview range
+    rg -n 'anchor text' path/to/file         # ripgrep
+  ```
 
 3. **Unified diff** (copy-pasteable) **and** a shell-ready way to apply it:
    - Prefer (in order) `diff patch from freshly updated rescan of repo`, `in-chat manual code window`, `patch` then `git apply` ;
 
-4. **Post-change verification** steps (lint/test/run commands).
+2. **Post-change verification** steps (lint/test/run commands).
 
-5. **Rollback** note (how to revert the commit or restore backup).
+3. **Rollback** note (how to revert the commit or restore backup).
 
-6. **Completed full file-update delivery**: Ensure any file with total number of edits of more than three lines must be accompanied by either a. `sed` or b. `in-chat manual code window` method of acquiring complete updated file with current changes.
+4. **Completed full file-update delivery**: Ensure any file with total number of edits of more than three lines must be accompanied by either a. `sed` or b. `in-chat manual code window` method of acquiring complete updated file with current changes.
 
 ### Patch Template
 
