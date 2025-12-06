@@ -375,7 +375,7 @@
     return hints
   }
 
-  function findQuestionConfig(answerKey, questionId, fallbackHints) {
+  function findQuestionConfig(answerKey, questionId) {
     if (!answerKey || !answerKey.questions) return null
     var config = answerKey.questions[questionId]
     if (!config) {
@@ -385,30 +385,6 @@
           answerKey.questions["question" + padded] ||
           answerKey.questions["q" + padded] ||
           answerKey.questions[String(parseInt(padded, 10))]
-      }
-    }
-    if (!config && fallbackHints && fallbackHints.length) {
-      var combo = []
-      for (var i = 0; i < fallbackHints.length; i++) {
-        combo.push({
-          type: "plain",
-          value: fallbackHints[i].normalized,
-          output: fallbackHints[i].text,
-          algorithm: null,
-        })
-      }
-      config = {
-        id: String(questionId),
-        combos: [combo],
-        lengths: [combo.length],
-        minLength: combo.length || 1,
-        maxLength: combo.length || 0,
-        manualReview: false,
-        ordered: false,
-        normalize: true,
-        caseSensitive: false,
-        requireCorrectBeforeReveal: true,
-        hashAlgorithm: "",
       }
     }
     return config || null
@@ -595,6 +571,7 @@
       return Promise.resolve({ success: false, reason: "missing-config" })
     }
     var combos = question.config.combos || []
+    if (combos.length > 1) combos = [combos[0]]
     if (question.isSingleField && combos.length) {
       var firstCombo = combos[0]
       var firstToken = Array.isArray(firstCombo) && firstCombo.length ? firstCombo[0] : firstCombo
