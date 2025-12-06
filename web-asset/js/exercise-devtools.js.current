@@ -326,24 +326,6 @@
     var hints = []
     var seen = {}
 
-    function splitHintText(raw) {
-      if (!raw) return []
-      var text = String(raw)
-      var parts = text.split(/\r?\n+/)
-      var results = []
-      for (var i = 0; i < parts.length; i++) {
-        var chunk = parts[i]
-        if (!chunk) continue
-        var numbered = chunk.split(/\s+(?=\d+[.)-]\s+)/).filter(Boolean)
-        if (numbered.length) {
-          for (var n = 0; n < numbered.length; n++) results.push(numbered[n])
-        } else {
-          results.push(chunk)
-        }
-      }
-      return results
-    }
-
     function addHint(raw) {
       var trimmed = (raw || "").trim()
       if (!trimmed) return
@@ -359,6 +341,18 @@
         normalized: normalized,
         raw: rawText,
       })
+    }
+
+    function splitHintText(raw) {
+      if (!raw) return []
+      var parts = String(raw)
+        .split(/\r?\n+/)
+        .map(function (chunk) {
+          return String(chunk)
+            .split(/\s+(?=\d+[.)-]\s+)/)
+            .filter(Boolean)
+        })
+      return Array.prototype.concat.apply([], parts)
     }
 
     var spans = panel.querySelectorAll(".in-text-decoration-underline__14j0pz")
@@ -595,10 +589,8 @@
       return Promise.resolve({ success: false, reason: "missing-config" })
     }
     var combos = question.config.combos || []
-    if (question.isSingleField && combos.length) {
-      var firstCombo = combos[0]
-      var firstToken = Array.isArray(firstCombo) && firstCombo.length ? firstCombo[0] : firstCombo
-      combos = firstToken ? [[firstToken]] : []
+    if (question.isSingleField && combos.length > 1) {
+      combos = [combos[0]]
     }
     var defaultAlgorithm =
       question.config.hashAlgorithm ||
@@ -606,7 +598,12 @@
       ""
     var resolved = null
     for (var i = 0; i < combos.length; i++) {
-      var attempt = resolveCombination(question, question.config, combos[i], defaultAlgorithm)
+      var attempt = resolveCombination(
+        question,
+        question.config,
+        combos[i],
+        defaultAlgorithm
+      )
       if (attempt) {
         resolved = { values: attempt, combo: combos[i] }
         break
@@ -707,12 +704,12 @@
       var toggle = node.querySelector(".nn_sliders-toggle")
       var row = node.querySelector(".exercise-response-row")
       var inputs = toArray(node.querySelectorAll(".exercise-response-input"))
-      var isTextarea = false
-      if (row && row.getAttribute("data-answer-ui")) {
-        isTextarea = row.getAttribute("data-answer-ui").toLowerCase() === "textarea"
-      }
-      if (!isTextarea && inputs.length && inputs[0].tagName === "TEXTAREA") isTextarea = true
-      var isSingleField = inputs.length === 1
+    var isTextarea = false
+    if (row && row.getAttribute("data-answer-ui")) {
+      isTextarea = row.getAttribute("data-answer-ui").toLowerCase() === "textarea"
+    }
+    if (!isTextarea && inputs.length && inputs[0].tagName === "TEXTAREA") isTextarea = true
+    var isSingleField = inputs.length === 1
       var questionId = String(node.getAttribute("data-exercise-question") || i + 1)
       var panel = null
       if (toggle) {
