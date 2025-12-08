@@ -1,12 +1,13 @@
-<!-- prettier-ignore -->
 <!DOCTYPE html>
 <html lang="en">
-  <!-- /exercise-1-nouns/112-proper-nouns.html, Tue, 24 Nov 2020 12:32:11 GMT -->
   <head>
+    <meta charset="utf-8">
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1.0">
-    <meta charset="utf-8">
+    <meta
+      name="theme-color"
+      content="#e0162b">
     <meta
       name="keywords"
       content="ESL, TOESL, TOEFL, courses, english, english courses, education, english degree, degree, english education, exercises, english exercises, grammar, verb, english grammar, noun, adverb, adjective, english adverb, english noun, english adjective">
@@ -16,17 +17,17 @@
     <meta
       name="generator"
       content="English Grammar - intermediate levels A2 and above">
-    <title>1.1.2 Proper Nouns</title>
     <link
-      href="112-proper-nouns.html"
+      href="151-gender.html"
       rel="non-canonical">
+    <title>1.6.1 Gender Neutral Language</title>
     <link
-      href="../web-asset/icons/favicon.ico"
+      href="../favicon.ico"
       rel="shortcut icon"
       type="image/vnd.microsoft.icon">
     <!-- theme-vars.css eliminated; variables live in base.css -->
-    <!-- Minimal theme tokens inline to avoid var() FOUC when base.css loads async -->
 
+    <!-- Minimal theme tokens inline to avoid var() FOUC when base.css loads async -->
     <style id="theme-vars-critical">
       :root {
         --primary-color: #e0162b;
@@ -34,6 +35,7 @@
         --tertiary-color: #002786;
         --text-color: #212121;
         --background-color: #798ea4;
+        --footer-background: #3e4b5b;
         --icon-color-on-dk: #f5f8ff;
         --icon-color-on-lt: #8a94a8;
         --pager-background: var(--surface-color, #fff);
@@ -43,6 +45,7 @@
         --pager-font-weight: 500;
         --pager-gap-x: 14px;
         --pager-gap-y: 10px;
+        --pager-font-weight: 500;
         --pager-hover-shadow: 0 0 0 3px rgb(224 22 43 / 15%);
         --pager-icon-size: 1.25rem;
         --pager-label-truncate: ellipsis;
@@ -76,6 +79,14 @@
         /* page background behind light content */
       }
 
+      /* Base shell (padding, top border, background) */
+      body.base,
+      body.site {
+        border-top: 15px solid var(--footer-background);
+        padding: 20px;
+        background-color: var(--background-color);
+      }
+
       /* Preload critical image dimensions to prevent CLS */
       img[src*="../images/banner.png"] {
         height: 120;
@@ -88,9 +99,9 @@
         width: 24px;
       }
 
-      img[src*="../images/rarrow-16.svg"] {
-        height: 14px;
-        width: 14px;
+      img[src*="../images/arrow.svg"] {
+        height: 9px;
+        width: 9px;
       }
 
       img[src*="../web-asset/icons/svg/sized/plus3.svg"],
@@ -221,6 +232,7 @@
         }
       }
     </style>
+
     <!-- Critical resource hints for better performance -->
     <link
       rel="dns-prefetch"
@@ -231,6 +243,7 @@
     <link
       rel="dns-prefetch"
       href="../js/">
+
     <style id="critical-inline">
       /* Critical CSS: reset + fast header paint + mobile toggle */
       body {
@@ -278,6 +291,7 @@
         /* Fallback for browsers not decoding \00E289A1: use explicit ≡ */
       }
     </style>
+
     <!-- Critical augment: stabilize grid/menu to reduce CLS -->
     <style id="critical-inline-augment">
       /* Grid layout (avoid block→flex shift when async CSS loads) */
@@ -698,8 +712,8 @@
 
       /* Breadcrumb divider icon explicit size, belt-and-suspenders */
       ul.breadcrumb > li > span.divider > img {
-        height: 11px;
-        width: 11px;
+        height: 9px;
+        width: 9px;
       }
 
       /* Additional CLS prevention: stabilize accordion toggle heights */
@@ -843,6 +857,7 @@
         margin-bottom: 1.5em;
       }
     </style>
+
     <!-- Optimized speculationrules with prerender for better UX -->
     <script>
       ;(function () {
@@ -884,6 +899,7 @@
       })()
     </script>
     <!-- Icon font not used on Codex variant; removed icomoon.css includes -->
+
     <!-- Minimal base for layout/mobile nav used by prototype (async) -->
     <link
       rel="preload"
@@ -900,6 +916,7 @@
         href="../web-asset/css/exercises.css">
     </noscript>
     <!-- Use system default fonts (no webfont preloads) -->
+
     <!-- Defer non-critical CSS with preload+print media swap -->
     <link
       rel="preload"
@@ -989,8 +1006,14 @@
     <script
       src="../web-asset/js/exercise-gate.js"
       defer></script>
+    <script
+      src="../web-asset/js/exercise-devtools.js"
+      defer></script>
   </head>
-  <body class="base exercize">
+
+  <body
+    class="base exercize"
+    data-exercise-devtools="auto">
     <svg
       xmlns="http://www.w3.org/2000/svg"
       xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -1268,28 +1291,21 @@
             </div>
           </div>
           <!-- End Sidebar -->
-          <!-- Begin Content -->
           <main
             id="content"
             class="span8">
+            <!-- Begin Content -->
+
             <div id="system-message-container"></div>
-            <div
-              class="item-page"
-              itemscope=""
-              itemtype="https://schema.org/Article">
-              <meta
-                itemprop="inLanguage"
-                content="en-GB">
-              <div>
-                <h2 itemprop="headline">1.1.2 Proper Nouns</h2>
+            <div class="item-page">
+              <div class="page-header">
+                <h2>1.6.1 Gender Neutral</h2>
                 <div class="clearfix"></div>
                 <ul
+                  class="breadcrumb"
                   itemscope=""
-                  itemtype="https://schema.org/BreadcrumbList"
-                  class="breadcrumb">
-                  <li class="active">
-                    <span class="divider icon-location"></span>
-                  </li>
+                  itemtype="https://schema.org/BreadcrumbList">
+                  <li class="active"><span class="divider icon-location"></span></li>
                   <li
                     itemprop="itemListElement"
                     itemscope=""
@@ -1302,15 +1318,11 @@
                       <span itemprop="name">Home</span>
                     </a>
                     <span class="divider">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 8 13.02"
-                        width="11"
-                        height="11">
-                        <polygon
-                          points="8 6.51 0 13.02 0 0 8 6.51"
-                          fill="#e0162b"></polygon>
-                      </svg>
+                      <img
+                        src="../images/arrow.svg"
+                        alt=""
+                        width="9"
+                        height="9">
                     </span>
                     <meta
                       itemprop="position"
@@ -1328,17 +1340,12 @@
                       <span itemprop="name">Exercise 1 - Nouns</span>
                     </a>
                     <span class="divider">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 8 13.02"
-                        width="11"
-                        height="11">
-                        <polygon
-                          points="8 6.51 0 13.02 0 0 8 6.51"
-                          fill="#e0162b"></polygon>
-                      </svg>
+                      <img
+                        src="../images/arrow.svg"
+                        alt=""
+                        width="12"
+                        height="12">
                     </span>
-
                     <meta
                       itemprop="position"
                       content="2">
@@ -1348,7 +1355,7 @@
                     itemscope=""
                     itemtype="https://schema.org/ListItem"
                     class="active">
-                    <span itemprop="name">1.1.2 Proper Nouns</span>
+                    <span itemprop="name">1.6.1 Gender Neutral</span>
                     <meta
                       itemprop="position"
                       content="3">
@@ -1356,12 +1363,12 @@
                 </ul>
               </div>
               <div itemprop="articleBody">
-                <ul class="pager">
+                <ul class="pager pagenav">
                   <li class="previous">
                     <a
-                      href="111-common-nouns.html"
+                      href="151-gender.html"
                       rel="prev"
-                      aria-label="previous">
+                      aria-label="Next">
                       <svg
                         version="1.1"
                         xmlns="http://www.w3.org/2000/svg"
@@ -1371,15 +1378,15 @@
                         <path
                           d="M16.795 14.571c0 0.214-0.107 0.455-0.268 0.616l-10.527 10.527 10.527 10.527c0.161 0.161 0.268 0.402 0.268 0.616s-0.107 0.455-0.268 0.616l-1.339 1.339c-0.161 0.161-0.402 0.268-0.616 0.268s-0.455-0.107-0.616-0.268l-12.482-12.482c-0.161-0.161-0.268-0.402-0.268-0.616s0.107-0.455 0.268-0.616l12.482-12.482c0.161-0.161 0.402-0.268 0.616-0.268s0.455 0.107 0.616 0.268l1.339 1.339c0.161 0.161 0.268 0.375 0.268 0.616z"></path>
                       </svg>
-                      &nbsp;&nbsp;1.1.1 Common Nouns
+                      &nbsp;&nbsp; 1.5.1 Gender
                     </a>
                   </li>
                   <li class="next">
                     <a
-                      href="113-abstract-nouns.html"
+                      href="../exercise-1-nouns.html"
                       rel="next"
                       aria-label="Next">
-                      1.1.3 Abstract Nouns&nbsp;&nbsp;
+                      Exercise 1 - Nouns &nbsp;&nbsp;
                       <svg
                         version="1.1"
                         xmlns="http://www.w3.org/2000/svg"
@@ -1393,16 +1400,12 @@
                     </a>
                   </li>
                 </ul>
-                <p class="blkquot">
-                  <strong>Use capital letters for Proper Nouns in the following sentences</strong>
-                  . Click the sentence to check the answer.
-                </p>
+                <p>Change the nouns in bold from the feminine/masculine to the masculine/feminine. Click the question for the answer.</p>
                 <form
                   class="exercise-form exercise-gate"
-                  data-exercise-form
-                  data-storage-key="exercise-112-proper-nouns-copy2"
-                  novalidate
-                  data-exercise-question-count="10">
+                  data-exercise-form=""
+                  data-storage-key="exercise-151-gender"
+                  novalidate>
                   <fieldset class="exercise-form__intro">
                     <legend class="visually-hidden">Exercise setup</legend>
                     <div class="exercise-form__intro-layout">
@@ -1439,7 +1442,7 @@
                         class="exercise-form__progress tm01"
                         data-exercise-progress=""
                         aria-live="polite">
-                        0 of 10 questions completed.
+                        0 of 24 questions completed.
                       </p>
                       <span
                         class="exercise-form__last-attempt"
@@ -1455,15 +1458,7 @@
 
                   <div
                     class="quest-bg"
-                    data-exercise-question="1">
-                    <p
-                      class="exercise-question__progress"
-                      data-exercise-question-progress=""
-                      aria-hidden="true"
-                      data-item="1"
-                      data-total="10">
-                      Question 1 of 10
-                    </p>
+                    data-exercise-question="q1-my-uncle-visits-his-nephew-every-weekend">
                     <div
                       class="nn_sliders accordion panel-group"
                       id="set-nn_sliders-1">
@@ -1472,72 +1467,51 @@
                         class="anchor nn_sliders-scroll"></span>
                       <div class="accordion-group panel nn_sliders-group">
                         <span
-                          id="nn_sliders-scrollto_1-ms-brown-told-me-that-paris-is-the-capital-of-france"
+                          id="nn_sliders-scrollto_1-q1-my-uncle-visits-his-nephew-every-weekend"
                           class="anchor nn_sliders-scroll"></span>
                         <div class="accordion-heading panel-heading">
                           <a
-                            href="112-proper-nouns-copy2.html#sec-1-ms-brown-told-me-that-paris-is-the-capital-of-france"
-                            aria-label="Answer"
                             class="accordion-toggle nn_sliders-toggle"
+                            href="151-gender.html#151-gender.html#q1-my-uncle-visits-his-nephew-every-weekend"
+                            aria-label="Answer"
                             data-toggle="collapse"
-                            data-id="sec-1-ms-brown-told-me-that-paris-is-the-capital-of-france"
                             data-parent="#set-nn_sliders-1"
-                            aria-controls="sec-1-ms-brown-told-me-that-paris-is-the-capital-of-france"
-                            aria-expanded="false">
-                            <span class="nn_sliders-toggle-inner">1. ms brown told me that paris is the capital of france.</span>
+                            data-id="q1-my-uncle-visits-his-nephew-every-weekend"
+                            aria-expanded="false"
+                            aria-controls="151-gender.html#q1-my-uncle-visits-his-nephew-every-weekend">
+                            <span class="nn_sliders-toggle-inner">1. My uncle visits his nephew every weekend.</span>
                           </a>
                         </div>
                         <div
                           class="accordion-body nn_sliders-body collapse"
-                          id="sec-1-ms-brown-told-me-that-paris-is-the-capital-of-france"
+                          id="q1-my-uncle-visits-his-nephew-every-weekend"
                           aria-hidden="true">
                           <div class="accordion-inner panel-body">
-                            <h2 class="nn_sliders-title">1. ms brown told me that paris is the capital of france.</h2>
+                            <h2 class="nn_sliders-title">1. My uncle visits his nephew every weekend.</h2>
                             <p>
-                              1.
-                              <span class="first-letter-blue">Ms Brown told me that Paris is the capital of France.</span>
+                              &#49;&#46;&#32;&#77;&#121;&#32;
+                              <b>&#97;&#117;&#110;&#116;</b>
+                              &#32;&#118;&#105;&#115;&#105;&#116;&#115;&#32;
+                              <b>&#104;&#101;&#114;</b>
+                              &#32;
+                              <b>&#110;&#105;&#101;&#99;&#101;</b>
+                              &#32;&#101;&#118;&#101;&#114;&#121;&#32;&#119;&#101;&#101;&#107;&#101;&#110;&#100;&#46;
                             </p>
                           </div>
                         </div>
-
                         <div
-                          class="exercise-response-row"
-                          data-item="1">
-                          <label class="exercise-response-field">
-                            <span class="visually-hidden">1 for item 1</span>
-                            <input
-                              class="exercise-response-input"
-                              type="text"
-                              placeholder="Answer"
-                              data-item="1"
-                              data-field="1">
-                          </label>
-                          <label class="exercise-response-field">
-                            <span class="visually-hidden">2 for item 1</span>
-                            <input
-                              class="exercise-response-input"
-                              type="text"
-                              placeholder="Answer"
-                              data-item="1"
-                              data-field="2">
-                          </label>
-                          <label class="exercise-response-field">
-                            <span class="visually-hidden">3 for item 1</span>
-                            <input
-                              class="exercise-response-input"
-                              type="text"
-                              placeholder="Answer"
-                              data-item="1"
-                              data-field="3">
-                          </label>
-                          <label class="exercise-response-field">
-                            <span class="visually-hidden">4 for item 1</span>
-                            <input
-                              class="exercise-response-input"
-                              type="text"
-                              placeholder="Answer"
-                              data-item="1"
-                              data-field="4">
+                          class="exercise-response-row exercise-response-row--long"
+                          data-item="q1-my-uncle-visits-his-nephew-every-weekend"
+                          data-answer-ui="textarea">
+                          <label class="exercise-response-field exercise-response-field--long">
+                            <span class="visually-hidden">Response for item 1 (answer_01)</span>
+                            <textarea
+                              class="exercise-response-input exercise-response-input--textarea"
+                              rows="1"
+                              placeholder="Rewrite here"
+                              data-item="q1-my-uncle-visits-his-nephew-every-weekend"
+                              data-field="answer_01"
+                              data-autosize="true"></textarea>
                           </label>
                         </div>
                       </div>
@@ -1545,15 +1519,7 @@
                   </div>
                   <div
                     class="quest-bg"
-                    data-exercise-question="2">
-                    <p
-                      class="exercise-question__progress"
-                      data-exercise-question-progress=""
-                      aria-hidden="true"
-                      data-item="2"
-                      data-total="10">
-                      Question 2 of 10
-                    </p>
+                    data-exercise-question="q2-the-lady-has-several-drakes-on-her-farm">
                     <div
                       class="nn_sliders accordion panel-group"
                       id="set-nn_sliders-2">
@@ -1562,69 +1528,47 @@
                         class="anchor nn_sliders-scroll"></span>
                       <div class="accordion-group panel nn_sliders-group">
                         <span
-                          id="nn_sliders-scrollto_2-william-shakespeare-was-a-famous-english-author"
+                          id="nn_sliders-scrollto_2-q2-the-lady-has-several-drakes-on-her-farm"
                           class="anchor nn_sliders-scroll"></span>
                         <div class="accordion-heading panel-heading">
                           <a
-                            href="112-proper-nouns-copy2.html#sec-2-william-shakespeare-was-a-famous-english-author"
-                            aria-label="Answer"
                             class="accordion-toggle nn_sliders-toggle"
+                            href="151-gender.html#151-gender.html#q2-the-lady-has-several-drakes-on-her-farm"
+                            aria-label="Answer"
                             data-toggle="collapse"
-                            data-id="sec-2-william-shakespeare-was-a-famous-english-author"
                             data-parent="#set-nn_sliders-2"
-                            aria-controls="sec-2-william-shakespeare-was-a-famous-english-author"
-                            aria-expanded="false">
-                            <span class="nn_sliders-toggle-inner">2. william shakespeare was a famous English author.</span>
+                            data-id="q2-the-lady-has-several-drakes-on-her-farm"
+                            aria-expanded="false"
+                            aria-controls="151-gender.html#q2-the-lady-has-several-drakes-on-her-farm">
+                            <span class="nn_sliders-toggle-inner">2. The lady has several drakes on her farm.</span>
                           </a>
                         </div>
                         <div
                           class="accordion-body nn_sliders-body collapse"
-                          id="sec-2-william-shakespeare-was-a-famous-english-author"
+                          id="q2-the-lady-has-several-drakes-on-her-farm"
                           aria-hidden="true">
                           <div class="accordion-inner panel-body">
-                            <h2 class="nn_sliders-title">2. william shakespeare was a famous English author.</h2>
-                            <p>2. William Shakespeare was a famous English author.</p>
+                            <h2 class="nn_sliders-title">2. The lady has several drakes on her farm.</h2>
+                            <p>
+                              &#50;&#46;&#32;&#84;&#104;&#101;&#32;&#103;&#101;&#110;&#116;&#108;&#101;&#109;&#97;&#110;&#32;&#104;&#97;&#115;&#32;&#115;&#101;&#118;&#101;&#114;&#97;&#108;&#32;&#102;&#101;&#109;&#97;&#108;&#101;&#32;&#100;&#117;&#99;&#107;&#115;&#32;&#111;&#110;&#32;&#104;&#105;&#115;&#32;&#102;&#97;&#114;&#109;&#46;
+                              <br>
+                              &#50;&#46;&#32;&#84;&#104;&#101;&#32;&#103;&#101;&#110;&#116;&#108;&#101;&#109;&#97;&#110;&#32;&#104;&#97;&#115;&#32;&#115;&#101;&#118;&#101;&#114;&#97;&#108;&#32;&#100;&#117;&#99;&#107;&#115;&#32;&#111;&#110;&#32;&#104;&#105;&#115;&#32;&#102;&#97;&#114;&#109;&#46;
+                            </p>
                           </div>
                         </div>
-
                         <div
-                          class="exercise-response-row"
-                          data-item="2">
-                          <label class="exercise-response-field">
-                            <span class="visually-hidden">1 for item 2</span>
-                            <input
-                              class="exercise-response-input"
-                              type="text"
-                              placeholder="Answer"
-                              data-item="2"
-                              data-field="1">
-                          </label>
-                          <label class="exercise-response-field">
-                            <span class="visually-hidden">2 for item 2</span>
-                            <input
-                              class="exercise-response-input"
-                              type="text"
-                              placeholder="Answer"
-                              data-item="2"
-                              data-field="2">
-                          </label>
-                          <label class="exercise-response-field">
-                            <span class="visually-hidden">3 for item 2</span>
-                            <input
-                              class="exercise-response-input"
-                              type="text"
-                              placeholder="Answer"
-                              data-item="2"
-                              data-field="3">
-                          </label>
-                          <label class="exercise-response-field">
-                            <span class="visually-hidden">4 for item 2</span>
-                            <input
-                              class="exercise-response-input"
-                              type="text"
-                              placeholder="Answer"
-                              data-item="2"
-                              data-field="4">
+                          class="exercise-response-row exercise-response-row--long"
+                          data-item="q2-the-lady-has-several-drakes-on-her-farm"
+                          data-answer-ui="textarea">
+                          <label class="exercise-response-field exercise-response-field--long">
+                            <span class="visually-hidden">Response for item 2 (answer_01)</span>
+                            <textarea
+                              class="exercise-response-input exercise-response-input--textarea"
+                              rows="1"
+                              placeholder="Rewrite here"
+                              data-item="q2-the-lady-has-several-drakes-on-her-farm"
+                              data-field="answer_01"
+                              data-autosize="true"></textarea>
                           </label>
                         </div>
                       </div>
@@ -1632,15 +1576,7 @@
                   </div>
                   <div
                     class="quest-bg"
-                    data-exercise-question="3">
-                    <p
-                      class="exercise-question__progress"
-                      data-exercise-question-progress=""
-                      aria-hidden="true"
-                      data-item="3"
-                      data-total="10">
-                      Question 3 of 10
-                    </p>
+                    data-exercise-question="q3-the-daughter-is-more-talkative-than-her-mother">
                     <div
                       class="nn_sliders accordion panel-group"
                       id="set-nn_sliders-3">
@@ -1649,69 +1585,45 @@
                         class="anchor nn_sliders-scroll"></span>
                       <div class="accordion-group panel nn_sliders-group">
                         <span
-                          id="nn_sliders-scrollto_3-war-and-peace-was-written-by-leo-tolstoy"
+                          id="nn_sliders-scrollto_3-q3-the-daughter-is-more-talkative-than-her-mother"
                           class="anchor nn_sliders-scroll"></span>
                         <div class="accordion-heading panel-heading">
                           <a
-                            href="112-proper-nouns-copy2.html#sec-3-war-and-peace-was-written-by-leo-tolstoy"
-                            aria-label="Answer"
                             class="accordion-toggle nn_sliders-toggle"
+                            href="151-gender.html#151-gender.html#q3-the-daughter-is-more-talkative-than-her-mother"
+                            aria-label="Answer"
                             data-toggle="collapse"
-                            data-id="sec-3-war-and-peace-was-written-by-leo-tolstoy"
                             data-parent="#set-nn_sliders-3"
-                            aria-controls="sec-3-war-and-peace-was-written-by-leo-tolstoy"
-                            aria-expanded="false">
-                            <span class="nn_sliders-toggle-inner">3. 'war and peace' was written by leo tolstoy.</span>
+                            data-id="q3-the-daughter-is-more-talkative-than-her-mother"
+                            aria-expanded="false"
+                            aria-controls="151-gender.html#q3-the-daughter-is-more-talkative-than-her-mother">
+                            <span class="nn_sliders-toggle-inner">3. The daughter is more talkative than her mother.</span>
                           </a>
                         </div>
                         <div
                           class="accordion-body nn_sliders-body collapse"
-                          id="sec-3-war-and-peace-was-written-by-leo-tolstoy"
+                          id="q3-the-daughter-is-more-talkative-than-her-mother"
                           aria-hidden="true">
                           <div class="accordion-inner panel-body">
-                            <h2 class="nn_sliders-title">3. 'war and peace' was written by leo tolstoy.</h2>
-                            <p>3. 'War and Peace' was written by Leo Tolstoy.</p>
+                            <h2 class="nn_sliders-title">3. The daughter is more talkative than her mother.</h2>
+                            <p>
+                              &#51;&#46;&#32;&#84;&#104;&#101;&#32;&#115;&#111;&#110;&#32;&#105;&#115;&#32;&#109;&#111;&#114;&#101;&#32;&#116;&#97;&#108;&#107;&#97;&#116;&#105;&#118;&#101;&#32;&#116;&#104;&#97;&#110;&#32;&#104;&#105;&#115;&#32;&#102;&#97;&#116;&#104;&#101;&#114;&#46;
+                            </p>
                           </div>
                         </div>
-
                         <div
-                          class="exercise-response-row"
-                          data-item="3">
-                          <label class="exercise-response-field">
-                            <span class="visually-hidden">1 for item 3</span>
-                            <input
-                              class="exercise-response-input"
-                              type="text"
-                              placeholder="Answer"
-                              data-item="3"
-                              data-field="1">
-                          </label>
-                          <label class="exercise-response-field">
-                            <span class="visually-hidden">2 for item 3</span>
-                            <input
-                              class="exercise-response-input"
-                              type="text"
-                              placeholder="Answer"
-                              data-item="3"
-                              data-field="2">
-                          </label>
-                          <label class="exercise-response-field">
-                            <span class="visually-hidden">3 for item 3</span>
-                            <input
-                              class="exercise-response-input"
-                              type="text"
-                              placeholder="Answer"
-                              data-item="3"
-                              data-field="3">
-                          </label>
-                          <label class="exercise-response-field">
-                            <span class="visually-hidden">4 for item 3</span>
-                            <input
-                              class="exercise-response-input"
-                              type="text"
-                              placeholder="Answer"
-                              data-item="3"
-                              data-field="4">
+                          class="exercise-response-row exercise-response-row--long"
+                          data-item="q3-the-daughter-is-more-talkative-than-her-mother"
+                          data-answer-ui="textarea">
+                          <label class="exercise-response-field exercise-response-field--long">
+                            <span class="visually-hidden">Response for item 3 (answer_01)</span>
+                            <textarea
+                              class="exercise-response-input exercise-response-input--textarea"
+                              rows="1"
+                              placeholder="Rewrite here"
+                              data-item="q3-the-daughter-is-more-talkative-than-her-mother"
+                              data-field="answer_01"
+                              data-autosize="true"></textarea>
                           </label>
                         </div>
                       </div>
@@ -1719,15 +1631,7 @@
                   </div>
                   <div
                     class="quest-bg"
-                    data-exercise-question="4">
-                    <p
-                      class="exercise-question__progress"
-                      data-exercise-question-progress=""
-                      aria-hidden="true"
-                      data-item="4"
-                      data-total="10">
-                      Question 4 of 10
-                    </p>
+                    data-exercise-question="q4-does-any-male-actor-like-to-play-the-role-of-the-prince">
                     <div
                       class="nn_sliders accordion panel-group"
                       id="set-nn_sliders-4">
@@ -1736,69 +1640,45 @@
                         class="anchor nn_sliders-scroll"></span>
                       <div class="accordion-group panel nn_sliders-group">
                         <span
-                          id="nn_sliders-scrollto_4-jack-and-jill-had-so-much-fun-at-disney-park"
+                          id="nn_sliders-scrollto_4-q4-does-any-male-actor-like-to-play-the-role-of-the-prince"
                           class="anchor nn_sliders-scroll"></span>
                         <div class="accordion-heading panel-heading">
                           <a
-                            href="112-proper-nouns-copy2.html#sec-4-jack-and-jill-had-so-much-fun-at-disney-park"
-                            aria-label="Answer"
                             class="accordion-toggle nn_sliders-toggle"
+                            href="151-gender.html#151-gender.html#q4-does-any-male-actor-like-to-play-the-role-of-the-prince"
+                            aria-label="Answer"
                             data-toggle="collapse"
-                            data-id="sec-4-jack-and-jill-had-so-much-fun-at-disney-park"
                             data-parent="#set-nn_sliders-4"
-                            aria-controls="sec-4-jack-and-jill-had-so-much-fun-at-disney-park"
-                            aria-expanded="false">
-                            <span class="nn_sliders-toggle-inner">4. jack and jill had so much fun at disney park.</span>
+                            data-id="q4-does-any-male-actor-like-to-play-the-role-of-the-prince"
+                            aria-expanded="false"
+                            aria-controls="151-gender.html#q4-does-any-male-actor-like-to-play-the-role-of-the-prince">
+                            <span class="nn_sliders-toggle-inner">4. Does any male actor like to play the role of the prince?.</span>
                           </a>
                         </div>
                         <div
                           class="accordion-body nn_sliders-body collapse"
-                          id="sec-4-jack-and-jill-had-so-much-fun-at-disney-park"
+                          id="q4-does-any-male-actor-like-to-play-the-role-of-the-prince"
                           aria-hidden="true">
                           <div class="accordion-inner panel-body">
-                            <h2 class="nn_sliders-title">4. jack and jill had so much fun at disney park.</h2>
-                            <p>4. Jack and Jill had so much fun at Disney Park.</p>
+                            <h2 class="nn_sliders-title">4. Does any male actor like to play the role of the prince?.</h2>
+                            <p>
+                              &#52;&#46;&#32;&#68;&#111;&#101;&#115;&#32;&#97;&#110;&#121;&#32;&#97;&#99;&#116;&#114;&#101;&#115;&#115;&#32;&#108;&#105;&#107;&#101;&#32;&#116;&#111;&#32;&#112;&#108;&#97;&#121;&#32;&#116;&#104;&#101;&#32;&#114;&#111;&#108;&#101;&#32;&#111;&#102;&#32;&#116;&#104;&#101;&#32;&#112;&#114;&#105;&#110;&#99;&#101;&#115;&#115;&#63;&#46;
+                            </p>
                           </div>
                         </div>
-
                         <div
-                          class="exercise-response-row"
-                          data-item="4">
-                          <label class="exercise-response-field">
-                            <span class="visually-hidden">1 for item 4</span>
-                            <input
-                              class="exercise-response-input"
-                              type="text"
-                              placeholder="Answer"
-                              data-item="4"
-                              data-field="1">
-                          </label>
-                          <label class="exercise-response-field">
-                            <span class="visually-hidden">2 for item 4</span>
-                            <input
-                              class="exercise-response-input"
-                              type="text"
-                              placeholder="Answer"
-                              data-item="4"
-                              data-field="2">
-                          </label>
-                          <label class="exercise-response-field">
-                            <span class="visually-hidden">3 for item 4</span>
-                            <input
-                              class="exercise-response-input"
-                              type="text"
-                              placeholder="Answer"
-                              data-item="4"
-                              data-field="3">
-                          </label>
-                          <label class="exercise-response-field">
-                            <span class="visually-hidden">4 for item 4</span>
-                            <input
-                              class="exercise-response-input"
-                              type="text"
-                              placeholder="Answer"
-                              data-item="4"
-                              data-field="4">
+                          class="exercise-response-row exercise-response-row--long"
+                          data-item="q4-does-any-male-actor-like-to-play-the-role-of-the-prince"
+                          data-answer-ui="textarea">
+                          <label class="exercise-response-field exercise-response-field--long">
+                            <span class="visually-hidden">Response for item 4 (answer_01)</span>
+                            <textarea
+                              class="exercise-response-input exercise-response-input--textarea"
+                              rows="1"
+                              placeholder="Rewrite here"
+                              data-item="q4-does-any-male-actor-like-to-play-the-role-of-the-prince"
+                              data-field="answer_01"
+                              data-autosize="true"></textarea>
                           </label>
                         </div>
                       </div>
@@ -1806,15 +1686,7 @@
                   </div>
                   <div
                     class="quest-bg"
-                    data-exercise-question="5">
-                    <p
-                      class="exercise-question__progress"
-                      data-exercise-question-progress=""
-                      aria-hidden="true"
-                      data-item="5"
-                      data-total="10">
-                      Question 5 of 10
-                    </p>
+                    data-exercise-question="q5-their-queen-is-a-widow">
                     <div
                       class="nn_sliders accordion panel-group"
                       id="set-nn_sliders-5">
@@ -1823,69 +1695,45 @@
                         class="anchor nn_sliders-scroll"></span>
                       <div class="accordion-group panel nn_sliders-group">
                         <span
-                          id="nn_sliders-scrollto_5-john-s-two-dogs-are-named-adam-and-eve"
+                          id="nn_sliders-scrollto_5-q5-their-queen-is-a-widow"
                           class="anchor nn_sliders-scroll"></span>
                         <div class="accordion-heading panel-heading">
                           <a
-                            href="112-proper-nouns-copy2.html#sec-5-john-s-two-dogs-are-named-adam-and-eve"
-                            aria-label="Answer"
                             class="accordion-toggle nn_sliders-toggle"
+                            href="151-gender.html#151-gender.html#q5-their-queen-is-a-widow"
+                            aria-label="Answer"
                             data-toggle="collapse"
-                            data-id="sec-5-john-s-two-dogs-are-named-adam-and-eve"
                             data-parent="#set-nn_sliders-5"
-                            aria-controls="sec-5-john-s-two-dogs-are-named-adam-and-eve"
-                            aria-expanded="false">
-                            <span class="nn_sliders-toggle-inner">5. john's two dogs are named adam and eve.</span>
+                            data-id="q5-their-queen-is-a-widow"
+                            aria-expanded="false"
+                            aria-controls="151-gender.html#q5-their-queen-is-a-widow">
+                            <span class="nn_sliders-toggle-inner">5. Their queen is a widow.</span>
                           </a>
                         </div>
                         <div
                           class="accordion-body nn_sliders-body collapse"
-                          id="sec-5-john-s-two-dogs-are-named-adam-and-eve"
+                          id="q5-their-queen-is-a-widow"
                           aria-hidden="true">
                           <div class="accordion-inner panel-body">
-                            <h2 class="nn_sliders-title">5. john's two dogs are named adam and eve.</h2>
-                            <p>5. John's two dogs are named Adam and Eve.</p>
+                            <h2 class="nn_sliders-title">5. Their queen is a widow.</h2>
+                            <p>
+                              &#53;&#46;&#32;&#84;&#104;&#101;&#105;&#114;&#32;&#107;&#105;&#110;&#103;&#32;&#105;&#115;&#32;&#97;&#32;&#119;&#105;&#100;&#111;&#119;&#101;&#114;&#46;
+                            </p>
                           </div>
                         </div>
-
                         <div
-                          class="exercise-response-row"
-                          data-item="5">
-                          <label class="exercise-response-field">
-                            <span class="visually-hidden">1 for item 5</span>
-                            <input
-                              class="exercise-response-input"
-                              type="text"
-                              placeholder="Answer"
-                              data-item="5"
-                              data-field="1">
-                          </label>
-                          <label class="exercise-response-field">
-                            <span class="visually-hidden">2 for item 5</span>
-                            <input
-                              class="exercise-response-input"
-                              type="text"
-                              placeholder="Answer"
-                              data-item="5"
-                              data-field="2">
-                          </label>
-                          <label class="exercise-response-field">
-                            <span class="visually-hidden">3 for item 5</span>
-                            <input
-                              class="exercise-response-input"
-                              type="text"
-                              placeholder="Answer"
-                              data-item="5"
-                              data-field="3">
-                          </label>
-                          <label class="exercise-response-field">
-                            <span class="visually-hidden">4 for item 5</span>
-                            <input
-                              class="exercise-response-input"
-                              type="text"
-                              placeholder="Answer"
-                              data-item="5"
-                              data-field="4">
+                          class="exercise-response-row exercise-response-row--long"
+                          data-item="q5-their-queen-is-a-widow"
+                          data-answer-ui="textarea">
+                          <label class="exercise-response-field exercise-response-field--long">
+                            <span class="visually-hidden">Response for item 5 (answer_01)</span>
+                            <textarea
+                              class="exercise-response-input exercise-response-input--textarea"
+                              rows="1"
+                              placeholder="Rewrite here"
+                              data-item="q5-their-queen-is-a-widow"
+                              data-field="answer_01"
+                              data-autosize="true"></textarea>
                           </label>
                         </div>
                       </div>
@@ -1893,15 +1741,7 @@
                   </div>
                   <div
                     class="quest-bg"
-                    data-exercise-question="6">
-                    <p
-                      class="exercise-question__progress"
-                      data-exercise-question-progress=""
-                      aria-hidden="true"
-                      data-item="6"
-                      data-total="10">
-                      Question 6 of 10
-                    </p>
+                    data-exercise-question="q6-the-male-manager-is-still-single">
                     <div
                       class="nn_sliders accordion panel-group"
                       id="set-nn_sliders-6">
@@ -1910,69 +1750,45 @@
                         class="anchor nn_sliders-scroll"></span>
                       <div class="accordion-group panel nn_sliders-group">
                         <span
-                          id="nn_sliders-scrollto_6-david-will-travel-to-italy-next-week"
+                          id="nn_sliders-scrollto_6-q6-the-male-manager-is-still-single"
                           class="anchor nn_sliders-scroll"></span>
                         <div class="accordion-heading panel-heading">
                           <a
-                            href="112-proper-nouns-copy2.html#sec-6-david-will-travel-to-italy-next-week"
-                            aria-label="Answer"
                             class="accordion-toggle nn_sliders-toggle"
+                            href="151-gender.html#151-gender.html#q6-the-male-manager-is-still-single"
+                            aria-label="Answer"
                             data-toggle="collapse"
-                            data-id="sec-6-david-will-travel-to-italy-next-week"
                             data-parent="#set-nn_sliders-6"
-                            aria-controls="sec-6-david-will-travel-to-italy-next-week"
-                            aria-expanded="false">
-                            <span class="nn_sliders-toggle-inner">6. david will travel to italy next week.</span>
+                            data-id="q6-the-male-manager-is-still-single"
+                            aria-expanded="false"
+                            aria-controls="151-gender.html#q6-the-male-manager-is-still-single">
+                            <span class="nn_sliders-toggle-inner">6. The male manager is still single.</span>
                           </a>
                         </div>
                         <div
                           class="accordion-body nn_sliders-body collapse"
-                          id="sec-6-david-will-travel-to-italy-next-week"
+                          id="q6-the-male-manager-is-still-single"
                           aria-hidden="true">
                           <div class="accordion-inner panel-body">
-                            <h2 class="nn_sliders-title">6. david will travel to italy next week.</h2>
-                            <p>6. David will travel to Italy next week.</p>
+                            <h2 class="nn_sliders-title">6. The male manager is still single.</h2>
+                            <p>
+                              &#54;&#46;&#32;&#84;&#104;&#101;&#32;&#102;&#101;&#109;&#97;&#108;&#101;&#32;&#109;&#97;&#110;&#97;&#103;&#101;&#114;&#32;&#105;&#115;&#32;&#115;&#116;&#105;&#108;&#108;&#32;&#115;&#105;&#110;&#103;&#108;&#101;&#46;
+                            </p>
                           </div>
                         </div>
-
                         <div
-                          class="exercise-response-row"
-                          data-item="6">
-                          <label class="exercise-response-field">
-                            <span class="visually-hidden">1 for item 6</span>
-                            <input
-                              class="exercise-response-input"
-                              type="text"
-                              placeholder="Answer"
-                              data-item="6"
-                              data-field="1">
-                          </label>
-                          <label class="exercise-response-field">
-                            <span class="visually-hidden">2 for item 6</span>
-                            <input
-                              class="exercise-response-input"
-                              type="text"
-                              placeholder="Answer"
-                              data-item="6"
-                              data-field="2">
-                          </label>
-                          <label class="exercise-response-field">
-                            <span class="visually-hidden">3 for item 6</span>
-                            <input
-                              class="exercise-response-input"
-                              type="text"
-                              placeholder="Answer"
-                              data-item="6"
-                              data-field="3">
-                          </label>
-                          <label class="exercise-response-field">
-                            <span class="visually-hidden">4 for item 6</span>
-                            <input
-                              class="exercise-response-input"
-                              type="text"
-                              placeholder="Answer"
-                              data-item="6"
-                              data-field="4">
+                          class="exercise-response-row exercise-response-row--long"
+                          data-item="q6-the-male-manager-is-still-single"
+                          data-answer-ui="textarea">
+                          <label class="exercise-response-field exercise-response-field--long">
+                            <span class="visually-hidden">Response for item 6 (answer_01)</span>
+                            <textarea
+                              class="exercise-response-input exercise-response-input--textarea"
+                              rows="1"
+                              placeholder="Rewrite here"
+                              data-item="q6-the-male-manager-is-still-single"
+                              data-field="answer_01"
+                              data-autosize="true"></textarea>
                           </label>
                         </div>
                       </div>
@@ -1980,15 +1796,7 @@
                   </div>
                   <div
                     class="quest-bg"
-                    data-exercise-question="7">
-                    <p
-                      class="exercise-question__progress"
-                      data-exercise-question-progress=""
-                      aria-hidden="true"
-                      data-item="7"
-                      data-total="10">
-                      Question 7 of 10
-                    </p>
+                    data-exercise-question="q7-in-the-movie-the-tiger-was-helped-by-the-hero">
                     <div
                       class="nn_sliders accordion panel-group"
                       id="set-nn_sliders-7">
@@ -1997,69 +1805,45 @@
                         class="anchor nn_sliders-scroll"></span>
                       <div class="accordion-group panel nn_sliders-group">
                         <span
-                          id="nn_sliders-scrollto_7-suez-canal-joins-the-red-sea-and-the-mediterranean-sea"
+                          id="nn_sliders-scrollto_7-q7-in-the-movie-the-tiger-was-helped-by-the-hero"
                           class="anchor nn_sliders-scroll"></span>
                         <div class="accordion-heading panel-heading">
                           <a
-                            href="112-proper-nouns-copy2.html#sec-7-suez-canal-joins-the-red-sea-and-the-mediterranean-sea"
-                            aria-label="Answer"
                             class="accordion-toggle nn_sliders-toggle"
+                            href="151-gender.html#151-gender.html#q7-in-the-movie-the-tiger-was-helped-by-the-hero"
+                            aria-label="Answer"
                             data-toggle="collapse"
-                            data-id="sec-7-suez-canal-joins-the-red-sea-and-the-mediterranean-sea"
                             data-parent="#set-nn_sliders-7"
-                            aria-controls="sec-7-suez-canal-joins-the-red-sea-and-the-mediterranean-sea"
-                            aria-expanded="false">
-                            <span class="nn_sliders-toggle-inner">7. suez canal joins the red sea and the mediterranean sea.</span>
+                            data-id="q7-in-the-movie-the-tiger-was-helped-by-the-hero"
+                            aria-expanded="false"
+                            aria-controls="151-gender.html#q7-in-the-movie-the-tiger-was-helped-by-the-hero">
+                            <span class="nn_sliders-toggle-inner">7. In the movie, the tiger was helped by the hero.</span>
                           </a>
                         </div>
                         <div
                           class="accordion-body nn_sliders-body collapse"
-                          id="sec-7-suez-canal-joins-the-red-sea-and-the-mediterranean-sea"
+                          id="q7-in-the-movie-the-tiger-was-helped-by-the-hero"
                           aria-hidden="true">
                           <div class="accordion-inner panel-body">
-                            <h2 class="nn_sliders-title">7. suez canal joins the red sea and the mediterranean sea.</h2>
-                            <p>7. Suez Canal joins the Red Sea and the Mediterranean Sea.</p>
+                            <h2 class="nn_sliders-title">7. In the movie, the tiger was helped by the hero.</h2>
+                            <p>
+                              &#55;&#46;&#32;&#73;&#110;&#32;&#116;&#104;&#101;&#32;&#109;&#111;&#118;&#105;&#101;&#44;&#32;&#116;&#104;&#101;&#32;&#116;&#105;&#103;&#114;&#101;&#115;&#115;&#32;&#119;&#97;&#115;&#32;&#104;&#101;&#108;&#112;&#101;&#100;&#32;&#98;&#121;&#32;&#116;&#104;&#101;&#32;&#104;&#101;&#114;&#111;&#105;&#110;&#101;&#46;
+                            </p>
                           </div>
                         </div>
-
                         <div
-                          class="exercise-response-row"
-                          data-item="7">
-                          <label class="exercise-response-field">
-                            <span class="visually-hidden">1 for item 7</span>
-                            <input
-                              class="exercise-response-input"
-                              type="text"
-                              placeholder="Answer"
-                              data-item="7"
-                              data-field="1">
-                          </label>
-                          <label class="exercise-response-field">
-                            <span class="visually-hidden">2 for item 7</span>
-                            <input
-                              class="exercise-response-input"
-                              type="text"
-                              placeholder="Answer"
-                              data-item="7"
-                              data-field="2">
-                          </label>
-                          <label class="exercise-response-field">
-                            <span class="visually-hidden">3 for item 7</span>
-                            <input
-                              class="exercise-response-input"
-                              type="text"
-                              placeholder="Answer"
-                              data-item="7"
-                              data-field="3">
-                          </label>
-                          <label class="exercise-response-field">
-                            <span class="visually-hidden">4 for item 7</span>
-                            <input
-                              class="exercise-response-input"
-                              type="text"
-                              placeholder="Answer"
-                              data-item="7"
-                              data-field="4">
+                          class="exercise-response-row exercise-response-row--long"
+                          data-item="q7-in-the-movie-the-tiger-was-helped-by-the-hero"
+                          data-answer-ui="textarea">
+                          <label class="exercise-response-field exercise-response-field--long">
+                            <span class="visually-hidden">Response for item 7 (answer_01)</span>
+                            <textarea
+                              class="exercise-response-input exercise-response-input--textarea"
+                              rows="1"
+                              placeholder="Rewrite here"
+                              data-item="q7-in-the-movie-the-tiger-was-helped-by-the-hero"
+                              data-field="answer_01"
+                              data-autosize="true"></textarea>
                           </label>
                         </div>
                       </div>
@@ -2067,15 +1851,7 @@
                   </div>
                   <div
                     class="quest-bg"
-                    data-exercise-question="8">
-                    <p
-                      class="exercise-question__progress"
-                      data-exercise-question-progress=""
-                      aria-hidden="true"
-                      data-item="8"
-                      data-total="10">
-                      Question 8 of 10
-                    </p>
+                    data-exercise-question="q8-his-son-in-law-is-a-flight-attendant">
                     <div
                       class="nn_sliders accordion panel-group"
                       id="set-nn_sliders-8">
@@ -2084,69 +1860,45 @@
                         class="anchor nn_sliders-scroll"></span>
                       <div class="accordion-group panel nn_sliders-group">
                         <span
-                          id="nn_sliders-scrollto_8-republic-of-liberia-is-on-the-west-coast-of-africa"
+                          id="nn_sliders-scrollto_8-q8-his-son-in-law-is-a-flight-attendant"
                           class="anchor nn_sliders-scroll"></span>
                         <div class="accordion-heading panel-heading">
                           <a
-                            href="112-proper-nouns-copy2.html#sec-8-republic-of-liberia-is-on-the-west-coast-of-africa"
-                            aria-label="Answer"
                             class="accordion-toggle nn_sliders-toggle"
+                            href="151-gender.html#151-gender.html#q8-his-son-in-law-is-a-flight-attendant"
+                            aria-label="Answer"
                             data-toggle="collapse"
-                            data-id="sec-8-republic-of-liberia-is-on-the-west-coast-of-africa"
                             data-parent="#set-nn_sliders-8"
-                            aria-controls="sec-8-republic-of-liberia-is-on-the-west-coast-of-africa"
-                            aria-expanded="false">
-                            <span class="nn_sliders-toggle-inner">8. republic of liberia is on the west coast of africa.</span>
+                            data-id="q8-his-son-in-law-is-a-flight-attendant"
+                            aria-expanded="false"
+                            aria-controls="151-gender.html#q8-his-son-in-law-is-a-flight-attendant">
+                            <span class="nn_sliders-toggle-inner">8. His son-in-law is a flight attendant.</span>
                           </a>
                         </div>
                         <div
                           class="accordion-body nn_sliders-body collapse"
-                          id="sec-8-republic-of-liberia-is-on-the-west-coast-of-africa"
+                          id="q8-his-son-in-law-is-a-flight-attendant"
                           aria-hidden="true">
                           <div class="accordion-inner panel-body">
-                            <h2 class="nn_sliders-title">8. republic of liberia is on the west coast of africa.</h2>
-                            <p>8. Republic of Liberia is on the west coast of Africa.</p>
+                            <h2 class="nn_sliders-title">8. His son-in-law is a flight attendant.</h2>
+                            <p>
+                              &#56;&#46;&#32;&#72;&#105;&#115;&#32;&#100;&#97;&#117;&#103;&#104;&#116;&#101;&#114;&#45;&#105;&#110;&#45;&#108;&#97;&#119;&#32;&#105;&#115;&#32;&#97;&#32;&#102;&#108;&#105;&#103;&#104;&#116;&#32;&#97;&#116;&#116;&#101;&#110;&#100;&#97;&#110;&#116;&#46;
+                            </p>
                           </div>
                         </div>
-
                         <div
-                          class="exercise-response-row"
-                          data-item="8">
-                          <label class="exercise-response-field">
-                            <span class="visually-hidden">1 for item 8</span>
-                            <input
-                              class="exercise-response-input"
-                              type="text"
-                              placeholder="Answer"
-                              data-item="8"
-                              data-field="1">
-                          </label>
-                          <label class="exercise-response-field">
-                            <span class="visually-hidden">2 for item 8</span>
-                            <input
-                              class="exercise-response-input"
-                              type="text"
-                              placeholder="Answer"
-                              data-item="8"
-                              data-field="2">
-                          </label>
-                          <label class="exercise-response-field">
-                            <span class="visually-hidden">3 for item 8</span>
-                            <input
-                              class="exercise-response-input"
-                              type="text"
-                              placeholder="Answer"
-                              data-item="8"
-                              data-field="3">
-                          </label>
-                          <label class="exercise-response-field">
-                            <span class="visually-hidden">4 for item 8</span>
-                            <input
-                              class="exercise-response-input"
-                              type="text"
-                              placeholder="Answer"
-                              data-item="8"
-                              data-field="4">
+                          class="exercise-response-row exercise-response-row--long"
+                          data-item="q8-his-son-in-law-is-a-flight-attendant"
+                          data-answer-ui="textarea">
+                          <label class="exercise-response-field exercise-response-field--long">
+                            <span class="visually-hidden">Response for item 8 (answer_01)</span>
+                            <textarea
+                              class="exercise-response-input exercise-response-input--textarea"
+                              rows="1"
+                              placeholder="Rewrite here"
+                              data-item="q8-his-son-in-law-is-a-flight-attendant"
+                              data-field="answer_01"
+                              data-autosize="true"></textarea>
                           </label>
                         </div>
                       </div>
@@ -2154,15 +1906,7 @@
                   </div>
                   <div
                     class="quest-bg"
-                    data-exercise-question="9">
-                    <p
-                      class="exercise-question__progress"
-                      data-exercise-question-progress=""
-                      aria-hidden="true"
-                      data-item="9"
-                      data-total="10">
-                      Question 9 of 10
-                    </p>
+                    data-exercise-question="q9-the-count-has-one-brother">
                     <div
                       class="nn_sliders accordion panel-group"
                       id="set-nn_sliders-9">
@@ -2171,69 +1915,45 @@
                         class="anchor nn_sliders-scroll"></span>
                       <div class="accordion-group panel nn_sliders-group">
                         <span
-                          id="nn_sliders-scrollto_9-mick-jagger-is-the-lead-singer-of-rolling-stones"
+                          id="nn_sliders-scrollto_9-q9-the-count-has-one-brother"
                           class="anchor nn_sliders-scroll"></span>
                         <div class="accordion-heading panel-heading">
                           <a
-                            href="112-proper-nouns-copy2.html#sec-9-mick-jagger-is-the-lead-singer-of-rolling-stones"
-                            aria-label="Answer"
                             class="accordion-toggle nn_sliders-toggle"
+                            href="151-gender.html#151-gender.html#q9-the-count-has-one-brother"
+                            aria-label="Answer"
                             data-toggle="collapse"
-                            data-id="sec-9-mick-jagger-is-the-lead-singer-of-rolling-stones"
                             data-parent="#set-nn_sliders-9"
-                            aria-controls="sec-9-mick-jagger-is-the-lead-singer-of-rolling-stones"
-                            aria-expanded="false">
-                            <span class="nn_sliders-toggle-inner">9. mick jagger is the lead singer of rolling stones.</span>
+                            data-id="q9-the-count-has-one-brother"
+                            aria-expanded="false"
+                            aria-controls="151-gender.html#q9-the-count-has-one-brother">
+                            <span class="nn_sliders-toggle-inner">9. The count has one brother.</span>
                           </a>
                         </div>
                         <div
                           class="accordion-body nn_sliders-body collapse"
-                          id="sec-9-mick-jagger-is-the-lead-singer-of-rolling-stones"
+                          id="q9-the-count-has-one-brother"
                           aria-hidden="true">
                           <div class="accordion-inner panel-body">
-                            <h2 class="nn_sliders-title">9. mick jagger is the lead singer of rolling stones.</h2>
-                            <p>9. Mick Jagger is the lead singer of Rolling Stones.</p>
+                            <h2 class="nn_sliders-title">9. The count has one brother.</h2>
+                            <p>
+                              &#57;&#46;&#32;&#84;&#104;&#101;&#32;&#99;&#111;&#117;&#110;&#116;&#101;&#115;&#115;&#32;&#104;&#97;&#115;&#32;&#111;&#110;&#101;&#32;&#115;&#105;&#115;&#116;&#101;&#114;&#46;
+                            </p>
                           </div>
                         </div>
-
                         <div
-                          class="exercise-response-row"
-                          data-item="9">
-                          <label class="exercise-response-field">
-                            <span class="visually-hidden">1 for item 9</span>
-                            <input
-                              class="exercise-response-input"
-                              type="text"
-                              placeholder="Answer"
-                              data-item="9"
-                              data-field="1">
-                          </label>
-                          <label class="exercise-response-field">
-                            <span class="visually-hidden">2 for item 9</span>
-                            <input
-                              class="exercise-response-input"
-                              type="text"
-                              placeholder="Answer"
-                              data-item="9"
-                              data-field="2">
-                          </label>
-                          <label class="exercise-response-field">
-                            <span class="visually-hidden">3 for item 9</span>
-                            <input
-                              class="exercise-response-input"
-                              type="text"
-                              placeholder="Answer"
-                              data-item="9"
-                              data-field="3">
-                          </label>
-                          <label class="exercise-response-field">
-                            <span class="visually-hidden">4 for item 9</span>
-                            <input
-                              class="exercise-response-input"
-                              type="text"
-                              placeholder="Answer"
-                              data-item="9"
-                              data-field="4">
+                          class="exercise-response-row exercise-response-row--long"
+                          data-item="q9-the-count-has-one-brother"
+                          data-answer-ui="textarea">
+                          <label class="exercise-response-field exercise-response-field--long">
+                            <span class="visually-hidden">Response for item 9 (answer_01)</span>
+                            <textarea
+                              class="exercise-response-input exercise-response-input--textarea"
+                              rows="1"
+                              placeholder="Rewrite here"
+                              data-item="q9-the-count-has-one-brother"
+                              data-field="answer_01"
+                              data-autosize="true"></textarea>
                           </label>
                         </div>
                       </div>
@@ -2241,15 +1961,7 @@
                   </div>
                   <div
                     class="quest-bg"
-                    data-exercise-question="10">
-                    <p
-                      class="exercise-question__progress"
-                      data-exercise-question-progress=""
-                      aria-hidden="true"
-                      data-item="10"
-                      data-total="10">
-                      Question 10 of 10
-                    </p>
+                    data-exercise-question="q10-the-author-is-writing-a-book-about-the-emperor">
                     <div
                       class="nn_sliders accordion panel-group"
                       id="set-nn_sliders-10">
@@ -2258,74 +1970,609 @@
                         class="anchor nn_sliders-scroll"></span>
                       <div class="accordion-group panel nn_sliders-group">
                         <span
-                          id="nn_sliders-scrollto_10-mount-fujiyama-is-the-highest-mountain-in-japan"
+                          id="nn_sliders-scrollto_10-q10-the-author-is-writing-a-book-about-the-emperor"
                           class="anchor nn_sliders-scroll"></span>
                         <div class="accordion-heading panel-heading">
                           <a
-                            href="112-proper-nouns-copy2.html#sec-10-mount-fujiyama-is-the-highest-mountain-in-japan"
-                            aria-label="Answer"
                             class="accordion-toggle nn_sliders-toggle"
+                            href="151-gender.html#151-gender.html#q10-the-author-is-writing-a-book-about-the-emperor"
+                            aria-label="Answer"
                             data-toggle="collapse"
-                            data-id="sec-10-mount-fujiyama-is-the-highest-mountain-in-japan"
                             data-parent="#set-nn_sliders-10"
-                            aria-controls="sec-10-mount-fujiyama-is-the-highest-mountain-in-japan"
-                            aria-expanded="false">
-                            <span class="nn_sliders-toggle-inner">10. mount fujiyama is the highest mountain in japan.</span>
+                            data-id="q10-the-author-is-writing-a-book-about-the-emperor"
+                            aria-expanded="false"
+                            aria-controls="151-gender.html#q10-the-author-is-writing-a-book-about-the-emperor">
+                            <span class="nn_sliders-toggle-inner">10. The author is writing a book about the emperor.</span>
                           </a>
                         </div>
                         <div
                           class="accordion-body nn_sliders-body collapse"
-                          id="sec-10-mount-fujiyama-is-the-highest-mountain-in-japan"
+                          id="q10-the-author-is-writing-a-book-about-the-emperor"
                           aria-hidden="true">
                           <div class="accordion-inner panel-body">
-                            <h2 class="nn_sliders-title">10. mount fujiyama is the highest mountain in japan.</h2>
-                            <p>10. Mount Fujiyama is the highest mountain in Japan.</p>
+                            <h2 class="nn_sliders-title">10. The author is writing a book about the emperor.</h2>
+                            <p>
+                              &#49;&#48;&#46;&#32;&#84;&#104;&#101;&#32;&#97;&#117;&#116;&#104;&#111;&#114;&#32;&#105;&#115;&#32;&#119;&#114;&#105;&#116;&#105;&#110;&#103;&#32;&#97;&#32;&#98;&#111;&#111;&#107;&#32;&#97;&#98;&#111;&#117;&#116;&#32;&#116;&#104;&#101;&#32;&#101;&#109;&#112;&#114;&#101;&#115;&#115;&#46;
+                            </p>
                           </div>
                         </div>
-
                         <div
-                          class="exercise-response-row"
-                          data-item="10">
-                          <label class="exercise-response-field">
-                            <span class="visually-hidden">1 for item 10</span>
-                            <input
-                              class="exercise-response-input"
-                              type="text"
-                              placeholder="Answer"
-                              data-item="10"
-                              data-field="1">
-                          </label>
-                          <label class="exercise-response-field">
-                            <span class="visually-hidden">2 for item 10</span>
-                            <input
-                              class="exercise-response-input"
-                              type="text"
-                              placeholder="Answer"
-                              data-item="10"
-                              data-field="2">
-                          </label>
-                          <label class="exercise-response-field">
-                            <span class="visually-hidden">3 for item 10</span>
-                            <input
-                              class="exercise-response-input"
-                              type="text"
-                              placeholder="Answer"
-                              data-item="10"
-                              data-field="3">
-                          </label>
-                          <label class="exercise-response-field">
-                            <span class="visually-hidden">4 for item 10</span>
-                            <input
-                              class="exercise-response-input"
-                              type="text"
-                              placeholder="Answer"
-                              data-item="10"
-                              data-field="4">
+                          class="exercise-response-row exercise-response-row--long"
+                          data-item="q10-the-author-is-writing-a-book-about-the-emperor"
+                          data-answer-ui="textarea">
+                          <label class="exercise-response-field exercise-response-field--long">
+                            <span class="visually-hidden">Response for item 10 (answer_01)</span>
+                            <textarea
+                              class="exercise-response-input exercise-response-input--textarea"
+                              rows="1"
+                              placeholder="Rewrite here"
+                              data-item="q10-the-author-is-writing-a-book-about-the-emperor"
+                              data-field="answer_01"
+                              data-autosize="true"></textarea>
                           </label>
                         </div>
                       </div>
                     </div>
                   </div>
+                  <div
+                    class="quest-bg"
+                    data-exercise-question="q11-the-groom-spoke-to-the-priest">
+                    <div
+                      class="nn_sliders accordion panel-group"
+                      id="set-nn_sliders-11">
+                      <span
+                        id="nn_sliders-scrollto_11"
+                        class="anchor nn_sliders-scroll"></span>
+                      <div class="accordion-group panel nn_sliders-group">
+                        <span
+                          id="nn_sliders-scrollto_11-q11-the-groom-spoke-to-the-priest"
+                          class="anchor nn_sliders-scroll"></span>
+                        <div class="accordion-heading panel-heading">
+                          <a
+                            class="accordion-toggle nn_sliders-toggle"
+                            href="151-gender.html#151-gender.html#q11-the-groom-spoke-to-the-priest"
+                            aria-label="Answer"
+                            data-toggle="collapse"
+                            data-parent="#set-nn_sliders-11"
+                            data-id="q11-the-groom-spoke-to-the-priest"
+                            aria-expanded="false"
+                            aria-controls="151-gender.html#q11-the-groom-spoke-to-the-priest">
+                            <span class="nn_sliders-toggle-inner">11. The groom spoke to the priest.</span>
+                          </a>
+                        </div>
+                        <div
+                          class="accordion-body nn_sliders-body collapse"
+                          id="q11-the-groom-spoke-to-the-priest"
+                          aria-hidden="true">
+                          <div class="accordion-inner panel-body">
+                            <h2 class="nn_sliders-title">11. The groom spoke to the priest.</h2>
+                            <p>
+                              &#49;&#49;&#46;&#32;&#84;&#104;&#101;&#32;&#98;&#114;&#105;&#100;&#101;&#32;&#115;&#112;&#111;&#107;&#101;&#32;&#116;&#111;&#32;&#116;&#104;&#101;&#32;&#112;&#114;&#105;&#101;&#115;&#116;&#46;
+                            </p>
+                          </div>
+                        </div>
+                        <div
+                          class="exercise-response-row exercise-response-row--long"
+                          data-item="q11-the-groom-spoke-to-the-priest"
+                          data-answer-ui="textarea">
+                          <label class="exercise-response-field exercise-response-field--long">
+                            <span class="visually-hidden">Response for item 11 (answer_01)</span>
+                            <textarea
+                              class="exercise-response-input exercise-response-input--textarea"
+                              rows="1"
+                              placeholder="Rewrite here"
+                              data-item="q11-the-groom-spoke-to-the-priest"
+                              data-field="answer_01"
+                              data-autosize="true"></textarea>
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="quest-bg"
+                    data-exercise-question="q12-his-brother-works-as-a-server">
+                    <div
+                      class="nn_sliders accordion panel-group"
+                      id="set-nn_sliders-12">
+                      <span
+                        id="nn_sliders-scrollto_12"
+                        class="anchor nn_sliders-scroll"></span>
+                      <div class="accordion-group panel nn_sliders-group">
+                        <span
+                          id="nn_sliders-scrollto_12-q12-his-brother-works-as-a-server"
+                          class="anchor nn_sliders-scroll"></span>
+                        <div class="accordion-heading panel-heading">
+                          <a
+                            class="accordion-toggle nn_sliders-toggle"
+                            href="151-gender.html#151-gender.html#q12-his-brother-works-as-a-server"
+                            aria-label="Answer"
+                            data-toggle="collapse"
+                            data-parent="#set-nn_sliders-12"
+                            data-id="q12-his-brother-works-as-a-server"
+                            aria-expanded="false"
+                            aria-controls="151-gender.html#q12-his-brother-works-as-a-server">
+                            <span class="nn_sliders-toggle-inner">12. His brother works as a server.</span>
+                          </a>
+                        </div>
+                        <div
+                          class="accordion-body nn_sliders-body collapse"
+                          id="q12-his-brother-works-as-a-server"
+                          aria-hidden="true">
+                          <div class="accordion-inner panel-body">
+                            <h2 class="nn_sliders-title">12. His brother works as a server.</h2>
+                            <p>
+                              &#49;&#50;&#46;&#32;&#72;&#101;&#114;&#32;&#115;&#105;&#115;&#116;&#101;&#114;&#32;&#119;&#111;&#114;&#107;&#115;&#32;&#97;&#115;&#32;&#97;&#32;&#115;&#101;&#114;&#118;&#101;&#114;&#46;
+                            </p>
+                          </div>
+                        </div>
+                        <div
+                          class="exercise-response-row exercise-response-row--long"
+                          data-item="q12-his-brother-works-as-a-server"
+                          data-answer-ui="textarea">
+                          <label class="exercise-response-field exercise-response-field--long">
+                            <span class="visually-hidden">Response for item 12 (answer_01)</span>
+                            <textarea
+                              class="exercise-response-input exercise-response-input--textarea"
+                              rows="1"
+                              placeholder="Rewrite here"
+                              data-item="q12-his-brother-works-as-a-server"
+                              data-field="answer_01"
+                              data-autosize="true"></textarea>
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="quest-bg"
+                    data-exercise-question="q13-the-male-dog-barked-at-the-delivery-driver">
+                    <div
+                      class="nn_sliders accordion panel-group"
+                      id="set-nn_sliders-13">
+                      <span
+                        id="nn_sliders-scrollto_13"
+                        class="anchor nn_sliders-scroll"></span>
+                      <div class="accordion-group panel nn_sliders-group">
+                        <span
+                          id="nn_sliders-scrollto_13-q13-the-male-dog-barked-at-the-delivery-driver"
+                          class="anchor nn_sliders-scroll"></span>
+                        <div class="accordion-heading panel-heading">
+                          <a
+                            class="accordion-toggle nn_sliders-toggle"
+                            href="151-gender.html#151-gender.html#q13-the-male-dog-barked-at-the-delivery-driver"
+                            aria-label="Answer"
+                            data-toggle="collapse"
+                            data-parent="#set-nn_sliders-13"
+                            data-id="q13-the-male-dog-barked-at-the-delivery-driver"
+                            aria-expanded="false"
+                            aria-controls="151-gender.html#q13-the-male-dog-barked-at-the-delivery-driver">
+                            <span class="nn_sliders-toggle-inner">13. The male dog barked at the delivery driver.</span>
+                          </a>
+                        </div>
+                        <div
+                          class="accordion-body nn_sliders-body collapse"
+                          id="q13-the-male-dog-barked-at-the-delivery-driver"
+                          aria-hidden="true">
+                          <div class="accordion-inner panel-body">
+                            <h2 class="nn_sliders-title">13. The male dog barked at the delivery driver.</h2>
+                            <p>
+                              &#49;&#51;&#46;&#32;&#84;&#104;&#101;&#32;&#102;&#101;&#109;&#97;&#108;&#101;&#32;&#100;&#111;&#103;&#32;&#98;&#97;&#114;&#107;&#101;&#100;&#32;&#97;&#116;&#32;&#116;&#104;&#101;&#32;&#100;&#101;&#108;&#105;&#118;&#101;&#114;&#121;&#32;&#100;&#114;&#105;&#118;&#101;&#114;&#46;
+                            </p>
+                          </div>
+                        </div>
+                        <div
+                          class="exercise-response-row exercise-response-row--long"
+                          data-item="q13-the-male-dog-barked-at-the-delivery-driver"
+                          data-answer-ui="textarea">
+                          <label class="exercise-response-field exercise-response-field--long">
+                            <span class="visually-hidden">Response for item 13 (answer_01)</span>
+                            <textarea
+                              class="exercise-response-input exercise-response-input--textarea"
+                              rows="1"
+                              placeholder="Rewrite here"
+                              data-item="q13-the-male-dog-barked-at-the-delivery-driver"
+                              data-field="answer_01"
+                              data-autosize="true"></textarea>
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="quest-bg"
+                    data-exercise-question="q14-a-rooster-was-seen-near-a-fox">
+                    <div
+                      class="nn_sliders accordion panel-group"
+                      id="set-nn_sliders-14">
+                      <span
+                        id="nn_sliders-scrollto_14"
+                        class="anchor nn_sliders-scroll"></span>
+                      <div class="accordion-group panel nn_sliders-group">
+                        <span
+                          id="nn_sliders-scrollto_14-q14-a-rooster-was-seen-near-a-fox"
+                          class="anchor nn_sliders-scroll"></span>
+                        <div class="accordion-heading panel-heading">
+                          <a
+                            class="accordion-toggle nn_sliders-toggle"
+                            href="151-gender.html#151-gender.html#q14-a-rooster-was-seen-near-a-fox"
+                            aria-label="Answer"
+                            data-toggle="collapse"
+                            data-parent="#set-nn_sliders-14"
+                            data-id="q14-a-rooster-was-seen-near-a-fox"
+                            aria-expanded="false"
+                            aria-controls="151-gender.html#q14-a-rooster-was-seen-near-a-fox">
+                            <span class="nn_sliders-toggle-inner">14. A rooster was seen near a fox.</span>
+                          </a>
+                        </div>
+                        <div
+                          class="accordion-body nn_sliders-body collapse"
+                          id="q14-a-rooster-was-seen-near-a-fox"
+                          aria-hidden="true">
+                          <div class="accordion-inner panel-body">
+                            <h2 class="nn_sliders-title">14. A rooster was seen near a fox.</h2>
+                            <p>
+                              &#49;&#52;&#46;&#32;&#65;&#32;&#104;&#101;&#110;&#32;&#119;&#97;&#115;&#32;&#115;&#101;&#101;&#110;&#32;&#110;&#101;&#97;&#114;&#32;&#97;&#32;&#102;&#101;&#109;&#97;&#108;&#101;&#32;&#102;&#111;&#120;&#46;
+                              <br>
+                              &#49;&#52;&#46;&#32;&#65;&#32;&#104;&#101;&#110;&#32;&#119;&#97;&#115;&#32;&#115;&#101;&#101;&#110;&#32;&#110;&#101;&#97;&#114;&#32;&#97;&#32;&#118;&#105;&#120;&#101;&#110;&#46;
+                            </p>
+                          </div>
+                        </div>
+                        <div
+                          class="exercise-response-row exercise-response-row--long"
+                          data-item="q14-a-rooster-was-seen-near-a-fox"
+                          data-answer-ui="textarea">
+                          <label class="exercise-response-field exercise-response-field--long">
+                            <span class="visually-hidden">Response for item 14 (answer_01)</span>
+                            <textarea
+                              class="exercise-response-input exercise-response-input--textarea"
+                              rows="1"
+                              placeholder="Rewrite here"
+                              data-item="q14-a-rooster-was-seen-near-a-fox"
+                              data-field="answer_01"
+                              data-autosize="true"></textarea>
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="quest-bg"
+                    data-exercise-question="q15-the-personal-assistant-has-worked-many-years-for-the-duke">
+                    <div
+                      class="nn_sliders accordion panel-group"
+                      id="set-nn_sliders-15">
+                      <span
+                        id="nn_sliders-scrollto_15"
+                        class="anchor nn_sliders-scroll"></span>
+                      <div class="accordion-group panel nn_sliders-group">
+                        <span
+                          id="nn_sliders-scrollto_15-q15-the-personal-assistant-has-worked-many-years-for-the-duke"
+                          class="anchor nn_sliders-scroll"></span>
+                        <div class="accordion-heading panel-heading">
+                          <a
+                            class="accordion-toggle nn_sliders-toggle"
+                            href="151-gender.html#151-gender.html#q15-the-personal-assistant-has-worked-many-years-for-the-duke"
+                            aria-label="Answer"
+                            data-toggle="collapse"
+                            data-parent="#set-nn_sliders-15"
+                            data-id="q15-the-personal-assistant-has-worked-many-years-for-the-duke"
+                            aria-expanded="false"
+                            aria-controls="151-gender.html#q15-the-personal-assistant-has-worked-many-years-for-the-duke">
+                            <span class="nn_sliders-toggle-inner">15. The personal assistant has worked many years for the duke.</span>
+                          </a>
+                        </div>
+                        <div
+                          class="accordion-body nn_sliders-body collapse"
+                          id="q15-the-personal-assistant-has-worked-many-years-for-the-duke"
+                          aria-hidden="true">
+                          <div class="accordion-inner panel-body">
+                            <h2 class="nn_sliders-title">15. The personal assistant has worked many years for the duke.</h2>
+                            <p>
+                              &#49;&#53;&#46;&#32;&#84;&#104;&#101;&#32;&#112;&#101;&#114;&#115;&#111;&#110;&#97;&#108;&#32;&#97;&#115;&#115;&#105;&#115;&#116;&#97;&#110;&#116;&#32;&#104;&#97;&#115;&#32;&#119;&#111;&#114;&#107;&#101;&#100;&#32;&#109;&#97;&#110;&#121;&#32;&#121;&#101;&#97;&#114;&#115;&#32;&#102;&#111;&#114;&#32;&#116;&#104;&#101;&#32;&#100;&#117;&#99;&#104;&#101;&#115;&#115;&#46;
+                            </p>
+                          </div>
+                        </div>
+                        <div
+                          class="exercise-response-row exercise-response-row--long"
+                          data-item="q15-the-personal-assistant-has-worked-many-years-for-the-duke"
+                          data-answer-ui="textarea">
+                          <label class="exercise-response-field exercise-response-field--long">
+                            <span class="visually-hidden">Response for item 15 (answer_01)</span>
+                            <textarea
+                              class="exercise-response-input exercise-response-input--textarea"
+                              rows="1"
+                              placeholder="Rewrite here"
+                              data-item="q15-the-personal-assistant-has-worked-many-years-for-the-duke"
+                              data-field="answer_01"
+                              data-autosize="true"></textarea>
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="quest-bg"
+                    data-exercise-question="q16-her-husband-is-a-conductor">
+                    <div
+                      class="nn_sliders accordion panel-group"
+                      id="set-nn_sliders-16">
+                      <span
+                        id="nn_sliders-scrollto_16"
+                        class="anchor nn_sliders-scroll"></span>
+                      <div class="accordion-group panel nn_sliders-group">
+                        <span
+                          id="nn_sliders-scrollto_16-q16-her-husband-is-a-conductor"
+                          class="anchor nn_sliders-scroll"></span>
+                        <div class="accordion-heading panel-heading">
+                          <a
+                            class="accordion-toggle nn_sliders-toggle"
+                            href="151-gender.html#151-gender.html#q16-her-husband-is-a-conductor"
+                            aria-label="Answer"
+                            data-toggle="collapse"
+                            data-parent="#set-nn_sliders-16"
+                            data-id="q16-her-husband-is-a-conductor"
+                            aria-expanded="false"
+                            aria-controls="151-gender.html#q16-her-husband-is-a-conductor">
+                            <span class="nn_sliders-toggle-inner">16. Her husband is a conductor.</span>
+                          </a>
+                        </div>
+                        <div
+                          class="accordion-body nn_sliders-body collapse"
+                          id="q16-her-husband-is-a-conductor"
+                          aria-hidden="true">
+                          <div class="accordion-inner panel-body">
+                            <h2 class="nn_sliders-title">16. Her husband is a conductor.</h2>
+                            <p>
+                              &#49;&#54;&#46;&#32;&#72;&#105;&#115;&#32;&#119;&#105;&#102;&#101;&#32;&#105;&#115;&#32;&#97;&#32;&#99;&#111;&#110;&#100;&#117;&#99;&#116;&#111;&#114;&#46;
+                            </p>
+                          </div>
+                        </div>
+                        <div
+                          class="exercise-response-row exercise-response-row--long"
+                          data-item="q16-her-husband-is-a-conductor"
+                          data-answer-ui="textarea">
+                          <label class="exercise-response-field exercise-response-field--long">
+                            <span class="visually-hidden">Response for item 16 (answer_01)</span>
+                            <textarea
+                              class="exercise-response-input exercise-response-input--textarea"
+                              rows="1"
+                              placeholder="Rewrite here"
+                              data-item="q16-her-husband-is-a-conductor"
+                              data-field="answer_01"
+                              data-autosize="true"></textarea>
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="quest-bg"
+                    data-exercise-question="q17-he-was-a-mail-carrier-before-he-became-a-postmaster">
+                    <div
+                      class="nn_sliders accordion panel-group"
+                      id="set-nn_sliders-17">
+                      <span
+                        id="nn_sliders-scrollto_17"
+                        class="anchor nn_sliders-scroll"></span>
+                      <div class="accordion-group panel nn_sliders-group">
+                        <span
+                          id="nn_sliders-scrollto_17-q17-he-was-a-mail-carrier-before-he-became-a-postmaster"
+                          class="anchor nn_sliders-scroll"></span>
+                        <div class="accordion-heading panel-heading">
+                          <a
+                            class="accordion-toggle nn_sliders-toggle"
+                            href="151-gender.html#151-gender.html#q17-he-was-a-mail-carrier-before-he-became-a-postmaster"
+                            aria-label="Answer"
+                            data-toggle="collapse"
+                            data-parent="#set-nn_sliders-17"
+                            data-id="q17-he-was-a-mail-carrier-before-he-became-a-postmaster"
+                            aria-expanded="false"
+                            aria-controls="151-gender.html#q17-he-was-a-mail-carrier-before-he-became-a-postmaster">
+                            <span class="nn_sliders-toggle-inner">17. He was a mail carrier before he became a postmaster.</span>
+                          </a>
+                        </div>
+                        <div
+                          class="accordion-body nn_sliders-body collapse"
+                          id="q17-he-was-a-mail-carrier-before-he-became-a-postmaster"
+                          aria-hidden="true">
+                          <div class="accordion-inner panel-body">
+                            <h2 class="nn_sliders-title">17. He was a mail carrier before he became a postmaster.</h2>
+                            <p>
+                              &#49;&#55;&#46;&#32;&#83;&#104;&#101;&#32;&#119;&#97;&#115;&#32;&#97;&#32;&#109;&#97;&#105;&#108;&#45;&#99;&#97;&#114;&#114;&#105;&#101;&#114;&#32;&#98;&#101;&#102;&#111;&#114;&#101;&#32;&#115;&#104;&#101;&#32;&#98;&#101;&#99;&#97;&#109;&#101;&#32;&#97;&#32;&#112;&#111;&#115;&#116;&#109;&#97;&#115;&#116;&#101;&#114;&#46;
+                              <br>
+                              &#49;&#55;&#46;&#32;&#83;&#104;&#101;&#32;&#119;&#97;&#115;&#32;&#97;&#32;&#108;&#101;&#116;&#116;&#101;&#114;&#45;&#99;&#97;&#114;&#114;&#105;&#101;&#114;&#32;&#98;&#101;&#102;&#111;&#114;&#101;&#32;&#115;&#104;&#101;&#32;&#98;&#101;&#99;&#97;&#109;&#101;&#32;&#97;&#32;&#112;&#111;&#115;&#116;&#109;&#97;&#115;&#116;&#101;&#114;&#46;
+                              <br>
+                              &#49;&#55;&#46;&#32;&#83;&#104;&#101;&#32;&#119;&#97;&#115;&#32;&#97;&#32;&#109;&#97;&#105;&#108;&#32;&#99;&#97;&#114;&#114;&#105;&#101;&#114;&#32;&#98;&#101;&#102;&#111;&#114;&#101;&#32;&#115;&#104;&#101;&#32;&#98;&#101;&#99;&#97;&#109;&#101;&#32;&#97;&#32;&#112;&#111;&#115;&#116;&#109;&#97;&#115;&#116;&#101;&#114;&#46;
+                              <br>
+                              &#49;&#55;&#46;&#32;&#83;&#104;&#101;&#32;&#119;&#97;&#115;&#32;&#97;&#32;&#108;&#101;&#116;&#116;&#101;&#114;&#32;&#99;&#97;&#114;&#114;&#105;&#101;&#114;&#32;&#98;&#101;&#102;&#111;&#114;&#101;&#32;&#115;&#104;&#101;&#32;&#98;&#101;&#99;&#97;&#109;&#101;&#32;&#97;&#32;&#112;&#111;&#115;&#116;&#109;&#97;&#115;&#116;&#101;&#114;&#46;
+                            </p>
+                          </div>
+                        </div>
+                        <div
+                          class="exercise-response-row exercise-response-row--long"
+                          data-item="q17-he-was-a-mail-carrier-before-he-became-a-postmaster"
+                          data-answer-ui="textarea">
+                          <label class="exercise-response-field exercise-response-field--long">
+                            <span class="visually-hidden">Response for item 17 (answer_01)</span>
+                            <textarea
+                              class="exercise-response-input exercise-response-input--textarea"
+                              rows="1"
+                              placeholder="Rewrite here"
+                              data-item="q17-he-was-a-mail-carrier-before-he-became-a-postmaster"
+                              data-field="answer_01"
+                              data-autosize="true"></textarea>
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="quest-bg"
+                    data-exercise-question="q18-the-boy-wants-to-be-a-monk">
+                    <div
+                      class="nn_sliders accordion panel-group"
+                      id="set-nn_sliders-18">
+                      <span
+                        id="nn_sliders-scrollto_18"
+                        class="anchor nn_sliders-scroll"></span>
+                      <div class="accordion-group panel nn_sliders-group">
+                        <span
+                          id="nn_sliders-scrollto_18-q18-the-boy-wants-to-be-a-monk"
+                          class="anchor nn_sliders-scroll"></span>
+                        <div class="accordion-heading panel-heading">
+                          <a
+                            class="accordion-toggle nn_sliders-toggle"
+                            href="151-gender.html#151-gender.html#q18-the-boy-wants-to-be-a-monk"
+                            aria-label="Answer"
+                            data-toggle="collapse"
+                            data-parent="#set-nn_sliders-18"
+                            data-id="q18-the-boy-wants-to-be-a-monk"
+                            aria-expanded="false"
+                            aria-controls="151-gender.html#q18-the-boy-wants-to-be-a-monk">
+                            <span class="nn_sliders-toggle-inner">18. The boy wants to be a monk.</span>
+                          </a>
+                        </div>
+                        <div
+                          class="accordion-body nn_sliders-body collapse"
+                          id="q18-the-boy-wants-to-be-a-monk"
+                          aria-hidden="true">
+                          <div class="accordion-inner panel-body">
+                            <h2 class="nn_sliders-title">18. The boy wants to be a monk.</h2>
+                            <p>
+                              &#49;&#56;&#46;&#32;&#84;&#104;&#101;&#32;&#103;&#105;&#114;&#108;&#32;&#119;&#97;&#110;&#116;&#115;&#32;&#116;&#111;&#32;&#98;&#101;&#32;&#97;&#32;&#110;&#117;&#110;&#46;
+                            </p>
+                          </div>
+                        </div>
+                        <div
+                          class="exercise-response-row exercise-response-row--long"
+                          data-item="q18-the-boy-wants-to-be-a-monk"
+                          data-answer-ui="textarea">
+                          <label class="exercise-response-field exercise-response-field--long">
+                            <span class="visually-hidden">Response for item 18 (answer_01)</span>
+                            <textarea
+                              class="exercise-response-input exercise-response-input--textarea"
+                              rows="1"
+                              placeholder="Rewrite here"
+                              data-item="q18-the-boy-wants-to-be-a-monk"
+                              data-field="answer_01"
+                              data-autosize="true"></textarea>
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="quest-bg"
+                    data-exercise-question="q19-the-sultan-owns-a-stallion">
+                    <div
+                      class="nn_sliders accordion panel-group"
+                      id="set-nn_sliders-19">
+                      <span
+                        id="nn_sliders-scrollto_19"
+                        class="anchor nn_sliders-scroll"></span>
+                      <div class="accordion-group panel nn_sliders-group">
+                        <span
+                          id="nn_sliders-scrollto_19-q19-the-sultan-owns-a-stallion"
+                          class="anchor nn_sliders-scroll"></span>
+                        <div class="accordion-heading panel-heading">
+                          <a
+                            class="accordion-toggle nn_sliders-toggle"
+                            href="151-gender.html#151-gender.html#q19-the-sultan-owns-a-stallion"
+                            aria-label="Answer"
+                            data-toggle="collapse"
+                            data-parent="#set-nn_sliders-19"
+                            data-id="q19-the-sultan-owns-a-stallion"
+                            aria-expanded="false"
+                            aria-controls="151-gender.html#q19-the-sultan-owns-a-stallion">
+                            <span class="nn_sliders-toggle-inner">19. The sultan owns a stallion.</span>
+                          </a>
+                        </div>
+                        <div
+                          class="accordion-body nn_sliders-body collapse"
+                          id="q19-the-sultan-owns-a-stallion"
+                          aria-hidden="true">
+                          <div class="accordion-inner panel-body">
+                            <h2 class="nn_sliders-title">19. The sultan owns a stallion.</h2>
+                            <p>
+                              &#49;&#57;&#46;&#32;&#84;&#104;&#101;&#32;&#115;&#117;&#108;&#116;&#97;&#110;&#97;&#32;&#111;&#119;&#110;&#115;&#32;&#97;&#32;&#109;&#97;&#114;&#101;&#46;
+                            </p>
+                          </div>
+                        </div>
+                        <div
+                          class="exercise-response-row exercise-response-row--long"
+                          data-item="q19-the-sultan-owns-a-stallion"
+                          data-answer-ui="textarea">
+                          <label class="exercise-response-field exercise-response-field--long">
+                            <span class="visually-hidden">Response for item 19 (answer_01)</span>
+                            <textarea
+                              class="exercise-response-input exercise-response-input--textarea"
+                              rows="1"
+                              placeholder="Rewrite here"
+                              data-item="q19-the-sultan-owns-a-stallion"
+                              data-field="answer_01"
+                              data-autosize="true"></textarea>
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="quest-bg"
+                    data-exercise-question="q20-her-father-in-law-is-a-landlord">
+                    <div
+                      class="nn_sliders accordion panel-group"
+                      id="set-nn_sliders-20">
+                      <span
+                        id="nn_sliders-scrollto_20"
+                        class="anchor nn_sliders-scroll"></span>
+                      <div class="accordion-group panel nn_sliders-group">
+                        <span
+                          id="nn_sliders-scrollto_20-q20-her-father-in-law-is-a-landlord"
+                          class="anchor nn_sliders-scroll"></span>
+                        <div class="accordion-heading panel-heading">
+                          <a
+                            class="accordion-toggle nn_sliders-toggle"
+                            href="151-gender.html#151-gender.html#q20-her-father-in-law-is-a-landlord"
+                            aria-label="Answer"
+                            data-toggle="collapse"
+                            data-parent="#set-nn_sliders-20"
+                            data-id="q20-her-father-in-law-is-a-landlord"
+                            aria-expanded="false"
+                            aria-controls="151-gender.html#q20-her-father-in-law-is-a-landlord">
+                            <span class="nn_sliders-toggle-inner">20. Her father-in-law is a landlord.</span>
+                          </a>
+                        </div>
+                        <div
+                          class="accordion-body nn_sliders-body collapse"
+                          id="q20-her-father-in-law-is-a-landlord"
+                          aria-hidden="true">
+                          <div class="accordion-inner panel-body">
+                            <h2 class="nn_sliders-title">20. Her father-in-law is a landlord.</h2>
+                            <p>
+                              &#50;&#48;&#46;&#32;&#72;&#101;&#114;&#32;&#109;&#111;&#116;&#104;&#101;&#114;&#45;&#105;&#110;&#45;&#108;&#97;&#119;&#32;&#105;&#115;&#32;&#97;&#32;&#108;&#97;&#110;&#100;&#108;&#111;&#114;&#100;&#46;
+                            </p>
+                          </div>
+                        </div>
+                        <div
+                          class="exercise-response-row exercise-response-row--long"
+                          data-item="q20-her-father-in-law-is-a-landlord"
+                          data-answer-ui="textarea">
+                          <label class="exercise-response-field exercise-response-field--long">
+                            <span class="visually-hidden">Response for item 20 (answer_01)</span>
+                            <textarea
+                              class="exercise-response-input exercise-response-input--textarea"
+                              rows="1"
+                              placeholder="Rewrite here"
+                              data-item="q20-her-father-in-law-is-a-landlord"
+                              data-field="answer_01"
+                              data-autosize="true"></textarea>
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
                   <div
                     class="exercise-submit-row"
                     data-exercise-submit-row=""
@@ -2344,22 +2591,270 @@
                       style="margin-top: 0.5rem"></div>
                   </div>
                 </form>
+                <!-- Page config: set recipients and where to POST -->
+                <script
+                  type="application/json"
+                  id="exercise-answer-key"
+                  data-exercise-answer-key="">
+                  {
+                    "title": "151-gender",
+                    "version": "0.3.0",
+                    "publishDate": "2025-12-03T10:39:41.390Z",
+                    "description": "1.5.1 Gender",
+                    "options": {
+                      "requireCorrectBeforeReveal": true,
+                      "defaultHashAlgorithm": "fnv1a-64"
+                    },
+                    "answerArrays": {
+                      "exerciseName": "151-gender",
+                      "totalQuestions": 20,
+                      "answerArray": {
+                        "question01": {
+                          "id": "q1-my-uncle-visits-his-nephew-every-weekend",
+                          "answersAccepted": ["fnv1a-64:00c0c5ef86dcb7d8"],
+                          "lengths": [1],
+                          "minLength": 1,
+                          "maxLength": 1,
+                          "manualCheckOk": false
+                        },
+                        "question02": {
+                          "id": "q2-the-lady-has-several-drakes-on-her-farm",
+                          "answersAccepted": ["fnv1a-64:3430f7f2840ffc26", "fnv1a-64:40d2474e7069804c"],
+                          "lengths": [1],
+                          "minLength": 1,
+                          "maxLength": 1,
+                          "manualCheckOk": false
+                        },
+                        "question03": {
+                          "id": "q3-the-daughter-is-more-talkative-than-her-mother",
+                          "answersAccepted": ["fnv1a-64:6e6eeacb0ae75579"],
+                          "lengths": [1],
+                          "minLength": 1,
+                          "maxLength": 1,
+                          "manualCheckOk": false
+                        },
+                        "question04": {
+                          "id": "q4-does-any-male-actor-like-to-play-the-role-of-the-prince",
+                          "answersAccepted": ["fnv1a-64:bee9e6d95a2947aa"],
+                          "lengths": [1],
+                          "minLength": 1,
+                          "maxLength": 1,
+                          "manualCheckOk": false
+                        },
+                        "question05": {
+                          "id": "q5-their-queen-is-a-widow",
+                          "answersAccepted": ["fnv1a-64:24c476ed61f43e1e"],
+                          "lengths": [1],
+                          "minLength": 1,
+                          "maxLength": 1,
+                          "manualCheckOk": false
+                        },
+                        "question06": {
+                          "id": "q6-the-male-manager-is-still-single",
+                          "answersAccepted": ["fnv1a-64:ac367af243562c3d"],
+                          "lengths": [1],
+                          "minLength": 1,
+                          "maxLength": 1,
+                          "manualCheckOk": false
+                        },
+                        "question07": {
+                          "id": "q7-in-the-movie-the-tiger-was-helped-by-the-hero",
+                          "answersAccepted": ["fnv1a-64:bda2fec535c7c012"],
+                          "lengths": [1],
+                          "minLength": 1,
+                          "maxLength": 1,
+                          "manualCheckOk": false
+                        },
+                        "question08": {
+                          "id": "q8-his-son-in-law-is-a-flight-attendant",
+                          "answersAccepted": ["fnv1a-64:765488bcc79c74ce"],
+                          "lengths": [1],
+                          "minLength": 1,
+                          "maxLength": 1,
+                          "manualCheckOk": false
+                        },
+                        "question09": {
+                          "id": "q9-the-count-has-one-brother",
+                          "answersAccepted": ["fnv1a-64:36165cbce0b8c722"],
+                          "lengths": [1],
+                          "minLength": 1,
+                          "maxLength": 1,
+                          "manualCheckOk": false
+                        },
+                        "question10": {
+                          "id": "q10-the-author-is-writing-a-book-about-the-emperor",
+                          "answersAccepted": ["fnv1a-64:c5041876827b3682"],
+                          "lengths": [1],
+                          "minLength": 1,
+                          "maxLength": 1,
+                          "manualCheckOk": false
+                        },
+                        "question11": {
+                          "id": "q11-the-groom-spoke-to-the-priest",
+                          "answersAccepted": ["fnv1a-64:ca7feb46d458ed15"],
+                          "lengths": [1],
+                          "minLength": 1,
+                          "maxLength": 1,
+                          "manualCheckOk": false
+                        },
+                        "question12": {
+                          "id": "q12-his-brother-works-as-a-server",
+                          "answersAccepted": ["fnv1a-64:045fd0bdd3d4ce06"],
+                          "lengths": [1],
+                          "minLength": 1,
+                          "maxLength": 1,
+                          "manualCheckOk": false
+                        },
+                        "question13": {
+                          "id": "q13-the-male-dog-barked-at-the-delivery-driver",
+                          "answersAccepted": ["fnv1a-64:8f50dd1ddfff06b7"],
+                          "lengths": [1],
+                          "minLength": 1,
+                          "maxLength": 1,
+                          "manualCheckOk": false
+                        },
+                        "question14": {
+                          "id": "q14-a-rooster-was-seen-near-a-fox",
+                          "answersAccepted": ["fnv1a-64:88f0b232740ea237", "fnv1a-64:c105cb9950e08df4"],
+                          "lengths": [1],
+                          "minLength": 1,
+                          "maxLength": 1,
+                          "manualCheckOk": false
+                        },
+                        "question15": {
+                          "id": "q15-the-personal-assistant-has-worked-many-years-for-the-duke",
+                          "answersAccepted": ["fnv1a-64:17e11fc65596db3e"],
+                          "lengths": [1],
+                          "minLength": 1,
+                          "maxLength": 1,
+                          "manualCheckOk": false
+                        },
+                        "question16": {
+                          "id": "q16-her-husband-is-a-conductor",
+                          "answersAccepted": ["fnv1a-64:4f578e41fe97e14c"],
+                          "lengths": [1],
+                          "minLength": 1,
+                          "maxLength": 1,
+                          "manualCheckOk": false
+                        },
+                        "question17": {
+                          "id": "q17-he-was-a-mail-carrier-before-he-became-a-postmaster",
+                          "answersAccepted": [
+                            "fnv1a-64:e7aaa5a86c3bdfc6",
+                            "fnv1a-64:c3fe5094d81ba811",
+                            "fnv1a-64:0cc4743d098e5ba7",
+                            "fnv1a-64:9bf88ca4807ed090"
+                          ],
+                          "lengths": [1],
+                          "minLength": 1,
+                          "maxLength": 1,
+                          "manualCheckOk": false
+                        },
+                        "question18": {
+                          "id": "q18-the-boy-wants-to-be-a-monk",
+                          "answersAccepted": ["fnv1a-64:29047baf1d18ec81"],
+                          "lengths": [1],
+                          "minLength": 1,
+                          "maxLength": 1,
+                          "manualCheckOk": false
+                        },
+                        "question19": {
+                          "id": "q19-the-sultan-owns-a-stallion",
+                          "answersAccepted": ["fnv1a-64:3895b8514a7d1997"],
+                          "lengths": [1],
+                          "minLength": 1,
+                          "maxLength": 1,
+                          "manualCheckOk": false
+                        },
+                        "question20": {
+                          "id": "q20-her-father-in-law-is-a-landlord",
+                          "answersAccepted": ["fnv1a-64:d17a535a4903e25f"],
+                          "lengths": [1],
+                          "minLength": 1,
+                          "maxLength": 1,
+                          "manualCheckOk": false
+                        }
+                      }
+                    }
+                  }
+                </script>
                 <script
                   type="application/json"
                   id="exercise-config"
                   data-exercise-config="">
                   {
-                    "recipients": ["kimthanh@eaglesvn.online", "admin@eaglesvn.online", "thanh.eaglesclub@gmail.com"],
-                    "submitUrl": ""
+                    "title": "1.5.1 Gender",
+                    "canonical": "151-gender.html",
+                    "totalQuestions": 20,
+                    "submitUrl": "",
+                    "recipients": [],
+                    "breadcrumbs": [
+                      {
+                        "name": "Home",
+                        "href": "../index-2.html",
+                        "position": 1
+                      },
+                      {
+                        "name": "Exercise 1 - Nouns",
+                        "href": "../exercise-1-nouns.html",
+                        "position": 2
+                      },
+                      {
+                        "name": "1.5.1 Gender",
+                        "href": "",
+                        "position": 3
+                      }
+                    ],
+                    "pager": {
+                      "previous": {
+                        "href": "141-forming-nouns.html",
+                        "label": "angle-left\n                        \n                      \n                         1.4.1 Forming Nouns",
+                        "ariaLabel": "Next",
+                        "rel": "next",
+                        "html": "\n                      <svg version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 18 48\" fill=\"currentColor\">\n                        <title>angle-left</title>\n                        <path d=\"M16.795 14.571c0 0.214-0.107 0.455-0.268 0.616l-10.527 10.527 10.527 10.527c0.161 0.161 0.268 0.402 0.268 0.616s-0.107 0.455-0.268 0.616l-1.339 1.339c-0.161 0.161-0.402 0.268-0.616 0.268s-0.455-0.107-0.616-0.268l-12.482-12.482c-0.161-0.161-0.268-0.402-0.268-0.616s0.107-0.455 0.268-0.616l12.482-12.482c0.161-0.161 0.402-0.268 0.616-0.268s0.455 0.107 0.616 0.268l1.339 1.339c0.161 0.161 0.268 0.375 0.268 0.616z\"></path>\n                      </svg>\n                      &nbsp;&nbsp; 1.4.1 Forming Nouns\n                    "
+                      },
+                      "next": {
+                        "href": "../exercise-1-nouns.html",
+                        "label": "Exercise 1 - Nouns   \n                      \n                        angle-right",
+                        "ariaLabel": "Next",
+                        "rel": "next",
+                        "html": "\n                      Exercise 1 - Nouns &nbsp;&nbsp;\n                      <svg version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" height=\"24px\" viewBox=\"0 0 18 48\" fill=\"currentColor\">\n                        <title>angle-right</title>\n                        <path d=\"M15.938 25.714c0 0.214-0.107 0.455-0.268 0.616l-12.482 12.482c-0.161 0.161-0.402 0.268-0.616 0.268s-0.455-0.107-0.616-0.268l-1.339-1.339c-0.161-0.161-0.268-0.375-0.268-0.616 0-0.214 0.107-0.455 0.268-0.616l10.527-10.527-10.527-10.527c-0.161-0.161-0.268-0.402-0.268-0.616s0.107-0.455 0.268-0.616l1.339-1.339c0.161-0.161 0.402-0.268 0.616-0.268s0.455 0.107 0.616 0.268l12.482 12.482c0.161 0.161 0.268 0.402 0.268 0.616z\"></path>\n                      </svg>\n                    "
+                      }
+                    }
                   }
                 </script>
 
-                <ul class="pager">
+                <!-- <script type="application/json" id="exercise-config" data-exercise-config>
+                  {
+                    "recipients": ["kimthanh@eaglesvn.online", "admin@eaglesvn.online", "thanh.eaglesclub@gmail.com"],
+                    "submitUrl": ""
+                  }
+                </script> -->
+
+                <!-- Auto-switch submitUrl: runs only when submitUrl === "" -->
+                <script>
+                  ;(() => {
+                    const cfgEl = document.querySelector("#exercise-config[data-exercise-config]")
+                    if (!cfgEl) return
+                    const cfg = JSON.parse(cfgEl.textContent || "{}")
+
+                    if (!cfg.submitUrl) {
+                      const host = location.host
+                      if (host === "127.0.0.1:5500" || host === "localhost:5500") {
+                        cfg.submitUrl = "http://127.0.0.1:8787/api/exercise-submission" // dev: Node directly
+                      } else {
+                        cfg.submitUrl = "https://thuvien.eagles.edu.vn/api/exercise-submission" // prod: via nginx
+                      }
+                      cfgEl.textContent = JSON.stringify(cfg)
+                    }
+                  })()
+                </script>
+                <ul class="pager pagenav">
                   <li class="previous">
                     <a
-                      href="111-common-nouns.html"
+                      href="151-gender.html"
                       rel="prev"
-                      aria-label="previous">
+                      aria-label="Next">
                       <svg
                         version="1.1"
                         xmlns="http://www.w3.org/2000/svg"
@@ -2369,15 +2864,15 @@
                         <path
                           d="M16.795 14.571c0 0.214-0.107 0.455-0.268 0.616l-10.527 10.527 10.527 10.527c0.161 0.161 0.268 0.402 0.268 0.616s-0.107 0.455-0.268 0.616l-1.339 1.339c-0.161 0.161-0.402 0.268-0.616 0.268s-0.455-0.107-0.616-0.268l-12.482-12.482c-0.161-0.161-0.268-0.402-0.268-0.616s0.107-0.455 0.268-0.616l12.482-12.482c0.161-0.161 0.402-0.268 0.616-0.268s0.455 0.107 0.616 0.268l1.339 1.339c0.161 0.161 0.268 0.375 0.268 0.616z"></path>
                       </svg>
-                      &nbsp;&nbsp;1.1.1 Common Nouns
+                      &nbsp;&nbsp; 1.5.1 Gender
                     </a>
                   </li>
                   <li class="next">
                     <a
-                      href="113-abstract-nouns.html"
+                      href="../exercise-1-nouns.html"
                       rel="next"
                       aria-label="Next">
-                      1.1.3 Abstract Nouns&nbsp;&nbsp;
+                      Exercise 1 - Nouns &nbsp;&nbsp;
                       <svg
                         version="1.1"
                         xmlns="http://www.w3.org/2000/svg"
@@ -2395,10 +2890,10 @@
             </div>
           </main>
           <!-- End Content -->
-          <!-- Begin Right Sidebar -->
           <div
             id="aside"
             class="span2">
+            <!-- Begin Right Sidebar -->
             <div class="well hidden-phone">
               <ul
                 class="r-flyout-menu"
@@ -4420,7 +4915,6 @@
         if (typeof window.jQuery === "undefined" && !window._qaAccordionBound) {
           try {
             var toggles = document.querySelectorAll(".nn_sliders-toggle")
-
             function getTargetId(toggle) {
               var dataId = toggle.getAttribute("data-id")
               if (dataId) return dataId
@@ -4428,7 +4922,6 @@
               var hashIndex = href.indexOf("#")
               return hashIndex > -1 ? href.slice(hashIndex + 1) : ""
             }
-
             function setExpanded(toggle, panel, expanded) {
               if (!panel) return
               if (expanded) {
@@ -4449,7 +4942,6 @@
                 toggle.setAttribute("aria-expanded", "false")
               }
             }
-
             function collapseSiblings(currentToggle, currentPanel) {
               var parentSelector = currentToggle.getAttribute("data-parent")
               if (!parentSelector) return
@@ -4466,7 +4958,6 @@
                 setExpanded(siblingToggle, siblingPanel, false)
               }
             }
-
             function onToggle(e) {
               if (e) e.preventDefault()
               var id = getTargetId(this)
@@ -4500,314 +4991,457 @@
         }
       })()
     </script>
+
     <!-- Client script: collector + autosave + POST -->
     <script>
-      ;
-      (function() {
-        'use strict';
+      ;(function () {
+        "use strict"
+
         // ---------- tiny helpers ----------
-        const $ = (sel, root = document) => root.querySelector(sel);
-        const $$ = (sel, root = document) => Array.from(root.querySelectorAll(sel));
-        const esc = (s) => (window.CSS && CSS.escape ? CSS.escape(String(s)) : String(s).replace(/[^\w-]/g, '\\$&'));
+        const $ = (sel, root = document) => root.querySelector(sel)
+        const $$ = (sel, root = document) => Array.from(root.querySelectorAll(sel))
+        const esc = (s) => (window.CSS && CSS.escape ? CSS.escape(String(s)) : String(s).replace(/[^\w-]/g, "\\$&"))
+
         // ---------- basic validators ----------
-        const STUDENT_ID_PATTERN = /^[a-z]+\d{3}$/; // e.g., tina001
+        const STUDENT_ID_PATTERN = /^[a-z]+\d{3}$/ // e.g., tina001
+
         // Elements (declared once)
-        const form = document.querySelector('[data-exercise-form]');
+        const form = document.querySelector("[data-exercise-form]")
         if (!form) {
-          console.warn('exercise form not found: [data-exercise-form]');
-          return;
+          console.warn("exercise form not found: [data-exercise-form]")
+          return
         }
-        const submitRow = form.querySelector('[data-exercise-submit-row]');
-        const submitBtn = form.querySelector('[data-exercise-submit]');
-        const emailInput = form.querySelector('[data-exercise-email]');
-        const studentIdInput = form.querySelector('[data-exercise-student-id]');
+        const submitRow = form.querySelector("[data-exercise-submit-row]")
+        const submitBtn = form.querySelector("[data-exercise-submit]")
+        const emailInput = form.querySelector("[data-exercise-email]")
+        const studentIdInput = form.querySelector("[data-exercise-student-id]")
 
         function isEmailValid() {
-          const v = (emailInput?.value || '').trim();
-          return !!v && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
+          const v = (emailInput?.value || "").trim()
+          return !!v && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)
         }
-
         function isStudentIdValid() {
-          const v = (studentIdInput?.value || '').trim();
-          return !!v && STUDENT_ID_PATTERN.test(v);
+          const v = (studentIdInput?.value || "").trim()
+          return !!v && STUDENT_ID_PATTERN.test(v)
+        }
+        function refreshStatus() {
+          updateProgress(form)
         }
 
-        function refreshStatus() {
-          updateProgress(form);
-        }
         // ---------- config ----------
+        function decodeUtf8Bytes(bytes) {
+          if (!Array.isArray(bytes) || !bytes.length) return ""
+          let output = ""
+          for (let i = 0; i < bytes.length; i++) {
+            const byte1 = Number(bytes[i])
+            if (!Number.isFinite(byte1)) continue
+            if (byte1 < 0x80) {
+              output += String.fromCharCode(byte1)
+            } else if (byte1 >= 0xc0 && byte1 < 0xe0 && i + 1 < bytes.length) {
+              const byte2 = Number(bytes[++i])
+              if (!Number.isFinite(byte2)) break
+              output += String.fromCharCode(((byte1 & 0x1f) << 6) | (byte2 & 0x3f))
+            } else if (byte1 >= 0xe0 && byte1 < 0xf0 && i + 2 < bytes.length) {
+              const byte2 = Number(bytes[i + 1])
+              const byte3 = Number(bytes[i + 2])
+              if (!Number.isFinite(byte2) || !Number.isFinite(byte3)) break
+              i += 2
+              output += String.fromCharCode(((byte1 & 0x0f) << 12) | ((byte2 & 0x3f) << 6) | (byte3 & 0x3f))
+            } else if (byte1 >= 0xf0 && byte1 < 0xf8 && i + 3 < bytes.length) {
+              const byte2 = Number(bytes[i + 1])
+              const byte3 = Number(bytes[i + 2])
+              const byte4 = Number(bytes[i + 3])
+              if (!Number.isFinite(byte2) || !Number.isFinite(byte3) || !Number.isFinite(byte4)) break
+              i += 3
+              let codePoint = ((byte1 & 0x07) << 18) | ((byte2 & 0x3f) << 12) | ((byte3 & 0x3f) << 6) | (byte4 & 0x3f)
+              codePoint -= 0x10000
+              output += String.fromCharCode(0xd800 + ((codePoint >> 10) & 0x3ff))
+              output += String.fromCharCode(0xdc00 + (codePoint & 0x3ff))
+            } else {
+              output += String.fromCharCode(byte1)
+            }
+          }
+          return output
+        }
+
+        function decodeHexUtf8(value) {
+          if (typeof value !== "string") return ""
+          let normalized = value.trim()
+          if (!normalized) return ""
+          normalized = normalized.replace(/[^0-9a-f]/gi, "")
+          if (!normalized) return ""
+          if (normalized.length % 2 === 1) normalized = "0" + normalized
+          const bytes = []
+          for (let i = 0; i < normalized.length; i += 2) {
+            const pair = normalized.slice(i, i + 2)
+            const parsed = parseInt(pair, 16)
+            if (!Number.isNaN(parsed)) bytes.push(parsed)
+          }
+          if (!bytes.length) return ""
+          return decodeUtf8Bytes(bytes)
+        }
+
+        function decodeCodePointList(list) {
+          if (!Array.isArray(list) || !list.length) return ""
+          let output = ""
+          for (const entry of list) {
+            const code = Number(entry)
+            if (!Number.isFinite(code)) continue
+            if (code <= 0xffff) {
+              output += String.fromCharCode(code)
+            } else {
+              const adjusted = code - 0x10000
+              output += String.fromCharCode(0xd800 + ((adjusted >> 10) & 0x3ff))
+              output += String.fromCharCode(0xdc00 + (adjusted & 0x3ff))
+            }
+          }
+          return output
+        }
+
+        function decodeRecipientToken(token) {
+          if (token == null) return ""
+          if (typeof token === "string") return token.trim()
+          if (typeof token === "number" && Number.isFinite(token)) {
+            return String.fromCharCode(token)
+          }
+          if (Array.isArray(token)) {
+            return token
+              .map((item) => decodeRecipientToken(item))
+              .join("")
+              .trim()
+          }
+          if (typeof token === "object") {
+            if (token.email) return decodeRecipientToken(token.email)
+            if (token.value) return decodeRecipientToken(token.value)
+            if (token.recipients) return decodeRecipientToken(token.recipients)
+            if (token.codepoints) return decodeCodePointList(token.codepoints)
+            if (token.codePoints) return decodeCodePointList(token.codePoints)
+            if (token.points) return decodeCodePointList(token.points)
+            if (token.codes) return decodeCodePointList(token.codes)
+            if (Array.isArray(token.bytes)) return decodeUtf8Bytes(token.bytes)
+            if (typeof token.bytes === "string") return decodeHexUtf8(token.bytes)
+            if (token.utf8) return decodeHexUtf8(token.utf8)
+            if (token.hex) return decodeHexUtf8(token.hex)
+          }
+          return ""
+        }
+
+        function normalizeRecipientList(entries) {
+          if (!Array.isArray(entries)) return []
+          const normalized = []
+          for (const entry of entries) {
+            const decoded = decodeRecipientToken(entry)
+            if (!decoded) continue
+            const trimmed = decoded.trim()
+            if (trimmed) normalized.push(trimmed)
+          }
+          return normalized
+        }
+
         function readConfig() {
-          const el = $('#exercise-config[data-exercise-config]');
-          if (!el) throw new Error('Missing #exercise-config block');
-          const raw = el.textContent || '{}';
+          const el = $("#exercise-config[data-exercise-config]")
+          if (!el) throw new Error("Missing #exercise-config block")
+
+          const raw = el.textContent || "{}"
           /** @type {{recipients?: string[], submitUrl?: string}} */
-          const cfg = JSON.parse(raw);
-          const recipients = Array.isArray(cfg.recipients) ? cfg.recipients.map(String).map((s) => s.trim()).filter(Boolean) : [];
-          let submitUrl = typeof cfg.submitUrl === 'string' ? cfg.submitUrl.trim() : '';
+          const cfg = JSON.parse(raw)
+
+          const recipients = normalizeRecipientList(cfg.recipients)
+
+          let submitUrl = typeof cfg.submitUrl === "string" ? cfg.submitUrl.trim() : ""
+
           // auto-derive submitUrl when empty
           if (!submitUrl) {
-            const h = location.host;
-            if (h === '127.0.0.1:5500' || h === 'localhost:5500') {
-              submitUrl = 'http://127.0.0.1:8787/api/exercise-submission';
+            const h = location.host
+            if (h === "127.0.0.1:5500" || h === "localhost:5500") {
+              submitUrl = "http://127.0.0.1:8787/api/exercise-submission"
             } else {
-              submitUrl = 'https://thuvien.eagles.edu.vn/api/exercise-submission';
+              submitUrl = "https://thuvien.eagles.edu.vn/api/exercise-submission"
             }
           }
-          return {
-            recipients,
-            submitUrl
-          };
-        }
-        // ---------- collect answers ----------
-        // For each [data-exercise-question="
-        < id > "], collect inputs with [data-item=" < id > "][data-field]
 
+          return { recipients, submitUrl }
+        }
+
+        // ---------- collect answers ----------
+        // For each [data-exercise-question="<id>"], collect inputs with [data-item="<id>"][data-field]
         function collectAnswers(theForm) {
-          const blocks = $$('[data-exercise-question]', theForm);
-          const results = [];
+          const blocks = $$("[data-exercise-question]", theForm)
+          const results = []
+
           for (const block of blocks) {
-            const id = String(block.getAttribute('data-exercise-question') || '').trim();
-            if (!id) continue;
-            const fields = $$(`[data-item="${esc( id )}"][data-field]`, block);
+            const id = String(block.getAttribute("data-exercise-question") || "").trim()
+            if (!id) continue
+
+            const fields = $$(`[data-item="${esc(id)}"][data-field]`, block)
             if (!fields.length) {
-              results.push({
-                id,
-                answers: []
-              });
-              continue;
+              results.push({ id, answers: [] })
+              continue
             }
+
             // Keep a stable field order, then append unexpected fields
-            const order = ['response', 'notes', 'confidence', 'extension'];
-            const found = new Map();
+            const order = ["response", "notes", "confidence", "extension"]
+            const found = new Map()
             for (const el of fields) {
-              const key = String(el.getAttribute('data-field') || '').trim().toLowerCase();
-              const val = (el.value ?? '').toString().trim();
-              if (key) found.set(key, val);
+              const key = String(el.getAttribute("data-field") || "")
+                .trim()
+                .toLowerCase()
+              const val = (el.value ?? "").toString().trim()
+              if (key) found.set(key, val)
             }
-            const values = [];
+
+            const values = []
             for (const k of order) {
-              const v = found.get(k);
-              if (typeof v === 'string' && v.length) values.push(v);
+              const v = found.get(k)
+              if (typeof v === "string" && v.length) values.push(v)
             }
             for (const [k, v] of found.entries()) {
-              if (!order.includes(k) && v) values.push(v);
+              if (!order.includes(k) && v) values.push(v)
             }
-            results.push({
-              id,
-              answers: values
-            });
+
+            results.push({ id, answers: values })
           }
+
           // remove questions that have no answers at all
-          return results.filter((q) => q.answers.some(Boolean));
+          return results.filter((q) => q.answers.some(Boolean))
         }
+
         // ---------- progress ----------
         function updateProgress(theForm) {
-          const blocks = $$('[data-exercise-question]', theForm);
-          const total = blocks.length;
-          let answered = 0;
+          const blocks = $$("[data-exercise-question]", theForm)
+          const total = blocks.length
+          let answered = 0
+
           for (const b of blocks) {
-            const id = b.getAttribute('data-exercise-question');
-            const inputs = $$(`[data-item="${esc( id )}"][data-field]`, b);
-            if (inputs.some((i) => ((i.value ?? '').trim().length > 0))) answered++;
+            const id = b.getAttribute("data-exercise-question")
+            const inputs = $$(`[data-item="${esc(id)}"][data-field]`, b)
+            if (inputs.some((i) => (i.value ?? "").trim().length > 0)) answered++
           }
-          const label = $('[data-exercise-progress]', theForm);
-          if (label) label.textContent = `${answered} of ${total} questions completed.`;
-          return {
-            answered,
-            total
-          };
+
+          const label = $("[data-exercise-progress]", theForm)
+          if (label) label.textContent = `${answered} of ${total} questions completed.`
+          return { answered, total }
         }
+
         // ---------- autosave (localStorage) ----------
         function getStorageKey(theForm) {
-          return theForm?.getAttribute('data-storage-key') || '';
+          return theForm?.getAttribute("data-storage-key") || ""
         }
 
         function loadSaved(theForm) {
-          const key = getStorageKey(theForm);
-          if (!key) return null;
+          const key = getStorageKey(theForm)
+          if (!key) return null
           try {
-            const raw = localStorage.getItem(key);
-            if (!raw) return null;
-            const data = JSON.parse(raw);
+            const raw = localStorage.getItem(key)
+            if (!raw) return null
+            const data = JSON.parse(raw)
+
             // restore email
-            if (data.email && emailInput) emailInput.value = data.email;
+            if (data.email && emailInput) emailInput.value = data.email
             // restore student id
-            if (data.studentId && studentIdInput) studentIdInput.value = data.studentId;
+            if (data.studentId && studentIdInput) studentIdInput.value = data.studentId
+
             // restore answers
             if (Array.isArray(data.answers)) {
               for (const q of data.answers) {
-                const id = q.id;
-                if (!id || !Array.isArray(q.answers)) continue;
-                const fields = $$(`[data-item="${esc( String( id ) )}"][data-field]`, theForm);
-                const order = ['response', 'notes', 'confidence', 'extension'];
-                const map = new Map();
+                const id = q.id
+                if (!id || !Array.isArray(q.answers)) continue
+                const fields = $$(`[data-item="${esc(String(id))}"][data-field]`, theForm)
+                const order = ["response", "notes", "confidence", "extension"]
+                const map = new Map()
                 for (let i = 0; i < q.answers.length; i++) {
-                  const k = order[i] || `extra${i - order.length + 1}`;
-                  map.set(k, q.answers[i]);
+                  const k = order[i] || `extra${i - order.length + 1}`
+                  map.set(k, q.answers[i])
                 }
                 for (const el of fields) {
-                  const keyName = String(el.getAttribute('data-field') || '').toLowerCase();
-                  if (map.has(keyName)) el.value = map.get(keyName);
+                  const keyName = String(el.getAttribute("data-field") || "").toLowerCase()
+                  if (map.has(keyName)) el.value = map.get(keyName)
                 }
               }
             }
+
             // announce last attempt
-            const last = $('[data-exercise-last-attempt]', theForm);
+            const last = $("[data-exercise-last-attempt]", theForm)
             if (last && data.savedAt) {
-              last.hidden = false;
-              last.textContent = `Restored previous attempt from ${new Date( data.savedAt ).toLocaleString()}.`;
+              last.hidden = false
+              last.textContent = `Restored previous attempt from ${new Date(data.savedAt).toLocaleString()}.`
             }
-            return data;
+            return data
           } catch {
-            return null;
+            return null
           }
         }
 
         function saveNow(theForm) {
-          const key = getStorageKey(theForm);
-          if (!key) return;
+          const key = getStorageKey(theForm)
+          if (!key) return
           try {
-            const email = (emailInput?.value || '').trim();
-            const studentId = (studentIdInput?.value || '').trim();
-            const answers = collectAnswers(theForm);
-            const payload = {
-              email,
-              studentId,
-              answers,
-              savedAt: new Date().toISOString()
-            };
-            localStorage.setItem(key, JSON.stringify(payload));
+            const email = (emailInput?.value || "").trim()
+            const studentId = (studentIdInput?.value || "").trim()
+            const answers = collectAnswers(theForm)
+            const payload = { email, studentId, answers, savedAt: new Date().toISOString() }
+            localStorage.setItem(key, JSON.stringify(payload))
           } catch {
             /* no-op */
           }
         }
 
         function debounce(fn, ms = 300) {
-          let t;
+          let t
           return (...args) => {
-            clearTimeout(t);
-            t = setTimeout(() => fn(...args), ms);
-          };
+            clearTimeout(t)
+            t = setTimeout(() => fn(...args), ms)
+          }
         }
+
         // ---------- UX helpers ----------
         function setSubmitting(state) {
-          if (state) submitBtn?.setAttribute('disabled', 'disabled');
-          else submitBtn?.removeAttribute('disabled');
-          submitRow?.removeAttribute('hidden');
+          if (state) submitBtn?.setAttribute("disabled", "disabled")
+          else submitBtn?.removeAttribute("disabled")
+          submitRow?.removeAttribute("hidden")
         }
 
         function showStatus(type, message) {
-          const box = $('#exercise-status');
-          if (!box) return;
-          box.className = type === 'ok' ? 'status-ok' : type === 'warn' ? 'status-warn' : 'status-err';
-          box.textContent = message;
+          const box = $("#exercise-status")
+          if (!box) return
+          box.className = type === "ok" ? "status-ok" : type === "warn" ? "status-warn" : "status-err"
+          box.textContent = message
         }
+
         async function postJSON(url, data) {
           const res = await fetch(url, {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json'
-            },
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
             body: JSON.stringify(data),
-            credentials: 'omit'
-          });
-          return res; // caller inspects res.status
+            credentials: "omit",
+          })
+          return res // caller inspects res.status
         }
+
         // ---------- enable submit UI on load ----------
-        submitRow?.removeAttribute('hidden');
-        submitBtn?.removeAttribute('disabled');
+        submitRow?.removeAttribute("hidden")
+        submitBtn?.removeAttribute("disabled")
+
         // ---------- load config ----------
-        let recipients = [];
-        let submitUrl = '';
+        let recipients = []
+        let submitUrl = ""
         try {
-          const cfg = readConfig();
-          recipients = cfg.recipients;
-          submitUrl = cfg.submitUrl;
+          const cfg = readConfig()
+          recipients = cfg.recipients
+          submitUrl = cfg.submitUrl
         } catch (e) {
-          showStatus('err', e.message);
-          return;
+          showStatus("err", e.message)
+          return
         }
+
         // ---------- restore saved, init progress ----------
-        loadSaved(form);
-        refreshStatus();
-        updateProgress(form);
+        loadSaved(form)
+        refreshStatus()
+        updateProgress(form)
+
         // ---------- input listeners: progress + autosave ----------
         const onChanged = debounce(() => {
-          updateProgress(form);
-          saveNow(form);
-        }, 250);
-        form.addEventListener('input', onChanged);
-        form.addEventListener('change', onChanged);
+          updateProgress(form)
+          saveNow(form)
+        }, 250)
+        form.addEventListener("input", onChanged)
+        form.addEventListener("change", onChanged)
+
         // optional email / id validation UI
-        emailInput?.addEventListener('input', () => {
-          if (isEmailValid()) emailInput.classList.remove('exercise-form__email-input--invalid');
-          refreshStatus();
-        });
-        emailInput?.addEventListener('blur', () => {
-          if (!isEmailValid()) emailInput.classList.add('exercise-form__email-input--invalid');
-          else emailInput.classList.remove('exercise-form__email-input--invalid');
-        });
-        studentIdInput?.addEventListener('input', () => {
-          if (isStudentIdValid()) studentIdInput.classList.remove('exercise-form__email-input--invalid');
-          refreshStatus();
-        });
-        studentIdInput?.addEventListener('blur', () => {
-          if (!isStudentIdValid()) studentIdInput.classList.add('exercise-form__email-input--invalid');
-          else studentIdInput.classList.remove('exercise-form__email-input--invalid');
-        });
+        emailInput?.addEventListener("input", () => {
+          if (isEmailValid()) emailInput.classList.remove("exercise-form__email-input--invalid")
+          refreshStatus()
+        })
+        emailInput?.addEventListener("blur", () => {
+          if (!isEmailValid()) emailInput.classList.add("exercise-form__email-input--invalid")
+          else emailInput.classList.remove("exercise-form__email-input--invalid")
+        })
+
+        studentIdInput?.addEventListener("input", () => {
+          if (isStudentIdValid()) studentIdInput.classList.remove("exercise-form__email-input--invalid")
+          refreshStatus()
+        })
+        studentIdInput?.addEventListener("blur", () => {
+          if (!isStudentIdValid()) studentIdInput.classList.add("exercise-form__email-input--invalid")
+          else studentIdInput.classList.remove("exercise-form__email-input--invalid")
+        })
+
         // ---------- submit handler ----------
-        form.addEventListener('submit', async (ev) => {
-          ev.preventDefault();
-          try {
-            setSubmitting(true);
-            showStatus('warn', 'Submitting…');
-            if (!isEmailValid()) {
-              showStatus('err', 'Enter your valid email (used for Reply-To).');
-              emailInput?.classList.add('exercise-form__email-input--invalid');
-              emailInput?.focus();
-              setSubmitting(false);
-              return;
+        form.addEventListener(
+          "submit",
+          async (ev) => {
+            ev.preventDefault()
+            try {
+              setSubmitting(true)
+              showStatus("warn", "Submitting…")
+
+              if (!isEmailValid()) {
+                showStatus("err", "Enter your valid email (used for Reply-To).")
+                emailInput?.classList.add("exercise-form__email-input--invalid")
+                emailInput?.focus()
+                setSubmitting(false)
+                return
+              }
+
+              if (!isStudentIdValid()) {
+                showStatus("err", "Enter an Eagles Club user ID like tina001 (lowercase letters + three digits).")
+                studentIdInput?.classList.add("exercise-form__email-input--invalid")
+                studentIdInput?.focus()
+                setSubmitting(false)
+                return
+              }
+
+              const email = (emailInput?.value || "").trim()
+              const studentId = (studentIdInput?.value || "").trim()
+              const answers = collectAnswers(form)
+
+              if (!answers.length) {
+                showStatus("err", "No answers detected. Please fill one or more response per question.")
+                setSubmitting(false)
+                return
+              }
+
+              const payload = {
+                email,
+                studentId,
+                pageTitle: document.title || "",
+                completedAt: new Date().toISOString(),
+                recipients, // server falls back to env if empty
+                answers,
+              }
+
+              const res = await postJSON(submitUrl, payload)
+
+              if (res.status === 204) {
+                showStatus("ok", "✅ Submitted! Check your inbox.")
+                saveNow(form) // capture final state/time
+              } else {
+                const data = await res.json().catch(() => ({}))
+                showStatus("err", `❌ Submit failed: ${data.error || `HTTP ${res.status}`}`)
+              }
+            } catch (err) {
+              showStatus("err", `❌ Submit failed: ${err?.message || err}`)
+            } finally {
+              setSubmitting(false)
             }
-            if (!isStudentIdValid()) {
-              showStatus('err', 'Enter an Eagles Club user ID like tina001 (lowercase letters + three digits).');
-              studentIdInput?.classList.add('exercise-form__email-input--invalid');
-              studentIdInput?.focus();
-              setSubmitting(false);
-              return;
-            }
-            const email = (emailInput?.value || '').trim();
-            const studentId = (studentIdInput?.value || '').trim();
-            const answers = collectAnswers(form);
-            if (!answers.length) {
-              showStatus('err', 'No answers detected. Please fill one or more response per question.');
-              setSubmitting(false);
-              return;
-            }
-            const payload = {
-              email,
-              studentId,
-              pageTitle: document.title || '',
-              completedAt: new Date().toISOString(),
-              recipients, // server falls back to env if empty
-              answers
-            };
-            const res = await postJSON(submitUrl, payload);
-            if (res.status === 204) {
-              showStatus('ok', '✅ Submitted! Check your inbox.');
-              saveNow(form); // capture final state/time
-            } else {
-              const data = await res.json().catch(() => ({}));
-              showStatus('err', `❌ Submit failed: ${data.error || `HTTP ${res.status}`}`);
-            }
-          } catch (err) {
-            showStatus('err', `❌ Submit failed: ${err?.message || err}`);
-          } finally {
-            setSubmitting(false);
-          }
-        }, {
-          passive: false
-        });
-      })();
+          },
+          { passive: false }
+        )
+      })()
+    </script>
+    <script>
+      ;(() => {
+        const answerKeyEl = document.querySelector("#exercise-answer-key[data-exercise-answer-key]")
+        if (!answerKeyEl) return
+        let answerKey
+        try {
+          answerKey = JSON.parse(answerKeyEl.textContent || "{}")
+        } catch {
+          return
+        }
+
+        // Per-exercise gating removed; global exercise-gate.js handles gating.
+      })()
     </script>
     <!-- Mobile navigation is handled globally via template asset -->
   </body>

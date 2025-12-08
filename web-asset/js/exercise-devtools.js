@@ -213,6 +213,18 @@
       caseSensitive: caseSensitive,
     }
 
+    var textAnswers = []
+    if (entry.answersText != null) {
+      var provided = Array.isArray(entry.answersText) ? entry.answersText : [entry.answersText]
+      for (var t = 0; t < provided.length; t++) {
+        var rawText = provided[t]
+        if (rawText == null) continue
+        var preparedText = String(rawText).trim()
+        if (!preparedText) continue
+        textAnswers.push(preparedText)
+      }
+    }
+
     var combos = []
     if (!Array.isArray(answersAccepted)) answersAccepted = [answersAccepted]
     for (var i = 0; i < answersAccepted.length; i++) {
@@ -251,6 +263,7 @@
       caseSensitive: caseSensitive,
       requireCorrectBeforeReveal: requireCorrect,
       hashAlgorithm: hashAlgorithm || "",
+      textAnswers: textAnswers,
     }
   }
 
@@ -700,6 +713,19 @@
       }
       var hints = gatherHints(panel)
       var config = findQuestionConfig(answerKey, questionId, hints)
+      if (config && config.textAnswers && config.textAnswers.length) {
+        for (var t = 0; t < config.textAnswers.length; t++) {
+          var textAnswer = config.textAnswers[t]
+          if (!textAnswer) continue
+          var rawText = String(textAnswer).trim()
+          if (!rawText) continue
+          hints.push({
+            text: rawText,
+            normalized: normalizeAnswer(rawText),
+            raw: rawText,
+          })
+        }
+      }
       questions.push({
         id: questionId,
         node: node,
