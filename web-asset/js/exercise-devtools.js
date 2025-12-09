@@ -175,6 +175,27 @@
     }
   }
 
+  function decodeObfuscated(value) {
+    if (value == null) return ""
+    var str = String(value).trim()
+    if (!str) return ""
+    try {
+      if (typeof atob === "function") {
+        return atob(str)
+      }
+    } catch (err) {
+      void err
+    }
+    try {
+      if (typeof Buffer !== "undefined") {
+        return Buffer.from(str, "base64").toString("utf8")
+      }
+    } catch (err) {
+      void err
+    }
+    return ""
+  }
+
   function uniqueLengths(values) {
     var seen = {}
     var list = []
@@ -191,6 +212,7 @@
     if (!entry || typeof entry !== "object") return null
     var answersAccepted = entry.answersAccepted
     if (answersAccepted == null) answersAccepted = []
+    var obfuscated = entry.answersObfuscated
     var manualReview = coerceBoolean(entry.manualCheckOk, false)
     var ordered = coerceBoolean(entry.orderedAnswer, false)
     var normalize = entry.normalizeAnswer
@@ -241,6 +263,15 @@
         prepared.push(token)
       }
       if (prepared.length) combos.push(prepared)
+    }
+    if (!combos.length && obfuscated != null) {
+      var obList = Array.isArray(obfuscated) ? obfuscated : [obfuscated]
+      for (var o = 0; o < obList.length; o++) {
+        var decoded = decodeObfuscated(obList[o])
+        if (!decoded) continue
+        var plainToken = parseAnswerToken(decoded, options, hashAlgorithm)
+        if (plainToken) combos.push([plainToken])
+      }
     }
 
     var lengths = []
@@ -297,14 +328,19 @@
   }
 
   function parseAnswerKey(script) {
-    var empty = { questions: {}, options: {} }
+    var empty = { questions: {}, options: {}, meta: {} }
     if (!script) return empty
     var raw = script.textContent || script.innerText || ""
     if (!raw) return empty
     try {
       var parsed = JSON.parse(raw)
       if (!parsed || typeof parsed !== "object") return empty
-      var answerKey = { questions: {}, options: {} }
+      var answerKey = { questions: {}, options: {}, meta: {} }
+      if (parsed.pid != null) answerKey.meta.pid = String(parsed.pid)
+      if (parsed.title != null) answerKey.meta.title = parsed.title
+      if (parsed.answerArrays && parsed.answerArrays.exerciseName) {
+        answerKey.meta.exerciseName = parsed.answerArrays.exerciseName
+      }
       if (parsed.options && typeof parsed.options === "object") answerKey.options = parsed.options
       var defaultHash =
         parsed.defaultHashAlgorithm ||
@@ -334,60 +370,6 @@
     }
   }
 
-  function gatherHints(panel) {
-    if (!panel) return []
-    var hints = []
-    var seen = {}
-
-    function splitHintText(raw) {
-      if (!raw) return []
-      var text = String(raw)
-      var parts = text.split(/\r?\n+/)
-      var results = []
-      for (var i = 0; i < parts.length; i++) {
-        var chunk = parts[i]
-        if (!chunk) continue
-        var numbered = chunk.split(/\s+(?=\d+[.)-]\s+)/).filter(Boolean)
-        if (numbered.length) {
-          for (var n = 0; n < numbered.length; n++) results.push(numbered[n])
-        } else {
-          results.push(chunk)
-        }
-      }
-      return results
-    }
-
-    function addHint(raw) {
-      var trimmed = (raw || "").trim()
-      if (!trimmed) return
-      var withoutNumber = trimmed.replace(/^\s*\d+[.)-]?\s*/, "")
-      var normalized = normalizeAnswer(withoutNumber)
-      var rawText = withoutNumber.trim()
-      var dedupeKey = rawText || normalized
-      if (!dedupeKey) return
-      if (seen[dedupeKey]) return
-      seen[dedupeKey] = true
-      hints.push({
-        text: withoutNumber,
-        normalized: normalized,
-        raw: rawText,
-      })
-    }
-
-    var spans = panel.querySelectorAll(".in-text-decoration-underline__14j0pz")
-    for (var i = 0; i < spans.length; i++) addHint(spans[i].textContent || spans[i].innerText || "")
-
-    var paragraphs = panel.querySelectorAll(".accordion-inner p")
-    for (var p = 0; p < paragraphs.length; p++) {
-      var raw = paragraphs[p].textContent || paragraphs[p].innerText || ""
-      var chunks = splitHintText(raw)
-      if (!chunks.length) addHint(raw)
-      for (var c = 0; c < chunks.length; c++) addHint(chunks[c])
-    }
-
-    return hints
-  }
-
   function findQuestionConfig(answerKey, questionId) {
     if (!answerKey || !answerKey.questions) return null
     var config = answerKey.questions[questionId]
@@ -412,26 +394,106 @@
     return clone
   }
 
+  function readDevDictionary() {
+    var node = document.querySelector("[data-exercise-dev-dict]")
+    if (!node) return []
+    var raw = node.textContent || node.innerText || ""
+    if (!raw) return []
+    var parts = raw.split(/\r?\n/)
+    var words = []
+    for (var i = 0; i < parts.length; i++) {
+      var item = (parts[i] || "").trim()
+      if (!item) continue
+      words.push(item)
+    }
+    return words
+  }
+
+  function splitDictionaryText(text) {
+    if (!text) return []
+    var parts = text.split(/\r?\n/)
+    var list = []
+    for (var i = 0; i < parts.length; i++) {
+      var token = (parts[i] || "").trim()
+      if (!token) continue
+      list.push(token)
+    }
+    return list
+  }
+
+  function loadDevDictionary(answerKey) {
+    var inline = readDevDictionary()
+    if (inline && inline.length) return Promise.resolve(inline)
+    if (typeof fetch !== "function") return Promise.resolve([])
+    var names = []
+    if (answerKey && answerKey.meta) {
+      var meta = answerKey.meta
+      var addName = function (value) {
+        if (value == null) return
+        var str = String(value).trim()
+        if (!str) return
+        names.push(str)
+      }
+      addName(meta.title)
+      addName(meta.exerciseName)
+      if (meta.pid != null) addName("decoded_" + String(meta.pid).trim())
+    }
+    var seen = {}
+    var paths = []
+    for (var i = 0; i < names.length; i++) {
+      var name = names[i]
+      if (seen[name]) continue
+      seen[name] = true
+      paths.push("../dev/" + name + ".ext")
+      paths.push("../dev/" + name + ".txt")
+    }
+    if (!paths.length) return Promise.resolve([])
+    var attempt = 0
+    function fetchNext() {
+      if (attempt >= paths.length) return Promise.resolve([])
+      var url = paths[attempt++]
+      return fetch(url)
+        .then(function (resp) {
+          if (!resp || !resp.ok) throw new Error("missing dev dict")
+          return resp.text()
+        })
+        .then(function (text) {
+          return splitDictionaryText(text)
+        })
+        .catch(function () {
+          return fetchNext()
+        })
+    }
+    return fetchNext().catch(function () {
+      return []
+    })
+  }
+
+  function buildDevDictionaryMap(words, algorithm) {
+    if (!words || !words.length) return null
+    var alg = normalizeHashAlgorithm(algorithm) || "fnv1a-64"
+    var map = {}
+    for (var i = 0; i < words.length; i++) {
+      var word = words[i]
+      var hash = hashAnswerValue(word, alg)
+      if (!hash) continue
+      if (!map[hash]) map[hash] = []
+      map[hash].push(word)
+    }
+    return map
+  }
+
   function createCandidateMap(question, algorithm) {
     if (!algorithm) return {}
     var key = algorithm
     if (!question.candidateMaps) question.candidateMaps = {}
     if (question.candidateMaps[key]) return question.candidateMaps[key]
     var map = {}
-    function add(hash, display) {
-      if (!hash) return
-      if (!map[hash]) map[hash] = []
-      map[hash].push(display)
-    }
-    for (var i = 0; i < question.hints.length; i++) {
-      var hint = question.hints[i]
-      if (!hint) continue
-      var rawValue = hint.raw || ""
-      var normalizedValue = hint.normalized || ""
-      var display = hint.text || rawValue || normalizedValue
-      if (rawValue) add(hashAnswerValue(rawValue, algorithm), display)
-      if (normalizedValue && normalizedValue !== rawValue) {
-        add(hashAnswerValue(normalizedValue, algorithm), display)
+    if (question.devDictionaryMaps && question.devDictionaryMaps[key]) {
+      var base = question.devDictionaryMaps[key]
+      for (var hash in base) {
+        if (!Object.prototype.hasOwnProperty.call(base, hash)) continue
+        map[hash] = base[hash].slice()
       }
     }
     question.candidateMaps[key] = map
@@ -688,8 +750,19 @@
     return button
   }
 
-  function buildState(form) {
-    var answerKey = parseAnswerKey(document.querySelector("[data-exercise-answer-key]"))
+  function buildState(form, answerKey, devDictionary) {
+    var devDictionaryCache = {}
+    function getDevMap(algorithm) {
+      if (!devDictionary || !devDictionary.length) return null
+      var alg = normalizeHashAlgorithm(algorithm) || "fnv1a-64"
+      if (devDictionaryCache[alg]) return devDictionaryCache[alg]
+      var map = buildDevDictionaryMap(devDictionary, alg)
+      devDictionaryCache[alg] = map
+      return map
+    }
+    if (!answerKey) {
+      answerKey = parseAnswerKey(document.querySelector("[data-exercise-answer-key]"))
+    }
     var questionNodes = toArray(form.querySelectorAll("[data-exercise-question]"))
     var questions = []
     for (var i = 0; i < questionNodes.length; i++) {
@@ -711,20 +784,17 @@
         if (!controlId) controlId = toggle.getAttribute("data-id") || ""
         if (controlId) panel = document.getElementById(controlId)
       }
-      var hints = gatherHints(panel)
+      var hints = []
       var config = findQuestionConfig(answerKey, questionId, hints)
-      if (config && config.textAnswers && config.textAnswers.length) {
-        for (var t = 0; t < config.textAnswers.length; t++) {
-          var textAnswer = config.textAnswers[t]
-          if (!textAnswer) continue
-          var rawText = String(textAnswer).trim()
-          if (!rawText) continue
-          hints.push({
-            text: rawText,
-            normalized: normalizeAnswer(rawText),
-            raw: rawText,
-          })
-        }
+      var algorithmForQuestion =
+        (config && config.hashAlgorithm) ||
+        (answerKey.options ? answerKey.options.defaultHashAlgorithm : "") ||
+        "fnv1a-64"
+      var devMap = getDevMap(algorithmForQuestion)
+      var devDictionaryMaps = null
+      if (devMap) {
+        devDictionaryMaps = {}
+        devDictionaryMaps[algorithmForQuestion] = devMap
       }
       questions.push({
         id: questionId,
@@ -735,6 +805,7 @@
         panel: panel,
         hints: hints,
         config: config,
+        devDictionaryMaps: devDictionaryMaps,
         isTextarea: isTextarea,
         isSingleField: isSingleField,
         candidateMaps: {},
@@ -754,73 +825,76 @@
   ready(function () {
     var form = document.querySelector("[data-exercise-form]")
     if (!form) return
-    var state = buildState(form)
-    if (!state.questions.length) return
+    var answerKey = parseAnswerKey(document.querySelector("[data-exercise-answer-key]"))
+    loadDevDictionary(answerKey).then(function (devDictionary) {
+      var state = buildState(form, answerKey, devDictionary || [])
+      if (!state.questions.length) return
 
-    var api = {
-      enable: function (options) {
-        if (hasDisableQuery()) return
-        writeStorage(FLAG_KEY, "1")
-        ensureButton(state)
-        if (!options || !options.silent) {
-          if (console && console.info) console.info("exerciseDevTools enabled")
-        }
-      },
-      disable: function (options) {
-        writeStorage(FLAG_KEY, "0")
-        removeButton(state)
-        if (!options || !options.silent) {
-          if (console && console.info) console.info("exerciseDevTools disabled")
-        }
-      },
-      isEnabled: function () {
-        return !!state.fillButton
-      },
-      fillAll: function (options) {
-        return fillAll(state, options || {})
-      },
-      fillQuestion: function (id, options) {
-        var question = findQuestionById(state, id)
-        if (!question) return Promise.resolve({ success: false, reason: "unknown-question" })
-        return fillQuestion(state, question, options || {})
-      },
-      setCredentials: function (data) {
-        storeCredentials(data)
-        ensureCredentials(state, data)
-      },
-      ensureCredentials: function () {
-        return ensureCredentials(state)
-      },
-      version: "2024-06-01",
-    }
-
-    Object.defineProperty(window, "exerciseDevTools", {
-      value: api,
-      configurable: true,
-    })
-
-    if (shouldEnableByDefault() && !hasDisableQuery()) {
-      api.enable({ silent: true })
-    }
-    if (!state.fillButton) {
-      var autoPreference = readAutoPreference()
-      if (autoPreference && !hasDisableQuery()) {
-        var fallbackEnable = function () {
-          if (!state.fillButton && !hasDisableQuery()) {
-            api.enable({ silent: true })
+      var api = {
+        enable: function (options) {
+          if (hasDisableQuery()) return
+          writeStorage(FLAG_KEY, "1")
+          ensureButton(state)
+          if (!options || !options.silent) {
+            if (console && console.info) console.info("exerciseDevTools enabled")
           }
-        }
-        if (typeof window !== "undefined" && window.addEventListener) {
-          var onLoad = function () {
-            window.removeEventListener("load", onLoad)
-            fallbackEnable()
+        },
+        disable: function (options) {
+          writeStorage(FLAG_KEY, "0")
+          removeButton(state)
+          if (!options || !options.silent) {
+            if (console && console.info) console.info("exerciseDevTools disabled")
           }
-          window.addEventListener("load", onLoad)
-        }
-        if (typeof window !== "undefined" && window.setTimeout) {
-          window.setTimeout(fallbackEnable, 800)
+        },
+        isEnabled: function () {
+          return !!state.fillButton
+        },
+        fillAll: function (options) {
+          return fillAll(state, options || {})
+        },
+        fillQuestion: function (id, options) {
+          var question = findQuestionById(state, id)
+          if (!question) return Promise.resolve({ success: false, reason: "unknown-question" })
+          return fillQuestion(state, question, options || {})
+        },
+        setCredentials: function (data) {
+          storeCredentials(data)
+          ensureCredentials(state, data)
+        },
+        ensureCredentials: function () {
+          return ensureCredentials(state)
+        },
+        version: "2024-06-01",
+      }
+
+      Object.defineProperty(window, "exerciseDevTools", {
+        value: api,
+        configurable: true,
+      })
+
+      if (shouldEnableByDefault() && !hasDisableQuery()) {
+        api.enable({ silent: true })
+      }
+      if (!state.fillButton) {
+        var autoPreference = readAutoPreference()
+        if (autoPreference && !hasDisableQuery()) {
+          var fallbackEnable = function () {
+            if (!state.fillButton && !hasDisableQuery()) {
+              api.enable({ silent: true })
+            }
+          }
+          if (typeof window !== "undefined" && window.addEventListener) {
+            var onLoad = function () {
+              window.removeEventListener("load", onLoad)
+              fallbackEnable()
+            }
+            window.addEventListener("load", onLoad)
+          }
+          if (typeof window !== "undefined" && window.setTimeout) {
+            window.setTimeout(fallbackEnable, 800)
+          }
         }
       }
-    }
+    })
   })
 })()

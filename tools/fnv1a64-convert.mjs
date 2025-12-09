@@ -37,6 +37,7 @@
 
 import fs from "fs"
 import path from "path"
+import readline from "readline"
 import { fileURLToPath } from "url"
 import { normalizeAnswer } from "./legacy-qa-parser.mjs"
 
@@ -153,7 +154,7 @@ function decodeLines(text, dictPath, normalize, dictionaryText) {
 }
 
 function parseArgs(argv) {
-  const args = { mode: "encode", dictionary: null, input: null, normalize: false }
+  const args = { mode: "encode", dictionary: null, input: null, normalize: false, title: "" }
   for (let i = 2; i < argv.length; i++) {
     const arg = argv[i]
     if (arg === "--encode") {
@@ -170,6 +171,8 @@ function parseArgs(argv) {
       args.input = argv[++i]
     } else if (arg === "--normalize") {
       args.normalize = true
+    } else if (arg === "--title" || arg === "-t") {
+      args.title = argv[++i] || ""
     } else if (arg === "--help" || arg === "-h") {
       args.help = true
     }
@@ -189,7 +192,7 @@ function printHelp() {
   node tools/fnv1a64-convert.mjs --verify --input input.txt
 
   # One-shot round-trip using tools/*.txt (overwrites hashes.txt, dict.txt, decoded.txt)
-  node tools/fnv1a64-convert.mjs --round-trip
+  node tools/fnv1a64-convert.mjs --round-trip [--title 114-collective-nouns]
 
   # Preserve exact text (default) or normalize like legacy behavior
   node tools/fnv1a64-convert.mjs --encode --input input.txt           # exact (default)
@@ -238,7 +241,20 @@ function verifyRoundTrip(inputPath, dictPath, normalize, inputText) {
   return { encoded, decoded }
 }
 
-function runRoundTrip(inputPathArg, normalize) {
+function promptForTitle(cliTitle) {
+  const prepared = (cliTitle || "").trim()
+  if (prepared) return Promise.resolve(prepared)
+  if (!process.stdin.isTTY) return Promise.resolve("")
+  const rl = readline.createInterface({ input: process.stdin, output: process.stdout })
+  return new Promise((resolve) => {
+    rl.question("Enter exercise title for dev/decoded output (e.g., 114-collective-nouns): ", (ans) => {
+      rl.close()
+      resolve((ans || "").trim())
+    })
+  })
+}
+
+function runRoundTrip(inputPathArg, normalize, title) {
   const inputPath = resolveFilePath(inputPathArg || defaultPaths.input)
   const dictPath = defaultPaths.dict
   const hashesPath = defaultPaths.hashes
@@ -265,9 +281,18 @@ function runRoundTrip(inputPathArg, normalize) {
   }
 
   console.log("100% identical - successful encode-decode round trip.")
+
+  return promptForTitle(title).then((resolvedTitle) => {
+    if (!resolvedTitle) return
+    const devDir = path.resolve(scriptDir, "..", "dev")
+    if (!fs.existsSync(devDir)) fs.mkdirSync(devDir, { recursive: true })
+    const targetPath = path.join(devDir, `${resolvedTitle}.ext`)
+    fs.copyFileSync(decodedPath, targetPath)
+    console.log(`Copied decoded answers to ${targetPath}`)
+  })
 }
 
-function main() {
+async function main() {
   const args = parseArgs(process.argv)
   if (args.help) {
     printHelp()
@@ -276,7 +301,7 @@ function main() {
 
   try {
     if (args.mode === "roundtrip") {
-      runRoundTrip(args.input, args.normalize)
+      await runRoundTrip(args.input, args.normalize, args.title)
       return
     }
 
