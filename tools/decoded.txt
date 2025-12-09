@@ -1,37 +1,68 @@
-flock
-flight
+station
 
-pride
-coalition
-troop
+colors
+rainbow
 
-herd
-drove
+man
+horse
+cart
+apples
 
-bunch
-cluster
+zoo
+sheep
 
-collection
-album
+head
+arms
 
-flock
-fold
+mother
+song
+kitchen
 
-gang
-band
-crew
-pack
-den
-skulk
-ring
+nuts
+monkeys
 
-bunch
-comb
+children
+ball
+field
 
-class
-assembly
-group
+temple
+grandfather
 
-set
-kit
-collection
+balloons
+children
+friends
+
+father
+turtle
+
+trophy
+dancer
+street
+
+camera
+camel
+button
+
+seabirds
+heads
+
+uncle
+hospital
+
+brother
+hide and seek
+hide-and-seek
+
+puppies
+kittens
+
+taxi
+gate
+
+boys
+beach
+
+monkey
+tail
+branch
+

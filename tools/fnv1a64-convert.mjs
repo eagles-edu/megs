@@ -27,12 +27,18 @@
  * ***********
 
  * Usage:
+
  *   node tools/fnv1a64-convert.mjs --encode --input tools/input.txt > tools/hashes.txt
  *   node tools/fnv1a64-convert.mjs --decode --dictionary tools/dict.txt --input hashes.txt
  *   node tools/fnv1a64-convert.mjs --verify --input tools/input.txt
- *   node tools/fnv1a64-convert.mjs --round-trip                 # encode → decode using tools/*.txt
- *   node tools/fnv1a64-convert.mjs --encode --normalize --input tools/input.txt  # legacy mode
- *   # OR: cat tools/input.txt | node tools/fnv1a64-convert.mjs --encode
+ *   node tools/fnv1a64-convert.mjs --round-trip --input tools/input.txt --title 111-common-nouns
+ *
+ * # encode → decode using tools/*.txt; copies decoded.txt to dev/<title>.ext when title provided/prompted
+ *
+ * node tools/fnv1a64-convert.mjs --encode --normalize --input tools/input.txt  # legacy mode
+ *
+ * # OR:
+ * cat tools/input.txt | node tools/fnv1a64-convert.mjs --encode
  */
 
 import fs from "fs"
@@ -192,7 +198,7 @@ function printHelp() {
   node tools/fnv1a64-convert.mjs --verify --input input.txt
 
   # One-shot round-trip using tools/*.txt (overwrites hashes.txt, dict.txt, decoded.txt)
-  node tools/fnv1a64-convert.mjs --round-trip [--title 114-collective-nouns]
+  node tools/fnv1a64-convert.mjs --round-trip --input tools/input.txt --title 114-common-nouns  # copies decoded.txt to dev/<title>.txt
 
   # Preserve exact text (default) or normalize like legacy behavior
   node tools/fnv1a64-convert.mjs --encode --input input.txt           # exact (default)
@@ -286,7 +292,7 @@ function runRoundTrip(inputPathArg, normalize, title) {
     if (!resolvedTitle) return
     const devDir = path.resolve(scriptDir, "..", "dev")
     if (!fs.existsSync(devDir)) fs.mkdirSync(devDir, { recursive: true })
-    const targetPath = path.join(devDir, `${resolvedTitle}.ext`)
+    const targetPath = path.join(devDir, `${resolvedTitle}.txt`)
     fs.copyFileSync(decodedPath, targetPath)
     console.log(`Copied decoded answers to ${targetPath}`)
   })

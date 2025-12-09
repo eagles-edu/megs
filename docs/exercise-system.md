@@ -87,7 +87,7 @@
   - The encoder skips runs that look already encoded (`&#…;`) to avoid double-encoding.
   - Verify output keeps tags and `<br>` line breaks unchanged; confirm decoded text still matches the intended answer strings.
   - After applying, re-open the page locally and confirm rendered text remains readable and hashes still match expected answers.
-- **Validation**: After obfuscation, run `npm run verify:prototype` (or the relevant smoke/lint target) to ensure gating and markup still pass checks.
+- **Validation**: After obfuscation, run `npm run verify:prototype` (or the relevant smoke/lint target) to ensure gating and markup still pass checks.<br> <br>
 
 ### Operational Tips
 
@@ -95,3 +95,34 @@
 - For textarea/full-width responses, set `data-answer-ui="textarea"` in legacy or run with `--answer-ui textarea`.
 - When adding alternatives, place all variants for a question in `tools/input.txt` separated by blank lines before re-hashing.
 - If panels open without correct answers, verify `requireCorrectBeforeReveal` is `true` and hashes match exactly.**
+
+### New _autofill_ system
+
+#### *_Supersedes all other References_
+
+In the answer key,
+
+`answersAccepted`
+
+is an array of **“combos**.” Each combo is itself an array of tokens that must all be matched to satisfy that combo.
+
+**Single-field with alternates**: one combo per alternate, each with one hash.
+
+Example:
+
+`[["fnv1a-64:a..."], ["fnv1a-64:b..."]]`
+
+means _either hash is acceptable_; _only one is required_ because there’s one field and each **combo length is 1**.
+
+**Multi-field/all-required**: a single combo containing multiple hashes. Example:
+
+`[["fnv1a-64:080f6…", "fnv1a-64:30bb…", "fnv1a-64:b561…", "fnv1a-64:f263…"]]`
+
+means all four must match, in any order, across four fields (or one field if that combo is expected to be multiple tokens concatenated, depending on UI).
+
+The gate checks each token in the combo; all must succeed for that combo to pass.
+
+#### So brackets
+
+- **Outer** [ ]: list of combos (**alternatives**).
+- **Inner** [ ]: the tokens **required together** for that combo.
