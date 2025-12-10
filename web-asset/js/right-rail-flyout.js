@@ -12,6 +12,17 @@
     Array.prototype.forEach.call(collection, iteratee)
   }
 
+  function closest(element, selector) {
+    if (!element) return null
+    if (element.closest) return element.closest(selector)
+    var node = element
+    while (node) {
+      if (node.matches && node.matches(selector)) return node
+      node = node.parentElement
+    }
+    return null
+  }
+
   function closeSiblings(menu, currentItem) {
     var openItems = menu.querySelectorAll("[data-r-flyout-item].is-open")
     forEach(openItems, function (item) {
@@ -27,11 +38,77 @@
     })
   }
 
+  function normalizePathname(pathname) {
+    if (!pathname) return ""
+    var normalized = pathname
+    try {
+      normalized = decodeURIComponent(normalized)
+    } catch {
+      /* ignore decode errors */
+    }
+    normalized = normalized.replace(/\\/g, "/")
+    normalized = normalized.replace(/[#?].*$/, "")
+    normalized = normalized.replace(/\/index\.html?$/i, "/")
+    if (normalized.length > 1) normalized = normalized.replace(/\/+$/, "/")
+    return normalized.toLowerCase()
+  }
+
+  function findActiveAnchor(menu, currentPath) {
+    var anchors = menu.querySelectorAll("a[href]")
+    var active = null
+    forEach(anchors, function (anchor) {
+      if (active) return
+      var href = anchor.getAttribute("href")
+      if (!href || href.charAt(0) === "#") return
+      var url
+      try {
+        url = new URL(href, window.location.href)
+      } catch {
+        return
+      }
+      var anchorPath = normalizePathname(url.pathname)
+      if (!anchorPath) return
+      if (anchorPath === currentPath || currentPath === anchorPath + "/") {
+        active = anchor
+      }
+    })
+    return active
+  }
+
+  function applyActiveState(menu) {
+    var currentPath = normalizePathname(window.location && window.location.pathname)
+    if (!currentPath) return
+
+    var activeAnchor = findActiveAnchor(menu, currentPath)
+    if (!activeAnchor) return
+
+    var currentItems = menu.querySelectorAll(
+      "[data-r-flyout-item].current, .r-flyout__sublist li.current, .r-flyout__sublist li.active"
+    )
+    forEach(currentItems, function (item) {
+      item.classList.remove("current")
+      item.classList.remove("active")
+    })
+
+    var subItem = closest(activeAnchor, ".r-flyout__sublist li")
+    if (subItem) {
+      subItem.classList.add("current")
+      subItem.classList.add("active")
+    }
+
+    var parentItem = closest(activeAnchor, "[data-r-flyout-item]")
+    if (parentItem) {
+      parentItem.classList.add("current")
+    }
+  }
+
   ready(function () {
     var menus = document.querySelectorAll("[data-r-flyout]")
     forEach(menus, function (menu) {
       if (menu.__rFlyoutBound) return
       menu.__rFlyoutBound = true
+
+      applyActiveState(menu)
 
       var items = menu.querySelectorAll("[data-r-flyout-item]")
       forEach(items, function (item, index) {
