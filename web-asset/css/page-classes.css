@@ -27,13 +27,29 @@ body.site {
   color: var(--secondary-color);
 }
 
+section .lesson {
+    .slide {
+      margin-bottom: 1.75rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid #ddd;
+    }
+    .slide h1,
+    .slide h2 {
+      margin: 0 0 0.25rem;
+      line-height: 1.3;
+    }
+    .slide ul {
+      margin: 0.5rem 0 0.5rem 1.25rem;
+    }
+
+
+}
+
 /* Page-type hooks (no-op yet | define as needed)
 
 body.exercize {
 }
 
-body.lesson {
-}
 
 body.list {
 }

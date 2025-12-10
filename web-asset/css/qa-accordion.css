@@ -129,14 +129,12 @@ div .accordion-inner > p {
   height: 1.05em;
   margin-right: 0.4em;
   vertical-align: -0.15em;
-  background: center / contain no-repeat url("../icons/svg/checkmark.svg");
-  filter: var(--exercise-status-ok-filter, none);
+  background-color: currentcolor;
+  mask: center / contain no-repeat url("../icons/svg/checkmark.svg");
 }
 
 #exercise-status.status-ok {
   color: #0f6d2a;
-
-  --exercise-status-ok-filter: drop-shadow(0 0 0 currentcolor);
 }
 
 .status-warn {

@@ -13,7 +13,7 @@
   <meta name="generator" content="English Grammar - intermediate levels A2 and above">
   <title>Exercise 1 - Nouns</title>
 
-  <link href="web-asset/icons/favicon.ico" rel="shortcut icon" type="image/vnd.microsoft.icon">  <!-- theme-vars.css eliminated; variables live in base.css -->
+  <link href="../favicon.ico" rel="shortcut icon" type="image/vnd.microsoft.icon">  <!-- theme-vars.css eliminated; variables live in base.css -->
 
   <!-- Minimal theme tokens inline to avoid var() FOUC when base.css loads async -->
   <style id="theme-vars-critical">
@@ -3354,6 +3354,16 @@
           </p>
         </div>
       </footer>
+      <script>
+  (() => {
+    'use strict';
+    const year = new Date().getFullYear(); // NEW: get current year
+    document.querySelectorAll('[data-copyright-year]').forEach(el => {
+      const start = parseInt(el.getAttribute('data-start'), 10); // NEW: optional start year
+      el.textContent = Number.isFinite(start) && start < year ? `${start}–${year}` : String(year); // NEW: write year/range
+    });
+  })();
+  </script>
 </body>
 
 <!-- /exercise-1-nouns.html, Tue, 24 Nov 2020 12:28:50 GMT -->

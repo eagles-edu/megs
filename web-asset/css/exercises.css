@@ -326,6 +326,10 @@
   align-self: stretch;
 }
 
+#exercise-status.status-ok {
+  color: #0f6d2a;
+}
+
 #exercise-status.status-ok::before {
   content: "";
   display: inline-block;
@@ -333,8 +337,8 @@
   height: 1.05em;
   margin-right: 0.4em;
   vertical-align: -0.15em;
-  background: center / contain no-repeat url("../icons/svg/checkmark.svg");
-  filter: var(--exercise-status-ok-filter, none);
+  background-color: currentcolor;
+  mask: center / contain no-repeat url("../icons/svg/checkmark.svg");
 }
 
 .exercise-response-row--pending .exercise-response-input {
@@ -456,10 +460,4 @@
     right: 1.1rem;
     padding-inline: 1.1rem;
   }
-}
-
-#exercise-status.status-ok {
-  --exercise-status-ok-filter: drop-shadow(0 0 0 currentcolor);
-
-  color: #0f6d2a;
 }
