@@ -1,6 +1,3 @@
-// Important: You must have a blank line before <!-- prettier-ignore-start --> and <!-- prettier-ignore-end --> for Prettier to recognize the comments.
-// <!-- prettier-ignore -->
-
 {
   "logLevel": "debug",
   "printWidth": 100,
@@ -18,11 +15,11 @@
     {
       "files": ["*.html", "*.htm"],
       "options": {
-        "options": { "parser": "html" },  // 👈 force HTML parser
+        "parser": "html",
         "bracketSameLine": true,
         "singleAttributePerLine": true,
         "printWidth": 140,
-        "htmlWhitespaceSensitivity": "ignore",
+        "htmlWhitespaceSensitivity": "ignore"
       }
     }
   ]

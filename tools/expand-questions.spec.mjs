@@ -3,7 +3,7 @@ import assert from "node:assert/strict"
 import * as cheerio from "cheerio"
 import { ensureInteractiveScaffold, processHtml } from "../tools/expand-questions.mjs"
 
-const SAMPLE_HTML = `<!DOCTYPE html>
+const SAMPLE_HTML = `<!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -109,7 +109,7 @@ describe("ensureInteractiveScaffold", () => {
   })
 
   it("repairs empty legacy response rows by injecting fallback inputs", async () => {
-    const LEGACY_WITH_EMPTY_ROW = `<!DOCTYPE html>
+    const LEGACY_WITH_EMPTY_ROW = `<!doctype html>
 <html lang="en">
   <body>
     <article>
@@ -145,7 +145,7 @@ describe("ensureInteractiveScaffold", () => {
 
 describe("processHtml", () => {
   it("rebuilds response rows with fallback labels when templates are missing", () => {
-    const MINIMAL_INTERACTIVE_HTML = `<!DOCTYPE html>
+    const MINIMAL_INTERACTIVE_HTML = `<!doctype html>
 <html lang="en">
   <body>
     <form data-exercise-form data-exercise-question-count="1">

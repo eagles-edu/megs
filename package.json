@@ -12,6 +12,9 @@
     "node": "=20"
   },
   "scripts": {
+    "fmt:html": "prettier --parser html --write \"**/*.{html,htm}\"",
+    "fix:void-selfclosing": "node js/fix-void-selfclosing.js",
+    "fmt:htmldiff": "prettier --parser html --cache --write \"**/*.{html,htm}\"",
     "start": "bash js/startup-new.sh",
     "diagnose": "node js/diagnose.js",
     "verify:prototype": "node js/verify-prototype.mjs",
@@ -20,7 +23,7 @@
     "migrate:legacy": "node js/migrate-legacy-to-persistence.js --apply",
     "migrate:legacy:dry": "node js/migrate-legacy-to-persistence.js",
     "format": "prettier . --write && npm run lint:css:fix",
-    "fmt:html": "prettier --parser html --write \"**/*.{html,htm}\"",
+    "fmt:html:fix-void": "npm run fmt:html && npm run fix:void-selfclosing",
     "lint": "npm run lint:js && npm run lint:css && npm run lint:html",
     "lint:html": "html-validate \"**/*.{html,htm}\"",
     "lint:html-stylish": "html-validate --formatter stylish \"**/*.{html,htm}\"",
@@ -31,7 +34,6 @@
     "lint:js:fix": "eslint \"**/*.{js,mjs,cjs}\" --fix",
     "lint:css": "stylelint \"**/*.{css,scss,less}\" --allow-empty-input",
     "lint:css:fix": "stylelint \"**/*.{css,scss,less}\" --fix --allow-empty-input",
-    "fix:void-selfclosing": "node js/fix-void-selfclosing.js",
     "heartbeat:start": "node js/session-heartbeat.js --start",
     "heartbeat:stop": "node js/session-heartbeat.js --stop",
     "log:history": "node js/log-history.js note",

@@ -1,5 +1,5 @@
 <!-- prettier-ignore -->
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -5410,7 +5410,10 @@
               const res = await postJSON(submitUrl, payload)
 
               if (res.status === 204) {
-                showStatus("ok", "Submitted! Check your inbox.\nAll answers submitted successfully.\nAnswers have been cleared for your next attempt.")
+                showStatus(
+                  "ok",
+                  "Submitted! Check your inbox.\nAll answers submitted successfully.\nAnswers have been cleared for your next attempt."
+                )
                 saveNow(form) // capture final state/time
               } else {
                 const data = await res.json().catch(() => ({}))

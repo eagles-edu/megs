@@ -1,5 +1,5 @@
 <!-- prettier-ignore -->
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -1401,7 +1401,14 @@
                     </a>
                   </li>
                 </ul>
-                <p><em>Change gender of the nouns / pronouns</em> from the <b>feminine / masculine</b> to the <b>masculine / feminine</b>. Click the question to check your answer.</p>
+                <p>
+                  <em>Change gender of the nouns / pronouns</em>
+                  from the
+                  <b>feminine / masculine</b>
+                  to the
+                  <b>masculine / feminine</b>
+                  . Click the question to check your answer.
+                </p>
                 <form
                   class="exercise-form exercise-gate"
                   data-exercise-form=""
@@ -5426,7 +5433,10 @@
               const res = await postJSON(submitUrl, payload)
 
               if (res.status === 204) {
-                showStatus("ok", "Submitted! Check your inbox.\nAll answers submitted successfully.\nAnswers have been cleared for your next attempt.")
+                showStatus(
+                  "ok",
+                  "Submitted! Check your inbox.\nAll answers submitted successfully.\nAnswers have been cleared for your next attempt."
+                )
                 saveNow(form) // capture final state/time
               } else {
                 const data = await res.json().catch(() => ({}))

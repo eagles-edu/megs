@@ -1,5 +1,5 @@
 <!-- prettier-ignore -->
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -1401,7 +1401,11 @@
                     </a>
                   </li>
                 </ul>
-                <p><b>Use capital letters for Proper Nouns</b> in the following sentences. <em>Click the sentence to check the answer.</em></p>
+                <p>
+                  <b>Use capital letters for Proper Nouns</b>
+                  in the following sentences.
+                  <em>Click the sentence to check the answer.</em>
+                </p>
                 <form
                   class="exercise-form exercise-gate"
                   data-exercise-form=""
@@ -4769,7 +4773,10 @@
               const res = await postJSON(submitUrl, payload)
 
               if (res.status === 204) {
-                showStatus("ok", "Submitted! Check your inbox.\nAll answers submitted successfully.\nAnswers have been cleared for your next attempt.")
+                showStatus(
+                  "ok",
+                  "Submitted! Check your inbox.\nAll answers submitted successfully.\nAnswers have been cleared for your next attempt."
+                )
                 saveNow(form) // capture final state/time
               } else {
                 const data = await res.json().catch(() => ({}))

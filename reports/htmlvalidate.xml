@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <checkstyle version="4.3">
   <file name="/home/eagles/dockerz/megs/docs/Fix broken page structure.html">
-    <error line="1" column="1" severity="warning" message="DOCTYPE should be uppercase (doctype-style)" source="htmlvalidate.rules.doctype-style" />
+    <error line="1" column="1" severity="warning" message="doctype should be uppercase (doctype-style)" source="htmlvalidate.rules.doctype-style" />
     <error line="11" column="72" severity="error" message="Expected omitted end tag &lt;meta&gt; instead of self-closing element &lt;meta/&gt; (void-style)" source="htmlvalidate.rules.void-style" />
     <error line="12" column="93" severity="error" message="Expected omitted end tag &lt;meta&gt; instead of self-closing element &lt;meta/&gt; (void-style)" source="htmlvalidate.rules.void-style" />
     <error line="15" column="202" severity="error" message="Expected omitted end tag &lt;meta&gt; instead of self-closing element &lt;meta/&gt; (void-style)" source="htmlvalidate.rules.void-style" />
@@ -4510,58 +4510,58 @@
     <error line="64" column="9" severity="warning" message="Trailing whitespace (no-trailing-whitespace)" source="htmlvalidate.rules.no-trailing-whitespace" />
   </file>
   <file name="/home/eagles/dockerz/megs/node_modules/fg-loadcss/test/body.html">
-    <error line="1" column="1" severity="warning" message="DOCTYPE should be uppercase (doctype-style)" source="htmlvalidate.rules.doctype-style" />
+    <error line="1" column="1" severity="warning" message="doctype should be uppercase (doctype-style)" source="htmlvalidate.rules.doctype-style" />
     <error line="2" column="2" severity="error" message="&lt;html&gt; is missing required &quot;lang&quot; attribute (element-required-attributes)" source="htmlvalidate.rules.element-required-attributes" />
   </file>
   <file name="/home/eagles/dockerz/megs/node_modules/fg-loadcss/test/control.html">
-    <error line="1" column="1" severity="warning" message="DOCTYPE should be uppercase (doctype-style)" source="htmlvalidate.rules.doctype-style" />
+    <error line="1" column="1" severity="warning" message="doctype should be uppercase (doctype-style)" source="htmlvalidate.rules.doctype-style" />
     <error line="2" column="2" severity="error" message="&lt;html&gt; is missing required &quot;lang&quot; attribute (element-required-attributes)" source="htmlvalidate.rules.element-required-attributes" />
   </file>
   <file name="/home/eagles/dockerz/megs/node_modules/fg-loadcss/test/dom-append.html">
-    <error line="1" column="1" severity="warning" message="DOCTYPE should be uppercase (doctype-style)" source="htmlvalidate.rules.doctype-style" />
+    <error line="1" column="1" severity="warning" message="doctype should be uppercase (doctype-style)" source="htmlvalidate.rules.doctype-style" />
     <error line="2" column="2" severity="error" message="&lt;html&gt; is missing required &quot;lang&quot; attribute (element-required-attributes)" source="htmlvalidate.rules.element-required-attributes" />
   </file>
   <file name="/home/eagles/dockerz/megs/node_modules/fg-loadcss/test/import-head.html">
-    <error line="1" column="1" severity="warning" message="DOCTYPE should be uppercase (doctype-style)" source="htmlvalidate.rules.doctype-style" />
+    <error line="1" column="1" severity="warning" message="doctype should be uppercase (doctype-style)" source="htmlvalidate.rules.doctype-style" />
     <error line="2" column="2" severity="error" message="&lt;html&gt; is missing required &quot;lang&quot; attribute (element-required-attributes)" source="htmlvalidate.rules.element-required-attributes" />
   </file>
   <file name="/home/eagles/dockerz/megs/node_modules/fg-loadcss/test/import.html">
-    <error line="1" column="1" severity="warning" message="DOCTYPE should be uppercase (doctype-style)" source="htmlvalidate.rules.doctype-style" />
+    <error line="1" column="1" severity="warning" message="doctype should be uppercase (doctype-style)" source="htmlvalidate.rules.doctype-style" />
     <error line="2" column="2" severity="error" message="&lt;html&gt; is missing required &quot;lang&quot; attribute (element-required-attributes)" source="htmlvalidate.rules.element-required-attributes" />
     <error line="9" column="4" severity="error" message="&lt;style&gt; element is not permitted as content under &lt;body&gt; (element-permitted-content)" source="htmlvalidate.rules.element-permitted-content" />
   </file>
   <file name="/home/eagles/dockerz/megs/node_modules/fg-loadcss/test/index.html">
-    <error line="1" column="1" severity="warning" message="DOCTYPE should be uppercase (doctype-style)" source="htmlvalidate.rules.doctype-style" />
+    <error line="1" column="1" severity="warning" message="doctype should be uppercase (doctype-style)" source="htmlvalidate.rules.doctype-style" />
     <error line="2" column="2" severity="error" message="&lt;html&gt; is missing required &quot;lang&quot; attribute (element-required-attributes)" source="htmlvalidate.rules.element-required-attributes" />
   </file>
   <file name="/home/eagles/dockerz/megs/node_modules/fg-loadcss/test/preload-control.html">
-    <error line="1" column="1" severity="warning" message="DOCTYPE should be uppercase (doctype-style)" source="htmlvalidate.rules.doctype-style" />
+    <error line="1" column="1" severity="warning" message="doctype should be uppercase (doctype-style)" source="htmlvalidate.rules.doctype-style" />
     <error line="2" column="2" severity="error" message="&lt;html&gt; is missing required &quot;lang&quot; attribute (element-required-attributes)" source="htmlvalidate.rules.element-required-attributes" />
     <error line="10" column="4" severity="error" message="Element &lt;p&gt; is implicitly closed by sibling (no-implicit-close)" source="htmlvalidate.rules.no-implicit-close" />
     <error line="10" column="240" severity="error" message="Element &lt;p&gt; is implicitly closed by parent &lt;/body&gt; (no-implicit-close)" source="htmlvalidate.rules.no-implicit-close" />
   </file>
   <file name="/home/eagles/dockerz/megs/node_modules/fg-loadcss/test/preload-switch.html">
-    <error line="1" column="1" severity="warning" message="DOCTYPE should be uppercase (doctype-style)" source="htmlvalidate.rules.doctype-style" />
+    <error line="1" column="1" severity="warning" message="doctype should be uppercase (doctype-style)" source="htmlvalidate.rules.doctype-style" />
     <error line="2" column="2" severity="error" message="&lt;html&gt; is missing required &quot;lang&quot; attribute (element-required-attributes)" source="htmlvalidate.rules.element-required-attributes" />
     <error line="32" column="4" severity="error" message="Element &lt;p&gt; is implicitly closed by sibling (no-implicit-close)" source="htmlvalidate.rules.no-implicit-close" />
     <error line="33" column="194" severity="error" message="Element &lt;p&gt; is implicitly closed by sibling (no-implicit-close)" source="htmlvalidate.rules.no-implicit-close" />
   </file>
   <file name="/home/eagles/dockerz/megs/node_modules/fg-loadcss/test/preload.html">
-    <error line="1" column="1" severity="warning" message="DOCTYPE should be uppercase (doctype-style)" source="htmlvalidate.rules.doctype-style" />
+    <error line="1" column="1" severity="warning" message="doctype should be uppercase (doctype-style)" source="htmlvalidate.rules.doctype-style" />
     <error line="2" column="2" severity="error" message="&lt;html&gt; is missing required &quot;lang&quot; attribute (element-required-attributes)" source="htmlvalidate.rules.element-required-attributes" />
     <error line="31" column="4" severity="error" message="Element &lt;p&gt; is implicitly closed by sibling (no-implicit-close)" source="htmlvalidate.rules.no-implicit-close" />
     <error line="32" column="194" severity="error" message="Element &lt;p&gt; is implicitly closed by sibling (no-implicit-close)" source="htmlvalidate.rules.no-implicit-close" />
   </file>
   <file name="/home/eagles/dockerz/megs/node_modules/fg-loadcss/test/test-onload.html">
-    <error line="1" column="1" severity="warning" message="DOCTYPE should be uppercase (doctype-style)" source="htmlvalidate.rules.doctype-style" />
+    <error line="1" column="1" severity="warning" message="doctype should be uppercase (doctype-style)" source="htmlvalidate.rules.doctype-style" />
     <error line="2" column="2" severity="error" message="&lt;html&gt; is missing required &quot;lang&quot; attribute (element-required-attributes)" source="htmlvalidate.rules.element-required-attributes" />
   </file>
   <file name="/home/eagles/dockerz/megs/node_modules/fg-loadcss/test/test.html">
-    <error line="1" column="1" severity="warning" message="DOCTYPE should be uppercase (doctype-style)" source="htmlvalidate.rules.doctype-style" />
+    <error line="1" column="1" severity="warning" message="doctype should be uppercase (doctype-style)" source="htmlvalidate.rules.doctype-style" />
     <error line="2" column="2" severity="error" message="&lt;html&gt; is missing required &quot;lang&quot; attribute (element-required-attributes)" source="htmlvalidate.rules.element-required-attributes" />
   </file>
   <file name="/home/eagles/dockerz/megs/node_modules/uglify-js/tools/domprops.html">
-    <error line="1" column="1" severity="warning" message="DOCTYPE should be uppercase (doctype-style)" source="htmlvalidate.rules.doctype-style" />
+    <error line="1" column="1" severity="warning" message="doctype should be uppercase (doctype-style)" source="htmlvalidate.rules.doctype-style" />
     <error line="2" column="2" severity="error" message="&lt;html&gt; is missing required &quot;lang&quot; attribute (element-required-attributes)" source="htmlvalidate.rules.element-required-attributes" />
   </file>
   <file name="/home/eagles/dockerz/megs/node_modules/xxhashjs/examples/xxhash.html">
@@ -4578,10 +4578,10 @@
     <error line="6" column="34" severity="error" message="End tag for &lt;meta&gt; must be omitted (void-content)" source="htmlvalidate.rules.void-content" />
   </file>
   <file name="/home/eagles/dockerz/megs/node_modules/lighthouse/flow-report/assets/standalone-flow-template.html">
-    <error line="6" column="1" severity="warning" message="DOCTYPE should be uppercase (doctype-style)" source="htmlvalidate.rules.doctype-style" />
+    <error line="6" column="1" severity="warning" message="doctype should be uppercase (doctype-style)" source="htmlvalidate.rules.doctype-style" />
   </file>
   <file name="/home/eagles/dockerz/megs/node_modules/lighthouse/report/assets/standalone-template.html">
-    <error line="6" column="1" severity="warning" message="DOCTYPE should be uppercase (doctype-style)" source="htmlvalidate.rules.doctype-style" />
+    <error line="6" column="1" severity="warning" message="doctype should be uppercase (doctype-style)" source="htmlvalidate.rules.doctype-style" />
   </file>
   <file name="/home/eagles/dockerz/megs/node_modules/lighthouse/report/assets/templates.html">
     <error line="37" column="34" severity="error" message="Prefer to use the native &lt;hN&gt; element (prefer-native-element)" source="htmlvalidate.rules.prefer-native-element" />
@@ -4607,7 +4607,7 @@
     <error line="748" column="6" severity="error" message="&lt;button&gt; must have accessible text (text-content)" source="htmlvalidate.rules.text-content" />
   </file>
   <file name="/home/eagles/dockerz/megs/node_modules/htmlparser2/src/__fixtures__/Documents/Attributes.html">
-    <error line="1" column="1" severity="warning" message="DOCTYPE should be uppercase (doctype-style)" source="htmlvalidate.rules.doctype-style" />
+    <error line="1" column="1" severity="warning" message="doctype should be uppercase (doctype-style)" source="htmlvalidate.rules.doctype-style" />
     <error line="2" column="2" severity="error" message="&lt;html&gt; is missing required &quot;lang&quot; attribute (element-required-attributes)" source="htmlvalidate.rules.element-required-attributes" />
     <error line="8" column="3" severity="error" message="&lt;button&gt; is missing recommended &quot;type&quot; attribute (no-implicit-button-type)" source="htmlvalidate.rules.no-implicit-button-type" />
     <error line="11" column="3" severity="error" message="&lt;button&gt; is missing recommended &quot;type&quot; attribute (no-implicit-button-type)" source="htmlvalidate.rules.no-implicit-button-type" />
@@ -4621,7 +4621,7 @@
     <error line="1" column="23" severity="error" message="&lt;title&gt; element requires a &lt;head&gt; element as parent (element-permitted-parent)" source="htmlvalidate.rules.element-permitted-parent" />
   </file>
   <file name="/home/eagles/dockerz/megs/node_modules/htmlparser2/src/__fixtures__/Documents/Svg.html">
-    <error line="1" column="1" severity="warning" message="DOCTYPE should be uppercase (doctype-style)" source="htmlvalidate.rules.doctype-style" />
+    <error line="1" column="1" severity="warning" message="doctype should be uppercase (doctype-style)" source="htmlvalidate.rules.doctype-style" />
     <error line="2" column="2" severity="error" message="&lt;html&gt; is missing required &quot;lang&quot; attribute (element-required-attributes)" source="htmlvalidate.rules.element-required-attributes" />
   </file>
 </checkstyle>
