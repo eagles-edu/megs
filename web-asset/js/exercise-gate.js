@@ -1261,7 +1261,9 @@
           renderLastAttempt(stored)
           resetExercise()
           setFeedback(
-            "Submitted! Check your inbox.\nAll answers submitted successfully.\nAnswers have been cleared for your next attempt.",
+            `Submitted! Check your inbox.
+All answers submitted successfully.
+Answers have been cleared for your next attempt.`,
             "success"
           )
           updateSubmitState()

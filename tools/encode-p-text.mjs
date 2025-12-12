@@ -1,8 +1,9 @@
 #!/usr/bin/env node
 // Encode text nodes inside <p> elements to decimal HTML entities while preserving HTML tags.
 // Usage:
-// Dry run to stdout: node tools/encode-p-text.mjs exercise-1-nouns/151-gender.html
-// Apply in place: node tools/encode-p-text.mjs --write exercise-1-nouns/151-gender.html
+// Dry run to stdout: node tools/encode-p-text.mjs exercise-2-verbs/211-transitive-and-intransitive-verbs.html
+// Apply in place:
+// node tools/encode-p-text.mjs --write exercise-2-verbs/211-transitive-and-intransitive-verbs.html
 // Optional quick check: node tools/encode-p-text.mjs /tmp/sample.html | head
 // Rollback: rm tools/encode-p-t
 // node tools/encode-p-text.mjs [--write|--apply] <file...>
