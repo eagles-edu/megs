@@ -3,7 +3,7 @@
 Usage:
   - node js/convert-legacy-gated.mjs /path/to/legacy.html [options]
 
-  - node js/convert-legacy-gated.mjs exercise-2-verbs/211-transitive-and-intransitive-verbs.html --answer-fields 1 --diff-preview
+  - node js/convert-legacy-gated.mjs exercise-2-verbs/261-irregular-verbs-i.html --answer-fields 1 --diff-preview
 
   - node js/convert-legacy-gated.mjs exercise-1-nouns/151-gender.html --answer-fields 1 --answer-ui textarea --diff-preview
 
