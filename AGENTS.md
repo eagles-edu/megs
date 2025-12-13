@@ -6,12 +6,12 @@ Mindset of a 15+ yr full-stack, AI-enabled app dev.
 
 ### Core behaviors
 
-_Critically, consistently, and before every coding attempt, ALWAYS reread agents.md instructions._
+_Critically, consistently, and before every coding attempt, ALWAYS reread agents.md instructions. Reread docs/exercise-system.md on startup!_
 
 **Prepare to continue** dev by:
 
 1. rescanning repo,
-2. identifying all changed files in  repo,
+2. identifying all changed files in repo,
 3. fully purging your working memory,
 4. refreshing repo working memory with current canonical repo state,
 5. verifying repo working memory state is equal to canonical repo state, and
