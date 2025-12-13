@@ -63,6 +63,21 @@ function ensureFileExists(targetPath) {
   }
 }
 
+function logEvent(telemetry, status, name, detail = "") {
+  if (!telemetry) return
+  telemetry.push({ status, name, detail })
+}
+
+function printTelemetry(telemetry = []) {
+  if (!telemetry.length) return
+  console.log("Conversion summary:")
+  telemetry.forEach((event) => {
+    const prefix = event.status === "warn" ? "WARN" : event.status === "fail" ? "FAIL" : "OK"
+    const detail = event.detail ? ` - ${event.detail}` : ""
+    console.log(`  [${prefix}] ${event.name}${detail}`)
+  })
+}
+
 function resolvePathMaybe(relativePath) {
   return path.isAbsolute(relativePath) ? relativePath : path.resolve(process.cwd(), relativePath)
 }
@@ -115,6 +130,7 @@ function scrapePager($) {
       ariaLabel: prev.attr("aria-label") || "",
       rel: prev.attr("rel") || "prev",
       html: prev.html() || "",
+      icon: prev.find("svg").first().toString() || "",
     }
   }
   const next = $(".pager .next a").first()
@@ -125,6 +141,7 @@ function scrapePager($) {
       ariaLabel: next.attr("aria-label") || "",
       rel: next.attr("rel") || "next",
       html: next.html() || "",
+      icon: next.find("svg").first().toString() || "",
     }
   }
   return pager
@@ -132,8 +149,19 @@ function scrapePager($) {
 
 function scrapeAside($) {
   const aside = $("#aside").first()
-  if (!aside.length) return ""
-  return aside.html() || ""
+  if (!aside.length) {
+    return { html: "", rootHref: "", rootLabel: "", hasRFlyout: false, hasLegacyFlyout: false }
+  }
+  const rFlyout = aside.find(".r-flyout-menu").first()
+  const legacyFlyout = aside.find(".flyout-menu").first()
+  const root = rFlyout.find(".r-flyout__link-wrap a").first()
+  return {
+    html: aside.html() || "",
+    rootHref: root.length ? root.attr("href") || "" : "",
+    rootLabel: root.length ? root.text().trim() || "" : "",
+    hasRFlyout: Boolean(rFlyout.length),
+    hasLegacyFlyout: Boolean(legacyFlyout.length),
+  }
 }
 
 function scrapeQuestions($) {
@@ -193,7 +221,7 @@ function scrapeLegacy(legacyHtml, legacyPath) {
     $('link[rel="canonical"]').attr("href") || $('link[rel="non-canonical"]').attr("href") || ""
   const breadcrumbs = scrapeBreadcrumbs($)
   const pager = scrapePager($)
-  const asideHtml = scrapeAside($)
+  const aside = scrapeAside($)
   const instructions = extractInstructions($)
   const questions = scrapeQuestions($)
 
@@ -207,7 +235,7 @@ function scrapeLegacy(legacyHtml, legacyPath) {
     canonical,
     breadcrumbs,
     pager,
-    asideHtml,
+    aside,
     instructions,
     questions,
     totalQuestions: questions.length,
@@ -388,6 +416,20 @@ function ensureAnswerKeyIsJsonSafe(answerKey) {
       })
       return list
     })
+    if (!Array.isArray(entry.lengths) || !entry.lengths.length) {
+      const inferredLength =
+        (entry.answersAccepted && entry.answersAccepted[0] && entry.answersAccepted[0].length) ||
+        (Number.isInteger(entry.minLength) && entry.minLength > 0 ? entry.minLength : null) ||
+        (Number.isInteger(entry.maxLength) && entry.maxLength > 0 ? entry.maxLength : null) ||
+        1
+      entry.lengths = [inferredLength]
+    }
+    if (!Number.isInteger(entry.minLength) || entry.minLength <= 0) {
+      entry.minLength = Array.isArray(entry.lengths) && entry.lengths.length ? entry.lengths[0] : 1
+    }
+    if (!Number.isInteger(entry.maxLength) || entry.maxLength <= 0) {
+      entry.maxLength = Array.isArray(entry.lengths) && entry.lengths.length ? entry.lengths[0] : 1
+    }
     if (entry.manualCheckOk == null) entry.manualCheckOk = false
   })
 }
@@ -407,21 +449,48 @@ function createExerciseConfig(scraped) {
 function applyPagerLink($, target, link) {
   if (!target.length || !link) return
   target.attr("href", link.href || "#")
+  if (link.rel) target.attr("rel", link.rel)
   const ariaLabel = link.ariaLabel || link.label || target.attr("aria-label") || ""
   if (ariaLabel) {
     target.attr("aria-label", ariaLabel)
   }
-  if (link.html) {
-    target.html(link.html)
-  } else if (link.label) {
-    const icons = target
-      .find("svg")
-      .toArray()
-      .map((icon) => $(icon).clone())
-    target.empty()
-    icons.forEach((icon) => target.append(icon))
+  const icons = target
+    .find("svg")
+    .toArray()
+    .map((icon) => $(icon).clone())
+  target.empty()
+  icons.forEach((icon) => target.append(icon))
+  if (link.label) {
     target.append(`\u00a0\u00a0${link.label}`)
   }
+}
+
+function applyPagerLinks($, scrapedPager, telemetry) {
+  if (!scrapedPager || (!scrapedPager.previous && !scrapedPager.next)) {
+    logEvent(telemetry, "warn", "pager", "No scraped pager data to apply")
+    return
+  }
+
+  const pagers = $(".pager")
+  if (!pagers.length) {
+    logEvent(telemetry, "warn", "pager", "Pager template missing; cannot apply pager links")
+    return
+  }
+
+  pagers.each((_, pager) => {
+    const wrapper = $(pager)
+    const prev = wrapper.find(".previous a, .prev a").first()
+    if (prev.length && scrapedPager.previous) {
+      applyPagerLink($, prev, scrapedPager.previous)
+    }
+
+    const next = wrapper.find(".next a").first()
+    if (next.length && scrapedPager.next) {
+      applyPagerLink($, next, scrapedPager.next)
+    }
+  })
+
+  logEvent(telemetry, "ok", "pager", `Applied pager links to ${pagers.length} pager(s)`)
 }
 
 function injectTemplate(
@@ -430,11 +499,14 @@ function injectTemplate(
   overrideAnswerFieldCount,
   testMode,
   targetPath,
-  defaultAnswerUi
+  defaultAnswerUi,
+  telemetry = []
 ) {
   const $ = load(templateHtml, { decodeEntities: false })
   const fileName = path.basename(targetPath)
   const normalizedDefaultUi = (defaultAnswerUi || "").trim().toLowerCase()
+
+  logEvent(telemetry, "ok", "head-shell", "Using template head assets and scripts")
 
   $("title").first().text(scraped.title)
   const nonCanonical = $('link[rel="non-canonical"], link[rel="canonical"]').first()
@@ -476,32 +548,57 @@ function injectTemplate(
       li.append($("<meta>").attr({ itemprop: "position", content: String(index + 1) }))
       breadcrumbList.append(li)
     })
+    logEvent(
+      telemetry,
+      "ok",
+      "breadcrumbs",
+      `Applied ${scraped.breadcrumbs.length} breadcrumbs (canonical ${scraped.canonical || "n/a"})`
+    )
+  } else {
+    logEvent(telemetry, "warn", "breadcrumbs", "Missing breadcrumb list or scraped crumbs")
   }
 
-  const pager = $(".pager")
-  if (pager.length) {
-    const prev = pager.find(".previous a").first()
-    if (prev.length && scraped.pager.previous) {
-      applyPagerLink($, prev, scraped.pager.previous)
-    }
+  applyPagerLinks($, scraped.pager, telemetry)
 
-    const next = pager.find(".next a").first()
-    if (next.length && scraped.pager.next) {
-      applyPagerLink($, next, scraped.pager.next)
-    }
+  const leftMenuTemplate = $("#sidebar-menu-template").first()
+  const leftMenuMount = $("#sidebar-menu-mount").first()
+  if (leftMenuTemplate.length && leftMenuMount.length) {
+    logEvent(telemetry, "ok", "left-menu", "Using template sidebar menu + mount")
+  } else {
+    logEvent(telemetry, "warn", "left-menu", "Missing template sidebar nodes (sidebar-menu-template/mount)")
   }
 
-  if (scraped.asideHtml) {
-    const aside = $("#aside").first()
-    if (aside.length) {
-      const recipient = aside.find(".r-flyout__link-wrap a").first()
-      const source = $(scraped.asideHtml).find(".r-flyout__link-wrap a").first()
-      if (recipient.length && source.length) {
-        recipient.attr("href", source.attr("href") || recipient.attr("href") || "#")
-        recipient.text(source.text() || recipient.text())
-      } else {
-        aside.html(scraped.asideHtml)
+  const aside = $("#aside").first()
+  if (!aside.length) {
+    logEvent(telemetry, "warn", "right-rail", "Template aside missing; cannot apply r-flyout")
+  } else {
+    const legacyFlyout = aside.find(".flyout-menu")
+    if (legacyFlyout.length) {
+      legacyFlyout.remove()
+      logEvent(telemetry, "warn", "right-rail-clean", "Removed legacy .flyout-menu in template; using r-flyout prototype")
+    }
+    const rootLink = aside.find(".r-flyout__link-wrap a").first()
+    const desiredHref = (scraped.aside && scraped.aside.rootHref) || ""
+    const desiredLabel = (scraped.aside && scraped.aside.rootLabel) || ""
+    if (rootLink.length) {
+      if (desiredHref) rootLink.attr("href", desiredHref)
+      if (desiredLabel) rootLink.text(desiredLabel)
+      logEvent(
+        telemetry,
+        "ok",
+        "right-rail",
+        desiredHref || desiredLabel ? "Template r-flyout applied with scraped root link" : "Template r-flyout applied (default root link)"
+      )
+      if (scraped.aside && scraped.aside.hasLegacyFlyout) {
+        logEvent(
+          telemetry,
+          "warn",
+          "right-rail-legacy",
+          "Legacy flyout detected in source; replaced with template r-flyout"
+        )
       }
+    } else {
+      logEvent(telemetry, "warn", "right-rail", "Template r-flyout root link not found")
     }
   }
 
@@ -546,6 +643,7 @@ function injectTemplate(
     const questionDom = buildQuestionDom($, mergedQuestion, resolvedCount, testMode, fileName)
     insertTarget.before(questionDom)
   })
+  logEvent(telemetry, "ok", "questions", `Injected ${scraped.totalQuestions} questions`)
 
   const answerKey = createAnswerKey(scraped, overrideAnswerFieldCount, testMode)
   const answerKeyScript = $("#exercise-answer-key")
@@ -564,15 +662,18 @@ function injectTemplate(
       bodyEl.attr("aria-hidden", "false")
     })
     $(".nn_sliders-toggle").attr("aria-expanded", "true")
+    logEvent(telemetry, "ok", "test-mode", "Devtools/test-mode enabled; accordions opened")
   }
+
+  logEvent(telemetry, "ok", "answer-key", "Answer key + config blocks populated")
+  logEvent(telemetry, "ok", "pager/breadcrumbs", "Pager and breadcrumbs wired from scraped data")
 
   return collapseBooleanAttributes($.html())
 }
 
 function collapseBooleanAttributes(html) {
-  const booleanAttrs = ["hidden", "nomodule", "defer", "disabled", "required", "novalidate"]
-  const pattern = new RegExp(`(^|[^\\w-])(${booleanAttrs.join("|")})=""`, "gi")
-  return html.replace(pattern, (match, prefix, attr) => `${prefix}${attr.toLowerCase()}`)
+  // Preserve original attribute forms (e.g., defer="") to avoid unintended resource-loading changes.
+  return html
 }
 
 function trimTrailingWhitespace(text) {
@@ -679,7 +780,14 @@ function main() {
 
   const legacyHtml = loadHtml(legacyPath)
   const templateHtml = loadHtml(templatePath)
+  const telemetry = []
   const scraped = scrapeLegacy(legacyHtml, legacyPath)
+  logEvent(
+    telemetry,
+    "ok",
+    "scrape",
+    `title="${scraped.title}", canonical="${scraped.canonical}", breadcrumbs=${scraped.breadcrumbs.length}, pagerPrev=${scraped.pager.previous ? "yes" : "no"} (icon=${scraped.pager.previous && scraped.pager.previous.icon ? "yes" : "no"}), pagerNext=${scraped.pager.next ? "yes" : "no"} (icon=${scraped.pager.next && scraped.pager.next.icon ? "yes" : "no"}), questions=${scraped.totalQuestions}`
+  )
   const answerKey = createAnswerKey(scraped, args.answerFields, args.test_mode)
   ensureAnswerKeyIsJsonSafe(answerKey)
   validateCounts(scraped, args.questions, answerKey, args.answerFields)
@@ -689,7 +797,8 @@ function main() {
     args.answerFields,
     args.test_mode,
     legacyPath,
-    args.answerUi
+    args.answerUi,
+    telemetry
   )
   const cleanedHtml = trimTrailingWhitespace(updatedHtml)
 
@@ -700,6 +809,7 @@ function main() {
 
   if (args.dry_run) {
     console.log("[dry-run] conversion complete; no files written")
+    printTelemetry(telemetry)
     return
   }
 
@@ -708,6 +818,7 @@ function main() {
   console.log(`Backed up original to ${backupPath}`)
   console.log(`Wrote updated gated exercise to ${legacyPath}`)
   console.log("Shift + Alt + s")
+  printTelemetry(telemetry)
 }
 
 main()
