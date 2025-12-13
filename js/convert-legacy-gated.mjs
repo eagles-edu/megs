@@ -672,8 +672,9 @@ function injectTemplate(
 }
 
 function collapseBooleanAttributes(html) {
-  // Preserve original attribute forms (e.g., defer="") to avoid unintended resource-loading changes.
-  return html
+  const booleanAttrs = ["hidden", "nomodule", "defer", "disabled", "required", "novalidate"]
+  const pattern = new RegExp(`(^|[^\\w-])(${booleanAttrs.join("|")})=""`, "gi")
+  return html.replace(pattern, (match, prefix, attr) => `${prefix}${attr.toLowerCase()}`)
 }
 
 function trimTrailingWhitespace(text) {
