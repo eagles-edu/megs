@@ -47,8 +47,10 @@ fareast
 firstloc
 firstrow
 furnitures
+hadn
 hairdress
 hasimage
+hasn
 headerclass
 helpsite
 home
@@ -132,6 +134,7 @@ Unfused
 uparrow
 usefuler
 vcard
+wasn
 wpel
 xlarge
 xxlarge

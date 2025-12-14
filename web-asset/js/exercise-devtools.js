@@ -444,7 +444,6 @@
       var name = names[i]
       if (seen[name]) continue
       seen[name] = true
-      paths.push("../dev/" + name + ".ext")
       paths.push("../dev/" + name + ".txt")
     }
     if (!paths.length) return Promise.resolve([])

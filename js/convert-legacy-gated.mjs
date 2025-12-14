@@ -3,9 +3,9 @@
 Usage:
   - node js/convert-legacy-gated.mjs /path/to/legacy.html [options]
 
-  - node js/convert-legacy-gated.mjs exercise-2-verbs/231-auxiliary-verbs.html --answer-fields 1 --diff-preview
+  - node js/convert-legacy-gated.mjs exercise-3-adjectives/341-using-adjectives-i.html --answer-fields 1 --diff-preview
 
-  - node js/convert-legacy-gated.mjs exercise-1-nouns/151-gender.html --answer-fields 1 --answer-ui textarea --diff-preview
+  - node js/convert-legacy-gated.mjs exercise-3-adjectives/321-comparing-adjectives.html --answer-fields 1 --answer-ui textarea --diff-preview
 
 Flags:
   --questions <int>             Override expected question count validation.
@@ -180,6 +180,7 @@ function scrapeQuestions($) {
     const wrapper = $(element)
     const toggle = wrapper.find(".nn_sliders-toggle").first()
     const body = wrapper.find(".nn_sliders-body").first()
+    const inner = body.find(".accordion-inner").first()
     const number = i + 1
     const questionText = (
       toggle.find(".nn_sliders-toggle-inner").text() ||
@@ -219,6 +220,7 @@ function scrapeQuestions($) {
       storageKey,
       answerFieldCount,
       answerUi,
+      bodyHtml: (inner.length ? inner.html() : body.html()) || "",
     })
   })
   return questions
@@ -336,8 +338,13 @@ function buildQuestionDom($, question, answerFieldCount, testMode, fileName) {
     .addClass(`accordion-body nn_sliders-body${testMode ? "" : " collapse"}`)
     .attr({ id: bodyId, "aria-hidden": testMode ? "false" : "true" })
   const inner = $("<div>").addClass("accordion-inner panel-body")
-  inner.append($("<h2>").addClass("nn_sliders-title").text(question.questionText))
-  inner.append($("<p>").text(question.questionText))
+  const legacyInnerHtml = (question.bodyHtml || "").trim()
+  if (legacyInnerHtml) {
+    inner.html(legacyInnerHtml)
+  } else {
+    inner.append($("<h2>").addClass("nn_sliders-title").text(question.questionText))
+    inner.append($("<p>").text(question.questionText))
+  }
   body.append(inner)
   if (testMode) {
     body.append(
@@ -623,16 +630,6 @@ function injectTemplate(
     }
   }
 
-  const articleBody = $('[itemprop="articleBody"]').first()
-  if (articleBody.length) {
-    const introParagraphs = scraped.instructions.split("\n").filter(Boolean)
-    articleBody.find("p").slice(0, introParagraphs.length).remove()
-    introParagraphs
-      .slice()
-      .reverse()
-      .forEach((text) => articleBody.prepend($("<p>").text(text)))
-  }
-
   const form = $("form.exercise-form").first()
   if (!form.length) throw new Error("Template form not found")
   if (testMode) {
@@ -651,6 +648,24 @@ function injectTemplate(
     "data-storage-key",
     `exercise-${slugify(path.basename(targetPath, path.extname(targetPath)))}`
   )
+
+  const articleBody = $('[itemprop="articleBody"]').first()
+  if (articleBody.length) {
+    const introParagraphs = scraped.instructions.split("\n").filter(Boolean)
+    // Clear any existing intro paragraphs directly before the form
+    articleBody
+      .find("p")
+      .filter((_, p) => $(p).nextAll("form.exercise-form").length > 0)
+      .remove()
+    // Ensure a <br> before instructions if not already present
+    if (introParagraphs.length && !form.prev().is("br")) {
+      $("<br>").insertBefore(form)
+    }
+    introParagraphs
+      .slice()
+      .reverse()
+      .forEach((text) => form.before($("<p>").text(text)))
+  }
 
   form.find(".quest-bg").remove()
   const submitRow = form.find("[data-exercise-submit-row]").first()
