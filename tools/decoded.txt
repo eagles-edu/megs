@@ -1,49 +1,20 @@
-become
+are
 
-chose
-chosen
+are
 
-cost
-cost
+is
 
-drank
-drunk
+is
 
-eaten
+is
 
-froze
-frozen
+is
 
-grown
+is
 
-hidden
+are
 
-hit
-hit
+is
 
-kept
-
-knelt
-
-lit
-
-put
-put
-
-rung
-
-shaken
-
-shone
-shone
-
-spoken
-
-spread
-spread
-
-taught
-
-wore
-worn
+is
 

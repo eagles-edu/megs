@@ -3,7 +3,7 @@
 Usage:
   - node js/convert-legacy-gated.mjs /path/to/legacy.html [options]
 
-  - node js/convert-legacy-gated.mjs exercise-2-verbs/261-irregular-verbs-i.html --answer-fields 1 --diff-preview
+  - node js/convert-legacy-gated.mjs exercise-2-verbs/231-auxiliary-verbs.html --answer-fields 1 --diff-preview
 
   - node js/convert-legacy-gated.mjs exercise-1-nouns/151-gender.html --answer-fields 1 --answer-ui textarea --diff-preview
 
@@ -120,13 +120,23 @@ function scrapeBreadcrumbs($) {
   return crumbs
 }
 
+function extractLinkLabelWithoutSvg(link) {
+  if (!link || !link.length) return ""
+  const clone = link.clone()
+  clone.find("svg").remove()
+  return clone
+    .text()
+    .replace(/\s+/g, " ")
+    .trim()
+}
+
 function scrapePager($) {
   const pager = {}
   const prev = $(".pager .previous a").first()
   if (prev.length) {
     pager.previous = {
       href: prev.attr("href") || "",
-      label: prev.text().trim() || prev.attr("aria-label") || "",
+      label: extractLinkLabelWithoutSvg(prev) || prev.attr("aria-label") || "",
       ariaLabel: prev.attr("aria-label") || "",
       rel: prev.attr("rel") || "prev",
       html: prev.html() || "",
@@ -137,7 +147,7 @@ function scrapePager($) {
   if (next.length) {
     pager.next = {
       href: next.attr("href") || "",
-      label: next.text().trim() || next.attr("aria-label") || "",
+      label: extractLinkLabelWithoutSvg(next) || next.attr("aria-label") || "",
       ariaLabel: next.attr("aria-label") || "",
       rel: next.attr("rel") || "next",
       html: next.html() || "",
@@ -459,9 +469,20 @@ function applyPagerLink($, target, link) {
     .toArray()
     .map((icon) => $(icon).clone())
   target.empty()
-  icons.forEach((icon) => target.append(icon))
-  if (link.label) {
-    target.append(`\u00a0\u00a0${link.label}`)
+  const isNext = (link.rel || "").toLowerCase() === "next"
+  if (isNext) {
+    if (link.label) {
+      target.append(link.label)
+    }
+    if (icons.length) {
+      if (link.label) target.append("\u00a0\u00a0")
+      icons.forEach((icon) => target.append(icon))
+    }
+  } else {
+    icons.forEach((icon) => target.append(icon))
+    if (link.label) {
+      target.append(`\u00a0\u00a0${link.label}`)
+    }
   }
 }
 
