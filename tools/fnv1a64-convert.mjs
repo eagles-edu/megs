@@ -27,9 +27,9 @@
       #2:  <h2 class="nn_sliders-title">2. I forgot to renew my _____ (member) in the sailing club.</h2>
       <p>2. I forgot to renew my <b>&#109;&#101;&#109;&#98;&#101;&#114;&#115;&#104;&#105;&#112;</b> in the sailing club.</p>
 
-  4. exercise-3-adjectives/341-using-adjectives-i.html pull answers from question p tags and copy the individual words to tools/input.txt
+  4. exercise-3-adjectives/342-using-adjectives-ii.html pull answers from question p tags and copy the individual words to tools/input.txt
 
-  5.  copy tools/hashes.txt to the answer aray json in exercise-3-adjectives/341-using-adjectives-i.html
+  5.  copy tools/hashes.txt to the answer aray json in exercise-3-adjectives/342-using-adjectives-ii.html
 
  * ***********
 
@@ -38,7 +38,7 @@
  *   node tools/fnv1a64-convert.mjs --encode --input tools/input.txt > tools/hashes.txt
  *   node tools/fnv1a64-convert.mjs --decode --dictionary tools/dict.txt --input hashes.txt
  *   node tools/fnv1a64-convert.mjs --verify --input tools/input.txt
- *   node tools/fnv1a64-convert.mjs --round-trip --input tools/input.txt --title 341-using-adjectives-i.html
+ *   node tools/fnv1a64-convert.mjs --round-trip --input tools/input.txt --title 342-using-adjectives-ii
  *
  * # encode → decode using tools/*.txt; copies decoded.txt to dev/<title>.ext when title provided/prompted
  *

@@ -27,6 +27,7 @@ crosslint
 cspell
 cSpell
 cssd
+customseamod
 danh
 dedupe
 defence

@@ -1,5 +1,25 @@
 tools:
-  - name: eslint
-    languages: [Javascript, TypeScript]
-    extensions: [.js, .jsm, .jsx, .mjs, .ts, .tsx, .vue]
-    files: []
+    - name: eslint
+      languages: [Javascript]
+      extensions: [.js, .jsm, .jsx, .mjs, .vue]
+      files: []
+    - name: lizard
+      languages: [Javascript, Python]
+      extensions: [.js, .jsm, .jsx, .mjs, .py, .vue]
+      files: []
+    - name: pmd
+      languages: [Javascript, XML]
+      extensions: [.js, .jsm, .jsx, .mjs, .pom, .vue, .wsdl, .xml, .xsl]
+      files: []
+    - name: pylint
+      languages: [Python]
+      extensions: [.py]
+      files: []
+    - name: semgrep
+      languages: [Javascript, Python, Shell, YAML]
+      extensions: [.bash, .js, .jsm, .jsx, .mjs, .py, .sh, .vue, .yaml, .yml]
+      files: []
+    - name: trivy
+      languages: [JSON, Javascript, Python, XML, YAML]
+      extensions: [.js, .jsm, .json, .jsx, .mjs, .pom, .py, .vue, .wsdl, .xml, .xsl, .yaml, .yml]
+      files: [Pipfile.lock, package-lock.json, package.json, pnpm-lock.yaml, poetry.lock, requirements.txt, uv.lock, yarn.lock]

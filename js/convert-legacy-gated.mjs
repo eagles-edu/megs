@@ -3,7 +3,7 @@
 Usage:
   - node js/convert-legacy-gated.mjs /path/to/legacy.html [options]
 
-  - node js/convert-legacy-gated.mjs exercise-3-adjectives/341-using-adjectives-i.html --answer-fields 1 --diff-preview
+  - node js/convert-legacy-gated.mjs exercise-3-adjectives/342-using-adjectives-ii.html --answer-fields 1 --diff-preview
 
   - node js/convert-legacy-gated.mjs exercise-3-adjectives/321-comparing-adjectives.html --answer-fields 1 --answer-ui textarea --diff-preview
 

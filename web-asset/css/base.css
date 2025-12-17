@@ -748,3 +748,7 @@ h4.box-head4 {
   margin: 1.4rem;
   padding: 5px;
 }
+
+.undies {
+  text-decoration: underline;
+}

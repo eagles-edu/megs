@@ -1,38 +1,10 @@
-scanners:
-  - vuln
-  - misconfig
-  - secret
+severity:
+  - LOW
+  - MEDIUM
+  - HIGH
+  - CRITICAL
 
-vulnerability:
-  type: [ os, library ]
-  severity: [ CRITICAL, HIGH, MEDIUM, LOW, UNKNOWN ]
-  include-non-failures: false
-
-misconfig:
-  severity: [ CRITICAL, HIGH, MEDIUM ]
-
-secret:
-  severity: [ CRITICAL, HIGH, MEDIUM ]
-
-ignore-unfixed: true
-
-skip-files:
-  - '**/*_test.go'
-  - '**/testdata/**'
-  - 'vendor/**'
-  - 'node_modules/**'
-  - 'test/**'
-  - '*.test.js'
-  - '.git/**'
-  - '**/*.md'
-
-skip-dirs:
-  - 'test'
-  - 'tests'
-  - '.git'
-  - 'node_modules'
-
-cache:
-  dir: '.trivy-cache'
-  clear: false
-  backend: 'fs'
+scan:
+  scanners:
+    - vuln
+    - secret

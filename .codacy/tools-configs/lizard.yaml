@@ -15,7 +15,14 @@ patterns:
     Lizard_file-nloc-medium:
         category: Complexity
         description: This rule checks if the number of lines of code (excluding comments) in a file exceeds a medium threshold, typically 500 lines.
-        explanation: ""
+        explanation: |4-
+            At Codacy we strive to provide great descriptions for our patterns.
+            With good explanations developers can better understand issues and even learn how to fix them.
+
+            For this tool we are not yet meeting this standard but you can help us improve the docs.
+            To know more, take a look at our [tool documentation guide](https://docs.codacy.com/related-tools/tool-developer-guide/#documentation).
+
+            You can also visit the tool's website to find useful tips about the patterns.
         id: Lizard_file-nloc-medium
         level: Warning
         severityLevel: Warning

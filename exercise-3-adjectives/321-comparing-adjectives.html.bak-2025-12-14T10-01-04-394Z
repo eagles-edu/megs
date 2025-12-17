@@ -403,7 +403,7 @@
                       <h2 class="nn_sliders-title">1. My mother is as (strong, stronger, strongest) as her mother.</h2>
                       <p>
                         1. My mother is as
-                        <span style="text-decoration: underline">strong</span>
+                        <span class="undies">strong</span>
                         as her mother.
                       </p>
                     </div>
@@ -432,7 +432,7 @@
                         sister.</h2>
                       <p>
                         2. Not everyone agrees she is
-                        <span style="text-decoration: underline">prettier</span>
+                        <span class="undies">prettier</span>
                         than her sister.
                       </p>
                     </div>
@@ -459,7 +459,7 @@
                       <h2 class="nn_sliders-title">3. Can an elephant be (tall, taller, tallest) than a giraffe?</h2>
                       <p>
                         3. Can an elephant be
-                        <span style="text-decoration: underline">taller</span>
+                        <span class="undies">taller</span>
                         than a giraffe?
                       </p>
                     </div>
@@ -487,7 +487,7 @@
                       </h2>
                       <p>
                         4. That pond is the
-                        <span style="text-decoration: underline">shallowest</span>
+                        <span class="undies">shallowest</span>
                         in this area.
                       </p>
                     </div>
@@ -517,7 +517,7 @@
                       </h2>
                       <p>
                         5. That has to be the
-                        <span style="text-decoration: underline">most interesting</span>
+                        <span class="undies">most interesting</span>
                         film I have seen.
                       </p>
                     </div>
@@ -545,7 +545,7 @@
                       </h2>
                       <p>
                         6. Of the two paths, this is
-                        <span style="text-decoration: underline">shorter</span>
+                        <span class="undies">shorter</span>
                         to get there.
                       </p>
                     </div>
@@ -573,7 +573,7 @@
                       </h2>
                       <p>
                         7. This clown is not as
-                        <span style="text-decoration: underline">funny</span>
+                        <span class="undies">funny</span>
                         as the other one.
                       </p>
                     </div>
@@ -599,7 +599,7 @@
                       <h2 class="nn_sliders-title">8. He is easily the (bad, worse, worst) player in the team.</h2>
                       <p>
                         8. He is easily the
-                        <span style="text-decoration: underline">worst</span>
+                        <span class="undies">worst</span>
                         player in the team.
                       </p>
                     </div>
@@ -627,7 +627,7 @@
                         exciting.</h2>
                       <p>
                         9. The second half of the play was
-                        <span style="text-decoration: underline">less</span>
+                        <span class="undies">less</span>
                         exciting.
                       </p>
                     </div>
@@ -655,7 +655,7 @@
                       </h2>
                       <p>
                         10. What is
-                        <span style="text-decoration: underline">the farthest</span>
+                        <span class="undies">the farthest</span>
                         distance you have ever run?
                       </p>
                     </div>
