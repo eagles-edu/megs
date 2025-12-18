@@ -25,7 +25,7 @@ const SAMPLE_HTML = `<!doctype html>
             <div class="accordion-inner panel-body">
               <h2 class="nn_sliders-title">1. Question one?</h2>
               <p>
-                The answer is <span class="in-text-decoration-underline__14j0pz">example</span>.
+                The answer is <span class="undies">example</span>.
               </p>
             </div>
           </div>
@@ -44,7 +44,7 @@ const SAMPLE_HTML = `<!doctype html>
             <div class="accordion-inner panel-body">
               <h2 class="nn_sliders-title">2. Question two?</h2>
               <p>
-                Another answer is <span class="in-text-decoration-underline__14j0pz">sample</span>.
+                Another answer is <span class="undies">sample</span>.
               </p>
             </div>
           </div>

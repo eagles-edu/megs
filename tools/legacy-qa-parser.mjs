@@ -63,7 +63,7 @@ function normalizeUnderlines($, $panel) {
   $panel.find("u").each((_, el) => {
     const $el = $(el)
     const inner = $el.html() || $el.text()
-    $el.replaceWith(`<span class="in-text-decoration-underline__14j0pz">${inner}</span>`)
+    $el.replaceWith(`<span class="undies">${inner}</span>`)
   })
 
   $panel
