@@ -10,8 +10,8 @@
  * 5) Encode answers in <p> tags for obfuscation (use tools/encode-p-text.mjs)
  *
  * Usage:
- *   node tools/conversion-assistant.mjs --target exercise-3-adjectives/342-using-adjectives-ii.html
- *   node tools/conversion-assistant.mjs --target path/to/file.html --title my-title --dry-run
+ *   node tools/conversion-assistant.mjs --target exercise-3-adjectives/343-using-adjectives-iii.html
+ *   node tools/conversion-assistant.mjs --target exercise-3-adjectives/343-using-adjectives-iii.html --title my-title --dry-run
  *
  * Flags:
  *   --target, -f        Path to the exercise HTML (required)

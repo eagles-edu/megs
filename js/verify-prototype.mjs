@@ -310,8 +310,13 @@ const fallback = (label, apply) => {
         .replace(/[\s\u00a0]+/g, " ")
         .trim()
 
+    // Legacy underlines use `.undies`; newer gates use the generated
+    // `.in-text-decoration-underline__14j0pz` class. Collect both so the test
+    // can auto-fill across template variants.
     const answerSpans = [
-      ...question.querySelectorAll(".accordion-body .in-text-decoration-underline__14j0pz"),
+      ...question.querySelectorAll(
+        ".accordion-body .in-text-decoration-underline__14j0pz, .accordion-body .undies"
+      ),
     ]
     const expectedAnswers = answerSpans
       .map((node) => normalizeAnswer(node.textContent))
