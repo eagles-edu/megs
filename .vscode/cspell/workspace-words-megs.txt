@@ -3,6 +3,7 @@ actus
 ador
 apos
 Aren
+arent
 autofocus
 autoplay
 Ballmer
@@ -47,6 +48,7 @@ eyric
 fareast
 firstloc
 firstrow
+ful
 furnitures
 hadn
 hairdress
@@ -91,11 +93,13 @@ nakadehitsujiko
 nderwater
 newsfeed
 newstyle
+nic
 Nobu
 noheader
 Nonfinite
 onald
 ontained
+ous
 Plec
 postnominal
 postpositives
