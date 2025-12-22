@@ -1,19 +1,20 @@
-absent
+happy
 
-present
+difficult
 
-innocent
+violent
 
-silent
+terrible
 
-impatient
+proper
 
-confident
+nervous
 
-certain
+worrying
 
-excellent
+frightening
 
-responsible
+anxious
 
-patient
+uneasy
+

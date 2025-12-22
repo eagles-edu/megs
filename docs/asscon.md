@@ -44,7 +44,7 @@ If flags are not present, pause for user to enter input; enter conversion detail
 
 ### II. Program Execution
 
-Runtime rule for all prompts/commands: replace every placeholder (e.g., `<target-path>`, `<title/ID>`, `<undies/p/auto>`, answer counts, obfuscation choice) with the chosen values before printing; keep the surrounding prompt/command text unchanged.
+Runtime rules for all prompts/commands: replace every placeholder (e.g., `<target-path>`, `<title/ID>`, `<undies/p/auto>`, answer counts, obfuscation choice) with the chosen values before printing; keep the surrounding prompt/command text unchanged.
 
 1. **Print Prompt1**: "`<target-path>` pull answers from question p-tags,   <undies/p/auto>,  then copy the individual words to `tools/input.txt` separating each question's answer (group) or alternate answer by a new line."
    - replace  <undies/p/auto> with user input flag text
@@ -116,15 +116,15 @@ _user input_
 
 ---
 
-1. Run `encode-p-text.mjs` answers in `<p>` tag for obfuscation per user input:
---obfuscate `<p|span|none>` - (default span):
+1. Run `encode-p-text.mjs` for obfuscation per user input:
+--scope `<highlighted|all>` - (default all):
 
-   - p: obfuscate full `<p>` text (leave tags)
-   - span: obfuscate span-only text
+   - highlighted: obfuscate only `<span>`, `<b>`, `<strong>` text inside `<p>`
+   - all: obfuscate all `<p>` text nodes (leave tags)
    - none: skip
 
 ```bash
-node tools/encode-p-text.mjs --write  <target-path>
+node tools/encode-p-text.mjs --write --scope <highlighted|all> <target-path>
 ```
 
 > replace `<target-path>` with the chosen path and apply only when obfuscation choice requires it; keep command text unchanged.
@@ -132,10 +132,10 @@ node tools/encode-p-text.mjs --write  <target-path>
 #### Apply in place
 
 ```bash
-- node tools/encode-p-text.mjs --write exercise-2-verbs/211-transitive-and-intransitive-verbs.html
+- node tools/encode-p-text.mjs --write --scope highlighted exercise-2-verbs/211-transitive-and-intransitive-verbs.html
  **Optional quick check**: node tools/encode-p-text.mjs /tmp/sample.html | head
 - **Rollback**: rm tools/encode-p-t
-- node tools/encode-p-text.mjs [--write|--apply] <file...>
+- node tools/encode-p-text.mjs [--write|--apply] [--scope <all|highlighted>] <file...>
 - **Default is dry-run to stdout**; use --write/--apply to rewrite files in place.
 ```
 
@@ -161,7 +161,7 @@ NOTES:
 
   - all: single combo with all hashes
   - alts: separate combos, one per hash
-- --obfuscate `<p|span|none>` (default span):
-  - **p**: obfuscate full `<p>` text (leave tags)
-  - **span**: obfuscate span-only text
+- --scope `<highlighted|all>` (default all):
+  - **highlighted**: obfuscate only `<span>`, `<b>`, `<strong>` text inside `<p>`
+  - **all**: obfuscate all `<p>` text nodes (leave tags)
   - **none**: skip
