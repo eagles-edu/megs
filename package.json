@@ -9,7 +9,7 @@
     "doc": "docs"
   },
   "engines": {
-    "node": "=20"
+    "node": "20.19.4"
   },
   "scripts": {
     "fmt:html": "prettier --parser html --write \"**/*.{html,htm}\"",
@@ -87,6 +87,7 @@
     "css-declaration-sorter": "^7.2.0",
     "cssnano": "^7.1.1",
     "dotenv": "^17.2.1",
+    "dom-serializer": "^2.0.0",
     "glob": ">=11.1.0",
     "js-yaml": "^4.1.1",
     "nodemailer": "^7.0.10",
