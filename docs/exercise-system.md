@@ -87,7 +87,7 @@
   - The encoder skips runs that look already encoded (`&#…;`) to avoid double-encoding.
   - Verify output keeps tags and `<br>` line breaks unchanged; confirm decoded text still matches the intended answer strings.
   - After applying, re-open the page locally and confirm rendered text remains readable and hashes still match expected answers.
-- **Validation**: After obfuscation, run `npm run verify:prototype` (or the relevant smoke/lint target) to ensure gating and markup still pass checks.<br> <br>
+- **Validation**: After obfuscation, run `npm run verify:prototype` (or the relevant smoke/lint target) to ensure gating and markup still pass checks.
 
 ### Operational Tips
 

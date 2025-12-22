@@ -122,6 +122,7 @@ _Critically, consistently, and before every coding attempt, ALWAYS reread agents
 - **Never reprint edits** that have already been provided unless additional clarification is explicitly required (POIA).
 
 - **Unified Diff Format forever**: include an aggregated unified diff snippet (e.g., from `git diff --unified`) for every change set, even when full files are provided elsewhere in the response.
+- When presenting prompts/commands from `docs/asscon.md`, always substitute user-provided values (e.g., target path, title, source choice) before printing—never leave placeholders in displayed prompts or commands.
 
 ### Scope & safety rails
 
