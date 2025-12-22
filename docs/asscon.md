@@ -1,12 +1,5 @@
 # Conversion Assistant
 
-<style>
-pre code {
-  white-space: pre-wrap;
-  word-break: break-word;
-}
-</style>
-
 This utility sequentially forms, executes, and verifies already working scripts  within the _convert legacy gated system_ and injects target path details into prepared Codex prompts (with repo write permission). Dont develop more than a solid executive wrapper executing systematic executive control of each milestone segment, dont reinvent the wheel..
 
 `tools/conversion-assistant.mjs`
@@ -101,19 +94,29 @@ node js/convert-legacy-gated.mjs <target-path>  --answer-fields 1 --answer-ui te
 
 1. Print Prompt4:
 
-"inject `tools/hashes.txt` to the answer aray json in `<target-path>` following user 'required' input for answersAccepted shaping:  `<all|alts>`:
+"inject `tools/hashes.txt` to the answer aray json in `<target-path>` following user input for answersAccepted shaping:  `<all|alts>`"
 
-- **all**: single combo per question with all hashes required for correct (default): `"answersAccepted": [["hash1","hash2",...]]`
-- **alts**: separate combos, one per hash (group), only one hash (group) combo required for correct:  `"answersAccepted": [[ "hash1"],["hash2"],...]`
-"
+- replace `<target-path>` and `<all|alts>` with user input values; keep prompt text unchanged.
+
+  - **all**: "ALL: single combo per question with all hashes required for correct (default): `"answersAccepted": [["hash1","hash2",...]]`"
+
+  - **alts**: "ALT: separate combos, one per hash (group), only one hash (group) combo required for correct:  `"answersAccepted": [[ "hash1"],["hash2"],...]`"
+
+For example:
+
+_user input_
+`<target-path>`: exercise-4-adverbs/411-using-adverbs-part-1.html
+`<all|alts>` - all|alts: alt
+
+#### prompt produced
+
+- "inject `tools/hashes.txt` to the answer aray json in exercise-4-adverbs/411-using-adverbs-part-1.html following user input for answersAccepted shaping: "ALT: separate combos, one per hash (group), only one hash (group) combo required for correct:  `"answersAccepted": [[ "hash1"],["hash2"],...]`"
 
 >PAUSE, DISPLAY PROMPT, PRESS ENTER TO EXECUTE, verify completion, & continue, OR Q TO EXIT AND FIX PARAMETERS.
 
-- replace `<target-path>` and `<all|alts>` with chosen values; keep prompt text unchanged.
-
 ---
 
-5. Run `encode-p-text.mjs` answers in `<p>` tag for obfuscation per user input:
+1. Run `encode-p-text.mjs` answers in `<p>` tag for obfuscation per user input:
 --obfuscate `<p|span|none>` - (default span):
 
    - p: obfuscate full `<p>` text (leave tags)
