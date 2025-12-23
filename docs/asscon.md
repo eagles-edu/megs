@@ -1,6 +1,6 @@
 # Conversion Assistant
 
-This utility sequentially forms, executes, and verifies already working scripts  within the _convert legacy gated system_ and injects target path details into prepared Codex prompts (with repo write permission). Dont develop more than a solid executive wrapper executing systematic executive control of each milestone segment, dont reinvent the wheel..
+This utility sequentially forms, executes, and verifies already working scripts within the _convert legacy gated system_ and injects target path details into prepared Codex prompts (with repo write permission). Dont develop more than a solid executive wrapper executing systematic executive control of each milestone segment, dont reinvent the wheel..
 
 `tools/conversion-assistant.mjs`
 
@@ -10,7 +10,7 @@ This program performs three core coordination of functions fixed in a workflow s
 
 2. Using the input data, program **prints** pasteable, ready to use, preprogrammed codex prompt text. Pauses and prints out each prompt when needed in sequence with target file path injected/populated throughout; user then pastes and presses enter to continue as it progresses.
 
-3. Using the input data, program **formulates and executes** various dedicated scripts of the conversion system, setting appropriate cmd flags and CLI options programmatically, then executes and verifies it.
+3. Using the @input data, program **formulates and executes** various dedicated scripts of the conversion system, setting appropriate cmd flags and CLI options programmatically, then executes and verifies it.
 
 ## Program Workflow Sequence
 
@@ -24,53 +24,73 @@ If flags are not present, pause for user to enter input; enter conversion detail
       2. Enter 7 to set `--answer-ui textarea (fields remain 1)`
    3. **title/ID**: default to filename slug sans .html
    4. **p-tag answers bolded or underlined**: to set --answer-source for prompt_pull: `<undies|p|auto>` (default auto):
-      1. **undies**: extract from between `<span class="undies">, <b>, or <strong>`
+      1. **undies**: extract from between `<span class="undies">, <b>, and <strong>`
       2. **p**: derive from reading p-tag directions and answering questions, then extract
-      3. **auto**: (default) extract from between `<span class="undies">, <b>, or <strong>` if none, derive from reading p-tag directions and answering questions, then extract
-   5. **multiple provided answers**:
-      1. **all** - each answer in group _required mode_ (default) or
-      2. **any** - _alternative answers mode_
-
+      3. **auto**: (default) extract from between `<span class="undies">, <b>, and <strong>` if none, derive from reading p-tag directions and answering questions, then extract
+   5. **answers-mode shaping**:
+      1. **all** - single combo per question in target's answer array json, with all hashes required for correct (default): `"answersAccepted": [["hash1","hash2",...]]`
+      2. **alts** - separate combos of alternative answers in target's answer array json, only one hash (group) combo required for correct:  `"answersAccepted": [[ "hash1"],["hash2"],...]`
    6. **obfuscation mode enabled**: true (default) or false
    7. obfuscation mode:
       1. `all` p-tag contents.
       2. `highlighted` p-tag contents.
 
         > ```html
-        >   <span class="undies">, <b>, or <strong>]
+        >   <span class="undies">, <b>, and <strong>]
         > ```
 
    8. **diff preview**: true (default) or false
 
 ### II. Program Execution
 
-Runtime rules for all prompts/commands: replace every placeholder (e.g., `<target-path>`, `<title/ID>`, `<undies/p/auto>`, answer counts, obfuscation choice) with the chosen values before printing; keep the surrounding prompt/command text unchanged.
+Runtime rules for all prompts/commands: replace every placeholder (e.g., `<target-path>`, `<title/ID>`, `<undies/p/auto>`, answer counts, obfuscation choice) with the user input values before printing; keep the surrounding prompt/command text unchanged.
 
-1. **Print Prompt1**: "`<target-path>` pull answers from question p-tags,   <undies/p/auto>,  then copy the individual words to `tools/input.txt` separating each question's answer (group) or alternate answer by a new line."
-   - replace  <undies/p/auto> with user input flag text
-    1. **undies**: "by extracting p-tag answers from between `<span class="undies">, <b>, or <strong>` tags in the target HTML"
-    2. **p**: "by reading exercise p-tag instructions, reading each question, determining each answer"
-    3. **auto**: (default) derive via **undies** "by extracting p-tag answers from between `<span class="undies">, <b>, or <strong>` tags;  else, if tags aren't present, via **p** by reading exercise p-tag instructions, reading each question, determining each answer"
-   - Example (user selects `p`): "`<target-path>` pull answers from question p-tags, by reading exercise p-tag instructions, reading each question, determining each answer, then copy the individual words to tools/input.txt separating each question's answer (group) or alternate answer by a new line."
-   - replace `<target-path>` with the chosen path; keep prompt text unchanged.
+1. **Print Prompt1**: "`<target-path>` pull answers from question p-tags, `<undies/p/auto>`, then copy the individual words to `tools/input.txt` separating each question's answer (group) or alternate answer group by a new line."
+
+   - replace `<target-path>`, `<undies/p/auto>` with user input flag text:
+
+    1. **undies**: "by extracting p-tag answers from between `<span class="undies">, <b>, and <strong>` tags in the target HTML"
+    2. **p**: "by reading exercise p-tag instructions, reading each question, determining each correct answer"
+    3. **auto**: (default) by extracting p-tag answers from between `<span class="undies">, <b>, and <strong>` tags in the target HTML question blocks;  else, if tags aren't present, via **p** by reading exercise p-tag instructions, reading each question, determining each correct answer"
+
+#### For example
+
+_User input_:
+
+- `<target-path>`: exercise-4-adverbs/411-using-adverbs-part-1.html
+- `<undies/p/auto>`: undies
+
+_CMD produced_:
+
+"`exercise-4-adverbs/411-using-adverbs-part-1.html` pull answers from question p-tags, by extracting p-tag answers from between `<span class="undies">, <b>, and <strong>` tags in the target HTML, then copying the individual words/phrases to tools/input.txt and separating each question's answer (group) or alternate answer groups by a new line."
 
 >PAUSE, DISPLAY PROMPT, PRESS ENTER TO EXECUTE, verify completion, & continue, OR Q TO EXIT AND FIX PARAMETERS.
 
 ---
 
-1. **Execute CMD2**: prepare & print (also writes `dev/<title>.txt` when title provided)
+2. **Execute CMD2**: prepare & print (also writes `dev/<title>.txt` when title provided):
 
 ```bash
 node tools/fnv1a64-convert.mjs --round-trip --input tools/input.txt --title <title/ID>
 ```
 
-> PAUSE, DISPLAY COMMAND, PRESS ENTER TO EXECUTE, verify completion, & continue, OR Q TO EXIT AND FIX PARAMETERS.
+- replace `<title/ID>` with the user input title; keep command text unchanged.
 
-- replace `<title/ID>` with the chosen title; keep command text unchanged.
+**For example**:
+
+_User input_:
+
+- `<title/ID>`: 411-using-adverbs-part-1
+
+_CMD produced_:
+
+`node tools/fnv1a64-convert.mjs --round-trip --input tools/input.txt --title 411-using-adverbs-part-1`
+
+> PAUSE, DISPLAY COMMAND, PRESS ENTER TO EXECUTE, verify completion, & continue, OR Q TO EXIT AND FIX PARAMETERS.
 
 ---
 
-1. **Execute CMD3**: using earlier input from user:
+3. **Execute CMD3**: using earlier input from user:
 
 - #1–#6 sets: `--answer-fields (1-6; default 1)`
 
@@ -86,37 +106,50 @@ or,
 node js/convert-legacy-gated.mjs <target-path>  --answer-fields 1 --answer-ui textarea --diff-preview
 ```
 
+- replace placeholders (`<target-path>`, `<# of answer fields>`) with user input values; keep command text unchanged.
+
+**For example**:
+
+_User input_:
+
+- `<target-path>`: exercise-4-adverbs/411-using-adverbs-part-1.html
+- `<# of answer fields>`: 2
+
+_CMD produced_:
+
+`node js/convert-legacy-gated.mjs exercise-4-adverbs/411-using-adverbs-part-1.html --answer-fields 2 --diff-preview`
+
 > PAUSE, DISPLAY COMMAND, PRESS ENTER TO EXECUTE, verify completion, & continue, OR Q TO EXIT AND FIX PARAMETERS.
 
-- replace placeholders (`<target-path>`, `<# of answer fields>`) with chosen values; keep command text unchanged.
+
 
 ---
 
-1. Print Prompt4:
+4. Print Prompt4:
 
 "inject `tools/hashes.txt` to the answer aray json in `<target-path>` following user input for answersAccepted shaping:  `<all|alts>`"
 
-- replace `<target-path>` and `<all|alts>` with user input values; keep prompt text unchanged.
+- replace `<target-path>` and `<all|alts>` with user input values; **keep prompt text unchanged**.
 
-  - **all**: "ALL: single combo per question with all hashes required for correct (default): `"answersAccepted": [["hash1","hash2",...]]`"
+  - **all**: "all: single combo per question with all hashes required for correct (default): `"answersAccepted": [["hash1","hash2",...]]`"
 
-  - **alts**: "ALT: separate combos, one per hash (group), only one hash (group) combo required for correct:  `"answersAccepted": [[ "hash1"],["hash2"],...]`"
+  - **alts**: "alts: separate combos, one per hash (group), only one hash (group) combo required for correct:  `"answersAccepted": [[ "hash1"],["hash2"],...]`"
 
-For example:
+**For example**:
 
-_user input_
+_user input_:
 `<target-path>`: exercise-4-adverbs/411-using-adverbs-part-1.html
-`<all|alts>` - all|alts: alt
+`<all|alts>`: alts
 
-#### prompt produced
+**Prompt produced**:
 
-- "inject `tools/hashes.txt` to the answer aray json in exercise-4-adverbs/411-using-adverbs-part-1.html following user input for answersAccepted shaping: "ALT: separate combos, one per hash (group), only one hash (group) combo required for correct:  `"answersAccepted": [[ "hash1"],["hash2"],...]`"
+"inject `tools/hashes.txt` to the answer aray json in exercise-4-adverbs/411-using-adverbs-part-1.html following user input for answersAccepted shaping: "ALT: separate combos, one per hash (group), only one hash (group) combo required for correct:  `"answersAccepted": [[ "hash1"],["hash2"],...]`"
 
 >PAUSE, DISPLAY PROMPT, PRESS ENTER TO EXECUTE, verify completion, & continue, OR Q TO EXIT AND FIX PARAMETERS.
 
 ---
 
-1. Run `encode-p-text.mjs` for obfuscation per user input:
+5. Run `encode-p-text.mjs` for obfuscation per user input:
 --scope `<highlighted|all>` - (default all):
 
    - highlighted: obfuscate only `<span>`, `<b>`, `<strong>` text inside `<p>`
@@ -127,34 +160,41 @@ _user input_
 node tools/encode-p-text.mjs --write --scope <highlighted|all> <target-path>
 ```
 
-> replace `<target-path>` with the chosen path and apply only when obfuscation choice requires it; keep command text unchanged.
+> replace `<target-path>`, `<highlighted|all>` with the user input target path and apply only when obfuscation choice requires it; keep command text unchanged.
 
-#### Apply in place
+**For example**:
 
-```bash
-- node tools/encode-p-text.mjs --write --scope highlighted exercise-2-verbs/211-transitive-and-intransitive-verbs.html
- **Optional quick check**: node tools/encode-p-text.mjs /tmp/sample.html | head
+_user input_:
+`<target-path>`: exercise-4-adverbs/411-using-adverbs-part-1.html
+`<highlighted|all>`: highlighted
+
+**Prompt produced**:
+
+`node tools/encode-p-text.mjs --write --scope highlighted exercise-4-adverbs/411-using-adverbs-part-1.html`
+
+#### extras
+
+- **Optional quick check**: node tools/encode-p-text.mjs /tmp/sample.html | head
 - **Rollback**: rm tools/encode-p-t
 - node tools/encode-p-text.mjs [--write|--apply] [--scope <all|highlighted>] <file...>
 - **Default is dry-run to stdout**; use --write/--apply to rewrite files in place.
-```
+ **prompt**: encode each question's p-tag answers from between `<span class="undies">, <b>, and <strong>` or whole `<p>` tags exactly like the following, based on its existing structure:
 
-#### extra
+- `<p>2. I forgot to renew my <b>&#109;&#101;&#109;&#98;&#101;&#114;&#115;&#104;&#105;&#112; </b> at the sailing club.</p>`
 
- **prompt**: format each question's p-tag answers from between `<span class="undies">, <b>, or <strong>` or whole `<p>` tags exactly like the following, based on its existing structure:
-
-- `<p>`2. I forgot to renew my `<b>`&#109;&#101;&#109;&#98;&#101;&#114;&#115;&#104;&#105;&#112; `</b>` in the sailing club.`</p>`  OR
+  OR
 
 - `<p>`&#109;&#101;&#109;&#98;&#101;&#114;&#115;&#104;&#105;&#112;`</p>`
 
----p-tag answers from between `<span class="undies">, <b>, or <strong>`
-NOTES:
+---p-tag answers from between `<span class="undies">, <b>, and <strong>`
+
+### NOTES
 
 - never sanitize (i.e., trim, strip quotes/trailing punctuation), these are all grammar questions, so... **there are flags in conversion system to set for this already.**
 - --target `<path>` (required if no prompt available)
-- --answer-fields <1-6> and --answer-ui textarea (set UI to textarea; default fields=1, ui unset)
+- --answer-fields <1-6> or <7> --answer-ui textarea (set UI to textarea; default is fields=1, ui unset)
 - --answer-source `<undies|p|auto>` (default auto):
-  - **undies**: extract from from between `<span class="undies">, <b>, or <strong>`
+  - **undies**: extract from from between `<span class="undies">, <b>, and <strong>`
   - **p**: extract bold/underlined/strong from `<p>` (or prompt to derive from directions if missing)
   - **auto**: current fallback (undies then `<strong>, <b>` list)
 - --answers-mode `<all|alts>` (default all; sets answersAccepted combos)
