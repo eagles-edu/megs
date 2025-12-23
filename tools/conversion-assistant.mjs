@@ -1,7 +1,26 @@
 #!/usr/bin/env node
 /**
  * Conversion assistant master script based on docs/asscon.md.
- * Thin wrapper: collects inputs, prints prompts, and runs commands in order.
+ *
+ * Purpose:
+ * - Coordinate the fixed conversion workflow by printing prompts and running existing scripts.
+ *
+ * Workflow (in order):
+ * 1) Print Prompt1 (answer extraction instructions for tools/input.txt).
+ * 2) Run fnv1a64 round-trip to generate hashes and dev dictionary.
+ * 3) Run convert-legacy-gated with the chosen answer-field settings (diff preview on by default).
+ * 4) Print Prompt4 (inject tools/hashes.txt into the answer key JSON).
+ * 5) Run encode-p-text obfuscation unless obfuscation=none.
+ *
+ * Usage examples:
+ * - node tools/conversion-assistant.mjs --target exercise-4-adverbs/411-using-adverbs-part-1.html
+ * - node tools/conversion-assistant.mjs --target exercise-4-adverbs/411-using-adverbs-part-1.html --title 411-using-adverbs-part-1 --answer-fields 2 --answer-source undies --answers-mode alts --obfuscation highlighted
+ *
+ * Flags and inputs:
+ * - Flags override prompts; missing values are collected interactively.
+ * - Prompts pause between steps; press Enter to continue or Q to quit.
+ * - --answer-fields 7 implies textarea (fields=1, --answer-ui textarea).
+ * - Use --no-diff-preview to run convert-legacy-gated without diff preview.
  */
 
 import fs from "node:fs"

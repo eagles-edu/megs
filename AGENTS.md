@@ -83,13 +83,14 @@ _Critically, consistently, and before every coding attempt, ALWAYS reread agents
 
 - When a request asks for complete, fully updated files **provide the latest, full, post-change file content (per-file) alongside a verified clean `patch diff`** so downstream users can apply or verify changes without hunting prior diffs. The previous "Requirement" for this instruction has now been downgraded to "provide only if asked (POIA)."
 
-- **File delivery rule** (POIA): For _files under 2000 lines_, always **include the entire post-change file inline (copy/paste ready)** and skip redundant inline diffs for that same file.
+- **Direct-edit delivery rule (overrides POIA full-file guidance)**: When I edit a file directly, provide **only** the unified diff by default; include the full post-change file (or `sed -i`/download for >2000 lines) **only if explicitly requested**.
 
-- (POIA) For files 2000 lines or longer, provide a `sed -i` script or download link for the complete file instead of inline content. Use exactly one of these options per file; never mix both or omit the mandated delivery format.
+- (POIA, only on explicit request) For files under 2000 lines, include the entire post-change file inline (copy/paste ready) and **also** include the unified diff required elsewhere in this SOP.
+- (POIA, only on explicit request) For files 2000 lines or longer, provide a `sed -i` script or download link for the complete file instead of inline content. Use exactly one of these options per file; never mix both or omit the mandated delivery format.
 
 - "**Inline content**" = the full, ready-to-paste body of a file (no ellipses, no truncation), enclosed in a code fence, matching the exact post-change file.
 
-- (POIA) For files 2000 lines or longer, provide one or both of the following so requestors can fetch the canonical file without scrolling in chat:
+- (POIA, only on explicit request) For files 2000 lines or longer, provide one or both of the following so requestors can fetch the canonical file without scrolling in chat:
 
   - A shell command using the current repo state, e.g., `git show HEAD:path/to/file > path/to/file` (or substitute a specific commit/branch ref as needed).
 
@@ -192,7 +193,7 @@ When proposing code changes, the assistant MUST provide:
 
 3. **Rollback** note (how to revert the commit or restore backup).
 
-4. **Completed full file-update delivery**: Ensure any file with total number of edits of more than three lines must be accompanied by either a. `sed` or b. `in-chat manual code window` method of acquiring complete updated file with current changes.
+4. **Completed full file-update delivery**: Only when a full file is explicitly requested; otherwise (direct edits) provide the unified diff only.
 
 ### Patch Template
 
