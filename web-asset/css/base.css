@@ -749,6 +749,13 @@ h4.box-head4 {
   padding: 5px;
 }
 
+.blockwrap {
+line-height: 2.5em;
+overflow-wrap: normal;
+white-space: pre-wrap;
+word-break: normal;
+}
+
 .undies {
   text-decoration: underline;
 }
