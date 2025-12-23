@@ -79,6 +79,8 @@ _Critically, consistently, and before every coding attempt, ALWAYS reread agents
 
 - **Keep the instructions scoped** to just the new changes.
 
+- **Backup naming**: when creating backups, use a `.BAK` suffix or `-copy` suffix without asking.
+
 - When a request asks for complete, fully updated files **provide the latest, full, post-change file content (per-file) alongside a verified clean `patch diff`** so downstream users can apply or verify changes without hunting prior diffs. The previous "Requirement" for this instruction has now been downgraded to "provide only if asked (POIA)."
 
 - **File delivery rule** (POIA): For _files under 2000 lines_, always **include the entire post-change file inline (copy/paste ready)** and skip redundant inline diffs for that same file.
