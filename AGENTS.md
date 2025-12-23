@@ -65,13 +65,13 @@ _Critically, consistently, and before every coding attempt, ALWAYS reread agents
 
 ### IMPORTANT
 
-- **RESCAN REPO mandate**: rerun discovery (`git status -sb`, `rg`, etc.) immediately before changing files, and explicitly note in responses that the working tree was clean, updated, working memory was flushed, then refreshed at that moment.
+- **RESCAN REPO mandate**: rerun discovery (`git status -sb`, `rg`, etc.) immediately before changing files, and explicitly note in responses the current working tree state (clean/dirty), that working memory was flushed, then refreshed at that moment.
 
 - **Between edits, recheck repo state**: after each edit is applied (and before starting another), run `git status -sb` to confirm the current tree state and call it out in replies.
 
-- **Working-memory cadence**: before drafting any new patch, refresh your view of the repo (`git status -sb`, `rg`, etc.) and state that the tree is clean at that moment; after supplying an edit, re-run `git status -sb` and report the updated tree state before beginning the next edit.
+- **Working-memory cadence**: before drafting any new patch, refresh your view of the repo (`git status -sb`, `rg`, etc.) and state the current tree state (clean/dirty) at that moment; after supplying an edit, re-run `git status -sb` and report the updated tree state before beginning the next edit.
 
-- **Always document** that the working tree is clean (e.g., via `git status -sb`) before presenting a diff or set of edits.
+- **Always document** the current working tree state (clean/dirty) (e.g., via `git status -sb`) before presenting a diff or set of edits.
 
 - **Note prototype impact**: call out when edits touch prototype vs. live flows and reference the `npm run verify:prototype` script when relevant.
 
@@ -145,7 +145,7 @@ _Critically, consistently, and before every coding attempt, ALWAYS reread agents
 
 - Universal answer keys now live in page-level JSON with hashed `answersAccepted` entries. Update hashes when expected responses change instead of exposing plain text.
 
-- Recipient lists inside exercise configs are obfuscated as numeric code points; always decode before sending mail but keep the stored values unreadable.
+- Recipient lists inside exercise configs are obfuscated tokens (e.g., numeric code points or utf8 hex objects); always decode before sending mail but keep the stored values unreadable.
 
 - Developer QA helpers ship in `web-asset/js/exercise-devtools.js`. Set `data-exercise-devtools="auto"` on a page to expose the floating “Auto-fill answers” button; use `data-exercise-devtools="manual"` or remove the attribute to hide it.
 
@@ -157,7 +157,7 @@ _Critically, consistently, and before every coding attempt, ALWAYS reread agents
 
 - The left sidebar menu scales via the responsive `--left-menu-font-size` clamp with a paired icon clamp; adjust those tokens instead of hard-coding pixel values.
 
-- Critical inline CSS in `exercise-1-nouns/111-common-nouns-codex-copy6.html` mirrors `web-asset/css/left-menu.css` for the sidebar; keep the custom property values and layout rules in sync when updating either file.
+- Critical inline CSS in `docs/111-common-nouns-codex-copy6.html` mirrors `web-asset/css/left-menu.css` for the sidebar; keep the custom property values and layout rules in sync when updating either file.
 
 - Keep sidebar labels single-line on desktop. If you must wrap, document the rationale in-code.
 

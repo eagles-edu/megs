@@ -7,7 +7,7 @@
 
   - `id`: question slug (e.g., `q1-my-uncle-visits-his-nephew-every-weekend`).
 
-  - `answersAccepted`: array of hash strings, e.g., `"fnv1a-64:abc123..."`. Multiple alternatives = multiple strings.
+  - `answersAccepted`: array of combos (array of hash arrays), e.g., `[["fnv1a-64:abc123..."]]`. Multiple alternatives = multiple combos.
 
   - `lengths`, `minLength`, `maxLength`: number of required fields; default `1` (single input).
 
@@ -51,7 +51,7 @@
 #### Hash generation
 
 - Use `tools/fnv1a64-convert.mjs --encode --input tools/input.txt > tools/hashes.txt` (exact match).
-- Populate `answersAccepted` with quoted hashes (e.g., `"fnv1a-64:...`").
+- Populate `answersAccepted` with quoted hashes inside combos (e.g., `[["fnv1a-64:..."]]`).
 
 #### Defaults/Requirements
 
@@ -91,7 +91,7 @@
 
 ### Operational Tips
 
-- Keep `answersAccepted` hashes quoted strings; avoid bare tokens.
+- Keep `answersAccepted` as a list of hash arrays; hashes are quoted strings; avoid bare tokens.
 - For textarea/full-width responses, set `data-answer-ui="textarea"` in legacy or run with `--answer-ui textarea`.
 - When adding alternatives, place all variants for a question in `tools/input.txt` separated by blank lines before re-hashing.
 - If panels open without correct answers, verify `requireCorrectBeforeReveal` is `true` and hashes match exactly.**
