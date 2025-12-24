@@ -38,12 +38,14 @@ const DEFAULTS = {
   answerUi: "",
   answerSource: "auto",
   answersMode: "all",
+  ignoreExample: "auto",
   obfuscation: "all",
   diffPreview: true,
 }
 
 const VALID_ANSWER_SOURCES = ["undies", "p", "auto"]
 const VALID_ANSWERS_MODES = ["all", "alts"]
+const VALID_IGNORE_EXAMPLE = ["auto", "prefix", "first", "none"]
 const VALID_OBFUSCATION = ["all", "highlighted", "none"]
 
 const ANSWER_SOURCE_TEXT = {
@@ -80,6 +82,7 @@ Options:
   --answer-ui <value>     Force answer UI (e.g., textarea)
   --answer-source <val>   undies | p | auto (default auto)
   --answers-mode <val>    all | alts (default all)
+  --ignore-example [val]  auto | prefix | first | none (standalone defaults to prefix)
   --obfuscation <val>     all | highlighted | none (default all)
   --diff-preview [bool]   true | false (default true)
   --no-diff-preview       disable diff preview
@@ -124,6 +127,7 @@ function parseArgs(argv) {
     answerUi: false,
     answerSource: false,
     answersMode: false,
+    ignoreExample: false,
     obfuscation: false,
     diffPreview: false,
   }
@@ -151,6 +155,15 @@ function parseArgs(argv) {
     } else if (arg === "--answers-mode") {
       args.answersMode = (argv[++i] || "").trim().toLowerCase()
       provided.answersMode = true
+    } else if (arg === "--ignore-example") {
+      const candidate = argv[i + 1]
+      if (candidate && !candidate.startsWith("-")) {
+        args.ignoreExample = candidate.trim().toLowerCase()
+        i += 1
+      } else {
+        args.ignoreExample = "prefix"
+      }
+      provided.ignoreExample = true
     } else if (arg === "--obfuscation") {
       args.obfuscation = (argv[++i] || "").trim().toLowerCase()
       provided.obfuscation = true
@@ -300,7 +313,7 @@ function buildPrompt1(target, answerSource) {
     wrapWithBackticks(target) +
     " pull answers from question p-tags, " +
     sourceText +
-    ", then copy the individual words to `tools/input.txt` separating each question's answer group or alternate answer group by a blank line." +
+    ", then copying those words / phrases / sentences to`tools/input.txt`, formatting it with no newlines between answers in the same group and only a blank line between answer groups." +
     '"'
   )
 }
@@ -327,7 +340,7 @@ function buildCmd2(title) {
   ]
 }
 
-function buildCmd3(target, answerFields, answerUi, diffPreview) {
+function buildCmd3(target, answerFields, answerUi, diffPreview, ignoreExample) {
   const cmd = [
     "node",
     "js/convert-legacy-gated.mjs",
@@ -340,6 +353,9 @@ function buildCmd3(target, answerFields, answerUi, diffPreview) {
   }
   if (diffPreview) {
     cmd.push("--diff-preview")
+  }
+  if (ignoreExample && ignoreExample !== "auto") {
+    cmd.push("--ignore-example", ignoreExample)
   }
   return cmd
 }
@@ -423,6 +439,16 @@ async function main() {
         )
       : DEFAULTS.answersMode
   }
+  if (!provided.ignoreExample) {
+    args.ignoreExample = ask
+      ? await promptChoice(
+          ask,
+          "Example handling --ignore-example",
+          VALID_IGNORE_EXAMPLE,
+          DEFAULTS.ignoreExample
+        )
+      : DEFAULTS.ignoreExample
+  }
   if (!provided.obfuscation) {
     args.obfuscation = ask
       ? await promptChoice(ask, "obfuscation scope", VALID_OBFUSCATION, DEFAULTS.obfuscation)
@@ -434,11 +460,18 @@ async function main() {
 
   args.answerSource = normalizeChoice(args.answerSource, VALID_ANSWER_SOURCES, "answer-source")
   args.answersMode = normalizeChoice(args.answersMode, VALID_ANSWERS_MODES, "answers-mode")
+  args.ignoreExample = normalizeChoice(args.ignoreExample, VALID_IGNORE_EXAMPLE, "ignore-example")
   args.obfuscation = normalizeChoice(args.obfuscation, VALID_OBFUSCATION, "obfuscation")
 
   const prompt1 = buildPrompt1(targetDisplay, args.answerSource)
   const cmd2 = buildCmd2(args.title)
-  const cmd3 = buildCmd3(targetDisplay, args.answerFields, args.answerUi, args.diffPreview)
+  const cmd3 = buildCmd3(
+    targetDisplay,
+    args.answerFields,
+    args.answerUi,
+    args.diffPreview,
+    args.ignoreExample
+  )
   const prompt4 = buildPrompt4(targetDisplay, args.answersMode)
   const cmd5 = buildCmd5(targetDisplay, args.obfuscation)
 

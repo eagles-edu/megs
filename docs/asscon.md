@@ -50,7 +50,7 @@ If flags are not present, pause for user to enter input; enter conversion detail
 
 Runtime rules for all prompts/commands: replace every placeholder (e.g., `<target-path>`, `<title/ID>`, `<undies/p/auto>`, answer counts, obfuscation choice) with the user input values before printing; keep the surrounding prompt/command text unchanged.
 
-1. **Print Prompt1**: "`<target-path>` pull answers from question p-tags, `<undies/p/auto>`, then copy the individual words to `tools/input.txt` separating each question's answer group or alternate answer group by a blank line."
+1. **Print Prompt1**: "`<target-path>` pull answers from question p-tags, `<undies/p/auto>`, then copying those words / phrases / sentences to`tools/input.txt`, formatting it with no newlines between answers in the same group and only a blank line between answer groups."
 
    - replace `<target-path>`, `<undies/p/auto>` with user input flag text:
 
@@ -67,7 +67,7 @@ _User input_:
 
 _CMD produced_:
 
-"`exercise-4-adverbs/411-using-adverbs-part-1.html` pull answers from question p-tags, by extracting p-tag answers from between `<span class="undies">`, `<b>`, and `<strong>` tags in the target HTML, then copying the individual words/phrases to tools/input.txt and separating each question's answer group or alternate answer groups by a blank line."
+"`exercise-4-adverbs/411-using-adverbs-part-1.html` pull answers from question p-tags, by extracting p-tag answers from between `<span class="undies">`, `<b>`, and `<strong>` tags in the target HTML, then copying those words / phrases / sentences to`tools/input.txt`, formatting it with no newlines between answers in the same group and only a blank line between answer groups."
 
 >PAUSE, DISPLAY PROMPT, PRESS ENTER TO EXECUTE, verify completion, & continue, OR Q TO EXIT AND FIX PARAMETERS.
 
