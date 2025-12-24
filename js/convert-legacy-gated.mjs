@@ -15,6 +15,8 @@ Flags:
   --dry-run                     Report actions without writing changes.
   --diff-preview                Show git-style diff between legacy and converted output.
   --test-mode                   Auto-fill answers and leave accordions open for QA.
+  --ignore-example [mode]       Example handling (standalone defaults to prefix): auto, prefix, first, none.
+                              - Unset: auto scan + prompt; defaults to none when no Example.* is found.
 
 Flag combos:
   --dry-run --diff-preview       Inspect the generated diff without touching files.
@@ -32,6 +34,7 @@ import os from "os"
 import path from "path"
 import { fileURLToPath } from "url"
 import { spawnSync } from "child_process"
+import readline from "readline"
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
@@ -221,6 +224,7 @@ function scrapeQuestions($) {
       answerFieldCount,
       answerUi,
       bodyHtml: (inner.length ? inner.html() : body.html()) || "",
+      wrapperHtml: wrapper.toString() || "",
     })
   })
   return questions
@@ -666,6 +670,15 @@ function injectTemplate(
       .reverse()
       .forEach((text) => form.before($("<p>").text(text)))
   }
+  if (Array.isArray(scraped.legacyExamples) && scraped.legacyExamples.length) {
+    form.before(scraped.legacyExamples.join("\n"))
+    logEvent(
+      telemetry,
+      "ok",
+      "example-legacy",
+      `Preserved ${scraped.legacyExamples.length} legacy Example block(s)`
+    )
+  }
 
   form.find(".quest-bg").remove()
   const submitRow = form.find("[data-exercise-submit-row]").first()
@@ -741,6 +754,101 @@ function showDiff(original, updated) {
   return result.stdout || result.stderr
 }
 
+function isExampleText(text) {
+  return /^\s*example\./i.test(text || "")
+}
+
+function scanExampleQuestions(questions) {
+  return (questions || []).filter((question) => isExampleText(question.questionText))
+}
+
+function splitExampleQuestions(questions, mode) {
+  if (!Array.isArray(questions) || !questions.length) {
+    return { kept: [], ignored: [] }
+  }
+  if (mode === "none") {
+    return { kept: questions, ignored: [] }
+  }
+  if (mode === "first") {
+    return { kept: questions.slice(1), ignored: questions.slice(0, 1) }
+  }
+  const kept = []
+  const ignored = []
+  questions.forEach((question) => {
+    if (isExampleText(question.questionText)) ignored.push(question)
+    else kept.push(question)
+  })
+  return { kept, ignored }
+}
+
+function promptLine(question) {
+  return new Promise((resolve) => {
+    const rl = readline.createInterface({ input: process.stdin, output: process.stdout })
+    rl.question(question, (answer) => {
+      rl.close()
+      resolve(answer)
+    })
+  })
+}
+
+async function resolveIgnoreExampleMode(requestedMode, questions, telemetry) {
+  const found = scanExampleQuestions(questions)
+  const foundCount = found.length
+  const recommended = foundCount ? "prefix" : "none"
+  logEvent(
+    telemetry,
+    "ok",
+    "example-scan",
+    foundCount ? `Found ${foundCount} Example question(s)` : "No Example questions found"
+  )
+
+  if (requestedMode !== "auto") {
+    return { mode: requestedMode, foundCount, recommended }
+  }
+
+  console.log(
+    `[auto] Example scan: ${foundCount ? `found ${foundCount} Example question(s)` : "none found"}`
+  )
+  console.log(
+    `[auto] Defaulting to ${recommended === "none" ? "process all questions" : "skip Example.*"}`
+  )
+  console.log("[auto] Options: prefix (skip Example.*), first (skip first), none")
+
+  if (!process.stdin.isTTY) {
+    console.log("[auto] Non-interactive session; using recommended mode.")
+    return { mode: recommended, foundCount, recommended }
+  }
+
+  const response = await promptLine(
+    `Select ignore mode [prefix/first/none] (default: ${recommended}; Enter to accept): `
+  )
+  const normalized = response.trim().toLowerCase()
+  const validModes = new Set(["prefix", "first", "none"])
+  if (validModes.has(normalized)) {
+    return { mode: normalized, foundCount, recommended }
+  }
+  if (normalized) {
+    console.log(`[auto] Unrecognized "${normalized}", using ${recommended}.`)
+  }
+  return { mode: recommended, foundCount, recommended }
+}
+
+function applyIgnoreExampleMode(scraped, mode, telemetry) {
+  const { kept, ignored } = splitExampleQuestions(scraped.questions, mode)
+  const legacyExamples = ignored.map((question) => question.wrapperHtml).filter(Boolean)
+  if (ignored.length) {
+    logEvent(telemetry, "warn", "example-ignore", `Skipped ${ignored.length} Example question(s)`)
+  } else {
+    logEvent(telemetry, "ok", "example-ignore", "No Example questions skipped")
+  }
+  return {
+    ...scraped,
+    questions: kept,
+    totalQuestions: kept.length,
+    legacyExamples,
+  }
+}
+
 function validateCounts(scraped, expectedQuestions, answerKey, overrideAnswerFieldCount) {
   if (expectedQuestions && expectedQuestions !== scraped.totalQuestions) {
     throw new Error(
@@ -775,7 +883,7 @@ function validateCounts(scraped, expectedQuestions, answerKey, overrideAnswerFie
   })
 }
 
-function main() {
+async function main() {
   const parser = new ArgumentParser({
     description: "Convert legacy accordion HTML into gated exercise template.",
   })
@@ -808,8 +916,22 @@ function main() {
     action: "store_true",
     help: "Auto-fill answers and bypass accordion gating",
   })
+  parser.add_argument("--ignore-example", {
+    default: "auto",
+    const: "prefix",
+    nargs: "?",
+    dest: "ignoreExample",
+    help: "Example handling (standalone defaults to prefix): auto, prefix, first, none",
+  })
 
   const args = parser.parse_args()
+  const allowedIgnoreModes = new Set(["auto", "prefix", "first", "none"])
+  const normalizedIgnore = String(args.ignoreExample || "auto").toLowerCase()
+  if (!allowedIgnoreModes.has(normalizedIgnore)) {
+    throw new Error(
+      `Invalid --ignore-example mode "${args.ignoreExample}". Use auto, prefix, first, or none.`
+    )
+  }
   const legacyPath = resolvePathMaybe(args.htmlPath)
   const templatePath = resolvePathMaybe(args.template)
   ensureFileExists(legacyPath)
@@ -825,12 +947,18 @@ function main() {
     "scrape",
     `title="${scraped.title}", canonical="${scraped.canonical}", breadcrumbs=${scraped.breadcrumbs.length}, pagerPrev=${scraped.pager.previous ? "yes" : "no"} (icon=${scraped.pager.previous && scraped.pager.previous.icon ? "yes" : "no"}), pagerNext=${scraped.pager.next ? "yes" : "no"} (icon=${scraped.pager.next && scraped.pager.next.icon ? "yes" : "no"}), questions=${scraped.totalQuestions}`
   )
-  const answerKey = createAnswerKey(scraped, args.answerFields, args.test_mode)
+  const { mode: ignoreMode } = await resolveIgnoreExampleMode(
+    normalizedIgnore,
+    scraped.questions,
+    telemetry
+  )
+  const normalizedScrape = applyIgnoreExampleMode(scraped, ignoreMode, telemetry)
+  const answerKey = createAnswerKey(normalizedScrape, args.answerFields, args.test_mode)
   ensureAnswerKeyIsJsonSafe(answerKey)
-  validateCounts(scraped, args.questions, answerKey, args.answerFields)
+  validateCounts(normalizedScrape, args.questions, answerKey, args.answerFields)
   const updatedHtml = injectTemplate(
     templateHtml,
-    scraped,
+    normalizedScrape,
     args.answerFields,
     args.test_mode,
     legacyPath,

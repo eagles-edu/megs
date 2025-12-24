@@ -30,7 +30,12 @@ If flags are not present, pause for user to enter input; enter conversion detail
    5. **multiple provided answers**: to set `--answers-mode`:
       1. **all** - each answer in group _required mode_ (default)
       2. **alts** - _alternative answers mode_
-   6. **obfuscation scope** (default `all`):
+   6. **Example handling**: to set `--ignore-example [mode]`:
+      1. **auto** (default when flag is unset): scan for `Example.`-prefixed questions, report findings, pause for a choice, and default to **none** if no Example blocks are found
+      2. **prefix** (default when `--ignore-example` is provided with no value): skip questions that start with `Example.`
+      3. **first**: skip the first question block
+      4. **none**: skip nothing (convert all questions)
+   7. **obfuscation scope** (default `all`):
       1. `all` p-tag contents
       2. `highlighted` p-tag contents
       3. `none` (skip obfuscation)
@@ -39,7 +44,7 @@ If flags are not present, pause for user to enter input; enter conversion detail
         >   <span class="undies">...</span>, <b>...</b>, and <strong>...</strong>
         > ```
 
-   7. **diff preview**: true (default) or false
+   8. **diff preview**: true (default) or false
 
 ### II. Program Execution
 
@@ -90,7 +95,7 @@ _CMD produced_:
 
 ---
 
-3. **Execute CMD3**: using earlier input from user:
+3. **Execute CMD3**: using earlier input from user (include `--ignore-example` if selected):
 
 - #1–#6 sets: `--answer-fields` (1-6; default 1)
 
@@ -108,6 +113,7 @@ node js/convert-legacy-gated.mjs <target-path> --answer-fields 1 --answer-ui tex
 
 - replace placeholders (`<target-path>`, `<# of answer fields>`) with user input values; keep command text unchanged.
 - if diff preview is false, omit `--diff-preview`.
+- if Example handling is selected, append `--ignore-example` (standalone = prefix) or `--ignore-example <auto|prefix|first|none>`.
 
 **For example**:
 
@@ -188,6 +194,8 @@ _user input_:
 
 ### NOTES
 
+- **Priority rule**: Obfuscation SOP applies only when it does not conflict with the requirement that no human-readable answers remain visible/un-obfuscated after conversion. If there is a conflict, enforce "no readable answers after conversion."
+- **Execution**: the full conversion workflow must run end-to-end without interruption; do not pause between steps unless the user explicitly requests a stop.
 - never sanitize (i.e., trim, strip quotes/trailing punctuation), these are all grammar questions, so **there are flags in the conversion system to set for this already.**
 - --target `<target-path>` (required as --flag or user input)
 - --answer-fields <1-6> or <7> --answer-ui textarea (set UI to textarea; default is fields=1, ui unset)
@@ -198,6 +206,11 @@ _user input_:
 - --answers-mode `<all|alts>` (default all; sets answersAccepted combos)
   - all: single combo with all hashes
   - alts: separate combos, one per hash
+- --ignore-example `[auto|prefix|first|none]` (default auto when flag is unset)
+  - auto: scan for Example.* and prompt; defaults to none if no Example blocks are found
+  - prefix: skip questions that start with `Example.`
+  - first: skip the first question block
+  - none: skip nothing (convert all questions)
 - --scope `<highlighted|all>` (default all):
   - **highlighted**: obfuscate only `<span>`, `<b>`, `<strong>` text inside `<p>`
   - **all**: obfuscate all `<p>` text nodes (leave tags)

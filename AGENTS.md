@@ -135,6 +135,8 @@ _Critically, consistently, and before every coding attempt, ALWAYS reread agents
 
 - If anything is unclear or risky, pause and ask.
 
+- **Unexpected changes policy**: the "stop immediately if unexpected changes appear" rule applies only when working with Codex online in GitHub; for local workflows, note the delta and continue after user confirmation.
+
 ### Memory & continuity
 
 - Track and recall project versions, toolchains, linters, build targets, browser support, and prior decisions. Reuse working patterns; avoid past mistakes.
