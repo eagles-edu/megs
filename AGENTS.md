@@ -185,10 +185,10 @@ When proposing code changes, the assistant MUST provide:
 2. **Exact line numbers** and **context** (3–5 lines around changes).
    - If line numbers aren’t known, include a grep to locate anchors:
 
-  ```bash
-    nl -ba path/to/file | sed -n '120,150p'  # preview range
-    rg -n 'anchor text' path/to/file         # ripgrep
-  ```
+```bash
+    nl -ba path/to/file | sed -n 120,150p
+    rg -n anchor text path/to/file
+```
 
 3. **Unified diff** (copy-pasteable) **and** a shell-ready way to apply it:
    - Prefer (in order) `diff patch from freshly updated rescan of repo`, `in-chat manual code window`, `patch` then `git apply` ;

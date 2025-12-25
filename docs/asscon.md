@@ -50,7 +50,9 @@ If flags are not present, pause for user to enter input; enter conversion detail
 
 Runtime rules for all prompts/commands: replace every placeholder (e.g., `<target-path>`, `<title/ID>`, `<undies/p/auto>`, answer counts, obfuscation choice) with the user input values before printing; keep the surrounding prompt/command text unchanged.
 
-1. **Print Prompt1**: "`<target-path>` pull answers from question p-tags, `<undies/p/auto>`, then copying those words / phrases / sentences to`tools/input.txt`, formatting it with no newlines between answers in the same group and only a blank line between answer groups."
+---
+
+1. **Print Prompt1**: "`<target-path>` pull answers from question p-tags, `<undies/p/auto>`, then copying those words / phrases / sentences to`tools/input.txt`, formatting only a linebreak between answers of the same answer group and a blank line between answer groups."
 
    - replace `<target-path>`, `<undies/p/auto>` with user input flag text:
 
@@ -67,7 +69,7 @@ _User input_:
 
 _CMD produced_:
 
-"`exercise-4-adverbs/411-using-adverbs-part-1.html` pull answers from question p-tags, by extracting p-tag answers from between `<span class="undies">`, `<b>`, and `<strong>` tags in the target HTML, then copying those words / phrases / sentences to`tools/input.txt`, formatting it with no newlines between answers in the same group and only a blank line between answer groups."
+"`exercise-4-adverbs/411-using-adverbs-part-1.html` pull answers from question p-tags, by extracting p-tag answers from between `<span class="undies">`, `<b>`, and `<strong>` tags in the target HTML, then copying those words / phrases / sentences to`tools/input.txt`, formatting only a linebreak between answers of the same answer group and a blank line between answer groups."
 
 >PAUSE, DISPLAY PROMPT, PRESS ENTER TO EXECUTE, verify completion, & continue, OR Q TO EXIT AND FIX PARAMETERS.
 
@@ -155,7 +157,30 @@ _user input_:
 
 ---
 
-5. Run `encode-p-text.mjs` for obfuscation per user input (skip if scope is `none`):
+5. **Execute CMD4**: sync `lengths`, `minLength`, `maxLength` to match `answersAccepted` combos:
+
+```bash
+node tools/sync-answer-lengths.mjs <target-path>
+```
+
+- replace `<target-path>` with the user input target path; keep command text unchanged.
+- run after Prompt4 injection so combos are final.
+
+**For example**:
+
+_user input_:
+
+- `<target-path>`: exercise-4-adverbs/411-using-adverbs-part-1.html
+
+**CMD produced**:
+
+`node tools/sync-answer-lengths.mjs exercise-4-adverbs/411-using-adverbs-part-1.html`
+
+> PAUSE, DISPLAY COMMAND, PRESS ENTER TO EXECUTE, verify completion, & continue, OR Q TO EXIT AND FIX PARAMETERS.
+
+---
+
+6. Run `encode-p-text.mjs` for obfuscation per user input (skip if scope is `none`):
 --scope `<highlighted|all>` (default all):
 
    - highlighted: obfuscate only `<span>`, `<b>`, `<strong>` text inside `<p>`

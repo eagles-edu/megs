@@ -10,7 +10,8 @@
  * 2) Run fnv1a64 round-trip to generate hashes and dev dictionary.
  * 3) Run convert-legacy-gated with the chosen answer-field settings (diff preview on by default).
  * 4) Print Prompt4 (inject tools/hashes.txt into the answer key JSON).
- * 5) Run encode-p-text obfuscation unless obfuscation=none.
+ * 5) Run sync-answer-lengths to align lengths/min/max with answersAccepted.
+ * 6) Run encode-p-text obfuscation unless obfuscation=none.
  *
  * Usage examples:
  * - node tools/conversion-assistant.mjs --target exercise-4-adverbs/411-using-adverbs-part-1.html
@@ -57,8 +58,8 @@ const ANSWER_SOURCE_TEXT = {
 }
 
 const ANSWERS_MODE_TEXT = {
-  all: 'ALL: single combo per question with all hashes required for correct (default): `"answersAccepted": [["hash1","hash2",...]]`',
-  alts: 'ALTS: separate combos, one per hash (group), only one hash (group) combo required for correct: `"answersAccepted": [["hash1"],["hash2"],...]`',
+  all: 'ALL: single combo per question with all hashes required for correct (default): `"answersAccepted": [["hash1","hash2",...]]`\n\n',
+  alts: 'ALTS: separate combos, one per hash (group), only one hash (group) combo required for correct: `"answersAccepted": [["hash1"],["hash2"],...]`\n\n',
 }
 
 const PAUSE_PROMPT =
@@ -313,7 +314,7 @@ function buildPrompt1(target, answerSource) {
     wrapWithBackticks(target) +
     " pull answers from question p-tags, " +
     sourceText +
-    ", then copying those words / phrases / sentences to`tools/input.txt`, formatting it with no newlines between answers in the same group and only a blank line between answer groups." +
+    ", then copying those words / phrases / sentences to `tools/input.txt`, formatting only a linebreak between answers of the same answer group and a blank line between answer groups.\n\n" +
     '"'
   )
 }
@@ -358,6 +359,10 @@ function buildCmd3(target, answerFields, answerUi, diffPreview, ignoreExample) {
     cmd.push("--ignore-example", ignoreExample)
   }
   return cmd
+}
+
+function buildCmd4(target) {
+  return ["node", "tools/sync-answer-lengths.mjs", target]
 }
 
 function buildCmd5(target, obfuscation) {
@@ -473,6 +478,7 @@ async function main() {
     args.ignoreExample
   )
   const prompt4 = buildPrompt4(targetDisplay, args.answersMode)
+  const cmd4 = buildCmd4(targetDisplay)
   const cmd5 = buildCmd5(targetDisplay, args.obfuscation)
 
   console.log("\n1. Print Prompt1:")
@@ -505,8 +511,16 @@ async function main() {
     process.exit(0)
   }
 
+  console.log("\n5. Execute CMD4:")
+  console.log(commandToString(cmd4))
+  if (!(await pauseOrQuit(ask, PAUSE_COMMAND))) {
+    prompter?.close()
+    process.exit(0)
+  }
+  runCommand(cmd4, "CMD4")
+
   if (cmd5) {
-    console.log("\n5. Execute CMD5:")
+    console.log("\n6. Execute CMD5:")
     console.log(commandToString(cmd5))
     if (!(await pauseOrQuit(ask, PAUSE_COMMAND))) {
       prompter?.close()
@@ -514,7 +528,7 @@ async function main() {
     }
     runCommand(cmd5, "CMD5")
   } else {
-    console.log("\n5. Execute CMD5:")
+    console.log("\n6. Execute CMD5:")
     console.log("Obfuscation skipped (scope=none).")
   }
 
