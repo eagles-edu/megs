@@ -749,9 +749,22 @@ h4.box-head4 {
   padding: 5px;
 }
 
+.exinstruct {
+  display: block;
+  padding: 0 7%;
+}
+
+.blockdiv {
+  display: block;
+  padding: 0 7%;
+}
+
 .blockwrap {
-line-height: 2.5em;
+font-weight: 600;
+line-height: 2.15em;
+margin: 0 0 18px;
 overflow-wrap: normal;
+padding: 0;
 white-space: pre-wrap;
 word-break: normal;
 }

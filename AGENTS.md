@@ -66,6 +66,8 @@ _Critically, consistently, and before every coding attempt, ALWAYS reread agents
 ### IMPORTANT
 
 - **RESCAN REPO mandate**: rerun discovery (`git status -sb`, `rg`, etc.) immediately before changing files, and explicitly note in responses the current working tree state (clean/dirty), that working memory was flushed, then refreshed at that moment.
+- **Local workflow continuity**: when working locally, do not interrupt conversation prompts about dirty state or unexpected deltas; proceed with tasks and note that repo state is updated periodically.
+- **No inline styles in legacy p-tags**: never add or reintroduce `style="..."` in legacy exercise `<p>` content; preserve existing legacy p-tag HTML without stripping or restyling, and follow `docs/asscon.md` conventions for answer highlighting.
 
 - **Between edits, recheck repo state**: after each edit is applied (and before starting another), run `git status -sb` to confirm the current tree state and call it out in replies.
 
@@ -135,7 +137,7 @@ _Critically, consistently, and before every coding attempt, ALWAYS reread agents
 
 - If anything is unclear or risky, pause and ask.
 
-- **Unexpected changes policy**: the "stop immediately if unexpected changes appear" rule applies only when working with Codex online in GitHub; for local workflows, note the delta and continue after user confirmation.
+- **Unexpected changes policy**: the "stop immediately if unexpected changes appear" rule applies only when working with Codex online in GitHub; for local workflows, note the delta and continue without interrupting the prompt (repo state is updated periodically).
 
 ### Memory & continuity
 

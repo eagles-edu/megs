@@ -1,95 +1,39 @@
-I met her in London a few months ago.
-A few months ago, I met her in London.
+low
 
-I saw them walking along the river last week.
-Last week, I saw them walking along the river.
+freely
 
-He told us to go away quickly.
-He told us to quickly go away.
+carefully
 
-The bag is light enough for you to carry.
+well
 
-It was too dark for us to see.
+accidentally
 
-She sat quietly in the office for ten minutes.
-She sat quietly for ten minutes in the office.
-For ten minutes, she sat quietly in the office.
-In the office, she sat quietly for ten minutes.
-In the office, for ten minutes she sat quietly.
+deeply
 
-Last night, we played badminton at his house.
-Last night at his house, we played badminton.
-We played badminton last night at his house.
-We played badminton at his house last night.
+suddenly
 
-Yesterday, Danny spoke very well at the debate.
-Danny spoke very well at the debate yesterday.
-Danny spoke very well yesterday at the debate.
-Danny yesterday spoke very well at the debate.
-At the debate yesterday, Danny spoke very well.
+easily
 
-We were talking quietly by the tree when the branch fell down.
-When the branch fell down, we were talking quietly by the tree.
-We were talking by the tree quietly when the branch fell down.
-We were quietly talking by the tree when the branch fell down.
+badly
 
-The fire started in the kitchen of that house at about ten o'clock at night.
-At about ten o'clock at night, the fire started in the kitchen of that house.
-The fire started at about ten o'clock at night in the kitchen of that house.
-In the kitchen of that house, the fire started at about ten o'clock at night.
-In the kitchen of that house, at about ten o'clock at night, the fire started.
+fast greatly
 
-The men who came this morning worked hard at the back of the house all day long.
-The men who came this morning worked hard all day long at the back of the house.
-All day long, the men who came this morning worked hard at the back of the house.
-At the back of the house, the men who came this morning worked hard all day long.
-At the back of the house, all day long the men who came this morning worked hard.
+swiftly
 
-I planted them carefully in the front garden yesterday evening.
-I planted them carefully yesterday evening in the front garden.
-Yesterday evening, I planted them carefully in the front garden.
-In the front garden, I planted them carefully yesterday evening.
-In the front garden, yesterday evening I planted them carefully.
+briefly
 
-Ask him to come to see us when he can.
-Ask him to come when he can to see us.
-When he can, ask him to come to see us.
-To see us, ask him to come when he can.
+softly
 
-They argued angrily outside the house for some time.
-They argued angrily for some time outside the house.
-For some time, they argued angrily outside the house.
-Outside the house, they argued angrily for some time.
-Outside the house, for some time they argued angrily.
+lately
 
-They decided to go to town by car the next day.
-They decided to go by car to town the next day.
-The next day, they decided to go to town by car.
-By car, they decided to go to town the next day.
-To town, they decided to go by car the next day.
+repeatedly
 
-It is very cold in Sweden during the winter.
-During the winter, it is very cold in Sweden.
-In Sweden, it is very cold during the winter.
+steadily
 
-They sawed down the trees near our school last week.
-They sawed down the trees last week near our school.
-Last week, they sawed down the trees near our school.
-Near our school, they sawed down the trees last week.
+badly
 
-We fished patiently from the bank until it was dark.
-We fished patiently until it was dark from the bank.
-Until it was dark, we fished patiently from the bank.
-From the bank, we fished patiently until it was dark.
-From the bank, until it was dark we fished patiently.
+tightly
 
-The mosquitoes buzzed around us all night.
-The mosquitoes buzzed all night around us.
-All night, the mosquitoes buzzed around us.
-Around us, the mosquitoes buzzed all night.
+proudly
 
-He swam quickly towards the beach when he saw the sea-snake.
-When he saw the sea-snake, he swam quickly towards the beach.
-He swam towards the beach quickly when he saw the sea-snake.
-He quickly swam towards the beach when he saw the sea-snake.
-Towards the beach, he swam quickly when he saw the sea-snake.
+narrowly

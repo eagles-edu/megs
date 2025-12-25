@@ -26,7 +26,7 @@
  *    AI evaluates answers or pull answers from question p tags emboldened or underlined, then,
  *    copy the individual words to tools/input.txt
  *
- * 5) Copy tools/hashes.txt to the answer array JSON in exercise-3-adjectives/342-using-adjectives-ii.html
+ * 5) Copy tools/hashes.txt to the answer array JSON in exercise-4-adverbs/431-modifying-verbs.html
  *
  * ***********
 
@@ -36,7 +36,7 @@
  *   node tools/fnv1a64-convert.mjs --decode --dictionary tools/dict.txt --input hashes.txt
  *   node tools/fnv1a64-convert.mjs --verify --input tools/input.txt
  * 
- *   node tools/fnv1a64-convert.mjs --round-trip --input tools/input.txt --title 342-using-adjectives-ii
+ *   node tools/fnv1a64-convert.mjs --round-trip --input tools/input.txt --title 431-modifying-verbs
  *
  * # encode → decode using tools/*.txt; copies decoded.txt to dev/<title>.ext when title provided/prompted
  *
