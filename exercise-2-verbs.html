@@ -1478,32 +1478,6 @@
             </ul>
             <!-- End Content -->
           </main>
-          <script>
-            jQuery(document).ready(function ($) {
-              var acMenu = $("#flyout_menu_93")
-              acMenu.find("a").click(function () {
-                if ($(this).attr("target") == "_blank") {
-                  window.open($(this).attr("href"))
-                } else {
-                  location = $(this).attr("href")
-                }
-                return false
-              })
-
-              acMenu
-                .find("li")
-                .mouseleave(function () {
-                  $(this).removeClass("opened")
-                  $(this).children(".item-wrapper").children(".menu-button").children("img").attr("src", "web-asset/icons/svg/plus3.svg")
-                  $(this).children(".ul-wrapper").hide(300)
-                })
-                .mouseenter(function () {
-                  $(this).children(".item-wrapper").children(".menu-button").children("img").attr("src", "web-asset/icons/svg/minus5.svg")
-                  $(this).addClass("opened")
-                  $(this).children(".ul-wrapper").show(300)
-                })
-            })
-          </script>
           <div
             id="aside"
             class="span2 bm3">

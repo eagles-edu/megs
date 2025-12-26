@@ -1,7 +1,7 @@
 <!-- prettier-ignore -->
 <!doctype html>
 <html lang="en">
-<!-- /exercise-5-pronouns/511-personal-pronoun-i.html, Tue, 24 Nov 2020 12:32:39 GMT -->
+<!-- /exercise-4-adverbs/434-modifying-adverbs.html, Tue, 24 Nov 2020 12:32:38 GMT -->
 
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,8 +11,8 @@
     content="ESL, TOESL, TOEFL, courses, english, english courses, education, english degree, degree, english education, exercises, english exercises, grammar, verb, english grammar, noun, adverb, adjective, english adverb, english noun, english adjective">
   <meta name="description" content="A comprehensive site for free English courses and exercises.">
   <meta name="generator" content="English Grammar - intermediate levels A2 and above">
-  <title>5.1.1 Personal Pronoun I</title>
-  <link href="511-personal-pronoun-i.html" rel="non-canonical">
+  <title>4.3.4 Modifying Adverbs</title>
+  <link href="434-modifying-adverbs.html" rel="non-canonical">
   <link href="../web-asset/icons/favicon.ico" rel="shortcut icon" type="image/vnd.microsoft.icon">
   <link href="../web-asset/css/style.min.css" rel="stylesheet">
   <link href="../web-asset/css/template592f.css" rel="stylesheet">
@@ -120,7 +120,7 @@
   <link href="../web-asset/css/meg-2.css" rel="stylesheet">
 </head>
 
-<body class="site com_content view-article no-layout no-task itemid-3569">
+<body class="site com_content view-article no-layout no-task itemid-14863">
   <!-- Body -->
   <div class="body" id="top">
     <div class="container">
@@ -347,12 +347,12 @@
           <div class="item-page" itemscope itemtype="https://schema.org/Article">
             <meta itemprop="inLanguage" content="en-GB">
             <div class="page-header">
-              <h2 itemprop="headline">5.1.1 Personal Pronoun I</h2>
+              <h2 itemprop="headline">4.3.4 Modifying Adverbs</h2>
             </div>
             <div itemprop="articleBody">
               <ul class="pager pagenav">
                 <li class="previous">
-                  <a href="../exercise-5-pronouns.html" rel="prev" aria-label="Previous">
+                  <a href="433-modifying-adjectives-part-2.html" rel="prev" aria-label="Previous">
                    <svg
                         version="1.1"
                         xmlns="http://www.w3.org/2000/svg"
@@ -363,12 +363,12 @@
                           d="M16.795 14.571c0 0.214-0.107 0.455-0.268 0.616l-10.527 10.527 10.527 10.527c0.161 0.161 0.268 0.402 0.268 0.616s-0.107 0.455-0.268 0.616l-1.339 1.339c-0.161 0.161-0.402 0.268-0.616 0.268s-0.455-0.107-0.616-0.268l-12.482-12.482c-0.161-0.161-0.268-0.402-0.268-0.616s0.107-0.455 0.268-0.616l12.482-12.482c0.161-0.161 0.402-0.268 0.616-0.268s0.455 0.107 0.616 0.268l1.339 1.339c0.161 0.161 0.268 0.375 0.268 0.616z">
                         </path>
                       </svg>
-                    Exercise 5 - Pronouns
+                    4.3.3 Modifying Adjectives (Part 2)
                   </a>
                 </li>
                 <li class="next">
-                  <a href="512-personal-pronoun-ii.html" rel="next" aria-label="Next">
-                    5.1.2 Personal Pronoun II
+                  <a href="../exercise-4-adverbs.html" rel="next" aria-label="Next">
+                    Exercise 4 - Adverbs
                     <svg
                         version="1.1"
                         xmlns="http://www.w3.org/2000/svg"
@@ -382,36 +382,32 @@
                   </a>
                 </li>
               </ul>
-              <p>Replace the underlined word/words in each sentence with the right pronoun. Click question to check your answers.
-              </p>
+              <div class="exinstruct">
+                <p>The adverbs given in bold are modifiers that modify other adverbs in the sentences. Place each one in the correct position in the sentence.</p>
+                <div class="blockdiv">
+              <blockquote class="blockwrap">almost &nbsp;always &nbsp;hardly &nbsp;mostly &nbsp;very &nbsp;highly &nbsp;mentally &nbsp;quite &nbsp;rather &nbsp;reasonably</blockquote>
+            </div>
+            <p>Click question to check your answers.</p>
+            </div>
               <div class="nn_sliders accordion panel-group" id="set-nn_sliders-1">
                 <a id="nn_sliders-scrollto_1" class="anchor nn_sliders-scroll"></a>
                 <div class="accordion-group panel nn_sliders-group">
-                  <a id="nn_sliders-scrollto_example-ken-has-a-dog-the-dog-is-called-blackie"
+                  <a id="nn_sliders-scrollto_1-the-weather-was-unbearably-hot-yesterday"
                     class="anchor nn_sliders-scroll"></a>
                   <div class="accordion-heading panel-heading">
-                    <a href="511-personal-pronoun-i.html#example-ken-has-a-dog-the-dog-is-called-blackie"
-                      aria-label="Answer" class="accordion-toggle nn_sliders-toggle" data-toggle="collapse"
-                      data-id="example-ken-has-a-dog-the-dog-is-called-blackie" data-parent="#set-nn_sliders-1">
-                      <span class="nn_sliders-toggle-inner">
-                        Example: Ken has a dog.
-                        <span class="undies">The dog</span>
-                        is called Blackie.
-                      </span>
+                    <a href="434-modifying-adverbs.html#1-the-weather-was-unbearably-hot-yesterday" aria-label="Answer"
+                      class="accordion-toggle nn_sliders-toggle" data-toggle="collapse"
+                      data-id="q1-the-weather-was-unbearably-hot-yesterday" data-parent="#set-nn_sliders-1">
+                      <span class="nn_sliders-toggle-inner">1. The weather was unbearably hot yesterday.</span>
                     </a>
                   </div>
-                  <div class="accordion-body nn_sliders-body collapse"
-                    id="example-ken-has-a-dog-the-dog-is-called-blackie">
+                  <div class="accordion-body nn_sliders-body collapse" id="q1-the-weather-was-unbearably-hot-yesterday">
                     <div class="accordion-inner panel-body">
-                      <h2 class="nn_sliders-title">
-                        Example: Ken has a dog.
-                        <span class="undies">The dog</span>
-                        is called Blackie.
-                      </h2>
+                      <h2 class="nn_sliders-title">1. The weather was unbearably hot yesterday.</h2>
                       <p>
-                        Ken has a dog.
-                        <span class="undies">It</span>
-                        is called Blackie.
+                        1. The weather was
+                        <span class="undies">almost</span>
+                        unbearably hot yesterday.
                       </p>
                     </div>
                   </div>
@@ -420,32 +416,23 @@
               <div class="nn_sliders accordion panel-group" id="set-nn_sliders-2">
                 <a id="nn_sliders-scrollto_2" class="anchor nn_sliders-scroll"></a>
                 <div class="accordion-group panel nn_sliders-group">
-                  <a id="nn_sliders-scrollto_1-david-takes-care-of-the-garden-david-is-a-good-gardener"
+                  <a id="nn_sliders-scrollto_2-members-of-the-club-are-highly-educated-people"
                     class="anchor nn_sliders-scroll"></a>
                   <div class="accordion-heading panel-heading">
-                    <a href="511-personal-pronoun-i.html#1-david-takes-care-of-the-garden-david-is-a-good-gardener"
+                    <a href="434-modifying-adverbs.html#2-members-of-the-club-are-highly-educated-people"
                       aria-label="Answer" class="accordion-toggle nn_sliders-toggle" data-toggle="collapse"
-                      data-id="q1-david-takes-care-of-the-garden-david-is-a-good-gardener"
-                      data-parent="#set-nn_sliders-2">
-                      <span class="nn_sliders-toggle-inner">
-                        1. David takes care of the garden.
-                        <span class="undies">David</span>
-                        is a good gardener.
-                      </span>
+                      data-id="q2-members-of-the-club-are-highly-educated-people" data-parent="#set-nn_sliders-2">
+                      <span class="nn_sliders-toggle-inner">2. Members of the club are well educated people.</span>
                     </a>
                   </div>
                   <div class="accordion-body nn_sliders-body collapse"
-                    id="q1-david-takes-care-of-the-garden-david-is-a-good-gardener">
+                    id="q2-members-of-the-club-are-highly-educated-people">
                     <div class="accordion-inner panel-body">
-                      <h2 class="nn_sliders-title">
-                        1. David takes care of the garden.
-                        <span class="undies">David</span>
-                        is a good gardener.
-                      </h2>
+                      <h2 class="nn_sliders-title">2. Members of the club are well educated people.</h2>
                       <p>
-                        1. David takes care of the garden.
-                        <span class="undies">He</span>
-                        is a good gardener.
+                        2. Members of the club are
+                        <span class="undies">mostly</span>
+                        well educated people.
                       </p>
                     </div>
                   </div>
@@ -454,31 +441,25 @@
               <div class="nn_sliders accordion panel-group" id="set-nn_sliders-3">
                 <a id="nn_sliders-scrollto_3" class="anchor nn_sliders-scroll"></a>
                 <div class="accordion-group panel nn_sliders-group">
-                  <a id="nn_sliders-scrollto_2-mary-has-a-sweet-voice-mary-is-also-a-pretty-girl"
+                  <a id="nn_sliders-scrollto_3-he-believes-ghosts-are-not-easily-visible-to-human-beings"
                     class="anchor nn_sliders-scroll"></a>
                   <div class="accordion-heading panel-heading">
-                    <a href="511-personal-pronoun-i.html#2-mary-has-a-sweet-voice-mary-is-also-a-pretty-girl"
+                    <a href="434-modifying-adverbs.html#3-he-believes-ghosts-are-not-easily-visible-to-human-beings"
                       aria-label="Answer" class="accordion-toggle nn_sliders-toggle" data-toggle="collapse"
-                      data-id="q2-mary-has-a-sweet-voice-mary-is-also-a-pretty-girl" data-parent="#set-nn_sliders-3">
-                      <span class="nn_sliders-toggle-inner">
-                        2. Mary has a sweet voice.
-                        <span class="undies">Mary</span>
-                        is also a pretty girl.
-                      </span>
+                      data-id="q3-he-believes-ghosts-are-not-easily-visible-to-human-beings"
+                      data-parent="#set-nn_sliders-3">
+                      <span class="nn_sliders-toggle-inner">3. He believes ghosts are not easily visible to human
+                        beings.</span>
                     </a>
                   </div>
                   <div class="accordion-body nn_sliders-body collapse"
-                    id="q2-mary-has-a-sweet-voice-mary-is-also-a-pretty-girl">
+                    id="q3-he-believes-ghosts-are-not-easily-visible-to-human-beings">
                     <div class="accordion-inner panel-body">
-                      <h2 class="nn_sliders-title">
-                        2. Mary has a sweet voice.
-                        <span class="undies">Mary</span>
-                        is also a pretty girl.
-                      </h2>
+                      <h2 class="nn_sliders-title">3. He believes ghosts are not easily visible to human beings.</h2>
                       <p>
-                        2. Mary has a sweet voice.
-                        <span class="undies">She</span>
-                        is also a pretty girl.
+                        3. He believes ghosts are not
+                        <span class="undies">always</span>
+                        easily visible to human beings.
                       </p>
                     </div>
                   </div>
@@ -487,32 +468,23 @@
               <div class="nn_sliders accordion panel-group" id="set-nn_sliders-4">
                 <a id="nn_sliders-scrollto_4" class="anchor nn_sliders-scroll"></a>
                 <div class="accordion-group panel nn_sliders-group">
-                  <a id="nn_sliders-scrollto_3-mr-and-mrs-brown-are-here-mr-and-mrs-brown-are-talking-to-the-hostess"
+                  <a id="nn_sliders-scrollto_4-she-hardly-says-a-nice-word-about-other-people"
                     class="anchor nn_sliders-scroll"></a>
                   <div class="accordion-heading panel-heading">
-                    <a href="511-personal-pronoun-i.html#3-mr-and-mrs-brown-are-here-mr-and-mrs-brown-are-talking-to-the-hostess"
+                    <a href="434-modifying-adverbs.html#4-she-hardly-says-a-nice-word-about-other-people"
                       aria-label="Answer" class="accordion-toggle nn_sliders-toggle" data-toggle="collapse"
-                      data-id="q3-mr-and-mrs-brown-are-here-mr-and-mrs-brown-are-talking-to-the-hostess"
-                      data-parent="#set-nn_sliders-4">
-                      <span class="nn_sliders-toggle-inner">
-                        3. Mr and Mrs Brown are here.
-                        <span class="undies">Mr and Mrs Brown</span>
-                        are talking to the hostess.
-                      </span>
+                      data-id="q4-she-hardly-says-a-nice-word-about-other-people" data-parent="#set-nn_sliders-4">
+                      <span class="nn_sliders-toggle-inner">4. She hardly says a nice word about other people.</span>
                     </a>
                   </div>
                   <div class="accordion-body nn_sliders-body collapse"
-                    id="q3-mr-and-mrs-brown-are-here-mr-and-mrs-brown-are-talking-to-the-hostess">
+                    id="q4-she-hardly-says-a-nice-word-about-other-people">
                     <div class="accordion-inner panel-body">
-                      <h2 class="nn_sliders-title">
-                        3. Mr and Mrs Brown are here.
-                        <span class="undies">Mr and Mrs Brown</span>
-                        are talking to the hostess.
-                      </h2>
+                      <h2 class="nn_sliders-title">4. She hardly says a nice word about other people.</h2>
                       <p>
-                        3. Mr and Mrs Brown are here.
-                        <span class="undies">They</span>
-                        are talking to the hostess.
+                        4. She hardly
+                        <span class="undies">ever</span>
+                        says a nice word about other people.
                       </p>
                     </div>
                   </div>
@@ -521,31 +493,23 @@
               <div class="nn_sliders accordion panel-group" id="set-nn_sliders-5">
                 <a id="nn_sliders-scrollto_5" class="anchor nn_sliders-scroll"></a>
                 <div class="accordion-group panel nn_sliders-group">
-                  <a id="nn_sliders-scrollto_4-look-at-my-dog-my-dog-is-wagging-its-tail"
+                  <a id="nn_sliders-scrollto_5-we-nearly-migrated-to-australia-three-years-ago"
                     class="anchor nn_sliders-scroll"></a>
                   <div class="accordion-heading panel-heading">
-                    <a href="511-personal-pronoun-i.html#4-look-at-my-dog-my-dog-is-wagging-its-tail"
+                    <a href="434-modifying-adverbs.html#5-we-nearly-migrated-to-australia-three-years-ago"
                       aria-label="Answer" class="accordion-toggle nn_sliders-toggle" data-toggle="collapse"
-                      data-id="q4-look-at-my-dog-my-dog-is-wagging-its-tail" data-parent="#set-nn_sliders-5">
-                      <span class="nn_sliders-toggle-inner">
-                        4. Look at my dog.
-                        <span class="undies">My dog</span>
-                        is wagging its tail.
-                      </span>
+                      data-id="q5-we-nearly-migrated-to-australia-three-years-ago" data-parent="#set-nn_sliders-5">
+                      <span class="nn_sliders-toggle-inner">5. We nearly migrated to Australia three years ago.</span>
                     </a>
                   </div>
                   <div class="accordion-body nn_sliders-body collapse"
-                    id="q4-look-at-my-dog-my-dog-is-wagging-its-tail">
+                    id="q5-we-nearly-migrated-to-australia-three-years-ago">
                     <div class="accordion-inner panel-body">
-                      <h2 class="nn_sliders-title">
-                        4. Look at my dog.
-                        <span class="undies">My dog</span>
-                        is wagging its tail.
-                      </h2>
+                      <h2 class="nn_sliders-title">5. We nearly migrated to Australia three years ago.</h2>
                       <p>
-                        4. Look at my dog.
-                        <span class="undies">It</span>
-                        is wagging its tail.
+                        5. We
+                        <span class="undies">very</span>
+                        nearly migrated to Australia three years ago.
                       </p>
                     </div>
                   </div>
@@ -554,32 +518,23 @@
               <div class="nn_sliders accordion panel-group" id="set-nn_sliders-6">
                 <a id="nn_sliders-scrollto_6" class="anchor nn_sliders-scroll"></a>
                 <div class="accordion-group panel nn_sliders-group">
-                  <a id="nn_sliders-scrollto_5-my-brother-and-i-visited-the-zoo-my-brother-and-i-saw-monkeys-scratching-each-other"
+                  <a id="nn_sliders-scrollto_6-i-think-the-third-world-war-is-unlikely-to-happen"
                     class="anchor nn_sliders-scroll"></a>
                   <div class="accordion-heading panel-heading">
-                    <a href="511-personal-pronoun-i.html#5-my-brother-and-i-visited-the-zoo-my-brother-and-i-saw-monkeys-scratching-each-other"
+                    <a href="434-modifying-adverbs.html#6-i-think-the-third-world-war-is-unlikely-to-happen"
                       aria-label="Answer" class="accordion-toggle nn_sliders-toggle" data-toggle="collapse"
-                      data-id="q5-my-brother-and-i-visited-the-zoo-my-brother-and-i-saw-monkeys-scratching-each-other"
-                      data-parent="#set-nn_sliders-6">
-                      <span class="nn_sliders-toggle-inner">
-                        5. My brother and I visited the zoo.
-                        <span class="undies">My brother and I</span>
-                        saw monkeys scratching each other.
-                      </span>
+                      data-id="q6-i-think-the-third-world-war-is-unlikely-to-happen" data-parent="#set-nn_sliders-6">
+                      <span class="nn_sliders-toggle-inner">6. I think the Third World War is unlikely to happen.</span>
                     </a>
                   </div>
                   <div class="accordion-body nn_sliders-body collapse"
-                    id="q5-my-brother-and-i-visited-the-zoo-my-brother-and-i-saw-monkeys-scratching-each-other">
+                    id="q6-i-think-the-third-world-war-is-unlikely-to-happen">
                     <div class="accordion-inner panel-body">
-                      <h2 class="nn_sliders-title">
-                        5. My brother and I visited the zoo.
-                        <span class="undies">My brother and I</span>
-                        saw monkeys scratching each other.
-                      </h2>
+                      <h2 class="nn_sliders-title">6. I think the Third World War is unlikely to happen.</h2>
                       <p>
-                        5. My brother and I visited the zoo.
-                        <span class="undies">We</span>
-                        saw monkeys scratching each other.
+                        6. I think the Third World War is
+                        <span class="undies">highly</span>
+                        unlikely to happen.
                       </p>
                     </div>
                   </div>
@@ -588,31 +543,26 @@
               <div class="nn_sliders accordion panel-group" id="set-nn_sliders-7">
                 <a id="nn_sliders-scrollto_7" class="anchor nn_sliders-scroll"></a>
                 <div class="accordion-group panel nn_sliders-group">
-                  <a id="nn_sliders-scrollto_6-the-teacher-said-give-the-teacher-your-book"
+                  <a id="nn_sliders-scrollto_7-they-are-well-trained-personnel-ready-to-deal-with-the-situation"
                     class="anchor nn_sliders-scroll"></a>
                   <div class="accordion-heading panel-heading">
-                    <a href="511-personal-pronoun-i.html#6-the-teacher-said-give-the-teacher-your-book"
+                    <a href="434-modifying-adverbs.html#7-they-are-well-trained-personnel-ready-to-deal-with-the-situation"
                       aria-label="Answer" class="accordion-toggle nn_sliders-toggle" data-toggle="collapse"
-                      data-id="q6-the-teacher-said-give-the-teacher-your-book" data-parent="#set-nn_sliders-7">
-                      <span class="nn_sliders-toggle-inner">
-                        6. The teacher said, "Give
-                        <span class="undies">the teacher</span>
-                        your book."
-                      </span>
+                      data-id="q7-they-are-well-trained-personnel-ready-to-deal-with-the-situation"
+                      data-parent="#set-nn_sliders-7">
+                      <span class="nn_sliders-toggle-inner">7. They are well trained personnel ready to deal with the
+                        situation.</span>
                     </a>
                   </div>
                   <div class="accordion-body nn_sliders-body collapse"
-                    id="q6-the-teacher-said-give-the-teacher-your-book">
+                    id="q7-they-are-well-trained-personnel-ready-to-deal-with-the-situation">
                     <div class="accordion-inner panel-body">
-                      <h2 class="nn_sliders-title">
-                        6. The teacher said, "Give
-                        <span class="undies">the teacher</span>
-                        your book."
+                      <h2 class="nn_sliders-title">7. They are well trained personnel ready to deal with the situation.
                       </h2>
                       <p>
-                        6. The teacher said, "Give
-                        <span class="undies">me</span>
-                        your book."
+                        7. They are
+                        <span class="undies">reasonably</span>
+                        well trained personnel ready to deal with the situation.
                       </p>
                     </div>
                   </div>
@@ -621,32 +571,28 @@
               <div class="nn_sliders accordion panel-group" id="set-nn_sliders-8">
                 <a id="nn_sliders-scrollto_8" class="anchor nn_sliders-scroll"></a>
                 <div class="accordion-group panel nn_sliders-group">
-                  <a id="nn_sliders-scrollto_7-put-all-these-letters-on-the-table-and-then-sort-these-letters-out"
+                  <a id="nn_sliders-scrollto_8-our-team-lost-as-they-were-inadequately-prepared-to-face-such-a-tough-competition"
                     class="anchor nn_sliders-scroll"></a>
                   <div class="accordion-heading panel-heading">
-                    <a href="511-personal-pronoun-i.html#7-put-all-these-letters-on-the-table-and-then-sort-these-letters-out"
+                    <a href="434-modifying-adverbs.html#8-our-team-lost-as-they-were-inadequately-prepared-to-face-such-a-tough-competition"
                       aria-label="Answer" class="accordion-toggle nn_sliders-toggle" data-toggle="collapse"
-                      data-id="q7-put-all-these-letters-on-the-table-and-then-sort-these-letters-out"
+                      data-id="q8-our-team-lost-as-they-were-inadequately-prepared-to-face-such-a-tough-competition"
                       data-parent="#set-nn_sliders-8">
                       <span class="nn_sliders-toggle-inner">
-                        7. Put all these letters on the table and then sort
-                        <span class="undies">these letters</span>
-                        out.
+                        8. Our team lost as they were inadequately prepared to face such a tough competition.
                       </span>
                     </a>
                   </div>
                   <div class="accordion-body nn_sliders-body collapse"
-                    id="q7-put-all-these-letters-on-the-table-and-then-sort-these-letters-out">
+                    id="q8-our-team-lost-as-they-were-inadequately-prepared-to-face-such-a-tough-competition">
                     <div class="accordion-inner panel-body">
                       <h2 class="nn_sliders-title">
-                        7. Put all these letters on the table and then sort
-                        <span class="undies">these letters</span>
-                        out.
+                        8. Our team lost as they were inadequately prepared to face such a tough competition.
                       </h2>
                       <p>
-                        7. Put all these letters on the table and then sort
-                        <span class="undies">them</span>
-                        out.
+                        8. Our team lost as they were
+                        <span class="undies">mentally</span>
+                        inadequately prepared to face such a tough competition.
                       </p>
                     </div>
                   </div>
@@ -655,35 +601,25 @@
               <div class="nn_sliders accordion panel-group" id="set-nn_sliders-9">
                 <a id="nn_sliders-scrollto_9" class="anchor nn_sliders-scroll"></a>
                 <div class="accordion-group panel nn_sliders-group">
-                  <a id="nn_sliders-scrollto_8-when-the-bee-saw-the-little-boy-the-bee-stung-the-little-boy"
+                  <a id="nn_sliders-scrollto_9-they-had-a-long-argument-but-the-fight-happened-suddenly"
                     class="anchor nn_sliders-scroll"></a>
                   <div class="accordion-heading panel-heading">
-                    <a href="511-personal-pronoun-i.html#8-when-the-bee-saw-the-little-boy-the-bee-stung-the-little-boy"
+                    <a href="434-modifying-adverbs.html#9-they-had-a-long-argument-but-the-fight-happened-suddenly"
                       aria-label="Answer" class="accordion-toggle nn_sliders-toggle" data-toggle="collapse"
-                      data-id="q8-when-the-bee-saw-the-little-boy-the-bee-stung-the-little-boy"
+                      data-id="q9-they-had-a-long-argument-but-the-fight-happened-suddenly"
                       data-parent="#set-nn_sliders-9">
-                      <span class="nn_sliders-toggle-inner">
-                        8. When the bee saw the little boy,
-                        <span class="undies">the bee</span>
-                        stung
-                        <span class="undies">the little boy.</span>
-                      </span>
+                      <span class="nn_sliders-toggle-inner">9. They had a long argument, but the fight happened
+                        suddenly.</span>
                     </a>
                   </div>
                   <div class="accordion-body nn_sliders-body collapse"
-                    id="q8-when-the-bee-saw-the-little-boy-the-bee-stung-the-little-boy">
+                    id="q9-they-had-a-long-argument-but-the-fight-happened-suddenly">
                     <div class="accordion-inner panel-body">
-                      <h2 class="nn_sliders-title">
-                        8. When the bee saw the little boy,
-                        <span class="undies">the bee</span>
-                        stung
-                        <span class="undies">the little boy.</span>
-                      </h2>
+                      <h2 class="nn_sliders-title">9. They had a long argument, but the fight happened suddenly.</h2>
                       <p>
-                        8. When the bee saw the little boy,
-                        <span class="undies">it</span>
-                        stung
-                        <span class="undies">him.</span>
+                        9. They had a long argument, but the fight happened
+                        <span class="undies">quite</span>
+                        suddenly.
                       </p>
                     </div>
                   </div>
@@ -692,477 +628,21 @@
               <div class="nn_sliders accordion panel-group" id="set-nn_sliders-10">
                 <a id="nn_sliders-scrollto_10" class="anchor nn_sliders-scroll"></a>
                 <div class="accordion-group panel nn_sliders-group">
-                  <a id="nn_sliders-scrollto_9-i-had-a-few-stamps-i-gave-the-stamps-to-tom"
-                    class="anchor nn_sliders-scroll"></a>
+                  <a id="nn_sliders-scrollto_10-she-answered-the-phone-rudely" class="anchor nn_sliders-scroll"></a>
                   <div class="accordion-heading panel-heading">
-                    <a href="511-personal-pronoun-i.html#9-i-had-a-few-stamps-i-gave-the-stamps-to-tom"
-                      aria-label="Answer" class="accordion-toggle nn_sliders-toggle" data-toggle="collapse"
-                      data-id="q9-i-had-a-few-stamps-i-gave-the-stamps-to-tom" data-parent="#set-nn_sliders-10">
-                      <span class="nn_sliders-toggle-inner">
-                        9. I had a few stamps. I gave
-                        <span class="undies">the stamps</span>
-                        to Tom.
-                      </span>
+                    <a href="434-modifying-adverbs.html#10-she-answered-the-phone-rudely" aria-label="Answer"
+                      class="accordion-toggle nn_sliders-toggle" data-toggle="collapse"
+                      data-id="q10-she-answered-the-phone-rudely" data-parent="#set-nn_sliders-10">
+                      <span class="nn_sliders-toggle-inner">10. She answered the phone rudely.</span>
                     </a>
                   </div>
-                  <div class="accordion-body nn_sliders-body collapse"
-                    id="q9-i-had-a-few-stamps-i-gave-the-stamps-to-tom">
+                  <div class="accordion-body nn_sliders-body collapse" id="q10-she-answered-the-phone-rudely">
                     <div class="accordion-inner panel-body">
-                      <h2 class="nn_sliders-title">
-                        9. I had a few stamps. I gave
-                        <span class="undies">the stamps</span>
-                        to Tom.
-                      </h2>
+                      <h2 class="nn_sliders-title">10. She answered the phone rudely.</h2>
                       <p>
-                        9. I had a few stamps. I gave
-                        <span class="undies">them</span>
-                        to Tom.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="nn_sliders accordion panel-group" id="set-nn_sliders-11">
-                <a id="nn_sliders-scrollto_11" class="anchor nn_sliders-scroll"></a>
-                <div class="accordion-group panel nn_sliders-group">
-                  <a id="nn_sliders-scrollto_10-george-walked-to-the-door-then-george-opened-the-door-and-went-out"
-                    class="anchor nn_sliders-scroll"></a>
-                  <div class="accordion-heading panel-heading">
-                    <a href="511-personal-pronoun-i.html#10-george-walked-to-the-door-then-george-opened-the-door-and-went-out"
-                      aria-label="Answer" class="accordion-toggle nn_sliders-toggle" data-toggle="collapse"
-                      data-id="q10-george-walked-to-the-door-then-george-opened-the-door-and-went-out"
-                      data-parent="#set-nn_sliders-11">
-                      <span class="nn_sliders-toggle-inner">
-                        10. George walked to the door. Then
-                        <span class="undies">George</span>
-                        opened
-                        <span class="undies">the door</span>
-                        and went out.
-                      </span>
-                    </a>
-                  </div>
-                  <div class="accordion-body nn_sliders-body collapse"
-                    id="q10-george-walked-to-the-door-then-george-opened-the-door-and-went-out">
-                    <div class="accordion-inner panel-body">
-                      <h2 class="nn_sliders-title">
-                        10. George walked to the door. Then
-                        <span class="undies">George</span>
-                        opened
-                        <span class="undies">the door</span>
-                        and went out.
-                      </h2>
-                      <p>
-                        10. George walked to the door. Then
-                        <span class="undies">he</span>
-                        opened
-                        <span class="undies">it</span>
-                        and went out.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="nn_sliders accordion panel-group" id="set-nn_sliders-12">
-                <a id="nn_sliders-scrollto_12" class="anchor nn_sliders-scroll"></a>
-                <div class="accordion-group panel nn_sliders-group">
-                  <a id="nn_sliders-scrollto_11-john-is-five-feet-tall-ann-is-only-four-and-a-half-feet-tall-john-is-taller-than-ann"
-                    class="anchor nn_sliders-scroll"></a>
-                  <div class="accordion-heading panel-heading">
-                    <a href="511-personal-pronoun-i.html#11-john-is-five-feet-tall-ann-is-only-four-and-a-half-feet-tall-john-is-taller-than-ann"
-                      aria-label="Answer" class="accordion-toggle nn_sliders-toggle" data-toggle="collapse"
-                      data-id="q11-john-is-five-feet-tall-ann-is-only-four-and-a-half-feet-tall-john-is-taller-than-ann"
-                      data-parent="#set-nn_sliders-12">
-                      <span class="nn_sliders-toggle-inner">
-                        11. John is five feet tall. Ann is only four and a half feet tall.
-                        <span class="undies">John</span>
-                        is taller than
-                        <span class="undies">Ann.</span>
-                      </span>
-                    </a>
-                  </div>
-                  <div class="accordion-body nn_sliders-body collapse"
-                    id="q11-john-is-five-feet-tall-ann-is-only-four-and-a-half-feet-tall-john-is-taller-than-ann">
-                    <div class="accordion-inner panel-body">
-                      <h2 class="nn_sliders-title">
-                        11. John is five feet tall. Ann is only four and a half feet tall.
-                        <span class="undies">John</span>
-                        is taller than
-                        <span class="undies">Ann.</span>
-                      </h2>
-                      <p>
-                        11. John is five feet tall. Ann is only four and a half feet tall.
-                        <span class="undies">He</span>
-                        is taller than
-                        <span class="undies">her.</span>
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="nn_sliders accordion panel-group" id="set-nn_sliders-13">
-                <a id="nn_sliders-scrollto_13" class="anchor nn_sliders-scroll"></a>
-                <div class="accordion-group panel nn_sliders-group">
-                  <a id="nn_sliders-scrollto_12-dick-saw-nick-dick-called-out-to-nick-then-dick-and-nick-walked-together"
-                    class="anchor nn_sliders-scroll"></a>
-                  <div class="accordion-heading panel-heading">
-                    <a href="511-personal-pronoun-i.html#12-dick-saw-nick-dick-called-out-to-nick-then-dick-and-nick-walked-together"
-                      aria-label="Answer" class="accordion-toggle nn_sliders-toggle" data-toggle="collapse"
-                      data-id="q12-dick-saw-nick-dick-called-out-to-nick-then-dick-and-nick-walked-together"
-                      data-parent="#set-nn_sliders-13">
-                      <span class="nn_sliders-toggle-inner">
-                        12. Dick saw Nick.
-                        <span class="undies">Dick</span>
-                        called out to
-                        <span class="undies">Nick.</span>
-                        Then
-                        <span class="undies">Dick and Nick</span>
-                        walked together.
-                      </span>
-                    </a>
-                  </div>
-                  <div class="accordion-body nn_sliders-body collapse"
-                    id="q12-dick-saw-nick-dick-called-out-to-nick-then-dick-and-nick-walked-together">
-                    <div class="accordion-inner panel-body">
-                      <h2 class="nn_sliders-title">
-                        12. Dick saw Nick.
-                        <span class="undies">Dick</span>
-                        called out to
-                        <span class="undies">Nick.</span>
-                        Then
-                        <span class="undies">Dick and Nick</span>
-                        walked together.
-                      </h2>
-                      <p>
-                        12. Dick saw Nick.
-                        <span class="undies">He</span>
-                        called out to
-                        <span class="undies">him.</span>
-                        Then
-                        <span class="undies">they</span>
-                        walked together.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="nn_sliders accordion panel-group" id="set-nn_sliders-14">
-                <a id="nn_sliders-scrollto_14" class="anchor nn_sliders-scroll"></a>
-                <div class="accordion-group panel nn_sliders-group">
-                  <a id="nn_sliders-scrollto_13-tom-and-his-sister-thought-one-of-the-gold-fish-was-hungry-so-tom-and-his-sister-fed-the-gold-fish"
-                    class="anchor nn_sliders-scroll"></a>
-                  <div class="accordion-heading panel-heading">
-                    <a href="511-personal-pronoun-i.html#13-tom-and-his-sister-thought-one-of-the-gold-fish-was-hungry-so-tom-and-his-sister-fed-the-gold-fish"
-                      aria-label="Answer" class="accordion-toggle nn_sliders-toggle" data-toggle="collapse"
-                      data-id="q13-tom-and-his-sister-thought-one-of-the-gold-fish-was-hungry-so-tom-and-his-sister-fed-the-gold-fish"
-                      data-parent="#set-nn_sliders-14">
-                      <span class="nn_sliders-toggle-inner">
-                        13. Tom and his sister thought one of the gold fish was hungry, so
-                        <span class="undies">Tom and his sister</span>
-                        fed
-                        <span class="undies">the gold fish.</span>
-                      </span>
-                    </a>
-                  </div>
-                  <div class="accordion-body nn_sliders-body collapse"
-                    id="q13-tom-and-his-sister-thought-one-of-the-gold-fish-was-hungry-so-tom-and-his-sister-fed-the-gold-fish">
-                    <div class="accordion-inner panel-body">
-                      <h2 class="nn_sliders-title">
-                        13. Tom and his sister thought one of the gold fish was hungry, so
-                        <span class="undies">Tom and his sister</span>
-                        fed
-                        <span class="undies">the gold fish.</span>
-                      </h2>
-                      <p>
-                        13. Tom and his sister thought one of the gold fish was hungry, so
-                        <span class="undies">they</span>
-                        fed
-                        <span class="undies">it.</span>
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="nn_sliders accordion panel-group" id="set-nn_sliders-15">
-                <a id="nn_sliders-scrollto_15" class="anchor nn_sliders-scroll"></a>
-                <div class="accordion-group panel nn_sliders-group">
-                  <a id="nn_sliders-scrollto_14-i-met-adam-and-eve-i-had-not-seen-adam-and-eve-for-a-long-time-i-asked-adam-if-adam-was-still-single"
-                    class="anchor nn_sliders-scroll"></a>
-                  <div class="accordion-heading panel-heading">
-                    <a href="511-personal-pronoun-i.html#14-i-met-adam-and-eve-i-had-not-seen-adam-and-eve-for-a-long-time-i-asked-adam-if-adam-was-still-single"
-                      aria-label="Answer" class="accordion-toggle nn_sliders-toggle" data-toggle="collapse"
-                      data-id="q14-i-met-adam-and-eve-i-had-not-seen-adam-and-eve-for-a-long-time-i-asked-adam-if-adam-was-still-single"
-                      data-parent="#set-nn_sliders-15">
-                      <span class="nn_sliders-toggle-inner">
-                        14. I met Adam and Eve. I had not seen
-                        <span class="undies">Adam and Eve</span>
-                        for a long time. I asked
-                        <span class="undies">Adam</span>
-                        if
-                        <span class="undies">Adam</span>
-                        was still single.
-                      </span>
-                    </a>
-                  </div>
-                  <div class="accordion-body nn_sliders-body collapse"
-                    id="q14-i-met-adam-and-eve-i-had-not-seen-adam-and-eve-for-a-long-time-i-asked-adam-if-adam-was-still-single">
-                    <div class="accordion-inner panel-body">
-                      <h2 class="nn_sliders-title">
-                        14. I met Adam and Eve. I had not seen
-                        <span class="undies">Adam and Eve</span>
-                        for a long time. I asked
-                        <span class="undies">Adam</span>
-                        if
-                        <span class="undies">Adam</span>
-                        was still single.
-                      </h2>
-                      <p>
-                        14. I met Adam and Eve. I had not seen
-                        <span class="undies">them</span>
-                        for a long time. I asked
-                        <span class="undies">Adam/him</span>
-                        if
-                        <span class="undies">he</span>
-                        was still single.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="nn_sliders accordion panel-group" id="set-nn_sliders-16">
-                <a id="nn_sliders-scrollto_16" class="anchor nn_sliders-scroll"></a>
-                <div class="accordion-group panel nn_sliders-group">
-                  <a id="nn_sliders-scrollto_15-deer-have-antlers-deer-must-be-very-proud-of-their-antlers"
-                    class="anchor nn_sliders-scroll"></a>
-                  <div class="accordion-heading panel-heading">
-                    <a href="511-personal-pronoun-i.html#15-deer-have-antlers-deer-must-be-very-proud-of-their-antlers"
-                      aria-label="Answer" class="accordion-toggle nn_sliders-toggle" data-toggle="collapse"
-                      data-id="q15-deer-have-antlers-deer-must-be-very-proud-of-their-antlers"
-                      data-parent="#set-nn_sliders-16">
-                      <span class="nn_sliders-toggle-inner">
-                        15. Deer have antlers.
-                        <span class="undies">Deer</span>
-                        must be very proud of
-                        <span class="undies">their antlers.</span>
-                      </span>
-                    </a>
-                  </div>
-                  <div class="accordion-body nn_sliders-body collapse"
-                    id="q15-deer-have-antlers-deer-must-be-very-proud-of-their-antlers">
-                    <div class="accordion-inner panel-body">
-                      <h2 class="nn_sliders-title">
-                        15. Deer have antlers.
-                        <span class="undies">Deer</span>
-                        must be very proud of
-                        <span class="undies">their antlers.</span>
-                      </h2>
-                      <p>
-                        15. Deer have antlers.
-                        <span class="undies">They</span>
-                        must be very proud of
-                        <span class="undies">them.</span>
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="nn_sliders accordion panel-group" id="set-nn_sliders-17">
-                <a id="nn_sliders-scrollto_17" class="anchor nn_sliders-scroll"></a>
-                <div class="accordion-group panel nn_sliders-group">
-                  <a id="nn_sliders-scrollto_16-you-and-i-like-each-other-you-and-i-are-best-friends-aren-t-you-and-i"
-                    class="anchor nn_sliders-scroll"></a>
-                  <div class="accordion-heading panel-heading">
-                    <a href="511-personal-pronoun-i.html#16-you-and-i-like-each-other-you-and-i-are-best-friends-aren-t-you-and-i"
-                      aria-label="Answer" class="accordion-toggle nn_sliders-toggle" data-toggle="collapse"
-                      data-id="q16-you-and-i-like-each-other-you-and-i-are-best-friends-aren-t-you-and-i"
-                      data-parent="#set-nn_sliders-17">
-                      <span class="nn_sliders-toggle-inner">
-                        16. You and I like each other.
-                        <span class="undies">You and I</span>
-                        are best friends, aren't
-                        <span class="undies">you and I?.</span>
-                      </span>
-                    </a>
-                  </div>
-                  <div class="accordion-body nn_sliders-body collapse"
-                    id="q16-you-and-i-like-each-other-you-and-i-are-best-friends-aren-t-you-and-i">
-                    <div class="accordion-inner panel-body">
-                      <h2 class="nn_sliders-title">
-                        16. You and I like each other.
-                        <span class="undies">You and I</span>
-                        are best friends, aren't
-                        <span class="undies">you and I?.</span>
-                      </h2>
-                      <p>
-                        16. You and I like each other.
-                        <span class="undies">We</span>
-                        are best friends, aren't
-                        <span class="undies">we</span>
-                        ?
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="nn_sliders accordion panel-group" id="set-nn_sliders-18">
-                <a id="nn_sliders-scrollto_18" class="anchor nn_sliders-scroll"></a>
-                <div class="accordion-group panel nn_sliders-group">
-                  <a id="nn_sliders-scrollto_17-nick-and-i-looked-for-the-niagara-falls-on-the-map-but-nick-and-i-could-not-find-the-niagara-falls"
-                    class="anchor nn_sliders-scroll"></a>
-                  <div class="accordion-heading panel-heading">
-                    <a href="511-personal-pronoun-i.html#17-nick-and-i-looked-for-the-niagara-falls-on-the-map-but-nick-and-i-could-not-find-the-niagara-falls"
-                      aria-label="Answer" class="accordion-toggle nn_sliders-toggle" data-toggle="collapse"
-                      data-id="q17-nick-and-i-looked-for-the-niagara-falls-on-the-map-but-nick-and-i-could-not-find-the-niagara-falls"
-                      data-parent="#set-nn_sliders-18">
-                      <span class="nn_sliders-toggle-inner">
-                        17. Nick and I looked for the Niagara Falls on the map, but
-                        <span class="undies">Nick and I</span>
-                        could not find
-                        <span class="undies">the Niagara Falls.</span>
-                      </span>
-                    </a>
-                  </div>
-                  <div class="accordion-body nn_sliders-body collapse"
-                    id="q17-nick-and-i-looked-for-the-niagara-falls-on-the-map-but-nick-and-i-could-not-find-the-niagara-falls">
-                    <div class="accordion-inner panel-body">
-                      <h2 class="nn_sliders-title">
-                        17. Nick and I looked for the Niagara Falls on the map, but
-                        <span class="undies">Nick and I</span>
-                        could not find
-                        <span class="undies">the Niagara Falls.</span>
-                      </h2>
-                      <p>
-                        17. Nick and I looked for the Niagara Falls on the map, but
-                        <span class="undies">we</span>
-                        could not find
-                        <span class="undies">it.</span>
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="nn_sliders accordion panel-group" id="set-nn_sliders-19">
-                <a id="nn_sliders-scrollto_19" class="anchor nn_sliders-scroll"></a>
-                <div class="accordion-group panel nn_sliders-group">
-                  <a id="nn_sliders-scrollto_18-jack-and-jill-went-up-the-hill-jill-said-to-jack-that-the-hill-was-a-lonely-place"
-                    class="anchor nn_sliders-scroll"></a>
-                  <div class="accordion-heading panel-heading">
-                    <a href="511-personal-pronoun-i.html#18-jack-and-jill-went-up-the-hill-jill-said-to-jack-that-the-hill-was-a-lonely-place"
-                      aria-label="Answer" class="accordion-toggle nn_sliders-toggle" data-toggle="collapse"
-                      data-id="q18-jack-and-jill-went-up-the-hill-jill-said-to-jack-that-the-hill-was-a-lonely-place"
-                      data-parent="#set-nn_sliders-19">
-                      <span class="nn_sliders-toggle-inner">
-                        18. Jack and Jill went up the hill.
-                        <span class="undies">Jill</span>
-                        said to
-                        <span class="undies">Jack</span>
-                        that
-                        <span class="undies">the hill</span>
-                        was a lonely place.
-                      </span>
-                    </a>
-                  </div>
-                  <div class="accordion-body nn_sliders-body collapse"
-                    id="q18-jack-and-jill-went-up-the-hill-jill-said-to-jack-that-the-hill-was-a-lonely-place">
-                    <div class="accordion-inner panel-body">
-                      <h2 class="nn_sliders-title">
-                        18. Jack and Jill went up the hill.
-                        <span class="undies">Jill</span>
-                        said to
-                        <span class="undies">Jack</span>
-                        that
-                        <span class="undies">the hill</span>
-                        was a lonely place.
-                      </h2>
-                      <p>
-                        18. Jack and Jill went up the hill.
-                        <span class="undies">She</span>
-                        said to
-                        <span class="undies">him</span>
-                        that
-                        <span class="undies">it</span>
-                        was a lonely place.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="nn_sliders accordion panel-group" id="set-nn_sliders-20">
-                <a id="nn_sliders-scrollto_20" class="anchor nn_sliders-scroll"></a>
-                <div class="accordion-group panel nn_sliders-group">
-                  <a id="nn_sliders-scrollto_19-a-dog-barked-at-alice-alice-ran-and-the-dog-ran-after-alice"
-                    class="anchor nn_sliders-scroll"></a>
-                  <div class="accordion-heading panel-heading">
-                    <a href="511-personal-pronoun-i.html#19-a-dog-barked-at-alice-alice-ran-and-the-dog-ran-after-alice"
-                      aria-label="Answer" class="accordion-toggle nn_sliders-toggle" data-toggle="collapse"
-                      data-id="q19-a-dog-barked-at-alice-alice-ran-and-the-dog-ran-after-alice"
-                      data-parent="#set-nn_sliders-20">
-                      <span class="nn_sliders-toggle-inner">
-                        19. A dog barked at Alice.
-                        <span class="undies">Alice</span>
-                        ran and
-                        <span class="undies">the dog</span>
-                        ran after
-                        <span class="undies">Alice.</span>
-                      </span>
-                    </a>
-                  </div>
-                  <div class="accordion-body nn_sliders-body collapse"
-                    id="q19-a-dog-barked-at-alice-alice-ran-and-the-dog-ran-after-alice">
-                    <div class="accordion-inner panel-body">
-                      <h2 class="nn_sliders-title">
-                        19. A dog barked at Alice.
-                        <span class="undies">Alice</span>
-                        ran and
-                        <span class="undies">the dog</span>
-                        ran after
-                        <span class="undies">Alice.</span>
-                      </h2>
-                      <p>
-                        19. A dog barked at Alice.
-                        <span class="undies">She</span>
-                        ran and
-                        <span class="undies">it</span>
-                        ran after
-                        <span class="undies">her.</span>
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="nn_sliders accordion panel-group" id="set-nn_sliders-21">
-                <a id="nn_sliders-scrollto_21" class="anchor nn_sliders-scroll"></a>
-                <div class="accordion-group panel nn_sliders-group">
-                  <a id="nn_sliders-scrollto_20-bob-is-a-farmer-s-son-bob-likes-sheep-and-enjoys-caring-for-the-sheep"
-                    class="anchor nn_sliders-scroll"></a>
-                  <div class="accordion-heading panel-heading">
-                    <a href="511-personal-pronoun-i.html#20-bob-is-a-farmer-s-son-bob-likes-sheep-and-enjoys-caring-for-the-sheep"
-                      aria-label="Answer" class="accordion-toggle nn_sliders-toggle" data-toggle="collapse"
-                      data-id="q20-bob-is-a-farmer-s-son-bob-likes-sheep-and-enjoys-caring-for-the-sheep"
-                      data-parent="#set-nn_sliders-21">
-                      <span class="nn_sliders-toggle-inner">
-                        20. Bob is a farmer's son.
-                        <span class="undies">Bob</span>
-                        likes sheep and enjoys caring for
-                        <span class="undies">the sheep</span>
-                        .
-                      </span>
-                    </a>
-                  </div>
-                  <div class="accordion-body nn_sliders-body collapse"
-                    id="q20-bob-is-a-farmer-s-son-bob-likes-sheep-and-enjoys-caring-for-the-sheep">
-                    <div class="accordion-inner panel-body">
-                      <h2 class="nn_sliders-title">
-                        20. Bob is a farmer's son.
-                        <span class="undies">Bob</span>
-                        likes sheep and enjoys caring for
-                        <span class="undies">the sheep</span>
-                        .
-                      </h2>
-                      <p>
-                        20. Bob is a farmer's son.
-                        <span class="undies">He</span>
-                        likes sheep and enjoys caring for
-                        <span class="undies">them.</span>
+                        10. She answered the phone
+                        <span class="undies">rather</span>
+                        rudely.
                       </p>
                     </div>
                   </div>
@@ -1170,7 +650,7 @@
               </div>
               <ul class="pager pagenav">
                 <li class="previous">
-                  <a href="../exercise-5-pronouns.html" rel="prev" aria-label="Previous">
+                  <a href="433-modifying-adjectives-part-2.html" rel="prev" aria-label="Previous">
                    <svg
                         version="1.1"
                         xmlns="http://www.w3.org/2000/svg"
@@ -1181,12 +661,12 @@
                           d="M16.795 14.571c0 0.214-0.107 0.455-0.268 0.616l-10.527 10.527 10.527 10.527c0.161 0.161 0.268 0.402 0.268 0.616s-0.107 0.455-0.268 0.616l-1.339 1.339c-0.161 0.161-0.402 0.268-0.616 0.268s-0.455-0.107-0.616-0.268l-12.482-12.482c-0.161-0.161-0.268-0.402-0.268-0.616s0.107-0.455 0.268-0.616l12.482-12.482c0.161-0.161 0.402-0.268 0.616-0.268s0.455 0.107 0.616 0.268l1.339 1.339c0.161 0.161 0.268 0.375 0.268 0.616z">
                         </path>
                       </svg>
-                    Exercise 5 - Pronouns
+                    4.3.3 Modifying Adjectives (Part 2)
                   </a>
                 </li>
                 <li class="next">
-                  <a href="512-personal-pronoun-ii.html" rel="next" aria-label="Next">
-                    5.1.2 Personal Pronoun II
+                  <a href="../exercise-4-adverbs.html" rel="next" aria-label="Next">
+                    Exercise 4 - Adverbs
                     <svg
                         version="1.1"
                         xmlns="http://www.w3.org/2000/svg"
@@ -1215,8 +695,8 @@
               <meta itemprop="position" content="1">
             </li>
             <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-              <a itemprop="item" href="../exercise-5-pronouns.html" class="pathway" aria-label="Menu Link">
-                <span itemprop="name">Exercise 5 - Pronouns</span>
+              <a itemprop="item" href="../exercise-4-adverbs.html" class="pathway" aria-label="Menu Link">
+                <span itemprop="name">Exercise 4 - Adverbs</span>
               </a>
               <span class="divider">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8 13.02" width="11" height="11"><polygon points="8 6.51 0 13.02 0 0 8 6.51" fill="#e0162b"></svg>
@@ -1224,7 +704,7 @@
               <meta itemprop="position" content="2">
             </li>
             <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem" class="active">
-              <span itemprop="name">5.1.1 Personal Pronoun I</span>
+              <span itemprop="name">4.3.4 Modifying Adverbs</span>
               <meta itemprop="position" content="3">
             </li>
           </ul>
@@ -1270,6 +750,7 @@
                   } )
               } )
             </script>
+
             <ul class="flyout-menu vertical flyout-left text-left button-right" id="flyout_menu_93">
               <li class="first">
                 <div class="item-wrapper">
@@ -1520,7 +1001,7 @@
                   </ul>
                 </div>
               </li>
-              <li>
+              <li class="current">
                 <div class="item-wrapper">
                   <div class="menu-button">
                     <img class="menuicon" alt="" src="../web-asset/icons/svg/plus3.svg">
@@ -1536,7 +1017,7 @@
                     <li class="first">
                       <div class="item-wrapper">
                         <div class="menu-link">
-                          <a href="../exercise-4-adverbs/411-using-adverbs-part-1.html" aria-label="Menu Link">
+                          <a href="411-using-adverbs-part-1.html" aria-label="Menu Link">
                             4.1.1 Using Adverbs (Part 1)
                           </a>
                         </div>
@@ -1545,7 +1026,7 @@
                     <li>
                       <div class="item-wrapper">
                         <div class="menu-link">
-                          <a href="../exercise-4-adverbs/412-using-adverbs-part-2.html" aria-label="Menu Link">
+                          <a href="412-using-adverbs-part-2.html" aria-label="Menu Link">
                             4.1.2 Using Adverbs (Part 2)
                           </a>
                         </div>
@@ -1554,7 +1035,7 @@
                     <li>
                       <div class="item-wrapper">
                         <div class="menu-link">
-                          <a href="../exercise-4-adverbs/421-positioning-adverbs-part-1.html" aria-label="Menu Link">
+                          <a href="421-positioning-adverbs-part-1.html" aria-label="Menu Link">
                             4.2.1 Positioning Adverbs (Part 1)
                           </a>
                         </div>
@@ -1563,7 +1044,7 @@
                     <li>
                       <div class="item-wrapper">
                         <div class="menu-link">
-                          <a href="../exercise-4-adverbs/422-positioning-adverbs-part-2.html" aria-label="Menu Link">
+                          <a href="422-positioning-adverbs-part-2.html" aria-label="Menu Link">
                             4.2.2 Positioning Adverbs (Part 2)
                           </a>
                         </div>
@@ -1572,7 +1053,7 @@
                     <li>
                       <div class="item-wrapper">
                         <div class="menu-link">
-                          <a href="../exercise-4-adverbs/423-positioning-adverbs-part-3.html" aria-label="Menu Link">
+                          <a href="423-positioning-adverbs-part-3.html" aria-label="Menu Link">
                             4.2.3 Positioning Adverbs (Part 3)
                           </a>
                         </div>
@@ -1581,7 +1062,7 @@
                     <li>
                       <div class="item-wrapper">
                         <div class="menu-link">
-                          <a href="../exercise-4-adverbs/431-modifying-verbs.html" aria-label="Menu Link">
+                          <a href="431-modifying-verbs.html" aria-label="Menu Link">
                             4.3.1 Modifying Verbs
                           </a>
                         </div>
@@ -1590,7 +1071,7 @@
                     <li>
                       <div class="item-wrapper">
                         <div class="menu-link">
-                          <a href="../exercise-4-adverbs/432-modifying-adjectives-part-1.html" aria-label="Menu Link">
+                          <a href="432-modifying-adjectives-part-1.html" aria-label="Menu Link">
                             4.3.2 Modifying Adjectives (Part 1)
                           </a>
                         </div>
@@ -1599,16 +1080,16 @@
                     <li>
                       <div class="item-wrapper">
                         <div class="menu-link">
-                          <a href="../exercise-4-adverbs/433-modifying-adjectives-part-2.html" aria-label="Menu Link">
+                          <a href="433-modifying-adjectives-part-2.html" aria-label="Menu Link">
                             4.3.3 Modifying Adjectives (Part 2)
                           </a>
                         </div>
                       </div>
                     </li>
-                    <li class="last">
+                    <li class="current last">
                       <div class="item-wrapper">
                         <div class="menu-link">
-                          <a href="../exercise-4-adverbs/434-modifying-adverbs.html" aria-label="Menu Link">
+                          <a href="434-modifying-adverbs.html" aria-label="Menu Link">
                             4.3.4 Modifying Adverbs
                           </a>
                         </div>
@@ -1617,7 +1098,7 @@
                   </ul>
                 </div>
               </li>
-              <li class="current">
+              <li>
                 <div class="item-wrapper">
                   <div class="menu-button">
                     <img class="menuicon" alt="" src="../web-asset/icons/svg/plus3.svg">
@@ -1630,10 +1111,10 @@
                 </div>
                 <div class="ul-wrapper">
                   <ul>
-                    <li class="current first">
+                    <li class="first">
                       <div class="item-wrapper">
                         <div class="menu-link">
-                          <a href="511-personal-pronoun-i.html" aria-label="Menu Link">
+                          <a href="../exercise-5-pronouns/511-personal-pronoun-i.html" aria-label="Menu Link">
                             5.1.1 Personal Pronoun I
                           </a>
                         </div>
@@ -1642,7 +1123,7 @@
                     <li>
                       <div class="item-wrapper">
                         <div class="menu-link">
-                          <a href="512-personal-pronoun-ii.html" aria-label="Menu Link">
+                          <a href="../exercise-5-pronouns/512-personal-pronoun-ii.html" aria-label="Menu Link">
                             5.1.2 Personal Pronoun II
                           </a>
                         </div>
@@ -1651,7 +1132,7 @@
                     <li>
                       <div class="item-wrapper">
                         <div class="menu-link">
-                          <a href="513-personal-pronoun-iii.html" aria-label="Menu Link">
+                          <a href="../exercise-5-pronouns/513-personal-pronoun-iii.html" aria-label="Menu Link">
                             5.1.3 Personal Pronoun III
                           </a>
                         </div>
@@ -1660,7 +1141,7 @@
                     <li>
                       <div class="item-wrapper">
                         <div class="menu-link">
-                          <a href="521-pronoun-common-mistakes.html" aria-label="Menu Link">
+                          <a href="../exercise-5-pronouns/521-pronoun-common-mistakes.html" aria-label="Menu Link">
                             5.2.1 Pronoun - Common Mistakes
                           </a>
                         </div>
@@ -1669,7 +1150,7 @@
                     <li>
                       <div class="item-wrapper">
                         <div class="menu-link">
-                          <a href="531-indefinite-pronoun.html" aria-label="Menu Link">
+                          <a href="../exercise-5-pronouns/531-indefinite-pronoun.html" aria-label="Menu Link">
                             5.3.1 Indefinite Pronoun
                           </a>
                         </div>
@@ -1678,7 +1159,7 @@
                     <li>
                       <div class="item-wrapper">
                         <div class="menu-link">
-                          <a href="541-reflexive-pronoun.html" aria-label="Menu Link">
+                          <a href="../exercise-5-pronouns/541-reflexive-pronoun.html" aria-label="Menu Link">
                             5.4.1 Reflexive Pronoun
                           </a>
                         </div>
@@ -1687,7 +1168,7 @@
                     <li>
                       <div class="item-wrapper">
                         <div class="menu-link">
-                          <a href="542-reflexive-emphatic-pronouns.html" aria-label="Menu Link">
+                          <a href="../exercise-5-pronouns/542-reflexive-emphatic-pronouns.html" aria-label="Menu Link">
                             5.4.2 Reflexive / Emphatic Pronouns
                           </a>
                         </div>
@@ -1696,7 +1177,7 @@
                     <li>
                       <div class="item-wrapper">
                         <div class="menu-link">
-                          <a href="551-pronouns-part-1.html" aria-label="Menu Link">
+                          <a href="../exercise-5-pronouns/551-pronouns-part-1.html" aria-label="Menu Link">
                             5.5.1 Pronouns (Part 1)
                           </a>
                         </div>
@@ -1705,7 +1186,7 @@
                     <li>
                       <div class="item-wrapper">
                         <div class="menu-link">
-                          <a href="552-pronouns-part-2.html" aria-label="Menu Link">
+                          <a href="../exercise-5-pronouns/552-pronouns-part-2.html" aria-label="Menu Link">
                             5.5.2 Pronouns (Part 2)
                           </a>
                         </div>
@@ -1714,7 +1195,7 @@
                     <li>
                       <div class="item-wrapper">
                         <div class="menu-link">
-                          <a href="561-relative-pronoun-who.html" aria-label="Menu Link">
+                          <a href="../exercise-5-pronouns/561-relative-pronoun-who.html" aria-label="Menu Link">
                             5.6.1 Relative Pronoun (who)
                           </a>
                         </div>
@@ -1723,7 +1204,7 @@
                     <li>
                       <div class="item-wrapper">
                         <div class="menu-link">
-                          <a href="562-relative-pronoun-who-which.html" aria-label="Menu Link">
+                          <a href="../exercise-5-pronouns/562-relative-pronoun-who-which.html" aria-label="Menu Link">
                             5.6.2 Relative Pronoun (who, which)
                           </a>
                         </div>
@@ -1732,7 +1213,8 @@
                     <li>
                       <div class="item-wrapper">
                         <div class="menu-link">
-                          <a href="563-relative-pronoun-who-which-whom-whose-i.html" aria-label="Menu Link">
+                          <a href="../exercise-5-pronouns/563-relative-pronoun-who-which-whom-whose-i.html"
+                            aria-label="Menu Link">
                             5.6.3 Relative Pronoun (who, which, whom, whose) I
                           </a>
                         </div>
@@ -1741,7 +1223,8 @@
                     <li>
                       <div class="item-wrapper">
                         <div class="menu-link">
-                          <a href="564-relative-pronoun-who-which-whom-whose-ii.html" aria-label="Menu Link">
+                          <a href="../exercise-5-pronouns/564-relative-pronoun-who-which-whom-whose-ii.html"
+                            aria-label="Menu Link">
                             5.6.4 Relative Pronoun (who, which, whom or whose) II
                           </a>
                         </div>
@@ -1750,7 +1233,8 @@
                     <li>
                       <div class="item-wrapper">
                         <div class="menu-link">
-                          <a href="565-relative-pronoun-pairs-who-which-whom-whose-iii.html" aria-label="Menu Link">
+                          <a href="../exercise-5-pronouns/565-relative-pronoun-pairs-who-which-whom-whose-iii.html"
+                            aria-label="Menu Link">
                             5.6.5 Relative Pronoun (who, which, whom or whose) III
                           </a>
                         </div>
@@ -1759,7 +1243,7 @@
                     <li>
                       <div class="item-wrapper">
                         <div class="menu-link">
-                          <a href="566-relative-pronoun-who-which-whom-whose-iv.html"
+                          <a href="../exercise-5-pronouns/566-relative-pronoun-who-which-whom-whose-iv.html"
                             aria-label="5.6.6 Relative Pronoun (who, which, whom or whose) IV">
                             5.6.6 Relative Pronoun (who, which, whom or whose) IV
                           </a>
@@ -1769,7 +1253,7 @@
                     <li>
                       <div class="item-wrapper">
                         <div class="menu-link">
-                          <a href="571-possessive-pronoun-part-1.html" aria-label="Menu Link">
+                          <a href="../exercise-5-pronouns/571-possessive-pronoun-part-1.html" aria-label="Menu Link">
                             5.7.1 Possessive Pronoun (Part 1)
                           </a>
                         </div>
@@ -1778,7 +1262,7 @@
                     <li>
                       <div class="item-wrapper">
                         <div class="menu-link">
-                          <a href="572-possessive-pronoun-part-2.html" aria-label="Menu Link">
+                          <a href="../exercise-5-pronouns/572-possessive-pronoun-part-2.html" aria-label="Menu Link">
                             5.7.2 Possessive Pronoun (Part 2)
                           </a>
                         </div>
@@ -1787,7 +1271,7 @@
                     <li>
                       <div class="item-wrapper">
                         <div class="menu-link">
-                          <a href="573-possessive-pronoun-part-3.html" aria-label="Menu Link">
+                          <a href="../exercise-5-pronouns/573-possessive-pronoun-part-3.html" aria-label="Menu Link">
                             5.7.3 Possessive Pronoun (Part 3)
                           </a>
                         </div>
@@ -1796,7 +1280,7 @@
                     <li class="last">
                       <div class="item-wrapper">
                         <div class="menu-link">
-                          <a href="574-possessive-pronoun-part-4.html" aria-label="Menu Link">
+                          <a href="../exercise-5-pronouns/574-possessive-pronoun-part-4.html" aria-label="Menu Link">
                             5.7.4 Possessive Pronoun (Part 4)
                           </a>
                         </div>
@@ -2637,6 +2121,6 @@
   </footer>
 </body>
 
-<!-- /exercise-5-pronouns/511-personal-pronoun-i.html, Tue, 24 Nov 2020 12:32:39 GMT -->
+<!-- /exercise-4-adverbs/434-modifying-adverbs.html, Tue, 24 Nov 2020 12:32:39 GMT -->
 
 </html>

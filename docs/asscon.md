@@ -35,10 +35,12 @@ If flags are not present, pause for user to enter input; enter conversion detail
       2. **prefix** (default when `--ignore-example` is provided with no value): skip questions that start with `Example.`
       3. **first**: skip the first question block
       4. **none**: skip nothing (convert all questions)
-   7. **obfuscation scope** (default `all`):
-      1. `all` p-tag contents
-      2. `highlighted` p-tag contents
-      3. `none` (skip obfuscation)
+   7. **obfuscation scope** (default `form`):
+      1. `form` p-tag contents inside `form.exercise-form`
+      2. `form-highlighted` highlighted p-tag contents inside `form.exercise-form`
+      3. `highlighted` p-tag contents (global)
+      4. `all` p-tag contents (global)
+      5. `none` (skip obfuscation)
 
         > ```html
         >   <span class="undies">...</span>, <b>...</b>, and <strong>...</strong>
@@ -181,33 +183,35 @@ _user input_:
 ---
 
 6. Run `encode-p-text.mjs` for obfuscation per user input (skip if scope is `none`):
---scope `<highlighted|all>` (default all):
+--scope `<form|form-highlighted|highlighted|all>` (default form):
 
-   - highlighted: obfuscate only `<span>`, `<b>`, `<strong>` text inside `<p>`
-   - all: obfuscate all `<p>` text nodes (leave tags)
+   - form-highlighted: obfuscate only `<span>`, `<b>`, `<strong>` text inside `<p>` within `form.exercise-form`
+   - form: obfuscate all `<p>` text nodes within `form.exercise-form` (leave tags)
+   - highlighted: obfuscate only `<span>`, `<b>`, `<strong>` text inside `<p>` (global)
+   - all: obfuscate all `<p>` text nodes (leave tags, global)
 
 ```bash
-node tools/encode-p-text.mjs --write --scope <highlighted|all> <target-path>
+node tools/encode-p-text.mjs --write --scope <form|form-highlighted|highlighted|all> <target-path>
 ```
 
-> replace `<target-path>`, `<highlighted|all>` with the user input target path and apply only when obfuscation choice requires it; keep command text unchanged.
+> replace `<target-path>`, `<form|form-highlighted|highlighted|all>` with the user input target path and apply only when obfuscation choice requires it; keep command text unchanged.
 
 **For example**:
 
 _user input_:
 
 - `<target-path>`: exercise-4-adverbs/411-using-adverbs-part-1.html
-- `<highlighted|all>`: highlighted
+- `<form|form-highlighted|highlighted|all>`: form-highlighted
 
 **Prompt produced**:
 
-`node tools/encode-p-text.mjs --write --scope highlighted exercise-4-adverbs/411-using-adverbs-part-1.html`
+`node tools/encode-p-text.mjs --write --scope form-highlighted exercise-4-adverbs/411-using-adverbs-part-1.html`
 
 #### extras
 
 - **Optional quick check**: node tools/encode-p-text.mjs /tmp/sample.html | head
 - **Rollback**: git restore `<target-path>`
-- node tools/encode-p-text.mjs [--write|--apply] [--scope <all|highlighted>] <file...>
+- node tools/encode-p-text.mjs [--write|--apply] [--scope <all|highlighted|form|form-highlighted>] <file...>
 - **Default is dry-run to stdout**; use --write/--apply to rewrite files in place.
 - **Prompt**: encode each question's p-tag answers from between `<span class="undies">`, `<b>`, and `<strong>` or whole `<p>` tags exactly like the following, based on its existing structure:
 
@@ -236,7 +240,9 @@ _user input_:
   - prefix: skip questions that start with `Example.`
   - first: skip the first question block
   - none: skip nothing (convert all questions)
-- --scope `<highlighted|all>` (default all):
-  - **highlighted**: obfuscate only `<span>`, `<b>`, `<strong>` text inside `<p>`
-  - **all**: obfuscate all `<p>` text nodes (leave tags)
+- --scope `<form|form-highlighted|highlighted|all>` (default form):
+  - **form-highlighted**: obfuscate only `<span>`, `<b>`, `<strong>` text inside `<p>` within `form.exercise-form`
+  - **form**: obfuscate all `<p>` text nodes within `form.exercise-form` (leave tags)
+  - **highlighted**: obfuscate only `<span>`, `<b>`, `<strong>` text inside `<p>` (global)
+  - **all**: obfuscate all `<p>` text nodes (leave tags, global)
 - obfuscation scope `none`: skip (do not run encode-p-text)

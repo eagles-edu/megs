@@ -6,7 +6,7 @@
 // node tools/encode-p-text.mjs --write exercise-2-verbs/211-transitive-and-intransitive-verbs.html
 // Optional quick check: node tools/encode-p-text.mjs /tmp/sample.html | head
 // Rollback: rm tools/encode-p-t
-// node tools/encode-p-text.mjs [--write|--apply] [--scope <all|highlighted>] <file...>
+// node tools/encode-p-text.mjs [--write|--apply] [--scope <all|highlighted|form|form-highlighted>] <file...>
 // Default is dry-run to stdout; use --write/--apply to rewrite files in place.
 
 import fs from "node:fs"
@@ -19,11 +19,12 @@ const USAGE = `
 Encode only <p> tag text to decimal HTML entities (tags remain untouched).
 
 Usage:
-  node tools/encode-p-text.mjs [--write|--apply] [--scope <all|highlighted>] <file...>
+  node tools/encode-p-text.mjs [--write|--apply] [--scope <all|highlighted|form|form-highlighted>] <file...>
 
 Options:
   --write, --apply   Overwrite the provided files in place
   --scope            all (default) encodes all <p> text; highlighted encodes only <span>, <b>, <strong> text
+                    form encodes only <p> inside form.exercise-form; form-highlighted limits highlighted text inside form
   --help             Show this message
 `.trim()
 
@@ -40,8 +41,10 @@ if (scopeArg) {
   scope = argv[scopeIndex + 1] || ""
 }
 
-if (scope && scope !== "all" && scope !== "highlighted") {
-  console.error(`[encode-p-text] invalid --scope "${scope}" (use all or highlighted)`)
+if (scope && !["all", "highlighted", "form", "form-highlighted"].includes(scope)) {
+  console.error(
+    `[encode-p-text] invalid --scope "${scope}" (use all, highlighted, form, or form-highlighted)`
+  )
   process.exit(1)
 }
 
@@ -85,9 +88,15 @@ function encodeTextNodes(node) {
 
 function encodeParagraphs($, scopeMode) {
   let encodedCount = 0
-  $("p").each((_, el) => {
+  const formOnly = scopeMode === "form" || scopeMode === "form-highlighted"
+  const highlightedOnly = scopeMode === "highlighted" || scopeMode === "form-highlighted"
+  const formRoot = formOnly ? $("form.exercise-form") : null
+  const paragraphs = formOnly ? formRoot.find("p") : $("p")
+  const formFound = !formOnly || formRoot.length > 0
+
+  paragraphs.each((_, el) => {
     let touched = false
-    if (scopeMode === "highlighted") {
+    if (highlightedOnly) {
       $(el)
         .find("span, b, strong")
         .each((__, highlight) => {
@@ -98,7 +107,7 @@ function encodeParagraphs($, scopeMode) {
     }
     if (touched) encodedCount += 1
   })
-  return encodedCount
+  return { encodedCount, formFound, targetCount: paragraphs.length }
 }
 
 function processFile(filePath) {
@@ -106,15 +115,28 @@ function processFile(filePath) {
   const html = fs.readFileSync(inputPath, "utf8")
 
   const $ = load(html, { decodeEntities: false })
-  const encodedParagraphs = encodeParagraphs($, scope)
+  const result = encodeParagraphs($, scope)
   const output = render($.root()[0], { encodeEntities: false })
 
   if (writeMode) {
     fs.writeFileSync(inputPath, output)
+    const formNote =
+      scope === "form" || scope === "form-highlighted"
+        ? result.formFound
+          ? ""
+          : " (form.exercise-form not found; no <p> encoded)"
+        : ""
     console.error(
-      `[encode-p-text] ${encodedParagraphs} <p> element(s) encoded in ${filePath} (scope: ${scope})`
+      `[encode-p-text] ${result.encodedCount} <p> element(s) encoded in ${filePath} (scope: ${scope})${formNote}`
     )
   } else {
+    if (scope === "form" || scope === "form-highlighted") {
+      if (!result.formFound) {
+        console.error(
+          `[encode-p-text] form.exercise-form not found in ${filePath}; no <p> encoded (scope: ${scope})`
+        )
+      }
+    }
     process.stdout.write(output)
   }
 }

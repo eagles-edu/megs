@@ -40,14 +40,14 @@ const DEFAULTS = {
   answerSource: "auto",
   answersMode: "all",
   ignoreExample: "auto",
-  obfuscation: "all",
+  obfuscation: "form",
   diffPreview: true,
 }
 
 const VALID_ANSWER_SOURCES = ["undies", "p", "auto"]
 const VALID_ANSWERS_MODES = ["all", "alts"]
 const VALID_IGNORE_EXAMPLE = ["auto", "prefix", "first", "none"]
-const VALID_OBFUSCATION = ["all", "highlighted", "none"]
+const VALID_OBFUSCATION = ["form", "form-highlighted", "highlighted", "all", "none"]
 
 const ANSWER_SOURCE_TEXT = {
   undies:
@@ -84,7 +84,7 @@ Options:
   --answer-source <val>   undies | p | auto (default auto)
   --answers-mode <val>    all | alts (default all)
   --ignore-example [val]  auto | prefix | first | none (standalone defaults to prefix)
-  --obfuscation <val>     all | highlighted | none (default all)
+  --obfuscation <val>     form | form-highlighted | highlighted | all | none (default form)
   --diff-preview [bool]   true | false (default true)
   --no-diff-preview       disable diff preview
   --help                  show help
@@ -314,7 +314,7 @@ function buildPrompt1(target, answerSource) {
     wrapWithBackticks(target) +
     " pull answers from question p-tags, " +
     sourceText +
-    ", then copying those words / phrases / sentences to `tools/input.txt`, formatting only a linebreak between answers of the same answer group and a blank line between answer groups.\n\n" +
+    ", then copying those words / phrases / sentences, sans question numbers (i.e., 1. , 2. , etc.), to `tools/input.txt`, formatting only a linebreak between answers of the same answer group and a blank line between answer groups.\n\n" +
     '"'
   )
 }
@@ -367,7 +367,13 @@ function buildCmd4(target) {
 
 function buildCmd5(target, obfuscation) {
   if (obfuscation === "none") return null
-  const scope = obfuscation === "highlighted" ? "highlighted" : "all"
+  const scopeMap = {
+    all: "all",
+    highlighted: "highlighted",
+    form: "form",
+    "form-highlighted": "form-highlighted",
+  }
+  const scope = scopeMap[obfuscation] || "all"
   return ["node", "tools/encode-p-text.mjs", "--write", "--scope", scope, target]
 }
 

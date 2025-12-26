@@ -84,6 +84,7 @@
 
 - **Safety checks**:
   - Run on pages where answers must be obscured; do not run on non-answer content.
+  - Use `--scope form` (or `--scope form-highlighted`) to avoid encoding instructions outside `form.exercise-form`.
   - The encoder skips runs that look already encoded (`&#…;`) to avoid double-encoding.
   - Verify output keeps tags and `<br>` line breaks unchanged; confirm decoded text still matches the intended answer strings.
   - After applying, re-open the page locally and confirm rendered text remains readable and hashes still match expected answers.

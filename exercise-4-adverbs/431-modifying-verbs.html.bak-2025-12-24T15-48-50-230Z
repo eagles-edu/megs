@@ -398,7 +398,7 @@
                 </span>
               </p>
               <p>
-                <span style="line-height: 18px">Click to check your answers.</span>
+                <span style="line-height: 18px">Click question to check your answers.</span>
               </p>
               <div class="nn_sliders accordion panel-group" id="set-nn_sliders-1">
                 <a id="nn_sliders-scrollto_1" class="anchor nn_sliders-scroll"></a>

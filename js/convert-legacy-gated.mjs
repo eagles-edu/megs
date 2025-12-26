@@ -85,29 +85,36 @@ function resolvePathMaybe(relativePath) {
   return path.isAbsolute(relativePath) ? relativePath : path.resolve(process.cwd(), relativePath)
 }
 
-function extractInstructions($) {
+function extractInstructionBlocks($) {
   const firstAccordion = $(".nn_sliders").first()
   if (!firstAccordion.length) {
-    return ""
+    return []
   }
 
-  const paragraphs = []
+  const exinstruct = firstAccordion.prevAll(".exinstruct").first()
+  if (exinstruct.length) {
+    return [exinstruct.toString()]
+  }
+
+  const blocks = []
   let cursor = firstAccordion.prev()
   while (cursor && cursor.length) {
     if (cursor[0].tagName === "p") {
       const text = $(cursor).text().trim()
-      if (text) paragraphs.unshift(text)
+      if (text) blocks.unshift($(cursor).toString())
     }
     cursor = cursor.prev()
   }
 
-  if (paragraphs.length) return paragraphs.join("\n")
+  if (blocks.length) return blocks
   return $("p")
     .slice(0, 3)
-    .map((_, el) => $(el).text().trim())
+    .map((_, el) => {
+      const text = $(el).text().trim()
+      return text ? $(el).toString() : ""
+    })
     .get()
     .filter(Boolean)
-    .join("\n")
 }
 
 function scrapeBreadcrumbs($) {
@@ -238,7 +245,7 @@ function scrapeLegacy(legacyHtml, legacyPath) {
   const breadcrumbs = scrapeBreadcrumbs($)
   const pager = scrapePager($)
   const aside = scrapeAside($)
-  const instructions = extractInstructions($)
+  const instructionBlocks = extractInstructionBlocks($)
   const questions = scrapeQuestions($)
 
   if (!title) throw new Error("Missing <title> content")
@@ -252,7 +259,7 @@ function scrapeLegacy(legacyHtml, legacyPath) {
     breadcrumbs,
     pager,
     aside,
-    instructions,
+    instructionBlocks,
     questions,
     totalQuestions: questions.length,
   }
@@ -655,20 +662,22 @@ function injectTemplate(
 
   const articleBody = $('[itemprop="articleBody"]').first()
   if (articleBody.length) {
-    const introParagraphs = scraped.instructions.split("\n").filter(Boolean)
+    const introBlocks = Array.isArray(scraped.instructionBlocks)
+      ? scraped.instructionBlocks.filter(Boolean)
+      : []
     // Clear any existing intro paragraphs directly before the form
     articleBody
       .find("p")
       .filter((_, p) => $(p).nextAll("form.exercise-form").length > 0)
       .remove()
     // Ensure a <br> before instructions if not already present
-    if (introParagraphs.length && !form.prev().is("br")) {
+    if (introBlocks.length && !form.prev().is("br")) {
       $("<br>").insertBefore(form)
     }
-    introParagraphs
+    introBlocks
       .slice()
       .reverse()
-      .forEach((text) => form.before($("<p>").text(text)))
+      .forEach((block) => form.before(block))
   }
   if (Array.isArray(scraped.legacyExamples) && scraped.legacyExamples.length) {
     form.before(scraped.legacyExamples.join("\n"))
