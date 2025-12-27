@@ -20,6 +20,10 @@
       content="English Grammar - intermediate levels A2 and above">
     <title>List 4 - Verbs</title>
     <link
+      href="web-asset/icons/favicon.ico"
+      rel="shortcut icon"
+      type="image/vnd.microsoft.icon">
+    <link
       href="list-4-verbsdcab.feed?type=rss"
       rel="alternate"
       type="application/rss+xml"
@@ -29,10 +33,6 @@
       rel="alternate"
       type="application/atom+xml"
       title="Atom 1.0">
-    <link
-      href="web-asset/icons/favicon.ico"
-      rel="shortcut icon"
-      type="image/vnd.microsoft.icon">
     <link
       href="web-asset/css/template592f.css"
       rel="stylesheet">
@@ -1748,71 +1748,60 @@
           </main>
           <div
             id="aside"
-            class="span2">
+            class="span2 bm3">
             <!-- Begin Right Sidebar -->
             <div class="well hidden-phone">
-              <script>
-                jQuery(document).ready(function ($) {
-                  var acMenu = $("#flyout_menu_100")
-                  acMenu.find("a").click(function () {
-                    if ($(this).attr("target") == "_blank") {
-                      window.open($(this).attr("href"))
-                    } else {
-                      location = $(this).attr("href")
-                    }
-                    return false
-                  })
-
-                  acMenu
-                    .find("li")
-                    .mouseleave(function () {
-                      $(this).removeClass("opened")
-                      $(this)
-                        .children(".item-wrapper")
-                        .children(".menu-button")
-                        .children("img")
-                        .attr("src", "web-asset/icons/svg/plus3.svg")
-                      $(this).children(".ul-wrapper").hide(300)
-                    })
-                    .mouseenter(function () {
-                      $(this)
-                        .children(".item-wrapper")
-                        .children(".menu-button")
-                        .children("img")
-                        .attr("src", "web-asset/icons/svg/minus5.svg")
-                      $(this).addClass("opened")
-                      $(this).children(".ul-wrapper").show(300)
-                    })
-                })
-              </script>
               <ul
-                class="flyout-menu vertical flyout-left text-left button-right"
-                id="flyout_menu_100">
-                <li class="first">
-                  <div class="item-wrapper">
-                    <div class="menu-button">
-                      <img
-                        class="menuicon"
-                        alt=""
-                        src="web-asset/icons/svg/plus3.svg">
-                    </div>
-                    <div class="menu-link">
+                class="r-flyout-menu"
+                id="flyout_menu_93"
+                data-r-flyout=""
+                data-flyout-origin="right">
+                <li
+                  class="current first"
+                  data-r-flyout-item="">
+                  <div class="item-wrapper r-flyout__header">
+                    <button
+                      class="r-flyout__toggle"
+                      type="button"
+                      aria-haspopup="true"
+                      aria-expanded="false"
+                      aria-controls="r-flyout-panel-nouns"
+                      aria-label="Toggle submenu for Nouns">
+                      <svg
+                        class="r-flyout__icon r-flyout__icon--plus"
+                        aria-hidden="true"
+                        focusable="false">
+                        <use xlink:href="#icon-plus"></use>
+                      </svg>
+                      <svg
+                        class="r-flyout__icon r-flyout__icon--minus"
+                        aria-hidden="true"
+                        focusable="false">
+                        <use xlink:href="#icon-minus"></use>
+                      </svg>
+                    </button>
+                    <div class="menu-link r-flyout__link-wrap">
                       <a
-                        href="list-1-singular-and-plural-nouns.html"
-                        aria-label="Menu Link">
-                        Singular-Plural
+                        class="r-flyout__link"
+                        href="../exercise-1-nouns.html"
+                        aria-label="Nouns">
+                        Nouns
                       </a>
                     </div>
                   </div>
-                  <div class="ul-wrapper">
-                    <ul>
-                      <li class="first">
+                  <div
+                    class="ul-wrapper r-flyout__panel"
+                    id="r-flyout-panel-nouns"
+                    aria-hidden="true"
+                    hidden>
+                    <ul class="r-flyout__sublist">
+                      <li class="current first">
                         <div class="item-wrapper">
                           <div class="menu-link">
                             <a
-                              href="list-1-singular-and-plural-nouns/by-adding-s.html"
-                              aria-label="Menu Link">
-                              By adding -s
+                              href="../exercise-1-nouns/111-common-nouns.html"
+                              aria-label="1.1.1 Common Nouns">
+                              1.1.1 Common Nouns
                             </a>
                           </div>
                         </div>
@@ -1821,9 +1810,9 @@
                         <div class="item-wrapper">
                           <div class="menu-link">
                             <a
-                              href="list-1-singular-and-plural-nouns/by-adding-es-to-nouns-ending-in-ch-s-sh-ss-x-and-z.html"
-                              aria-label="Menu Link">
-                              By adding -es to nouns ending in –ch, -s, -sh, -ss, -x, and -z
+                              href="../exercise-1-nouns/112-proper-nouns.html"
+                              aria-label="1.1.2 Proper Nouns">
+                              1.1.2 Proper Nouns
                             </a>
                           </div>
                         </div>
@@ -1832,9 +1821,9 @@
                         <div class="item-wrapper">
                           <div class="menu-link">
                             <a
-                              href="list-1-singular-and-plural-nouns/by-adding-s-to-nouns-ending-in-o.html"
-                              aria-label="Menu Link">
-                              By adding –s to nouns ending in -o
+                              href="../exercise-1-nouns/113-abstract-nouns.html"
+                              aria-label="1.1.3 Abstract Nouns">
+                              1.1.3 Abstract Nouns
                             </a>
                           </div>
                         </div>
@@ -1843,9 +1832,9 @@
                         <div class="item-wrapper">
                           <div class="menu-link">
                             <a
-                              href="list-1-singular-and-plural-nouns/by-adding-es-to-nouns-ending-in-o.html"
-                              aria-label="Menu Link">
-                              By adding –es to nouns ending in -o
+                              href="../exercise-1-nouns/114-collective-nouns.html"
+                              aria-label="1.1.4 Collective Nouns">
+                              1.1.4 Collective Nouns
                             </a>
                           </div>
                         </div>
@@ -1854,9 +1843,9 @@
                         <div class="item-wrapper">
                           <div class="menu-link">
                             <a
-                              href="list-1-singular-and-plural-nouns/by-adding-s-or-es-to-nouns-ending-in-o.html"
-                              aria-label="Menu Link">
-                              By adding –s or –es to nouns ending in -o
+                              href="../exercise-1-nouns/121-singular-and-plural-nouns.html"
+                              aria-label="1.2.1 Singular and Plural Nouns">
+                              1.2.1 Singular and Plural Nouns
                             </a>
                           </div>
                         </div>
@@ -1865,9 +1854,9 @@
                         <div class="item-wrapper">
                           <div class="menu-link">
                             <a
-                              href="list-1-singular-and-plural-nouns/by-changing-y-into-ies-if-a-noun-ends-in-a-consonant-before-the-y.html"
-                              aria-label="Menu Link">
-                              By changing –y into –ies if a noun ends in a consonant before the -y
+                              href="../exercise-1-nouns/131-countable-and-uncountable-nouns.html"
+                              aria-label="1.3.1 Countable and Uncountable Nouns">
+                              1.3.1 Countable and Uncountable Nouns
                             </a>
                           </div>
                         </div>
@@ -1876,9 +1865,9 @@
                         <div class="item-wrapper">
                           <div class="menu-link">
                             <a
-                              href="list-1-singular-and-plural-nouns/by-adding-s-if-there-is-a-vowel-before-the-y.html"
-                              aria-label="Menu Link">
-                              By adding –s if there is a vowel before the -y
+                              href="../exercise-1-nouns/141-forming-nouns.html"
+                              aria-label="1.4.1 Forming Nouns">
+                              1.4.1 Forming Nouns
                             </a>
                           </div>
                         </div>
@@ -1887,75 +1876,9 @@
                         <div class="item-wrapper">
                           <div class="menu-link">
                             <a
-                              href="list-1-singular-and-plural-nouns/by-changing-f-or-fe-into-ves.html"
-                              aria-label="Menu Link">
-                              By changing –f or –fe into –ves
-                            </a>
-                          </div>
-                        </div>
-                      </li>
-                      <li>
-                        <div class="item-wrapper">
-                          <div class="menu-link">
-                            <a
-                              href="list-1-singular-and-plural-nouns/by-adding-s-to-nouns-ending-in-f-or-fe.html"
-                              aria-label="Menu Link">
-                              By adding –s to nouns ending in –f or –fe
-                            </a>
-                          </div>
-                        </div>
-                      </li>
-                      <li>
-                        <div class="item-wrapper">
-                          <div class="menu-link">
-                            <a
-                              href="list-1-singular-and-plural-nouns/by-adding-s-or-changing-f-into-ves.html"
-                              aria-label="Menu Link">
-                              By adding –s or changing –f into –ves
-                            </a>
-                          </div>
-                        </div>
-                      </li>
-                      <li>
-                        <div class="item-wrapper">
-                          <div class="menu-link">
-                            <a
-                              href="list-1-singular-and-plural-nouns/by-changing-the-vowels.html"
-                              aria-label="Menu Link">
-                              By changing the vowels
-                            </a>
-                          </div>
-                        </div>
-                      </li>
-                      <li>
-                        <div class="item-wrapper">
-                          <div class="menu-link">
-                            <a
-                              href="list-1-singular-and-plural-nouns/the-singular-and-plural-forms-of-some-nouns-are-the-same.html"
-                              aria-label="Menu Link">
-                              The singular and plural forms of some nouns are the same
-                            </a>
-                          </div>
-                        </div>
-                      </li>
-                      <li>
-                        <div class="item-wrapper">
-                          <div class="menu-link">
-                            <a
-                              href="list-1-singular-and-plural-nouns/some-nouns-have-same-singular-and-plural-forms-or-have-plural-ending-s.html"
-                              aria-label="Menu Link">
-                              Some nouns have same singular and plural forms or have plural ending (-s)
-                            </a>
-                          </div>
-                        </div>
-                      </li>
-                      <li>
-                        <div class="item-wrapper">
-                          <div class="menu-link">
-                            <a
-                              href="list-1-singular-and-plural-nouns/the-ending-is-is-changed-to-es.html"
-                              aria-label="Menu Link">
-                              The ending –is is changed to –es
+                              href="../exercise-1-nouns/151-gender.html"
+                              aria-label="1.5.1 Gender">
+                              1.5.1 Gender
                             </a>
                           </div>
                         </div>
@@ -1964,9 +1887,9 @@
                         <div class="item-wrapper">
                           <div class="menu-link">
                             <a
-                              href="list-1-singular-and-plural-nouns/singular-and-plural-forms-of-compound-nouns.html"
-                              aria-label="Menu Link">
-                              Singular and plural forms of compound nouns
+                              href="../exercise-1-nouns/161-gender-neutral.html"
+                              aria-label="1.6.1 Gender Neutral">
+                              1.6.1 Gender Neutral
                             </a>
                           </div>
                         </div>
@@ -1974,269 +1897,50 @@
                     </ul>
                   </div>
                 </li>
-                <li>
-                  <div class="item-wrapper">
-                    <div class="menu-button">
-                      <img
-                        class="menuicon"
-                        alt=""
-                        src="web-asset/icons/svg/plus3.svg">
-                    </div>
-                    <div class="menu-link">
+                <li data-r-flyout-item="">
+                  <div class="item-wrapper r-flyout__header">
+                    <button
+                      class="r-flyout__toggle"
+                      type="button"
+                      aria-haspopup="true"
+                      aria-expanded="false"
+                      aria-controls="r-flyout-panel-verbs"
+                      aria-label="Toggle submenu for Verbs">
+                      <svg
+                        class="r-flyout__icon r-flyout__icon--plus"
+                        aria-hidden="true"
+                        focusable="false">
+                        <use xlink:href="#icon-plus"></use>
+                      </svg>
+                      <svg
+                        class="r-flyout__icon r-flyout__icon--minus"
+                        aria-hidden="true"
+                        focusable="false">
+                        <use xlink:href="#icon-minus"></use>
+                      </svg>
+                    </button>
+                    <div class="menu-link r-flyout__link-wrap">
                       <a
-                        href="list-2-uncountable-nouns-made-countable.html"
-                        aria-label="Menu Link">
-                        Counting Nouns
-                      </a>
-                    </div>
-                  </div>
-                  <div class="ul-wrapper">
-                    <ul>
-                      <li class="first">
-                        <div class="item-wrapper">
-                          <div class="menu-link">
-                            <a
-                              href="list-2-uncountable-nouns-made-countable/activity-cynicism.html"
-                              aria-label="Menu Link">
-                              Activity - Cynicism
-                            </a>
-                          </div>
-                        </div>
-                      </li>
-                      <li>
-                        <div class="item-wrapper">
-                          <div class="menu-link">
-                            <a
-                              href="list-2-uncountable-nouns-made-countable/danger-fruit.html"
-                              aria-label="Menu Link">
-                              Danger - Fruit
-                            </a>
-                          </div>
-                        </div>
-                      </li>
-                      <li>
-                        <div class="item-wrapper">
-                          <div class="menu-link">
-                            <a
-                              href="list-2-uncountable-nouns-made-countable/l.html"
-                              aria-label="Menu Link">
-                              Genius - Luck
-                            </a>
-                          </div>
-                        </div>
-                      </li>
-                      <li>
-                        <div class="item-wrapper">
-                          <div class="menu-link">
-                            <a
-                              href="list-2-uncountable-nouns-made-countable/marble-rum.html"
-                              aria-label="Menu Link">
-                              Marble - Rum
-                            </a>
-                          </div>
-                        </div>
-                      </li>
-                      <li>
-                        <div class="item-wrapper">
-                          <div class="menu-link">
-                            <a
-                              href="list-2-uncountable-nouns-made-countable/sadness-sunlight.html"
-                              aria-label="Menu Link">
-                              Sadness - Sunlight
-                            </a>
-                          </div>
-                        </div>
-                      </li>
-                      <li class="last">
-                        <div class="item-wrapper">
-                          <div class="menu-link">
-                            <a
-                              href="list-2-uncountable-nouns-made-countable/tea-yogurt.html"
-                              aria-label="Menu Link">
-                              Tea - Yogurt
-                            </a>
-                          </div>
-                        </div>
-                      </li>
-                    </ul>
-                  </div>
-                </li>
-                <li>
-                  <div class="item-wrapper">
-                    <div class="menu-button">
-                      <img
-                        class="menuicon"
-                        alt=""
-                        src="web-asset/icons/svg/plus3.svg">
-                    </div>
-                    <div class="menu-link">
-                      <a
-                        href="list-3-collective-nouns.html"
-                        aria-label="Menu Link">
-                        Collective Nouns
-                      </a>
-                    </div>
-                  </div>
-                  <div class="ul-wrapper">
-                    <ul>
-                      <li class="first">
-                        <div class="item-wrapper">
-                          <div class="menu-link">
-                            <a
-                              href="list-3-collective-nouns/collective-nouns-creatures.html"
-                              aria-label="Menu Link">
-                              Collective Nouns - Creatures
-                            </a>
-                          </div>
-                        </div>
-                      </li>
-                      <li>
-                        <div class="item-wrapper">
-                          <div class="menu-link">
-                            <a
-                              href="list-3-collective-nouns/collective-nouns-things.html"
-                              aria-label="Menu Link">
-                              Collective Nouns - Things
-                            </a>
-                          </div>
-                        </div>
-                      </li>
-                      <li class="last">
-                        <div class="item-wrapper">
-                          <div class="menu-link">
-                            <a
-                              href="list-3-collective-nouns/collective-nouns-people.html"
-                              aria-label="Menu Link">
-                              Collective Nouns - People
-                            </a>
-                          </div>
-                        </div>
-                      </li>
-                    </ul>
-                  </div>
-                </li>
-                <li class="current">
-                  <div class="item-wrapper">
-                    <div class="menu-button">
-                      <img
-                        class="menuicon"
-                        alt=""
-                        src="web-asset/icons/svg/plus3.svg">
-                    </div>
-                    <div class="menu-link">
-                      <a
-                        href="list-4-verbs.html"
-                        aria-label="Menu Link">
+                        class="r-flyout__link"
+                        href="../exercise-2-verbs.html"
+                        aria-label="Verbs">
                         Verbs
                       </a>
                     </div>
                   </div>
-                  <div class="ul-wrapper">
-                    <ul>
+                  <div
+                    class="ul-wrapper r-flyout__panel"
+                    id="r-flyout-panel-verbs"
+                    aria-hidden="true"
+                    hidden>
+                    <ul class="r-flyout__sublist">
                       <li class="first">
                         <div class="item-wrapper">
                           <div class="menu-link">
                             <a
-                              href="list-4-verbs/forming-verbs.html"
-                              aria-label="Menu Link">
-                              Forming Verbs
-                            </a>
-                          </div>
-                        </div>
-                      </li>
-                      <li class="last">
-                        <div class="item-wrapper">
-                          <div class="menu-button">
-                            <img
-                              class="menuicon"
-                              alt=""
-                              src="web-asset/icons/svg/plus3.svg">
-                          </div>
-                          <div class="menu-link">
-                            <a
-                              href="list-4-verbs/different-verb-types.html"
-                              aria-label="Menu Link">
-                              Different Verb Types
-                            </a>
-                          </div>
-                        </div>
-                        <div class="ul-wrapper">
-                          <ul>
-                            <li class="first">
-                              <div class="item-wrapper">
-                                <div class="menu-link">
-                                  <a
-                                    href="list-4-verbs/different-verb-types/auxiliary-verb.html"
-                                    aria-label="Menu Link">
-                                    Auxiliary verbs
-                                  </a>
-                                </div>
-                              </div>
-                            </li>
-                            <li>
-                              <div class="item-wrapper">
-                                <div class="menu-link">
-                                  <a
-                                    href="list-4-verbs/different-verb-types/transitive-intransitive-verbs.html"
-                                    aria-label="Menu Link">
-                                    Transitive/Intransitive Verbs
-                                  </a>
-                                </div>
-                              </div>
-                            </li>
-                            <li>
-                              <div class="item-wrapper">
-                                <div class="menu-link">
-                                  <a
-                                    href="list-4-verbs/different-verb-types/stative-verbs.html"
-                                    aria-label="Menu Link">
-                                    Stative Verbs
-                                  </a>
-                                </div>
-                              </div>
-                            </li>
-                            <li class="last">
-                              <div class="item-wrapper">
-                                <div class="menu-link">
-                                  <a
-                                    href="list-4-verbs/different-verb-types/linking-verbs.html"
-                                    aria-label="Menu Link">
-                                    Linking Verbs
-                                  </a>
-                                </div>
-                              </div>
-                            </li>
-                          </ul>
-                        </div>
-                      </li>
-                    </ul>
-                  </div>
-                </li>
-                <li>
-                  <div class="item-wrapper">
-                    <div class="menu-button">
-                      <img
-                        class="menuicon"
-                        alt=""
-                        src="web-asset/icons/svg/plus3.svg">
-                    </div>
-                    <div class="menu-link">
-                      <a
-                        href="list-5-irregular-verbs.html"
-                        aria-label="Menu Link">
-                        Irregular Verbs
-                      </a>
-                    </div>
-                  </div>
-                  <div class="ul-wrapper">
-                    <ul>
-                      <li class="first">
-                        <div class="item-wrapper">
-                          <div class="menu-link">
-                            <a
-                              href="list-5-irregular-verbs/all-three-forms-are-the-same.html"
-                              aria-label="Menu Link">
-                              All three forms are the same
+                              href="../exercise-2-verbs/211-transitive-and-intransitive-verbs.html"
+                              aria-label="2.1.1 Transitive and Intransitive Verbs">
+                              2.1.1 Transitive and Intransitive Verbs
                             </a>
                           </div>
                         </div>
@@ -2245,9 +1949,31 @@
                         <div class="item-wrapper">
                           <div class="menu-link">
                             <a
-                              href="list-5-irregular-verbs/all-three-forms-are-different.html"
-                              aria-label="Menu Link">
-                              All three forms are different
+                              href="../exercise-2-verbs/221-linking-verbs.html"
+                              aria-label="2.2.1 Linking Verbs">
+                              2.2.1 Linking Verbs
+                            </a>
+                          </div>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="item-wrapper">
+                          <div class="menu-link">
+                            <a
+                              href="../exercise-2-verbs/231-auxiliary-verbs.html"
+                              aria-label="2.3.1 Auxiliary Verbs">
+                              2.3.1 Auxiliary Verbs
+                            </a>
+                          </div>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="item-wrapper">
+                          <div class="menu-link">
+                            <a
+                              href="../exercise-2-verbs/261-irregular-verbs-i.html"
+                              aria-label="2.6.1 Irregular Verbs">
+                              2.6.1 Irregular Verbs I
                             </a>
                           </div>
                         </div>
@@ -2256,9 +1982,9 @@
                         <div class="item-wrapper">
                           <div class="menu-link">
                             <a
-                              href="list-5-irregular-verbs/only-the-simple-past-and-past-participle-are-the-same.html"
-                              aria-label="Menu Link">
-                              Only the simple past and past participle are the same
+                              href="../exercise-2-verbs/262-irregular-verbs-ii.html"
+                              aria-label="2.6.2 Irregular Verbs II">
+                              2.6.2 Irregular Verbs II
                             </a>
                           </div>
                         </div>
@@ -2266,31 +1992,50 @@
                     </ul>
                   </div>
                 </li>
-                <li>
-                  <div class="item-wrapper">
-                    <div class="menu-button">
-                      <img
-                        class="menuicon"
-                        alt=""
-                        src="web-asset/icons/svg/plus3.svg">
-                    </div>
-                    <div class="menu-link">
+                <li data-r-flyout-item="">
+                  <div class="item-wrapper r-flyout__header">
+                    <button
+                      class="r-flyout__toggle"
+                      type="button"
+                      aria-haspopup="true"
+                      aria-expanded="false"
+                      aria-controls="r-flyout-panel-adjectives"
+                      aria-label="Toggle submenu for Adjectives">
+                      <svg
+                        class="r-flyout__icon r-flyout__icon--plus"
+                        aria-hidden="true"
+                        focusable="false">
+                        <use xlink:href="#icon-plus"></use>
+                      </svg>
+                      <svg
+                        class="r-flyout__icon r-flyout__icon--minus"
+                        aria-hidden="true"
+                        focusable="false">
+                        <use xlink:href="#icon-minus"></use>
+                      </svg>
+                    </button>
+                    <div class="menu-link r-flyout__link-wrap">
                       <a
-                        href="list-6-adjectives.html"
-                        aria-label="Menu Link">
+                        class="r-flyout__link"
+                        href="../exercise-3-adjectives.html"
+                        aria-label="Adjectives">
                         Adjectives
                       </a>
                     </div>
                   </div>
-                  <div class="ul-wrapper">
-                    <ul>
+                  <div
+                    class="ul-wrapper r-flyout__panel"
+                    id="r-flyout-panel-adjectives"
+                    aria-hidden="true"
+                    hidden>
+                    <ul class="r-flyout__sublist">
                       <li class="first">
                         <div class="item-wrapper">
                           <div class="menu-link">
                             <a
-                              href="list-6-adjectives/forming-adjectives.html"
-                              aria-label="Menu Link">
-                              Forming Adjectives
+                              href="../exercise-3-adjectives/311-kinds-of-adjectives.html"
+                              aria-label="3.1.1 Kinds of Adjectives">
+                              3.1.1 Kinds of Adjectives
                             </a>
                           </div>
                         </div>
@@ -2299,9 +2044,9 @@
                         <div class="item-wrapper">
                           <div class="menu-link">
                             <a
-                              href="list-6-adjectives/adjectives-ending-in-ly.html"
-                              aria-label="Menu Link">
-                              Adjectives ending in -ly
+                              href="../exercise-3-adjectives/321-comparing-adjectives.html"
+                              aria-label="3.2.1 Comparing Adjectives">
+                              3.2.1 Comparing Adjectives
                             </a>
                           </div>
                         </div>
@@ -2310,9 +2055,53 @@
                         <div class="item-wrapper">
                           <div class="menu-link">
                             <a
-                              href="list-6-adjectives/collective-adjectives-describing-group-of-people.html"
-                              aria-label="Menu Link">
-                              Collective adjectives describing group of people
+                              href="../exercise-3-adjectives/331-forming-adjectives.html"
+                              aria-label="3.3.1 Forming Adjectives">
+                              3.3.1 Forming Adjectives
+                            </a>
+                          </div>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="item-wrapper">
+                          <div class="menu-link">
+                            <a
+                              href="../exercise-3-adjectives/341-using-adjectives-i.html"
+                              aria-label="3.4.1 Using Adjectives">
+                              3.4.1 Using Adjectives I
+                            </a>
+                          </div>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="item-wrapper">
+                          <div class="menu-link">
+                            <a
+                              href="../exercise-3-adjectives/342-using-adjectives-ii.html"
+                              aria-label="3.4.2 Using Adjectives">
+                              3.4.2 Using Adjectives II
+                            </a>
+                          </div>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="item-wrapper">
+                          <div class="menu-link">
+                            <a
+                              href="../exercise-3-adjectives/343-using-adjectives-iii.html"
+                              aria-label="3.4.3 Using Adjectives">
+                              3.4.3 Using Adjectives III
+                            </a>
+                          </div>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="item-wrapper">
+                          <div class="menu-link">
+                            <a
+                              href="../exercise-3-adjectives/345-correct-usage-of-adjectives.html"
+                              aria-label="3.4.5 Correct Usage of Adjectives">
+                              3.4.5 Correct Usage of Adjectives
                             </a>
                           </div>
                         </div>
@@ -2321,9 +2110,9 @@
                         <div class="item-wrapper">
                           <div class="menu-link">
                             <a
-                              href="list-6-adjectives/different-adjective-types.html"
-                              aria-label="Menu Link">
-                              Different Adjective Types
+                              href="../exercise-3-adjectives/351-positioning-adjectives.html"
+                              aria-label="3.5.1 Ordering Adjectives">
+                              3.5.1 Ordering Adjectives
                             </a>
                           </div>
                         </div>
@@ -2331,85 +2120,50 @@
                     </ul>
                   </div>
                 </li>
-                <li>
-                  <div class="item-wrapper">
-                    <div class="menu-button">
-                      <img
-                        class="menuicon"
-                        alt=""
-                        src="web-asset/icons/svg/plus3.svg">
-                    </div>
-                    <div class="menu-link">
+                <li data-r-flyout-item="">
+                  <div class="item-wrapper r-flyout__header">
+                    <button
+                      class="r-flyout__toggle"
+                      type="button"
+                      aria-haspopup="true"
+                      aria-expanded="false"
+                      aria-controls="r-flyout-panel-adverbs"
+                      aria-label="Toggle submenu for Adverbs">
+                      <svg
+                        class="r-flyout__icon r-flyout__icon--plus"
+                        aria-hidden="true"
+                        focusable="false">
+                        <use xlink:href="#icon-plus"></use>
+                      </svg>
+                      <svg
+                        class="r-flyout__icon r-flyout__icon--minus"
+                        aria-hidden="true"
+                        focusable="false">
+                        <use xlink:href="#icon-minus"></use>
+                      </svg>
+                    </button>
+                    <div class="menu-link r-flyout__link-wrap">
                       <a
-                        href="list-7-comparison-of-adjectives.html"
-                        aria-label="Menu Link">
-                        Comparison
-                      </a>
-                    </div>
-                  </div>
-                  <div class="ul-wrapper">
-                    <ul>
-                      <li class="first">
-                        <div class="item-wrapper">
-                          <div class="menu-link">
-                            <a
-                              href="list-7-comparison-of-adjectives/comparatives-and-superlatives-using-er-and-est.html"
-                              aria-label="Menu Link">
-                              Comparatives and superlatives using –er and –est
-                            </a>
-                          </div>
-                        </div>
-                      </li>
-                      <li>
-                        <div class="item-wrapper">
-                          <div class="menu-link">
-                            <a
-                              href="list-7-comparison-of-adjectives/comparatives-and-superlatives-using-more-and-most.html"
-                              aria-label="Menu Link">
-                              Comparatives and superlatives using 'more' and 'most'
-                            </a>
-                          </div>
-                        </div>
-                      </li>
-                      <li class="last">
-                        <div class="item-wrapper">
-                          <div class="menu-link">
-                            <a
-                              href="list-7-comparison-of-adjectives/comparatives-and-superlatives-that-are-formed-irregularly.html"
-                              aria-label="Menu Link">
-                              Comparatives and superlatives that are formed irregularly
-                            </a>
-                          </div>
-                        </div>
-                      </li>
-                    </ul>
-                  </div>
-                </li>
-                <li>
-                  <div class="item-wrapper">
-                    <div class="menu-button">
-                      <img
-                        class="menuicon"
-                        alt=""
-                        src="web-asset/icons/svg/plus3.svg">
-                    </div>
-                    <div class="menu-link">
-                      <a
-                        href="list-8-adverbs.html"
+                        class="r-flyout__link"
+                        href="../exercise-4-adverbs.html"
                         aria-label="Menu Link">
                         Adverbs
                       </a>
                     </div>
                   </div>
-                  <div class="ul-wrapper">
-                    <ul>
+                  <div
+                    class="ul-wrapper r-flyout__panel"
+                    id="r-flyout-panel-adverbs"
+                    aria-hidden="true"
+                    hidden>
+                    <ul class="r-flyout__sublist">
                       <li class="first">
                         <div class="item-wrapper">
                           <div class="menu-link">
                             <a
-                              href="list-8-adverbs/forming-adverbs.html"
+                              href="../exercise-4-adverbs/411-using-adverbs-part-1.html"
                               aria-label="Menu Link">
-                              Forming Adverbs
+                              4.1.1 Using Adverbs (Part 1)
                             </a>
                           </div>
                         </div>
@@ -2418,84 +2172,9 @@
                         <div class="item-wrapper">
                           <div class="menu-link">
                             <a
-                              href="list-8-adverbs/comparison-of-adverbs.html"
+                              href="../exercise-4-adverbs/412-using-adverbs-part-2.html"
                               aria-label="Menu Link">
-                              Comparison of Adverbs
-                            </a>
-                          </div>
-                        </div>
-                      </li>
-                      <li class="last">
-                        <div class="item-wrapper">
-                          <div class="menu-button">
-                            <img
-                              class="menuicon"
-                              alt=""
-                              src="web-asset/icons/svg/plus3.svg">
-                          </div>
-                          <div class="menu-link">
-                            <a
-                              href="list-8-adverbs/adverbs-with-two-adverbial-forms.html"
-                              aria-label="Menu Link">
-                              Adverbs with two adverbial forms
-                            </a>
-                          </div>
-                        </div>
-                        <div class="ul-wrapper">
-                          <ul>
-                            <li class="first">
-                              <div class="item-wrapper">
-                                <div class="menu-link">
-                                  <a
-                                    href="list-8-adverbs/adverbs-with-two-adverbial-forms/cheap-cheaply-last-lastly.html"
-                                    aria-label="Menu Link">
-                                    Cheap/Cheaply - Last/Lastly
-                                  </a>
-                                </div>
-                              </div>
-                            </li>
-                            <li class="last">
-                              <div class="item-wrapper">
-                                <div class="menu-link">
-                                  <a
-                                    href="list-8-adverbs/adverbs-with-two-adverbial-forms/late-lately-wrong-wrongly.html"
-                                    aria-label="Menu Link">
-                                    Late/Lately - Wrong/Wrongly
-                                  </a>
-                                </div>
-                              </div>
-                            </li>
-                          </ul>
-                        </div>
-                      </li>
-                    </ul>
-                  </div>
-                </li>
-                <li>
-                  <div class="item-wrapper">
-                    <div class="menu-button">
-                      <img
-                        class="menuicon"
-                        alt=""
-                        src="web-asset/icons/svg/plus3.svg">
-                    </div>
-                    <div class="menu-link">
-                      <a
-                        href="list-9-adverbs-sharing-same-words-as-adjectives.html"
-                        aria-label="Menu Link">
-                        Adv. = Adj.
-                      </a>
-                    </div>
-                  </div>
-                  <div class="ul-wrapper">
-                    <ul>
-                      <li class="first">
-                        <div class="item-wrapper">
-                          <div class="menu-link">
-                            <a
-                              href="list-9-adverbs-sharing-same-words-as-adjectives/alone-first.html"
-                              aria-label="Menu Link">
-                              Airmail - First
+                              4.1.2 Using Adverbs (Part 2)
                             </a>
                           </div>
                         </div>
@@ -2504,9 +2183,9 @@
                         <div class="item-wrapper">
                           <div class="menu-link">
                             <a
-                              href="list-9-adverbs-sharing-same-words-as-adjectives/hard-near.html"
+                              href="../exercise-4-adverbs/421-positioning-adverbs-part-1.html"
                               aria-label="Menu Link">
-                              Hard - Near
+                              4.2.1 Positioning Adverbs (Part 1)
                             </a>
                           </div>
                         </div>
@@ -2515,9 +2194,53 @@
                         <div class="item-wrapper">
                           <div class="menu-link">
                             <a
-                              href="list-9-adverbs-sharing-same-words-as-adjectives/only-together.html"
+                              href="../exercise-4-adverbs/422-positioning-adverbs-part-2.html"
                               aria-label="Menu Link">
-                              Only - Together
+                              4.2.2 Positioning Adverbs (Part 2)
+                            </a>
+                          </div>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="item-wrapper">
+                          <div class="menu-link">
+                            <a
+                              href="../exercise-4-adverbs/423-positioning-adverbs-part-3.html"
+                              aria-label="Menu Link">
+                              4.2.3 Positioning Adverbs (Part 3)
+                            </a>
+                          </div>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="item-wrapper">
+                          <div class="menu-link">
+                            <a
+                              href="../exercise-4-adverbs/431-modifying-verbs.html"
+                              aria-label="Menu Link">
+                              4.3.1 Modifying Verbs
+                            </a>
+                          </div>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="item-wrapper">
+                          <div class="menu-link">
+                            <a
+                              href="../exercise-4-adverbs/432-modifying-adjectives-part-1.html"
+                              aria-label="Menu Link">
+                              4.3.2 Modifying Adjectives (Part 1)
+                            </a>
+                          </div>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="item-wrapper">
+                          <div class="menu-link">
+                            <a
+                              href="../exercise-4-adverbs/433-modifying-adjectives-part-2.html"
+                              aria-label="Menu Link">
+                              4.3.3 Modifying Adjectives (Part 2)
                             </a>
                           </div>
                         </div>
@@ -2526,9 +2249,9 @@
                         <div class="item-wrapper">
                           <div class="menu-link">
                             <a
-                              href="list-9-adverbs-sharing-same-words-as-adjectives/well-wrong.html"
+                              href="../exercise-4-adverbs/434-modifying-adverbs.html"
                               aria-label="Menu Link">
-                              Well - Wrong
+                              4.3.4 Modifying Adverbs
                             </a>
                           </div>
                         </div>
@@ -2536,42 +2259,299 @@
                     </ul>
                   </div>
                 </li>
-                <li>
-                  <div class="item-wrapper">
-                    <div class="menu-link">
+                <li data-r-flyout-item="">
+                  <div class="item-wrapper r-flyout__header">
+                    <button
+                      class="r-flyout__toggle"
+                      type="button"
+                      aria-haspopup="true"
+                      aria-expanded="false"
+                      aria-controls="r-flyout-panel-pronouns"
+                      aria-label="Toggle submenu for Pronouns">
+                      <svg
+                        class="r-flyout__icon r-flyout__icon--plus"
+                        aria-hidden="true"
+                        focusable="false">
+                        <use xlink:href="#icon-plus"></use>
+                      </svg>
+                      <svg
+                        class="r-flyout__icon r-flyout__icon--minus"
+                        aria-hidden="true"
+                        focusable="false">
+                        <use xlink:href="#icon-minus"></use>
+                      </svg>
+                    </button>
+                    <div class="menu-link r-flyout__link-wrap">
                       <a
-                        href="list-10-pronouns.html"
+                        class="r-flyout__link"
+                        href="../exercise-5-pronouns.html"
                         aria-label="Menu Link">
                         Pronouns
                       </a>
                     </div>
                   </div>
+                  <div
+                    class="ul-wrapper r-flyout__panel"
+                    id="r-flyout-panel-pronouns"
+                    aria-hidden="true"
+                    hidden>
+                    <ul class="r-flyout__sublist">
+                      <li class="first">
+                        <div class="item-wrapper">
+                          <div class="menu-link">
+                            <a
+                              href="../exercise-5-pronouns/511-personal-pronoun-i.html"
+                              aria-label="Menu Link">
+                              5.1.1 Personal Pronoun I
+                            </a>
+                          </div>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="item-wrapper">
+                          <div class="menu-link">
+                            <a
+                              href="../exercise-5-pronouns/512-personal-pronoun-ii.html"
+                              aria-label="Menu Link">
+                              5.1.2 Personal Pronoun II
+                            </a>
+                          </div>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="item-wrapper">
+                          <div class="menu-link">
+                            <a
+                              href="../exercise-5-pronouns/513-personal-pronoun-iii.html"
+                              aria-label="Menu Link">
+                              5.1.3 Personal Pronoun III
+                            </a>
+                          </div>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="item-wrapper">
+                          <div class="menu-link">
+                            <a
+                              href="../exercise-5-pronouns/521-pronoun-common-mistakes.html"
+                              aria-label="Menu Link">
+                              5.2.1 Pronoun - Common Mistakes
+                            </a>
+                          </div>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="item-wrapper">
+                          <div class="menu-link">
+                            <a
+                              href="../exercise-5-pronouns/531-indefinite-pronoun.html"
+                              aria-label="Menu Link">
+                              5.3.1 Indefinite Pronoun
+                            </a>
+                          </div>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="item-wrapper">
+                          <div class="menu-link">
+                            <a
+                              href="../exercise-5-pronouns/541-reflexive-pronoun.html"
+                              aria-label="Menu Link">
+                              5.4.1 Reflexive Pronoun
+                            </a>
+                          </div>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="item-wrapper">
+                          <div class="menu-link">
+                            <a
+                              href="../exercise-5-pronouns/542-reflexive-emphatic-pronouns.html"
+                              aria-label="Menu Link">
+                              5.4.2 Reflexive Emphatic Pronouns
+                            </a>
+                          </div>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="item-wrapper">
+                          <div class="menu-link">
+                            <a
+                              href="../exercise-5-pronouns/551-pronouns-part-1.html"
+                              aria-label="Menu Link">
+                              5.5.1 Pronouns (Part 1)
+                            </a>
+                          </div>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="item-wrapper">
+                          <div class="menu-link">
+                            <a
+                              href="../exercise-5-pronouns/552-pronouns-part-2.html"
+                              aria-label="Menu Link">
+                              5.5.2 Pronouns (Part 2)
+                            </a>
+                          </div>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="item-wrapper">
+                          <div class="menu-link">
+                            <a
+                              href="../exercise-5-pronouns/561-relative-pronoun-who.html"
+                              aria-label="Menu Link">
+                              5.6.1 Relative Pronoun (who)
+                            </a>
+                          </div>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="item-wrapper">
+                          <div class="menu-link">
+                            <a
+                              href="../exercise-5-pronouns/562-relative-pronoun-who-which.html"
+                              aria-label="Menu Link">
+                              5.6.2 Relative Pronoun (who, which)
+                            </a>
+                          </div>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="item-wrapper">
+                          <div class="menu-link">
+                            <a
+                              href="../exercise-5-pronouns/563-relative-pronoun-who-which-whom-whose-i.html"
+                              aria-label="Menu Link">
+                              5.6.3 Relative Pronoun (who, which, whom, whose) I
+                            </a>
+                          </div>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="item-wrapper">
+                          <div class="menu-link">
+                            <a
+                              href="../exercise-5-pronouns/564-relative-pronoun-who-which-whom-whose-ii.html"
+                              aria-label="Menu Link">
+                              5.6.4 Relative Pronoun (who, which, whom or whose) II
+                            </a>
+                          </div>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="item-wrapper">
+                          <div class="menu-link">
+                            <a
+                              href="../exercise-5-pronouns/565-relative-pronoun-pairs-who-which-whom-whose-iii.html"
+                              aria-label="Menu Link">
+                              5.6.5 Relative Pronoun (who, which, whom or whose) III
+                            </a>
+                          </div>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="item-wrapper">
+                          <div class="menu-link">
+                            <a
+                              href="../exercise-5-pronouns/566-relative-pronoun-who-which-whom-whose-iv.html"
+                              aria-label="5.6.6 Relative Pronoun (who, which, whom or whose) IV">
+                              5.6.6 Relative Pronoun (who, which, whom or whose) IV
+                            </a>
+                          </div>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="item-wrapper">
+                          <div class="menu-link">
+                            <a
+                              href="../exercise-5-pronouns/571-possessive-pronoun-part-1.html"
+                              aria-label="Menu Link">
+                              5.7.1 Possessive Pronoun (Part 1)
+                            </a>
+                          </div>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="item-wrapper">
+                          <div class="menu-link">
+                            <a
+                              href="../exercise-5-pronouns/572-possessive-pronoun-part-2.html"
+                              aria-label="Menu Link">
+                              5.7.2 Possessive Pronoun (Part 2)
+                            </a>
+                          </div>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="item-wrapper">
+                          <div class="menu-link">
+                            <a
+                              href="../exercise-5-pronouns/573-possessive-pronoun-part-3.html"
+                              aria-label="Menu Link">
+                              5.7.3 Possessive Pronoun (Part 3)
+                            </a>
+                          </div>
+                        </div>
+                      </li>
+                      <li class="last">
+                        <div class="item-wrapper">
+                          <div class="menu-link">
+                            <a
+                              href="../exercise-5-pronouns/574-possessive-pronoun-part-4.html"
+                              aria-label="Menu Link">
+                              5.7.4 Possessive Pronoun (Part 4)
+                            </a>
+                          </div>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
                 </li>
-                <li>
-                  <div class="item-wrapper">
-                    <div class="menu-button">
-                      <img
-                        class="menuicon"
-                        alt=""
-                        src="web-asset/icons/svg/plus3.svg">
-                    </div>
-                    <div class="menu-link">
+                <li data-r-flyout-item="">
+                  <div class="item-wrapper r-flyout__header">
+                    <button
+                      class="r-flyout__toggle"
+                      type="button"
+                      aria-haspopup="true"
+                      aria-expanded="false"
+                      aria-controls="r-flyout-panel-prepositions"
+                      aria-label="Toggle submenu for Prepositions">
+                      <svg
+                        class="r-flyout__icon r-flyout__icon--plus"
+                        aria-hidden="true"
+                        focusable="false">
+                        <use xlink:href="#icon-plus"></use>
+                      </svg>
+                      <svg
+                        class="r-flyout__icon r-flyout__icon--minus"
+                        aria-hidden="true"
+                        focusable="false">
+                        <use xlink:href="#icon-minus"></use>
+                      </svg>
+                    </button>
+                    <div class="menu-link r-flyout__link-wrap">
                       <a
-                        href="list-11-prepositions.html"
+                        class="r-flyout__link"
+                        href="../exercise-6-prepositions.html"
                         aria-label="Menu Link">
                         Prepositions
                       </a>
                     </div>
                   </div>
-                  <div class="ul-wrapper">
-                    <ul>
+                  <div
+                    class="ul-wrapper r-flyout__panel"
+                    id="r-flyout-panel-prepositions"
+                    aria-hidden="true"
+                    hidden>
+                    <ul class="r-flyout__sublist">
                       <li class="first">
                         <div class="item-wrapper">
                           <div class="menu-link">
                             <a
-                              href="list-11-prepositions/list-of-prepositions.html"
+                              href="../exercise-6-prepositions/611-prepositions-in-on.html"
                               aria-label="Menu Link">
-                              List of Prepositions
+                              6.1.1 Prepositions (in, on)
                             </a>
                           </div>
                         </div>
@@ -2580,9 +2560,9 @@
                         <div class="item-wrapper">
                           <div class="menu-link">
                             <a
-                              href="list-11-prepositions/sentences-examples/prepositions-after-verbs-sacrifice-to-yell-at.html"
+                              href="../exercise-6-prepositions/612-prepositions-at-from-of-to-with.html"
                               aria-label="Menu Link">
-                              Prepositions after Verbs (sacrifice to - yell at)
+                              6.1.2 Prepositions (at, from, of, to, with)
                             </a>
                           </div>
                         </div>
@@ -2591,9 +2571,9 @@
                         <div class="item-wrapper">
                           <div class="menu-link">
                             <a
-                              href="list-11-prepositions/sentences-examples/prepositions-after-verbs-name-after-rush-through.html"
+                              href="../exercise-6-prepositions/613-prepositions-basic-i.html"
                               aria-label="Menu Link">
-                              Prepositions after Verbs (name after - rush through)
+                              6.1.3 Prepositions - Basic I
                             </a>
                           </div>
                         </div>
@@ -2602,9 +2582,9 @@
                         <div class="item-wrapper">
                           <div class="menu-link">
                             <a
-                              href="list-11-prepositions/sentences-examples/prepositions-after-verbs-gladden-by-muster-up.html"
+                              href="../exercise-6-prepositions/614-prepositions-basic-ii.html"
                               aria-label="Menu Link">
-                              Prepositions after Verbs (gladden by - muster up)
+                              6.1.4 Prepositions - Basic II
                             </a>
                           </div>
                         </div>
@@ -2613,9 +2593,9 @@
                         <div class="item-wrapper">
                           <div class="menu-link">
                             <a
-                              href="list-11-prepositions/sentences-examples/prepositions-after-verbs-dabble-in-furnish-with.html"
+                              href="../exercise-6-prepositions/615-prepositions-basic-iii.html"
                               aria-label="Menu Link">
-                              Prepositions after Verbs (dabble in - furnish with)
+                              6.1.5 Prepositions - Basic III
                             </a>
                           </div>
                         </div>
@@ -2624,9 +2604,42 @@
                         <div class="item-wrapper">
                           <div class="menu-link">
                             <a
-                              href="list-11-prepositions/sentences-examples/prepositions-after-verbs-abandon-to-cry-over.html"
+                              href="../exercise-6-prepositions/621-prepositions-advanced-1.html"
                               aria-label="Menu Link">
-                              Prepositions after Verbs (abandon to - cry over)
+                              6.2.1 Prepositions - Advanced 1
+                            </a>
+                          </div>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="item-wrapper">
+                          <div class="menu-link">
+                            <a
+                              href="../exercise-6-prepositions/622-prepositions-advanced-2.html"
+                              aria-label="Menu Link">
+                              6.2.2 Prepositions - Advanced 2
+                            </a>
+                          </div>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="item-wrapper">
+                          <div class="menu-link">
+                            <a
+                              href="../exercise-6-prepositions/623-prepositions-advanced-3.html"
+                              aria-label="Menu Link">
+                              6.2.3 Prepositions - Advanced 3
+                            </a>
+                          </div>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="item-wrapper">
+                          <div class="menu-link">
+                            <a
+                              href="../exercise-6-prepositions/624-prepositions-advanced-4.html"
+                              aria-label="Menu Link">
+                              6.2.4 Prepositions - Advanced 4
                             </a>
                           </div>
                         </div>
@@ -2635,9 +2648,9 @@
                         <div class="item-wrapper">
                           <div class="menu-link">
                             <a
-                              href="list-11-prepositions/prepositions-usage-list.html"
+                              href="../exercise-6-prepositions/625-prepositions-advanced-5.html"
                               aria-label="Menu Link">
-                              Prepositions – how they are used
+                              6.2.5 Prepositions - Advanced 5
                             </a>
                           </div>
                         </div>
@@ -2645,53 +2658,50 @@
                     </ul>
                   </div>
                 </li>
-                <li>
-                  <div class="item-wrapper">
-                    <div class="menu-link">
+                <li data-r-flyout-item="">
+                  <div class="item-wrapper r-flyout__header">
+                    <button
+                      class="r-flyout__toggle"
+                      type="button"
+                      aria-haspopup="true"
+                      aria-expanded="false"
+                      aria-controls="r-flyout-panel-conjunctions"
+                      aria-label="Toggle submenu for Conjunctions">
+                      <svg
+                        class="r-flyout__icon r-flyout__icon--plus"
+                        aria-hidden="true"
+                        focusable="false">
+                        <use xlink:href="#icon-plus"></use>
+                      </svg>
+                      <svg
+                        class="r-flyout__icon r-flyout__icon--minus"
+                        aria-hidden="true"
+                        focusable="false">
+                        <use xlink:href="#icon-minus"></use>
+                      </svg>
+                    </button>
+                    <div class="menu-link r-flyout__link-wrap">
                       <a
-                        href="list-12-conjunctions.html"
+                        class="r-flyout__link"
+                        href="../exercise-7-conjunctions.html"
                         aria-label="Menu Link">
                         Conjunctions
                       </a>
                     </div>
                   </div>
-                </li>
-                <li>
-                  <div class="item-wrapper">
-                    <div class="menu-link">
-                      <a
-                        href="list-13-forming-abstract-nouns.html"
-                        aria-label="Menu Link">
-                        Abstract Nouns
-                      </a>
-                    </div>
-                  </div>
-                </li>
-                <li>
-                  <div class="item-wrapper">
-                    <div class="menu-button">
-                      <img
-                        class="menuicon"
-                        alt=""
-                        src="web-asset/icons/svg/plus3.svg">
-                    </div>
-                    <div class="menu-link">
-                      <a
-                        href="list-14-phrasal-verbs.html"
-                        aria-label="Menu Link">
-                        Phrasal Verbs
-                      </a>
-                    </div>
-                  </div>
-                  <div class="ul-wrapper">
-                    <ul>
+                  <div
+                    class="ul-wrapper r-flyout__panel"
+                    id="r-flyout-panel-conjunctions"
+                    aria-hidden="true"
+                    hidden>
+                    <ul class="r-flyout__sublist">
                       <li class="first">
                         <div class="item-wrapper">
                           <div class="menu-link">
                             <a
-                              href="list-14-phrasal-verbs/phrasal-verbs-pass-aroundround-polish-up.html"
+                              href="../exercise-7-conjunctions/711-coordinating-conjunction-and-but.html"
                               aria-label="Menu Link">
-                              (pass around/round – polish up)
+                              7.1.1 Coordinating Conjunction (and, but)
                             </a>
                           </div>
                         </div>
@@ -2700,9 +2710,9 @@
                         <div class="item-wrapper">
                           <div class="menu-link">
                             <a
-                              href="list-14-phrasal-verbs/phrasal-verbs-save-on-serve-out.html"
+                              href="../exercise-7-conjunctions/712-coordinating-conjunction-and-but.html"
                               aria-label="Menu Link">
-                              (save on – serve out)
+                              7.1.2 Coordinating Conjunction (and, but)
                             </a>
                           </div>
                         </div>
@@ -2711,9 +2721,9 @@
                         <div class="item-wrapper">
                           <div class="menu-link">
                             <a
-                              href="list-14-phrasal-verbs/phrasal-verbs-read-into-rush-out.html"
+                              href="../exercise-7-conjunctions/713-coordinating-conjunction-or-so.html"
                               aria-label="Menu Link">
-                              (read into – rush out)
+                              7.1.3 Coordinating Conjunction (or, so)
                             </a>
                           </div>
                         </div>
@@ -2722,9 +2732,9 @@
                         <div class="item-wrapper">
                           <div class="menu-link">
                             <a
-                              href="list-14-phrasal-verbs/phrasal-verbs-pull-ahead-put-up-with.html"
+                              href="../exercise-7-conjunctions/714-coordinating-conjunction-for-nor-or-so-yet.html"
                               aria-label="Menu Link">
-                              (pull ahead – put up with)
+                              7.1.4 Coordinating Conjunction (for, and, nor, but, or, yet, so)
                             </a>
                           </div>
                         </div>
@@ -2733,9 +2743,9 @@
                         <div class="item-wrapper">
                           <div class="menu-link">
                             <a
-                              href="list-14-phrasal-verbs/phrasal-verbs-accede-to-buy-up.html"
+                              href="../exercise-7-conjunctions/721-subordinating-conjunction.html"
                               aria-label="Menu Link">
-                              (accede to - buy up)
+                              7.2.1 Subordinating Conjunction
                             </a>
                           </div>
                         </div>
@@ -2744,185 +2754,9 @@
                         <div class="item-wrapper">
                           <div class="menu-link">
                             <a
-                              href="list-14-phrasal-verbs/phrasal-verbs-call-back-cut-up.html"
+                              href="../exercise-7-conjunctions/731-correlative-conjunction-i.html"
                               aria-label="Menu Link">
-                              (call back - cut up)
-                            </a>
-                          </div>
-                        </div>
-                      </li>
-                      <li>
-                        <div class="item-wrapper">
-                          <div class="menu-link">
-                            <a
-                              href="list-14-phrasal-verbs/phrasal-verbs-dawn-on-dry-up.html"
-                              aria-label="Menu Link">
-                              (dawn on – dry up)
-                            </a>
-                          </div>
-                        </div>
-                      </li>
-                      <li>
-                        <div class="item-wrapper">
-                          <div class="menu-link">
-                            <a
-                              href="list-14-phrasal-verbs/phrasal-verbs-eat-away--follow-up.html"
-                              aria-label="Menu Link">
-                              (eat away – follow up)
-                            </a>
-                          </div>
-                        </div>
-                      </li>
-                      <li>
-                        <div class="item-wrapper">
-                          <div class="menu-link">
-                            <a
-                              href="list-14-phrasal-verbs/phrasal-verbs-get-about-get-up-to.html"
-                              aria-label="Menu Link">
-                              (get about – get up to)
-                            </a>
-                          </div>
-                        </div>
-                      </li>
-                      <li>
-                        <div class="item-wrapper">
-                          <div class="menu-link">
-                            <a
-                              href="list-14-phrasal-verbs/phrasal-verbs-give-away-go-without.html"
-                              aria-label="Menu Link">
-                              (give away – go without)
-                            </a>
-                          </div>
-                        </div>
-                      </li>
-                      <li>
-                        <div class="item-wrapper">
-                          <div class="menu-link">
-                            <a
-                              href="list-14-phrasal-verbs/phrasal-verbs-hand-aroundround-hold-up-as.html"
-                              aria-label="Menu Link">
-                              (hand around/round – hold up as)
-                            </a>
-                          </div>
-                        </div>
-                      </li>
-                      <li>
-                        <div class="item-wrapper">
-                          <div class="menu-link">
-                            <a
-                              href="list-14-phrasal-verbs/phrasal-verbs-identify-with-knock-up.html"
-                              aria-label="Menu Link">
-                              (identify with – knock up)
-                            </a>
-                          </div>
-                        </div>
-                      </li>
-                      <li>
-                        <div class="item-wrapper">
-                          <div class="menu-link">
-                            <a
-                              href="list-14-phrasal-verbs/phrasal-verbs-lapse-into-level-with.html"
-                              aria-label="Menu Link">
-                              (lapse into – level with)
-                            </a>
-                          </div>
-                        </div>
-                      </li>
-                      <li>
-                        <div class="item-wrapper">
-                          <div class="menu-link">
-                            <a
-                              href="list-14-phrasal-verbs/phrasal-verbs-lie-around-look-up-to.html"
-                              aria-label="Menu Link">
-                              (lie around – look up to)
-                            </a>
-                          </div>
-                        </div>
-                      </li>
-                      <li>
-                        <div class="item-wrapper">
-                          <div class="menu-link">
-                            <a
-                              href="list-14-phrasal-verbs/phrasal-verbs-make-away-with-open-up.html"
-                              aria-label="Menu Link">
-                              (make away with – open up)
-                            </a>
-                          </div>
-                        </div>
-                      </li>
-                      <li>
-                        <div class="item-wrapper">
-                          <div class="menu-link">
-                            <a
-                              href="list-14-phrasal-verbs/phrasal-verbs-use-up-yield-to.html"
-                              aria-label="Menu Link">
-                              (use up – yield to)
-                            </a>
-                          </div>
-                        </div>
-                      </li>
-                      <li>
-                        <div class="item-wrapper">
-                          <div class="menu-link">
-                            <a
-                              href="list-14-phrasal-verbs/phrasal-verbs-take-aback--talk-up.html"
-                              aria-label="Menu Link">
-                              (take aback – talk up)
-                            </a>
-                          </div>
-                        </div>
-                      </li>
-                      <li>
-                        <div class="item-wrapper">
-                          <div class="menu-link">
-                            <a
-                              href="list-14-phrasal-verbs/phrasal-verbs-stay-behind-switch-over.html"
-                              aria-label="Menu Link">
-                              (stay behind – switch over)
-                            </a>
-                          </div>
-                        </div>
-                      </li>
-                      <li>
-                        <div class="item-wrapper">
-                          <div class="menu-link">
-                            <a
-                              href="list-14-phrasal-verbs/phrasal-verbs-touch-at-turn-up.html"
-                              aria-label="Menu Link">
-                              (touch at – turn up)
-                            </a>
-                          </div>
-                        </div>
-                      </li>
-                      <li>
-                        <div class="item-wrapper">
-                          <div class="menu-link">
-                            <a
-                              href="list-14-phrasal-verbs/phrasal-verbs-tear-apart-tie-up.html"
-                              aria-label="Menu Link">
-                              (tear apart – tie up)
-                            </a>
-                          </div>
-                        </div>
-                      </li>
-                      <li>
-                        <div class="item-wrapper">
-                          <div class="menu-link">
-                            <a
-                              href="list-14-phrasal-verbs/phrasal-verbs-slow-down-start-up.html"
-                              aria-label="Menu Link">
-                              (slow down – start up)
-                            </a>
-                          </div>
-                        </div>
-                      </li>
-                      <li>
-                        <div class="item-wrapper">
-                          <div class="menu-link">
-                            <a
-                              href="list-14-phrasal-verbs/phrasal-verbs-show-aroundround-slip-up.html"
-                              aria-label="Menu Link">
-                              (show around/round – slip up)
+                              7.3.1 Correlative Conjunction I
                             </a>
                           </div>
                         </div>
@@ -2931,9 +2765,9 @@
                         <div class="item-wrapper">
                           <div class="menu-link">
                             <a
-                              href="list-14-phrasal-verbs/phrasal-verbs-set-about-shoot-up.html"
+                              href="../exercise-7-conjunctions/732-correlative-conjunction-ii.html"
                               aria-label="Menu Link">
-                              (set about – shoot up)
+                              7.3.2 Correlative Conjunction II
                             </a>
                           </div>
                         </div>
@@ -2941,42 +2775,50 @@
                     </ul>
                   </div>
                 </li>
-                <li>
-                  <div class="item-wrapper">
-                    <div class="menu-link">
+                <li data-r-flyout-item="">
+                  <div class="item-wrapper r-flyout__header">
+                    <button
+                      class="r-flyout__toggle"
+                      type="button"
+                      aria-haspopup="true"
+                      aria-expanded="false"
+                      aria-controls="r-flyout-panel-agreement"
+                      aria-label="Toggle submenu for S plus V Agreement">
+                      <svg
+                        class="r-flyout__icon r-flyout__icon--plus"
+                        aria-hidden="true"
+                        focusable="false">
+                        <use xlink:href="#icon-plus"></use>
+                      </svg>
+                      <svg
+                        class="r-flyout__icon r-flyout__icon--minus"
+                        aria-hidden="true"
+                        focusable="false">
+                        <use xlink:href="#icon-minus"></use>
+                      </svg>
+                    </button>
+                    <div class="menu-link r-flyout__link-wrap">
                       <a
-                        href="list-15-idioms.html"
+                        class="r-flyout__link"
+                        href="../exercise-8-agreement.html"
                         aria-label="Menu Link">
-                        Common Idioms
+                        S+V Agreement
                       </a>
                     </div>
                   </div>
-                </li>
-                <li>
-                  <div class="item-wrapper">
-                    <div class="menu-button">
-                      <img
-                        class="menuicon"
-                        alt=""
-                        src="web-asset/icons/svg/plus3.svg">
-                    </div>
-                    <div class="menu-link">
-                      <a
-                        href="list-16-phrases-and-idioms.html"
-                        aria-label="Menu Link">
-                        1000 Idioms
-                      </a>
-                    </div>
-                  </div>
-                  <div class="ul-wrapper">
-                    <ul>
+                  <div
+                    class="ul-wrapper r-flyout__panel"
+                    id="r-flyout-panel-agreement"
+                    aria-hidden="true"
+                    hidden>
+                    <ul class="r-flyout__sublist">
                       <li class="first">
                         <div class="item-wrapper">
                           <div class="menu-link">
                             <a
-                              href="list-16-phrases-and-idioms/phrases-and-idioms-001-100-acid-call.html"
+                              href="../exercise-8-agreement/811-agreement-1.html"
                               aria-label="Menu Link">
-                              Phrases and Idioms 001-100 (acid - call)
+                              8.1.1 Agreement 1
                             </a>
                           </div>
                         </div>
@@ -2985,86 +2827,9 @@
                         <div class="item-wrapper">
                           <div class="menu-link">
                             <a
-                              href="list-16-phrases-and-idioms/phrases-and-idioms-101-200-call-crime.html"
+                              href="../exercise-8-agreement/812-agreement-2.html"
                               aria-label="Menu Link">
-                              Phrases and Idioms 101-200 (call - crime)
-                            </a>
-                          </div>
-                        </div>
-                      </li>
-                      <li>
-                        <div class="item-wrapper">
-                          <div class="menu-link">
-                            <a
-                              href="list-16-phrases-and-idioms/phrases-and-idioms-201-300-critical-event.html"
-                              aria-label="Menu Link">
-                              Phrases and Idioms 201-300 (critical - event)
-                            </a>
-                          </div>
-                        </div>
-                      </li>
-                      <li>
-                        <div class="item-wrapper">
-                          <div class="menu-link">
-                            <a
-                              href="list-16-phrases-and-idioms/phrases-and-idioms-301-400-ever-half.html"
-                              aria-label="Menu Link">
-                              Phrases and Idioms 301-400 (ever - half)
-                            </a>
-                          </div>
-                        </div>
-                      </li>
-                      <li>
-                        <div class="item-wrapper">
-                          <div class="menu-link">
-                            <a
-                              href="list-16-phrases-and-idioms/phrases-and-idioms-401-500-hammer-kick.html"
-                              aria-label="Menu Link">
-                              Phrases and Idioms 401-500 (hammer - kick)
-                            </a>
-                          </div>
-                        </div>
-                      </li>
-                      <li>
-                        <div class="item-wrapper">
-                          <div class="menu-link">
-                            <a
-                              href="list-16-phrases-and-idioms/phrases-and-idioms-501-600-killing-mind.html"
-                              aria-label="Menu Link">
-                              Phrases and Idioms 501-600 (killing - mind)
-                            </a>
-                          </div>
-                        </div>
-                      </li>
-                      <li>
-                        <div class="item-wrapper">
-                          <div class="menu-link">
-                            <a
-                              href="list-16-phrases-and-idioms/phrases-and-idioms-601-700-mind-part.html"
-                              aria-label="Menu Link">
-                              Phrases and Idioms 601-700 (mind - part)
-                            </a>
-                          </div>
-                        </div>
-                      </li>
-                      <li>
-                        <div class="item-wrapper">
-                          <div class="menu-link">
-                            <a
-                              href="list-16-phrases-and-idioms/phrases-and-idioms-701-800-past-rough.html"
-                              aria-label="Menu Link">
-                              Phrases and Idioms 701-800 (past - rough)
-                            </a>
-                          </div>
-                        </div>
-                      </li>
-                      <li>
-                        <div class="item-wrapper">
-                          <div class="menu-link">
-                            <a
-                              href="list-16-phrases-and-idioms/phrases-and-idioms-801-900-rough-state.html"
-                              aria-label="Menu Link">
-                              Phrases and Idioms 801-900 (rough - state)
+                              8.1.2 Agreement 2
                             </a>
                           </div>
                         </div>
@@ -3073,9 +2838,9 @@
                         <div class="item-wrapper">
                           <div class="menu-link">
                             <a
-                              href="list-16-phrases-and-idioms/phrases-and-idioms-901-1000-state-world.html"
+                              href="../exercise-8-agreement/813-agreement-3.html"
                               aria-label="Menu Link">
-                              Phrases and Idioms 901-1000 (state - world)
+                              8.1.3 Agreement 3
                             </a>
                           </div>
                         </div>
@@ -3083,31 +2848,50 @@
                     </ul>
                   </div>
                 </li>
-                <li>
-                  <div class="item-wrapper">
-                    <div class="menu-button">
-                      <img
-                        class="menuicon"
-                        alt=""
-                        src="web-asset/icons/svg/plus3.svg">
-                    </div>
-                    <div class="menu-link">
+                <li data-r-flyout-item="">
+                  <div class="item-wrapper r-flyout__header">
+                    <button
+                      class="r-flyout__toggle"
+                      type="button"
+                      aria-haspopup="true"
+                      aria-expanded="false"
+                      aria-controls="r-flyout-panel-articles"
+                      aria-label="Toggle submenu for Articles">
+                      <svg
+                        class="r-flyout__icon r-flyout__icon--plus"
+                        aria-hidden="true"
+                        focusable="false">
+                        <use xlink:href="#icon-plus"></use>
+                      </svg>
+                      <svg
+                        class="r-flyout__icon r-flyout__icon--minus"
+                        aria-hidden="true"
+                        focusable="false">
+                        <use xlink:href="#icon-minus"></use>
+                      </svg>
+                    </button>
+                    <div class="menu-link r-flyout__link-wrap">
                       <a
-                        href="list-17-proverbs-and-sayings.html"
+                        class="r-flyout__link"
+                        href="../exercise-9-articles.html"
                         aria-label="Menu Link">
-                        Proverbs
+                        Articles
                       </a>
                     </div>
                   </div>
-                  <div class="ul-wrapper">
-                    <ul>
+                  <div
+                    class="ul-wrapper r-flyout__panel"
+                    id="r-flyout-panel-articles"
+                    aria-hidden="true"
+                    hidden>
+                    <ul class="r-flyout__sublist">
                       <li class="first">
                         <div class="item-wrapper">
                           <div class="menu-link">
                             <a
-                              href="list-17-proverbs-and-sayings/proverbs-and-sayings-001-100.html"
+                              href="../exercise-9-articles/911-article-a-an-the-i.html"
                               aria-label="Menu Link">
-                              Proverbs and Sayings 001-100
+                              9.1.1 Articles (a, an, the) I
                             </a>
                           </div>
                         </div>
@@ -3116,20 +2900,9 @@
                         <div class="item-wrapper">
                           <div class="menu-link">
                             <a
-                              href="list-17-proverbs-and-sayings/proverbs-and-sayings-101-200.html"
+                              href="../exercise-9-articles/912-articles-a-an-the-ii.html"
                               aria-label="Menu Link">
-                              Proverbs and Sayings 101-200
-                            </a>
-                          </div>
-                        </div>
-                      </li>
-                      <li>
-                        <div class="item-wrapper">
-                          <div class="menu-link">
-                            <a
-                              href="list-17-proverbs-and-sayings/proverbs-and-sayings-201-300.html"
-                              aria-label="Menu Link">
-                              Proverbs and Sayings 201-300
+                              9.1.2 Articles (a, an, the) II
                             </a>
                           </div>
                         </div>
@@ -3138,9 +2911,9 @@
                         <div class="item-wrapper">
                           <div class="menu-link">
                             <a
-                              href="list-17-proverbs-and-sayings/proverbs-and-sayings-301-370.html"
+                              href="../exercise-9-articles/913-articles-a-an-the-iii.html"
                               aria-label="Menu Link">
-                              Proverbs and Sayings 301-370
+                              9.1.3 Articles (a, an, the) III
                             </a>
                           </div>
                         </div>
@@ -3148,64 +2921,50 @@
                     </ul>
                   </div>
                 </li>
-                <li>
-                  <div class="item-wrapper">
-                    <div class="menu-link">
+                <li data-r-flyout-item="">
+                  <div class="item-wrapper r-flyout__header">
+                    <button
+                      class="r-flyout__toggle"
+                      type="button"
+                      aria-haspopup="true"
+                      aria-expanded="false"
+                      aria-controls="r-flyout-panel-conditionals"
+                      aria-label="Toggle submenu for Conditionals">
+                      <svg
+                        class="r-flyout__icon r-flyout__icon--plus"
+                        aria-hidden="true"
+                        focusable="false">
+                        <use xlink:href="#icon-plus"></use>
+                      </svg>
+                      <svg
+                        class="r-flyout__icon r-flyout__icon--minus"
+                        aria-hidden="true"
+                        focusable="false">
+                        <use xlink:href="#icon-minus"></use>
+                      </svg>
+                    </button>
+                    <div class="menu-link r-flyout__link-wrap">
                       <a
-                        href="list-18-foreign-phrases-commonly-used-in-english.html"
+                        class="r-flyout__link"
+                        href="../exercise-11-conditionals.html"
                         aria-label="Menu Link">
-                        Foreign Phrases
+                        Conditionals
                       </a>
                     </div>
                   </div>
-                </li>
-                <li>
-                  <div class="item-wrapper">
-                    <div class="menu-link">
-                      <a
-                        href="list-19-irregular-verbs.html"
-                        aria-label="Menu Link">
-                        Irregular Verbs
-                      </a>
-                    </div>
-                  </div>
-                </li>
-                <li>
-                  <div class="item-wrapper">
-                    <div class="menu-link">
-                      <a
-                        href="list-19-parents-and-young.html"
-                        aria-label="Menu Link">
-                        Parents/Youth
-                      </a>
-                    </div>
-                  </div>
-                </li>
-                <li>
-                  <div class="item-wrapper">
-                    <div class="menu-button">
-                      <img
-                        class="menuicon"
-                        alt=""
-                        src="web-asset/icons/svg/plus3.svg">
-                    </div>
-                    <div class="menu-link">
-                      <a
-                        href="list-20-gender.html"
-                        aria-label="Menu Link">
-                        Gender
-                      </a>
-                    </div>
-                  </div>
-                  <div class="ul-wrapper">
-                    <ul>
+                  <div
+                    class="ul-wrapper r-flyout__panel"
+                    id="r-flyout-panel-conditionals"
+                    aria-hidden="true"
+                    hidden>
+                    <ul class="r-flyout__sublist">
                       <li class="first">
                         <div class="item-wrapper">
                           <div class="menu-link">
                             <a
-                              href="list-20-gender/common-gender-people-a-creatures.html"
+                              href="../exercise-11-conditionals/1111-first-conditional.html"
                               aria-label="Menu Link">
-                              Common Gender (People &amp; Creatures)
+                              11.1.1 First Conditional
                             </a>
                           </div>
                         </div>
@@ -3214,9 +2973,9 @@
                         <div class="item-wrapper">
                           <div class="menu-link">
                             <a
-                              href="list-20-gender/masculine-and-feminine-gender-creatures.html"
+                              href="../exercise-11-conditionals/1112-second-conditional.html"
                               aria-label="Menu Link">
-                              Masculine and Feminine Gender (Creatures)
+                              11.1.2 Second Conditional
                             </a>
                           </div>
                         </div>
@@ -3225,9 +2984,9 @@
                         <div class="item-wrapper">
                           <div class="menu-link">
                             <a
-                              href="list-20-gender/masculine-and-feminine-gender-people.html"
+                              href="../exercise-11-conditionals/1113-third-conditional.html"
                               aria-label="Menu Link">
-                              Masculine and Feminine Gender (People)
+                              11.1.3 Third Conditional
                             </a>
                           </div>
                         </div>
@@ -3235,73 +2994,762 @@
                     </ul>
                   </div>
                 </li>
-                <li>
-                  <div class="item-wrapper">
-                    <div class="menu-link">
+                <li data-r-flyout-item="">
+                  <div class="item-wrapper r-flyout__header">
+                    <button
+                      class="r-flyout__toggle"
+                      type="button"
+                      aria-haspopup="true"
+                      aria-expanded="false"
+                      aria-controls="r-flyout-panel-modifiers"
+                      aria-label="Toggle submenu for Modifiers">
+                      <svg
+                        class="r-flyout__icon r-flyout__icon--plus"
+                        aria-hidden="true"
+                        focusable="false">
+                        <use xlink:href="#icon-plus"></use>
+                      </svg>
+                      <svg
+                        class="r-flyout__icon r-flyout__icon--minus"
+                        aria-hidden="true"
+                        focusable="false">
+                        <use xlink:href="#icon-minus"></use>
+                      </svg>
+                    </button>
+                    <div class="menu-link r-flyout__link-wrap">
                       <a
-                        href="list-21-homes-of-people-and-creatures.html"
+                        class="r-flyout__link"
+                        href="../exercise-12-modifiers.html"
                         aria-label="Menu Link">
-                        Home Types
+                        Modifiers
+                      </a>
+                    </div>
+                  </div>
+                  <div
+                    class="ul-wrapper r-flyout__panel"
+                    id="r-flyout-panel-modifiers"
+                    aria-hidden="true"
+                    hidden>
+                    <ul class="r-flyout__sublist">
+                      <li class="first">
+                        <div class="item-wrapper">
+                          <div class="menu-link">
+                            <a
+                              href="../exercise-12-modifiers/1211-adjectives-as-modifiers.html"
+                              aria-label="Menu Link">
+                              12.1.1 Adjectives as modifiers
+                            </a>
+                          </div>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="item-wrapper">
+                          <div class="menu-link">
+                            <a
+                              href="../exercise-12-modifiers/1212-adverbs-as-modifiers.html"
+                              aria-label="Menu Link">
+                              12.1.2 Adverbs as modifiers
+                            </a>
+                          </div>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="item-wrapper">
+                          <div class="menu-link">
+                            <a
+                              href="../exercise-12-modifiers/1213-adjectival-and-adverbial-phrases.html"
+                              aria-label="Menu Link">
+                              12.1.3 Adjectival and Adverbial Phrases
+                            </a>
+                          </div>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="item-wrapper">
+                          <div class="menu-link">
+                            <a
+                              href="../exercise-12-modifiers/1221-comparatives-and-superlatives.html"
+                              aria-label="Menu Link">
+                              12.2.1 Comparatives and Superlatives as Modifiers
+                            </a>
+                          </div>
+                        </div>
+                      </li>
+                      <li class="last">
+                        <div class="item-wrapper">
+                          <div class="menu-link">
+                            <a
+                              href="../exercise-12-modifiers/1241-misplaced-modifiers-and-dangling-participles.html"
+                              aria-label="Menu Link">
+                              12.4.1 Misplaced modifiers and Dangling participles
+                            </a>
+                          </div>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                </li>
+                <li data-r-flyout-item="">
+                  <div class="item-wrapper r-flyout__header">
+                    <button
+                      class="r-flyout__toggle"
+                      type="button"
+                      aria-haspopup="true"
+                      aria-expanded="false"
+                      aria-controls="r-flyout-panel-speech"
+                      aria-label="Toggle submenu for Speech Direction">
+                      <svg
+                        class="r-flyout__icon r-flyout__icon--plus"
+                        aria-hidden="true"
+                        focusable="false">
+                        <use xlink:href="#icon-plus"></use>
+                      </svg>
+                      <svg
+                        class="r-flyout__icon r-flyout__icon--minus"
+                        aria-hidden="true"
+                        focusable="false">
+                        <use xlink:href="#icon-minus"></use>
+                      </svg>
+                    </button>
+                    <div class="menu-link r-flyout__link-wrap">
+                      <a
+                        class="r-flyout__link"
+                        href="../exercise-13-indirect-speech.html"
+                        aria-label="Menu Link">
+                        Speech Direction
+                      </a>
+                    </div>
+                  </div>
+                  <div
+                    class="ul-wrapper r-flyout__panel"
+                    id="r-flyout-panel-speech"
+                    aria-hidden="true"
+                    hidden>
+                    <ul class="r-flyout__sublist">
+                      <li class="first">
+                        <div class="item-wrapper">
+                          <div class="menu-link">
+                            <a
+                              href="../exercise-13-indirect-speech/1311-direct-to-indirect-speech-i.html"
+                              aria-label="Menu Link">
+                              13.1.1 Direct to Indirect Speech I
+                            </a>
+                          </div>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="item-wrapper">
+                          <div class="menu-link">
+                            <a
+                              href="../exercise-13-indirect-speech/1312-direct-to-indirect-speech-ii.html"
+                              aria-label="Menu Link">
+                              13.1.2 Direct to Indirect Speech II
+                            </a>
+                          </div>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="item-wrapper">
+                          <div class="menu-link">
+                            <a
+                              href="../exercise-13-indirect-speech/1313-direct-to-indirect-speech-iii.html"
+                              aria-label="Menu Link">
+                              13.1.3 Direct to Indirect Speech III
+                            </a>
+                          </div>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="item-wrapper">
+                          <div class="menu-link">
+                            <a
+                              href="../exercise-13-indirect-speech/1321-direct-to-indirect-speech-with-same-tenses.html"
+                              aria-label="Menu Link">
+                              13.2.1 Direct to Indirect Speech with Same Tenses
+                            </a>
+                          </div>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="item-wrapper">
+                          <div class="menu-link">
+                            <a
+                              href="../exercise-13-indirect-speech/1331-direct-to-indirect-speech-using-past-perfect-tense.html"
+                              aria-label="Menu Link">
+                              13.3.1 Direct to Indirect Speech using Past Perfect
+                            </a>
+                          </div>
+                        </div>
+                      </li>
+                      <li class="last">
+                        <div class="item-wrapper">
+                          <div class="menu-link">
+                            <a
+                              href="../exercise-13-indirect-speech/1341-direct-to-indirect-speech-using-passive-voice.html"
+                              aria-label="Menu Link">
+                              13.4.1 Direct to Indirect Speech using Passive Voice
+                            </a>
+                          </div>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                </li>
+                <li data-r-flyout-item="">
+                  <div class="item-wrapper r-flyout__header">
+                    <button
+                      class="r-flyout__toggle"
+                      type="button"
+                      aria-haspopup="true"
+                      aria-expanded="false"
+                      aria-controls="r-flyout-panel-passive"
+                      aria-label="Toggle submenu for Active-Passive">
+                      <svg
+                        class="r-flyout__icon r-flyout__icon--plus"
+                        aria-hidden="true"
+                        focusable="false">
+                        <use xlink:href="#icon-plus"></use>
+                      </svg>
+                    </button>
+                    <div class="menu-link r-flyout__link-wrap">
+                      <a
+                        class="r-flyout__link"
+                        href="../exercise-14-either-neither.html"
+                        aria-label="Menu Link">
+                        Either-Neither
                       </a>
                     </div>
                   </div>
                 </li>
-                <li>
-                  <div class="item-wrapper">
-                    <div class="menu-link">
+                <li data-r-flyout-item="">
+                  <div class="item-wrapper r-flyout__header">
+                    <button
+                      class="r-flyout__toggle"
+                      type="button"
+                      aria-haspopup="true"
+                      aria-expanded="false"
+                      aria-controls="r-flyout-panel-passive"
+                      aria-label="Toggle submenu for Active-Passive">
+                      <svg
+                        class="r-flyout__icon r-flyout__icon--plus"
+                        aria-hidden="true"
+                        focusable="false">
+                        <use xlink:href="#icon-plus"></use>
+                      </svg>
+                      <svg
+                        class="r-flyout__icon r-flyout__icon--minus"
+                        aria-hidden="true"
+                        focusable="false">
+                        <use xlink:href="#icon-minus"></use>
+                      </svg>
+                    </button>
+                    <div class="menu-link r-flyout__link-wrap">
                       <a
-                        href="list-22-objects-animals-and-sounds.html"
+                        class="r-flyout__link"
+                        href="../exercise-15-passive-voice.html"
                         aria-label="Menu Link">
-                        Objects/Sounds
+                        Active-Passive
                       </a>
                     </div>
                   </div>
+                  <div
+                    class="ul-wrapper r-flyout__panel"
+                    id="r-flyout-panel-passive"
+                    aria-hidden="true"
+                    hidden>
+                    <ul class="r-flyout__sublist">
+                      <li class="first">
+                        <div class="item-wrapper">
+                          <div class="menu-link">
+                            <a
+                              href="../exercise-15-passive-voice/1511-passive-voice-simple-present-tense.html"
+                              aria-label="Menu Link">
+                              15.1.1 Simple Present
+                            </a>
+                          </div>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="item-wrapper">
+                          <div class="menu-link">
+                            <a
+                              href="../exercise-15-passive-voice/1521-passive-voice-present-perfect-tense.html"
+                              aria-label="Menu Link">
+                              15.2.1 Present Perfect
+                            </a>
+                          </div>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="item-wrapper">
+                          <div class="menu-link">
+                            <a
+                              href="../exercise-15-passive-voice/1531-passive-voice-present-continuous-tense.html"
+                              aria-label="Menu Link">
+                              15.3.1 Present Continuous
+                            </a>
+                          </div>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="item-wrapper">
+                          <div class="menu-link">
+                            <a
+                              href="../exercise-15-passive-voice/1541-passive-voice-part-simple-past-tense-i.html"
+                              aria-label="Menu Link">
+                              15.4.1 Simple Past Tense I
+                            </a>
+                          </div>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="item-wrapper">
+                          <div class="menu-link">
+                            <a
+                              href="../exercise-15-passive-voice/1542-passive-voice-simple-past-tense-ii.html"
+                              aria-label="Menu Link">
+                              15.4.2 Simple Past Tense II
+                            </a>
+                          </div>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="item-wrapper">
+                          <div class="menu-link">
+                            <a
+                              href="../exercise-15-passive-voice/1551-passive-voice-past-continuous-tense.html"
+                              aria-label="Menu Link">
+                              15.5.1 Past Continuous
+                            </a>
+                          </div>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="item-wrapper">
+                          <div class="menu-link">
+                            <a
+                              href="../exercise-15-passive-voice/1561-passive-voice-past-perfect-tense.html"
+                              aria-label="Menu Link">
+                              15.6.1 Past Perfect
+                            </a>
+                          </div>
+                        </div>
+                      </li>
+                      <li class="last">
+                        <div class="item-wrapper">
+                          <div class="menu-link">
+                            <a
+                              href="../exercise-15-passive-voice/1571-passive-voice-simple-future-tense.html"
+                              aria-label="Menu Link">
+                              15.7.1 Simple Future
+                            </a>
+                          </div>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
                 </li>
-                <li>
-                  <div class="item-wrapper">
-                    <div class="menu-link">
+                <li data-r-flyout-item="">
+                  <div class="item-wrapper r-flyout__header">
+                    <button
+                      class="r-flyout__toggle"
+                      type="button"
+                      aria-haspopup="true"
+                      aria-expanded="false"
+                      aria-controls="r-flyout-panel-clauses"
+                      aria-label="Toggle submenu for Clauses">
+                      <svg
+                        class="r-flyout__icon r-flyout__icon--plus"
+                        aria-hidden="true"
+                        focusable="false">
+                        <use xlink:href="#icon-plus"></use>
+                      </svg>
+                      <svg
+                        class="r-flyout__icon r-flyout__icon--minus"
+                        aria-hidden="true"
+                        focusable="false">
+                        <use xlink:href="#icon-minus"></use>
+                      </svg>
+                    </button>
+                    <div class="menu-link r-flyout__link-wrap">
                       <a
-                        href="list-23-antonyms.html"
+                        class="r-flyout__link"
+                        href="../exercise-17-clauses.html"
                         aria-label="Menu Link">
-                        Antonyms
+                        Clauses
                       </a>
                     </div>
                   </div>
+                  <div
+                    class="ul-wrapper r-flyout__panel"
+                    id="r-flyout-panel-clauses"
+                    aria-hidden="true"
+                    hidden>
+                    <ul class="r-flyout__sublist">
+                      <li class="first">
+                        <div class="item-wrapper">
+                          <div class="menu-link">
+                            <a
+                              href="../exercise-17-clauses/1721-adjective-clauses.html"
+                              aria-label="Menu Link">
+                              17.2.1 Adjective Clauses
+                            </a>
+                          </div>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="item-wrapper">
+                          <div class="menu-link">
+                            <a
+                              href="../exercise-17-clauses/1731-adverbial-clauses.html"
+                              aria-label="Menu Link">
+                              17.3.1 Adverbial Clauses
+                            </a>
+                          </div>
+                        </div>
+                      </li>
+                      <li class="last">
+                        <div class="item-wrapper">
+                          <div class="menu-link">
+                            <a
+                              href="../exercise-17-clauses/1741-noun-clauses.html"
+                              aria-label="Menu Link">
+                              17.4.1 Noun Clauses
+                            </a>
+                          </div>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
                 </li>
-                <li>
-                  <div class="item-wrapper">
-                    <div class="menu-link">
+                <li data-r-flyout-item="">
+                  <div class="item-wrapper r-flyout__header">
+                    <button
+                      class="r-flyout__toggle"
+                      type="button"
+                      aria-haspopup="true"
+                      aria-expanded="false"
+                      aria-controls="r-flyout-panel-verbing"
+                      aria-label="Toggle submenu for Verb-ing">
+                      <svg
+                        class="r-flyout__icon r-flyout__icon--plus"
+                        aria-hidden="true"
+                        focusable="false">
+                        <use xlink:href="#icon-plus"></use>
+                      </svg>
+                      <svg
+                        class="r-flyout__icon r-flyout__icon--minus"
+                        aria-hidden="true"
+                        focusable="false">
+                        <use xlink:href="#icon-minus"></use>
+                      </svg>
+                    </button>
+                    <div class="menu-link r-flyout__link-wrap">
                       <a
-                        href="list-24-synonyms.html"
+                        class="r-flyout__link"
+                        href="../exercise-18-verb-ing-gerunds-and-particles.html"
                         aria-label="Menu Link">
-                        Synonyms
+                        Verb-ing
                       </a>
                     </div>
                   </div>
+                  <div
+                    class="ul-wrapper r-flyout__panel"
+                    id="r-flyout-panel-verbing"
+                    aria-hidden="true"
+                    hidden>
+                    <ul class="r-flyout__sublist">
+                      <li class="first">
+                        <div class="item-wrapper">
+                          <div class="menu-link">
+                            <a
+                              href="../exercise-18-verb-ing-gerunds-and-particles/1811-verb-ing-gerund.html"
+                              aria-label="Menu Link">
+                              18.1.1 Verb + -ing (Gerund)
+                            </a>
+                          </div>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="item-wrapper">
+                          <div class="menu-link">
+                            <a
+                              href="../exercise-18-verb-ing-gerunds-and-particles/1812-verb-ing-gerund-and-present-participle.html"
+                              aria-label="Menu Link">
+                              18.1.2 Verb + -ing (Gerund and Present Participle)
+                            </a>
+                          </div>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="item-wrapper">
+                          <div class="menu-link">
+                            <a
+                              href="../exercise-18-verb-ing-gerunds-and-particles/1821-verb-ing-gerund-and-particle.html"
+                              aria-label="Menu Link">
+                              18.2.1 Verb + -ing (Gerund and Particle)
+                            </a>
+                          </div>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="item-wrapper">
+                          <div class="menu-link">
+                            <a
+                              href="../exercise-18-verb-ing-gerunds-and-particles/1831-verb-ing-adjective-part-1.html"
+                              aria-label="Menu Link">
+                              18.3.1 Verb + -ing (Adjective) Part 1
+                            </a>
+                          </div>
+                        </div>
+                      </li>
+                      <li class="last">
+                        <div class="item-wrapper">
+                          <div class="menu-link">
+                            <a
+                              href="../exercise-18-verb-ing-gerunds-and-particles/1832-verb-ing-adjective-part-2.html"
+                              aria-label="Menu Link">
+                              18.3.2 Verb + -ing (Adjective) Part 2
+                            </a>
+                          </div>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
                 </li>
-                <li class="last">
-                  <div class="item-wrapper">
-                    <div class="menu-link">
+                <li data-r-flyout-item="">
+                  <div class="item-wrapper r-flyout__header">
+                    <button
+                      class="r-flyout__toggle"
+                      type="button"
+                      aria-haspopup="true"
+                      aria-expanded="false"
+                      aria-controls="r-flyout-panel-determiners"
+                      aria-label="Toggle submenu for Determiners">
+                      <svg
+                        class="r-flyout__icon r-flyout__icon--plus"
+                        aria-hidden="true"
+                        focusable="false">
+                        <use xlink:href="#icon-plus"></use>
+                      </svg>
+                      <svg
+                        class="r-flyout__icon r-flyout__icon--minus"
+                        aria-hidden="true"
+                        focusable="false">
+                        <use xlink:href="#icon-minus"></use>
+                      </svg>
+                    </button>
+                    <div class="menu-link r-flyout__link-wrap">
                       <a
-                        href="list-25-homonyms.html"
+                        class="r-flyout__link"
+                        href="../exercise-19-determiners-and-quantifiers.html"
                         aria-label="Menu Link">
-                        Homonyms
+                        Determiners
                       </a>
                     </div>
+                  </div>
+                  <div
+                    class="ul-wrapper r-flyout__panel"
+                    id="r-flyout-panel-determiners"
+                    aria-hidden="true"
+                    hidden>
+                    <ul class="r-flyout__sublist">
+                      <li class="first">
+                        <div class="item-wrapper">
+                          <div class="menu-link">
+                            <a
+                              href="../exercise-19-determiners-and-quantifiers/1911-determiners-a-an-the.html"
+                              aria-label="Menu Link">
+                              19.1.1 Determiners: a, an, the
+                            </a>
+                          </div>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="item-wrapper">
+                          <div class="menu-link">
+                            <a
+                              href="../exercise-19-determiners-and-quantifiers/1912-determiners-a-an-the-some.html"
+                              aria-label="Menu Link">
+                              19.1.2 Determiners: a, an, the, some
+                            </a>
+                          </div>
+                        </div>
+                      </li>
+                      <li class="last">
+                        <div class="item-wrapper">
+                          <div class="menu-link">
+                            <a
+                              href="../exercise-19-determiners-and-quantifiers/1921-quantity-words.html"
+                              aria-label="Menu Link">
+                              19.2.1 Quantity Words
+                            </a>
+                          </div>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                </li>
+                <li data-r-flyout-item="">
+                  <div class="item-wrapper r-flyout__header">
+                    <button
+                      class="r-flyout__toggle"
+                      type="button"
+                      aria-haspopup="true"
+                      aria-expanded="false"
+                      aria-controls="r-flyout-panel-pos"
+                      aria-label="Toggle submenu for Part of Speech">
+                      <svg
+                        class="r-flyout__icon r-flyout__icon--plus"
+                        aria-hidden="true"
+                        focusable="false">
+                        <use xlink:href="#icon-plus"></use>
+                      </svg>
+                      <svg
+                        class="r-flyout__icon r-flyout__icon--minus"
+                        aria-hidden="true"
+                        focusable="false">
+                        <use xlink:href="#icon-minus"></use>
+                      </svg>
+                    </button>
+                    <div class="menu-link r-flyout__link-wrap">
+                      <a
+                        class="r-flyout__link"
+                        href="../exercise-21-general.html"
+                        aria-label="Menu Link">
+                        Part-of-Speech
+                      </a>
+                    </div>
+                  </div>
+                  <div
+                    class="ul-wrapper r-flyout__panel"
+                    id="r-flyout-panel-pos"
+                    aria-hidden="true"
+                    hidden>
+                    <ul class="r-flyout__sublist">
+                      <li class="first">
+                        <div class="item-wrapper">
+                          <div class="menu-link">
+                            <a
+                              href="../exercise-21-general/2111-part-of-speech-i.html"
+                              aria-label="Menu Link">
+                              21.1.1 Part of Speech I
+                            </a>
+                          </div>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="item-wrapper">
+                          <div class="menu-link">
+                            <a
+                              href="../exercise-21-general/2112-part-of-speech-ii.html"
+                              aria-label="Menu Link">
+                              21.1.2 Part of Speech II
+                            </a>
+                          </div>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="item-wrapper">
+                          <div class="menu-link">
+                            <a
+                              href="../exercise-21-general/2113-part-of-speech-adverb.html"
+                              aria-label="Menu Link">
+                              21.1.3 Part of Speech: Adverb
+                            </a>
+                          </div>
+                        </div>
+                      </li>
+                      <li class="last">
+                        <div class="item-wrapper">
+                          <div class="menu-link">
+                            <a
+                              href="../exercise-21-general/2121-gerund-and-present-participle.html"
+                              aria-label="Menu Link">
+                              21.2.1 Gerund and Present Participle
+                            </a>
+                          </div>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                </li>
+                <li
+                  class="last"
+                  data-r-flyout-item="">
+                  <div class="item-wrapper r-flyout__header">
+                    <button
+                      class="r-flyout__toggle"
+                      type="button"
+                      aria-haspopup="true"
+                      aria-expanded="false"
+                      aria-controls="r-flyout-panel-vocabulary"
+                      aria-label="Toggle submenu for Vocabulary">
+                      <svg
+                        class="r-flyout__icon r-flyout__icon--plus"
+                        aria-hidden="true"
+                        focusable="false">
+                        <use xlink:href="#icon-plus"></use>
+                      </svg>
+                      <svg
+                        class="r-flyout__icon r-flyout__icon--minus"
+                        aria-hidden="true"
+                        focusable="false">
+                        <use xlink:href="#icon-minus"></use>
+                      </svg>
+                    </button>
+                    <div class="menu-link r-flyout__link-wrap">
+                      <a
+                        class="r-flyout__link"
+                        href="../exercise-22-test-your-vocabulary.html"
+                        aria-label="Vocabulary">
+                        Vocabulary
+                      </a>
+                    </div>
+                  </div>
+                  <div
+                    class="ul-wrapper r-flyout__panel"
+                    id="r-flyout-panel-vocabulary"
+                    aria-hidden="true"
+                    hidden>
+                    <ul class="r-flyout__sublist">
+                      <li class="first">
+                        <div class="item-wrapper">
+                          <div class="menu-link">
+                            <a
+                              href="../exercise-22-test-your-vocabulary/2211-test-your-vocabulary-adjective.html"
+                              aria-label="22.1.1 Test Your Vocabulary - Adjectives">
+                              22.1.1 Test Your Vocabulary: Adjectives
+                            </a>
+                          </div>
+                        </div>
+                      </li>
+                      <li class="last">
+                        <div class="item-wrapper">
+                          <div class="menu-link">
+                            <a
+                              href="../exercise-22-test-your-vocabulary/2221-test-your-vocabulary-verb.html"
+                              aria-label="Menu Link">
+                              22.2.1 Test Your Vocabulary: Verb
+                            </a>
+                          </div>
+                        </div>
+                      </li>
+                    </ul>
                   </div>
                 </li>
               </ul>
             </div>
             <!-- End Right Sidebar -->
           </div>
+          <div class="prefooter"></div>
         </div>
       </div>
     </div>
     <!-- Footer -->
-    <footer class="footer">
-      <div class="container">
-        <hr>
-
+    <footer class="footer mar10">
+      <div class="container2 inner-footer">
+        <br>
         <p class="pull-right">
           <a
             href="#top"
@@ -3310,9 +3758,23 @@
             Back to Top
           </a>
         </p>
-        <p>&copy; 2021.</p>
+        <p>
+          ©
+          <span data-copyright-year=""></span>
+          All rights reserved.
+        </p>
       </div>
     </footer>
+    <script>
+      ;(() => {
+        "use strict"
+        const year = new Date().getFullYear() // NEW: get current year
+        document.querySelectorAll("[data-copyright-year]").forEach((el) => {
+          const start = parseInt(el.getAttribute("data-start"), 10) // NEW: optional start year
+          el.textContent = Number.isFinite(start) && start < year ? `${start}–${year}` : String(year) // NEW: write year/range
+        })
+      })()
+    </script>
   </body>
 
   <!-- /list-4-verbs.html, Tue, 24 Nov 2020 12:37:47 GMT -->

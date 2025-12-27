@@ -36,6 +36,7 @@ denominal
 didn
 Distributives
 doesn
+doo
 downarrow
 drey
 dropup

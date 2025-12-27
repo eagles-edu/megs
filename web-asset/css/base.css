@@ -739,6 +739,11 @@ h4.box-head4 {
   margin-top: 1rem!important;
 }
 
+.tm02 {
+  display: block;
+  margin-top: 2rem!important;
+}
+
 .blkquot {
 /*  background-color: var(--blkquot-background);
   border: 1px solid var(--footer-background);
