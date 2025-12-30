@@ -19,23 +19,21 @@ This program coordinates three core functions in a fixed workflow sequence.
 If flags are not present, pause for user to enter input; enter conversion detail variables:
 
    1. `<target-path>` relative path*:
-   2. **Select # of answer fields (1-6) or 7 for textarea [default 1]**: 1-7:
-      1. Enter 1–6 to set: `--answer-fields` (default 1; options 1-6)
-      2. Enter 7 to set `--answer-ui textarea` (fields remain 1)
-   3. **title/ID**: default to filename slug sans .html
-   4. **p-tag answers bolded or underlined**: to set `--answer-source` for the extraction prompt: `<undies|p|auto>` (default auto):
+   2. **title/ID**: default to filename slug sans .html
+   3. **p-tag answers bolded or underlined**: to set `--answer-source` for the extraction prompt: `<undies|p|auto|sentence>` (default auto):
       1. **undies**: extract from between `<span class="undies">`, `<b>`, and `<strong>` tags in question blocks
-      2. **p**: derive from reading p-tag directions and answering questions, then extract
-      3. **auto**: (default) extract from between `<span class="undies">`, `<b>`, and `<strong>` tags in question blocks; if none, derive from reading p-tag directions and answering questions, then extract
-   5. **multiple provided answers**: to set `--answers-mode`:
+      2. **p**: derive from AI reading p-tag directions, answering  each question (per p-tag directions), and writing these to file
+      3. **auto**: (default) extract from between `<span class="undies">`, `<b>`, and `<strong>` tags in question blocks; if none, derive from AI reading p-tag directions, answering each question (per p-tag directions), and writing these to file
+      4. **sentence**: extract everything verbatim between form-based question block (p-tag) answers, sans HTML, and copy to file; warn that linting/IDE wrapping and source text can introduce spacing, punctuation, grammar, or usage artifacts in plain-text copies, and offer optional normalization to USA spelling/grammar/vernacular/usage only (including punctuation fixes) with explicit approval
+   4. **multiple provided answers**: to set `--answers-mode`:
       1. **all** - each answer in group _required mode_ (default)
       2. **alts** - _alternative answers mode_
-   6. **Example handling**: to set `--ignore-example [mode]`:
+   5. **Example handling**: to set `--ignore-example [mode]`:
       1. **auto** (default when flag is unset): scan for `Example.`-prefixed questions, report findings, pause for a choice, and default to **none** if no Example blocks are found
       2. **prefix** (default when `--ignore-example` is provided with no value): skip questions that start with `Example.`
       3. **first**: skip the first question block
       4. **none**: skip nothing (convert all questions)
-   7. **obfuscation scope** (default `form`):
+   6. **obfuscation scope** (default `form`):
       1. `form` p-tag contents inside `form.exercise-form`
       2. `form-highlighted` highlighted p-tag contents inside `form.exercise-form`
       3. `highlighted` p-tag contents (global)
@@ -46,36 +44,45 @@ If flags are not present, pause for user to enter input; enter conversion detail
         >   <span class="undies">...</span>, <b>...</b>, and <strong>...</strong>
         > ```
 
-   8. **diff preview**: true (default) or false
+   7. **diff preview**: true (default) or false
 
 ### II. Program Execution
 
-Runtime rules for all prompts/commands: replace every placeholder (e.g., `<target-path>`, `<title/ID>`, `<undies/p/auto>`, answer counts, obfuscation choice) with the user input values before printing; keep the surrounding prompt/command text unchanged.
+Runtime rules for all prompts/commands: replace every placeholder (e.g., `<target-path>`, `<title/ID>`, `<undies/p/auto/sentence>`, answer counts, obfuscation choice, etcetera.) using the user input values before prompt printing or command execution; keep the surrounding prompt/command text unchanged.
 
 ---
 
-1. **Print Prompt1**: "`<target-path>` pull answers from question p-tags, `<undies/p/auto>`, then copying those words / phrases / sentences to`tools/input.txt`, formatting only a linebreak between answers of the same answer group and a blank line between answer groups."
+1. **Print Prompt1**: "`<target-path>` pull answers from question p-tags, `<undies/p/auto/sentence>`, then copying those words / phrases / sentences to`tools/input.txt`, formatting only a linebreak between answers of the same answer group and a blank line between answer groups."
 
-   - replace `<target-path>`, `<undies/p/auto>` with user input flag text:
+   - replace `<target-path>`, `<undies/p/auto/sentence>` with user input flag text:
 
-    1. **undies**: "by extracting p-tag answers from between `<span class="undies">`, `<b>`, and `<strong>` tags in the target HTML"
-    2. **p**: "by reading exercise p-tag instructions, reading each question, determining each correct answer"
-    3. **auto**: (default) "by extracting p-tag answers from between `<span class="undies">`, `<b>`, and `<strong>` tags in the target HTML question blocks; else, if tags aren't present, via **p** by reading exercise p-tag instructions, reading each question, determining each correct answer"
+      1. **undies**: extract from between `<span class="undies">`, `<b>`, and `<strong>` tags in question blocks
+      2. **p**: derive from AI reading p-tag directions, answering  each question (per p-tag directions), and writing these to file
+      3. **auto**: (default) extract from between `<span class="undies">`, `<b>`, and `<strong>` tags in question blocks; if none, derive from AI reading p-tag directions, answering each question (per p-tag directions), and writing these to file
+      4. **sentence**: extract everything verbatim between form-based question blocks (p-tag) answers, sans HTML, and copy to file; warn if linting/IDE wrapping or source text has introduced spacing, punctuation, grammar, or usage artifacts in this plain-text copy, and offer optional normalization to USA spelling/grammar/vernacular/usage only (including punctuation fixes) with explicit approval
 
 #### For example
 
 _User input_:
 
 - `<target-path>`: exercise-4-adverbs/411-using-adverbs-part-1.html
-- `<undies/p/auto>`: undies
+- `<undies/p/auto/sentence>`: undies
 
 _CMD produced_:
 
-"`exercise-4-adverbs/411-using-adverbs-part-1.html` pull answers from question p-tags, by extracting p-tag answers from between `<span class="undies">`, `<b>`, and `<strong>` tags in the target HTML, then copying those words / phrases / sentences to`tools/input.txt`, formatting only a linebreak between answers of the same answer group and a blank line between answer groups."
+"`exercise-4-adverbs/411-using-adverbs-part-1.html` pull answers from question p-tags, by extracting p-tag answers from between `<span class="undies">`, `<b>`, and `<strong>` tags in the target HTML, then copying those words / phrases / sentences to `tools/input.txt`, formatting only a linebreak between answers of the same answer group and a blank line between answer groups."
 
 >PAUSE, DISPLAY PROMPT, PRESS ENTER TO EXECUTE, verify completion, & continue, OR Q TO EXIT AND FIX PARAMETERS.
 
 ---
+
+**After Prompt1** (sentence only): scan `tools/input.txt` for linting/IDE spacing artifacts and any visible grammar/usage/punctuation irregularities; warn and ask whether to normalize to USA spelling/grammar/vernacular/usage only (including punctuation fixes). If yes, apply only the approved normalization; otherwise keep verbatim.
+
+**After Prompt1** (before CMD2), if `--answer-fields` / `--answer-ui` are not set, prompt:
+
+- **Select # of answer fields (1-6) or 7 for textarea [default 1]**: 1-7:
+      1. Enter 1–6 to set: `--answer-fields` (default 1; options 1-6)
+      2. Enter 7 to set `--answer-ui textarea` (fields remain 1)
 
 2. **Execute CMD2**: prepare & print (also writes `dev/<title>.txt` when title provided):
 
@@ -185,10 +192,10 @@ _user input_:
 6. Run `encode-p-text.mjs` for obfuscation per user input (skip if scope is `none`):
 --scope `<form|form-highlighted|highlighted|all>` (default form):
 
-   - form-highlighted: obfuscate only `<span>`, `<b>`, `<strong>` text inside `<p>` within `form.exercise-form`
-   - form: obfuscate all `<p>` text nodes within `form.exercise-form` (leave tags)
-   - highlighted: obfuscate only `<span>`, `<b>`, `<strong>` text inside `<p>` (global)
-   - all: obfuscate all `<p>` text nodes (leave tags, global)
+   - **form-highlighted**: obfuscate only `<span>`, `<b>`, `<strong>` text inside `<p>` within `form.exercise-form`
+   - **form**: obfuscate all `<p>` text nodes within `form.exercise-form` (omit HTML tags from encoding; leave tags intact)
+   - **highlighted**: obfuscate only `<span>`, `<b>`, `<strong>` text inside `<p>` (global)
+   - **all**: obfuscate all `<p>` text nodes (omit HTML tags from encoding; leave tags intact, global)
 
 ```bash
 node tools/encode-p-text.mjs --write --scope <form|form-highlighted|highlighted|all> <target-path>
@@ -225,13 +232,15 @@ _user input_:
 
 - **Priority rule**: Obfuscation SOP applies only when it does not conflict with the requirement that no human-readable answers remain visible/un-obfuscated after conversion. If there is a conflict, enforce "no readable answers after conversion."
 - **Execution**: the full conversion workflow must run end-to-end without interruption; do not pause between steps unless the user explicitly requests a stop.
-- never sanitize (i.e., trim, strip quotes/trailing punctuation), these are all grammar questions, so **there are flags in the conversion system to set for this already.**
+- **Session continuity**: treat the latest user-corrected state in this chat (e.g., `tools/input.txt` and visible GUI text) as canonical; do not reintroduce removed variants or undo approved changes unless explicitly requested.
+- never sanitize (i.e., trim, strip quotes/trailing punctuation); only allow sentence-mode normalization with explicit user approval: fix lint/IDE spacing artifacts and, if requested, normalize to USA spelling/grammar/vernacular/usage only (including punctuation fixes). These are all grammar questions, so **there are flags in the conversion system to set for this already.**
 - --target `<target-path>` (required as --flag or user input)
 - --answer-fields <1-6> or <7> --answer-ui textarea (set UI to textarea; default is fields=1, ui unset)
-- --answer-source `<undies|p|auto>` (default auto):
+- --answer-source `<undies|p|auto|sentence>` (default auto):
   - **undies**: extract from between `<span class="undies">`, `<b>`, and `<strong>` tags in question blocks
   - **p**: extract bold/underlined/strong from `<p>` (or prompt to derive from directions if missing)
   - **auto**: default; use **undies** if present, otherwise derive from reading p-tag directions and answering questions
+  - **sentence**: extract everything verbatim between form-based question blocks (p-tag) answers, sans HTML, and copy to file; warn that linting/IDE wrapping and source text can introduce spacing, punctuation, grammar, or usage artifacts in plain-text copies, and offer optional normalization to USA spelling/grammar/vernacular/usage only (including punctuation fixes) with explicit approval
 - --answers-mode `<all|alts>` (default all; sets answersAccepted combos)
   - all: single combo with all hashes
   - alts: separate combos, one per hash
@@ -244,5 +253,5 @@ _user input_:
   - **form-highlighted**: obfuscate only `<span>`, `<b>`, `<strong>` text inside `<p>` within `form.exercise-form`
   - **form**: obfuscate all `<p>` text nodes within `form.exercise-form` (leave tags)
   - **highlighted**: obfuscate only `<span>`, `<b>`, `<strong>` text inside `<p>` (global)
-  - **all**: obfuscate all `<p>` text nodes (leave tags, global)
+  - **all**: obfuscate all `<p>` text nodes (omit HTML tags from encoding; leave tags intact, global)
 - obfuscation scope `none`: skip (do not run encode-p-text)

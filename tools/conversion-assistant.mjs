@@ -44,7 +44,7 @@ const DEFAULTS = {
   diffPreview: true,
 }
 
-const VALID_ANSWER_SOURCES = ["undies", "p", "auto"]
+const VALID_ANSWER_SOURCES = ["undies", "p", "auto", "sentence"]
 const VALID_ANSWERS_MODES = ["all", "alts"]
 const VALID_IGNORE_EXAMPLE = ["auto", "prefix", "first", "none"]
 const VALID_OBFUSCATION = ["form", "form-highlighted", "highlighted", "all", "none"]
@@ -55,6 +55,8 @@ const ANSWER_SOURCE_TEXT = {
   p: "by reading exercise p-tag instructions, reading each question, determining each correct answer",
   auto:
     'by extracting p-tag answers from between `<span class="undies">`, `<b>`, and `<strong>` tags in the target HTML question blocks; else, if tags aren\'t present, via **p** by reading exercise p-tag instructions, reading each question, determining each correct answer',
+  sentence:
+    "by extracting everything verbatim between form-based question blocks (p-tag) answers, sans HTML",
 }
 
 const ANSWERS_MODE_TEXT = {
@@ -81,7 +83,7 @@ Options:
   --title, -t             Title/ID (defaults to filename slug)
   --answer-fields <1-7>   1-6 for inputs, 7 for textarea (sets --answer-ui textarea)
   --answer-ui <value>     Force answer UI (e.g., textarea)
-  --answer-source <val>   undies | p | auto (default auto)
+  --answer-source <val>   undies | p | auto | sentence (default auto)
   --answers-mode <val>    all | alts (default all)
   --ignore-example [val]  auto | prefix | first | none (standalone defaults to prefix)
   --obfuscation <val>     form | form-highlighted | highlighted | all | none (default form)
@@ -414,17 +416,6 @@ async function main() {
   const { absolute: targetAbsolute, display: targetDisplay } = resolveTarget(args.target)
   const defaultTitle = path.basename(targetAbsolute, path.extname(targetAbsolute))
 
-  if (!provided.answerFields && !provided.answerUi) {
-    if (ask) {
-      const { fields, ui } = await promptAnswerFields(ask)
-      args.answerFields = fields
-      if (ui) args.answerUi = ui
-    } else {
-      args.answerFields = DEFAULTS.answerFields
-      args.answerUi = DEFAULTS.answerUi
-    }
-  }
-
   if (!provided.title) {
     args.title = ask ? await promptTitle(ask, defaultTitle) : defaultTitle
   }
@@ -476,13 +467,6 @@ async function main() {
 
   const prompt1 = buildPrompt1(targetDisplay, args.answerSource)
   const cmd2 = buildCmd2(args.title)
-  const cmd3 = buildCmd3(
-    targetDisplay,
-    args.answerFields,
-    args.answerUi,
-    args.diffPreview,
-    args.ignoreExample
-  )
   const prompt4 = buildPrompt4(targetDisplay, args.answersMode)
   const cmd4 = buildCmd4(targetDisplay)
   const cmd5 = buildCmd5(targetDisplay, args.obfuscation)
@@ -493,6 +477,25 @@ async function main() {
     prompter?.close()
     process.exit(0)
   }
+
+  if (!provided.answerFields && !provided.answerUi) {
+    if (ask) {
+      const { fields, ui } = await promptAnswerFields(ask)
+      args.answerFields = fields
+      if (ui) args.answerUi = ui
+    } else {
+      args.answerFields = DEFAULTS.answerFields
+      args.answerUi = DEFAULTS.answerUi
+    }
+  }
+
+  const cmd3 = buildCmd3(
+    targetDisplay,
+    args.answerFields,
+    args.answerUi,
+    args.diffPreview,
+    args.ignoreExample
+  )
 
   console.log("\n2. Execute CMD2:")
   console.log(commandToString(cmd2))

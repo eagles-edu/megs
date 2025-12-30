@@ -209,7 +209,16 @@
       }
 
       .pager .next > a {
-        justify-content: flex-end;
+        justify-content: flex-start;
+        text-align: left;
+      }
+      .pager .pager-label {
+        flex: 1 1 auto;
+        min-width: 0;
+        overflow: hidden;
+        text-overflow: var(--pager-label-truncate);
+        white-space: var(--pager-label-wrap);
+        text-align: left;
       }
 
       .pager > li > a svg,
@@ -3252,7 +3261,7 @@
                         <path
                           d="M16.795 14.571c0 0.214-0.107 0.455-0.268 0.616l-10.527 10.527 10.527 10.527c0.161 0.161 0.268 0.402 0.268 0.616s-0.107 0.455-0.268 0.616l-1.339 1.339c-0.161 0.161-0.402 0.268-0.616 0.268s-0.455-0.107-0.616-0.268l-12.482-12.482c-0.161-0.161-0.268-0.402-0.268-0.616s0.107-0.455 0.268-0.616l12.482-12.482c0.161-0.161 0.402-0.268 0.616-0.268s0.455 0.107 0.616 0.268l1.339 1.339c0.161 0.161 0.268 0.375 0.268 0.616z"></path>
                       </svg>
-                      &nbsp;&nbsp;Exercise 1 - Nouns
+                      <span class="pager-label">Exercise 1 - Nouns</span>
                     </a>
                   </li>
                   <li class="next">
@@ -3260,7 +3269,7 @@
                       href="112-proper-nouns.html"
                       rel="next"
                       aria-label="1.1.2 Proper Nouns">
-                      1.1.2 Proper Nouns&nbsp;&nbsp;
+                      <span class="pager-label">1.1.2 Proper Nouns</span>
                       <svg
                         version="1.1"
                         xmlns="http://www.w3.org/2000/svg"

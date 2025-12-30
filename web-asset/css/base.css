@@ -755,25 +755,27 @@ h4.box-head4 {
 }
 
 .exinstruct {
-  display: block;
+  display: inline-block;
   padding: 0 7%;
 }
 
 .blockdiv {
-  display: block;
-  padding: 0 7%;
+display: inline-block;
+padding: 0 7%;
 }
 
 .blockwrap {
+display: inline-block;
 font-weight: 600;
 line-height: 2.15em;
-margin: 0 0 18px;
+margin: 0 auto;
 overflow-wrap: normal;
-padding: 0;
+text-align: center;
 white-space: pre-wrap;
 word-break: normal;
 }
 
 .undies {
-  text-decoration: underline;
+font-weight: 600;
+text-decoration: underline;
 }

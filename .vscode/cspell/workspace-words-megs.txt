@@ -69,6 +69,8 @@ informations
 insideh
 insidev
 irow
+isn
+jewellery
 JGLOBAL
 Joomla
 jtext
@@ -92,6 +94,7 @@ modlgn
 moobs
 nakadehitsujiko
 nderwater
+needn
 newsfeed
 newstyle
 nic
@@ -141,6 +144,7 @@ uparrow
 usefuler
 vcard
 wasn
+weren
 WIP
 wpel
 xlarge

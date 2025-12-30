@@ -23,10 +23,11 @@ If flags are not present, pause for user to enter input; enter conversion detail
       1. Enter 1–6 to set: `--answer-fields` (default 1; options 1-6)
       2. Enter 7 to set `--answer-ui textarea` (fields remain 1)
    3. **title/ID**: default to filename slug sans .html
-   4. **p-tag answers bolded or underlined**: to set `--answer-source` for the extraction prompt: `<undies|p|auto>` (default auto):
+   4. **p-tag answers bolded or underlined**: to set `--answer-source` for the extraction prompt: `<undies|p|auto|sentence>` (default auto):
       1. **undies**: extract from between `<span class="undies">`, `<b>`, and `<strong>` tags in question blocks
       2. **p**: derive from reading p-tag directions and answering questions, then extract
       3. **auto**: (default) extract from between `<span class="undies">`, `<b>`, and `<strong>` tags in question blocks; if none, derive from reading p-tag directions and answering questions, then extract
+      4. **sentence**: extract everything verbatim between form-based question block (p-tag) answers, sans HTML, and copy to file; warn about spacing/grammar/usage/punctuation artifacts and offer optional normalization to USA spelling/grammar/vernacular/usage only (including punctuation fixes) with explicit approval
    5. **multiple provided answers**: to set `--answers-mode`:
       1. **all** - each answer in group _required mode_ (default)
       2. **alts** - _alternative answers mode_
@@ -45,22 +46,23 @@ If flags are not present, pause for user to enter input; enter conversion detail
 
 ### II. Program Execution
 
-Runtime rules for all prompts/commands: replace every placeholder (e.g., `<target-path>`, `<title/ID>`, `<undies/p/auto>`, answer counts, obfuscation choice) with the user input values before printing; keep the surrounding prompt/command text unchanged.
+Runtime rules for all prompts/commands: replace every placeholder (e.g., `<target-path>`, `<title/ID>`, `<undies/p/auto/sentence>`, answer counts, obfuscation choice) with the user input values before printing; keep the surrounding prompt/command text unchanged.
 
-1. **Print Prompt1**: "`<target-path>` pull answers from question p-tags, `<undies/p/auto>`, then copy the individual words to `tools/input.txt` separating each question's answer group or alternate answer group by a blank line."
+1. **Print Prompt1**: "`<target-path>` pull answers from question p-tags, `<undies/p/auto/sentence>`, then copy the individual words to `tools/input.txt` separating each question's answer group or alternate answer group by a blank line."
 
-   - replace `<target-path>`, `<undies/p/auto>` with user input flag text:
+   - replace `<target-path>`, `<undies/p/auto/sentence>` with user input flag text:
 
     1. **undies**: "by extracting p-tag answers from between `<span class="undies">`, `<b>`, and `<strong>` tags in the target HTML"
     2. **p**: "by reading exercise p-tag instructions, reading each question, determining each correct answer"
     3. **auto**: (default) "by extracting p-tag answers from between `<span class="undies">`, `<b>`, and `<strong>` tags in the target HTML question blocks; else, if tags aren't present, via **p** by reading exercise p-tag instructions, reading each question, determining each correct answer"
+    4. **sentence**: "by extracting everything verbatim between form-based question block (p-tag) answers, sans HTML"; warn about spacing/grammar/usage/punctuation artifacts and offer optional normalization to USA spelling/grammar/vernacular/usage only (including punctuation fixes) with explicit approval
 
 #### For example
 
 _User input_:
 
 - `<target-path>`: exercise-4-adverbs/411-using-adverbs-part-1.html
-- `<undies/p/auto>`: undies
+- `<undies/p/auto/sentence>`: undies
 
 _CMD produced_:
 
@@ -192,13 +194,14 @@ _user input_:
 
 ### NOTES
 
-- never sanitize (i.e., trim, strip quotes/trailing punctuation), these are all grammar questions, so **there are flags in the conversion system to set for this already.**
+- never sanitize (i.e., trim, strip quotes/trailing punctuation); only allow sentence-mode normalization with explicit user approval (USA spelling/grammar/vernacular/usage only + punctuation fixes). These are all grammar questions, so **there are flags in the conversion system to set for this already.**
 - --target `<target-path>` (required as --flag or user input)
 - --answer-fields <1-6> or <7> --answer-ui textarea (set UI to textarea; default is fields=1, ui unset)
-- --answer-source `<undies|p|auto>` (default auto):
+- --answer-source `<undies|p|auto|sentence>` (default auto):
   - **undies**: extract from between `<span class="undies">`, `<b>`, and `<strong>` tags in question blocks
   - **p**: extract bold/underlined/strong from `<p>` (or prompt to derive from directions if missing)
   - **auto**: default; use **undies** if present, otherwise derive from reading p-tag directions and answering questions
+  - **sentence**: extract everything verbatim between form-based question block (p-tag) answers, sans HTML, and copy to file; warn about spacing/grammar/usage/punctuation artifacts and offer optional normalization to USA spelling/grammar/vernacular/usage only (including punctuation fixes) with explicit approval
 - --answers-mode `<all|alts>` (default all; sets answersAccepted combos)
   - all: single combo with all hashes
   - alts: separate combos, one per hash
