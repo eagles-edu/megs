@@ -163,6 +163,15 @@ ul.accordion-menu li > .item-wrapper > .menu-link > p > svg {
   padding: 0 5px 0 0;
 }
 
+@media (width <= 1000px) {
+  ul.accordion-menu li > .item-wrapper > .menu-link > a > img,
+  ul.accordion-menu li > .item-wrapper > .menu-link > p > img,
+  ul.accordion-menu li > .item-wrapper > .menu-link > a > svg,
+  ul.accordion-menu li > .item-wrapper > .menu-link > p > svg {
+    display: none;
+  }
+}
+
 /* Prevent CLS: reserve consistent space for menu icons */
 
 /* Prefer width + aspect-ratio so SVGs scale correctly without distortion */

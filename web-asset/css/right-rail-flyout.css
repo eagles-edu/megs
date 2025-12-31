@@ -212,6 +212,20 @@
   font-weight: 600;
 }
 
+@media (width <= 900px) {
+  /* Hide right rail at and below 900px. */
+  #aside {
+    display: none;
+  }
+}
+
+@media (width >= 901px) and (width <= 909px) {
+  /* Override legacy inline hides so the right rail stays visible just above 900px. */
+  #aside {
+    display: block;
+  }
+}
+
 @media (hover: hover) {
   .r-flyout-menu[data-flyout-origin="right"] [data-r-flyout-item]:hover > .r-flyout__panel,
   .r-flyout-menu[data-flyout-origin="right"] [data-r-flyout-item]:focus-within > .r-flyout__panel {

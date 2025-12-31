@@ -569,7 +569,19 @@ function injectTemplate(
   }
 
   $(".page-header h2").first().text(scraped.title)
-  const breadcrumbWrap = $(".breadcrumb-wrap").first()
+  let breadcrumbWrap = $(".breadcrumb-wrap").first()
+  if (!breadcrumbWrap.length) {
+    const fallbackList = $("ul.breadcrumb").first()
+    if (fallbackList.length) {
+      fallbackList.wrap('<nav class="breadcrumb-wrap" aria-label="Breadcrumb"></nav>')
+      breadcrumbWrap = fallbackList.parent()
+    }
+  } else if (breadcrumbWrap[0] && breadcrumbWrap[0].tagName !== "nav") {
+    const nav = $("<nav>").addClass("breadcrumb-wrap").attr("aria-label", "Breadcrumb")
+    nav.append(breadcrumbWrap.contents())
+    breadcrumbWrap.replaceWith(nav)
+    breadcrumbWrap = nav
+  }
   const breadcrumbList = breadcrumbWrap.find("ul.breadcrumb").first()
   const resolvedBreadcrumbList = breadcrumbList.length ? breadcrumbList : $("ul.breadcrumb").first()
   if (resolvedBreadcrumbList.length && scraped.breadcrumbs.length) {

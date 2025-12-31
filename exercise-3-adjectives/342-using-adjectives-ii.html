@@ -88,10 +88,6 @@
       }
 
       /* Preload critical image dimensions to prevent CLS */
-      img[src*="../images/banner.png"] {
-        height: 120;
-        width: 650;
-      }
 
       img[src*="../favicon.png"] {
         height: 24px;
@@ -303,6 +299,13 @@
 
     <!-- Critical augment: stabilize grid/menu to reduce CLS -->
     <style id="critical-inline-augment">
+      /* Container sizing (avoid full-width flash before base.css loads) */
+      .container {
+        margin: 0 auto;
+        max-width: 1100px;
+        padding: 0 18px;
+      }
+
       /* Grid layout (avoid block→flex shift when async CSS loads) */
       .row-fluid {
         display: flex;
@@ -1310,66 +1313,80 @@
               <div class="page-header">
                 <h2>3.4.2 Using Adjectives II</h2>
                 <div class="clearfix"></div>
-                <ul
-                  class="breadcrumb"
-                  itemscope=""
-                  itemtype="https://schema.org/BreadcrumbList">
-                  <li class="active"><span class="divider icon-location"></span></li>
-                  <li
-                    itemprop="itemListElement"
+                <nav
+                  class="breadcrumb-wrap"
+                  aria-label="Breadcrumb">
+                  <ul
+                    class="breadcrumb"
                     itemscope=""
-                    itemtype="https://schema.org/ListItem">
-                    <a
-                      itemprop="item"
-                      href="../index-2.html"
-                      class="pathway"
-                      aria-label="Home">
-                      <span itemprop="name">Home</span>
-                    </a>
-                    <span class="divider">
-                      <img
-                        src="../images/arrow.svg"
-                        alt=""
-                        width="9"
-                        height="9">
-                    </span>
-                    <meta
-                      itemprop="position"
-                      content="1">
-                  </li>
-                  <li
-                    itemprop="itemListElement"
-                    itemscope=""
-                    itemtype="https://schema.org/ListItem">
-                    <a
-                      itemprop="item"
-                      href="../exercise-3-adjectives.html"
-                      class="pathway"
-                      aria-label="Exercise 3 - Adjectives">
-                      <span itemprop="name">Exercise 3 - Adjectives</span>
-                    </a>
-                    <span class="divider">
-                      <img
-                        src="../images/arrow.svg"
-                        alt=""
-                        width="9"
-                        height="9">
-                    </span>
-                    <meta
-                      itemprop="position"
-                      content="2">
-                  </li>
-                  <li
-                    itemprop="itemListElement"
-                    itemscope=""
-                    itemtype="https://schema.org/ListItem"
-                    class="active">
-                    <span itemprop="name">3.4.2 Using Adjectives II</span>
-                    <meta
-                      itemprop="position"
-                      content="3">
-                  </li>
-                </ul>
+                    itemtype="https://schema.org/BreadcrumbList">
+                    <li class="active"><span class="divider icon-location"></span></li>
+                    <li
+                      itemprop="itemListElement"
+                      itemscope=""
+                      itemtype="https://schema.org/ListItem">
+                      <a
+                        itemprop="item"
+                        href="../index-2.html"
+                        class="pathway"
+                        aria-label="Home">
+                        <span itemprop="name">Home</span>
+                      </a>
+                      <span class="divider">
+                        &nbsp;
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 8 13.02"
+                          width="9"
+                          height="9">
+                          <polygon
+                            points="8 6.51 0 13.02 0 0 8 6.51"
+                            fill="#e0162b"></polygon>
+                        </svg>
+                      </span>
+                      <meta
+                        itemprop="position"
+                        content="1">
+                    </li>
+                    <li
+                      itemprop="itemListElement"
+                      itemscope=""
+                      itemtype="https://schema.org/ListItem">
+                      <a
+                        itemprop="item"
+                        href="../exercise-3-adjectives.html"
+                        class="pathway"
+                        aria-label="Exercise 3 - Adjectives">
+                        <span itemprop="name">Exercise 3 - Adjectives</span>
+                      </a>
+                      <span class="divider">
+                        &nbsp;
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 8 13.02"
+                          width="9"
+                          height="9">
+                          <polygon
+                            points="8 6.51 0 13.02 0 0 8 6.51"
+                            fill="#e0162b"></polygon>
+                        </svg>
+                      </span>
+                      <meta
+                        itemprop="position"
+                        content="2">
+                    </li>
+                    <li
+                      itemprop="itemListElement"
+                      itemscope=""
+                      itemtype="https://schema.org/ListItem"
+                      class="active">
+                      <span itemprop="name">3.4.2 Using Adjectives II</span>
+                      <meta
+                        itemprop="position"
+                        content="3">
+                    </li>
+                  </ul>
+                </nav>
               </div>
               <div itemprop="articleBody">
                 <ul class="pager pagenav">
@@ -1410,12 +1427,21 @@
                   </li>
                 </ul>
                 <br>
-<div class="exinstruct">
-                <p>Fill in the blanks using the following adjectives:</p>
-              <div class="blockdiv">
-                  <blockquote class="blockwrap">terrible &nbsp;proper &nbsp;happy &nbsp;uneasy &nbsp;violent &nbsp;nervous &nbsp;worrying &nbsp;anxious &nbsp;frightening &nbsp;difficult</blockquote>
-              </div>
-                <p><em>Each word is to be used only once</em>. Click question to check your answer.</p>
+                <div class="exinstruct">
+                  <p>Fill in the blanks using the following adjectives:</p>
+                  <div class="blockdiv">
+                    <blockquote class="blockwrap">
+                      terrible &nbsp;proper &nbsp;happy &nbsp;uneasy &nbsp;violent &nbsp;nervous &nbsp;worrying &nbsp;anxious
+                      &nbsp;frightening &nbsp;difficult
+                    </blockquote>
+                  </div>
+                  <p>
+                    <em>
+                      Each word is to be used only
+                      <b>once</b>
+                    </em>
+                    . Click the question to check your answer.
+                  </p>
                 </div>
                 <form
                   class="exercise-form exercise-gate"

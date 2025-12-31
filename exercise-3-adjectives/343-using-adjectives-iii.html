@@ -100,6 +100,14 @@
     #accordion_menu_90 li:hover {
       background: #6e92ff;
     }
+
+    /* CLS guard: reserve banner space before image load */
+    .header .brand img {
+      aspect-ratio: 650 / 120;
+      height: auto;
+      max-width: 100%;
+      width: 650px;
+    }
   </style>
   <script src="../media/jui/js/jquery.min592f.js" defer></script>
   <script src="../media/jui/js/jquery-noconflict592f.js" defer></script>
@@ -695,6 +703,7 @@
             </div>
           </div>
           <div class="clearfix"></div>
+          <nav class="breadcrumb-wrap" aria-label="Breadcrumb">
           <ul itemscope itemtype="https://schema.org/BreadcrumbList" class="breadcrumb">
             <li class="active"></li>
             <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
@@ -720,6 +729,7 @@
               <meta itemprop="position" content="3">
             </li>
           </ul>
+          </nav>
 
           <!-- End Content -->
         </main>
