@@ -719,12 +719,6 @@
         display: none;
       }
 
-      /* Breadcrumb divider icon explicit size, belt-and-suspenders */
-      ul.breadcrumb > li > span.divider > img {
-        height: 9px;
-        width: 9px;
-      }
-
       /* Additional CLS prevention: stabilize accordion toggle heights */
       .nn_sliders-toggle {
         align-items: center;
@@ -1310,10 +1304,11 @@
               <div class="page-header">
                 <h2>1.1.1 Common Nouns</h2>
                 <div class="clearfix"></div>
-                <ul
-                  class="breadcrumb"
-                  itemscope=""
-                  itemtype="https://schema.org/BreadcrumbList">
+                <nav class="breadcrumb-wrap" aria-label="Breadcrumb">
+                  <ul
+                    class="breadcrumb"
+                    itemscope=""
+                    itemtype="https://schema.org/BreadcrumbList">
                   <li class="active">
                     <span class="divider icon-location"></span>
                   </li>
@@ -1330,13 +1325,7 @@
                       <span itemprop="name">Home</span>
                     </a>
 
-                    <span class="divider">
-                      <img
-                        src="../images/arrow.svg"
-                        alt=""
-                        width="9"
-                        height="9">
-                    </span>
+                    <span class="divider">&nbsp;<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8 13.02" width="9" height="9"><polygon points="8 6.51 0 13.02 0 0 8 6.51" fill="#e0162b"></polygon></svg></span>
                     <meta
                       itemprop="position"
                       content="1">
@@ -1353,13 +1342,7 @@
                       <span itemprop="name">Exercise 1 - Nouns</span>
                     </a>
 
-                    <span class="divider">
-                      <img
-                        src="../images/arrow.svg"
-                        alt=""
-                        width="9"
-                        height="9">
-                    </span>
+                    <span class="divider">&nbsp;<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8 13.02" width="9" height="9"><polygon points="8 6.51 0 13.02 0 0 8 6.51" fill="#e0162b"></polygon></svg></span>
                     <meta
                       itemprop="position"
                       content="2">
@@ -1374,7 +1357,8 @@
                       itemprop="position"
                       content="3">
                   </li>
-                </ul>
+                  </ul>
+                </nav>
               </div>
               <div itemprop="articleBody">
                 <ul class="pager pagenav">

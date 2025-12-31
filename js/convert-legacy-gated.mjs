@@ -482,25 +482,40 @@ function applyPagerLink($, target, link) {
   if (ariaLabel) {
     target.attr("aria-label", ariaLabel)
   }
-  const icons = target
-    .find("svg")
-    .toArray()
-    .map((icon) => $(icon).clone())
+  const templateNodes = target.contents().toArray()
+  const labelSpan = link.label ? $("<span></span>").addClass("pager-label").text(link.label) : null
+  let labelInserted = false
+  const appendLabel = () => {
+    if (labelSpan && !labelInserted) {
+      target.append(labelSpan)
+      labelInserted = true
+    }
+  }
   target.empty()
-  const isNext = (link.rel || "").toLowerCase() === "next"
-  if (isNext) {
-    if (link.label) {
-      target.append(link.label)
+  templateNodes.forEach((node) => {
+    if (node.type === "tag") {
+      const nodeEl = $(node)
+      if (node.name === "span" && nodeEl.hasClass("pager-label")) {
+        if (labelSpan) {
+          appendLabel()
+        } else {
+          target.append(nodeEl.clone())
+        }
+        return
+      }
+      target.append(nodeEl.clone())
+      return
     }
-    if (icons.length) {
-      if (link.label) target.append("\u00a0\u00a0")
-      icons.forEach((icon) => target.append(icon))
+    if (node.type === "text") {
+      if (labelSpan && node.data && node.data.trim()) {
+        appendLabel()
+      } else if (!labelSpan && node.data) {
+        target.append(node.data)
+      }
     }
-  } else {
-    icons.forEach((icon) => target.append(icon))
-    if (link.label) {
-      target.append(`\u00a0\u00a0${link.label}`)
-    }
+  })
+  if (labelSpan && !labelInserted) {
+    target.append(labelSpan)
   }
 }
 
@@ -554,10 +569,14 @@ function injectTemplate(
   }
 
   $(".page-header h2").first().text(scraped.title)
-  const breadcrumbList = $("ul.breadcrumb").first()
-  if (breadcrumbList.length && scraped.breadcrumbs.length) {
-    breadcrumbList.empty()
-    breadcrumbList.append('<li class="active"><span class="divider icon-location"></span></li>')
+  const breadcrumbWrap = $(".breadcrumb-wrap").first()
+  const breadcrumbList = breadcrumbWrap.find("ul.breadcrumb").first()
+  const resolvedBreadcrumbList = breadcrumbList.length ? breadcrumbList : $("ul.breadcrumb").first()
+  if (resolvedBreadcrumbList.length && scraped.breadcrumbs.length) {
+    const dividerSvg =
+      '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8 13.02" width="9" height="9"><polygon points="8 6.51 0 13.02 0 0 8 6.51" fill="#e0162b"></polygon></svg>'
+    resolvedBreadcrumbList.empty()
+    resolvedBreadcrumbList.append('<li class="active"><span class="divider icon-location"></span></li>')
     scraped.breadcrumbs.forEach((crumb, index) => {
       const li = $("<li>").attr({
         itemprop: "itemListElement",
@@ -577,15 +596,13 @@ function injectTemplate(
         li.append(
           $("<span>")
             .addClass("divider")
-            .append(
-              $("<img>").attr({ src: "../images/arrow.svg", alt: "", width: "9", height: "9" })
-            )
+            .html(`&nbsp;${dividerSvg}`)
         )
       } else {
         li.append($("<span>").attr("itemprop", "name").text(crumb.name))
       }
       li.append($("<meta>").attr({ itemprop: "position", content: String(index + 1) }))
-      breadcrumbList.append(li)
+      resolvedBreadcrumbList.append(li)
     })
     logEvent(
       telemetry,
