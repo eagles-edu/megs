@@ -12,6 +12,7 @@
  * 4) Print Prompt4 (inject tools/hashes.txt into the answer key JSON).
  * 5) Run sync-answer-lengths to align lengths/min/max with answersAccepted.
  * 6) Run encode-p-text obfuscation unless obfuscation=none.
+ * 7) Run normalize-exinstruct unless normalize-exinstruct=skip.
  *
  * Usage examples:
  * - node tools/conversion-assistant.mjs --target exercise-4-adverbs/411-using-adverbs-part-1.html
@@ -42,12 +43,14 @@ const DEFAULTS = {
   ignoreExample: "auto",
   obfuscation: "form",
   diffPreview: true,
+  normalizeExinstruct: "skip",
 }
 
 const VALID_ANSWER_SOURCES = ["undies", "p", "auto", "sentence"]
 const VALID_ANSWERS_MODES = ["all", "alts"]
 const VALID_IGNORE_EXAMPLE = ["auto", "prefix", "first", "none"]
 const VALID_OBFUSCATION = ["form", "form-highlighted", "highlighted", "all", "none"]
+const VALID_NORMALIZE_EXINSTRUCT = ["write", "dry-run", "skip"]
 
 const ANSWER_SOURCE_TEXT = {
   undies:
@@ -87,6 +90,8 @@ Options:
   --answers-mode <val>    all | alts (default all)
   --ignore-example [val]  auto | prefix | first | none (standalone defaults to prefix)
   --obfuscation <val>     form | form-highlighted | highlighted | all | none (default form)
+  --normalize-exinstruct [mode]  write | dry-run | skip (default skip)
+  --no-normalize-exinstruct      skip normalize-exinstruct
   --diff-preview [bool]   true | false (default true)
   --no-diff-preview       disable diff preview
   --help                  show help
@@ -132,6 +137,7 @@ function parseArgs(argv) {
     answersMode: false,
     ignoreExample: false,
     obfuscation: false,
+    normalizeExinstruct: false,
     diffPreview: false,
   }
 
@@ -170,6 +176,18 @@ function parseArgs(argv) {
     } else if (arg === "--obfuscation") {
       args.obfuscation = (argv[++i] || "").trim().toLowerCase()
       provided.obfuscation = true
+    } else if (arg === "--normalize-exinstruct") {
+      const candidate = argv[i + 1]
+      if (candidate && !candidate.startsWith("-")) {
+        args.normalizeExinstruct = candidate.trim().toLowerCase()
+        i += 1
+      } else {
+        args.normalizeExinstruct = "write"
+      }
+      provided.normalizeExinstruct = true
+    } else if (arg === "--no-normalize-exinstruct") {
+      args.normalizeExinstruct = "skip"
+      provided.normalizeExinstruct = true
     } else if (arg === "--diff-preview") {
       const candidate = argv[i + 1]
       if (candidate && !candidate.startsWith("-")) {
@@ -316,7 +334,7 @@ function buildPrompt1(target, answerSource) {
     wrapWithBackticks(target) +
     " pull answers from question p-tags, " +
     sourceText +
-    ", then copying those words / phrases / sentences, sans question numbers (i.e., 1. , 2. , etc.), to `tools/input.txt`, formatting only a linebreak between answers of the same answer group and a blank line between answer groups.\n\n" +
+    ", then copying those words / phrases / sentences, sans question numbers (i.e., 1. , 2. , etc.), to `tools/input.txt` overwriting it, formatting only a linebreak between answers of the same answer group and a blank line between answer groups.\n\n" +
     '"'
   )
 }
@@ -377,6 +395,17 @@ function buildCmd5(target, obfuscation) {
   }
   const scope = scopeMap[obfuscation] || "all"
   return ["node", "tools/encode-p-text.mjs", "--write", "--scope", scope, target]
+}
+
+function buildCmd6(target, normalizeMode) {
+  if (normalizeMode === "skip") return null
+  const cmd = ["node", "tools/normalize-exinstruct.mjs", "--target", target]
+  if (normalizeMode === "write") {
+    cmd.push("--write")
+  } else if (normalizeMode === "dry-run") {
+    cmd.push("--dry-run")
+  }
+  return cmd
 }
 
 function commandToString(cmd) {
@@ -456,6 +485,16 @@ async function main() {
       ? await promptChoice(ask, "obfuscation scope", VALID_OBFUSCATION, DEFAULTS.obfuscation)
       : DEFAULTS.obfuscation
   }
+  if (!provided.normalizeExinstruct) {
+    args.normalizeExinstruct = ask
+      ? await promptChoice(
+          ask,
+          "normalize exinstruct",
+          VALID_NORMALIZE_EXINSTRUCT,
+          DEFAULTS.normalizeExinstruct
+        )
+      : DEFAULTS.normalizeExinstruct
+  }
   if (!provided.diffPreview) {
     args.diffPreview = ask ? await promptDiffPreview(ask, DEFAULTS.diffPreview) : DEFAULTS.diffPreview
   }
@@ -464,12 +503,18 @@ async function main() {
   args.answersMode = normalizeChoice(args.answersMode, VALID_ANSWERS_MODES, "answers-mode")
   args.ignoreExample = normalizeChoice(args.ignoreExample, VALID_IGNORE_EXAMPLE, "ignore-example")
   args.obfuscation = normalizeChoice(args.obfuscation, VALID_OBFUSCATION, "obfuscation")
+  args.normalizeExinstruct = normalizeChoice(
+    args.normalizeExinstruct,
+    VALID_NORMALIZE_EXINSTRUCT,
+    "normalize-exinstruct"
+  )
 
   const prompt1 = buildPrompt1(targetDisplay, args.answerSource)
   const cmd2 = buildCmd2(args.title)
   const prompt4 = buildPrompt4(targetDisplay, args.answersMode)
   const cmd4 = buildCmd4(targetDisplay)
   const cmd5 = buildCmd5(targetDisplay, args.obfuscation)
+  const cmd6 = buildCmd6(targetDisplay, args.normalizeExinstruct)
 
   console.log("\n1. Print Prompt1:")
   console.log(prompt1)
@@ -539,6 +584,19 @@ async function main() {
   } else {
     console.log("\n6. Execute CMD5:")
     console.log("Obfuscation skipped (scope=none).")
+  }
+
+  if (cmd6) {
+    console.log("\n7. Execute CMD6:")
+    console.log(commandToString(cmd6))
+    if (!(await pauseOrQuit(ask, PAUSE_COMMAND))) {
+      prompter?.close()
+      process.exit(0)
+    }
+    runCommand(cmd6, "CMD6")
+  } else {
+    console.log("\n7. Execute CMD6:")
+    console.log("Normalize exinstruct skipped (mode=skip).")
   }
 
   prompter?.close()
