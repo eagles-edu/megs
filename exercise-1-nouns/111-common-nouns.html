@@ -55,6 +55,14 @@
         --pager-padding-inline: 0.95rem;
         --pager-text-color: var(--text-color, #212121);
         --menu-icon-pad-inline: 6px;
+        --font-base:
+          roboto, system-ui, -apple-system, blinkmacsystemfont, "Noto Sans", "Segoe UI", ubuntu,
+          cantarell, "Liberation Sans", "DejaVu Sans", "Apple Color Emoji", "Segoe UI Emoji",
+          "Noto Color Emoji", sans-serif;
+        --font-header:
+          roboto, system-ui, -apple-system, blinkmacsystemfont, "Noto Sans", "Segoe UI", ubuntu,
+          cantarell, "Liberation Sans", "DejaVu Sans", "Apple Color Emoji", "Segoe UI Emoji",
+          "Noto Color Emoji", sans-serif;
         --left-menu-font-size: clamp(0.86rem, calc(0.72rem + 0.45vw), 0.96rem);
         --left-menu-icon-size: clamp(1.25rem, calc(var(--left-menu-font-size) * 1.2), 1.45rem);
         --left-menu-icon-slot: calc(var(--left-menu-icon-size) * 1.32);
@@ -83,8 +91,11 @@
       body.base,
       body.site {
         border-top: 15px solid var(--footer-background);
-        padding: 20px;
         background-color: var(--background-color);
+        color: var(--text-color);
+        font-family: var(--font-base);
+        line-height: 1.5;
+        padding: 20px;
       }
 
       /* Preload critical image dimensions to prevent CLS */
@@ -299,6 +310,22 @@
     <!-- Critical augment: stabilize grid/menu to reduce CLS -->
     <style id="critical-inline-augment">
       /* Grid layout (avoid block→flex shift when async CSS loads) */
+      .container {
+        margin: 0 auto;
+        max-width: 1100px;
+        padding: 0 18px;
+      }
+
+      .container2 {
+        margin: 0 auto;
+        max-width: 1085px;
+        padding: 0 18px;
+      }
+
+      .padme1 {
+        padding-top: 3rem !important;
+      }
+
       .row-fluid {
         display: flex;
         flex-wrap: wrap;
@@ -323,6 +350,20 @@
         .row-fluid > .span8 {
           flex: 0 0 66.6667%;
           max-width: 66.6667%;
+        }
+
+        #sidebar {
+          min-width: 130px;
+        }
+
+        #aside {
+          min-width: 120px;
+        }
+
+        #content {
+          flex: 1 1 0;
+          max-width: none;
+          min-width: 0;
         }
       }
 
@@ -512,6 +553,15 @@
         padding: 0;
       }
 
+      .exercise-form__last-attempt {
+        align-items: center;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.35rem;
+        margin: 0 0 0.75rem;
+        min-height: 1.5rem;
+      }
+
       #aside .r-flyout-menu > [data-r-flyout-item] {
         border-bottom: 1px solid var(--divider-color, #e1e7f0);
         position: relative;
@@ -543,6 +593,7 @@
       }
 
       #aside .r-flyout-menu > [data-r-flyout-item].current > .r-flyout__header {
+        background: var(--surface-warm, #fff);
         color: var(--primary-color, #e0162b);
       }
 
@@ -1066,8 +1117,7 @@
                         <div class="menu-button"></div>
                         <div class="menu-link">
                           <a
-                            href="../index-2.html"
-                            aria-label="Home">
+                            href="../index-2.html">
                             <svg
                               version="1.1"
                               xmlns="http://www.w3.org/2000/svg"
@@ -1089,8 +1139,7 @@
                         <div class="menu-button"></div>
                         <div class="menu-link">
                           <a
-                            href="../grammar-lessons.html"
-                            aria-label="Lessons">
+                            href="../grammar-lessons.html">
                             <svg
                               version="1.1"
                               xmlns="http://www.w3.org/2000/svg"
@@ -1111,8 +1160,7 @@
                         <div class="menu-button"></div>
                         <div class="menu-link">
                           <a
-                            href="../grammar-exercises.html"
-                            aria-label="Exercises">
+                            href="../grammar-exercises.html">
                             <svg
                               version="1.1"
                               xmlns="http://www.w3.org/2000/svg"
@@ -1133,8 +1181,7 @@
                         <div class="menu-button"></div>
                         <div class="menu-link">
                           <a
-                            href="../introduction-to-tenses.html"
-                            aria-label="Tenses">
+                            href="../introduction-to-tenses.html">
                             <svg
                               version="1.1"
                               xmlns="http://www.w3.org/2000/svg"
@@ -1155,8 +1202,7 @@
                         <div class="menu-button"></div>
                         <div class="menu-link">
                           <a
-                            href="../writing.html"
-                            aria-label="Writing">
+                            href="../writing.html">
                             <svg
                               version="1.1"
                               xmlns="http://www.w3.org/2000/svg"
@@ -1178,8 +1224,7 @@
                         <div class="menu-button"></div>
                         <div class="menu-link">
                           <a
-                            href="../vocabulary.html"
-                            aria-label="Vocabulary">
+                            href="../vocabulary.html">
                             <svg
                               version="1.1"
                               xmlns="http://www.w3.org/2000/svg"
@@ -1200,8 +1245,7 @@
                         <div class="menu-button"></div>
                         <div class="menu-link">
                           <a
-                            href="../glossary.html"
-                            aria-label="Glossary">
+                            href="../glossary.html">
                             <svg
                               version="1.1"
                               xmlns="http://www.w3.org/2000/svg"
@@ -1226,8 +1270,7 @@
                       <div class="item-wrapper">
                         <div class="menu-link">
                           <a
-                            href="../lists.html"
-                            aria-label="Lists">
+                            href="../lists.html">
                             <svg
                               version="1.1"
                               xmlns="http://www.w3.org/2000/svg"
@@ -1250,8 +1293,7 @@
                               <div class="menu-button"></div>
                               <div class="menu-link">
                                 <a
-                                  href="../lists.html"
-                                  aria-label="Lists">
+                                  href="../lists.html">
                                   Lists
                                 </a>
                               </div>
@@ -1262,8 +1304,7 @@
                               <div class="menu-button"></div>
                               <div class="menu-link">
                                 <a
-                                  href="../prepositions.html"
-                                  aria-label="Prepositions">
+                                  href="../prepositions.html">
                                   Prepositions
                                 </a>
                               </div>
@@ -1274,8 +1315,7 @@
                               <div class="menu-button"></div>
                               <div class="menu-link">
                                 <a
-                                  href="../lists2/words-from-a-z.html"
-                                  aria-label="Sentences (v+prep)">
+                                  href="../lists2/words-from-a-z.html">
                                   Sentences
                                 </a>
                               </div>
@@ -1322,8 +1362,7 @@
                       <a
                         itemprop="item"
                         href="../index-2.html"
-                        class="pathway"
-                        aria-label="Home">
+                        class="pathway">
                         <span itemprop="name">Home</span>
                       </a>
 
@@ -1350,8 +1389,7 @@
                       <a
                         itemprop="item"
                         href="../exercise-1-nouns.html"
-                        class="pathway"
-                        aria-label="Exercise 1 - Nouns">
+                        class="pathway">
                         <span itemprop="name">Exercise 1 - Nouns</span>
                       </a>
 
@@ -1389,8 +1427,7 @@
                   <li class="previous">
                     <a
                       href="../exercise-1-nouns.html"
-                      rel="prev"
-                      aria-label="Exercise 1 - Nouns">
+                      rel="prev">
                       <svg
                         version="1.1"
                         xmlns="http://www.w3.org/2000/svg"
@@ -1406,8 +1443,7 @@
                   <li class="next">
                     <a
                       href="112-proper-nouns.html"
-                      rel="next"
-                      aria-label="1.1.2 Proper Nouns">
+                      rel="next">
                       <span class="pager-label">1.1.2 Proper Nouns</span>
                       <svg
                         version="1.1"
@@ -1496,7 +1532,6 @@
                             href="111-common-nouns.html#sec-1-they-arrived-early-but-at-the-wrong-station"
                             aria-controls="sec-1-they-arrived-early-but-at-the-wrong-station"
                             data-id="sec-1-they-arrived-early-but-at-the-wrong-station"
-                            aria-label="Answer"
                             class="accordion-toggle nn_sliders-toggle"
                             data-toggle="collapse"
                             data-parent="#set-nn_sliders-1"
@@ -1576,7 +1611,6 @@
                         <div class="accordion-heading panel-heading">
                           <a
                             href="111-common-nouns.html#sec-2-we-counted-only-six-different-colours-in-the-rainbow"
-                            aria-label="Answer"
                             class="accordion-toggle nn_sliders-toggle"
                             data-toggle="collapse"
                             data-id="sec-2-we-counted-only-six-different-colours-in-the-rainbow"
@@ -1659,7 +1693,6 @@
                         <div class="accordion-heading panel-heading">
                           <a
                             href="111-common-nouns.html#sec-3-the-man-was-trying-to-steal-a-horse-with-a-cart-full-of-apples"
-                            aria-label="Answer"
                             class="accordion-toggle nn_sliders-toggle"
                             data-toggle="collapse"
                             data-id="sec-3-the-man-was-trying-to-steal-a-horse-with-a-cart-full-of-apples"
@@ -1749,7 +1782,6 @@
                         <div class="accordion-heading panel-heading">
                           <a
                             href="111-common-nouns.html#sec-4-they-have-gone-to-the-zoo-to-see-the-black-sheep"
-                            aria-label="Answer"
                             class="accordion-toggle nn_sliders-toggle"
                             data-toggle="collapse"
                             data-id="sec-4-they-have-gone-to-the-zoo-to-see-the-black-sheep"
@@ -1834,7 +1866,6 @@
                         <div class="accordion-heading panel-heading">
                           <a
                             href="111-common-nouns.html#sec-5-she-put-her-head-on-her-arms-and-cried-loudly"
-                            aria-label="Answer"
                             class="accordion-toggle nn_sliders-toggle"
                             data-toggle="collapse"
                             data-id="sec-5-she-put-her-head-on-her-arms-and-cried-loudly"
@@ -1920,7 +1951,6 @@
                         <div class="accordion-heading panel-heading">
                           <a
                             href="111-common-nouns.html#sec-6-my-mother-is-singing-a-religious-song-in-the-kitchen"
-                            aria-label="Answer"
                             class="accordion-toggle nn_sliders-toggle"
                             data-toggle="collapse"
                             data-id="sec-6-my-mother-is-singing-a-religious-song-in-the-kitchen"
@@ -2007,7 +2037,6 @@
                         <div class="accordion-heading panel-heading">
                           <a
                             href="111-common-nouns.html#sec-7-he-threw-some-salted-nuts-to-the-monkeys"
-                            aria-label="Answer"
                             class="accordion-toggle nn_sliders-toggle"
                             data-toggle="collapse"
                             data-id="sec-7-he-threw-some-salted-nuts-to-the-monkeys"
@@ -2092,7 +2121,6 @@
                         <div class="accordion-heading panel-heading">
                           <a
                             href="111-common-nouns.html#sec-8-the-children-are-kicking-a-ball-around-in-the-field"
-                            aria-label="Answer"
                             class="accordion-toggle nn_sliders-toggle"
                             data-toggle="collapse"
                             data-id="sec-8-the-children-are-kicking-a-ball-around-in-the-field"
@@ -2179,7 +2207,6 @@
                         <div class="accordion-heading panel-heading">
                           <a
                             href="111-common-nouns.html#sec-9-that-temple-was-built-before-my-grandfather-was-born"
-                            aria-label="Answer"
                             class="accordion-toggle nn_sliders-toggle"
                             data-toggle="collapse"
                             data-id="sec-9-that-temple-was-built-before-my-grandfather-was-born"
@@ -2264,7 +2291,6 @@
                         <div class="accordion-heading panel-heading">
                           <a
                             href="111-common-nouns.html#sec-10-he-bought-balloons-for-his-children-and-their-friends"
-                            aria-label="Answer"
                             class="accordion-toggle nn_sliders-toggle"
                             data-toggle="collapse"
                             data-id="sec-10-he-bought-balloons-for-his-children-and-their-friends"
@@ -2351,7 +2377,6 @@
                         <div class="accordion-heading panel-heading">
                           <a
                             href="111-common-nouns.html#sec-11-my-father-swims-like-a-turtle"
-                            aria-label="Answer"
                             class="accordion-toggle nn_sliders-toggle"
                             data-toggle="collapse"
                             data-id="sec-11-my-father-swims-like-a-turtle"
@@ -2435,7 +2460,6 @@
                         <div class="accordion-heading panel-heading">
                           <a
                             href="111-common-nouns.html#sec-12-she-won-a-trophy-for-best-dancer-in-the-street"
-                            aria-label="Answer"
                             class="accordion-toggle nn_sliders-toggle"
                             data-toggle="collapse"
                             data-id="sec-12-she-won-a-trophy-for-best-dancer-in-the-street"
@@ -2522,7 +2546,6 @@
                         <div class="accordion-heading panel-heading">
                           <a
                             href="111-common-nouns.html#sec-13-simply-point-your-camera-at-the-camel-and-press-the-button"
-                            aria-label="Answer"
                             class="accordion-toggle nn_sliders-toggle"
                             data-toggle="collapse"
                             data-id="sec-13-simply-point-your-camera-at-the-camel-and-press-the-button"
@@ -2609,7 +2632,6 @@
                         <div class="accordion-heading panel-heading">
                           <a
                             href="111-common-nouns.html#sec-14-we-watched-seabirds-flocking-above-our-heads"
-                            aria-label="Answer"
                             class="accordion-toggle nn_sliders-toggle"
                             data-toggle="collapse"
                             data-id="sec-14-we-watched-seabirds-flocking-above-our-heads"
@@ -2694,7 +2716,6 @@
                         <div class="accordion-heading panel-heading">
                           <a
                             href="111-common-nouns.html#sec-15-he-went-to-visit-his-homesick-uncle-at-the-hospital"
-                            aria-label="Answer"
                             class="accordion-toggle nn_sliders-toggle"
                             data-toggle="collapse"
                             data-id="sec-15-he-went-to-visit-his-homesick-uncle-at-the-hospital"
@@ -2779,7 +2800,6 @@
                         <div class="accordion-heading panel-heading">
                           <a
                             href="111-common-nouns.html#sec-16-my-brother-wants-to-play-hide-and-seek-with-us"
-                            aria-label="Answer"
                             class="accordion-toggle nn_sliders-toggle"
                             data-toggle="collapse"
                             data-id="sec-16-my-brother-wants-to-play-hide-and-seek-with-us"
@@ -2864,7 +2884,6 @@
                         <div class="accordion-heading panel-heading">
                           <a
                             href="111-common-nouns.html#sec-17-let-me-look-at-your-puppies-and-kittens"
-                            aria-label="Answer"
                             class="accordion-toggle nn_sliders-toggle"
                             data-toggle="collapse"
                             data-id="sec-17-let-me-look-at-your-puppies-and-kittens"
@@ -2949,7 +2968,6 @@
                         <div class="accordion-heading panel-heading">
                           <a
                             href="111-common-nouns.html#sec-18-the-taxi-broke-down-in-front-of-my-gate"
-                            aria-label="Answer"
                             class="accordion-toggle nn_sliders-toggle"
                             data-toggle="collapse"
                             data-id="sec-18-the-taxi-broke-down-in-front-of-my-gate"
@@ -3034,7 +3052,6 @@
                         <div class="accordion-heading panel-heading">
                           <a
                             href="111-common-nouns.html#sec-19-the-boys-are-quarrelling-noisily-on-the-beach"
-                            aria-label="Answer"
                             class="accordion-toggle nn_sliders-toggle"
                             data-toggle="collapse"
                             data-id="sec-19-the-boys-are-quarrelling-noisily-on-the-beach"
@@ -3119,7 +3136,6 @@
                         <div class="accordion-heading panel-heading">
                           <a
                             href="111-common-nouns.html#sec-20-the-monkey-was-hanging-by-its-tail-from-a-branch"
-                            aria-label="Answer"
                             class="accordion-toggle nn_sliders-toggle"
                             data-toggle="collapse"
                             data-id="sec-20-the-monkey-was-hanging-by-its-tail-from-a-branch"
@@ -3363,8 +3379,7 @@
                   <li class="previous">
                     <a
                       href="../exercise-1-nouns.html"
-                      rel="prev"
-                      aria-label="Exercise 1 - Nouns">
+                      rel="prev">
                       <svg
                         version="1.1"
                         xmlns="http://www.w3.org/2000/svg"
@@ -3380,8 +3395,7 @@
                   <li class="next">
                     <a
                       href="112-proper-nouns.html"
-                      rel="next"
-                      aria-label="1.1.2 Proper Nouns">
+                      rel="next">
                       <span class="pager-label">1.1.2 Proper Nouns</span>
                       <svg
                         version="1.1"
@@ -3437,8 +3451,7 @@
                     <div class="menu-link r-flyout__link-wrap">
                       <a
                         class="r-flyout__link"
-                        href="../exercise-1-nouns.html"
-                        aria-label="Nouns">
+                        href="../exercise-1-nouns.html">
                         Nouns
                       </a>
                     </div>
@@ -3453,8 +3466,7 @@
                         <div class="item-wrapper">
                           <div class="menu-link">
                             <a
-                              href="../exercise-1-nouns/111-common-nouns.html"
-                              aria-label="1.1.1 Common Nouns">
+                              href="../exercise-1-nouns/111-common-nouns.html">
                               1.1.1 Common Nouns
                             </a>
                           </div>
@@ -3464,8 +3476,7 @@
                         <div class="item-wrapper">
                           <div class="menu-link">
                             <a
-                              href="../exercise-1-nouns/112-proper-nouns.html"
-                              aria-label="1.1.2 Proper Nouns">
+                              href="../exercise-1-nouns/112-proper-nouns.html">
                               1.1.2 Proper Nouns
                             </a>
                           </div>
@@ -3475,8 +3486,7 @@
                         <div class="item-wrapper">
                           <div class="menu-link">
                             <a
-                              href="../exercise-1-nouns/113-abstract-nouns.html"
-                              aria-label="1.1.3 Abstract Nouns">
+                              href="../exercise-1-nouns/113-abstract-nouns.html">
                               1.1.3 Abstract Nouns
                             </a>
                           </div>
@@ -3486,8 +3496,7 @@
                         <div class="item-wrapper">
                           <div class="menu-link">
                             <a
-                              href="../exercise-1-nouns/114-collective-nouns.html"
-                              aria-label="1.1.4 Collective Nouns">
+                              href="../exercise-1-nouns/114-collective-nouns.html">
                               1.1.4 Collective Nouns
                             </a>
                           </div>
@@ -3497,8 +3506,7 @@
                         <div class="item-wrapper">
                           <div class="menu-link">
                             <a
-                              href="../exercise-1-nouns/121-singular-and-plural-nouns.html"
-                              aria-label="1.2.1 Singular and Plural Nouns">
+                              href="../exercise-1-nouns/121-singular-and-plural-nouns.html">
                               1.2.1 Singular and Plural Nouns
                             </a>
                           </div>
@@ -3508,8 +3516,7 @@
                         <div class="item-wrapper">
                           <div class="menu-link">
                             <a
-                              href="../exercise-1-nouns/131-countable-and-uncountable-nouns.html"
-                              aria-label="1.3.1 Countable and Uncountable Nouns">
+                              href="../exercise-1-nouns/131-countable-and-uncountable-nouns.html">
                               1.3.1 Countable and Uncountable Nouns
                             </a>
                           </div>
@@ -3519,8 +3526,7 @@
                         <div class="item-wrapper">
                           <div class="menu-link">
                             <a
-                              href="../exercise-1-nouns/141-forming-nouns.html"
-                              aria-label="1.4.1 Forming Nouns">
+                              href="../exercise-1-nouns/141-forming-nouns.html">
                               1.4.1 Forming Nouns
                             </a>
                           </div>
@@ -3530,8 +3536,7 @@
                         <div class="item-wrapper">
                           <div class="menu-link">
                             <a
-                              href="../exercise-1-nouns/151-gender.html"
-                              aria-label="1.5.1 Gender">
+                              href="../exercise-1-nouns/151-gender.html">
                               1.5.1 Gender
                             </a>
                           </div>
@@ -3541,8 +3546,7 @@
                         <div class="item-wrapper">
                           <div class="menu-link">
                             <a
-                              href="../exercise-1-nouns/161-gender-neutral.html"
-                              aria-label="1.6.1 Gender Neutral">
+                              href="../exercise-1-nouns/161-gender-neutral.html">
                               1.6.1 Gender Neutral
                             </a>
                           </div>
@@ -3576,8 +3580,7 @@
                     <div class="menu-link r-flyout__link-wrap">
                       <a
                         class="r-flyout__link"
-                        href="../exercise-2-verbs.html"
-                        aria-label="Verbs">
+                        href="../exercise-2-verbs.html">
                         Verbs
                       </a>
                     </div>
@@ -3592,8 +3595,7 @@
                         <div class="item-wrapper">
                           <div class="menu-link">
                             <a
-                              href="../exercise-2-verbs/211-transitive-and-intransitive-verbs.html"
-                              aria-label="2.1.1 Transitive and Intransitive Verbs">
+                              href="../exercise-2-verbs/211-transitive-and-intransitive-verbs.html">
                               2.1.1 Transitive and Intransitive Verbs
                             </a>
                           </div>
@@ -3603,8 +3605,7 @@
                         <div class="item-wrapper">
                           <div class="menu-link">
                             <a
-                              href="../exercise-2-verbs/221-linking-verbs.html"
-                              aria-label="2.2.1 Linking Verbs">
+                              href="../exercise-2-verbs/221-linking-verbs.html">
                               2.2.1 Linking Verbs
                             </a>
                           </div>
@@ -3614,8 +3615,7 @@
                         <div class="item-wrapper">
                           <div class="menu-link">
                             <a
-                              href="../exercise-2-verbs/231-auxiliary-verbs.html"
-                              aria-label="2.3.1 Auxiliary Verbs">
+                              href="../exercise-2-verbs/231-auxiliary-verbs.html">
                               2.3.1 Auxiliary Verbs
                             </a>
                           </div>
@@ -3625,8 +3625,7 @@
                         <div class="item-wrapper">
                           <div class="menu-link">
                             <a
-                              href="../exercise-2-verbs/261-irregular-verbs-i.html"
-                              aria-label="2.6.1 Irregular Verbs">
+                              href="../exercise-2-verbs/261-irregular-verbs-i.html">
                               2.6.1 Irregular Verbs I
                             </a>
                           </div>
@@ -3636,8 +3635,7 @@
                         <div class="item-wrapper">
                           <div class="menu-link">
                             <a
-                              href="../exercise-2-verbs/262-irregular-verbs-ii.html"
-                              aria-label="2.6.2 Irregular Verbs II">
+                              href="../exercise-2-verbs/262-irregular-verbs-ii.html">
                               2.6.2 Irregular Verbs II
                             </a>
                           </div>
@@ -3671,8 +3669,7 @@
                     <div class="menu-link r-flyout__link-wrap">
                       <a
                         class="r-flyout__link"
-                        href="../exercise-3-adjectives.html"
-                        aria-label="Adjectives">
+                        href="../exercise-3-adjectives.html">
                         Adjectives
                       </a>
                     </div>
@@ -3687,8 +3684,7 @@
                         <div class="item-wrapper">
                           <div class="menu-link">
                             <a
-                              href="../exercise-3-adjectives/311-kinds-of-adjectives.html"
-                              aria-label="3.1.1 Kinds of Adjectives">
+                              href="../exercise-3-adjectives/311-kinds-of-adjectives.html">
                               3.1.1 Kinds of Adjectives
                             </a>
                           </div>
@@ -3698,8 +3694,7 @@
                         <div class="item-wrapper">
                           <div class="menu-link">
                             <a
-                              href="../exercise-3-adjectives/321-comparing-adjectives.html"
-                              aria-label="3.2.1 Comparing Adjectives">
+                              href="../exercise-3-adjectives/321-comparing-adjectives.html">
                               3.2.1 Comparing Adjectives
                             </a>
                           </div>
@@ -3709,8 +3704,7 @@
                         <div class="item-wrapper">
                           <div class="menu-link">
                             <a
-                              href="../exercise-3-adjectives/331-forming-adjectives.html"
-                              aria-label="3.3.1 Forming Adjectives">
+                              href="../exercise-3-adjectives/331-forming-adjectives.html">
                               3.3.1 Forming Adjectives
                             </a>
                           </div>
@@ -3720,8 +3714,7 @@
                         <div class="item-wrapper">
                           <div class="menu-link">
                             <a
-                              href="../exercise-3-adjectives/341-using-adjectives-i.html"
-                              aria-label="3.4.1 Using Adjectives">
+                              href="../exercise-3-adjectives/341-using-adjectives-i.html">
                               3.4.1 Using Adjectives I
                             </a>
                           </div>
@@ -3731,8 +3724,7 @@
                         <div class="item-wrapper">
                           <div class="menu-link">
                             <a
-                              href="../exercise-3-adjectives/342-using-adjectives-ii.html"
-                              aria-label="3.4.2 Using Adjectives">
+                              href="../exercise-3-adjectives/342-using-adjectives-ii.html">
                               3.4.2 Using Adjectives II
                             </a>
                           </div>
@@ -3742,8 +3734,7 @@
                         <div class="item-wrapper">
                           <div class="menu-link">
                             <a
-                              href="../exercise-3-adjectives/343-using-adjectives-iii.html"
-                              aria-label="3.4.3 Using Adjectives">
+                              href="../exercise-3-adjectives/343-using-adjectives-iii.html">
                               3.4.3 Using Adjectives III
                             </a>
                           </div>
@@ -3753,8 +3744,7 @@
                         <div class="item-wrapper">
                           <div class="menu-link">
                             <a
-                              href="../exercise-3-adjectives/345-correct-usage-of-adjectives.html"
-                              aria-label="3.4.5 Correct Usage of Adjectives">
+                              href="../exercise-3-adjectives/345-correct-usage-of-adjectives.html">
                               3.4.5 Correct Usage of Adjectives
                             </a>
                           </div>
@@ -3764,8 +3754,7 @@
                         <div class="item-wrapper">
                           <div class="menu-link">
                             <a
-                              href="../exercise-3-adjectives/351-positioning-adjectives.html"
-                              aria-label="3.5.1 Ordering Adjectives">
+                              href="../exercise-3-adjectives/351-positioning-adjectives.html">
                               3.5.1 Ordering Adjectives
                             </a>
                           </div>
@@ -3799,8 +3788,7 @@
                     <div class="menu-link r-flyout__link-wrap">
                       <a
                         class="r-flyout__link"
-                        href="../exercise-4-adverbs.html"
-                        aria-label="Menu Link">
+                        href="../exercise-4-adverbs.html">
                         Adverbs
                       </a>
                     </div>
@@ -3815,8 +3803,7 @@
                         <div class="item-wrapper">
                           <div class="menu-link">
                             <a
-                              href="../exercise-4-adverbs/411-using-adverbs-part-1.html"
-                              aria-label="Menu Link">
+                              href="../exercise-4-adverbs/411-using-adverbs-part-1.html">
                               4.1.1 Using Adverbs (Part 1)
                             </a>
                           </div>
@@ -3826,8 +3813,7 @@
                         <div class="item-wrapper">
                           <div class="menu-link">
                             <a
-                              href="../exercise-4-adverbs/412-using-adverbs-part-2.html"
-                              aria-label="Menu Link">
+                              href="../exercise-4-adverbs/412-using-adverbs-part-2.html">
                               4.1.2 Using Adverbs (Part 2)
                             </a>
                           </div>
@@ -3837,8 +3823,7 @@
                         <div class="item-wrapper">
                           <div class="menu-link">
                             <a
-                              href="../exercise-4-adverbs/421-positioning-adverbs-part-1.html"
-                              aria-label="Menu Link">
+                              href="../exercise-4-adverbs/421-positioning-adverbs-part-1.html">
                               4.2.1 Positioning Adverbs (Part 1)
                             </a>
                           </div>
@@ -3848,8 +3833,7 @@
                         <div class="item-wrapper">
                           <div class="menu-link">
                             <a
-                              href="../exercise-4-adverbs/422-positioning-adverbs-part-2.html"
-                              aria-label="Menu Link">
+                              href="../exercise-4-adverbs/422-positioning-adverbs-part-2.html">
                               4.2.2 Positioning Adverbs (Part 2)
                             </a>
                           </div>
@@ -3859,8 +3843,7 @@
                         <div class="item-wrapper">
                           <div class="menu-link">
                             <a
-                              href="../exercise-4-adverbs/423-positioning-adverbs-part-3.html"
-                              aria-label="Menu Link">
+                              href="../exercise-4-adverbs/423-positioning-adverbs-part-3.html">
                               4.2.3 Positioning Adverbs (Part 3)
                             </a>
                           </div>
@@ -3870,8 +3853,7 @@
                         <div class="item-wrapper">
                           <div class="menu-link">
                             <a
-                              href="../exercise-4-adverbs/431-modifying-verbs.html"
-                              aria-label="Menu Link">
+                              href="../exercise-4-adverbs/431-modifying-verbs.html">
                               4.3.1 Modifying Verbs
                             </a>
                           </div>
@@ -3881,8 +3863,7 @@
                         <div class="item-wrapper">
                           <div class="menu-link">
                             <a
-                              href="../exercise-4-adverbs/432-modifying-adjectives-part-1.html"
-                              aria-label="Menu Link">
+                              href="../exercise-4-adverbs/432-modifying-adjectives-part-1.html">
                               4.3.2 Modifying Adjectives (Part 1)
                             </a>
                           </div>
@@ -3892,8 +3873,7 @@
                         <div class="item-wrapper">
                           <div class="menu-link">
                             <a
-                              href="../exercise-4-adverbs/433-modifying-adjectives-part-2.html"
-                              aria-label="Menu Link">
+                              href="../exercise-4-adverbs/433-modifying-adjectives-part-2.html">
                               4.3.3 Modifying Adjectives (Part 2)
                             </a>
                           </div>
@@ -3903,8 +3883,7 @@
                         <div class="item-wrapper">
                           <div class="menu-link">
                             <a
-                              href="../exercise-4-adverbs/434-modifying-adverbs.html"
-                              aria-label="Menu Link">
+                              href="../exercise-4-adverbs/434-modifying-adverbs.html">
                               4.3.4 Modifying Adverbs
                             </a>
                           </div>
@@ -3938,8 +3917,7 @@
                     <div class="menu-link r-flyout__link-wrap">
                       <a
                         class="r-flyout__link"
-                        href="../exercise-5-pronouns.html"
-                        aria-label="Menu Link">
+                        href="../exercise-5-pronouns.html">
                         Pronouns
                       </a>
                     </div>
@@ -3954,8 +3932,7 @@
                         <div class="item-wrapper">
                           <div class="menu-link">
                             <a
-                              href="../exercise-5-pronouns/511-personal-pronoun-i.html"
-                              aria-label="Menu Link">
+                              href="../exercise-5-pronouns/511-personal-pronoun-i.html">
                               5.1.1 Personal Pronoun I
                             </a>
                           </div>
@@ -3965,8 +3942,7 @@
                         <div class="item-wrapper">
                           <div class="menu-link">
                             <a
-                              href="../exercise-5-pronouns/512-personal-pronoun-ii.html"
-                              aria-label="Menu Link">
+                              href="../exercise-5-pronouns/512-personal-pronoun-ii.html">
                               5.1.2 Personal Pronoun II
                             </a>
                           </div>
@@ -3976,8 +3952,7 @@
                         <div class="item-wrapper">
                           <div class="menu-link">
                             <a
-                              href="../exercise-5-pronouns/513-personal-pronoun-iii.html"
-                              aria-label="Menu Link">
+                              href="../exercise-5-pronouns/513-personal-pronoun-iii.html">
                               5.1.3 Personal Pronoun III
                             </a>
                           </div>
@@ -3987,8 +3962,7 @@
                         <div class="item-wrapper">
                           <div class="menu-link">
                             <a
-                              href="../exercise-5-pronouns/521-pronoun-common-mistakes.html"
-                              aria-label="Menu Link">
+                              href="../exercise-5-pronouns/521-pronoun-common-mistakes.html">
                               5.2.1 Pronoun - Common Mistakes
                             </a>
                           </div>
@@ -3998,8 +3972,7 @@
                         <div class="item-wrapper">
                           <div class="menu-link">
                             <a
-                              href="../exercise-5-pronouns/531-indefinite-pronoun.html"
-                              aria-label="Menu Link">
+                              href="../exercise-5-pronouns/531-indefinite-pronoun.html">
                               5.3.1 Indefinite Pronoun
                             </a>
                           </div>
@@ -4009,8 +3982,7 @@
                         <div class="item-wrapper">
                           <div class="menu-link">
                             <a
-                              href="../exercise-5-pronouns/541-reflexive-pronoun.html"
-                              aria-label="Menu Link">
+                              href="../exercise-5-pronouns/541-reflexive-pronoun.html">
                               5.4.1 Reflexive Pronoun
                             </a>
                           </div>
@@ -4020,8 +3992,7 @@
                         <div class="item-wrapper">
                           <div class="menu-link">
                             <a
-                              href="../exercise-5-pronouns/542-reflexive-emphatic-pronouns.html"
-                              aria-label="Menu Link">
+                              href="../exercise-5-pronouns/542-reflexive-emphatic-pronouns.html">
                               5.4.2 Reflexive Emphatic Pronouns
                             </a>
                           </div>
@@ -4031,8 +4002,7 @@
                         <div class="item-wrapper">
                           <div class="menu-link">
                             <a
-                              href="../exercise-5-pronouns/551-pronouns-part-1.html"
-                              aria-label="Menu Link">
+                              href="../exercise-5-pronouns/551-pronouns-part-1.html">
                               5.5.1 Pronouns (Part 1)
                             </a>
                           </div>
@@ -4042,8 +4012,7 @@
                         <div class="item-wrapper">
                           <div class="menu-link">
                             <a
-                              href="../exercise-5-pronouns/552-pronouns-part-2.html"
-                              aria-label="Menu Link">
+                              href="../exercise-5-pronouns/552-pronouns-part-2.html">
                               5.5.2 Pronouns (Part 2)
                             </a>
                           </div>
@@ -4053,8 +4022,7 @@
                         <div class="item-wrapper">
                           <div class="menu-link">
                             <a
-                              href="../exercise-5-pronouns/561-relative-pronoun-who.html"
-                              aria-label="Menu Link">
+                              href="../exercise-5-pronouns/561-relative-pronoun-who.html">
                               5.6.1 Relative Pronoun (who)
                             </a>
                           </div>
@@ -4064,8 +4032,7 @@
                         <div class="item-wrapper">
                           <div class="menu-link">
                             <a
-                              href="../exercise-5-pronouns/562-relative-pronoun-who-which.html"
-                              aria-label="Menu Link">
+                              href="../exercise-5-pronouns/562-relative-pronoun-who-which.html">
                               5.6.2 Relative Pronoun (who, which)
                             </a>
                           </div>
@@ -4075,8 +4042,7 @@
                         <div class="item-wrapper">
                           <div class="menu-link">
                             <a
-                              href="../exercise-5-pronouns/563-relative-pronoun-who-which-whom-whose-i.html"
-                              aria-label="Menu Link">
+                              href="../exercise-5-pronouns/563-relative-pronoun-who-which-whom-whose-i.html">
                               5.6.3 Relative Pronoun (who, which, whom, whose) I
                             </a>
                           </div>
@@ -4086,8 +4052,7 @@
                         <div class="item-wrapper">
                           <div class="menu-link">
                             <a
-                              href="../exercise-5-pronouns/564-relative-pronoun-who-which-whom-whose-ii.html"
-                              aria-label="Menu Link">
+                              href="../exercise-5-pronouns/564-relative-pronoun-who-which-whom-whose-ii.html">
                               5.6.4 Relative Pronoun (who, which, whom or whose) II
                             </a>
                           </div>
@@ -4097,8 +4062,7 @@
                         <div class="item-wrapper">
                           <div class="menu-link">
                             <a
-                              href="../exercise-5-pronouns/565-relative-pronoun-pairs-who-which-whom-whose-iii.html"
-                              aria-label="Menu Link">
+                              href="../exercise-5-pronouns/565-relative-pronoun-pairs-who-which-whom-whose-iii.html">
                               5.6.5 Relative Pronoun (who, which, whom or whose) III
                             </a>
                           </div>
@@ -4108,8 +4072,7 @@
                         <div class="item-wrapper">
                           <div class="menu-link">
                             <a
-                              href="../exercise-5-pronouns/566-relative-pronoun-who-which-whom-whose-iv.html"
-                              aria-label="5.6.6 Relative Pronoun (who, which, whom or whose) IV">
+                              href="../exercise-5-pronouns/566-relative-pronoun-who-which-whom-whose-iv.html">
                               5.6.6 Relative Pronoun (who, which, whom or whose) IV
                             </a>
                           </div>
@@ -4119,8 +4082,7 @@
                         <div class="item-wrapper">
                           <div class="menu-link">
                             <a
-                              href="../exercise-5-pronouns/571-possessive-pronoun-part-1.html"
-                              aria-label="Menu Link">
+                              href="../exercise-5-pronouns/571-possessive-pronoun-part-1.html">
                               5.7.1 Possessive Pronoun (Part 1)
                             </a>
                           </div>
@@ -4130,8 +4092,7 @@
                         <div class="item-wrapper">
                           <div class="menu-link">
                             <a
-                              href="../exercise-5-pronouns/572-possessive-pronoun-part-2.html"
-                              aria-label="Menu Link">
+                              href="../exercise-5-pronouns/572-possessive-pronoun-part-2.html">
                               5.7.2 Possessive Pronoun (Part 2)
                             </a>
                           </div>
@@ -4141,8 +4102,7 @@
                         <div class="item-wrapper">
                           <div class="menu-link">
                             <a
-                              href="../exercise-5-pronouns/573-possessive-pronoun-part-3.html"
-                              aria-label="Menu Link">
+                              href="../exercise-5-pronouns/573-possessive-pronoun-part-3.html">
                               5.7.3 Possessive Pronoun (Part 3)
                             </a>
                           </div>
@@ -4152,8 +4112,7 @@
                         <div class="item-wrapper">
                           <div class="menu-link">
                             <a
-                              href="../exercise-5-pronouns/574-possessive-pronoun-part-4.html"
-                              aria-label="Menu Link">
+                              href="../exercise-5-pronouns/574-possessive-pronoun-part-4.html">
                               5.7.4 Possessive Pronoun (Part 4)
                             </a>
                           </div>
@@ -4187,8 +4146,7 @@
                     <div class="menu-link r-flyout__link-wrap">
                       <a
                         class="r-flyout__link"
-                        href="../exercise-6-prepositions.html"
-                        aria-label="Menu Link">
+                        href="../exercise-6-prepositions.html">
                         Prepositions
                       </a>
                     </div>
@@ -4203,8 +4161,7 @@
                         <div class="item-wrapper">
                           <div class="menu-link">
                             <a
-                              href="../exercise-6-prepositions/611-prepositions-in-on.html"
-                              aria-label="Menu Link">
+                              href="../exercise-6-prepositions/611-prepositions-in-on.html">
                               6.1.1 Prepositions (in, on)
                             </a>
                           </div>
@@ -4214,8 +4171,7 @@
                         <div class="item-wrapper">
                           <div class="menu-link">
                             <a
-                              href="../exercise-6-prepositions/612-prepositions-at-from-of-to-with.html"
-                              aria-label="Menu Link">
+                              href="../exercise-6-prepositions/612-prepositions-at-from-of-to-with.html">
                               6.1.2 Prepositions (at, from, of, to, with)
                             </a>
                           </div>
@@ -4225,8 +4181,7 @@
                         <div class="item-wrapper">
                           <div class="menu-link">
                             <a
-                              href="../exercise-6-prepositions/613-prepositions-basic-i.html"
-                              aria-label="Menu Link">
+                              href="../exercise-6-prepositions/613-prepositions-basic-i.html">
                               6.1.3 Prepositions - Basic I
                             </a>
                           </div>
@@ -4236,8 +4191,7 @@
                         <div class="item-wrapper">
                           <div class="menu-link">
                             <a
-                              href="../exercise-6-prepositions/614-prepositions-basic-ii.html"
-                              aria-label="Menu Link">
+                              href="../exercise-6-prepositions/614-prepositions-basic-ii.html">
                               6.1.4 Prepositions - Basic II
                             </a>
                           </div>
@@ -4247,8 +4201,7 @@
                         <div class="item-wrapper">
                           <div class="menu-link">
                             <a
-                              href="../exercise-6-prepositions/615-prepositions-basic-iii.html"
-                              aria-label="Menu Link">
+                              href="../exercise-6-prepositions/615-prepositions-basic-iii.html">
                               6.1.5 Prepositions - Basic III
                             </a>
                           </div>
@@ -4258,8 +4211,7 @@
                         <div class="item-wrapper">
                           <div class="menu-link">
                             <a
-                              href="../exercise-6-prepositions/621-prepositions-advanced-1.html"
-                              aria-label="Menu Link">
+                              href="../exercise-6-prepositions/621-prepositions-advanced-1.html">
                               6.2.1 Prepositions - Advanced 1
                             </a>
                           </div>
@@ -4269,8 +4221,7 @@
                         <div class="item-wrapper">
                           <div class="menu-link">
                             <a
-                              href="../exercise-6-prepositions/622-prepositions-advanced-2.html"
-                              aria-label="Menu Link">
+                              href="../exercise-6-prepositions/622-prepositions-advanced-2.html">
                               6.2.2 Prepositions - Advanced 2
                             </a>
                           </div>
@@ -4280,8 +4231,7 @@
                         <div class="item-wrapper">
                           <div class="menu-link">
                             <a
-                              href="../exercise-6-prepositions/623-prepositions-advanced-3.html"
-                              aria-label="Menu Link">
+                              href="../exercise-6-prepositions/623-prepositions-advanced-3.html">
                               6.2.3 Prepositions - Advanced 3
                             </a>
                           </div>
@@ -4291,8 +4241,7 @@
                         <div class="item-wrapper">
                           <div class="menu-link">
                             <a
-                              href="../exercise-6-prepositions/624-prepositions-advanced-4.html"
-                              aria-label="Menu Link">
+                              href="../exercise-6-prepositions/624-prepositions-advanced-4.html">
                               6.2.4 Prepositions - Advanced 4
                             </a>
                           </div>
@@ -4302,8 +4251,7 @@
                         <div class="item-wrapper">
                           <div class="menu-link">
                             <a
-                              href="../exercise-6-prepositions/625-prepositions-advanced-5.html"
-                              aria-label="Menu Link">
+                              href="../exercise-6-prepositions/625-prepositions-advanced-5.html">
                               6.2.5 Prepositions - Advanced 5
                             </a>
                           </div>
@@ -4337,8 +4285,7 @@
                     <div class="menu-link r-flyout__link-wrap">
                       <a
                         class="r-flyout__link"
-                        href="../exercise-7-conjunctions.html"
-                        aria-label="Menu Link">
+                        href="../exercise-7-conjunctions.html">
                         Conjunctions
                       </a>
                     </div>
@@ -4353,8 +4300,7 @@
                         <div class="item-wrapper">
                           <div class="menu-link">
                             <a
-                              href="../exercise-7-conjunctions/711-coordinating-conjunction-and-but.html"
-                              aria-label="Menu Link">
+                              href="../exercise-7-conjunctions/711-coordinating-conjunction-and-but.html">
                               7.1.1 Coordinating Conjunction (and, but)
                             </a>
                           </div>
@@ -4364,8 +4310,7 @@
                         <div class="item-wrapper">
                           <div class="menu-link">
                             <a
-                              href="../exercise-7-conjunctions/712-coordinating-conjunction-and-but.html"
-                              aria-label="Menu Link">
+                              href="../exercise-7-conjunctions/712-coordinating-conjunction-and-but.html">
                               7.1.2 Coordinating Conjunction (and, but)
                             </a>
                           </div>
@@ -4375,8 +4320,7 @@
                         <div class="item-wrapper">
                           <div class="menu-link">
                             <a
-                              href="../exercise-7-conjunctions/713-coordinating-conjunction-or-so.html"
-                              aria-label="Menu Link">
+                              href="../exercise-7-conjunctions/713-coordinating-conjunction-or-so.html">
                               7.1.3 Coordinating Conjunction (or, so)
                             </a>
                           </div>
@@ -4386,8 +4330,7 @@
                         <div class="item-wrapper">
                           <div class="menu-link">
                             <a
-                              href="../exercise-7-conjunctions/714-coordinating-conjunction-for-nor-or-so-yet.html"
-                              aria-label="Menu Link">
+                              href="../exercise-7-conjunctions/714-coordinating-conjunction-for-nor-or-so-yet.html">
                               7.1.4 Coordinating Conjunction (for, and, nor, but, or, yet, so)
                             </a>
                           </div>
@@ -4397,8 +4340,7 @@
                         <div class="item-wrapper">
                           <div class="menu-link">
                             <a
-                              href="../exercise-7-conjunctions/721-subordinating-conjunction.html"
-                              aria-label="Menu Link">
+                              href="../exercise-7-conjunctions/721-subordinating-conjunction.html">
                               7.2.1 Subordinating Conjunction
                             </a>
                           </div>
@@ -4408,8 +4350,7 @@
                         <div class="item-wrapper">
                           <div class="menu-link">
                             <a
-                              href="../exercise-7-conjunctions/731-correlative-conjunction-i.html"
-                              aria-label="Menu Link">
+                              href="../exercise-7-conjunctions/731-correlative-conjunction-i.html">
                               7.3.1 Correlative Conjunction I
                             </a>
                           </div>
@@ -4419,8 +4360,7 @@
                         <div class="item-wrapper">
                           <div class="menu-link">
                             <a
-                              href="../exercise-7-conjunctions/732-correlative-conjunction-ii.html"
-                              aria-label="Menu Link">
+                              href="../exercise-7-conjunctions/732-correlative-conjunction-ii.html">
                               7.3.2 Correlative Conjunction II
                             </a>
                           </div>
@@ -4454,8 +4394,7 @@
                     <div class="menu-link r-flyout__link-wrap">
                       <a
                         class="r-flyout__link"
-                        href="../exercise-8-agreement.html"
-                        aria-label="Menu Link">
+                        href="../exercise-8-agreement.html">
                         S+V Agreement
                       </a>
                     </div>
@@ -4470,8 +4409,7 @@
                         <div class="item-wrapper">
                           <div class="menu-link">
                             <a
-                              href="../exercise-8-agreement/811-agreement-1.html"
-                              aria-label="Menu Link">
+                              href="../exercise-8-agreement/811-agreement-1.html">
                               8.1.1 Agreement 1
                             </a>
                           </div>
@@ -4481,8 +4419,7 @@
                         <div class="item-wrapper">
                           <div class="menu-link">
                             <a
-                              href="../exercise-8-agreement/812-agreement-2.html"
-                              aria-label="Menu Link">
+                              href="../exercise-8-agreement/812-agreement-2.html">
                               8.1.2 Agreement 2
                             </a>
                           </div>
@@ -4492,8 +4429,7 @@
                         <div class="item-wrapper">
                           <div class="menu-link">
                             <a
-                              href="../exercise-8-agreement/813-agreement-3.html"
-                              aria-label="Menu Link">
+                              href="../exercise-8-agreement/813-agreement-3.html">
                               8.1.3 Agreement 3
                             </a>
                           </div>
@@ -4527,8 +4463,7 @@
                     <div class="menu-link r-flyout__link-wrap">
                       <a
                         class="r-flyout__link"
-                        href="../exercise-9-articles.html"
-                        aria-label="Menu Link">
+                        href="../exercise-9-articles.html">
                         Articles
                       </a>
                     </div>
@@ -4543,8 +4478,7 @@
                         <div class="item-wrapper">
                           <div class="menu-link">
                             <a
-                              href="../exercise-9-articles/911-article-a-an-the-i.html"
-                              aria-label="Menu Link">
+                              href="../exercise-9-articles/911-article-a-an-the-i.html">
                               9.1.1 Articles (a, an, the) I
                             </a>
                           </div>
@@ -4554,8 +4488,7 @@
                         <div class="item-wrapper">
                           <div class="menu-link">
                             <a
-                              href="../exercise-9-articles/912-articles-a-an-the-ii.html"
-                              aria-label="Menu Link">
+                              href="../exercise-9-articles/912-articles-a-an-the-ii.html">
                               9.1.2 Articles (a, an, the) II
                             </a>
                           </div>
@@ -4565,8 +4498,7 @@
                         <div class="item-wrapper">
                           <div class="menu-link">
                             <a
-                              href="../exercise-9-articles/913-articles-a-an-the-iii.html"
-                              aria-label="Menu Link">
+                              href="../exercise-9-articles/913-articles-a-an-the-iii.html">
                               9.1.3 Articles (a, an, the) III
                             </a>
                           </div>
@@ -4600,8 +4532,7 @@
                     <div class="menu-link r-flyout__link-wrap">
                       <a
                         class="r-flyout__link"
-                        href="../exercise-11-conditionals.html"
-                        aria-label="Menu Link">
+                        href="../exercise-11-conditionals.html">
                         Conditionals
                       </a>
                     </div>
@@ -4616,8 +4547,7 @@
                         <div class="item-wrapper">
                           <div class="menu-link">
                             <a
-                              href="../exercise-11-conditionals/1111-first-conditional.html"
-                              aria-label="Menu Link">
+                              href="../exercise-11-conditionals/1111-first-conditional.html">
                               11.1.1 First Conditional
                             </a>
                           </div>
@@ -4627,8 +4557,7 @@
                         <div class="item-wrapper">
                           <div class="menu-link">
                             <a
-                              href="../exercise-11-conditionals/1112-second-conditional.html"
-                              aria-label="Menu Link">
+                              href="../exercise-11-conditionals/1112-second-conditional.html">
                               11.1.2 Second Conditional
                             </a>
                           </div>
@@ -4638,8 +4567,7 @@
                         <div class="item-wrapper">
                           <div class="menu-link">
                             <a
-                              href="../exercise-11-conditionals/1113-third-conditional.html"
-                              aria-label="Menu Link">
+                              href="../exercise-11-conditionals/1113-third-conditional.html">
                               11.1.3 Third Conditional
                             </a>
                           </div>
@@ -4673,8 +4601,7 @@
                     <div class="menu-link r-flyout__link-wrap">
                       <a
                         class="r-flyout__link"
-                        href="../exercise-12-modifiers.html"
-                        aria-label="Menu Link">
+                        href="../exercise-12-modifiers.html">
                         Modifiers
                       </a>
                     </div>
@@ -4689,8 +4616,7 @@
                         <div class="item-wrapper">
                           <div class="menu-link">
                             <a
-                              href="../exercise-12-modifiers/1211-adjectives-as-modifiers.html"
-                              aria-label="Menu Link">
+                              href="../exercise-12-modifiers/1211-adjectives-as-modifiers.html">
                               12.1.1 Adjectives as modifiers
                             </a>
                           </div>
@@ -4700,8 +4626,7 @@
                         <div class="item-wrapper">
                           <div class="menu-link">
                             <a
-                              href="../exercise-12-modifiers/1212-adverbs-as-modifiers.html"
-                              aria-label="Menu Link">
+                              href="../exercise-12-modifiers/1212-adverbs-as-modifiers.html">
                               12.1.2 Adverbs as modifiers
                             </a>
                           </div>
@@ -4711,8 +4636,7 @@
                         <div class="item-wrapper">
                           <div class="menu-link">
                             <a
-                              href="../exercise-12-modifiers/1213-adjectival-and-adverbial-phrases.html"
-                              aria-label="Menu Link">
+                              href="../exercise-12-modifiers/1213-adjectival-and-adverbial-phrases.html">
                               12.1.3 Adjectival and Adverbial Phrases
                             </a>
                           </div>
@@ -4722,8 +4646,7 @@
                         <div class="item-wrapper">
                           <div class="menu-link">
                             <a
-                              href="../exercise-12-modifiers/1221-comparatives-and-superlatives.html"
-                              aria-label="Menu Link">
+                              href="../exercise-12-modifiers/1221-comparatives-and-superlatives.html">
                               12.2.1 Comparatives and Superlatives as Modifiers
                             </a>
                           </div>
@@ -4733,8 +4656,7 @@
                         <div class="item-wrapper">
                           <div class="menu-link">
                             <a
-                              href="../exercise-12-modifiers/1241-misplaced-modifiers-and-dangling-participles.html"
-                              aria-label="Menu Link">
+                              href="../exercise-12-modifiers/1241-misplaced-modifiers-and-dangling-participles.html">
                               12.4.1 Misplaced modifiers and Dangling participles
                             </a>
                           </div>
@@ -4768,8 +4690,7 @@
                     <div class="menu-link r-flyout__link-wrap">
                       <a
                         class="r-flyout__link"
-                        href="../exercise-13-indirect-speech.html"
-                        aria-label="Menu Link">
+                        href="../exercise-13-indirect-speech.html">
                         Speech Direction
                       </a>
                     </div>
@@ -4784,8 +4705,7 @@
                         <div class="item-wrapper">
                           <div class="menu-link">
                             <a
-                              href="../exercise-13-indirect-speech/1311-direct-to-indirect-speech-i.html"
-                              aria-label="Menu Link">
+                              href="../exercise-13-indirect-speech/1311-direct-to-indirect-speech-i.html">
                               13.1.1 Direct to Indirect Speech I
                             </a>
                           </div>
@@ -4795,8 +4715,7 @@
                         <div class="item-wrapper">
                           <div class="menu-link">
                             <a
-                              href="../exercise-13-indirect-speech/1312-direct-to-indirect-speech-ii.html"
-                              aria-label="Menu Link">
+                              href="../exercise-13-indirect-speech/1312-direct-to-indirect-speech-ii.html">
                               13.1.2 Direct to Indirect Speech II
                             </a>
                           </div>
@@ -4806,8 +4725,7 @@
                         <div class="item-wrapper">
                           <div class="menu-link">
                             <a
-                              href="../exercise-13-indirect-speech/1313-direct-to-indirect-speech-iii.html"
-                              aria-label="Menu Link">
+                              href="../exercise-13-indirect-speech/1313-direct-to-indirect-speech-iii.html">
                               13.1.3 Direct to Indirect Speech III
                             </a>
                           </div>
@@ -4817,8 +4735,7 @@
                         <div class="item-wrapper">
                           <div class="menu-link">
                             <a
-                              href="../exercise-13-indirect-speech/1321-direct-to-indirect-speech-with-same-tenses.html"
-                              aria-label="Menu Link">
+                              href="../exercise-13-indirect-speech/1321-direct-to-indirect-speech-with-same-tenses.html">
                               13.2.1 Direct to Indirect Speech with Same Tenses
                             </a>
                           </div>
@@ -4828,8 +4745,7 @@
                         <div class="item-wrapper">
                           <div class="menu-link">
                             <a
-                              href="../exercise-13-indirect-speech/1331-direct-to-indirect-speech-using-past-perfect-tense.html"
-                              aria-label="Menu Link">
+                              href="../exercise-13-indirect-speech/1331-direct-to-indirect-speech-using-past-perfect-tense.html">
                               13.3.1 Direct to Indirect Speech using Past Perfect
                             </a>
                           </div>
@@ -4839,8 +4755,7 @@
                         <div class="item-wrapper">
                           <div class="menu-link">
                             <a
-                              href="../exercise-13-indirect-speech/1341-direct-to-indirect-speech-using-passive-voice.html"
-                              aria-label="Menu Link">
+                              href="../exercise-13-indirect-speech/1341-direct-to-indirect-speech-using-passive-voice.html">
                               13.4.1 Direct to Indirect Speech using Passive Voice
                             </a>
                           </div>
@@ -4868,8 +4783,7 @@
                     <div class="menu-link r-flyout__link-wrap">
                       <a
                         class="r-flyout__link"
-                        href="../exercise-14-either-neither.html"
-                        aria-label="Menu Link">
+                        href="../exercise-14-either-neither.html">
                         Either-Neither
                       </a>
                     </div>
@@ -4900,8 +4814,7 @@
                     <div class="menu-link r-flyout__link-wrap">
                       <a
                         class="r-flyout__link"
-                        href="../exercise-15-passive-voice.html"
-                        aria-label="Menu Link">
+                        href="../exercise-15-passive-voice.html">
                         Active-Passive
                       </a>
                     </div>
@@ -4916,8 +4829,7 @@
                         <div class="item-wrapper">
                           <div class="menu-link">
                             <a
-                              href="../exercise-15-passive-voice/1511-passive-voice-simple-present-tense.html"
-                              aria-label="Menu Link">
+                              href="../exercise-15-passive-voice/1511-passive-voice-simple-present-tense.html">
                               15.1.1 Simple Present
                             </a>
                           </div>
@@ -4927,8 +4839,7 @@
                         <div class="item-wrapper">
                           <div class="menu-link">
                             <a
-                              href="../exercise-15-passive-voice/1521-passive-voice-present-perfect-tense.html"
-                              aria-label="Menu Link">
+                              href="../exercise-15-passive-voice/1521-passive-voice-present-perfect-tense.html">
                               15.2.1 Present Perfect
                             </a>
                           </div>
@@ -4938,8 +4849,7 @@
                         <div class="item-wrapper">
                           <div class="menu-link">
                             <a
-                              href="../exercise-15-passive-voice/1531-passive-voice-present-continuous-tense.html"
-                              aria-label="Menu Link">
+                              href="../exercise-15-passive-voice/1531-passive-voice-present-continuous-tense.html">
                               15.3.1 Present Continuous
                             </a>
                           </div>
@@ -4949,8 +4859,7 @@
                         <div class="item-wrapper">
                           <div class="menu-link">
                             <a
-                              href="../exercise-15-passive-voice/1541-passive-voice-part-simple-past-tense-i.html"
-                              aria-label="Menu Link">
+                              href="../exercise-15-passive-voice/1541-passive-voice-part-simple-past-tense-i.html">
                               15.4.1 Simple Past Tense I
                             </a>
                           </div>
@@ -4960,8 +4869,7 @@
                         <div class="item-wrapper">
                           <div class="menu-link">
                             <a
-                              href="../exercise-15-passive-voice/1542-passive-voice-simple-past-tense-ii.html"
-                              aria-label="Menu Link">
+                              href="../exercise-15-passive-voice/1542-passive-voice-simple-past-tense-ii.html">
                               15.4.2 Simple Past Tense II
                             </a>
                           </div>
@@ -4971,8 +4879,7 @@
                         <div class="item-wrapper">
                           <div class="menu-link">
                             <a
-                              href="../exercise-15-passive-voice/1551-passive-voice-past-continuous-tense.html"
-                              aria-label="Menu Link">
+                              href="../exercise-15-passive-voice/1551-passive-voice-past-continuous-tense.html">
                               15.5.1 Past Continuous
                             </a>
                           </div>
@@ -4982,8 +4889,7 @@
                         <div class="item-wrapper">
                           <div class="menu-link">
                             <a
-                              href="../exercise-15-passive-voice/1561-passive-voice-past-perfect-tense.html"
-                              aria-label="Menu Link">
+                              href="../exercise-15-passive-voice/1561-passive-voice-past-perfect-tense.html">
                               15.6.1 Past Perfect
                             </a>
                           </div>
@@ -4993,8 +4899,7 @@
                         <div class="item-wrapper">
                           <div class="menu-link">
                             <a
-                              href="../exercise-15-passive-voice/1571-passive-voice-simple-future-tense.html"
-                              aria-label="Menu Link">
+                              href="../exercise-15-passive-voice/1571-passive-voice-simple-future-tense.html">
                               15.7.1 Simple Future
                             </a>
                           </div>
@@ -5028,8 +4933,7 @@
                     <div class="menu-link r-flyout__link-wrap">
                       <a
                         class="r-flyout__link"
-                        href="../exercise-17-clauses.html"
-                        aria-label="Menu Link">
+                        href="../exercise-17-clauses.html">
                         Clauses
                       </a>
                     </div>
@@ -5044,8 +4948,7 @@
                         <div class="item-wrapper">
                           <div class="menu-link">
                             <a
-                              href="../exercise-17-clauses/1721-adjective-clauses.html"
-                              aria-label="Menu Link">
+                              href="../exercise-17-clauses/1721-adjective-clauses.html">
                               17.2.1 Adjective Clauses
                             </a>
                           </div>
@@ -5055,8 +4958,7 @@
                         <div class="item-wrapper">
                           <div class="menu-link">
                             <a
-                              href="../exercise-17-clauses/1731-adverbial-clauses.html"
-                              aria-label="Menu Link">
+                              href="../exercise-17-clauses/1731-adverbial-clauses.html">
                               17.3.1 Adverbial Clauses
                             </a>
                           </div>
@@ -5066,8 +4968,7 @@
                         <div class="item-wrapper">
                           <div class="menu-link">
                             <a
-                              href="../exercise-17-clauses/1741-noun-clauses.html"
-                              aria-label="Menu Link">
+                              href="../exercise-17-clauses/1741-noun-clauses.html">
                               17.4.1 Noun Clauses
                             </a>
                           </div>
@@ -5101,8 +5002,7 @@
                     <div class="menu-link r-flyout__link-wrap">
                       <a
                         class="r-flyout__link"
-                        href="../exercise-18-verb-ing-gerunds-and-particles.html"
-                        aria-label="Menu Link">
+                        href="../exercise-18-verb-ing-gerunds-and-particles.html">
                         Verb-ing
                       </a>
                     </div>
@@ -5117,8 +5017,7 @@
                         <div class="item-wrapper">
                           <div class="menu-link">
                             <a
-                              href="../exercise-18-verb-ing-gerunds-and-particles/1811-verb-ing-gerund.html"
-                              aria-label="Menu Link">
+                              href="../exercise-18-verb-ing-gerunds-and-particles/1811-verb-ing-gerund.html">
                               18.1.1 Verb + -ing (Gerund)
                             </a>
                           </div>
@@ -5128,8 +5027,7 @@
                         <div class="item-wrapper">
                           <div class="menu-link">
                             <a
-                              href="../exercise-18-verb-ing-gerunds-and-particles/1812-verb-ing-gerund-and-present-participle.html"
-                              aria-label="Menu Link">
+                              href="../exercise-18-verb-ing-gerunds-and-particles/1812-verb-ing-gerund-and-present-participle.html">
                               18.1.2 Verb + -ing (Gerund and Present Participle)
                             </a>
                           </div>
@@ -5139,8 +5037,7 @@
                         <div class="item-wrapper">
                           <div class="menu-link">
                             <a
-                              href="../exercise-18-verb-ing-gerunds-and-particles/1821-verb-ing-gerund-and-particle.html"
-                              aria-label="Menu Link">
+                              href="../exercise-18-verb-ing-gerunds-and-particles/1821-verb-ing-gerund-and-particle.html">
                               18.2.1 Verb + -ing (Gerund and Particle)
                             </a>
                           </div>
@@ -5150,8 +5047,7 @@
                         <div class="item-wrapper">
                           <div class="menu-link">
                             <a
-                              href="../exercise-18-verb-ing-gerunds-and-particles/1831-verb-ing-adjective-part-1.html"
-                              aria-label="Menu Link">
+                              href="../exercise-18-verb-ing-gerunds-and-particles/1831-verb-ing-adjective-part-1.html">
                               18.3.1 Verb + -ing (Adjective) Part 1
                             </a>
                           </div>
@@ -5161,8 +5057,7 @@
                         <div class="item-wrapper">
                           <div class="menu-link">
                             <a
-                              href="../exercise-18-verb-ing-gerunds-and-particles/1832-verb-ing-adjective-part-2.html"
-                              aria-label="Menu Link">
+                              href="../exercise-18-verb-ing-gerunds-and-particles/1832-verb-ing-adjective-part-2.html">
                               18.3.2 Verb + -ing (Adjective) Part 2
                             </a>
                           </div>
@@ -5196,8 +5091,7 @@
                     <div class="menu-link r-flyout__link-wrap">
                       <a
                         class="r-flyout__link"
-                        href="../exercise-19-determiners-and-quantifiers.html"
-                        aria-label="Menu Link">
+                        href="../exercise-19-determiners-and-quantifiers.html">
                         Determiners
                       </a>
                     </div>
@@ -5212,8 +5106,7 @@
                         <div class="item-wrapper">
                           <div class="menu-link">
                             <a
-                              href="../exercise-19-determiners-and-quantifiers/1911-determiners-a-an-the.html"
-                              aria-label="Menu Link">
+                              href="../exercise-19-determiners-and-quantifiers/1911-determiners-a-an-the.html">
                               19.1.1 Determiners: a, an, the
                             </a>
                           </div>
@@ -5223,8 +5116,7 @@
                         <div class="item-wrapper">
                           <div class="menu-link">
                             <a
-                              href="../exercise-19-determiners-and-quantifiers/1912-determiners-a-an-the-some.html"
-                              aria-label="Menu Link">
+                              href="../exercise-19-determiners-and-quantifiers/1912-determiners-a-an-the-some.html">
                               19.1.2 Determiners: a, an, the, some
                             </a>
                           </div>
@@ -5234,8 +5126,7 @@
                         <div class="item-wrapper">
                           <div class="menu-link">
                             <a
-                              href="../exercise-19-determiners-and-quantifiers/1921-quantity-words.html"
-                              aria-label="Menu Link">
+                              href="../exercise-19-determiners-and-quantifiers/1921-quantity-words.html">
                               19.2.1 Quantity Words
                             </a>
                           </div>
@@ -5269,8 +5160,7 @@
                     <div class="menu-link r-flyout__link-wrap">
                       <a
                         class="r-flyout__link"
-                        href="../exercise-21-general.html"
-                        aria-label="Menu Link">
+                        href="../exercise-21-general.html">
                         Part-of-Speech
                       </a>
                     </div>
@@ -5285,8 +5175,7 @@
                         <div class="item-wrapper">
                           <div class="menu-link">
                             <a
-                              href="../exercise-21-general/2111-part-of-speech-i.html"
-                              aria-label="Menu Link">
+                              href="../exercise-21-general/2111-part-of-speech-i.html">
                               21.1.1 Part of Speech I
                             </a>
                           </div>
@@ -5296,8 +5185,7 @@
                         <div class="item-wrapper">
                           <div class="menu-link">
                             <a
-                              href="../exercise-21-general/2112-part-of-speech-ii.html"
-                              aria-label="Menu Link">
+                              href="../exercise-21-general/2112-part-of-speech-ii.html">
                               21.1.2 Part of Speech II
                             </a>
                           </div>
@@ -5307,8 +5195,7 @@
                         <div class="item-wrapper">
                           <div class="menu-link">
                             <a
-                              href="../exercise-21-general/2113-part-of-speech-adverb.html"
-                              aria-label="Menu Link">
+                              href="../exercise-21-general/2113-part-of-speech-adverb.html">
                               21.1.3 Part of Speech: Adverb
                             </a>
                           </div>
@@ -5318,8 +5205,7 @@
                         <div class="item-wrapper">
                           <div class="menu-link">
                             <a
-                              href="../exercise-21-general/2121-gerund-and-present-participle.html"
-                              aria-label="Menu Link">
+                              href="../exercise-21-general/2121-gerund-and-present-participle.html">
                               21.2.1 Gerund and Present Participle
                             </a>
                           </div>
@@ -5355,8 +5241,7 @@
                     <div class="menu-link r-flyout__link-wrap">
                       <a
                         class="r-flyout__link"
-                        href="../exercise-22-test-your-vocabulary.html"
-                        aria-label="Vocabulary">
+                        href="../exercise-22-test-your-vocabulary.html">
                         Vocabulary
                       </a>
                     </div>
@@ -5371,8 +5256,7 @@
                         <div class="item-wrapper">
                           <div class="menu-link">
                             <a
-                              href="../exercise-22-test-your-vocabulary/2211-test-your-vocabulary-adjective.html"
-                              aria-label="22.1.1 Test Your Vocabulary - Adjectives">
+                              href="../exercise-22-test-your-vocabulary/2211-test-your-vocabulary-adjective.html">
                               22.1.1 Test Your Vocabulary: Adjectives
                             </a>
                           </div>
@@ -5382,8 +5266,7 @@
                         <div class="item-wrapper">
                           <div class="menu-link">
                             <a
-                              href="../exercise-22-test-your-vocabulary/2221-test-your-vocabulary-verb.html"
-                              aria-label="Menu Link">
+                              href="../exercise-22-test-your-vocabulary/2221-test-your-vocabulary-verb.html">
                               22.2.1 Test Your Vocabulary: Verb
                             </a>
                           </div>
@@ -5405,8 +5288,7 @@
           <p class="pull-right">
             <a
               href="#top"
-              id="back-top"
-              aria-label="Back to Top">
+              id="back-top">
               Back to Top
             </a>
           </p>

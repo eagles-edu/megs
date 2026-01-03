@@ -18,7 +18,10 @@
       name="generator"
       content="English Grammar - intermediate levels A2 and above">
     <title>Lists - Main</title>
-<link href="favicon.ico" rel="shortcut icon" type="image/vnd.microsoft.icon">
+    <link
+      href="favicon.ico"
+      rel="shortcut icon"
+      type="image/vnd.microsoft.icon">
     <!-- theme-vars.css eliminated; variables live in base.css -->
 
     <!-- Minimal theme tokens inline to avoid var() FOUC when base.css loads async -->
@@ -79,12 +82,6 @@
         border-top: 15px solid var(--footer-background);
         padding: 20px;
         background-color: var(--background-color);
-      }
-
-      /* Preload critical image dimensions to prevent CLS */
-      img[src*="../images/banner.png"] {
-        height: 120;
-        width: 650;
       }
 
       img[src*="../favicon.png"] {

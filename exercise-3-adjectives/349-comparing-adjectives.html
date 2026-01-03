@@ -87,12 +87,6 @@
         background-color: var(--background-color);
       }
 
-      /* Preload critical image dimensions to prevent CLS */
-      img[src*="../images/banner.png"] {
-        height: 120;
-        width: 650;
-      }
-
       img[src*="../favicon.png"] {
         height: 24px;
         max-height: 28px;
@@ -1310,65 +1304,89 @@
               <div class="page-header">
                 <h2>3.4.9 Comparing Adjectives</h2>
                 <div class="clearfix"></div>
-                <nav class="breadcrumb-wrap" aria-label="Breadcrumb">
-                <ul
-                  class="breadcrumb"
-                  itemscope=""
-                  itemtype="https://schema.org/BreadcrumbList">
-                  <li class="active"><span class="divider icon-location"></span></li>
-                  <li
-                    itemprop="itemListElement"
+                <nav
+                  class="breadcrumb-wrap"
+                  aria-label="Breadcrumb">
+                  <ul
+                    class="breadcrumb"
                     itemscope=""
-                    itemtype="https://schema.org/ListItem">
-                    <a
-                      itemprop="item"
-                      href="../index-2.html"
-                      class="pathway"
-                      aria-label="Home">
-                      <span itemprop="name">Home</span>
-                    </a>
-                    <span class="divider">&nbsp;<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8 13.02" width="9" height="9"><polygon points="8 6.51 0 13.02 0 0 8 6.51" fill="#e0162b"></polygon></svg></span>
-                    <meta
-                      itemprop="position"
-                      content="1">
-                  </li>
-                  <li
-                    itemprop="itemListElement"
-                    itemscope=""
-                    itemtype="https://schema.org/ListItem">
-                    <a
-                      itemprop="item"
-                      href="../exercise-3-adjectives.html"
-                      class="pathway"
-                      aria-label="Exercise 3 - Adjectives">
-                      <span itemprop="name">Exercise 3 - Adjectives</span>
-                    </a>
-                    <span class="divider">&nbsp;<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8 13.02" width="9" height="9"><polygon points="8 6.51 0 13.02 0 0 8 6.51" fill="#e0162b"></polygon></svg></span>
-                    <meta
-                      itemprop="position"
-                      content="2">
-                  </li>
-                  <li
-                    itemprop="itemListElement"
-                    itemscope=""
-                    itemtype="https://schema.org/ListItem"
-                    class="active">
-                    <span itemprop="name">3.4.9 Comparing Adjectives</span>
-                    <meta
-                      itemprop="position"
-                      content="3">
-                  </li>
-                </ul>
+                    itemtype="https://schema.org/BreadcrumbList">
+                    <li class="active"><span class="divider icon-location"></span></li>
+                    <li
+                      itemprop="itemListElement"
+                      itemscope=""
+                      itemtype="https://schema.org/ListItem">
+                      <a
+                        itemprop="item"
+                        href="../index-2.html"
+                        class="pathway"
+                        aria-label="Home">
+                        <span itemprop="name">Home</span>
+                      </a>
+                      <span class="divider">
+                        &nbsp;
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 8 13.02"
+                          width="9"
+                          height="9">
+                          <polygon
+                            points="8 6.51 0 13.02 0 0 8 6.51"
+                            fill="#e0162b"></polygon>
+                        </svg>
+                      </span>
+                      <meta
+                        itemprop="position"
+                        content="1">
+                    </li>
+                    <li
+                      itemprop="itemListElement"
+                      itemscope=""
+                      itemtype="https://schema.org/ListItem">
+                      <a
+                        itemprop="item"
+                        href="../exercise-3-adjectives.html"
+                        class="pathway"
+                        aria-label="Exercise 3 - Adjectives">
+                        <span itemprop="name">Exercise 3 - Adjectives</span>
+                      </a>
+                      <span class="divider">
+                        &nbsp;
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 8 13.02"
+                          width="9"
+                          height="9">
+                          <polygon
+                            points="8 6.51 0 13.02 0 0 8 6.51"
+                            fill="#e0162b"></polygon>
+                        </svg>
+                      </span>
+                      <meta
+                        itemprop="position"
+                        content="2">
+                    </li>
+                    <li
+                      itemprop="itemListElement"
+                      itemscope=""
+                      itemtype="https://schema.org/ListItem"
+                      class="active">
+                      <span itemprop="name">3.4.9 Comparing Adjectives</span>
+                      <meta
+                        itemprop="position"
+                        content="3">
+                    </li>
+                  </ul>
                 </nav>
               </div>
               <div itemprop="articleBody">
-                                <ul class="pager pagenav">
+                <ul class="pager pagenav">
                   <li class="previous">
                     <a
                       href="348-order-of-adjectives-quiz.html"
                       rel="prev"
                       aria-label="Previous">
-<svg
+                      <svg
                         version="1.1"
                         xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 18 48"
@@ -1386,7 +1404,7 @@
                       rel="next"
                       aria-label="Next">
                       <span class="pager-label">3.5.0 Compound Adjectives</span>
-<svg
+                      <svg
                         version="1.1"
                         xmlns="http://www.w3.org/2000/svg"
                         height="24px"
@@ -1401,7 +1419,7 @@
                 </ul>
                 <br>
 
-                                <h3>Comparing adjectives</h3>
+                <h3>Comparing adjectives</h3>
                 <p>Complete each comparison with the correct adjective form.</p>
                 <form
                   class="exercise-form exercise-gate"
@@ -1490,7 +1508,9 @@
                           <div class="accordion-inner panel-body">
                             <h2 class="nn_sliders-title">Your essay is ___ than mine.</h2>
                             <p>
-                              Your essay is <span class="undies">longer / better / more interesting</span> than mine.
+                              Your essay is
+                              <span class="undies">longer / better / more interesting</span>
+                              than mine.
                             </p>
                           </div>
                         </div>
@@ -1545,7 +1565,9 @@
                           <div class="accordion-inner panel-body">
                             <h2 class="nn_sliders-title">The Titanic was ___ ocean-liner of its time.</h2>
                             <p>
-                              The Titanic was <span class="undies">the most luxurious / the largest</span> ocean-liner of its time.
+                              The Titanic was
+                              <span class="undies">the most luxurious / the largest</span>
+                              ocean-liner of its time.
                             </p>
                           </div>
                         </div>
@@ -1600,7 +1622,9 @@
                           <div class="accordion-inner panel-body">
                             <h2 class="nn_sliders-title">A California redwood is ___ living thing on earth.</h2>
                             <p>
-                              A California redwood is <span class="undies">the tallest / the most majestic</span> living thing on earth.
+                              A California redwood is
+                              <span class="undies">the tallest / the most majestic</span>
+                              living thing on earth.
                             </p>
                           </div>
                         </div>
@@ -1609,7 +1633,9 @@
                           data-item="q3-a-california-redwood-is-living-thing-on-earth"
                           data-answer-ui="">
                           <label class="exercise-response-field">
-                            <span class="visually-hidden">Response for item q3-a-california-redwood-is-living-thing-on-earth (answer_01)</span>
+                            <span class="visually-hidden">
+                              Response for item q3-a-california-redwood-is-living-thing-on-earth (answer_01)
+                            </span>
                             <input
                               class="exercise-response-input"
                               type="text"
@@ -1655,7 +1681,9 @@
                           <div class="accordion-inner panel-body">
                             <h2 class="nn_sliders-title">Rainbows are ___ than clouds.</h2>
                             <p>
-                              Rainbows are <span class="undies">more colorful / more beautiful</span> than clouds.
+                              Rainbows are
+                              <span class="undies">more colorful / more beautiful</span>
+                              than clouds.
                             </p>
                           </div>
                         </div>
@@ -1710,7 +1738,9 @@
                           <div class="accordion-inner panel-body">
                             <h2 class="nn_sliders-title">Cars in the 1970s were ___ than cars today.</h2>
                             <p>
-                              Cars in the 1970s were <span class="undies">bigger / larger / more beautiful / more powerful / roomier</span> than cars today.
+                              Cars in the 1970s were
+                              <span class="undies">bigger / larger / more beautiful / more powerful / roomier</span>
+                              than cars today.
                             </p>
                           </div>
                         </div>
@@ -1751,88 +1781,78 @@
                   </div>
                 </form>
                 <!-- Page config: set recipients and where to POST -->
-                <script type="application/json" id="exercise-answer-key" data-exercise-answer-key>
-      {
-        "title": "349-comparing-adjectives",
-        "version": "0.3.0",
-        "publishDate": "2025-12-18T20:48:50.000Z",
-        "description": "3.4.9 Correct Usage of Adjectives — Comparing adjectives",
-        "options": {
-          "requireCorrectBeforeReveal": true,
-          "defaultHashAlgorithm": "fnv1a-64"
-        },
-        "answerArrays": {
-          "exerciseName": "349-comparing-adjectives",
-          "totalQuestions": 5,
-          "answerArray": {
-            "question01": {
-              "id": "q1-your-essay-is-than-mine",
-              "answersAccepted": [
-                ["fnv1a-64:9da66b738ed71cf0"],
-                ["fnv1a-64:36ede0d3f06e8d8f"],
-                ["fnv1a-64:81972ac3b9297526"]
-              ],
-              "lengths": [1],
-              "minLength": 1,
-              "maxLength": 1,
-              "manualCheckOk": false
-            },
-            "question02": {
-              "id": "q2-the-titanic-was-ocean-liner",
-              "answersAccepted": [
-                ["fnv1a-64:284653df159b3eb5"],
-                ["fnv1a-64:7c7f8bc8ab71cfcc"]
-              ],
-              "lengths": [1],
-              "minLength": 1,
-              "maxLength": 1,
-              "manualCheckOk": false
-            },
-            "question03": {
-              "id": "q3-a-california-redwood-is-living-thing-on-earth",
-              "answersAccepted": [
-                ["fnv1a-64:84bfd7b8cca84f55"],
-                ["fnv1a-64:f3845ba3a5f3c9d9"]
-              ],
-              "lengths": [1],
-              "minLength": 1,
-              "maxLength": 1,
-              "manualCheckOk": false
-            },
-            "question04": {
-              "id": "q4-rainbows-are-than-clouds",
-              "answersAccepted": [
-                ["fnv1a-64:9d292458af06b0ea"],
-                ["fnv1a-64:aa25d61a62282eeb"]
-              ],
-              "lengths": [1],
-              "minLength": 1,
-              "maxLength": 1,
-              "manualCheckOk": false
-            },
-            "question05": {
-              "id": "q5-cars-in-the-1970s-were-than-cars-today",
-              "answersAccepted": [
-                ["fnv1a-64:87a27338c68fbfcd"],
-                ["fnv1a-64:87ad347436f18212"],
-                ["fnv1a-64:aa25d61a62282eeb"],
-                ["fnv1a-64:7dbb9aa9363c5f8c"],
-                ["fnv1a-64:69939ad068cb4f22"]
-              ],
-              "lengths": [1],
-              "minLength": 1,
-              "maxLength": 1,
-              "manualCheckOk": false
-            }
-          }
-        }
-      }
-    </script>
+                <script
+                  type="application/json"
+                  id="exercise-answer-key"
+                  data-exercise-answer-key>
+                  {
+                    "title": "349-comparing-adjectives",
+                    "version": "0.3.0",
+                    "publishDate": "2025-12-18T20:48:50.000Z",
+                    "description": "3.4.9 Correct Usage of Adjectives — Comparing adjectives",
+                    "options": {
+                      "requireCorrectBeforeReveal": true,
+                      "defaultHashAlgorithm": "fnv1a-64"
+                    },
+                    "answerArrays": {
+                      "exerciseName": "349-comparing-adjectives",
+                      "totalQuestions": 5,
+                      "answerArray": {
+                        "question01": {
+                          "id": "q1-your-essay-is-than-mine",
+                          "answersAccepted": [["fnv1a-64:9da66b738ed71cf0"], ["fnv1a-64:36ede0d3f06e8d8f"], ["fnv1a-64:81972ac3b9297526"]],
+                          "lengths": [1],
+                          "minLength": 1,
+                          "maxLength": 1,
+                          "manualCheckOk": false
+                        },
+                        "question02": {
+                          "id": "q2-the-titanic-was-ocean-liner",
+                          "answersAccepted": [["fnv1a-64:284653df159b3eb5"], ["fnv1a-64:7c7f8bc8ab71cfcc"]],
+                          "lengths": [1],
+                          "minLength": 1,
+                          "maxLength": 1,
+                          "manualCheckOk": false
+                        },
+                        "question03": {
+                          "id": "q3-a-california-redwood-is-living-thing-on-earth",
+                          "answersAccepted": [["fnv1a-64:84bfd7b8cca84f55"], ["fnv1a-64:f3845ba3a5f3c9d9"]],
+                          "lengths": [1],
+                          "minLength": 1,
+                          "maxLength": 1,
+                          "manualCheckOk": false
+                        },
+                        "question04": {
+                          "id": "q4-rainbows-are-than-clouds",
+                          "answersAccepted": [["fnv1a-64:9d292458af06b0ea"], ["fnv1a-64:aa25d61a62282eeb"]],
+                          "lengths": [1],
+                          "minLength": 1,
+                          "maxLength": 1,
+                          "manualCheckOk": false
+                        },
+                        "question05": {
+                          "id": "q5-cars-in-the-1970s-were-than-cars-today",
+                          "answersAccepted": [
+                            ["fnv1a-64:87a27338c68fbfcd"],
+                            ["fnv1a-64:87ad347436f18212"],
+                            ["fnv1a-64:aa25d61a62282eeb"],
+                            ["fnv1a-64:7dbb9aa9363c5f8c"],
+                            ["fnv1a-64:69939ad068cb4f22"]
+                          ],
+                          "lengths": [1],
+                          "minLength": 1,
+                          "maxLength": 1,
+                          "manualCheckOk": false
+                        }
+                      }
+                    }
+                  }
+                </script>
                 <script
                   type="application/json"
                   id="exercise-config"
                   data-exercise-config="">
-                                                      {
+                  {
                     "title": "3.4.9 Comparing Adjectives",
                     "canonical": "349-comparing-adjectives.html",
                     "totalQuestions": 5,
@@ -2225,7 +2245,7 @@
                     id="r-flyout-panel-adjectives"
                     aria-hidden="true"
                     hidden>
-                                        <ul class="r-flyout__sublist">
+                    <ul class="r-flyout__sublist">
                       <li class="first">
                         <div class="item-wrapper">
                           <div class="menu-link">
@@ -2359,7 +2379,6 @@
                         </div>
                       </li>
                     </ul>
-
                   </div>
                 </li>
                 <li data-r-flyout-item="">

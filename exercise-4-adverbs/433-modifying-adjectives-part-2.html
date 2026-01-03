@@ -87,12 +87,6 @@
         background-color: var(--background-color);
       }
 
-      /* Preload critical image dimensions to prevent CLS */
-      img[src*="../images/banner.png"] {
-        height: 120;
-        width: 650;
-      }
-
       img[src*="../favicon.png"] {
         height: 24px;
         max-height: 28px;
@@ -1310,55 +1304,79 @@
               <div class="page-header">
                 <h2>4.3.3 Modifying Adjectives (Part 2)</h2>
                 <div class="clearfix"></div>
-                <nav class="breadcrumb-wrap" aria-label="Breadcrumb">
-                <ul
-                  class="breadcrumb"
-                  itemscope
-                  itemtype="https://schema.org/BreadcrumbList">
-                  <li class="active"><span class="divider icon-location"></span></li>
-                  <li
-                    itemprop="itemListElement"
+                <nav
+                  class="breadcrumb-wrap"
+                  aria-label="Breadcrumb">
+                  <ul
+                    class="breadcrumb"
                     itemscope
-                    itemtype="https://schema.org/ListItem">
-                    <a
-                      itemprop="item"
-                      href="../index-2.html"
-                      class="pathway"
-                      aria-label="Home">
-                      <span itemprop="name">Home</span>
-                    </a>
-                    <span class="divider">&nbsp;<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8 13.02" width="9" height="9"><polygon points="8 6.51 0 13.02 0 0 8 6.51" fill="#e0162b"></polygon></svg></span>
-                    <meta
-                      itemprop="position"
-                      content="1">
-                  </li>
-                  <li
-                    itemprop="itemListElement"
-                    itemscope
-                    itemtype="https://schema.org/ListItem">
-                    <a
-                      itemprop="item"
-                      href="../exercise-4-adverbs.html"
-                      class="pathway"
-                      aria-label="Exercise 4 - Adverbs">
-                      <span itemprop="name">Exercise 4 - Adverbs</span>
-                    </a>
-                    <span class="divider">&nbsp;<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8 13.02" width="9" height="9"><polygon points="8 6.51 0 13.02 0 0 8 6.51" fill="#e0162b"></polygon></svg></span>
-                    <meta
-                      itemprop="position"
-                      content="2">
-                  </li>
-                  <li
-                    itemprop="itemListElement"
-                    itemscope
-                    itemtype="https://schema.org/ListItem"
-                    class="active">
-                    <span itemprop="name">4.3.3 Modifying Adjectives (Part 2)</span>
-                    <meta
-                      itemprop="position"
-                      content="3">
-                  </li>
-                </ul>
+                    itemtype="https://schema.org/BreadcrumbList">
+                    <li class="active"><span class="divider icon-location"></span></li>
+                    <li
+                      itemprop="itemListElement"
+                      itemscope
+                      itemtype="https://schema.org/ListItem">
+                      <a
+                        itemprop="item"
+                        href="../index-2.html"
+                        class="pathway"
+                        aria-label="Home">
+                        <span itemprop="name">Home</span>
+                      </a>
+                      <span class="divider">
+                        &nbsp;
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 8 13.02"
+                          width="9"
+                          height="9">
+                          <polygon
+                            points="8 6.51 0 13.02 0 0 8 6.51"
+                            fill="#e0162b"></polygon>
+                        </svg>
+                      </span>
+                      <meta
+                        itemprop="position"
+                        content="1">
+                    </li>
+                    <li
+                      itemprop="itemListElement"
+                      itemscope
+                      itemtype="https://schema.org/ListItem">
+                      <a
+                        itemprop="item"
+                        href="../exercise-4-adverbs.html"
+                        class="pathway"
+                        aria-label="Exercise 4 - Adverbs">
+                        <span itemprop="name">Exercise 4 - Adverbs</span>
+                      </a>
+                      <span class="divider">
+                        &nbsp;
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 8 13.02"
+                          width="9"
+                          height="9">
+                          <polygon
+                            points="8 6.51 0 13.02 0 0 8 6.51"
+                            fill="#e0162b"></polygon>
+                        </svg>
+                      </span>
+                      <meta
+                        itemprop="position"
+                        content="2">
+                    </li>
+                    <li
+                      itemprop="itemListElement"
+                      itemscope
+                      itemtype="https://schema.org/ListItem"
+                      class="active">
+                      <span itemprop="name">4.3.3 Modifying Adjectives (Part 2)</span>
+                      <meta
+                        itemprop="position"
+                        content="3">
+                    </li>
+                  </ul>
                 </nav>
               </div>
               <div itemprop="articleBody">
@@ -1402,14 +1420,18 @@
                 <br>
 
                 <div class="exinstruct">
-              <p>
-                The following adverbs are modifiers that modify adjectives in these sentences. Rewrite sentences and place each adverb in the correct position in the sentence:
-              </p>
-              <div class="blockdiv">
-                <blockquote class="blockwrap">absolutely &nbsp;deeply &nbsp;devoutly &nbsp;happily &nbsp;heavily &nbsp;perfectly &nbsp;poorly &nbsp;richly &nbsp;strongly &nbsp;unbearably</blockquote>
-              </div>
-              <p>Click question to check your answers.</p>
-              </div>
+                  <p>
+                    The following adverbs are modifiers that modify adjectives in these sentences. Rewrite sentences and place each adverb
+                    in the correct position in the sentence:
+                  </p>
+                  <div class="blockdiv">
+                    <blockquote class="blockwrap">
+                      absolutely &nbsp;deeply &nbsp;devoutly &nbsp;happily &nbsp;heavily &nbsp;perfectly &nbsp;poorly &nbsp;richly
+                      &nbsp;strongly &nbsp;unbearably
+                    </blockquote>
+                  </div>
+                  <p>Click question to check your answers.</p>
+                </div>
                 <div
                   class="nn_sliders accordion panel-group"
                   id="set-nn_sliders-1">
@@ -1438,7 +1460,8 @@
                         <h2 class="nn_sliders-title">Example. The problem was difficult to solve. (extremely)</h2>
                         <p>
                           &#10;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#84;&#104;&#101;&#32;&#112;&#114;&#111;&#98;&#108;&#101;&#109;&#32;&#119;&#97;&#115;&#32;
-                          <span class="undies">&#101;&#120;&#116;&#114;&#101;&#109;&#101;&#108;&#121;</span>&#10;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#100;&#105;&#102;&#102;&#105;&#99;&#117;&#108;&#116;
+                          <span class="undies">&#101;&#120;&#116;&#114;&#101;&#109;&#101;&#108;&#121;</span>
+                          &#10;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#100;&#105;&#102;&#102;&#105;&#99;&#117;&#108;&#116;
                           &#10;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#116;&#111;&#32;&#115;&#111;&#108;&#118;&#101;&#46;&#10;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;
                         </p>
                       </div>

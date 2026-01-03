@@ -84,16 +84,14 @@
       body.base,
       body.site {
         border-top: 15px solid var(--footer-background);
-        padding: 20px;
         background-color: var(--background-color);
+        color: var(--text-color);
+        font-family: var(--font-base);
+        line-height: 1.5;
+        padding: 20px;
       }
 
       /* Preload critical image dimensions to prevent CLS */
-      img[src*="../images/banner.png"] {
-        height: 120;
-        width: 650;
-      }
-
       img[src*="../favicon.png"] {
         height: 24px;
         max-height: 28px;
@@ -305,6 +303,22 @@
     <!-- Critical augment: stabilize grid/menu to reduce CLS -->
     <style id="critical-inline-augment">
       /* Grid layout (avoid block→flex shift when async CSS loads) */
+      .container {
+        margin: 0 auto;
+        max-width: 1100px;
+        padding: 0 18px;
+      }
+
+      .container2 {
+        margin: 0 auto;
+        max-width: 1085px;
+        padding: 0 18px;
+      }
+
+      .padme1 {
+        padding-top: 3rem !important;
+      }
+
       .row-fluid {
         display: flex;
         flex-wrap: wrap;
@@ -329,6 +343,20 @@
         .row-fluid > .span8 {
           flex: 0 0 66.6667%;
           max-width: 66.6667%;
+        }
+
+        #sidebar {
+          min-width: 130px;
+        }
+
+        #aside {
+          min-width: 120px;
+        }
+
+        #content {
+          flex: 1 1 0;
+          max-width: none;
+          min-width: 0;
         }
       }
 
@@ -442,7 +470,8 @@
 
       ul.accordion-menu li:hover > .item-wrapper > .menu-button,
       ul.accordion-menu li:focus-within > .item-wrapper > .menu-button,
-      ul.accordion-menu li.opened > .item-wrapper > .menu-button {
+      ul.accordion-menu li.opened > .item-wrapper > .menu-button,
+      ul.accordion-menu li.current > .item-wrapper > .menu-button {
         color: var(--primary-color);
       }
 
@@ -458,6 +487,16 @@
 
       ul.accordion-menu li {
         border-top: 1px solid var(--divider-color);
+      }
+
+      ul.accordion-menu li.current {
+        background: var(--surface-warm, #fff);
+      }
+
+      ul.accordion-menu li.current > .item-wrapper > .menu-link > a,
+      ul.accordion-menu li.current > .item-wrapper > .menu-link > p {
+        color: var(--primary-color, #e0162b);
+        text-decoration: none;
       }
 
       ul.accordion-menu .menu-link {
@@ -518,6 +557,15 @@
         padding: 0;
       }
 
+      .exercise-form__last-attempt {
+        align-items: center;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.35rem;
+        margin: 0 0 0.75rem;
+        min-height: 1.5rem;
+      }
+
       #aside .r-flyout-menu > [data-r-flyout-item] {
         border-bottom: 1px solid var(--divider-color, #e1e7f0);
         position: relative;
@@ -549,6 +597,7 @@
       }
 
       #aside .r-flyout-menu > [data-r-flyout-item].current > .r-flyout__header {
+        background: var(--surface-warm, #fff);
         color: var(--primary-color, #e0162b);
       }
 
@@ -560,6 +609,15 @@
       #aside .r-flyout__link:hover,
       #aside .r-flyout__link:focus {
         color: var(--primary-color);
+        text-decoration: none;
+      }
+
+      #aside .r-flyout__sublist li.current > .item-wrapper {
+        background: var(--surface-warm, #fff);
+      }
+
+      #aside .r-flyout__sublist li.current > .item-wrapper a {
+        color: var(--primary-color, #e0162b);
         text-decoration: none;
       }
 
@@ -720,12 +778,6 @@
         display: none;
       }
 
-      /* Breadcrumb divider icon explicit size, belt-and-suspenders */
-      ul.breadcrumb > li > span.divider > img {
-        height: 9px;
-        width: 9px;
-      }
-
       /* Additional CLS prevention: stabilize accordion toggle heights */
       .nn_sliders-toggle {
         align-items: center;
@@ -813,17 +865,22 @@
         }
       }
 
-      @media (width <=909px) {
-        /* Prevent the right rail from wrapping beneath the article on mid-sized viewports */
-        #aside,
-        ul.accordion-menu .menu-link > a > svg,
-        ul.accordion-menu .menu-link > p > svg {
+      @media (width <= 900px) {
+        /* Reduce visual clutter on narrow viewports */
+        #aside {
           display: none;
         }
 
         .row-fluid > #content {
           flex: 1 1 0%;
           max-width: 100%;
+        }
+      }
+
+      @media (width <= 1000px) {
+        ul.accordion-menu .menu-link > a > svg,
+        ul.accordion-menu .menu-link > p > svg {
+          display: none;
         }
       }
 
@@ -1026,7 +1083,7 @@
     data-exercise-devtools="auto">
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      xmlns:xlink="http://www.w3.org/1999/xlink"
+      xlink="http://www.w3.org/1999/xlink"
       aria-hidden="true"
       style="position: absolute; width: 0; height: 0; overflow: hidden">
       <defs>
@@ -1035,7 +1092,7 @@
           viewBox="0 0 24 24">
           <path
             fill="currentColor"
-            d="M12 5a1 1 0 0 0-1 1v5H6a1 1 0 1 0 0 2h5v5a1 1 0 1 0 2 0v-5h5a1 1 0 1 0 0-2h-5V6a1 1 0 0 0-1-1z"></path>
+            d="M12 5a1 1 0 0 0-1 1v5H6a1 1 0 1 0 0 2h5v5a1 1 0 1 0 2 0v-5h5a1 1 0 1 0 0-2h-5V6a1 1 0 0 0-1-1z" />
         </symbol>
         <symbol
           id="icon-minus"
@@ -1046,7 +1103,7 @@
             width="6"
             height="2"
             rx="1"
-            fill="currentColor"></rect>
+            fill="currentColor" />
         </symbol>
       </defs>
     </svg>
@@ -1072,9 +1129,7 @@
                       <div class="item-wrapper">
                         <div class="menu-button"></div>
                         <div class="menu-link">
-                          <a
-                            href="../index-2.html"
-                            aria-label="Home">
+                          <a href="../index-2.html">
                             <svg
                               version="1.1"
                               xmlns="http://www.w3.org/2000/svg"
@@ -1084,7 +1139,7 @@
                               fill="currentColor">
                               <title>office</title>
                               <path
-                                d="M0 48h24v-48h-24v48zM15 6h6v6h-6v-6zM15 18h6v6h-6v-6zM15 30h6v6h-6v-6zM3 6h6v6h-6v-6zM3 18h6v6h-6v-6zM3 30h6v6h-6v-6zM27 15h21v3h-21zM27 48h6v-12h9v12h6v-27h-21z"></path>
+                                d="M0 48h24v-48h-24v48zM15 6h6v6h-6v-6zM15 18h6v6h-6v-6zM15 30h6v6h-6v-6zM3 6h6v6h-6v-6zM3 18h6v6h-6v-6zM3 30h6v6h-6v-6zM27 15h21v3h-21zM27 48h6v-12h9v12h6v-27h-21z" />
                             </svg>
                             Home
                           </a>
@@ -1095,9 +1150,7 @@
                       <div class="item-wrapper">
                         <div class="menu-button"></div>
                         <div class="menu-link">
-                          <a
-                            href="../grammar-lessons.html"
-                            aria-label="Lessons">
+                          <a href="../grammar-lessons.html">
                             <svg
                               version="1.1"
                               xmlns="http://www.w3.org/2000/svg"
@@ -1106,20 +1159,18 @@
                               viewBox="0 0 48 48"
                               fill="currentColor">
                               <title>display</title>
-                              <path d="M0 3v30h48v-30h-48zM45 30h-42v-24h42v24zM31.5 36h-15l-1.5 6-3 3h24l-3-3z"></path>
+                              <path d="M0 3v30h48v-30h-48zM45 30h-42v-24h42v24zM31.5 36h-15l-1.5 6-3 3h24l-3-3z" />
                             </svg>
                             Lessons
                           </a>
                         </div>
                       </div>
                     </li>
-                    <li>
+                    <li class="current">
                       <div class="item-wrapper">
                         <div class="menu-button"></div>
                         <div class="menu-link">
-                          <a
-                            href="../grammar-exercises.html"
-                            aria-label="Exercises">
+                          <a href="../grammar-exercises.html">
                             <svg
                               version="1.1"
                               xmlns="http://www.w3.org/2000/svg"
@@ -1128,7 +1179,7 @@
                               viewBox="0 0 48 48"
                               fill="currentColor">
                               <path
-                                d="M33.094 22.031l-7.125-7.125 2.813-2.813 4.313 4.219 8.438-8.438 2.813 2.813zM22.031 13.969h-18v4.031h18v-4.031zM42 26.813l-2.813-2.813-5.156 5.156-5.25-5.156-2.813 2.813 5.25 5.156-5.25 5.25 2.813 2.813 5.25-5.25 5.156 5.25 2.813-2.813-5.156-5.25zM22.031 30h-18v4.031h18v-4.031z"></path>
+                                d="M33.094 22.031l-7.125-7.125 2.813-2.813 4.313 4.219 8.438-8.438 2.813 2.813zM22.031 13.969h-18v4.031h18v-4.031zM42 26.813l-2.813-2.813-5.156 5.156-5.25-5.156-2.813 2.813 5.25 5.156-5.25 5.25 2.813 2.813 5.25-5.25 5.156 5.25 2.813-2.813-5.156-5.25zM22.031 30h-18v4.031h18v-4.031z" />
                             </svg>
                             Exercises
                           </a>
@@ -1139,9 +1190,7 @@
                       <div class="item-wrapper">
                         <div class="menu-button"></div>
                         <div class="menu-link">
-                          <a
-                            href="../introduction-to-tenses.html"
-                            aria-label="Tenses">
+                          <a href="../introduction-to-tenses.html">
                             <svg
                               version="1.1"
                               xmlns="http://www.w3.org/2000/svg"
@@ -1150,7 +1199,7 @@
                               viewBox="0 0 48 48"
                               fill="currentColor">
                               <path
-                                d="M0 24.5c0 12.98 10.52 23.5 23.5 23.5s23.5-10.52 23.5-23.5-10.52-23.5-23.5-23.5c-12.98 0-23.5 10.52-23.5 23.5zM21 8.5c0-1.38 1.12-2.5 2.5-2.5s2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5-2.5-1.12-2.5-2.5zM5 24.5c0-1.38 1.12-2.5 2.5-2.5s2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5-2.5-1.12-2.5-2.5zM37 24.5c0-1.38 1.12-2.5 2.5-2.5s2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5-2.5-1.12-2.5-2.5zM21 40.5c0-1.38 1.12-2.5 2.5-2.5s2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5-2.5-1.12-2.5-2.5zM19.83 25.689c-0.53-0.52-7.26-7.369-7.26-7.369-0.76-0.76-0.76-1.99 0-2.75s1.99-0.76 2.75 0l6.6 6.619c0.59 0.58 1.56 0.58 2.141 0l9.619-9.619c0.76-0.76 1.99-0.76 2.75 0s0.76 1.99 0 2.75c0 0-9.76 9.88-10.279 10.4-0.811 0.79-1.93 1.28-3.151 1.28-1.24 0-2.36-0.5-3.17-1.311z"></path>
+                                d="M0 24.5c0 12.98 10.52 23.5 23.5 23.5s23.5-10.52 23.5-23.5-10.52-23.5-23.5-23.5c-12.98 0-23.5 10.52-23.5 23.5zM21 8.5c0-1.38 1.12-2.5 2.5-2.5s2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5-2.5-1.12-2.5-2.5zM5 24.5c0-1.38 1.12-2.5 2.5-2.5s2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5-2.5-1.12-2.5-2.5zM37 24.5c0-1.38 1.12-2.5 2.5-2.5s2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5-2.5-1.12-2.5-2.5zM21 40.5c0-1.38 1.12-2.5 2.5-2.5s2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5-2.5-1.12-2.5-2.5zM19.83 25.689c-0.53-0.52-7.26-7.369-7.26-7.369-0.76-0.76-0.76-1.99 0-2.75s1.99-0.76 2.75 0l6.6 6.619c0.59 0.58 1.56 0.58 2.141 0l9.619-9.619c0.76-0.76 1.99-0.76 2.75 0s0.76 1.99 0 2.75c0 0-9.76 9.88-10.279 10.4-0.811 0.79-1.93 1.28-3.151 1.28-1.24 0-2.36-0.5-3.17-1.311z" />
                             </svg>
                             Tenses
                           </a>
@@ -1161,9 +1210,7 @@
                       <div class="item-wrapper">
                         <div class="menu-button"></div>
                         <div class="menu-link">
-                          <a
-                            href="../writing.html"
-                            aria-label="Writing">
+                          <a href="../writing.html">
                             <svg
                               version="1.1"
                               xmlns="http://www.w3.org/2000/svg"
@@ -1173,7 +1220,7 @@
                               fill="currentColor">
                               <title>pencil</title>
                               <path
-                                d="M40.5 0c4.142 0 7.5 3.358 7.5 7.5 0 1.688-0.558 3.246-1.5 4.5l-3 3-10.5-10.5 3-3c1.254-0.942 2.811-1.5 4.5-1.5zM3 34.5l-3 13.5 13.5-3 27.75-27.75-10.5-10.5-27.75 27.75zM33.543 17.043l-21 21-2.585-2.585 21-21 2.585 2.585z"></path>
+                                d="M40.5 0c4.142 0 7.5 3.358 7.5 7.5 0 1.688-0.558 3.246-1.5 4.5l-3 3-10.5-10.5 3-3c1.254-0.942 2.811-1.5 4.5-1.5zM3 34.5l-3 13.5 13.5-3 27.75-27.75-10.5-10.5-27.75 27.75zM33.543 17.043l-21 21-2.585-2.585 21-21 2.585 2.585z" />
                             </svg>
                             Writing
                           </a>
@@ -1184,9 +1231,7 @@
                       <div class="item-wrapper">
                         <div class="menu-button"></div>
                         <div class="menu-link">
-                          <a
-                            href="../vocabulary.html"
-                            aria-label="Vocabulary">
+                          <a href="../vocabulary.html">
                             <svg
                               version="1.1"
                               xmlns="http://www.w3.org/2000/svg"
@@ -1195,7 +1240,7 @@
                               viewBox="0 0 24 24">
                               <title>file</title>
                               <path
-                                d="M8.25 11.25h0.75v-0.75h-0.75v0.75zM8.25 13.5h0.75v-0.75h-0.75v0.75zM8.25 9h0.75v-0.75h-0.75v0.75zM8.25 15.75h0.75v-0.75h-0.75v0.75zM8.25 18h0.75v-0.75h-0.75v0.75zM9.75 13.5h6v-0.75h-6v0.75zM9.75 9h6v-0.75h-6v0.75zM15.703 3h-10.454v18h13.5v-15l-3.047-3zM17.25 19.453h-10.5v-14.953h7.5v2.204h3v12.75zM9.75 15.75h6v-0.75h-6v0.75zM9.75 11.25h6v-0.75h-6v0.75zM9.75 18h6v-0.75h-6v0.75z"></path>
+                                d="M8.25 11.25h0.75v-0.75h-0.75v0.75zM8.25 13.5h0.75v-0.75h-0.75v0.75zM8.25 9h0.75v-0.75h-0.75v0.75zM8.25 15.75h0.75v-0.75h-0.75v0.75zM8.25 18h0.75v-0.75h-0.75v0.75zM9.75 13.5h6v-0.75h-6v0.75zM9.75 9h6v-0.75h-6v0.75zM15.703 3h-10.454v18h13.5v-15l-3.047-3zM17.25 19.453h-10.5v-14.953h7.5v2.204h3v12.75zM9.75 15.75h6v-0.75h-6v0.75zM9.75 11.25h6v-0.75h-6v0.75zM9.75 18h6v-0.75h-6v0.75z" />
                             </svg>
                             Vocabulary
                           </a>
@@ -1206,9 +1251,7 @@
                       <div class="item-wrapper">
                         <div class="menu-button"></div>
                         <div class="menu-link">
-                          <a
-                            href="../glossary.html"
-                            aria-label="Glossary">
+                          <a href="../glossary.html">
                             <svg
                               version="1.1"
                               xmlns="http://www.w3.org/2000/svg"
@@ -1218,11 +1261,11 @@
                               fill="currentColor">
                               <title>Books</title>
                               <path
-                                d="M10.5 6h-9c-0.825 0-1.5 0.675-1.5 1.5v33c0 0.825 0.675 1.5 1.5 1.5h9c0.825 0 1.5-0.675 1.5-1.5v-33c0-0.825-0.675-1.5-1.5-1.5zM9 15h-6v-3h6v3z"></path>
+                                d="M10.5 6h-9c-0.825 0-1.5 0.675-1.5 1.5v33c0 0.825 0.675 1.5 1.5 1.5h9c0.825 0 1.5-0.675 1.5-1.5v-33c0-0.825-0.675-1.5-1.5-1.5zM9 15h-6v-3h6v3z" />
                               <path
-                                d="M25.5 6h-9c-0.825 0-1.5 0.675-1.5 1.5v33c0 0.825 0.675 1.5 1.5 1.5h9c0.825 0 1.5-0.675 1.5-1.5v-33c0-0.825-0.675-1.5-1.5-1.5zM24 15h-6v-3h6v3z"></path>
+                                d="M25.5 6h-9c-0.825 0-1.5 0.675-1.5 1.5v33c0 0.825 0.675 1.5 1.5 1.5h9c0.825 0 1.5-0.675 1.5-1.5v-33c0-0.825-0.675-1.5-1.5-1.5zM24 15h-6v-3h6v3z" />
                               <path
-                                d="M35.864 8.319l-8.037 4.050c-0.737 0.371-1.036 1.278-0.665 2.014l13.499 26.791c0.371 0.737 1.278 1.036 2.014 0.665l8.037-4.050c0.737-0.371 1.036-1.278 0.665-2.014l-13.499-26.791c-0.371-0.737-1.278-1.036-2.014-0.665z"></path>
+                                d="M35.864 8.319l-8.037 4.050c-0.737 0.371-1.036 1.278-0.665 2.014l13.499 26.791c0.371 0.737 1.278 1.036 2.014 0.665l8.037-4.050c0.737-0.371 1.036-1.278 0.665-2.014l-13.499-26.791c-0.371-0.737-1.278-1.036-2.014-0.665z" />
                             </svg>
                             Glossary
                           </a>
@@ -1232,9 +1275,7 @@
                     <li id="lists-menu-item">
                       <div class="item-wrapper">
                         <div class="menu-link">
-                          <a
-                            href="../lists.html"
-                            aria-label="Lists">
+                          <a href="../lists.html">
                             <svg
                               version="1.1"
                               xmlns="http://www.w3.org/2000/svg"
@@ -1244,7 +1285,7 @@
                               fill="currentColor">
                               <title>list-ol</title>
                               <path
-                                d="M5.103 21.696c0 1.473-1.152 2.304-2.545 2.304-0.844 0-1.701-0.281-2.304-0.884l0.763-1.179c0.362 0.335 0.911 0.603 1.42 0.603 0.469 0 0.964-0.228 0.964-0.763 0-0.75-0.857-0.79-1.406-0.75l-0.348-0.75c0.482-0.616 0.924-1.299 1.5-1.821v-0.013c-0.429 0-0.871 0.027-1.299 0.027v0.71h-1.42v-2.036h4.46v1.179l-1.272 1.54c0.897 0.214 1.487 0.911 1.487 1.835zM5.129 13.299v2.129h-4.848c-0.040-0.241-0.080-0.482-0.080-0.723 0-2.478 3.027-2.853 3.027-3.978 0-0.455-0.281-0.696-0.723-0.696-0.469 0-0.857 0.402-1.085 0.777l-1.138-0.79c0.442-0.924 1.353-1.446 2.371-1.446 1.246 0 2.317 0.737 2.317 2.063 0 1.982-2.906 2.424-2.946 3.469h1.701v-0.804h1.406zM24 17.571v2.571c0 0.228-0.201 0.429-0.429 0.429h-16.286c-0.241 0-0.429-0.201-0.429-0.429v-2.571c0-0.241 0.188-0.429 0.429-0.429h16.286c0.228 0 0.429 0.188 0.429 0.429zM5.143 5.531v1.326h-4.487v-1.326h1.433c0-1.085 0.013-2.17 0.013-3.254v-0.161h-0.027c-0.147 0.295-0.415 0.496-0.67 0.723l-0.951-1.018 1.821-1.701h1.42v5.411h1.446zM24 10.714v2.571c0 0.228-0.201 0.429-0.429 0.429h-16.286c-0.241 0-0.429-0.201-0.429-0.429v-2.571c0-0.241 0.188-0.429 0.429-0.429h16.286c0.228 0 0.429 0.188 0.429 0.429zM24 3.857v2.571c0 0.228-0.201 0.429-0.429 0.429h-16.286c-0.241 0-0.429-0.201-0.429-0.429v-2.571c0-0.228 0.188-0.429 0.429-0.429h16.286c0.228 0 0.429 0.201 0.429 0.429z"></path>
+                                d="M5.103 21.696c0 1.473-1.152 2.304-2.545 2.304-0.844 0-1.701-0.281-2.304-0.884l0.763-1.179c0.362 0.335 0.911 0.603 1.42 0.603 0.469 0 0.964-0.228 0.964-0.763 0-0.75-0.857-0.79-1.406-0.75l-0.348-0.75c0.482-0.616 0.924-1.299 1.5-1.821v-0.013c-0.429 0-0.871 0.027-1.299 0.027v0.71h-1.42v-2.036h4.46v1.179l-1.272 1.54c0.897 0.214 1.487 0.911 1.487 1.835zM5.129 13.299v2.129h-4.848c-0.040-0.241-0.080-0.482-0.080-0.723 0-2.478 3.027-2.853 3.027-3.978 0-0.455-0.281-0.696-0.723-0.696-0.469 0-0.857 0.402-1.085 0.777l-1.138-0.79c0.442-0.924 1.353-1.446 2.371-1.446 1.246 0 2.317 0.737 2.317 2.063 0 1.982-2.906 2.424-2.946 3.469h1.701v-0.804h1.406zM24 17.571v2.571c0 0.228-0.201 0.429-0.429 0.429h-16.286c-0.241 0-0.429-0.201-0.429-0.429v-2.571c0-0.241 0.188-0.429 0.429-0.429h16.286c0.228 0 0.429 0.188 0.429 0.429zM5.143 5.531v1.326h-4.487v-1.326h1.433c0-1.085 0.013-2.17 0.013-3.254v-0.161h-0.027c-0.147 0.295-0.415 0.496-0.67 0.723l-0.951-1.018 1.821-1.701h1.42v5.411h1.446zM24 10.714v2.571c0 0.228-0.201 0.429-0.429 0.429h-16.286c-0.241 0-0.429-0.201-0.429-0.429v-2.571c0-0.241 0.188-0.429 0.429-0.429h16.286c0.228 0 0.429 0.188 0.429 0.429zM24 3.857v2.571c0 0.228-0.201 0.429-0.429 0.429h-16.286c-0.241 0-0.429-0.201-0.429-0.429v-2.571c0-0.228 0.188-0.429 0.429-0.429h16.286c0.228 0 0.429 0.201 0.429 0.429z" />
                             </svg>
                             Lists
                           </a>
@@ -1256,11 +1297,7 @@
                             <div class="item-wrapper">
                               <div class="menu-button"></div>
                               <div class="menu-link">
-                                <a
-                                  href="../lists.html"
-                                  aria-label="Lists">
-                                  Lists
-                                </a>
+                                <a href="../lists.html">Lists</a>
                               </div>
                             </div>
                           </li>
@@ -1268,11 +1305,7 @@
                             <div class="item-wrapper">
                               <div class="menu-button"></div>
                               <div class="menu-link">
-                                <a
-                                  href="../prepositions.html"
-                                  aria-label="Prepositions">
-                                  Prepositions
-                                </a>
+                                <a href="../prepositions.html">Prepositions</a>
                               </div>
                             </div>
                           </li>
@@ -1280,11 +1313,7 @@
                             <div class="item-wrapper">
                               <div class="menu-button"></div>
                               <div class="menu-link">
-                                <a
-                                  href="../lists2/words-from-a-z.html"
-                                  aria-label="Sentences (v+prep)">
-                                  Sentences
-                                </a>
+                                <a href="../lists2/words-from-a-z.html">Sentences</a>
                               </div>
                             </div>
                           </li>
@@ -1311,82 +1340,128 @@
               <div class="page-header">
                 <h2>2.6.1 Irregular Verbs I</h2>
                 <div class="clearfix"></div>
-                <nav class="breadcrumb-wrap" aria-label="Breadcrumb">
-                <ul
-                  class="breadcrumb"
-                  itemscope=""
-                  itemtype="https://schema.org/BreadcrumbList">
-                  <li class="active"><span class="divider icon-location"></span></li>
-                  <li
-                    itemprop="itemListElement"
-                    itemscope=""
-                    itemtype="https://schema.org/ListItem">
-                    <a
-                      itemprop="item"
-                      href="../index-2.html"
-                      class="pathway"
-                      aria-label="Home">
-                      <span itemprop="name">Home</span>
-                    </a>
-                    <span class="divider">&nbsp;<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8 13.02" width="9" height="9"><polygon points="8 6.51 0 13.02 0 0 8 6.51" fill="#e0162b"></polygon></svg></span>
-                    <meta
-                      itemprop="position"
-                      content="1">
-                  </li>
-                  <li
-                    itemprop="itemListElement"
-                    itemscope=""
-                    itemtype="https://schema.org/ListItem">
-                    <a
-                      itemprop="item"
-                      href="../exercise-2-verbs.html"
-                      class="pathway"
-                      aria-label="Exercise 2 - Verbs">
-                      <span itemprop="name">Exercise 2 - Verbs</span>
-                    </a>
-                    <span class="divider">&nbsp;<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8 13.02" width="9" height="9"><polygon points="8 6.51 0 13.02 0 0 8 6.51" fill="#e0162b"></polygon></svg></span>
-                    <meta
-                      itemprop="position"
-                      content="2">
-                  </li>
-                  <li
-                    itemprop="itemListElement"
-                    itemscope=""
-                    itemtype="https://schema.org/ListItem"
-                    class="active">
-                    <span itemprop="name">2.6.1 Irregular Verbs I</span>
-                    <meta
-                      itemprop="position"
-                      content="3">
-                  </li>
-                </ul>
+                <nav
+                  class="breadcrumb-wrap"
+                  aria-label="Breadcrumb">
+                  <ul
+                    class="breadcrumb"
+                    itemscope
+                    itemtype="https://schema.org/BreadcrumbList">
+                    <li class="active"><span class="divider icon-location"></span></li>
+                    <li
+                      itemprop="itemListElement"
+                      itemscope
+                      itemtype="https://schema.org/ListItem">
+                      <a
+                        itemprop="item"
+                        href="../index-2.html"
+                        class="pathway"
+                        aria-label="Home">
+                        <span itemprop="name">Home</span>
+                      </a>
+                      <span class="divider">
+                         
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 8 13.02"
+                          width="9"
+                          height="9">
+                          <polygon
+                            points="8 6.51 0 13.02 0 0 8 6.51"
+                            fill="#e0162b" />
+                        </svg>
+                      </span>
+                      <meta
+                        itemprop="position"
+                        content="1">
+                    </li>
+                    <li
+                      itemprop="itemListElement"
+                      itemscope
+                      itemtype="https://schema.org/ListItem">
+                      <a
+                        itemprop="item"
+                        href="../exercise-2-verbs.html"
+                        class="pathway"
+                        aria-label="Exercise 2 - Verbs">
+                        <span itemprop="name">Exercise 2 - Verbs</span>
+                      </a>
+                      <span class="divider">
+                         
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 8 13.02"
+                          width="9"
+                          height="9">
+                          <polygon
+                            points="8 6.51 0 13.02 0 0 8 6.51"
+                            fill="#e0162b" />
+                        </svg>
+                      </span>
+                      <meta
+                        itemprop="position"
+                        content="2">
+                    </li>
+                    <li
+                      itemprop="itemListElement"
+                      itemscope
+                      itemtype="https://schema.org/ListItem"
+                      class="active">
+                      <span itemprop="name">2.6.1 Irregular Verbs I</span>
+                      <meta
+                        itemprop="position"
+                        content="3">
+                    </li>
+                  </ul>
                 </nav>
               </div>
               <div itemprop="articleBody">
                 <ul class="pager pagenav">
                   <li class="previous">
                     <a
-                      href="231-auxiliary-verbs.html"
-                      rel="prev"
-                      aria-label="Previous">
-                      <span class="icon-chevron-left"></span>
-                      2.3.1 Auxiliary Verbs
+                      href="221-linking-verbs.html"
+                      rel="prev">
+                      <svg
+                        version="1.1"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 18 48"
+                        fill="currentColor">
+                        <title>angle-left</title>
+                        <path
+                          d="M16.795 14.571c0 0.214-0.107 0.455-0.268 0.616l-10.527 10.527 10.527 10.527c0.161 0.161 0.268 0.402 0.268 0.616s-0.107 0.455-0.268 0.616l-1.339 1.339c-0.161 0.161-0.402 0.268-0.616 0.268s-0.455-0.107-0.616-0.268l-12.482-12.482c-0.161-0.161-0.268-0.402-0.268-0.616s0.107-0.455 0.268-0.616l12.482-12.482c0.161-0.161 0.402-0.268 0.616-0.268s0.455 0.107 0.616 0.268l1.339 1.339c0.161 0.161 0.268 0.375 0.268 0.616z" />
+                      </svg>
+                      <span class="pager-label">2.2.1 Linking Verbs</span>
                     </a>
                   </li>
                   <li class="next">
                     <a
                       href="262-irregular-verbs-ii.html"
-                      rel="next"
-                      aria-label="Next">
-                      2.6.2 Irregular Verbs II
-                      <span class="icon-chevron-right"></span>
+                      rel="next">
+                      <span class="pager-label">2.6.2 Irregular Verbs II</span>
+                      <svg
+                        version="1.1"
+                        xmlns="http://www.w3.org/2000/svg"
+                        height="24px"
+                        viewBox="0 0 18 48"
+                        fill="currentColor">
+                        <title>angle-right</title>
+                        <path
+                          d="M15.938 25.714c0 0.214-0.107 0.455-0.268 0.616l-12.482 12.482c-0.161 0.161-0.402 0.268-0.616 0.268s-0.455-0.107-0.616-0.268l-1.339-1.339c-0.161-0.161-0.268-0.375-0.268-0.616 0-0.214 0.107-0.455 0.268-0.616l10.527-10.527-10.527-10.527c-0.161-0.161-0.268-0.402-0.268-0.616s0.107-0.455 0.268-0.616l1.339-1.339c0.161-0.161 0.402-0.268 0.616-0.268s0.455 0.107 0.616 0.268l12.482 12.482c0.161 0.161 0.268 0.402 0.268 0.616z" />
+                      </svg>
                     </a>
                   </li>
                 </ul>
-                <p>Fill in every blank-line of a question with the missing verb form in its correct answer box - i.e., <em>if a question is missing only the past participle, only enter one in the past participle answer box; but, if both past tense and past participle are missing, enter both answers in the correct boxes</em>. Some questions have one answer while others have two answers. Click the question to check your answer.</p>
+                <div class="exinstruct">
+                  <p>Enter the correct missing verb form(s):</p>
+                  <div class="blockdiv">
+                    <blockquote class="blockwrap-txt"><b>note</b>: <em>if a question is missing the past participle</em>, only <b>enter one answer</b> in the <span class="in-text-decoration-underline__14j0pz">past participle</span> blank answer box; but, <em class="undies-lt">if both past tense and past participle are missing</em>, <b>enter both answers</b> in the correct boxes.
+                    </blockquote>
+                  </div>
+                  <p><b>Some questions have one answer while others have two answers</b>. Click the question to check your answer.</p>
+                </div>
                 <form
                   class="exercise-form exercise-gate"
-                  data-exercise-form=""
+                  data-exercise-form
                   data-storage-key="exercise-261-irregular-verbs-i"
                   novalidate>
                   <fieldset class="exercise-form__intro">
@@ -1401,7 +1476,7 @@
                             name="exerciseEmail"
                             autocomplete="email"
                             required
-                            data-exercise-email=""
+                            data-exercise-email
                             placeholder="name@example.com">
                         </div>
                         <div class="exercise-form__student-id">
@@ -1416,25 +1491,25 @@
                             spellcheck="false"
                             required
                             pattern="^[a-z]+\d{3}$"
-                            data-exercise-student-id=""
+                            data-exercise-student-id
                             placeholder="Eagles user ID - e.g., tammy001"
                             aria-describedby="exercise-student-id-note">
                         </div>
                       </div>
                       <p
                         class="exercise-form__progress tm01"
-                        data-exercise-progress=""
+                        data-exercise-progress
                         aria-live="polite">
                         0 of 20 questions completed.
                       </p>
                       <span
                         class="exercise-form__last-attempt"
-                        data-exercise-last-attempt=""
+                        data-exercise-last-attempt
                         hidden
                         aria-live="polite"></span>
                       <div
                         class="exercise-form__feedback"
-                        data-exercise-feedback=""
+                        data-exercise-feedback
                         aria-live="polite"></div>
                     </div>
                   </fieldset>
@@ -1463,7 +1538,9 @@
                             aria-expanded="false"
                             aria-controls="261-irregular-verbs-i.html#1-infinitive-become-present-participle-becoming-past-tense-became-past-participle-_____">
                             <span class="nn_sliders-toggle-inner">
-                              1. Infinitive: become&nbsp;&nbsp;Present participle: becoming<br>&nbsp;&nbsp;&nbsp;&nbsp;Past tense: became&nbsp;&nbsp;Past participle: _____
+                              1. Infinitive: to become  Present participle: becoming
+                              <br>
+                                  Past tense: became  Past participle: _____
                             </span>
                           </a>
                         </div>
@@ -1473,17 +1550,22 @@
                           aria-hidden="true">
                           <div class="accordion-inner panel-body">
                             <h2 class="nn_sliders-title">
-                              1. Infinitive: become&nbsp;&nbsp;Present participle: becoming<br>&nbsp;&nbsp;&nbsp;&nbsp;Past tense: became&nbsp;&nbsp;Past participle: _____
+                              1. Infinitive: to become  Present participle: becoming
+                              <br>
+                                  Past tense: became  Past participle: _____
                             </h2>
                             <p>
-                              1. Infinitive: become&nbsp;&nbsp;Present participle: becoming<br>&nbsp;&nbsp;&nbsp;&nbsp;Past tense: became&nbsp;&nbsp;Past participle: _____
+                              1. Infinitive: to become  Present participle: becoming
+                              <br>
+                                  Past tense: became  Past participle:
+                              <span class="undies">become</span>
                             </p>
                           </div>
                         </div>
                         <div
                           class="exercise-response-row"
                           data-item="q1-infinitive-become-present-participle-becoming-past-tense-became-past-participle-_____"
-                          data-answer-ui="">
+                          data-answer-ui>
                           <label class="exercise-response-field">
                             <span class="visually-hidden">
                               Response for item q1-infinitive-become-present-participle-becoming-past-tense-became-past-participle-_____
@@ -1538,7 +1620,9 @@
                             aria-expanded="false"
                             aria-controls="261-irregular-verbs-i.html#2-infinitive-choose-present-participle-choosing-past-tense-_____-past-participle-_____">
                             <span class="nn_sliders-toggle-inner">
-                              2. Infinitive: choose&nbsp;&nbsp;Present participle: choosing<br>&nbsp;&nbsp;&nbsp;&nbsp;Past tense: _____&nbsp;&nbsp;Past participle: _____
+                              2. Infinitive: to choose  Present participle: choosing
+                              <br>
+                                  Past tense: _____  Past participle: _____
                             </span>
                           </a>
                         </div>
@@ -1548,17 +1632,21 @@
                           aria-hidden="true">
                           <div class="accordion-inner panel-body">
                             <h2 class="nn_sliders-title">
-                              2. Infinitive: choose&nbsp;&nbsp;Present participle: choosing<br>&nbsp;&nbsp;&nbsp;&nbsp;Past tense: _____&nbsp;&nbsp;Past participle: _____
+                              2. Infinitive: to choose  Present participle: choosing
+                              <br>
+                                  Past tense: _____  Past participle: _____
                             </h2>
                             <p>
-                              2. Infinitive: choose&nbsp;&nbsp;Present participle: choosing<br>&nbsp;&nbsp;&nbsp;&nbsp;Past tense: _____&nbsp;&nbsp;Past participle: _____
+                              2. Infinitive: to choose  Present participle: choosing
+                              <br>
+                                  Past tense: <span class="undies">chose</span>  Past participle: <span class="undies">chosen</span>
                             </p>
                           </div>
                         </div>
                         <div
                           class="exercise-response-row"
                           data-item="q2-infinitive-choose-present-participle-choosing-past-tense-_____-past-participle-_____"
-                          data-answer-ui="">
+                          data-answer-ui>
                           <label class="exercise-response-field">
                             <span class="visually-hidden">
                               Response for item q2-infinitive-choose-present-participle-choosing-past-tense-_____-past-participle-_____
@@ -1613,8 +1701,9 @@
                             aria-expanded="false"
                             aria-controls="261-irregular-verbs-i.html#3-infinitive-cost-present-participle-costing-past-tense-_____-past-participle-_____">
                             <span class="nn_sliders-toggle-inner">
-                              3. Infinitive: cost&nbsp;&nbsp;Present participle: costing<br>&nbsp;&nbsp;&nbsp;&nbsp;Past tense:
-                              _____&nbsp;&nbsp;Past participle: _____
+                              3. Infinitive: to cost  Present participle: costing
+                              <br>
+                                  Past tense: _____  Past participle: _____
                             </span>
                           </a>
                         </div>
@@ -1624,19 +1713,21 @@
                           aria-hidden="true">
                           <div class="accordion-inner panel-body">
                             <h2 class="nn_sliders-title">
-                              3. Infinitive: cost&nbsp;&nbsp;Present participle: costing<br>&nbsp;&nbsp;&nbsp;&nbsp;Past tense:
-                              _____&nbsp;&nbsp;Past participle: _____
+                              3. Infinitive: to cost  Present participle: costing
+                              <br>
+                                  Past tense: _____  Past participle: _____
                             </h2>
                             <p>
-                              3. Infinitive: cost&nbsp;&nbsp;Present participle: costing<br>&nbsp;&nbsp;&nbsp;&nbsp;Past tense:
-                              _____&nbsp;&nbsp;Past participle: _____
+                              3. Infinitive: to cost  Present participle: costing
+                              <br>
+                                  Past tense: <span class="undies">cost</span>  Past participle: <span class="undies">cost</span>
                             </p>
                           </div>
                         </div>
                         <div
                           class="exercise-response-row"
                           data-item="q3-infinitive-cost-present-participle-costing-past-tense-_____-past-participle-_____"
-                          data-answer-ui="">
+                          data-answer-ui>
                           <label class="exercise-response-field">
                             <span class="visually-hidden">
                               Response for item q3-infinitive-cost-present-participle-costing-past-tense-_____-past-participle-_____
@@ -1691,7 +1782,9 @@
                             aria-expanded="false"
                             aria-controls="261-irregular-verbs-i.html#4-infinitive-drink-present-participle-drinking-past-tense-_____-past-participle-_____">
                             <span class="nn_sliders-toggle-inner">
-                              4. Infinitive: drink&nbsp;&nbsp;Present participle: drinking<br>&nbsp;&nbsp;&nbsp;&nbsp;Past tense: _____&nbsp;&nbsp;Past participle: _____
+                              4. Infinitive: to drink  Present participle: drinking
+                              <br>
+                                  Past tense: _____  Past participle: _____
                             </span>
                           </a>
                         </div>
@@ -1701,17 +1794,21 @@
                           aria-hidden="true">
                           <div class="accordion-inner panel-body">
                             <h2 class="nn_sliders-title">
-                              4. Infinitive: drink&nbsp;&nbsp;Present participle: drinking<br>&nbsp;&nbsp;&nbsp;&nbsp;Past tense: _____&nbsp;&nbsp;Past participle: _____
+                              4. Infinitive: to drink  Present participle: drinking
+                              <br>
+                                  Past tense: _____  Past participle: _____
                             </h2>
                             <p>
-                              4. Infinitive: drink&nbsp;&nbsp;Present participle: drinking<br>&nbsp;&nbsp;&nbsp;&nbsp;Past tense: _____&nbsp;&nbsp;Past participle: _____
+                              4. Infinitive: to drink  Present participle: drinking
+                              <br>
+                                  Past tense: <span class="undies">drank</span>  Past participle: <span class="undies">drunk</span>
                             </p>
                           </div>
                         </div>
                         <div
                           class="exercise-response-row"
                           data-item="q4-infinitive-drink-present-participle-drinking-past-tense-_____-past-participle-_____"
-                          data-answer-ui="">
+                          data-answer-ui>
                           <label class="exercise-response-field">
                             <span class="visually-hidden">
                               Response for item q4-infinitive-drink-present-participle-drinking-past-tense-_____-past-participle-_____
@@ -1766,8 +1863,9 @@
                             aria-expanded="false"
                             aria-controls="261-irregular-verbs-i.html#5-infinitive-eat-present-participle-eating-past-tense-ate-past-participle-_____">
                             <span class="nn_sliders-toggle-inner">
-                              5. Infinitive: eat&nbsp;&nbsp;Present participle: eating<br>&nbsp;&nbsp;&nbsp;&nbsp;Past tense:
-                              ate&nbsp;&nbsp;Past participle: _____
+                              5. Infinitive: to eat  Present participle: eating
+                              <br>
+                                  Past tense: ate  Past participle: _____
                             </span>
                           </a>
                         </div>
@@ -1777,19 +1875,21 @@
                           aria-hidden="true">
                           <div class="accordion-inner panel-body">
                             <h2 class="nn_sliders-title">
-                              5. Infinitive: eat&nbsp;&nbsp;Present participle: eating<br>&nbsp;&nbsp;&nbsp;&nbsp;Past tense:
-                              ate&nbsp;&nbsp;Past participle: _____
+                              5. Infinitive: to eat  Present participle: eating
+                              <br>
+                                  Past tense: ate  Past participle: _____
                             </h2>
                             <p>
-                              5. Infinitive: eat&nbsp;&nbsp;Present participle: eating<br>&nbsp;&nbsp;&nbsp;&nbsp;Past tense:
-                              ate&nbsp;&nbsp;Past participle: _____
+                              5. Infinitive: to eat  Present participle: eating
+                              <br>
+                                  Past tense: ate  Past participle: <span class="undies">eaten</span>
                             </p>
                           </div>
                         </div>
                         <div
                           class="exercise-response-row"
                           data-item="q5-infinitive-eat-present-participle-eating-past-tense-ate-past-participle-_____"
-                          data-answer-ui="">
+                          data-answer-ui>
                           <label class="exercise-response-field">
                             <span class="visually-hidden">
                               Response for item q5-infinitive-eat-present-participle-eating-past-tense-ate-past-participle-_____ (answer_01)
@@ -1842,7 +1942,9 @@
                             aria-expanded="false"
                             aria-controls="261-irregular-verbs-i.html#6-infinitive-freeze-present-participle-freezing-past-tense-_____-past-participle-_____">
                             <span class="nn_sliders-toggle-inner">
-                              6. Infinitive: freeze&nbsp;&nbsp;Present participle: freezing<br>&nbsp;&nbsp;&nbsp;&nbsp;Past tense: _____&nbsp;&nbsp;Past participle: _____
+                              6. Infinitive: to freeze  Present participle: freezing
+                              <br>
+                                  Past tense: _____  Past participle: _____
                             </span>
                           </a>
                         </div>
@@ -1852,17 +1954,21 @@
                           aria-hidden="true">
                           <div class="accordion-inner panel-body">
                             <h2 class="nn_sliders-title">
-                              6. Infinitive: freeze&nbsp;&nbsp;Present participle: freezing<br>&nbsp;&nbsp;&nbsp;&nbsp;Past tense: _____&nbsp;&nbsp;Past participle: _____
+                              6. Infinitive: to freeze  Present participle: freezing
+                              <br>
+                                  Past tense: _____  Past participle: _____
                             </h2>
                             <p>
-                              6. Infinitive: freeze&nbsp;&nbsp;Present participle: freezing<br>&nbsp;&nbsp;&nbsp;&nbsp;Past tense: _____&nbsp;&nbsp;Past participle: _____
+                              6. Infinitive: to freeze  Present participle: freezing
+                              <br>
+                                  Past tense: <span class="undies">froze</span>  Past participle: <span class="undies">frozen</span>
                             </p>
                           </div>
                         </div>
                         <div
                           class="exercise-response-row"
                           data-item="q6-infinitive-freeze-present-participle-freezing-past-tense-_____-past-participle-_____"
-                          data-answer-ui="">
+                          data-answer-ui>
                           <label class="exercise-response-field">
                             <span class="visually-hidden">
                               Response for item q6-infinitive-freeze-present-participle-freezing-past-tense-_____-past-participle-_____
@@ -1917,8 +2023,9 @@
                             aria-expanded="false"
                             aria-controls="261-irregular-verbs-i.html#7-infinitive-grow-present-participle-growing-past-tense-grew-past-participle-_____">
                             <span class="nn_sliders-toggle-inner">
-                              7. Infinitive: grow&nbsp;&nbsp;Present participle: growing<br>&nbsp;&nbsp;&nbsp;&nbsp;Past tense:
-                              grew&nbsp;&nbsp;Past participle: _____
+                              7. Infinitive: to grow  Present participle: growing
+                              <br>
+                                  Past tense: grew  Past participle: _____
                             </span>
                           </a>
                         </div>
@@ -1928,19 +2035,21 @@
                           aria-hidden="true">
                           <div class="accordion-inner panel-body">
                             <h2 class="nn_sliders-title">
-                              7. Infinitive: grow&nbsp;&nbsp;Present participle: growing<br>&nbsp;&nbsp;&nbsp;&nbsp;Past tense:
-                              grew&nbsp;&nbsp;Past participle: _____
+                              7. Infinitive: to grow  Present participle: growing
+                              <br>
+                                  Past tense: grew  Past participle: _____
                             </h2>
                             <p>
-                              7. Infinitive: grow&nbsp;&nbsp;Present participle: growing<br>&nbsp;&nbsp;&nbsp;&nbsp;Past tense:
-                              grew&nbsp;&nbsp;Past participle: _____
+                              7. Infinitive: to grow  Present participle: growing
+                              <br>
+                                  Past tense: grew  Past participle: <span class="undies">grown</span>
                             </p>
                           </div>
                         </div>
                         <div
                           class="exercise-response-row"
                           data-item="q7-infinitive-grow-present-participle-growing-past-tense-grew-past-participle-_____"
-                          data-answer-ui="">
+                          data-answer-ui>
                           <label class="exercise-response-field">
                             <span class="visually-hidden">
                               Response for item q7-infinitive-grow-present-participle-growing-past-tense-grew-past-participle-_____
@@ -1995,8 +2104,9 @@
                             aria-expanded="false"
                             aria-controls="261-irregular-verbs-i.html#8-infinitive-hide-present-participle-hiding-past-tense-hid-past-participle-_____">
                             <span class="nn_sliders-toggle-inner">
-                              8. Infinitive: hide&nbsp;&nbsp;Present participle: hiding<br>&nbsp;&nbsp;&nbsp;&nbsp;Past tense:
-                              hid&nbsp;&nbsp;Past participle: _____
+                              8. Infinitive: to hide  Present participle: hiding
+                              <br>
+                                  Past tense: hid  Past participle: _____
                             </span>
                           </a>
                         </div>
@@ -2006,19 +2116,21 @@
                           aria-hidden="true">
                           <div class="accordion-inner panel-body">
                             <h2 class="nn_sliders-title">
-                              8. Infinitive: hide&nbsp;&nbsp;Present participle: hiding<br>&nbsp;&nbsp;&nbsp;&nbsp;Past tense:
-                              hid&nbsp;&nbsp;Past participle: _____
+                              8. Infinitive: to hide  Present participle: hiding
+                              <br>
+                                  Past tense: hid  Past participle: _____
                             </h2>
                             <p>
-                              8. Infinitive: hide&nbsp;&nbsp;Present participle: hiding<br>&nbsp;&nbsp;&nbsp;&nbsp;Past tense:
-                              hid&nbsp;&nbsp;Past participle: _____
+                              8. Infinitive: to hide  Present participle: hiding
+                              <br>
+                                  Past tense: hid  Past participle: <span class="undies">hidden</span>
                             </p>
                           </div>
                         </div>
                         <div
                           class="exercise-response-row"
                           data-item="q8-infinitive-hide-present-participle-hiding-past-tense-hid-past-participle-_____"
-                          data-answer-ui="">
+                          data-answer-ui>
                           <label class="exercise-response-field">
                             <span class="visually-hidden">
                               Response for item q8-infinitive-hide-present-participle-hiding-past-tense-hid-past-participle-_____
@@ -2073,8 +2185,9 @@
                             aria-expanded="false"
                             aria-controls="261-irregular-verbs-i.html#9-infinitive-hit-present-participle-hitting-past-tense-_____-past-participle-_____">
                             <span class="nn_sliders-toggle-inner">
-                              9. Infinitive: hit&nbsp;&nbsp;Present participle: hitting<br>&nbsp;&nbsp;&nbsp;&nbsp;Past tense:
-                              _____&nbsp;&nbsp;Past participle: _____
+                              9. Infinitive: to hit  Present participle: hitting
+                              <br>
+                                  Past tense: _____  Past participle: _____
                             </span>
                           </a>
                         </div>
@@ -2084,19 +2197,21 @@
                           aria-hidden="true">
                           <div class="accordion-inner panel-body">
                             <h2 class="nn_sliders-title">
-                              9. Infinitive: hit&nbsp;&nbsp;Present participle: hitting<br>&nbsp;&nbsp;&nbsp;&nbsp;Past tense:
-                              _____&nbsp;&nbsp;Past participle: _____
+                              9. Infinitive: to hit  Present participle: hitting
+                              <br>
+                                  Past tense: _____  Past participle: _____
                             </h2>
                             <p>
-                              9. Infinitive: hit&nbsp;&nbsp;Present participle: hitting<br>&nbsp;&nbsp;&nbsp;&nbsp;Past tense:
-                              _____&nbsp;&nbsp;Past participle: _____
+                              9. Infinitive: to hit  Present participle: hitting
+                              <br>
+                                  Past tense: <span class="undies">hit</span>  Past participle: <span class="undies">hit</span>
                             </p>
                           </div>
                         </div>
                         <div
                           class="exercise-response-row"
                           data-item="q9-infinitive-hit-present-participle-hitting-past-tense-_____-past-participle-_____"
-                          data-answer-ui="">
+                          data-answer-ui>
                           <label class="exercise-response-field">
                             <span class="visually-hidden">
                               Response for item q9-infinitive-hit-present-participle-hitting-past-tense-_____-past-participle-_____
@@ -2151,8 +2266,9 @@
                             aria-expanded="false"
                             aria-controls="261-irregular-verbs-i.html#10-infinitive-keep-present-participle-keeping-past-tense-kept-past-participle-_____">
                             <span class="nn_sliders-toggle-inner">
-                              10. Infinitive: keep&nbsp;&nbsp;Present participle: keeping<br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Past tense:
-                              kept&nbsp;&nbsp;Past participle: _____
+                              10. Infinitive: to keep  Present participle: keeping
+                              <br>
+                                    Past tense: kept  Past participle: _____
                             </span>
                           </a>
                         </div>
@@ -2162,19 +2278,21 @@
                           aria-hidden="true">
                           <div class="accordion-inner panel-body">
                             <h2 class="nn_sliders-title">
-                              10. Infinitive: keep&nbsp;&nbsp;Present participle: keeping<br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Past tense:
-                              kept&nbsp;&nbsp;Past participle: _____
+                              10. Infinitive: to keep  Present participle: keeping
+                              <br>
+                                    Past tense: kept  Past participle: _____
                             </h2>
                             <p>
-                              10. Infinitive: keep&nbsp;&nbsp;Present participle: keeping<br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Past tense:
-                              kept&nbsp;&nbsp;Past participle: _____
+                              10. Infinitive: to keep  Present participle: keeping
+                              <br>
+                                    Past tense: kept  Past participle: <span class="undies">kept</span>
                             </p>
                           </div>
                         </div>
                         <div
                           class="exercise-response-row"
                           data-item="q10-infinitive-keep-present-participle-keeping-past-tense-kept-past-participle-_____"
-                          data-answer-ui="">
+                          data-answer-ui>
                           <label class="exercise-response-field">
                             <span class="visually-hidden">
                               Response for item q10-infinitive-keep-present-participle-keeping-past-tense-kept-past-participle-_____
@@ -2229,7 +2347,9 @@
                             aria-expanded="false"
                             aria-controls="261-irregular-verbs-i.html#11-infinitive-kneel-present-participle-kneeling-past-tense-knelt-past-participle-_____">
                             <span class="nn_sliders-toggle-inner">
-                              11. Infinitive: kneel&nbsp;&nbsp;Present participle: kneeling<br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Past tense: knelt&nbsp;&nbsp;Past participle: _____
+                              11. Infinitive: to kneel  Present participle: kneeling
+                              <br>
+                                    Past tense: knelt  Past participle: _____
                             </span>
                           </a>
                         </div>
@@ -2239,17 +2359,21 @@
                           aria-hidden="true">
                           <div class="accordion-inner panel-body">
                             <h2 class="nn_sliders-title">
-                              11. Infinitive: kneel&nbsp;&nbsp;Present participle: kneeling<br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Past tense: knelt&nbsp;&nbsp;Past participle: _____
+                              11. Infinitive: to kneel  Present participle: kneeling
+                              <br>
+                                    Past tense: knelt  Past participle: _____
                             </h2>
                             <p>
-                              11. Infinitive: kneel&nbsp;&nbsp;Present participle: kneeling<br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Past tense: knelt&nbsp;&nbsp;Past participle: _____
+                              11. Infinitive: to kneel  Present participle: kneeling
+                              <br>
+                                    Past tense: knelt  Past participle: <span class="undies">knelt</span>
                             </p>
                           </div>
                         </div>
                         <div
                           class="exercise-response-row"
                           data-item="q11-infinitive-kneel-present-participle-kneeling-past-tense-knelt-past-participle-_____"
-                          data-answer-ui="">
+                          data-answer-ui>
                           <label class="exercise-response-field">
                             <span class="visually-hidden">
                               Response for item q11-infinitive-kneel-present-participle-kneeling-past-tense-knelt-past-participle-_____
@@ -2304,7 +2428,9 @@
                             aria-expanded="false"
                             aria-controls="261-irregular-verbs-i.html#12-infinitive-light-present-participle-lighting-past-tense-lit-past-participle-_____">
                             <span class="nn_sliders-toggle-inner">
-                              12. Infinitive: light&nbsp;&nbsp;Present participle: lighting<br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Past tense: lit&nbsp;&nbsp;Past participle: _____
+                              12. Infinitive: to light  Present participle: lighting
+                              <br>
+                                    Past tense: lit  Past participle: _____
                             </span>
                           </a>
                         </div>
@@ -2314,17 +2440,21 @@
                           aria-hidden="true">
                           <div class="accordion-inner panel-body">
                             <h2 class="nn_sliders-title">
-                              12. Infinitive: light&nbsp;&nbsp;Present participle: lighting<br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Past tense: lit&nbsp;&nbsp;Past participle: _____
+                              12. Infinitive: to light  Present participle: lighting
+                              <br>
+                                    Past tense: lit  Past participle: _____
                             </h2>
                             <p>
-                              12. Infinitive: light&nbsp;&nbsp;Present participle: lighting<br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Past tense: lit&nbsp;&nbsp;Past participle: _____
+                              12. Infinitive: to light  Present participle: lighting
+                              <br>
+                                    Past tense: lit  Past participle: <span class="undies">lit</span>
                             </p>
                           </div>
                         </div>
                         <div
                           class="exercise-response-row"
                           data-item="q12-infinitive-light-present-participle-lighting-past-tense-lit-past-participle-_____"
-                          data-answer-ui="">
+                          data-answer-ui>
                           <label class="exercise-response-field">
                             <span class="visually-hidden">
                               Response for item q12-infinitive-light-present-participle-lighting-past-tense-lit-past-participle-_____
@@ -2379,8 +2509,9 @@
                             aria-expanded="false"
                             aria-controls="261-irregular-verbs-i.html#13-infinitive-put-present-participle-putting-past-tense-_____-past-participle-_____">
                             <span class="nn_sliders-toggle-inner">
-                              13. Infinitive: put&nbsp;&nbsp;Present participle: putting<br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Past tense:
-                              _____&nbsp;&nbsp;Past participle: _____
+                              13. Infinitive: to put  Present participle: putting
+                              <br>
+                                    Past tense: _____  Past participle: _____
                             </span>
                           </a>
                         </div>
@@ -2390,19 +2521,21 @@
                           aria-hidden="true">
                           <div class="accordion-inner panel-body">
                             <h2 class="nn_sliders-title">
-                              13. Infinitive: put&nbsp;&nbsp;Present participle: putting<br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Past tense:
-                              _____&nbsp;&nbsp;Past participle: _____
+                              13. Infinitive: to put  Present participle: putting
+                              <br>
+                                    Past tense: _____  Past participle: _____
                             </h2>
                             <p>
-                              13. Infinitive: put&nbsp;&nbsp;Present participle: putting<br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Past tense:
-                              _____&nbsp;&nbsp;Past participle: _____
+                              13. Infinitive: to put  Present participle: putting
+                              <br>
+                                    Past tense: <span class="undies">put</span>  Past participle: <span class="undies">put</span>
                             </p>
                           </div>
                         </div>
                         <div
                           class="exercise-response-row"
                           data-item="q13-infinitive-put-present-participle-putting-past-tense-_____-past-participle-_____"
-                          data-answer-ui="">
+                          data-answer-ui>
                           <label class="exercise-response-field">
                             <span class="visually-hidden">
                               Response for item q13-infinitive-put-present-participle-putting-past-tense-_____-past-participle-_____
@@ -2457,8 +2590,9 @@
                             aria-expanded="false"
                             aria-controls="261-irregular-verbs-i.html#14-infinitive-ring-present-participle-ringing-past-tense-rang-past-participle-_____">
                             <span class="nn_sliders-toggle-inner">
-                              14. Infinitive: ring&nbsp;&nbsp;Present participle: ringing<br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Past tense:
-                              rang&nbsp;&nbsp;Past participle: _____
+                              14. Infinitive: to ring  Present participle: ringing
+                              <br>
+                                    Past tense: rang  Past participle: _____
                             </span>
                           </a>
                         </div>
@@ -2468,19 +2602,21 @@
                           aria-hidden="true">
                           <div class="accordion-inner panel-body">
                             <h2 class="nn_sliders-title">
-                              14. Infinitive: ring&nbsp;&nbsp;Present participle: ringing<br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Past tense:
-                              rang&nbsp;&nbsp;Past participle: _____
+                              14. Infinitive: to ring  Present participle: ringing
+                              <br>
+                                    Past tense: rang  Past participle: _____
                             </h2>
                             <p>
-                              14. Infinitive: ring&nbsp;&nbsp;Present participle: ringing<br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Past tense:
-                              rang&nbsp;&nbsp;Past participle: _____
+                              14. Infinitive: to ring  Present participle: ringing
+                              <br>
+                                    Past tense: rang  Past participle: <span class="undies">rung</span>
                             </p>
                           </div>
                         </div>
                         <div
                           class="exercise-response-row"
                           data-item="q14-infinitive-ring-present-participle-ringing-past-tense-rang-past-participle-_____"
-                          data-answer-ui="">
+                          data-answer-ui>
                           <label class="exercise-response-field">
                             <span class="visually-hidden">
                               Response for item q14-infinitive-ring-present-participle-ringing-past-tense-rang-past-participle-_____
@@ -2535,7 +2671,9 @@
                             aria-expanded="false"
                             aria-controls="261-irregular-verbs-i.html#15-infinitive-shake-present-participle-shaking-past-tense-shook-past-participle-_____">
                             <span class="nn_sliders-toggle-inner">
-                              15. Infinitive: shake&nbsp;&nbsp;Present participle: shaking<br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Past tense: shook&nbsp;&nbsp;Past participle: _____
+                              15. Infinitive: to shake  Present participle: shaking
+                              <br>
+                                    Past tense: shook  Past participle: _____
                             </span>
                           </a>
                         </div>
@@ -2545,17 +2683,21 @@
                           aria-hidden="true">
                           <div class="accordion-inner panel-body">
                             <h2 class="nn_sliders-title">
-                              15. Infinitive: shake&nbsp;&nbsp;Present participle: shaking<br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Past tense: shook&nbsp;&nbsp;Past participle: _____
+                              15. Infinitive: to shake  Present participle: shaking
+                              <br>
+                                    Past tense: shook  Past participle: _____
                             </h2>
                             <p>
-                              15. Infinitive: shake&nbsp;&nbsp;Present participle: shaking<br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Past tense: shook&nbsp;&nbsp;Past participle: _____
+                              15. Infinitive: to shake  Present participle: shaking
+                              <br>
+                                    Past tense: shook  Past participle: <span class="undies">shaken</span>
                             </p>
                           </div>
                         </div>
                         <div
                           class="exercise-response-row"
                           data-item="q15-infinitive-shake-present-participle-shaking-past-tense-shook-past-participle-_____"
-                          data-answer-ui="">
+                          data-answer-ui>
                           <label class="exercise-response-field">
                             <span class="visually-hidden">
                               Response for item q15-infinitive-shake-present-participle-shaking-past-tense-shook-past-participle-_____
@@ -2610,7 +2752,9 @@
                             aria-expanded="false"
                             aria-controls="261-irregular-verbs-i.html#16-infinitive-shine-present-participle-shining-past-tense-_____-past-participle-_____">
                             <span class="nn_sliders-toggle-inner">
-                              16. Infinitive: shine&nbsp;&nbsp;Present participle: shining<br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Past tense: _____&nbsp;&nbsp;Past participle: _____
+                              16. Infinitive: to shine  Present participle: shining
+                              <br>
+                                    Past tense: _____  Past participle: _____
                             </span>
                           </a>
                         </div>
@@ -2620,17 +2764,21 @@
                           aria-hidden="true">
                           <div class="accordion-inner panel-body">
                             <h2 class="nn_sliders-title">
-                              16. Infinitive: shine&nbsp;&nbsp;Present participle: shining<br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Past tense: _____&nbsp;&nbsp;Past participle: _____
+                              16. Infinitive: to shine  Present participle: shining
+                              <br>
+                                    Past tense: _____  Past participle: _____
                             </h2>
                             <p>
-                              16. Infinitive: shine&nbsp;&nbsp;Present participle: shining<br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Past tense: _____&nbsp;&nbsp;Past participle: _____
+                              16. Infinitive: to shine  Present participle: shining
+                              <br>
+                                    Past tense: <span class="undies">shone</span>  Past participle: <span class="undies">shone</span>
                             </p>
                           </div>
                         </div>
                         <div
                           class="exercise-response-row"
                           data-item="q16-infinitive-shine-present-participle-shining-past-tense-_____-past-participle-_____"
-                          data-answer-ui="">
+                          data-answer-ui>
                           <label class="exercise-response-field">
                             <span class="visually-hidden">
                               Response for item q16-infinitive-shine-present-participle-shining-past-tense-_____-past-participle-_____
@@ -2685,7 +2833,9 @@
                             aria-expanded="false"
                             aria-controls="261-irregular-verbs-i.html#17-infinitive-speak-present-participle-speaking-past-tense-spoke-past-participle-_____">
                             <span class="nn_sliders-toggle-inner">
-                              17. Infinitive: speak&nbsp;&nbsp;Present participle: speaking<br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Past tense: spoke&nbsp;&nbsp;Past participle: _____
+                              17. Infinitive: to speak  Present participle: speaking
+                              <br>
+                                    Past tense: spoke  Past participle: _____
                             </span>
                           </a>
                         </div>
@@ -2695,17 +2845,21 @@
                           aria-hidden="true">
                           <div class="accordion-inner panel-body">
                             <h2 class="nn_sliders-title">
-                              17. Infinitive: speak&nbsp;&nbsp;Present participle: speaking<br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Past tense: spoke&nbsp;&nbsp;Past participle: _____
+                              17. Infinitive: to speak  Present participle: speaking
+                              <br>
+                                    Past tense: spoke  Past participle: _____
                             </h2>
                             <p>
-                              17. Infinitive: speak&nbsp;&nbsp;Present participle: speaking<br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Past tense: spoke&nbsp;&nbsp;Past participle: _____
+                              17. Infinitive: to speak  Present participle: speaking
+                              <br>
+                                    Past tense: spoke  Past participle: <span class="undies">spoken</span>
                             </p>
                           </div>
                         </div>
                         <div
                           class="exercise-response-row"
                           data-item="q17-infinitive-speak-present-participle-speaking-past-tense-spoke-past-participle-_____"
-                          data-answer-ui="">
+                          data-answer-ui>
                           <label class="exercise-response-field">
                             <span class="visually-hidden">
                               Response for item q17-infinitive-speak-present-participle-speaking-past-tense-spoke-past-participle-_____
@@ -2760,7 +2914,9 @@
                             aria-expanded="false"
                             aria-controls="261-irregular-verbs-i.html#18-infinitive-spread-present-participle-spreading-past-tense-_____-past-participle-_____">
                             <span class="nn_sliders-toggle-inner">
-                              18. Infinitive: spread&nbsp;&nbsp;Present participle: spreading<br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Past tense: _____&nbsp;&nbsp;Past participle: _____
+                              18. Infinitive: to spread  Present participle: spreading
+                              <br>
+                                    Past tense: _____  Past participle: _____
                             </span>
                           </a>
                         </div>
@@ -2770,17 +2926,21 @@
                           aria-hidden="true">
                           <div class="accordion-inner panel-body">
                             <h2 class="nn_sliders-title">
-                              18. Infinitive: spread&nbsp;&nbsp;Present participle: spreading<br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Past tense: _____&nbsp;&nbsp;Past participle: _____
+                              18. Infinitive: to spread  Present participle: spreading
+                              <br>
+                                    Past tense: _____  Past participle: _____
                             </h2>
                             <p>
-                              18. Infinitive: spread&nbsp;&nbsp;Present participle: spreading<br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Past tense: _____&nbsp;&nbsp;Past participle: _____
+                              18. Infinitive: to spread  Present participle: spreading
+                              <br>
+                                    Past tense: <span class="undies">spread</span>  Past participle: <span class="undies">spread</span>
                             </p>
                           </div>
                         </div>
                         <div
                           class="exercise-response-row"
                           data-item="q18-infinitive-spread-present-participle-spreading-past-tense-_____-past-participle-_____"
-                          data-answer-ui="">
+                          data-answer-ui>
                           <label class="exercise-response-field">
                             <span class="visually-hidden">
                               Response for item q18-infinitive-spread-present-participle-spreading-past-tense-_____-past-participle-_____
@@ -2835,7 +2995,9 @@
                             aria-expanded="false"
                             aria-controls="261-irregular-verbs-i.html#19-infinitive-teach-present-participle-teaching-past-tense-taught-past-participle-_____">
                             <span class="nn_sliders-toggle-inner">
-                              19. Infinitive: teach&nbsp;&nbsp;Present participle: teaching<br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Past tense: taught&nbsp;&nbsp;Past participle: _____
+                              19. Infinitive: to teach  Present participle: teaching
+                              <br>
+                                    Past tense: taught  Past participle: _____
                             </span>
                           </a>
                         </div>
@@ -2845,17 +3007,21 @@
                           aria-hidden="true">
                           <div class="accordion-inner panel-body">
                             <h2 class="nn_sliders-title">
-                              19. Infinitive: teach&nbsp;&nbsp;Present participle: teaching<br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Past tense: taught&nbsp;&nbsp;Past participle: _____
+                              19. Infinitive: to teach  Present participle: teaching
+                              <br>
+                                    Past tense: taught  Past participle: _____
                             </h2>
                             <p>
-                              19. Infinitive: teach&nbsp;&nbsp;Present participle: teaching<br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Past tense: taught&nbsp;&nbsp;Past participle: _____
+                              19. Infinitive: to teach  Present participle: teaching
+                              <br>
+                                    Past tense: taught  Past participle: <span class="undies">taught</span>
                             </p>
                           </div>
                         </div>
                         <div
                           class="exercise-response-row"
                           data-item="q19-infinitive-teach-present-participle-teaching-past-tense-taught-past-participle-_____"
-                          data-answer-ui="">
+                          data-answer-ui>
                           <label class="exercise-response-field">
                             <span class="visually-hidden">
                               Response for item q19-infinitive-teach-present-participle-teaching-past-tense-taught-past-participle-_____
@@ -2910,8 +3076,9 @@
                             aria-expanded="false"
                             aria-controls="261-irregular-verbs-i.html#20-infinitive-wear-present-participle-wearing-past-tense-_____-past-participle-_____">
                             <span class="nn_sliders-toggle-inner">
-                              20. Infinitive: wear&nbsp;&nbsp;Present participle: wearing<br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Past tense:
-                              _____&nbsp;&nbsp;Past participle: _____
+                              20. Infinitive: to wear  Present participle: wearing
+                              <br>
+                                    Past tense: _____  Past participle: _____
                             </span>
                           </a>
                         </div>
@@ -2921,19 +3088,21 @@
                           aria-hidden="true">
                           <div class="accordion-inner panel-body">
                             <h2 class="nn_sliders-title">
-                              20. Infinitive: wear&nbsp;&nbsp;Present participle: wearing<br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Past tense:
-                              _____&nbsp;&nbsp;Past participle: _____
+                              20. Infinitive: to wear  Present participle: wearing
+                              <br>
+                                    Past tense: _____  Past participle: _____
                             </h2>
                             <p>
-                              20. Infinitive: wear&nbsp;&nbsp;Present participle: wearing<br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Past tense:
-                              _____&nbsp;&nbsp;Past participle: _____
+                              20. Infinitive: to wear  Present participle: wearing
+                              <br>
+                                    Past tense: <span class="undies">wore</span>  Past participle: <span class="undies">worn</span>
                             </p>
                           </div>
                         </div>
                         <div
                           class="exercise-response-row"
                           data-item="q20-infinitive-wear-present-participle-wearing-past-tense-_____-past-participle-_____"
-                          data-answer-ui="">
+                          data-answer-ui>
                           <label class="exercise-response-field">
                             <span class="visually-hidden">
                               Response for item q20-infinitive-wear-present-participle-wearing-past-tense-_____-past-participle-_____
@@ -2966,12 +3135,12 @@
                   </div>
                   <div
                     class="exercise-submit-row"
-                    data-exercise-submit-row=""
+                    data-exercise-submit-row
                     hidden>
                     <button
                       type="submit"
                       class="exercise-submit-button"
-                      data-exercise-submit=""
+                      data-exercise-submit
                       disabled>
                       Submit answers
                     </button>
@@ -2986,7 +3155,7 @@
                 <script
                   type="application/json"
                   id="exercise-answer-key"
-                  data-exercise-answer-key="">
+                  data-exercise-answer-key>
                   {
                     "title": "261-irregular-verbs-i",
                     "version": "0.3.0",
@@ -3002,7 +3171,7 @@
                       "answerArray": {
                         "question01": {
                           "id": "q1-infinitive-become-present-participle-becoming-past-tense-became-past-participle-_____",
-                          "answersAccepted": [],
+                          "answersAccepted": [["fnv1a-64:0045bc45505bd2c8"]],
                           "lengths": [2],
                           "minLength": 2,
                           "maxLength": 2,
@@ -3010,7 +3179,7 @@
                         },
                         "question02": {
                           "id": "q2-infinitive-choose-present-participle-choosing-past-tense-_____-past-participle-_____",
-                          "answersAccepted": [],
+                          "answersAccepted": [["fnv1a-64:2c2a297605dc551f", "fnv1a-64:e7f9e48bf5652f03"]],
                           "lengths": [2],
                           "minLength": 2,
                           "maxLength": 2,
@@ -3018,7 +3187,7 @@
                         },
                         "question03": {
                           "id": "q3-infinitive-cost-present-participle-costing-past-tense-_____-past-participle-_____",
-                          "answersAccepted": [],
+                          "answersAccepted": [["fnv1a-64:0bef0691197c9f78", "fnv1a-64:0bef0691197c9f78"]],
                           "lengths": [2],
                           "minLength": 2,
                           "maxLength": 2,
@@ -3026,7 +3195,7 @@
                         },
                         "question04": {
                           "id": "q4-infinitive-drink-present-participle-drinking-past-tense-_____-past-participle-_____",
-                          "answersAccepted": [],
+                          "answersAccepted": [["fnv1a-64:165c98c90daef959", "fnv1a-64:adacd4c8d22de04d"]],
                           "lengths": [2],
                           "minLength": 2,
                           "maxLength": 2,
@@ -3034,7 +3203,7 @@
                         },
                         "question05": {
                           "id": "q5-infinitive-eat-present-participle-eating-past-tense-ate-past-participle-_____",
-                          "answersAccepted": [],
+                          "answersAccepted": [["fnv1a-64:b4a53c538930ea0a"]],
                           "lengths": [2],
                           "minLength": 2,
                           "maxLength": 2,
@@ -3042,7 +3211,7 @@
                         },
                         "question06": {
                           "id": "q6-infinitive-freeze-present-participle-freezing-past-tense-_____-past-participle-_____",
-                          "answersAccepted": [],
+                          "answersAccepted": [["fnv1a-64:53476d566e6449bf", "fnv1a-64:e6a89add94696e23"]],
                           "lengths": [2],
                           "minLength": 2,
                           "maxLength": 2,
@@ -3050,7 +3219,7 @@
                         },
                         "question07": {
                           "id": "q7-infinitive-grow-present-participle-growing-past-tense-grew-past-participle-_____",
-                          "answersAccepted": [],
+                          "answersAccepted": [["fnv1a-64:dc5efa2946fd249c"]],
                           "lengths": [2],
                           "minLength": 2,
                           "maxLength": 2,
@@ -3058,7 +3227,7 @@
                         },
                         "question08": {
                           "id": "q8-infinitive-hide-present-participle-hiding-past-tense-hid-past-participle-_____",
-                          "answersAccepted": [],
+                          "answersAccepted": [["fnv1a-64:a000c4df231528b9"]],
                           "lengths": [2],
                           "minLength": 2,
                           "maxLength": 2,
@@ -3066,7 +3235,7 @@
                         },
                         "question09": {
                           "id": "q9-infinitive-hit-present-participle-hitting-past-tense-_____-past-participle-_____",
-                          "answersAccepted": [],
+                          "answersAccepted": [["fnv1a-64:33732819300680aa", "fnv1a-64:33732819300680aa"]],
                           "lengths": [2],
                           "minLength": 2,
                           "maxLength": 2,
@@ -3074,7 +3243,7 @@
                         },
                         "question10": {
                           "id": "q10-infinitive-keep-present-participle-keeping-past-tense-kept-past-participle-_____",
-                          "answersAccepted": [],
+                          "answersAccepted": [["fnv1a-64:583876d75cd7d1d9"]],
                           "lengths": [2],
                           "minLength": 2,
                           "maxLength": 2,
@@ -3082,7 +3251,7 @@
                         },
                         "question11": {
                           "id": "q11-infinitive-kneel-present-participle-kneeling-past-tense-knelt-past-participle-_____",
-                          "answersAccepted": [],
+                          "answersAccepted": [["fnv1a-64:d0da2f939fa8ae43"]],
                           "lengths": [2],
                           "minLength": 2,
                           "maxLength": 2,
@@ -3090,7 +3259,7 @@
                         },
                         "question12": {
                           "id": "q12-infinitive-light-present-participle-lighting-past-tense-lit-past-participle-_____",
-                          "answersAccepted": [],
+                          "answersAccepted": [["fnv1a-64:124a74191daaea36"]],
                           "lengths": [2],
                           "minLength": 2,
                           "maxLength": 2,
@@ -3098,7 +3267,7 @@
                         },
                         "question13": {
                           "id": "q13-infinitive-put-present-participle-putting-past-tense-_____-past-participle-_____",
-                          "answersAccepted": [],
+                          "answersAccepted": [["fnv1a-64:77f370195699cdee", "fnv1a-64:77f370195699cdee"]],
                           "lengths": [2],
                           "minLength": 2,
                           "maxLength": 2,
@@ -3106,7 +3275,7 @@
                         },
                         "question14": {
                           "id": "q14-infinitive-ring-present-participle-ringing-past-tense-rang-past-participle-_____",
-                          "answersAccepted": [],
+                          "answersAccepted": [["fnv1a-64:bfedd01f6f583a77"]],
                           "lengths": [2],
                           "minLength": 2,
                           "maxLength": 2,
@@ -3114,7 +3283,7 @@
                         },
                         "question15": {
                           "id": "q15-infinitive-shake-present-participle-shaking-past-tense-shook-past-participle-_____",
-                          "answersAccepted": [],
+                          "answersAccepted": [["fnv1a-64:2f9efd6e6d4d8241"]],
                           "lengths": [2],
                           "minLength": 2,
                           "maxLength": 2,
@@ -3122,7 +3291,7 @@
                         },
                         "question16": {
                           "id": "q16-infinitive-shine-present-participle-shining-past-tense-_____-past-participle-_____",
-                          "answersAccepted": [],
+                          "answersAccepted": [["fnv1a-64:f6836448f775a976", "fnv1a-64:f6836448f775a976"]],
                           "lengths": [2],
                           "minLength": 2,
                           "maxLength": 2,
@@ -3130,7 +3299,7 @@
                         },
                         "question17": {
                           "id": "q17-infinitive-speak-present-participle-speaking-past-tense-spoke-past-participle-_____",
-                          "answersAccepted": [],
+                          "answersAccepted": [["fnv1a-64:def2acbe9ddd8293"]],
                           "lengths": [2],
                           "minLength": 2,
                           "maxLength": 2,
@@ -3138,7 +3307,7 @@
                         },
                         "question18": {
                           "id": "q18-infinitive-spread-present-participle-spreading-past-tense-_____-past-participle-_____",
-                          "answersAccepted": [],
+                          "answersAccepted": [["fnv1a-64:2ef94e10eca4424e", "fnv1a-64:2ef94e10eca4424e"]],
                           "lengths": [2],
                           "minLength": 2,
                           "maxLength": 2,
@@ -3146,7 +3315,7 @@
                         },
                         "question19": {
                           "id": "q19-infinitive-teach-present-participle-teaching-past-tense-taught-past-participle-_____",
-                          "answersAccepted": [],
+                          "answersAccepted": [["fnv1a-64:d377b85951962c96"]],
                           "lengths": [2],
                           "minLength": 2,
                           "maxLength": 2,
@@ -3154,7 +3323,7 @@
                         },
                         "question20": {
                           "id": "q20-infinitive-wear-present-participle-wearing-past-tense-_____-past-participle-_____",
-                          "answersAccepted": [],
+                          "answersAccepted": [["fnv1a-64:7058fbf636683d8a", "fnv1a-64:7058f2f636682e3f"]],
                           "lengths": [2],
                           "minLength": 2,
                           "maxLength": 2,
@@ -3167,7 +3336,7 @@
                 <script
                   type="application/json"
                   id="exercise-config"
-                  data-exercise-config="">
+                  data-exercise-config>
                   {
                     "title": "2.6.1 Irregular Verbs I",
                     "canonical": "261-irregular-verbs-i.html",
@@ -3239,9 +3408,8 @@
                 <ul class="pager pagenav">
                   <li class="previous">
                     <a
-                      href="../exercise-1-nouns.html"
-                      rel="prev"
-                      aria-label="Exercise 1 - Nouns">
+                      href="221-linking-verbs.html"
+                      rel="prev">
                       <svg
                         version="1.1"
                         xmlns="http://www.w3.org/2000/svg"
@@ -3249,17 +3417,16 @@
                         fill="currentColor">
                         <title>angle-left</title>
                         <path
-                          d="M16.795 14.571c0 0.214-0.107 0.455-0.268 0.616l-10.527 10.527 10.527 10.527c0.161 0.161 0.268 0.402 0.268 0.616s-0.107 0.455-0.268 0.616l-1.339 1.339c-0.161 0.161-0.402 0.268-0.616 0.268s-0.455-0.107-0.616-0.268l-12.482-12.482c-0.161-0.161-0.268-0.402-0.268-0.616s0.107-0.455 0.268-0.616l12.482-12.482c0.161-0.161 0.402-0.268 0.616-0.268s0.455 0.107 0.616 0.268l1.339 1.339c0.161 0.161 0.268 0.375 0.268 0.616z"></path>
+                          d="M16.795 14.571c0 0.214-0.107 0.455-0.268 0.616l-10.527 10.527 10.527 10.527c0.161 0.161 0.268 0.402 0.268 0.616s-0.107 0.455-0.268 0.616l-1.339 1.339c-0.161 0.161-0.402 0.268-0.616 0.268s-0.455-0.107-0.616-0.268l-12.482-12.482c-0.161-0.161-0.268-0.402-0.268-0.616s0.107-0.455 0.268-0.616l12.482-12.482c0.161-0.161 0.402-0.268 0.616-0.268s0.455 0.107 0.616 0.268l1.339 1.339c0.161 0.161 0.268 0.375 0.268 0.616z" />
                       </svg>
-                      <span class="pager-label">Exercise 1 - Nouns</span>
+                      <span class="pager-label">2.2.1 Linking Verbs</span>
                     </a>
                   </li>
                   <li class="next">
                     <a
-                      href="112-proper-nouns.html"
-                      rel="next"
-                      aria-label="1.1.2 Proper Nouns">
-                      <span class="pager-label">1.1.2 Proper Nouns</span>
+                      href="262-irregular-verbs-ii.html"
+                      rel="next">
+                      <span class="pager-label">2.6.2 Irregular Verbs II</span>
                       <svg
                         version="1.1"
                         xmlns="http://www.w3.org/2000/svg"
@@ -3268,7 +3435,7 @@
                         fill="currentColor">
                         <title>angle-right</title>
                         <path
-                          d="M15.938 25.714c0 0.214-0.107 0.455-0.268 0.616l-12.482 12.482c-0.161 0.161-0.402 0.268-0.616 0.268s-0.455-0.107-0.616-0.268l-1.339-1.339c-0.161-0.161-0.268-0.375-0.268-0.616 0-0.214 0.107-0.455 0.268-0.616l10.527-10.527-10.527-10.527c-0.161-0.161-0.268-0.402-0.268-0.616s0.107-0.455 0.268-0.616l1.339-1.339c0.161-0.161 0.402-0.268 0.616-0.268s0.455 0.107 0.616 0.268l12.482 12.482c0.161 0.161 0.268 0.402 0.268 0.616z"></path>
+                          d="M15.938 25.714c0 0.214-0.107 0.455-0.268 0.616l-12.482 12.482c-0.161 0.161-0.402 0.268-0.616 0.268s-0.455-0.107-0.616-0.268l-1.339-1.339c-0.161-0.161-0.268-0.375-0.268-0.616 0-0.214 0.107-0.455 0.268-0.616l10.527-10.527-10.527-10.527c-0.161-0.161-0.268-0.402-0.268-0.616s0.107-0.455 0.268-0.616l1.339-1.339c0.161-0.161 0.402-0.268 0.616-0.268s0.455 0.107 0.616 0.268l12.482 12.482c0.161 0.161 0.268 0.402 0.268 0.616z" />
                       </svg>
                     </a>
                   </li>
@@ -3282,67 +3449,56 @@
             class="span2">
             <!-- Begin Right Sidebar -->
             <div class="well hidden-phone">
-              <script>
-                jQuery(document).ready(function ($) {
-                  var acMenu = $("#flyout_menu_93")
-                  acMenu.find("a").click(function () {
-                    if ($(this).attr("target") == "_blank") {
-                      window.open($(this).attr("href"))
-                    } else {
-                      location = $(this).attr("href")
-                    }
-                    return false
-                  })
-
-                  acMenu
-                    .find("li")
-                    .mouseleave(function () {
-                      $(this).removeClass("opened")
-                      $(this)
-                        .children(".item-wrapper")
-                        .children(".menu-button")
-                        .children("img")
-                        .attr("src", "../web-asset/icons/svg/plus3.svg")
-                      $(this).children(".ul-wrapper").hide(300)
-                    })
-                    .mouseenter(function () {
-                      $(this)
-                        .children(".item-wrapper")
-                        .children(".menu-button")
-                        .children("img")
-                        .attr("src", "../web-asset/icons/svg/minus5.svg")
-                      $(this).addClass("opened")
-                      $(this).children(".ul-wrapper").show(300)
-                    })
-                })
-              </script>
               <ul
-                class="flyout-menu vertical flyout-left text-left button-right"
-                id="flyout_menu_93">
-                <li class="first">
-                  <div class="item-wrapper">
-                    <div class="menu-button">
-                      <img
-                        class="menuicon"
-                        alt=""
-                        src="../web-asset/icons/svg/plus3.svg">
-                    </div>
-                    <div class="menu-link">
+                class="r-flyout-menu"
+                id="flyout_menu_93"
+                data-r-flyout
+                data-flyout-origin="right">
+                <li
+                  class="first"
+                  data-r-flyout-item>
+                  <div class="item-wrapper r-flyout__header">
+                    <button
+                      class="r-flyout__toggle"
+                      type="button"
+                      aria-haspopup="true"
+                      aria-expanded="false"
+                      aria-controls="r-flyout-panel-nouns"
+                      aria-label="Toggle submenu for Nouns">
+                      <svg
+                        class="r-flyout__icon r-flyout__icon--plus"
+                        aria-hidden="true"
+                        focusable="false">
+                        <use href="#icon-plus" />
+                      </svg>
+                      <svg
+                        class="r-flyout__icon r-flyout__icon--minus"
+                        aria-hidden="true"
+                        focusable="false">
+                        <use href="#icon-minus" />
+                      </svg>
+                    </button>
+                    <div class="menu-link r-flyout__link-wrap">
                       <a
+                        class="r-flyout__link"
                         href="../exercise-1-nouns.html"
                         aria-label="Nouns">
                         Nouns
                       </a>
                     </div>
                   </div>
-                  <div class="ul-wrapper">
-                    <ul>
+                  <div
+                    class="ul-wrapper r-flyout__panel"
+                    id="r-flyout-panel-nouns"
+                    aria-hidden="true"
+                    hidden>
+                    <ul class="r-flyout__sublist">
                       <li class="first">
                         <div class="item-wrapper">
                           <div class="menu-link">
                             <a
                               href="../exercise-1-nouns/111-common-nouns.html"
-                              aria-label="Menu Link">
+                              aria-label="1.1.1 Common Nouns">
                               1.1.1 Common Nouns
                             </a>
                           </div>
@@ -3353,7 +3509,7 @@
                           <div class="menu-link">
                             <a
                               href="../exercise-1-nouns/112-proper-nouns.html"
-                              aria-label="Menu Link">
+                              aria-label="1.1.2 Proper Nouns">
                               1.1.2 Proper Nouns
                             </a>
                           </div>
@@ -3414,7 +3570,7 @@
                           </div>
                         </div>
                       </li>
-                      <li class="last">
+                      <li>
                         <div class="item-wrapper">
                           <div class="menu-link">
                             <a
@@ -3425,32 +3581,62 @@
                           </div>
                         </div>
                       </li>
+                      <li class="last">
+                        <div class="item-wrapper">
+                          <div class="menu-link">
+                            <a
+                              href="../exercise-1-nouns/161-gender-neutral.html"
+                              aria-label="1.6.1 Gender Neutral">
+                              1.6.1 Gender Neutral
+                            </a>
+                          </div>
+                        </div>
+                      </li>
                     </ul>
                   </div>
                 </li>
-                <li class="current">
-                  <div class="item-wrapper">
-                    <div class="menu-button">
-                      <img
-                        class="menuicon"
-                        alt=""
-                        src="../web-asset/icons/svg/plus3.svg">
-                    </div>
-                    <div class="menu-link">
+                <li class="current" data-r-flyout-item>
+                  <div class="item-wrapper r-flyout__header">
+                    <button
+                      class="r-flyout__toggle"
+                      type="button"
+                      aria-haspopup="true"
+                      aria-expanded="false"
+                      aria-controls="r-flyout-panel-verbs"
+                      aria-label="Toggle submenu for Verbs">
+                      <svg
+                        class="r-flyout__icon r-flyout__icon--plus"
+                        aria-hidden="true"
+                        focusable="false">
+                        <use href="#icon-plus" />
+                      </svg>
+                      <svg
+                        class="r-flyout__icon r-flyout__icon--minus"
+                        aria-hidden="true"
+                        focusable="false">
+                        <use href="#icon-minus" />
+                      </svg>
+                    </button>
+                    <div class="menu-link r-flyout__link-wrap">
                       <a
+                        class="r-flyout__link"
                         href="../exercise-2-verbs.html"
                         aria-label="Verbs">
                         Verbs
                       </a>
                     </div>
                   </div>
-                  <div class="ul-wrapper">
-                    <ul>
+                  <div
+                    class="ul-wrapper r-flyout__panel"
+                    id="r-flyout-panel-verbs"
+                    aria-hidden="true"
+                    hidden>
+                    <ul class="r-flyout__sublist">
                       <li class="first">
                         <div class="item-wrapper">
                           <div class="menu-link">
                             <a
-                              href="211-transitive-and-intransitive-verbs.html"
+                              href="../exercise-2-verbs/211-transitive-and-intransitive-verbs.html"
                               aria-label="2.1.1 Transitive and Intransitive Verbs">
                               2.1.1 Transitive and Intransitive Verbs
                             </a>
@@ -3461,7 +3647,7 @@
                         <div class="item-wrapper">
                           <div class="menu-link">
                             <a
-                              href="221-linking-verbs.html"
+                              href="../exercise-2-verbs/221-linking-verbs.html"
                               aria-label="2.2.1 Linking Verbs">
                               2.2.1 Linking Verbs
                             </a>
@@ -3472,7 +3658,7 @@
                         <div class="item-wrapper">
                           <div class="menu-link">
                             <a
-                              href="231-auxiliary-verbs.html"
+                              href="../exercise-2-verbs/231-auxiliary-verbs.html"
                               aria-label="2.3.1 Auxiliary Verbs">
                               2.3.1 Auxiliary Verbs
                             </a>
@@ -3483,7 +3669,7 @@
                         <div class="item-wrapper">
                           <div class="menu-link">
                             <a
-                              href="261-irregular-verbs-i.html"
+                              href="../exercise-2-verbs/261-irregular-verbs-i.html"
                               aria-label="2.6.1 Irregular Verbs">
                               2.6.1 Irregular Verbs I
                             </a>
@@ -3494,7 +3680,7 @@
                         <div class="item-wrapper">
                           <div class="menu-link">
                             <a
-                              href="262-irregular-verbs-ii.html"
+                              href="../exercise-2-verbs/262-irregular-verbs-ii.html"
                               aria-label="2.6.2 Irregular Verbs II">
                               2.6.2 Irregular Verbs II
                             </a>
@@ -3504,24 +3690,43 @@
                     </ul>
                   </div>
                 </li>
-                <li>
-                  <div class="item-wrapper">
-                    <div class="menu-button">
-                      <img
-                        class="menuicon"
-                        alt=""
-                        src="../web-asset/icons/svg/plus3.svg">
-                    </div>
-                    <div class="menu-link">
+                <li data-r-flyout-item>
+                  <div class="item-wrapper r-flyout__header">
+                    <button
+                      class="r-flyout__toggle"
+                      type="button"
+                      aria-haspopup="true"
+                      aria-expanded="false"
+                      aria-controls="r-flyout-panel-adjectives"
+                      aria-label="Toggle submenu for Adjectives">
+                      <svg
+                        class="r-flyout__icon r-flyout__icon--plus"
+                        aria-hidden="true"
+                        focusable="false">
+                        <use href="#icon-plus" />
+                      </svg>
+                      <svg
+                        class="r-flyout__icon r-flyout__icon--minus"
+                        aria-hidden="true"
+                        focusable="false">
+                        <use href="#icon-minus" />
+                      </svg>
+                    </button>
+                    <div class="menu-link r-flyout__link-wrap">
                       <a
+                        class="r-flyout__link"
                         href="../exercise-3-adjectives.html"
                         aria-label="Adjectives">
                         Adjectives
                       </a>
                     </div>
                   </div>
-                  <div class="ul-wrapper">
-                    <ul>
+                  <div
+                    class="ul-wrapper r-flyout__panel"
+                    id="r-flyout-panel-adjectives"
+                    aria-hidden="true"
+                    hidden>
+                    <ul class="r-flyout__sublist">
                       <li class="first">
                         <div class="item-wrapper">
                           <div class="menu-link">
@@ -3613,24 +3818,43 @@
                     </ul>
                   </div>
                 </li>
-                <li>
-                  <div class="item-wrapper">
-                    <div class="menu-button">
-                      <img
-                        class="menuicon"
-                        alt=""
-                        src="../web-asset/icons/svg/plus3.svg">
-                    </div>
-                    <div class="menu-link">
+                <li data-r-flyout-item>
+                  <div class="item-wrapper r-flyout__header">
+                    <button
+                      class="r-flyout__toggle"
+                      type="button"
+                      aria-haspopup="true"
+                      aria-expanded="false"
+                      aria-controls="r-flyout-panel-adverbs"
+                      aria-label="Toggle submenu for Adverbs">
+                      <svg
+                        class="r-flyout__icon r-flyout__icon--plus"
+                        aria-hidden="true"
+                        focusable="false">
+                        <use href="#icon-plus" />
+                      </svg>
+                      <svg
+                        class="r-flyout__icon r-flyout__icon--minus"
+                        aria-hidden="true"
+                        focusable="false">
+                        <use href="#icon-minus" />
+                      </svg>
+                    </button>
+                    <div class="menu-link r-flyout__link-wrap">
                       <a
+                        class="r-flyout__link"
                         href="../exercise-4-adverbs.html"
                         aria-label="Menu Link">
                         Adverbs
                       </a>
                     </div>
                   </div>
-                  <div class="ul-wrapper">
-                    <ul>
+                  <div
+                    class="ul-wrapper r-flyout__panel"
+                    id="r-flyout-panel-adverbs"
+                    aria-hidden="true"
+                    hidden>
+                    <ul class="r-flyout__sublist">
                       <li class="first">
                         <div class="item-wrapper">
                           <div class="menu-link">
@@ -3733,24 +3957,43 @@
                     </ul>
                   </div>
                 </li>
-                <li>
-                  <div class="item-wrapper">
-                    <div class="menu-button">
-                      <img
-                        class="menuicon"
-                        alt=""
-                        src="../web-asset/icons/svg/plus3.svg">
-                    </div>
-                    <div class="menu-link">
+                <li data-r-flyout-item>
+                  <div class="item-wrapper r-flyout__header">
+                    <button
+                      class="r-flyout__toggle"
+                      type="button"
+                      aria-haspopup="true"
+                      aria-expanded="false"
+                      aria-controls="r-flyout-panel-pronouns"
+                      aria-label="Toggle submenu for Pronouns">
+                      <svg
+                        class="r-flyout__icon r-flyout__icon--plus"
+                        aria-hidden="true"
+                        focusable="false">
+                        <use href="#icon-plus" />
+                      </svg>
+                      <svg
+                        class="r-flyout__icon r-flyout__icon--minus"
+                        aria-hidden="true"
+                        focusable="false">
+                        <use href="#icon-minus" />
+                      </svg>
+                    </button>
+                    <div class="menu-link r-flyout__link-wrap">
                       <a
+                        class="r-flyout__link"
                         href="../exercise-5-pronouns.html"
                         aria-label="Menu Link">
                         Pronouns
                       </a>
                     </div>
                   </div>
-                  <div class="ul-wrapper">
-                    <ul>
+                  <div
+                    class="ul-wrapper r-flyout__panel"
+                    id="r-flyout-panel-pronouns"
+                    aria-hidden="true"
+                    hidden>
+                    <ul class="r-flyout__sublist">
                       <li class="first">
                         <div class="item-wrapper">
                           <div class="menu-link">
@@ -3823,7 +4066,7 @@
                             <a
                               href="../exercise-5-pronouns/542-reflexive-emphatic-pronouns.html"
                               aria-label="Menu Link">
-                              5.4.2 Reflexive / Emphatic Pronouns
+                              5.4.2 Reflexive Emphatic Pronouns
                             </a>
                           </div>
                         </div>
@@ -3963,24 +4206,43 @@
                     </ul>
                   </div>
                 </li>
-                <li>
-                  <div class="item-wrapper">
-                    <div class="menu-button">
-                      <img
-                        class="menuicon"
-                        alt=""
-                        src="../web-asset/icons/svg/plus3.svg">
-                    </div>
-                    <div class="menu-link">
+                <li data-r-flyout-item>
+                  <div class="item-wrapper r-flyout__header">
+                    <button
+                      class="r-flyout__toggle"
+                      type="button"
+                      aria-haspopup="true"
+                      aria-expanded="false"
+                      aria-controls="r-flyout-panel-prepositions"
+                      aria-label="Toggle submenu for Prepositions">
+                      <svg
+                        class="r-flyout__icon r-flyout__icon--plus"
+                        aria-hidden="true"
+                        focusable="false">
+                        <use href="#icon-plus" />
+                      </svg>
+                      <svg
+                        class="r-flyout__icon r-flyout__icon--minus"
+                        aria-hidden="true"
+                        focusable="false">
+                        <use href="#icon-minus" />
+                      </svg>
+                    </button>
+                    <div class="menu-link r-flyout__link-wrap">
                       <a
+                        class="r-flyout__link"
                         href="../exercise-6-prepositions.html"
                         aria-label="Menu Link">
                         Prepositions
                       </a>
                     </div>
                   </div>
-                  <div class="ul-wrapper">
-                    <ul>
+                  <div
+                    class="ul-wrapper r-flyout__panel"
+                    id="r-flyout-panel-prepositions"
+                    aria-hidden="true"
+                    hidden>
+                    <ul class="r-flyout__sublist">
                       <li class="first">
                         <div class="item-wrapper">
                           <div class="menu-link">
@@ -4094,24 +4356,43 @@
                     </ul>
                   </div>
                 </li>
-                <li>
-                  <div class="item-wrapper">
-                    <div class="menu-button">
-                      <img
-                        class="menuicon"
-                        alt=""
-                        src="../web-asset/icons/svg/plus3.svg">
-                    </div>
-                    <div class="menu-link">
+                <li data-r-flyout-item>
+                  <div class="item-wrapper r-flyout__header">
+                    <button
+                      class="r-flyout__toggle"
+                      type="button"
+                      aria-haspopup="true"
+                      aria-expanded="false"
+                      aria-controls="r-flyout-panel-conjunctions"
+                      aria-label="Toggle submenu for Conjunctions">
+                      <svg
+                        class="r-flyout__icon r-flyout__icon--plus"
+                        aria-hidden="true"
+                        focusable="false">
+                        <use href="#icon-plus" />
+                      </svg>
+                      <svg
+                        class="r-flyout__icon r-flyout__icon--minus"
+                        aria-hidden="true"
+                        focusable="false">
+                        <use href="#icon-minus" />
+                      </svg>
+                    </button>
+                    <div class="menu-link r-flyout__link-wrap">
                       <a
+                        class="r-flyout__link"
                         href="../exercise-7-conjunctions.html"
                         aria-label="Menu Link">
                         Conjunctions
                       </a>
                     </div>
                   </div>
-                  <div class="ul-wrapper">
-                    <ul>
+                  <div
+                    class="ul-wrapper r-flyout__panel"
+                    id="r-flyout-panel-conjunctions"
+                    aria-hidden="true"
+                    hidden>
+                    <ul class="r-flyout__sublist">
                       <li class="first">
                         <div class="item-wrapper">
                           <div class="menu-link">
@@ -4151,7 +4432,7 @@
                             <a
                               href="../exercise-7-conjunctions/714-coordinating-conjunction-for-nor-or-so-yet.html"
                               aria-label="Menu Link">
-                              7.1.4 Coordinating Conjunction (for ,nor, or, so, yet)
+                              7.1.4 Coordinating Conjunction (for, and, nor, but, or, yet, so)
                             </a>
                           </div>
                         </div>
@@ -4192,24 +4473,43 @@
                     </ul>
                   </div>
                 </li>
-                <li>
-                  <div class="item-wrapper">
-                    <div class="menu-button">
-                      <img
-                        class="menuicon"
-                        alt=""
-                        src="../web-asset/icons/svg/plus3.svg">
-                    </div>
-                    <div class="menu-link">
+                <li data-r-flyout-item>
+                  <div class="item-wrapper r-flyout__header">
+                    <button
+                      class="r-flyout__toggle"
+                      type="button"
+                      aria-haspopup="true"
+                      aria-expanded="false"
+                      aria-controls="r-flyout-panel-agreement"
+                      aria-label="Toggle submenu for S plus V Agreement">
+                      <svg
+                        class="r-flyout__icon r-flyout__icon--plus"
+                        aria-hidden="true"
+                        focusable="false">
+                        <use href="#icon-plus" />
+                      </svg>
+                      <svg
+                        class="r-flyout__icon r-flyout__icon--minus"
+                        aria-hidden="true"
+                        focusable="false">
+                        <use href="#icon-minus" />
+                      </svg>
+                    </button>
+                    <div class="menu-link r-flyout__link-wrap">
                       <a
+                        class="r-flyout__link"
                         href="../exercise-8-agreement.html"
                         aria-label="Menu Link">
                         S+V Agreement
                       </a>
                     </div>
                   </div>
-                  <div class="ul-wrapper">
-                    <ul>
+                  <div
+                    class="ul-wrapper r-flyout__panel"
+                    id="r-flyout-panel-agreement"
+                    aria-hidden="true"
+                    hidden>
+                    <ul class="r-flyout__sublist">
                       <li class="first">
                         <div class="item-wrapper">
                           <div class="menu-link">
@@ -4246,24 +4546,43 @@
                     </ul>
                   </div>
                 </li>
-                <li>
-                  <div class="item-wrapper">
-                    <div class="menu-button">
-                      <img
-                        class="menuicon"
-                        alt=""
-                        src="../web-asset/icons/svg/plus3.svg">
-                    </div>
-                    <div class="menu-link">
+                <li data-r-flyout-item>
+                  <div class="item-wrapper r-flyout__header">
+                    <button
+                      class="r-flyout__toggle"
+                      type="button"
+                      aria-haspopup="true"
+                      aria-expanded="false"
+                      aria-controls="r-flyout-panel-articles"
+                      aria-label="Toggle submenu for Articles">
+                      <svg
+                        class="r-flyout__icon r-flyout__icon--plus"
+                        aria-hidden="true"
+                        focusable="false">
+                        <use href="#icon-plus" />
+                      </svg>
+                      <svg
+                        class="r-flyout__icon r-flyout__icon--minus"
+                        aria-hidden="true"
+                        focusable="false">
+                        <use href="#icon-minus" />
+                      </svg>
+                    </button>
+                    <div class="menu-link r-flyout__link-wrap">
                       <a
+                        class="r-flyout__link"
                         href="../exercise-9-articles.html"
                         aria-label="Menu Link">
                         Articles
                       </a>
                     </div>
                   </div>
-                  <div class="ul-wrapper">
-                    <ul>
+                  <div
+                    class="ul-wrapper r-flyout__panel"
+                    id="r-flyout-panel-articles"
+                    aria-hidden="true"
+                    hidden>
+                    <ul class="r-flyout__sublist">
                       <li class="first">
                         <div class="item-wrapper">
                           <div class="menu-link">
@@ -4300,24 +4619,43 @@
                     </ul>
                   </div>
                 </li>
-                <li>
-                  <div class="item-wrapper">
-                    <div class="menu-button">
-                      <img
-                        class="menuicon"
-                        alt=""
-                        src="../web-asset/icons/svg/plus3.svg">
-                    </div>
-                    <div class="menu-link">
+                <li data-r-flyout-item>
+                  <div class="item-wrapper r-flyout__header">
+                    <button
+                      class="r-flyout__toggle"
+                      type="button"
+                      aria-haspopup="true"
+                      aria-expanded="false"
+                      aria-controls="r-flyout-panel-conditionals"
+                      aria-label="Toggle submenu for Conditionals">
+                      <svg
+                        class="r-flyout__icon r-flyout__icon--plus"
+                        aria-hidden="true"
+                        focusable="false">
+                        <use href="#icon-plus" />
+                      </svg>
+                      <svg
+                        class="r-flyout__icon r-flyout__icon--minus"
+                        aria-hidden="true"
+                        focusable="false">
+                        <use href="#icon-minus" />
+                      </svg>
+                    </button>
+                    <div class="menu-link r-flyout__link-wrap">
                       <a
+                        class="r-flyout__link"
                         href="../exercise-11-conditionals.html"
                         aria-label="Menu Link">
                         Conditionals
                       </a>
                     </div>
                   </div>
-                  <div class="ul-wrapper">
-                    <ul>
+                  <div
+                    class="ul-wrapper r-flyout__panel"
+                    id="r-flyout-panel-conditionals"
+                    aria-hidden="true"
+                    hidden>
+                    <ul class="r-flyout__sublist">
                       <li class="first">
                         <div class="item-wrapper">
                           <div class="menu-link">
@@ -4354,24 +4692,43 @@
                     </ul>
                   </div>
                 </li>
-                <li>
-                  <div class="item-wrapper">
-                    <div class="menu-button">
-                      <img
-                        class="menuicon"
-                        alt=""
-                        src="../web-asset/icons/svg/plus3.svg">
-                    </div>
-                    <div class="menu-link">
+                <li data-r-flyout-item>
+                  <div class="item-wrapper r-flyout__header">
+                    <button
+                      class="r-flyout__toggle"
+                      type="button"
+                      aria-haspopup="true"
+                      aria-expanded="false"
+                      aria-controls="r-flyout-panel-modifiers"
+                      aria-label="Toggle submenu for Modifiers">
+                      <svg
+                        class="r-flyout__icon r-flyout__icon--plus"
+                        aria-hidden="true"
+                        focusable="false">
+                        <use href="#icon-plus" />
+                      </svg>
+                      <svg
+                        class="r-flyout__icon r-flyout__icon--minus"
+                        aria-hidden="true"
+                        focusable="false">
+                        <use href="#icon-minus" />
+                      </svg>
+                    </button>
+                    <div class="menu-link r-flyout__link-wrap">
                       <a
+                        class="r-flyout__link"
                         href="../exercise-12-modifiers.html"
                         aria-label="Menu Link">
                         Modifiers
                       </a>
                     </div>
                   </div>
-                  <div class="ul-wrapper">
-                    <ul>
+                  <div
+                    class="ul-wrapper r-flyout__panel"
+                    id="r-flyout-panel-modifiers"
+                    aria-hidden="true"
+                    hidden>
+                    <ul class="r-flyout__sublist">
                       <li class="first">
                         <div class="item-wrapper">
                           <div class="menu-link">
@@ -4430,24 +4787,43 @@
                     </ul>
                   </div>
                 </li>
-                <li>
-                  <div class="item-wrapper">
-                    <div class="menu-button">
-                      <img
-                        class="menuicon"
-                        alt=""
-                        src="../web-asset/icons/svg/plus3.svg">
-                    </div>
-                    <div class="menu-link">
+                <li data-r-flyout-item>
+                  <div class="item-wrapper r-flyout__header">
+                    <button
+                      class="r-flyout__toggle"
+                      type="button"
+                      aria-haspopup="true"
+                      aria-expanded="false"
+                      aria-controls="r-flyout-panel-speech"
+                      aria-label="Toggle submenu for Speech Direction">
+                      <svg
+                        class="r-flyout__icon r-flyout__icon--plus"
+                        aria-hidden="true"
+                        focusable="false">
+                        <use href="#icon-plus" />
+                      </svg>
+                      <svg
+                        class="r-flyout__icon r-flyout__icon--minus"
+                        aria-hidden="true"
+                        focusable="false">
+                        <use href="#icon-minus" />
+                      </svg>
+                    </button>
+                    <div class="menu-link r-flyout__link-wrap">
                       <a
+                        class="r-flyout__link"
                         href="../exercise-13-indirect-speech.html"
                         aria-label="Menu Link">
                         Speech Direction
                       </a>
                     </div>
                   </div>
-                  <div class="ul-wrapper">
-                    <ul>
+                  <div
+                    class="ul-wrapper r-flyout__panel"
+                    id="r-flyout-panel-speech"
+                    aria-hidden="true"
+                    hidden>
+                    <ul class="r-flyout__sublist">
                       <li class="first">
                         <div class="item-wrapper">
                           <div class="menu-link">
@@ -4517,10 +4893,25 @@
                     </ul>
                   </div>
                 </li>
-                <li>
-                  <div class="item-wrapper">
-                    <div class="menu-link">
+                <li data-r-flyout-item>
+                  <div class="item-wrapper r-flyout__header">
+                    <button
+                      class="r-flyout__toggle"
+                      type="button"
+                      aria-haspopup="true"
+                      aria-expanded="false"
+                      aria-controls="r-flyout-panel-passive"
+                      aria-label="Toggle submenu for Active-Passive">
+                      <svg
+                        class="r-flyout__icon r-flyout__icon--plus"
+                        aria-hidden="true"
+                        focusable="false">
+                        <use href="#icon-plus" />
+                      </svg>
+                    </button>
+                    <div class="menu-link r-flyout__link-wrap">
                       <a
+                        class="r-flyout__link"
                         href="../exercise-14-either-neither.html"
                         aria-label="Menu Link">
                         Either-Neither
@@ -4528,24 +4919,43 @@
                     </div>
                   </div>
                 </li>
-                <li>
-                  <div class="item-wrapper">
-                    <div class="menu-button">
-                      <img
-                        class="menuicon"
-                        alt=""
-                        src="../web-asset/icons/svg/plus3.svg">
-                    </div>
-                    <div class="menu-link">
+                <li data-r-flyout-item>
+                  <div class="item-wrapper r-flyout__header">
+                    <button
+                      class="r-flyout__toggle"
+                      type="button"
+                      aria-haspopup="true"
+                      aria-expanded="false"
+                      aria-controls="r-flyout-panel-passive"
+                      aria-label="Toggle submenu for Active-Passive">
+                      <svg
+                        class="r-flyout__icon r-flyout__icon--plus"
+                        aria-hidden="true"
+                        focusable="false">
+                        <use href="#icon-plus" />
+                      </svg>
+                      <svg
+                        class="r-flyout__icon r-flyout__icon--minus"
+                        aria-hidden="true"
+                        focusable="false">
+                        <use href="#icon-minus" />
+                      </svg>
+                    </button>
+                    <div class="menu-link r-flyout__link-wrap">
                       <a
+                        class="r-flyout__link"
                         href="../exercise-15-passive-voice.html"
                         aria-label="Menu Link">
                         Active-Passive
                       </a>
                     </div>
                   </div>
-                  <div class="ul-wrapper">
-                    <ul>
+                  <div
+                    class="ul-wrapper r-flyout__panel"
+                    id="r-flyout-panel-passive"
+                    aria-hidden="true"
+                    hidden>
+                    <ul class="r-flyout__sublist">
                       <li class="first">
                         <div class="item-wrapper">
                           <div class="menu-link">
@@ -4637,24 +5047,43 @@
                     </ul>
                   </div>
                 </li>
-                <li>
-                  <div class="item-wrapper">
-                    <div class="menu-button">
-                      <img
-                        class="menuicon"
-                        alt=""
-                        src="../web-asset/icons/svg/plus3.svg">
-                    </div>
-                    <div class="menu-link">
+                <li data-r-flyout-item>
+                  <div class="item-wrapper r-flyout__header">
+                    <button
+                      class="r-flyout__toggle"
+                      type="button"
+                      aria-haspopup="true"
+                      aria-expanded="false"
+                      aria-controls="r-flyout-panel-clauses"
+                      aria-label="Toggle submenu for Clauses">
+                      <svg
+                        class="r-flyout__icon r-flyout__icon--plus"
+                        aria-hidden="true"
+                        focusable="false">
+                        <use href="#icon-plus" />
+                      </svg>
+                      <svg
+                        class="r-flyout__icon r-flyout__icon--minus"
+                        aria-hidden="true"
+                        focusable="false">
+                        <use href="#icon-minus" />
+                      </svg>
+                    </button>
+                    <div class="menu-link r-flyout__link-wrap">
                       <a
+                        class="r-flyout__link"
                         href="../exercise-17-clauses.html"
                         aria-label="Menu Link">
                         Clauses
                       </a>
                     </div>
                   </div>
-                  <div class="ul-wrapper">
-                    <ul>
+                  <div
+                    class="ul-wrapper r-flyout__panel"
+                    id="r-flyout-panel-clauses"
+                    aria-hidden="true"
+                    hidden>
+                    <ul class="r-flyout__sublist">
                       <li class="first">
                         <div class="item-wrapper">
                           <div class="menu-link">
@@ -4691,24 +5120,43 @@
                     </ul>
                   </div>
                 </li>
-                <li>
-                  <div class="item-wrapper">
-                    <div class="menu-button">
-                      <img
-                        class="menuicon"
-                        alt=""
-                        src="../web-asset/icons/svg/plus3.svg">
-                    </div>
-                    <div class="menu-link">
+                <li data-r-flyout-item>
+                  <div class="item-wrapper r-flyout__header">
+                    <button
+                      class="r-flyout__toggle"
+                      type="button"
+                      aria-haspopup="true"
+                      aria-expanded="false"
+                      aria-controls="r-flyout-panel-verbing"
+                      aria-label="Toggle submenu for Verb-ing">
+                      <svg
+                        class="r-flyout__icon r-flyout__icon--plus"
+                        aria-hidden="true"
+                        focusable="false">
+                        <use href="#icon-plus" />
+                      </svg>
+                      <svg
+                        class="r-flyout__icon r-flyout__icon--minus"
+                        aria-hidden="true"
+                        focusable="false">
+                        <use href="#icon-minus" />
+                      </svg>
+                    </button>
+                    <div class="menu-link r-flyout__link-wrap">
                       <a
+                        class="r-flyout__link"
                         href="../exercise-18-verb-ing-gerunds-and-particles.html"
                         aria-label="Menu Link">
                         Verb-ing
                       </a>
                     </div>
                   </div>
-                  <div class="ul-wrapper">
-                    <ul>
+                  <div
+                    class="ul-wrapper r-flyout__panel"
+                    id="r-flyout-panel-verbing"
+                    aria-hidden="true"
+                    hidden>
+                    <ul class="r-flyout__sublist">
                       <li class="first">
                         <div class="item-wrapper">
                           <div class="menu-link">
@@ -4767,24 +5215,43 @@
                     </ul>
                   </div>
                 </li>
-                <li>
-                  <div class="item-wrapper">
-                    <div class="menu-button">
-                      <img
-                        class="menuicon"
-                        alt=""
-                        src="../web-asset/icons/svg/plus3.svg">
-                    </div>
-                    <div class="menu-link">
+                <li data-r-flyout-item>
+                  <div class="item-wrapper r-flyout__header">
+                    <button
+                      class="r-flyout__toggle"
+                      type="button"
+                      aria-haspopup="true"
+                      aria-expanded="false"
+                      aria-controls="r-flyout-panel-determiners"
+                      aria-label="Toggle submenu for Determiners">
+                      <svg
+                        class="r-flyout__icon r-flyout__icon--plus"
+                        aria-hidden="true"
+                        focusable="false">
+                        <use href="#icon-plus" />
+                      </svg>
+                      <svg
+                        class="r-flyout__icon r-flyout__icon--minus"
+                        aria-hidden="true"
+                        focusable="false">
+                        <use href="#icon-minus" />
+                      </svg>
+                    </button>
+                    <div class="menu-link r-flyout__link-wrap">
                       <a
+                        class="r-flyout__link"
                         href="../exercise-19-determiners-and-quantifiers.html"
                         aria-label="Menu Link">
                         Determiners
                       </a>
                     </div>
                   </div>
-                  <div class="ul-wrapper">
-                    <ul>
+                  <div
+                    class="ul-wrapper r-flyout__panel"
+                    id="r-flyout-panel-determiners"
+                    aria-hidden="true"
+                    hidden>
+                    <ul class="r-flyout__sublist">
                       <li class="first">
                         <div class="item-wrapper">
                           <div class="menu-link">
@@ -4821,24 +5288,43 @@
                     </ul>
                   </div>
                 </li>
-                <li>
-                  <div class="item-wrapper">
-                    <div class="menu-button">
-                      <img
-                        class="menuicon"
-                        alt=""
-                        src="../web-asset/icons/svg/plus3.svg">
-                    </div>
-                    <div class="menu-link">
+                <li data-r-flyout-item>
+                  <div class="item-wrapper r-flyout__header">
+                    <button
+                      class="r-flyout__toggle"
+                      type="button"
+                      aria-haspopup="true"
+                      aria-expanded="false"
+                      aria-controls="r-flyout-panel-pos"
+                      aria-label="Toggle submenu for Part of Speech">
+                      <svg
+                        class="r-flyout__icon r-flyout__icon--plus"
+                        aria-hidden="true"
+                        focusable="false">
+                        <use href="#icon-plus" />
+                      </svg>
+                      <svg
+                        class="r-flyout__icon r-flyout__icon--minus"
+                        aria-hidden="true"
+                        focusable="false">
+                        <use href="#icon-minus" />
+                      </svg>
+                    </button>
+                    <div class="menu-link r-flyout__link-wrap">
                       <a
+                        class="r-flyout__link"
                         href="../exercise-21-general.html"
                         aria-label="Menu Link">
                         Part-of-Speech
                       </a>
                     </div>
                   </div>
-                  <div class="ul-wrapper">
-                    <ul>
+                  <div
+                    class="ul-wrapper r-flyout__panel"
+                    id="r-flyout-panel-pos"
+                    aria-hidden="true"
+                    hidden>
+                    <ul class="r-flyout__sublist">
                       <li class="first">
                         <div class="item-wrapper">
                           <div class="menu-link">
@@ -4886,31 +5372,52 @@
                     </ul>
                   </div>
                 </li>
-                <li class="last">
-                  <div class="item-wrapper">
-                    <div class="menu-button">
-                      <img
-                        class="menuicon"
-                        alt=""
-                        src="../web-asset/icons/svg/plus3.svg">
-                    </div>
-                    <div class="menu-link">
+                <li
+                  class="last"
+                  data-r-flyout-item>
+                  <div class="item-wrapper r-flyout__header">
+                    <button
+                      class="r-flyout__toggle"
+                      type="button"
+                      aria-haspopup="true"
+                      aria-expanded="false"
+                      aria-controls="r-flyout-panel-vocabulary"
+                      aria-label="Toggle submenu for Vocabulary">
+                      <svg
+                        class="r-flyout__icon r-flyout__icon--plus"
+                        aria-hidden="true"
+                        focusable="false">
+                        <use href="#icon-plus" />
+                      </svg>
+                      <svg
+                        class="r-flyout__icon r-flyout__icon--minus"
+                        aria-hidden="true"
+                        focusable="false">
+                        <use href="#icon-minus" />
+                      </svg>
+                    </button>
+                    <div class="menu-link r-flyout__link-wrap">
                       <a
+                        class="r-flyout__link"
                         href="../exercise-22-test-your-vocabulary.html"
-                        aria-label="Menu Link">
+                        aria-label="Vocabulary">
                         Vocabulary
                       </a>
                     </div>
                   </div>
-                  <div class="ul-wrapper">
-                    <ul>
+                  <div
+                    class="ul-wrapper r-flyout__panel"
+                    id="r-flyout-panel-vocabulary"
+                    aria-hidden="true"
+                    hidden>
+                    <ul class="r-flyout__sublist">
                       <li class="first">
                         <div class="item-wrapper">
                           <div class="menu-link">
                             <a
                               href="../exercise-22-test-your-vocabulary/2211-test-your-vocabulary-adjective.html"
-                              aria-label="Menu Link">
-                              22.1.1 Test Your Vocabulary: Adjective
+                              aria-label="22.1.1 Test Your Vocabulary - Adjectives">
+                              22.1.1 Test Your Vocabulary: Adjectives
                             </a>
                           </div>
                         </div>
@@ -4949,7 +5456,7 @@
           </p>
           <p>
             ©
-            <span data-copyright-year=""></span>
+            <span data-copyright-year></span>
             All rights reserved.
           </p>
         </div>

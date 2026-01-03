@@ -5,6 +5,16 @@
 
 /* 0) Theme variables (:root) */
 :root {
+  /* System font stacks (sans Arial) */
+  --font-base:
+    system-ui, -apple-system, blinkmacsystemfont, "Segoe UI Variable", "Segoe UI", roboto,
+    "Noto Sans", ubuntu, cantarell, "Liberation Sans", "DejaVu Sans", "Apple Color Emoji",
+    "Segoe UI Emoji", "Noto Color Emoji", sans-serif;
+  --font-header:
+    system-ui, -apple-system, blinkmacsystemfont, "Segoe UI Variable", "Segoe UI", roboto,
+    "Noto Sans", ubuntu, cantarell, "Liberation Sans", "DejaVu Sans", "Apple Color Emoji",
+    "Segoe UI Emoji", "Noto Color Emoji", sans-serif;
+
   /* Brand core */
   --primary-color: #e0162b; /* locked */
   --secondary-color: #f9faff; /* white */
@@ -30,6 +40,7 @@
   --link-hover: var(--primary-color);
   --link-visited: #630094;
   --link-active: var(--primary-color) /* Semantic states */;
+  --pager-text-color: var(--text-color);
   --success-color: #0f6d2a;
   --success-bg: #e6f7ee;
   --success-border: #2f7d51;
@@ -96,16 +107,6 @@
   --btn-success: #51a351;
   --btn-info: #49afcd;
 
-  /* System font stacks (sans Arial) */
-  --font-base:
-    roboto, system-ui, -apple-system, blinkmacsystemfont, "Noto Sans", "Segoe UI", ubuntu,
-    cantarell, "Liberation Sans", "DejaVu Sans", "Apple Color Emoji", "Segoe UI Emoji",
-    "Noto Color Emoji", sans-serif;
-  --font-header:
-    roboto, system-ui, -apple-system, blinkmacsystemfont, "Noto Sans", "Segoe UI", ubuntu,
-    cantarell, "Liberation Sans", "DejaVu Sans", "Apple Color Emoji", "Segoe UI Emoji",
-    "Noto Color Emoji", sans-serif;
-
   /* Neutrals and utility */
   --color-strong: #444;
   --color-muted: #666;
@@ -152,7 +153,7 @@
   --menu-icon-pad-inline-end: var(--lists-icon-gap);
 
   /* Exercise vars */
-  --exercise-success: #2e7d32;
+  --exercise-success: #166534;
   --exercise-success-bg: #e6f4ea;
   --exercise-error: #b3261e;
   --exercise-error-bg: #fdecea;
@@ -439,7 +440,7 @@ pre {
 
 .pager li > a {
   align-items: center;
-  color: var(--link-color);
+  color: var(--pager-text-color, var(--link-color));
   display: inline-flex;
   text-decoration: none;
 
@@ -496,6 +497,11 @@ pre {
 .pager img {
   width: 12px;
   height: 12px;
+}
+
+/* 9b) Exercise form CLS guard (gated conversion) */
+.exercise-form__last-attempt {
+  min-height: 1.5rem;
 }
 
 /* 10) Breadcrumb */
@@ -790,7 +796,24 @@ white-space: pre-wrap;
 word-break: normal;
 }
 
+.blockwrap-txt {
+display: inline-block;
+font-weight: 400;
+line-height: 1.45em;
+margin: 0 auto;
+overflow-wrap: normal;
+text-align: left;
+white-space: pre-wrap;
+word-break: normal;
+}
+
 .undies {
 font-weight: 600;
+text-decoration: underline;
+}
+
+
+.undies-lt {
+font-weight: 400;
 text-decoration: underline;
 }

@@ -331,7 +331,6 @@ function buildQuestionDom($, question, answerFieldCount, testMode, fileName) {
     .addClass("accordion-toggle nn_sliders-toggle")
     .attr({
       href: `${fileName}#${question.ariaControls || questionKey}`,
-      "aria-label": "Answer",
       "data-toggle": "collapse",
       "data-parent": question.dataParent || `#${groupId}`,
       "data-id": question.dataId || questionKey,
@@ -478,9 +477,12 @@ function applyPagerLink($, target, link) {
   if (!target.length || !link) return
   target.attr("href", link.href || "#")
   if (link.rel) target.attr("rel", link.rel)
-  const ariaLabel = link.ariaLabel || link.label || target.attr("aria-label") || ""
-  if (ariaLabel) {
+  const labelText = (link.label || "").trim()
+  const ariaLabel = (link.ariaLabel || target.attr("aria-label") || "").trim()
+  if (!labelText && ariaLabel) {
     target.attr("aria-label", ariaLabel)
+  } else {
+    target.removeAttr("aria-label")
   }
   const templateNodes = target.contents().toArray()
   const labelSpan = link.label ? $("<span></span>").addClass("pager-label").text(link.label) : null

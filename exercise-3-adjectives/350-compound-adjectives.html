@@ -87,12 +87,6 @@
         background-color: var(--background-color);
       }
 
-      /* Preload critical image dimensions to prevent CLS */
-      img[src*="../images/banner.png"] {
-        height: 120;
-        width: 650;
-      }
-
       img[src*="../favicon.png"] {
         height: 24px;
         max-height: 28px;
@@ -1310,65 +1304,89 @@
               <div class="page-header">
                 <h2>3.5.0 Compound Adjectives</h2>
                 <div class="clearfix"></div>
-                <nav class="breadcrumb-wrap" aria-label="Breadcrumb">
-                <ul
-                  class="breadcrumb"
-                  itemscope=""
-                  itemtype="https://schema.org/BreadcrumbList">
-                  <li class="active"><span class="divider icon-location"></span></li>
-                  <li
-                    itemprop="itemListElement"
+                <nav
+                  class="breadcrumb-wrap"
+                  aria-label="Breadcrumb">
+                  <ul
+                    class="breadcrumb"
                     itemscope=""
-                    itemtype="https://schema.org/ListItem">
-                    <a
-                      itemprop="item"
-                      href="../index-2.html"
-                      class="pathway"
-                      aria-label="Home">
-                      <span itemprop="name">Home</span>
-                    </a>
-                    <span class="divider">&nbsp;<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8 13.02" width="9" height="9"><polygon points="8 6.51 0 13.02 0 0 8 6.51" fill="#e0162b"></polygon></svg></span>
-                    <meta
-                      itemprop="position"
-                      content="1">
-                  </li>
-                  <li
-                    itemprop="itemListElement"
-                    itemscope=""
-                    itemtype="https://schema.org/ListItem">
-                    <a
-                      itemprop="item"
-                      href="../exercise-3-adjectives.html"
-                      class="pathway"
-                      aria-label="Exercise 3 - Adjectives">
-                      <span itemprop="name">Exercise 3 - Adjectives</span>
-                    </a>
-                    <span class="divider">&nbsp;<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8 13.02" width="9" height="9"><polygon points="8 6.51 0 13.02 0 0 8 6.51" fill="#e0162b"></polygon></svg></span>
-                    <meta
-                      itemprop="position"
-                      content="2">
-                  </li>
-                  <li
-                    itemprop="itemListElement"
-                    itemscope=""
-                    itemtype="https://schema.org/ListItem"
-                    class="active">
-                    <span itemprop="name">3.5.0 Compound Adjectives</span>
-                    <meta
-                      itemprop="position"
-                      content="3">
-                  </li>
-                </ul>
+                    itemtype="https://schema.org/BreadcrumbList">
+                    <li class="active"><span class="divider icon-location"></span></li>
+                    <li
+                      itemprop="itemListElement"
+                      itemscope=""
+                      itemtype="https://schema.org/ListItem">
+                      <a
+                        itemprop="item"
+                        href="../index-2.html"
+                        class="pathway"
+                        aria-label="Home">
+                        <span itemprop="name">Home</span>
+                      </a>
+                      <span class="divider">
+                        &nbsp;
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 8 13.02"
+                          width="9"
+                          height="9">
+                          <polygon
+                            points="8 6.51 0 13.02 0 0 8 6.51"
+                            fill="#e0162b"></polygon>
+                        </svg>
+                      </span>
+                      <meta
+                        itemprop="position"
+                        content="1">
+                    </li>
+                    <li
+                      itemprop="itemListElement"
+                      itemscope=""
+                      itemtype="https://schema.org/ListItem">
+                      <a
+                        itemprop="item"
+                        href="../exercise-3-adjectives.html"
+                        class="pathway"
+                        aria-label="Exercise 3 - Adjectives">
+                        <span itemprop="name">Exercise 3 - Adjectives</span>
+                      </a>
+                      <span class="divider">
+                        &nbsp;
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 8 13.02"
+                          width="9"
+                          height="9">
+                          <polygon
+                            points="8 6.51 0 13.02 0 0 8 6.51"
+                            fill="#e0162b"></polygon>
+                        </svg>
+                      </span>
+                      <meta
+                        itemprop="position"
+                        content="2">
+                    </li>
+                    <li
+                      itemprop="itemListElement"
+                      itemscope=""
+                      itemtype="https://schema.org/ListItem"
+                      class="active">
+                      <span itemprop="name">3.5.0 Compound Adjectives</span>
+                      <meta
+                        itemprop="position"
+                        content="3">
+                    </li>
+                  </ul>
                 </nav>
               </div>
               <div itemprop="articleBody">
-                                <ul class="pager pagenav">
+                <ul class="pager pagenav">
                   <li class="previous">
                     <a
                       href="349-comparing-adjectives.html"
                       rel="prev"
                       aria-label="Previous">
-<svg
+                      <svg
                         version="1.1"
                         xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 18 48"
@@ -1386,7 +1404,7 @@
                       rel="next"
                       aria-label="Next">
                       <span class="pager-label">3.5.1 Adjectival Phrases</span>
-<svg
+                      <svg
                         version="1.1"
                         xmlns="http://www.w3.org/2000/svg"
                         height="24px"
@@ -1401,7 +1419,7 @@
                 </ul>
                 <br>
 
-                                <h3>Compound adjectives</h3>
+                <h3>Compound adjectives</h3>
                 <p>Fill in each blank with the appropriate compound adjective from the context.</p>
                 <form
                   class="exercise-form exercise-gate"
@@ -1490,7 +1508,9 @@
                           <div class="accordion-inner panel-body">
                             <h2 class="nn_sliders-title">I was very ____-minded and forgot my keys on the table.</h2>
                             <p>
-                              I was very <span class="undies">absent</span>-minded and forgot my keys on the table.
+                              I was very
+                              <span class="undies">absent</span>
+                              -minded and forgot my keys on the table.
                             </p>
                           </div>
                         </div>
@@ -1545,7 +1565,9 @@
                           <div class="accordion-inner panel-body">
                             <h2 class="nn_sliders-title">Helen has found a ten-_____ bill in the street.</h2>
                             <p>
-                              Helen has found a ten-<span class="undies">dollar</span> bill in the street.
+                              Helen has found a ten-
+                              <span class="undies">dollar</span>
+                              bill in the street.
                             </p>
                           </div>
                         </div>
@@ -1600,7 +1622,9 @@
                           <div class="accordion-inner panel-body">
                             <h2 class="nn_sliders-title">Tom is fond of thirty-_____ walks in the park.</h2>
                             <p>
-                              Tom is fond of thirty-<span class="undies">minute</span> walks in the park.
+                              Tom is fond of thirty-
+                              <span class="undies">minute</span>
+                              walks in the park.
                             </p>
                           </div>
                         </div>
@@ -1655,7 +1679,9 @@
                           <div class="accordion-inner panel-body">
                             <h2 class="nn_sliders-title">I don't like this second-_____ phone. It doesn't work well.</h2>
                             <p>
-                              I don't like this second-<span class="undies">hand</span> phone. It doesn't work well.
+                              I don't like this second-
+                              <span class="undies">hand</span>
+                              phone. It doesn't work well.
                             </p>
                           </div>
                         </div>
@@ -1710,7 +1736,9 @@
                           <div class="accordion-inner panel-body">
                             <h2 class="nn_sliders-title">A two-_____ old boy fell down and cut his left knee.</h2>
                             <p>
-                              A two-<span class="undies">year</span>-old boy fell down and cut his left knee.
+                              A two-
+                              <span class="undies">year</span>
+                              -old boy fell down and cut his left knee.
                             </p>
                           </div>
                         </div>
@@ -1765,7 +1793,9 @@
                           <div class="accordion-inner panel-body">
                             <h2 class="nn_sliders-title">We live in a five-_____ building in the center of the city.</h2>
                             <p>
-                              We live in a five-<span class="undies">story</span> building in the center of the city.
+                              We live in a five-
+                              <span class="undies">story</span>
+                              building in the center of the city.
                             </p>
                           </div>
                         </div>
@@ -1820,7 +1850,9 @@
                           <div class="accordion-inner panel-body">
                             <h2 class="nn_sliders-title">This coat is _____-fashioned, I don't like it at all.</h2>
                             <p>
-                              This coat is <span class="undies">old</span>-fashioned, I don't like it at all.
+                              This coat is
+                              <span class="undies">old</span>
+                              -fashioned, I don't like it at all.
                             </p>
                           </div>
                         </div>
@@ -1865,7 +1897,9 @@
                             data-id="q8-my-friends-stayed-in-a-five-_____"
                             aria-expanded="false"
                             aria-controls="q8-my-friends-stayed-in-a-five-_____">
-                            <span class="nn_sliders-toggle-inner">My friends stayed in a five-_____ hotel in Paris and were very pleased.</span>
+                            <span class="nn_sliders-toggle-inner">
+                              My friends stayed in a five-_____ hotel in Paris and were very pleased.
+                            </span>
                           </a>
                         </div>
                         <div
@@ -1875,7 +1909,9 @@
                           <div class="accordion-inner panel-body">
                             <h2 class="nn_sliders-title">My friends stayed in a five-_____ hotel in Paris and were very pleased.</h2>
                             <p>
-                              My friends stayed in a five-<span class="undies">star</span> hotel in Paris and were very pleased.
+                              My friends stayed in a five-
+                              <span class="undies">star</span>
+                              hotel in Paris and were very pleased.
                             </p>
                           </div>
                         </div>
@@ -1920,7 +1956,7 @@
                   type="application/json"
                   id="exercise-answer-key"
                   data-exercise-answer-key="">
-                                    {
+                  {
                     "title": "350-compound-adjectives",
                     "version": "0.3.0",
                     "publishDate": "2025-12-18T20:48:50.000Z",
@@ -1935,118 +1971,64 @@
                       "answerArray": {
                         "question01": {
                           "id": "q1-i-was-very-_____-minded-and-forgot-my-keys",
-                          "answersAccepted": [
-                            [
-                              "fnv1a-64:a3d0dfc3e1dbb698"
-                            ]
-                          ],
-                          "lengths": [
-                            1
-                          ],
+                          "answersAccepted": [["fnv1a-64:a3d0dfc3e1dbb698"]],
+                          "lengths": [1],
                           "minLength": 1,
                           "maxLength": 1,
                           "manualCheckOk": false
                         },
                         "question02": {
                           "id": "q2-helen-has-found-a-ten-_____",
-                          "answersAccepted": [
-                            [
-                              "fnv1a-64:c4361a5b5c15e1ff"
-                            ]
-                          ],
-                          "lengths": [
-                            1
-                          ],
+                          "answersAccepted": [["fnv1a-64:c4361a5b5c15e1ff"]],
+                          "lengths": [1],
                           "minLength": 1,
                           "maxLength": 1,
                           "manualCheckOk": false
                         },
                         "question03": {
                           "id": "q3-tom-is-fond-of-thirty-_____",
-                          "answersAccepted": [
-                            [
-                              "fnv1a-64:5bb2f9bdf2fad1e9"
-                            ]
-                          ],
-                          "lengths": [
-                            1
-                          ],
+                          "answersAccepted": [["fnv1a-64:5bb2f9bdf2fad1e9"]],
+                          "lengths": [1],
                           "minLength": 1,
                           "maxLength": 1,
                           "manualCheckOk": false
                         },
                         "question04": {
                           "id": "q4-i-dont-like-this-second-_____",
-                          "answersAccepted": [
-                            [
-                              "fnv1a-64:2e2c94cc740bf3e0"
-                            ]
-                          ],
-                          "lengths": [
-                            1
-                          ],
+                          "answersAccepted": [["fnv1a-64:2e2c94cc740bf3e0"]],
+                          "lengths": [1],
                           "minLength": 1,
                           "maxLength": 1,
                           "manualCheckOk": false
                         },
                         "question05": {
                           "id": "q5-a-two-_____-old-boy",
-                          "answersAccepted": [
-                            [
-                              "fnv1a-64:1a0fad1921d08076"
-                            ],
-                            [
-                              "fnv1a-64:7c64634977425edc"
-                            ]
-                          ],
-                          "lengths": [
-                            1
-                          ],
+                          "answersAccepted": [["fnv1a-64:1a0fad1921d08076"], ["fnv1a-64:7c64634977425edc"]],
+                          "lengths": [1],
                           "minLength": 1,
                           "maxLength": 1,
                           "manualCheckOk": false
                         },
                         "question06": {
                           "id": "q6-we-live-in-a-five-_____building",
-                          "answersAccepted": [
-                            [
-                              "fnv1a-64:44ee40ad76b09b92"
-                            ],
-                            [
-                              "fnv1a-64:d1b7d9c0ae52cab5"
-                            ]
-                          ],
-                          "lengths": [
-                            1
-                          ],
+                          "answersAccepted": [["fnv1a-64:44ee40ad76b09b92"], ["fnv1a-64:d1b7d9c0ae52cab5"]],
+                          "lengths": [1],
                           "minLength": 1,
                           "maxLength": 1,
                           "manualCheckOk": false
                         },
                         "question07": {
                           "id": "q7-this-coat-is-_____-fashioned",
-                          "answersAccepted": [
-                            [
-                              "fnv1a-64:1a0fad1921d08076"
-                            ]
-                          ],
-                          "lengths": [
-                            1
-                          ],
+                          "answersAccepted": [["fnv1a-64:1a0fad1921d08076"]],
+                          "lengths": [1],
                           "minLength": 1,
                           "maxLength": 1,
                           "manualCheckOk": false
                         },
                         "question08": {
                           "id": "q8-my-friends-stayed-in-a-five-_____",
-                          "answersAccepted": [
-                            [
-                              "fnv1a-64:aefd58191d95e091"
-                            ]
-                          ],
-                          "lengths": [
-                            1
-                          ],
+                          "answersAccepted": [["fnv1a-64:aefd58191d95e091"]],
+                          "lengths": [1],
                           "minLength": 1,
                           "maxLength": 1,
                           "manualCheckOk": false
@@ -2059,7 +2041,7 @@
                   type="application/json"
                   id="exercise-config"
                   data-exercise-config="">
-                                                      {
+                  {
                     "title": "3.5.0 Compound Adjectives",
                     "canonical": "350-compound-adjectives.html",
                     "totalQuestions": 8,
@@ -2452,7 +2434,7 @@
                     id="r-flyout-panel-adjectives"
                     aria-hidden="true"
                     hidden>
-                                        <ul class="r-flyout__sublist">
+                    <ul class="r-flyout__sublist">
                       <li class="first">
                         <div class="item-wrapper">
                           <div class="menu-link">
@@ -2586,7 +2568,6 @@
                         </div>
                       </li>
                     </ul>
-
                   </div>
                 </li>
                 <li data-r-flyout-item="">

@@ -139,3 +139,4 @@ codacy-analysis.yml-edit
 .npmrc
 legacy/**
 web-asset/legacy/template592f.css
+template592f.css

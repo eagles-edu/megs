@@ -79,7 +79,7 @@
 
 .pager li > a {
   align-items: center;
-  color: var(--link-color);
+  color: var(--pager-text-color, var(--link-color));
   display: inline-flex;
   text-decoration: none;
 }
@@ -165,7 +165,7 @@
 
 /* Exercise gating UI */
 :root {
-  --exercise-success: #2e7d32;
+  --exercise-success: #166534;
   --exercise-success-glow: #4caf50;
   --exercise-success-bg: #e6f4ea;
   --exercise-error: #b3261e;
@@ -262,6 +262,7 @@
   flex-wrap: wrap;
   gap: 0.35rem;
   margin: 0 0 0.75rem;
+  min-height: 1.5rem;
 }
 
 .exercise-form__last-attempt-icon {

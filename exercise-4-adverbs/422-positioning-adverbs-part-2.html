@@ -87,12 +87,6 @@
         background-color: var(--background-color);
       }
 
-      /* Preload critical image dimensions to prevent CLS */
-      img[src*="../images/banner.png"] {
-        height: 120;
-        width: 650;
-      }
-
       img[src*="../favicon.png"] {
         height: 24px;
         max-height: 28px;
@@ -1310,55 +1304,79 @@
               <div class="page-header">
                 <h2>4.2.2 Positioning Adverbs (Part 2)</h2>
                 <div class="clearfix"></div>
-                <nav class="breadcrumb-wrap" aria-label="Breadcrumb">
-                <ul
-                  class="breadcrumb"
-                  itemscope
-                  itemtype="https://schema.org/BreadcrumbList">
-                  <li class="active"><span class="divider icon-location"></span></li>
-                  <li
-                    itemprop="itemListElement"
+                <nav
+                  class="breadcrumb-wrap"
+                  aria-label="Breadcrumb">
+                  <ul
+                    class="breadcrumb"
                     itemscope
-                    itemtype="https://schema.org/ListItem">
-                    <a
-                      itemprop="item"
-                      href="../index-2.html"
-                      class="pathway"
-                      aria-label="Home">
-                      <span itemprop="name">Home</span>
-                    </a>
-                    <span class="divider">&nbsp;<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8 13.02" width="9" height="9"><polygon points="8 6.51 0 13.02 0 0 8 6.51" fill="#e0162b"></polygon></svg></span>
-                    <meta
-                      itemprop="position"
-                      content="1">
-                  </li>
-                  <li
-                    itemprop="itemListElement"
-                    itemscope
-                    itemtype="https://schema.org/ListItem">
-                    <a
-                      itemprop="item"
-                      href="../exercise-4-adverbs.html"
-                      class="pathway"
-                      aria-label="Exercise 4 - Adverbs">
-                      <span itemprop="name">Exercise 4 - Adverbs</span>
-                    </a>
-                    <span class="divider">&nbsp;<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8 13.02" width="9" height="9"><polygon points="8 6.51 0 13.02 0 0 8 6.51" fill="#e0162b"></polygon></svg></span>
-                    <meta
-                      itemprop="position"
-                      content="2">
-                  </li>
-                  <li
-                    itemprop="itemListElement"
-                    itemscope
-                    itemtype="https://schema.org/ListItem"
-                    class="active">
-                    <span itemprop="name">4.2.2 Positioning Adverbs (Part 2)</span>
-                    <meta
-                      itemprop="position"
-                      content="3">
-                  </li>
-                </ul>
+                    itemtype="https://schema.org/BreadcrumbList">
+                    <li class="active"><span class="divider icon-location"></span></li>
+                    <li
+                      itemprop="itemListElement"
+                      itemscope
+                      itemtype="https://schema.org/ListItem">
+                      <a
+                        itemprop="item"
+                        href="../index-2.html"
+                        class="pathway"
+                        aria-label="Home">
+                        <span itemprop="name">Home</span>
+                      </a>
+                      <span class="divider">
+                        &nbsp;
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 8 13.02"
+                          width="9"
+                          height="9">
+                          <polygon
+                            points="8 6.51 0 13.02 0 0 8 6.51"
+                            fill="#e0162b"></polygon>
+                        </svg>
+                      </span>
+                      <meta
+                        itemprop="position"
+                        content="1">
+                    </li>
+                    <li
+                      itemprop="itemListElement"
+                      itemscope
+                      itemtype="https://schema.org/ListItem">
+                      <a
+                        itemprop="item"
+                        href="../exercise-4-adverbs.html"
+                        class="pathway"
+                        aria-label="Exercise 4 - Adverbs">
+                        <span itemprop="name">Exercise 4 - Adverbs</span>
+                      </a>
+                      <span class="divider">
+                        &nbsp;
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 8 13.02"
+                          width="9"
+                          height="9">
+                          <polygon
+                            points="8 6.51 0 13.02 0 0 8 6.51"
+                            fill="#e0162b"></polygon>
+                        </svg>
+                      </span>
+                      <meta
+                        itemprop="position"
+                        content="2">
+                    </li>
+                    <li
+                      itemprop="itemListElement"
+                      itemscope
+                      itemtype="https://schema.org/ListItem"
+                      class="active">
+                      <span itemprop="name">4.2.2 Positioning Adverbs (Part 2)</span>
+                      <meta
+                        itemprop="position"
+                        content="3">
+                    </li>
+                  </ul>
                 </nav>
               </div>
               <div itemprop="articleBody">
@@ -1405,44 +1423,46 @@
                   &#80;&#108;&#97;&#99;&#101;&#32;&#116;&#104;&#101;&#32;&#97;&#100;&#118;&#101;&#114;&#98;&#32;&#105;&#110;&#32;&#98;&#114;&#97;&#99;&#107;&#101;&#116;&#32;&#105;&#110;&#32;&#116;&#104;&#101;&#32;&#99;&#111;&#114;&#114;&#101;&#99;&#116;&#32;&#112;&#111;&#115;&#105;&#116;&#105;&#111;&#110;&#32;&#105;&#110;&#32;&#116;&#104;&#101;&#32;&#115;&#101;&#110;&#116;&#101;&#110;&#99;&#101;&#46;&#32;&#67;&#108;&#105;&#99;&#107;&#32;&#116;&#111;&#32;&#99;&#104;&#101;&#99;&#107;&#32;&#121;&#111;&#117;&#114;&#32;&#97;&#110;&#115;&#119;&#101;&#114;&#115;&#46;
                 </p>
                 <div class="quest-bg">
-                    <div
-                      class="nn_sliders accordion panel-group"
-                      id="set-nn_sliders-1">
+                  <div
+                    class="nn_sliders accordion panel-group"
+                    id="set-nn_sliders-1">
+                    <span
+                      id="nn_sliders-scrollto_1"
+                      class="anchor nn_sliders-scroll"></span>
+                    <div class="accordion-group panel nn_sliders-group">
                       <span
-                        id="nn_sliders-scrollto_1"
+                        id="nn_sliders-scrollto_1-example-we-walked-to-get-there-on-time-quickly"
                         class="anchor nn_sliders-scroll"></span>
-                      <div class="accordion-group panel nn_sliders-group">
-                        <span
-                          id="nn_sliders-scrollto_1-example-we-walked-to-get-there-on-time-quickly"
-                          class="anchor nn_sliders-scroll"></span>
-                        <div class="accordion-heading panel-heading">
-                          <a
-                            class="accordion-toggle nn_sliders-toggle"
-                            href="422-positioning-adverbs-part-2.html#422-positioning-adverbs-part-2.html#example-we-walked-to-get-there-on-time-quickly"
-                            aria-label="Answer"
-                            data-toggle="collapse"
-                            data-parent="#set-nn_sliders-1"
-                            data-id="example-we-walked-to-get-there-on-time-quickly"
-                            aria-expanded="false"
-                            aria-controls="422-positioning-adverbs-part-2.html#example-we-walked-to-get-there-on-time-quickly">
-                            <span class="nn_sliders-toggle-inner">Example. We walked to get there on time. (quickly)</span>
-                          </a>
-                        </div>
-                        <div
-                          class="accordion-body nn_sliders-body collapse"
-                          id="example-we-walked-to-get-there-on-time-quickly"
-                          aria-hidden="true">
-                          <div class="accordion-inner panel-body">
-                            <h2 class="nn_sliders-title">Example. We walked to get there on time. (quickly)</h2>
-                            <p>
-                              I have been waiting here for you for ten minutes. <br>
-                              I have been here waiting for you for ten minutes.
-                            </p>
-                          </div>
+                      <div class="accordion-heading panel-heading">
+                        <a
+                          class="accordion-toggle nn_sliders-toggle"
+                          href="422-positioning-adverbs-part-2.html#422-positioning-adverbs-part-2.html#example-we-walked-to-get-there-on-time-quickly"
+                          aria-label="Answer"
+                          data-toggle="collapse"
+                          data-parent="#set-nn_sliders-1"
+                          data-id="example-we-walked-to-get-there-on-time-quickly"
+                          aria-expanded="false"
+                          aria-controls="422-positioning-adverbs-part-2.html#example-we-walked-to-get-there-on-time-quickly">
+                          <span class="nn_sliders-toggle-inner">Example. We walked to get there on time. (quickly)</span>
+                        </a>
+                      </div>
+                      <div
+                        class="accordion-body nn_sliders-body collapse"
+                        id="example-we-walked-to-get-there-on-time-quickly"
+                        aria-hidden="true">
+                        <div class="accordion-inner panel-body">
+                          <h2 class="nn_sliders-title">Example. We walked to get there on time. (quickly)</h2>
+                          <p>
+                            We walked <b>quickly</b> to get there on time.
+                            <br>We <b>quickly</b> walked to get there on time.
+                            <br>To get there on time, we walked <b>quickly</b>.
+                            <br>To get there on time, we <b>quickly</b> walked .
+                          </p>
                         </div>
                       </div>
                     </div>
                   </div>
+                </div>
                 <form
                   class="exercise-form exercise-gate"
                   data-exercise-form
@@ -1922,7 +1942,9 @@
                           <div class="accordion-inner panel-body">
                             <h2 class="nn_sliders-title">8. There was a huge fire. (in the village; a few weeks ago)</h2>
                             <p>
-                              A few weeks ago, there was a huge fire in the village.<br>There was a huge fire in the village a few weeks ago.
+                              A few weeks ago, there was a huge fire in the village.
+                              <br>
+                              There was a huge fire in the village a few weeks ago.
                             </p>
                           </div>
                         </div>
@@ -2670,16 +2692,8 @@
                     },
                     "answerArrays": {
                       "exerciseName": "422-positioning-adverbs-part-2",
-                      "totalQuestions": 21,
+                      "totalQuestions": 20,
                       "answerArray": {
-                        "question01": {
-                          "id": "example-we-walked-to-get-there-on-time-quickly",
-                          "answersAccepted": [],
-                          "lengths": [1],
-                          "minLength": 1,
-                          "maxLength": 1,
-                          "manualCheckOk": false
-                        },
                         "question02": {
                           "id": "q1-the-rain-had-stopped-when-i-arrived-already",
                           "answersAccepted": [["fnv1a-64:25fc85c387988982"]],
@@ -2851,7 +2865,7 @@
                   {
                     "title": "4.2.2 Positioning Adverbs (Part 2)",
                     "canonical": "422-positioning-adverbs-part-2.html",
-                    "totalQuestions": 21,
+                    "totalQuestions": 20,
                     "submitUrl": "",
                     "recipients": [],
                     "breadcrumbs": [
