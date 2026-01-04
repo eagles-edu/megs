@@ -1,3 +1,4 @@
+<!-- prettier-ignore -->
 <!doctype html>
 <html lang="en">
   <head>
@@ -16,7 +17,7 @@
       content="A comprehensive site for free English courses and exercises.">
     <meta
       name="generator"
-      content="English Grammar - intermediate levels A2 and above">
+      content="English Grammar - IELTS intermediate levels A2 and above">
     <link
       href="111-common-nouns.html"
       rel="non-canonical">
@@ -55,14 +56,6 @@
         --pager-padding-inline: 0.95rem;
         --pager-text-color: var(--text-color, #212121);
         --menu-icon-pad-inline: 6px;
-        --font-base:
-          roboto, system-ui, -apple-system, blinkmacsystemfont, "Noto Sans", "Segoe UI", ubuntu,
-          cantarell, "Liberation Sans", "DejaVu Sans", "Apple Color Emoji", "Segoe UI Emoji",
-          "Noto Color Emoji", sans-serif;
-        --font-header:
-          roboto, system-ui, -apple-system, blinkmacsystemfont, "Noto Sans", "Segoe UI", ubuntu,
-          cantarell, "Liberation Sans", "DejaVu Sans", "Apple Color Emoji", "Segoe UI Emoji",
-          "Noto Color Emoji", sans-serif;
         --left-menu-font-size: clamp(0.86rem, calc(0.72rem + 0.45vw), 0.96rem);
         --left-menu-icon-size: clamp(1.25rem, calc(var(--left-menu-font-size) * 1.2), 1.45rem);
         --left-menu-icon-slot: calc(var(--left-menu-icon-size) * 1.32);
@@ -127,17 +120,14 @@
         max-height: 28px;
       }
     </style>
-    <!-- Base CSS (SSOT) async with print-swap to improve FCP/LCP -->
+    <!-- Base CSS (SSOT) blocking to stabilize layout -->
     <link
       rel="preload"
       href="../web-asset/css/base.css"
-      as="style"
-      onload="this.onload=null;this.rel='stylesheet'">
+      as="style">
     <link
       rel="stylesheet"
-      href="../web-asset/css/base.css"
-      media="print"
-      onload="this.media='all'">
+      href="../web-asset/css/base.css">
     <noscript>
       <link
         rel="stylesheet"
@@ -265,6 +255,14 @@
         margin: 0;
       }
 
+      /* Mirror body padding/border early to avoid late layout shrink */
+      body.base,
+      body.site {
+        background-color: var(--background-color);
+        border-top: 15px solid var(--footer-background);
+        padding: 20px;
+      }
+
       .grid-modern .row-fluid {
         background: var(--secondary-color);
         border-radius: var(--radius);
@@ -337,6 +335,7 @@
         box-sizing: border-box;
         flex: 0 0 100%;
         max-width: 100%;
+        min-width: 0;
         padding-left: 8px;
         padding-right: 8px;
       }
@@ -361,8 +360,8 @@
         }
 
         #content {
-          flex: 1 1 0;
-          max-width: none;
+          flex: 0 0 66.6667%;
+          max-width: 66.6667%;
           min-width: 0;
         }
       }
@@ -477,8 +476,19 @@
 
       ul.accordion-menu li:hover > .item-wrapper > .menu-button,
       ul.accordion-menu li:focus-within > .item-wrapper > .menu-button,
-      ul.accordion-menu li.opened > .item-wrapper > .menu-button {
+      ul.accordion-menu li.opened > .item-wrapper > .menu-button,
+      ul.accordion-menu li.current > .item-wrapper > .menu-button {
         color: var(--primary-color);
+      }
+
+      ul.accordion-menu li.current {
+        background: var(--surface-warm, #fff);
+      }
+
+      ul.accordion-menu li.current > .item-wrapper > .menu-link > a,
+      ul.accordion-menu li.current > .item-wrapper > .menu-link > p {
+        color: var(--primary-color, #e0162b);
+        text-decoration: none;
       }
 
       ul.accordion-menu .menu-button > svg {
@@ -562,6 +572,27 @@
         min-height: 1.5rem;
       }
 
+      /* Stabilize instruction blocks to avoid inline-block reflow */
+      #content .exinstruct,
+      #content .exinstruct .blockdiv {
+        display: block;
+      }
+
+      #content .exinstruct .blockdiv {
+        min-height: 6rem;
+      }
+
+      #content .exinstruct .blockwrap,
+      #content .exinstruct .blockwrap-txt {
+        display: block;
+        max-width: 100%;
+      }
+
+      /* Reserve student ID block to reduce first-paint shifts */
+      #content .exercise-form__student-id {
+        min-height: 3rem;
+      }
+
       #aside .r-flyout-menu > [data-r-flyout-item] {
         border-bottom: 1px solid var(--divider-color, #e1e7f0);
         position: relative;
@@ -600,6 +631,22 @@
       #aside .r-flyout__link {
         color: currentColor;
         text-decoration: none;
+      }
+
+      #aside .r-flyout__sublist li.current > .item-wrapper {
+        background: var(--surface-warm, #fff);
+      }
+
+      #aside .r-flyout__sublist li.current > .item-wrapper a {
+        color: var(--primary-color, #e0162b);
+        text-decoration: none;
+      }
+
+      #aside .r-flyout__sublist a:hover,
+      #aside .r-flyout__sublist a:focus,
+      #aside .r-flyout__sublist li.current > .item-wrapper a,
+      #aside .r-flyout__sublist li.active > .item-wrapper a {
+        font-weight: 400;
       }
 
       #aside .r-flyout__link:hover,
@@ -954,16 +1001,14 @@
     </script>
     <!-- Icon font not used on Codex variant; removed icomoon.css includes -->
 
-    <!-- Minimal base for layout/mobile nav used by prototype (async) -->
+    <!-- Layout styles for exercises + mobile nav (blocking for CLS stability) -->
     <link
       rel="preload"
       href="../web-asset/css/exercises.css"
       as="style">
     <link
       rel="stylesheet"
-      href="../web-asset/css/exercises.css"
-      media="print"
-      onload="this.media='all'">
+      href="../web-asset/css/exercises.css">
     <noscript>
       <link
         rel="stylesheet"
@@ -971,31 +1016,27 @@
     </noscript>
     <!-- Use system default fonts (no webfont preloads) -->
 
-    <!-- Defer non-critical CSS with preload+print media swap -->
+    <!-- Flyout + menu layout styles (blocking for CLS stability) -->
     <link
       rel="preload"
       href="../web-asset/css/right-rail-flyout.css"
       as="style">
     <link
       rel="stylesheet"
-      href="../web-asset/css/right-rail-flyout.css"
-      media="print"
-      onload="this.media='all'">
+      href="../web-asset/css/right-rail-flyout.css">
     <noscript>
       <link
         rel="stylesheet"
         href="../web-asset/css/right-rail-flyout.css">
     </noscript>
-    <!-- Left-menu.css async; critical inline reserves layout to avoid flash -->
+    <!-- Left-menu.css blocking; critical inline reserves layout -->
     <link
       rel="preload"
       href="../web-asset/css/left-menu.css"
       as="style">
     <link
       rel="stylesheet"
-      href="../web-asset/css/left-menu.css"
-      media="print"
-      onload="this.media='all'">
+      href="../web-asset/css/left-menu.css">
     <noscript>
       <link
         rel="stylesheet"
@@ -1007,9 +1048,7 @@
       as="style">
     <link
       rel="stylesheet"
-      href="../web-asset/css/page-classes.css"
-      media="print"
-      onload="this.media='all'">
+      href="../web-asset/css/page-classes.css">
     <noscript>
       <link
         rel="stylesheet"
@@ -1022,18 +1061,165 @@
       as="style">
     <link
       rel="stylesheet"
-      href="../web-asset/css/exercise-1-nouns_new.css"
-      media="print"
-      onload="this.media='all'">
+      href="../web-asset/css/exercise-1-nouns_new.css">
     <noscript>
       <link
         rel="stylesheet"
         href="../web-asset/css/exercise-1-nouns_new.css">
     </noscript>
-    <!-- Codex QA slider scoped overrides (synchronous to avoid flash) -->
-    <link
-      rel="stylesheet"
-      href="../web-asset/css/qa-accordion.css">
+    <!-- Codex QA slider scoped overrides (inlined to remove render-blocking request) -->
+    <style id="qa-accordion-inline">
+      /* Codex QA Sliders' CSS overrides: single source of truth for Q&A */
+
+      /* Scope: only affect codex QA pages */
+
+      /* Scope strictly to the content area */
+      #content .nn_sliders.accordion {
+        margin-bottom: 1.5rem;
+      }
+
+      /* Preserve themed top border (e.g., .green/.info) and control other borders */
+
+        /* border-bottom: 1px solid var(--border-color); */
+
+        /* border-left: 1px solid var(--border-color); */
+      #content .nn_sliders.accordion > .accordion-group {
+        background: transparent;
+        border-radius: var(--radius);
+        overflow: hidden;
+      }
+
+      #content .accordion-heading {
+        background-color: var(--surface-1);
+        transition: background-color 0.2s ease;
+      }
+
+      #content .accordion-heading > a.accordion-toggle {
+        cursor: pointer;
+        display: block;
+        padding: 0.75rem 1rem;
+        position: relative;
+        text-decoration: none;
+      }
+
+      /* Arrow indicator controlled via aria-expanded */
+      #content .accordion-heading > a.accordion-toggle::after {
+        border-bottom: 2px solid var(--color-muted);
+        border-right: 2px solid var(--color-muted);
+        content: '';
+        height: 10px;
+        position: absolute;
+        right: 1rem;
+        top: 50%;
+        transform: translateY(-50%) rotate(0deg);
+        transition: transform 0.25s ease;
+        width: 10px;
+      }
+
+      #content .accordion-heading > a.accordion-toggle[aria-expanded='true']::after {
+        transform: translateY(-50%) rotate(45deg);
+      }
+
+      #content .accordion-heading > a.accordion-toggle[aria-expanded='false']::after {
+        transform: translateY(-50%) rotate(-45deg);
+      }
+
+      /* Body: support both legacy .in and modern .show */
+      #content .accordion-body {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+      }
+
+      #content .accordion-body.in,
+      #content .accordion-body.show {
+        max-height: 1000px;
+      }
+
+      #content .accordion-inner {
+        border-top: 1px solid var(--divider-color);
+        padding: 1rem;
+      }
+
+      /* Answer highlight (green) */
+      .panel-body {
+        background-color: var(--answer-bgcolor);
+        border: 0.0625rem solid var(--answer-border);
+        margin-bottom: -1px;
+        padding: 7px;
+      }
+
+      div.accordion-inner > p {
+        color: var(--answer-txtcolor);
+        font-weight: n;
+      }
+
+      /* Hide duplicated legacy heading inside accordion body */
+      #content .nn_sliders-title {
+        display: none !important;
+      }
+
+      /* Harmonize with legacy .nn_sliders collapse rules to avoid dupe transitions */
+      #content .nn_sliders .collapse {
+        height: 0;
+        overflow: hidden;
+      }
+
+      #content .nn_sliders .collapse.in,
+      #content .nn_sliders .collapse.show {
+        height: auto;
+      }
+
+      div .accordion-inner > p {
+        margin: 0;
+      }
+
+      #exercise-status {
+        background-color: transparent;
+        border-radius: 0 0 var(--radius, 6px) var(--radius, 6px);
+        border-top: 0 solid transparent;
+        border-top-color: transparent;
+        font-weight: 600;
+        line-height: 1.5;
+        margin-top: 2em;
+        padding: 1rem 1.25rem;
+        text-align: center;
+        white-space: pre-line;
+      }
+
+      .status-ok {
+        color: var(--success-color);
+        background: var(--secondary-color);
+        border-top-color: var(--success-border);
+      }
+
+      #exercise-status.status-ok::before {
+        content: "";
+        display: inline-block;
+        width: 1.05em;
+        height: 1.05em;
+        margin-right: 0.4em;
+        vertical-align: -0.15em;
+        background-color: currentcolor;
+        mask: center / contain no-repeat url("../web-asset/icons/svg/checkmark.svg");
+      }
+
+      #exercise-status.status-ok {
+        color: #0f6d2a;
+      }
+
+      .status-warn {
+        color: var(--warning-color);
+        background: var(--warning-bg);
+        border-top-color: var(--warning-border);
+      }
+
+      .status-err {
+        color: var(--danger-color);
+        background: var(--danger-bg);
+        border-top-color: var(--danger-border);
+      }
+    </style>
     <!-- No-JS fallback: show all answers if scripting is disabled -->
     <noscript>
       <style>
@@ -1054,6 +1240,7 @@
       nomodule
       src="../web-asset/js/main.legacy.js"
       defer></script>
+
     <script
       src="../web-asset/js/right-rail-flyout.js"
       defer></script>
@@ -1155,7 +1342,7 @@
                         </div>
                       </div>
                     </li>
-                    <li>
+                    <li class="current">
                       <div class="item-wrapper">
                         <div class="menu-button"></div>
                         <div class="menu-link">
@@ -1345,8 +1532,7 @@
                 <h2>1.1.1 Common Nouns</h2>
                 <div class="clearfix"></div>
                 <nav
-                  class="breadcrumb-wrap"
-                  aria-label="Breadcrumb">
+                  class="breadcrumb-wrap">
                   <ul
                     class="breadcrumb"
                     itemscope=""
@@ -1499,18 +1685,18 @@
                       </div>
                       <p
                         class="exercise-form__progress tm01"
-                        data-exercise-progress=""
+                        data-exercise-progress
                         aria-live="polite">
                         0 of 20 questions completed.
                       </p>
                       <span
                         class="exercise-form__last-attempt"
-                        data-exercise-last-attempt=""
+                        data-exercise-last-attempt
                         hidden
                         aria-live="polite"></span>
                       <div
                         class="exercise-form__feedback"
-                        data-exercise-feedback=""
+                        data-exercise-feedback
                         aria-live="polite"></div>
                     </div>
                   </fieldset>
@@ -3207,12 +3393,12 @@
                   </div>
                   <div
                     class="exercise-submit-row"
-                    data-exercise-submit-row=""
+                    data-exercise-submit-row
                     hidden>
                     <button
                       type="submit"
                       class="exercise-submit-button"
-                      data-exercise-submit=""
+                      data-exercise-submit
                       disabled>
                       Submit answers
                     </button>
@@ -3243,11 +3429,19 @@
                       "answerArray": {
                         "question01": {
                           "id": "1",
-                          "answersAccepted": [["fnv1a-64:2a13e1f055644df3"]]
+                          "answersAccepted": [["fnv1a-64:2a13e1f055644df3"]],
+                          "lengths": [1],
+                          "minLength": 1,
+                          "maxLength": 1,
+                          "manualCheckOk": false
                         },
                         "question02": {
                           "id": "2",
-                          "answersAccepted": [["fnv1a-64:42fe2f87e431d171", "fnv1a-64:bb1a3eb9e4c6e529"]]
+                          "answersAccepted": [["fnv1a-64:42fe2f87e431d171", "fnv1a-64:bb1a3eb9e4c6e529"]],
+                          "lengths": [2],
+                          "minLength": 2,
+                          "maxLength": 2,
+                          "manualCheckOk": false
                         },
                         "question03": {
                           "id": "3",
@@ -3258,78 +3452,150 @@
                               "fnv1a-64:b5615e90e87b608f",
                               "fnv1a-64:f2636942cc8941a4"
                             ]
-                          ]
+                          ],
+                          "lengths": [4],
+                          "minLength": 4,
+                          "maxLength": 4,
+                          "manualCheckOk": false
                         },
                         "question04": {
                           "id": "4",
-                          "answersAccepted": [["fnv1a-64:ce46f1198769524b", "fnv1a-64:4d0afd4928726334"]]
+                          "answersAccepted": [["fnv1a-64:ce46f1198769524b", "fnv1a-64:4d0afd4928726334"]],
+                          "lengths": [2],
+                          "minLength": 2,
+                          "maxLength": 2,
+                          "manualCheckOk": false
                         },
                         "question05": {
                           "id": "5",
-                          "answersAccepted": [["fnv1a-64:0a8f12cc5f9a0c03", "fnv1a-64:893530843eabf472"]]
+                          "answersAccepted": [["fnv1a-64:0a8f12cc5f9a0c03", "fnv1a-64:893530843eabf472"]],
+                          "lengths": [2],
+                          "minLength": 2,
+                          "maxLength": 2,
+                          "manualCheckOk": false
                         },
                         "question06": {
                           "id": "6",
-                          "answersAccepted": [["fnv1a-64:3b460fb03ebafd9a", "fnv1a-64:6031fa18f0b81ef4", "fnv1a-64:857ba31dc6b8878f"]]
+                          "answersAccepted": [["fnv1a-64:3b460fb03ebafd9a", "fnv1a-64:6031fa18f0b81ef4", "fnv1a-64:857ba31dc6b8878f"]],
+                          "lengths": [3],
+                          "minLength": 3,
+                          "maxLength": 3,
+                          "manualCheckOk": false
                         },
                         "question07": {
                           "id": "7",
-                          "answersAccepted": [["fnv1a-64:5beddbba52c73a21", "fnv1a-64:d4400ba5f999dc41"]]
+                          "answersAccepted": [["fnv1a-64:5beddbba52c73a21", "fnv1a-64:d4400ba5f999dc41"]],
+                          "lengths": [2],
+                          "minLength": 2,
+                          "maxLength": 2,
+                          "manualCheckOk": false
                         },
                         "question08": {
                           "id": "8",
-                          "answersAccepted": [["fnv1a-64:6b725d068c3cf2b2", "fnv1a-64:9a13d89ba9fbca24", "fnv1a-64:2c5d047ff4e6ffc7"]]
+                          "answersAccepted": [["fnv1a-64:6b725d068c3cf2b2", "fnv1a-64:9a13d89ba9fbca24", "fnv1a-64:2c5d047ff4e6ffc7"]],
+                          "lengths": [3],
+                          "minLength": 3,
+                          "maxLength": 3,
+                          "manualCheckOk": false
                         },
                         "question09": {
                           "id": "9",
-                          "answersAccepted": [["fnv1a-64:407c48d72a3b365c", "fnv1a-64:e780ca9a7cbdd8eb"]]
+                          "answersAccepted": [["fnv1a-64:407c48d72a3b365c", "fnv1a-64:e780ca9a7cbdd8eb"]],
+                          "lengths": [2],
+                          "minLength": 2,
+                          "maxLength": 2,
+                          "manualCheckOk": false
                         },
                         "question10": {
                           "id": "10",
-                          "answersAccepted": [["fnv1a-64:c95d8c6cab54db7d", "fnv1a-64:6b725d068c3cf2b2", "fnv1a-64:82a6b14733b2685a"]]
+                          "answersAccepted": [["fnv1a-64:c95d8c6cab54db7d", "fnv1a-64:6b725d068c3cf2b2", "fnv1a-64:82a6b14733b2685a"]],
+                          "lengths": [3],
+                          "minLength": 3,
+                          "maxLength": 3,
+                          "manualCheckOk": false
                         },
                         "question11": {
                           "id": "11",
-                          "answersAccepted": [["fnv1a-64:bcb01828f0c1fe63", "fnv1a-64:5f8a99af714680ff"]]
+                          "answersAccepted": [["fnv1a-64:bcb01828f0c1fe63", "fnv1a-64:5f8a99af714680ff"]],
+                          "lengths": [2],
+                          "minLength": 2,
+                          "maxLength": 2,
+                          "manualCheckOk": false
                         },
                         "question12": {
                           "id": "12",
-                          "answersAccepted": [["fnv1a-64:48693db44dd0ef3f", "fnv1a-64:42ef0fa1eda7a88a", "fnv1a-64:4f5c4dd8e884633e"]]
+                          "answersAccepted": [["fnv1a-64:48693db44dd0ef3f", "fnv1a-64:42ef0fa1eda7a88a", "fnv1a-64:4f5c4dd8e884633e"]],
+                          "lengths": [3],
+                          "minLength": 3,
+                          "maxLength": 3,
+                          "manualCheckOk": false
                         },
                         "question13": {
                           "id": "13",
-                          "answersAccepted": [["fnv1a-64:6fcfdf926f11594e", "fnv1a-64:e925e43a99442f85", "fnv1a-64:1aa9c45c0f9ef371"]]
+                          "answersAccepted": [["fnv1a-64:6fcfdf926f11594e", "fnv1a-64:e925e43a99442f85", "fnv1a-64:1aa9c45c0f9ef371"]],
+                          "lengths": [3],
+                          "minLength": 3,
+                          "maxLength": 3,
+                          "manualCheckOk": false
                         },
                         "question14": {
                           "id": "14",
-                          "answersAccepted": [["fnv1a-64:14ec7800be9333b4", "fnv1a-64:8b29614672c32250"]]
+                          "answersAccepted": [["fnv1a-64:14ec7800be9333b4", "fnv1a-64:8b29614672c32250"]],
+                          "lengths": [2],
+                          "minLength": 2,
+                          "maxLength": 2,
+                          "manualCheckOk": false
                         },
                         "question15": {
                           "id": "15",
-                          "answersAccepted": [["fnv1a-64:7e46454eb744c150", "fnv1a-64:b54c5d3e3853f133"]]
+                          "answersAccepted": [["fnv1a-64:7e46454eb744c150", "fnv1a-64:b54c5d3e3853f133"]],
+                          "lengths": [2],
+                          "minLength": 2,
+                          "maxLength": 2,
+                          "manualCheckOk": false
                         },
                         "question16": {
                           "id": "16",
                           "answersAccepted": [
                             ["fnv1a-64:9009ca6e72116aa5", "fnv1a-64:d0a0f546277287e8"],
                             ["fnv1a-64:9009ca6e72116aa5", "fnv1a-64:d23035732267a994"]
-                          ]
+                          ],
+                          "lengths": [2],
+                          "minLength": 2,
+                          "maxLength": 2,
+                          "manualCheckOk": false
                         },
                         "question17": {
                           "id": "17",
-                          "answersAccepted": [["fnv1a-64:7197ef9869757539", "fnv1a-64:1c916a8f0aaafd27"]]
+                          "answersAccepted": [["fnv1a-64:7197ef9869757539", "fnv1a-64:1c916a8f0aaafd27"]],
+                          "lengths": [2],
+                          "minLength": 2,
+                          "maxLength": 2,
+                          "manualCheckOk": false
                         },
                         "question18": {
                           "id": "18",
-                          "answersAccepted": [["fnv1a-64:d97f55ef07c42f09", "fnv1a-64:8af97972044b8af2"]]
+                          "answersAccepted": [["fnv1a-64:d97f55ef07c42f09", "fnv1a-64:8af97972044b8af2"]],
+                          "lengths": [2],
+                          "minLength": 2,
+                          "maxLength": 2,
+                          "manualCheckOk": false
                         },
                         "question19": {
                           "id": "19",
-                          "answersAccepted": [["fnv1a-64:cd0ddd9bc6933da2", "fnv1a-64:681cb15e4a577428"]]
+                          "answersAccepted": [["fnv1a-64:cd0ddd9bc6933da2", "fnv1a-64:681cb15e4a577428"]],
+                          "lengths": [2],
+                          "minLength": 2,
+                          "maxLength": 2,
+                          "manualCheckOk": false
                         },
                         "question20": {
                           "id": "20",
-                          "answersAccepted": [["fnv1a-64:2cdf64868f94a848", "fnv1a-64:d94c56ef0798d723", "fnv1a-64:919ec0f651278ba5"]]
+                          "answersAccepted": [["fnv1a-64:2cdf64868f94a848", "fnv1a-64:d94c56ef0798d723", "fnv1a-64:919ec0f651278ba5"]],
+                          "lengths": [3],
+                          "minLength": 3,
+                          "maxLength": 3,
+                          "manualCheckOk": false
                         }
                       }
                     }
@@ -3340,12 +3606,44 @@
                   id="exercise-config"
                   data-exercise-config>
                   {
-                    "recipients": [
-                      { "utf8": "6b696d7468616e68406561676c6573766e2e6f6e6c696e65" },
-                      { "utf8": "61646d696e406561676c6573766e2e6f6e6c696e65" },
-                      { "utf8": "7468616e682e6561676c6573636c756240676d61696c2e636f6d" }
+                    "title": "1.1.1 Common Nouns",
+                    "canonical": "111-common-nouns.html",
+                    "totalQuestions": 20,
+                    "submitUrl": "",
+                    "recipients": [],
+                    "breadcrumbs": [
+                      {
+                        "name": "Home",
+                        "href": "../index-2.html",
+                        "position": 1
+                      },
+                      {
+                        "name": "Exercise 1 - Nouns",
+                        "href": "../exercise-1-nouns.html",
+                        "position": 2
+                      },
+                      {
+                        "name": "1.1.1 Common Nouns",
+                        "href": "",
+                        "position": 3
+                      }
                     ],
-                    "submitUrl": ""
+                    "pager": {
+                      "previous": {
+                        "href": "../exercise-1-nouns.html",
+                        "label": "Exercise 1 - Nouns",
+                        "ariaLabel": "Previous",
+                        "rel": "prev",
+                        "html": "<span class=\"icon-chevron-left\"> </span> Exercise 1 - Nouns"
+                      },
+                      "next": {
+                        "href": "112-proper-nouns.html",
+                        "label": "1.1.2 Proper Nouns",
+                        "ariaLabel": "Next",
+                        "rel": "next",
+                        "html": "1.1.2 Proper Nouns <span class=\"icon-chevron-right\"> </span>"
+                      }
+                    }
                   }
                 </script>
 
@@ -3422,11 +3720,11 @@
               <ul
                 class="r-flyout-menu"
                 id="flyout_menu_93"
-                data-r-flyout=""
+                data-r-flyout
                 data-flyout-origin="right">
                 <li
                   class="current first"
-                  data-r-flyout-item="">
+                  data-r-flyout-item>
                   <div class="item-wrapper r-flyout__header">
                     <button
                       class="r-flyout__toggle"
@@ -3439,13 +3737,13 @@
                         class="r-flyout__icon r-flyout__icon--plus"
                         aria-hidden="true"
                         focusable="false">
-                        <use xlink:href="#icon-plus"></use>
+                        <use href="#icon-plus"></use>
                       </svg>
                       <svg
                         class="r-flyout__icon r-flyout__icon--minus"
                         aria-hidden="true"
                         focusable="false">
-                        <use xlink:href="#icon-minus"></use>
+                        <use href="#icon-minus"></use>
                       </svg>
                     </button>
                     <div class="menu-link r-flyout__link-wrap">
@@ -3555,7 +3853,7 @@
                     </ul>
                   </div>
                 </li>
-                <li data-r-flyout-item="">
+                <li data-r-flyout-item>
                   <div class="item-wrapper r-flyout__header">
                     <button
                       class="r-flyout__toggle"
@@ -3568,13 +3866,13 @@
                         class="r-flyout__icon r-flyout__icon--plus"
                         aria-hidden="true"
                         focusable="false">
-                        <use xlink:href="#icon-plus"></use>
+                        <use href="#icon-plus"></use>
                       </svg>
                       <svg
                         class="r-flyout__icon r-flyout__icon--minus"
                         aria-hidden="true"
                         focusable="false">
-                        <use xlink:href="#icon-minus"></use>
+                        <use href="#icon-minus"></use>
                       </svg>
                     </button>
                     <div class="menu-link r-flyout__link-wrap">
@@ -3644,7 +3942,7 @@
                     </ul>
                   </div>
                 </li>
-                <li data-r-flyout-item="">
+                <li data-r-flyout-item>
                   <div class="item-wrapper r-flyout__header">
                     <button
                       class="r-flyout__toggle"
@@ -3657,13 +3955,13 @@
                         class="r-flyout__icon r-flyout__icon--plus"
                         aria-hidden="true"
                         focusable="false">
-                        <use xlink:href="#icon-plus"></use>
+                        <use href="#icon-plus"></use>
                       </svg>
                       <svg
                         class="r-flyout__icon r-flyout__icon--minus"
                         aria-hidden="true"
                         focusable="false">
-                        <use xlink:href="#icon-minus"></use>
+                        <use href="#icon-minus"></use>
                       </svg>
                     </button>
                     <div class="menu-link r-flyout__link-wrap">
@@ -3763,7 +4061,7 @@
                     </ul>
                   </div>
                 </li>
-                <li data-r-flyout-item="">
+                <li data-r-flyout-item>
                   <div class="item-wrapper r-flyout__header">
                     <button
                       class="r-flyout__toggle"
@@ -3776,13 +4074,13 @@
                         class="r-flyout__icon r-flyout__icon--plus"
                         aria-hidden="true"
                         focusable="false">
-                        <use xlink:href="#icon-plus"></use>
+                        <use href="#icon-plus"></use>
                       </svg>
                       <svg
                         class="r-flyout__icon r-flyout__icon--minus"
                         aria-hidden="true"
                         focusable="false">
-                        <use xlink:href="#icon-minus"></use>
+                        <use href="#icon-minus"></use>
                       </svg>
                     </button>
                     <div class="menu-link r-flyout__link-wrap">
@@ -3892,7 +4190,7 @@
                     </ul>
                   </div>
                 </li>
-                <li data-r-flyout-item="">
+                <li data-r-flyout-item>
                   <div class="item-wrapper r-flyout__header">
                     <button
                       class="r-flyout__toggle"
@@ -3905,13 +4203,13 @@
                         class="r-flyout__icon r-flyout__icon--plus"
                         aria-hidden="true"
                         focusable="false">
-                        <use xlink:href="#icon-plus"></use>
+                        <use href="#icon-plus"></use>
                       </svg>
                       <svg
                         class="r-flyout__icon r-flyout__icon--minus"
                         aria-hidden="true"
                         focusable="false">
-                        <use xlink:href="#icon-minus"></use>
+                        <use href="#icon-minus"></use>
                       </svg>
                     </button>
                     <div class="menu-link r-flyout__link-wrap">
@@ -4121,7 +4419,7 @@
                     </ul>
                   </div>
                 </li>
-                <li data-r-flyout-item="">
+                <li data-r-flyout-item>
                   <div class="item-wrapper r-flyout__header">
                     <button
                       class="r-flyout__toggle"
@@ -4134,13 +4432,13 @@
                         class="r-flyout__icon r-flyout__icon--plus"
                         aria-hidden="true"
                         focusable="false">
-                        <use xlink:href="#icon-plus"></use>
+                        <use href="#icon-plus"></use>
                       </svg>
                       <svg
                         class="r-flyout__icon r-flyout__icon--minus"
                         aria-hidden="true"
                         focusable="false">
-                        <use xlink:href="#icon-minus"></use>
+                        <use href="#icon-minus"></use>
                       </svg>
                     </button>
                     <div class="menu-link r-flyout__link-wrap">
@@ -4260,7 +4558,7 @@
                     </ul>
                   </div>
                 </li>
-                <li data-r-flyout-item="">
+                <li data-r-flyout-item>
                   <div class="item-wrapper r-flyout__header">
                     <button
                       class="r-flyout__toggle"
@@ -4273,13 +4571,13 @@
                         class="r-flyout__icon r-flyout__icon--plus"
                         aria-hidden="true"
                         focusable="false">
-                        <use xlink:href="#icon-plus"></use>
+                        <use href="#icon-plus"></use>
                       </svg>
                       <svg
                         class="r-flyout__icon r-flyout__icon--minus"
                         aria-hidden="true"
                         focusable="false">
-                        <use xlink:href="#icon-minus"></use>
+                        <use href="#icon-minus"></use>
                       </svg>
                     </button>
                     <div class="menu-link r-flyout__link-wrap">
@@ -4369,7 +4667,7 @@
                     </ul>
                   </div>
                 </li>
-                <li data-r-flyout-item="">
+                <li data-r-flyout-item>
                   <div class="item-wrapper r-flyout__header">
                     <button
                       class="r-flyout__toggle"
@@ -4382,13 +4680,13 @@
                         class="r-flyout__icon r-flyout__icon--plus"
                         aria-hidden="true"
                         focusable="false">
-                        <use xlink:href="#icon-plus"></use>
+                        <use href="#icon-plus"></use>
                       </svg>
                       <svg
                         class="r-flyout__icon r-flyout__icon--minus"
                         aria-hidden="true"
                         focusable="false">
-                        <use xlink:href="#icon-minus"></use>
+                        <use href="#icon-minus"></use>
                       </svg>
                     </button>
                     <div class="menu-link r-flyout__link-wrap">
@@ -4438,7 +4736,7 @@
                     </ul>
                   </div>
                 </li>
-                <li data-r-flyout-item="">
+                <li data-r-flyout-item>
                   <div class="item-wrapper r-flyout__header">
                     <button
                       class="r-flyout__toggle"
@@ -4451,13 +4749,13 @@
                         class="r-flyout__icon r-flyout__icon--plus"
                         aria-hidden="true"
                         focusable="false">
-                        <use xlink:href="#icon-plus"></use>
+                        <use href="#icon-plus"></use>
                       </svg>
                       <svg
                         class="r-flyout__icon r-flyout__icon--minus"
                         aria-hidden="true"
                         focusable="false">
-                        <use xlink:href="#icon-minus"></use>
+                        <use href="#icon-minus"></use>
                       </svg>
                     </button>
                     <div class="menu-link r-flyout__link-wrap">
@@ -4507,7 +4805,7 @@
                     </ul>
                   </div>
                 </li>
-                <li data-r-flyout-item="">
+                <li data-r-flyout-item>
                   <div class="item-wrapper r-flyout__header">
                     <button
                       class="r-flyout__toggle"
@@ -4520,13 +4818,13 @@
                         class="r-flyout__icon r-flyout__icon--plus"
                         aria-hidden="true"
                         focusable="false">
-                        <use xlink:href="#icon-plus"></use>
+                        <use href="#icon-plus"></use>
                       </svg>
                       <svg
                         class="r-flyout__icon r-flyout__icon--minus"
                         aria-hidden="true"
                         focusable="false">
-                        <use xlink:href="#icon-minus"></use>
+                        <use href="#icon-minus"></use>
                       </svg>
                     </button>
                     <div class="menu-link r-flyout__link-wrap">
@@ -4576,7 +4874,7 @@
                     </ul>
                   </div>
                 </li>
-                <li data-r-flyout-item="">
+                <li data-r-flyout-item>
                   <div class="item-wrapper r-flyout__header">
                     <button
                       class="r-flyout__toggle"
@@ -4589,13 +4887,13 @@
                         class="r-flyout__icon r-flyout__icon--plus"
                         aria-hidden="true"
                         focusable="false">
-                        <use xlink:href="#icon-plus"></use>
+                        <use href="#icon-plus"></use>
                       </svg>
                       <svg
                         class="r-flyout__icon r-flyout__icon--minus"
                         aria-hidden="true"
                         focusable="false">
-                        <use xlink:href="#icon-minus"></use>
+                        <use href="#icon-minus"></use>
                       </svg>
                     </button>
                     <div class="menu-link r-flyout__link-wrap">
@@ -4665,7 +4963,7 @@
                     </ul>
                   </div>
                 </li>
-                <li data-r-flyout-item="">
+                <li data-r-flyout-item>
                   <div class="item-wrapper r-flyout__header">
                     <button
                       class="r-flyout__toggle"
@@ -4678,13 +4976,13 @@
                         class="r-flyout__icon r-flyout__icon--plus"
                         aria-hidden="true"
                         focusable="false">
-                        <use xlink:href="#icon-plus"></use>
+                        <use href="#icon-plus"></use>
                       </svg>
                       <svg
                         class="r-flyout__icon r-flyout__icon--minus"
                         aria-hidden="true"
                         focusable="false">
-                        <use xlink:href="#icon-minus"></use>
+                        <use href="#icon-minus"></use>
                       </svg>
                     </button>
                     <div class="menu-link r-flyout__link-wrap">
@@ -4764,7 +5062,7 @@
                     </ul>
                   </div>
                 </li>
-                <li data-r-flyout-item="">
+                <li data-r-flyout-item>
                   <div class="item-wrapper r-flyout__header">
                     <button
                       class="r-flyout__toggle"
@@ -4777,7 +5075,7 @@
                         class="r-flyout__icon r-flyout__icon--plus"
                         aria-hidden="true"
                         focusable="false">
-                        <use xlink:href="#icon-plus"></use>
+                        <use href="#icon-plus"></use>
                       </svg>
                     </button>
                     <div class="menu-link r-flyout__link-wrap">
@@ -4789,7 +5087,7 @@
                     </div>
                   </div>
                 </li>
-                <li data-r-flyout-item="">
+                <li data-r-flyout-item>
                   <div class="item-wrapper r-flyout__header">
                     <button
                       class="r-flyout__toggle"
@@ -4802,13 +5100,13 @@
                         class="r-flyout__icon r-flyout__icon--plus"
                         aria-hidden="true"
                         focusable="false">
-                        <use xlink:href="#icon-plus"></use>
+                        <use href="#icon-plus"></use>
                       </svg>
                       <svg
                         class="r-flyout__icon r-flyout__icon--minus"
                         aria-hidden="true"
                         focusable="false">
-                        <use xlink:href="#icon-minus"></use>
+                        <use href="#icon-minus"></use>
                       </svg>
                     </button>
                     <div class="menu-link r-flyout__link-wrap">
@@ -4908,7 +5206,7 @@
                     </ul>
                   </div>
                 </li>
-                <li data-r-flyout-item="">
+                <li data-r-flyout-item>
                   <div class="item-wrapper r-flyout__header">
                     <button
                       class="r-flyout__toggle"
@@ -4921,13 +5219,13 @@
                         class="r-flyout__icon r-flyout__icon--plus"
                         aria-hidden="true"
                         focusable="false">
-                        <use xlink:href="#icon-plus"></use>
+                        <use href="#icon-plus"></use>
                       </svg>
                       <svg
                         class="r-flyout__icon r-flyout__icon--minus"
                         aria-hidden="true"
                         focusable="false">
-                        <use xlink:href="#icon-minus"></use>
+                        <use href="#icon-minus"></use>
                       </svg>
                     </button>
                     <div class="menu-link r-flyout__link-wrap">
@@ -4977,7 +5275,7 @@
                     </ul>
                   </div>
                 </li>
-                <li data-r-flyout-item="">
+                <li data-r-flyout-item>
                   <div class="item-wrapper r-flyout__header">
                     <button
                       class="r-flyout__toggle"
@@ -4990,13 +5288,13 @@
                         class="r-flyout__icon r-flyout__icon--plus"
                         aria-hidden="true"
                         focusable="false">
-                        <use xlink:href="#icon-plus"></use>
+                        <use href="#icon-plus"></use>
                       </svg>
                       <svg
                         class="r-flyout__icon r-flyout__icon--minus"
                         aria-hidden="true"
                         focusable="false">
-                        <use xlink:href="#icon-minus"></use>
+                        <use href="#icon-minus"></use>
                       </svg>
                     </button>
                     <div class="menu-link r-flyout__link-wrap">
@@ -5066,7 +5364,7 @@
                     </ul>
                   </div>
                 </li>
-                <li data-r-flyout-item="">
+                <li data-r-flyout-item>
                   <div class="item-wrapper r-flyout__header">
                     <button
                       class="r-flyout__toggle"
@@ -5079,13 +5377,13 @@
                         class="r-flyout__icon r-flyout__icon--plus"
                         aria-hidden="true"
                         focusable="false">
-                        <use xlink:href="#icon-plus"></use>
+                        <use href="#icon-plus"></use>
                       </svg>
                       <svg
                         class="r-flyout__icon r-flyout__icon--minus"
                         aria-hidden="true"
                         focusable="false">
-                        <use xlink:href="#icon-minus"></use>
+                        <use href="#icon-minus"></use>
                       </svg>
                     </button>
                     <div class="menu-link r-flyout__link-wrap">
@@ -5135,7 +5433,7 @@
                     </ul>
                   </div>
                 </li>
-                <li data-r-flyout-item="">
+                <li data-r-flyout-item>
                   <div class="item-wrapper r-flyout__header">
                     <button
                       class="r-flyout__toggle"
@@ -5148,13 +5446,13 @@
                         class="r-flyout__icon r-flyout__icon--plus"
                         aria-hidden="true"
                         focusable="false">
-                        <use xlink:href="#icon-plus"></use>
+                        <use href="#icon-plus"></use>
                       </svg>
                       <svg
                         class="r-flyout__icon r-flyout__icon--minus"
                         aria-hidden="true"
                         focusable="false">
-                        <use xlink:href="#icon-minus"></use>
+                        <use href="#icon-minus"></use>
                       </svg>
                     </button>
                     <div class="menu-link r-flyout__link-wrap">
@@ -5216,7 +5514,7 @@
                 </li>
                 <li
                   class="last"
-                  data-r-flyout-item="">
+                  data-r-flyout-item>
                   <div class="item-wrapper r-flyout__header">
                     <button
                       class="r-flyout__toggle"
@@ -5229,13 +5527,13 @@
                         class="r-flyout__icon r-flyout__icon--plus"
                         aria-hidden="true"
                         focusable="false">
-                        <use xlink:href="#icon-plus"></use>
+                        <use href="#icon-plus"></use>
                       </svg>
                       <svg
                         class="r-flyout__icon r-flyout__icon--minus"
                         aria-hidden="true"
                         focusable="false">
-                        <use xlink:href="#icon-minus"></use>
+                        <use href="#icon-minus"></use>
                       </svg>
                     </button>
                     <div class="menu-link r-flyout__link-wrap">

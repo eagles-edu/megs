@@ -17,7 +17,7 @@
       content="A comprehensive site for free English courses and exercises.">
     <meta
       name="generator"
-      content="English Grammar - intermediate levels A2 and above">
+      content="English Grammar - IELTS intermediate levels A2 and above">
     <link
       href="261-irregular-verbs-i.html"
       rel="non-canonical">
@@ -120,17 +120,14 @@
         max-height: 28px;
       }
     </style>
-    <!-- Base CSS (SSOT) async with print-swap to improve FCP/LCP -->
+    <!-- Base CSS (SSOT) blocking to stabilize layout -->
     <link
       rel="preload"
       href="../web-asset/css/base.css"
-      as="style"
-      onload="this.onload=null;this.rel='stylesheet'">
+      as="style">
     <link
       rel="stylesheet"
-      href="../web-asset/css/base.css"
-      media="print"
-      onload="this.media='all'">
+      href="../web-asset/css/base.css">
     <noscript>
       <link
         rel="stylesheet"
@@ -210,6 +207,13 @@
         justify-content: flex-start;
         text-align: left;
       }
+
+      @media (min-width: 768px) {
+        .pager .next {
+          min-inline-size: 12rem;
+        }
+      }
+
       .pager .pager-label {
         flex: 1 1 auto;
         min-width: 0;
@@ -256,6 +260,14 @@
       /* Critical CSS: reset + fast header paint + mobile toggle */
       body {
         margin: 0;
+      }
+
+      /* Mirror body padding/border early to avoid late layout shrink */
+      body.base,
+      body.site {
+        background-color: var(--background-color);
+        border-top: 15px solid var(--footer-background);
+        padding: 20px;
       }
 
       .grid-modern .row-fluid {
@@ -330,6 +342,7 @@
         box-sizing: border-box;
         flex: 0 0 100%;
         max-width: 100%;
+        min-width: 0;
         padding-left: 8px;
         padding-right: 8px;
       }
@@ -354,8 +367,8 @@
         }
 
         #content {
-          flex: 1 1 0;
-          max-width: none;
+          flex: 0 0 66.6667%;
+          max-width: 66.6667%;
           min-width: 0;
         }
       }
@@ -854,6 +867,27 @@
         min-height: 80px;
       }
 
+      /* Stabilize instruction blocks to avoid inline-block reflow */
+      #content .exinstruct,
+      #content .exinstruct .blockdiv {
+        display: block;
+      }
+
+      #content .exinstruct .blockdiv {
+        min-height: 6rem;
+      }
+
+      #content .exinstruct .blockwrap,
+      #content .exinstruct .blockwrap-txt {
+        display: block;
+        max-width: 100%;
+      }
+
+      /* Reserve student ID block to reduce first-paint shifts */
+      #content .exercise-form__student-id {
+        min-height: 3rem;
+      }
+
       /* Stabilize sidebar width on desktop to prevent reflow */
       @media (min-width: 768px) {
         #sidebar {
@@ -967,16 +1001,14 @@
     </script>
     <!-- Icon font not used on Codex variant; removed icomoon.css includes -->
 
-    <!-- Minimal base for layout/mobile nav used by prototype (async) -->
+    <!-- Layout styles for exercises + mobile nav (blocking for CLS stability) -->
     <link
       rel="preload"
       href="../web-asset/css/exercises.css"
       as="style">
     <link
       rel="stylesheet"
-      href="../web-asset/css/exercises.css"
-      media="print"
-      onload="this.media='all'">
+      href="../web-asset/css/exercises.css">
     <noscript>
       <link
         rel="stylesheet"
@@ -984,31 +1016,27 @@
     </noscript>
     <!-- Use system default fonts (no webfont preloads) -->
 
-    <!-- Defer non-critical CSS with preload+print media swap -->
+    <!-- Flyout + menu layout styles (blocking for CLS stability) -->
     <link
       rel="preload"
       href="../web-asset/css/right-rail-flyout.css"
       as="style">
     <link
       rel="stylesheet"
-      href="../web-asset/css/right-rail-flyout.css"
-      media="print"
-      onload="this.media='all'">
+      href="../web-asset/css/right-rail-flyout.css">
     <noscript>
       <link
         rel="stylesheet"
         href="../web-asset/css/right-rail-flyout.css">
     </noscript>
-    <!-- Left-menu.css async; critical inline reserves layout to avoid flash -->
+    <!-- Left-menu.css blocking; critical inline reserves layout -->
     <link
       rel="preload"
       href="../web-asset/css/left-menu.css"
       as="style">
     <link
       rel="stylesheet"
-      href="../web-asset/css/left-menu.css"
-      media="print"
-      onload="this.media='all'">
+      href="../web-asset/css/left-menu.css">
     <noscript>
       <link
         rel="stylesheet"
@@ -1020,9 +1048,7 @@
       as="style">
     <link
       rel="stylesheet"
-      href="../web-asset/css/page-classes.css"
-      media="print"
-      onload="this.media='all'">
+      href="../web-asset/css/page-classes.css">
     <noscript>
       <link
         rel="stylesheet"
@@ -1035,18 +1061,165 @@
       as="style">
     <link
       rel="stylesheet"
-      href="../web-asset/css/exercise-1-nouns_new.css"
-      media="print"
-      onload="this.media='all'">
+      href="../web-asset/css/exercise-1-nouns_new.css">
     <noscript>
       <link
         rel="stylesheet"
         href="../web-asset/css/exercise-1-nouns_new.css">
     </noscript>
-    <!-- Codex QA slider scoped overrides (synchronous to avoid flash) -->
-    <link
-      rel="stylesheet"
-      href="../web-asset/css/qa-accordion.css">
+    <!-- Codex QA slider scoped overrides (inlined to remove render-blocking request) -->
+    <style id="qa-accordion-inline">
+      /* Codex QA Sliders' CSS overrides: single source of truth for Q&A */
+
+      /* Scope: only affect codex QA pages */
+
+      /* Scope strictly to the content area */
+      #content .nn_sliders.accordion {
+        margin-bottom: 1.5rem;
+      }
+
+      /* Preserve themed top border (e.g., .green/.info) and control other borders */
+
+        /* border-bottom: 1px solid var(--border-color); */
+
+        /* border-left: 1px solid var(--border-color); */
+      #content .nn_sliders.accordion > .accordion-group {
+        background: transparent;
+        border-radius: var(--radius);
+        overflow: hidden;
+      }
+
+      #content .accordion-heading {
+        background-color: var(--surface-1);
+        transition: background-color 0.2s ease;
+      }
+
+      #content .accordion-heading > a.accordion-toggle {
+        cursor: pointer;
+        display: block;
+        padding: 0.75rem 1rem;
+        position: relative;
+        text-decoration: none;
+      }
+
+      /* Arrow indicator controlled via aria-expanded */
+      #content .accordion-heading > a.accordion-toggle::after {
+        border-bottom: 2px solid var(--color-muted);
+        border-right: 2px solid var(--color-muted);
+        content: '';
+        height: 10px;
+        position: absolute;
+        right: 1rem;
+        top: 50%;
+        transform: translateY(-50%) rotate(0deg);
+        transition: transform 0.25s ease;
+        width: 10px;
+      }
+
+      #content .accordion-heading > a.accordion-toggle[aria-expanded='true']::after {
+        transform: translateY(-50%) rotate(45deg);
+      }
+
+      #content .accordion-heading > a.accordion-toggle[aria-expanded='false']::after {
+        transform: translateY(-50%) rotate(-45deg);
+      }
+
+      /* Body: support both legacy .in and modern .show */
+      #content .accordion-body {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+      }
+
+      #content .accordion-body.in,
+      #content .accordion-body.show {
+        max-height: 1000px;
+      }
+
+      #content .accordion-inner {
+        border-top: 1px solid var(--divider-color);
+        padding: 1rem;
+      }
+
+      /* Answer highlight (green) */
+      .panel-body {
+        background-color: var(--answer-bgcolor);
+        border: 0.0625rem solid var(--answer-border);
+        margin-bottom: -1px;
+        padding: 7px;
+      }
+
+      div.accordion-inner > p {
+        color: var(--answer-txtcolor);
+        font-weight: n;
+      }
+
+      /* Hide duplicated legacy heading inside accordion body */
+      #content .nn_sliders-title {
+        display: none !important;
+      }
+
+      /* Harmonize with legacy .nn_sliders collapse rules to avoid dupe transitions */
+      #content .nn_sliders .collapse {
+        height: 0;
+        overflow: hidden;
+      }
+
+      #content .nn_sliders .collapse.in,
+      #content .nn_sliders .collapse.show {
+        height: auto;
+      }
+
+      div .accordion-inner > p {
+        margin: 0;
+      }
+
+      #exercise-status {
+        background-color: transparent;
+        border-radius: 0 0 var(--radius, 6px) var(--radius, 6px);
+        border-top: 0 solid transparent;
+        border-top-color: transparent;
+        font-weight: 600;
+        line-height: 1.5;
+        margin-top: 2em;
+        padding: 1rem 1.25rem;
+        text-align: center;
+        white-space: pre-line;
+      }
+
+      .status-ok {
+        color: var(--success-color);
+        background: var(--secondary-color);
+        border-top-color: var(--success-border);
+      }
+
+      #exercise-status.status-ok::before {
+        content: "";
+        display: inline-block;
+        width: 1.05em;
+        height: 1.05em;
+        margin-right: 0.4em;
+        vertical-align: -0.15em;
+        background-color: currentcolor;
+        mask: center / contain no-repeat url("../web-asset/icons/svg/checkmark.svg");
+      }
+
+      #exercise-status.status-ok {
+        color: #0f6d2a;
+      }
+
+      .status-warn {
+        color: var(--warning-color);
+        background: var(--warning-bg);
+        border-top-color: var(--warning-border);
+      }
+
+      .status-err {
+        color: var(--danger-color);
+        background: var(--danger-bg);
+        border-top-color: var(--danger-border);
+      }
+    </style>
     <!-- No-JS fallback: show all answers if scripting is disabled -->
     <noscript>
       <style>
@@ -1059,14 +1232,11 @@
     </noscript>
     <!-- Mobile navigation styles provided globally by base CSS -->
     <!-- No inline @font-face; system stacks are used (see base.css variables) -->
-    <!-- Bundled JavaScript: Modern module + legacy fallback (4 requests → 1) -->
+    <!-- Bundled JavaScript: Modern module bundle (4 requests → 1) -->
     <script
       type="module"
       src="../web-asset/js/main.bundle.js"></script>
-    <script
-      nomodule
-      src="../web-asset/js/main.legacy.js"
-      defer></script>
+
     <script
       src="../web-asset/js/right-rail-flyout.js"
       defer></script>

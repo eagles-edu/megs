@@ -21,7 +21,6 @@ const ignores = [
   "templates/",
   "scripts/",
   // generated/vendor JS we should not lint
-  "web-asset/js/*.bundle.js",
   "web-asset/js/*legacy*.js",
   "web-asset/js/*.min.js",
   "web-asset/js/vendor/**",

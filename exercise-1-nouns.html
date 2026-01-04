@@ -997,14 +997,11 @@
     </noscript>
     <!-- Mobile navigation styles provided globally by base CSS -->
     <!-- No inline @font-face; system stacks are used (see base.css variables) -->
-    <!-- Bundled JavaScript: Modern module + legacy fallback (4 requests → 1) -->
+    <!-- Bundled JavaScript: Modern module bundle (4 requests → 1) -->
     <script
       type="module"
       src="../web-asset/js/main.bundle.js"></script>
-    <script
-      nomodule
-      src="../web-asset/js/main.legacy.js"
-      defer></script>
+
     <script
       src="../web-asset/js/right-rail-flyout.js"
       defer></script>
@@ -1514,30 +1511,139 @@
             <!-- End Content -->
           </main>
           <script>
-            jQuery(document).ready(function ($) {
-              var acMenu = $("#flyout_menu_93")
-              acMenu.find("a").click(function () {
-                if ($(this).attr("target") == "_blank") {
-                  window.open($(this).attr("href"))
+            // Right-rail flyout fallback: vanilla behavior if external script is unavailable.
+            ;(function () {
+              function ready(fn) {
+                if (document.readyState === "loading") {
+                  document.addEventListener("DOMContentLoaded", fn)
                 } else {
-                  location = $(this).attr("href")
+                  fn()
                 }
-                return false
-              })
+              }
 
-              acMenu
-                .find("li")
-                .mouseleave(function () {
-                  $(this).removeClass("opened")
-                  $(this).children(".item-wrapper").children(".menu-button").children("img").attr("src", "web-asset/icons/svg/plus3.svg")
-                  $(this).children(".ul-wrapper").hide(300)
+              function forEach(collection, iteratee) {
+                if (!collection) return
+                Array.prototype.forEach.call(collection, iteratee)
+              }
+
+              function closeSiblings(menu, currentItem) {
+                var openItems = menu.querySelectorAll("[data-r-flyout-item].is-open")
+                forEach(openItems, function (item) {
+                  if (item === currentItem) return
+                  var toggle = item.querySelector(".r-flyout__toggle")
+                  var panel = item.querySelector(".r-flyout__panel")
+                  if (!toggle || !panel) return
+                  delete item.dataset.rflyoutSticky
+                  if (!panel.hasAttribute("hidden")) panel.setAttribute("hidden", "")
+                  panel.setAttribute("aria-hidden", "true")
+                  item.classList.remove("is-open")
+                  toggle.setAttribute("aria-expanded", "false")
                 })
-                .mouseenter(function () {
-                  $(this).children(".item-wrapper").children(".menu-button").children("img").attr("src", "web-asset/icons/svg/minus5.svg")
-                  $(this).addClass("opened")
-                  $(this).children(".ul-wrapper").show(300)
+              }
+
+              function bindMenu(menu) {
+                if (!menu || menu.__rFlyoutBound) return
+                menu.__rFlyoutBound = true
+
+                var items = menu.querySelectorAll("[data-r-flyout-item]")
+                forEach(items, function (item, index) {
+                  var toggle = item.querySelector(".r-flyout__toggle")
+                  var panel = item.querySelector(".r-flyout__panel")
+                  if (!toggle || !panel) return
+
+                  var panelId = panel.id
+                  if (!panelId) {
+                    panelId = (menu.id || "r-flyout-menu") + "-panel-" + index
+                    panel.id = panelId
+                  }
+                  toggle.setAttribute("aria-controls", panelId)
+                  toggle.setAttribute("aria-haspopup", "true")
+
+                  function setSticky(enabled) {
+                    if (enabled) item.dataset.rflyoutSticky = "true"
+                    else delete item.dataset.rflyoutSticky
+                  }
+
+                  function isSticky() {
+                    return item.dataset.rflyoutSticky === "true"
+                  }
+
+                  function open(sticky) {
+                    if (!isSticky()) closeSiblings(menu, item)
+                    if (sticky) setSticky(true)
+                    if (panel.hasAttribute("hidden")) panel.removeAttribute("hidden")
+                    panel.setAttribute("aria-hidden", "false")
+                    item.classList.add("is-open")
+                    toggle.setAttribute("aria-expanded", "true")
+                  }
+
+                  function close(force) {
+                    if (!force && isSticky()) return
+                    if (!panel.hasAttribute("hidden")) panel.setAttribute("hidden", "")
+                    panel.setAttribute("aria-hidden", "true")
+                    item.classList.remove("is-open")
+                    toggle.setAttribute("aria-expanded", "false")
+                    if (force) setSticky(false)
+                  }
+
+                  var shouldStartOpen =
+                    panel.getAttribute("aria-hidden") === "false" ||
+                    !panel.hasAttribute("hidden") ||
+                    item.dataset.rflyoutStart === "open" ||
+                    item.dataset.rflyoutStart === "true"
+
+                  if (shouldStartOpen) {
+                    open(true)
+                  } else {
+                    close(true)
+                  }
+
+                  toggle.addEventListener("click", function (event) {
+                    event.preventDefault()
+                    var isOpen = item.classList.contains("is-open") && !panel.hasAttribute("hidden")
+                    if (isOpen && isSticky()) {
+                      close(true)
+                    } else {
+                      open(true)
+                    }
+                  })
+
+                  item.addEventListener("mouseenter", function () {
+                    if (window.matchMedia && !window.matchMedia("(hover: hover)").matches) return
+                    if (isSticky()) return
+                    open(false)
+                  })
+
+                  item.addEventListener("mouseleave", function () {
+                    if (!isSticky()) close(false)
+                  })
+
+                  item.addEventListener("focusin", function () {
+                    if (!isSticky()) closeSiblings(menu, item)
+                    open(false)
+                  })
+
+                  item.addEventListener("focusout", function (event) {
+                    if (item.contains(event.relatedTarget)) return
+                    if (!isSticky()) close(false)
+                  })
+
+                  panel.addEventListener("keydown", function (event) {
+                    var key = event.key || event.keyCode
+                    if (key === "Escape" || key === "Esc" || key === 27) {
+                      close(true)
+                      toggle.focus()
+                    }
+                  })
                 })
-            })
+              }
+
+              ready(function () {
+                var menu = document.getElementById("flyout_menu_93")
+                if (!menu || menu.__rFlyoutBound) return
+                bindMenu(menu)
+              })
+            })()
           </script>
           <div
             id="aside"

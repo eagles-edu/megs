@@ -17,6 +17,7 @@ const log = (...a) => {
 const root = process.cwd()
 const htmlPath = path.join(root, "exercise-1-nouns/111-common-nouns.html")
 const mainBundleJs = path.join(root, "web-asset/js/main.bundle.js")
+const navBundleJs = path.join(root, "web-asset/js/main.nav.bundle.js")
 const rightRailJs = path.join(root, "web-asset/js/right-rail-flyout.js")
 const exerciseGateJs = path.join(root, "web-asset/js/exercise-gate.js")
 
@@ -25,7 +26,7 @@ const exerciseGateJs = path.join(root, "web-asset/js/exercise-gate.js")
 // web-asset/js/qa-accordion.js
 // web-asset/js/left-menu.js
 
-;[htmlPath, mainBundleJs, rightRailJs, exerciseGateJs].forEach((p) => {
+;[htmlPath, mainBundleJs, navBundleJs, rightRailJs, exerciseGateJs].forEach((p) => {
   if (!fs.existsSync(p)) {
     console.error(`❌ Missing required file: ${path.relative(root, p)}`)
     process.exit(1)
@@ -251,6 +252,7 @@ const fallback = (label, apply) => {
 
     // Load site scripts
     dom.window.eval(load(mainBundleJs))
+    dom.window.eval(load(navBundleJs))
     dom.window.eval(load(rightRailJs))
     dom.window.eval(load(exerciseGateJs))
 
