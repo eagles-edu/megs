@@ -248,9 +248,14 @@
     this.bindEvents()
     this.handleResize()
     var self = this
-    this.mediaQuery.addListener(function () {
+    var onChange = function () {
       self.handleResize()
-    })
+    }
+    if (this.mediaQuery.addEventListener) {
+      this.mediaQuery.addEventListener("change", onChange)
+    } else if (this.mediaQuery.addListener) {
+      this.mediaQuery.addListener(onChange)
+    }
     if (!this.mediaQuery.matches) this.mountMenuIfNeeded()
   }
 

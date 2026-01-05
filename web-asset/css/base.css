@@ -7,13 +7,9 @@
 :root {
   /* System font stacks (sans Arial) */
   --font-base:
-    system-ui, -apple-system, blinkmacsystemfont, "Segoe UI Variable", "Segoe UI", roboto,
-    "Noto Sans", ubuntu, cantarell, "Liberation Sans", "DejaVu Sans", "Apple Color Emoji",
-    "Segoe UI Emoji", "Noto Color Emoji", sans-serif;
+    system-ui, -apple-system, blinkmacsystemfont, "Segoe UI Variable", "Segoe UI", roboto, "Noto Sans", ubuntu, cantarell, "Liberation Sans", "DejaVu Sans", "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", sans-serif;
   --font-header:
-    system-ui, -apple-system, blinkmacsystemfont, "Segoe UI Variable", "Segoe UI", roboto,
-    "Noto Sans", ubuntu, cantarell, "Liberation Sans", "DejaVu Sans", "Apple Color Emoji",
-    "Segoe UI Emoji", "Noto Color Emoji", sans-serif;
+    system-ui, -apple-system, blinkmacsystemfont, "Segoe UI Variable", "Segoe UI", roboto, "Noto Sans", ubuntu, cantarell, "Liberation Sans", "DejaVu Sans", "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", sans-serif;
 
   /* Brand core */
   --primary-color: #e0162b; /* locked */
@@ -776,12 +772,17 @@ h4.box-head4 {
 }
 
 .exinstruct {
+  background: linear-gradient(to bottom left, #a7a7a7 5%, ##F5F5F5 35%);
+  border: 1px solid var(--background-color, ##798ea4);
+  border-radius: var(--radius);
   display: inline-block;
-  padding: 0 7%;
+  margin-bottom: 1rem;
+  padding: 5%;
 }
 
 .blockdiv {
 display: inline-block;
+margin-bottom: 1rem;
 padding: 0 7%;
 }
 

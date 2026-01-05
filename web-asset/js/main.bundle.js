@@ -58,8 +58,9 @@ const afterLCP = (cb) => {
     return
   }
 
+  let observer
   try {
-    const observer = new PerformanceObserver((list) => {
+    observer = new PerformanceObserver((list) => {
       const entries = list.getEntries()
       if (entries && entries.length) {
         observer.disconnect()
@@ -75,10 +76,12 @@ const afterLCP = (cb) => {
 
   const runIfLCP = () => {
     if (done) return
-    if (!("performance" in window)) return
-    if (typeof performance.getEntriesByType !== "function") return
-    const entries = performance.getEntriesByType("largest-contentful-paint")
-    if (entries && entries.length) runOnce()
+    if (!observer || typeof observer.takeRecords !== "function") return
+    const entries = observer.takeRecords()
+    if (entries && entries.length) {
+      observer.disconnect()
+      runOnce()
+    }
   }
   window.addEventListener("load", runIfLCP, { once: true })
 }
