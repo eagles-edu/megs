@@ -7,9 +7,13 @@
 :root {
   /* System font stacks (sans Arial) */
   --font-base:
-    system-ui, -apple-system, blinkmacsystemfont, "Segoe UI Variable", "Segoe UI", roboto, "Noto Sans", ubuntu, cantarell, "Liberation Sans", "DejaVu Sans", "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", sans-serif;
+    system-ui, -apple-system, blinkmacsystemfont, "Segoe UI Variable", "Segoe UI", roboto,
+    "Noto Sans", ubuntu, cantarell, "Liberation Sans", "DejaVu Sans", "Apple Color Emoji",
+    "Segoe UI Emoji", "Noto Color Emoji", sans-serif;
   --font-header:
-    system-ui, -apple-system, blinkmacsystemfont, "Segoe UI Variable", "Segoe UI", roboto, "Noto Sans", ubuntu, cantarell, "Liberation Sans", "DejaVu Sans", "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", sans-serif;
+    system-ui, -apple-system, blinkmacsystemfont, "Segoe UI Variable", "Segoe UI", roboto,
+    "Noto Sans", ubuntu, cantarell, "Liberation Sans", "DejaVu Sans", "Apple Color Emoji",
+    "Segoe UI Emoji", "Noto Color Emoji", sans-serif;
 
   /* Brand core */
   --primary-color: #e0162b; /* locked */
@@ -22,7 +26,7 @@
   /* Layout surfaces */
   --background-color: #798ea4; /* page background behind light content */
   --footer-background: #3e4b5b;
-  --blkquot-background:#f0f2f5;
+  --blkquot-background: #f0f2f5;
   --body-bgcolor: var(--secondary-color); /* body background */
   --surface-color: #eee; /* menu/content surface */
   --surface-muted: #f0f0ee; /* light alt surface */
@@ -74,7 +78,6 @@
     1.25rem,
     calc(var(--left-menu-font-size) * 1.2),
     1.45rem
-
   ); /* keep icon height proportionate and enforce a floor */
 
   --left-menu-icon-slot: calc(
@@ -189,7 +192,6 @@ body {
   padding: 0 18px;
 }
 
-
 /* Footer */
 .footer {
   min-height: 80px;
@@ -211,7 +213,7 @@ body {
 }
 
 .mar10 {
-  margin: .625rem;
+  margin: 0.625rem;
 }
 
 .padme1 {
@@ -753,16 +755,16 @@ h4.box-head4 {
 
 .tm01 {
   display: block;
-  margin-top: 1rem!important;
+  margin-top: 1rem !important;
 }
 
 .tm02 {
   display: block;
-  margin-top: 2rem!important;
+  margin-top: 2rem !important;
 }
 
 .blkquot {
-/*  background-color: var(--blkquot-background);
+  /*  background-color: var(--blkquot-background);
   border: 1px solid var(--footer-background);
   border-radius: var(--radius); */
   color: var(--text-color);
@@ -772,49 +774,88 @@ h4.box-head4 {
 }
 
 .exinstruct {
-  background: linear-gradient(to bottom left, #a7a7a7 5%, ##F5F5F5 35%);
-  border: 1px solid var(--background-color, ##798ea4);
+  background: linear-gradient(to bottom left, #d3d3d3 5%, #f5f5f5 35%);
+  border: 1px solid var(--background-color, #798ea4);
   border-radius: var(--radius);
   display: inline-block;
   margin-bottom: 1rem;
   padding: 5%;
 }
 
+.lessinstruct {
+  background-color: transparent;
+  border: 1px solid var(--tertiary-color, #002786);
+  border-radius: var(--radius);
+  margin-bottom: 1rem;
+  padding: 1.3rem;
+}
+
 .blockdiv {
-display: inline-block;
-margin-bottom: 1rem;
-padding: 0 7%;
+  display: inline-block;
+  margin-bottom: 1rem;
+  padding: 0 7%;
+}
+
+
+.blockdivless {
+  margin-bottom: 1rem;
+  padding: 0 1rem;
 }
 
 .blockwrap {
-display: inline-block;
-font-weight: 600;
-line-height: 2.15em;
-margin: 0 auto;
-overflow-wrap: normal;
-text-align: center;
-white-space: pre-wrap;
-word-break: normal;
+  display: inline-block;
+  font-weight: 600;
+  line-height: 2.15em;
+  margin: 0 auto;
+  overflow-wrap: normal;
+  text-align: center;
+  white-space: pre-wrap;
+  word-break: normal;
+}
+
+.blockwrapless {
+  font-weight: 600;
+  line-height: 2em;
+  margin: 0 auto;
+  overflow-wrap: normal;
+  text-align: center;
+  white-space: pre-wrap;
+  word-break: normal;
 }
 
 .blockwrap-txt {
-display: inline-block;
-font-weight: 400;
-line-height: 1.45em;
-margin: 0 auto;
-overflow-wrap: normal;
-text-align: left;
-white-space: pre-wrap;
-word-break: normal;
+  display: inline-block;
+  font-weight: 400;
+  line-height: 1.45em;
+  margin: 0 auto;
+  overflow-wrap: normal;
+  text-align: left;
+  white-space: pre-wrap;
+  word-break: normal;
 }
 
 .undies {
-font-weight: 600;
-text-decoration: underline;
+  font-weight: 600;
+  text-decoration: underline;
 }
 
-
 .undies-lt {
-font-weight: 400;
-text-decoration: underline;
+  font-weight: 400;
+  text-decoration: underline;
+}
+
+/* stylelint-disable-next-line selector-not-notation */
+main#content ul:not(.breadcrumb):not(.pager):not(.pagenav) > li::before {
+  content: "\2605"; /* ★ */
+  color: #e0162b;
+  display: inline-block;
+  line-height:2rem ;
+  width: 1.2em;
+  margin-left: -1.2em;
+}
+
+/* optional utility class */
+main#content .star-solid::before {
+  content: "\2605";
+  color: #e0162b;
 }
