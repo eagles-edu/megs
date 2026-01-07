@@ -1,7 +1,7 @@
 <!-- prettier-ignore -->
 <!doctype html>
 <html lang="en">
-<!-- /exercise-3-adjectives/321-comparing-adjectives.html, Tue, 24 Nov 2020 12:32:24 GMT -->
+<!-- /exercise-3-adjectives/321-comparing-adjectives.html, updated:  January 2026 12:32:24 GMT -->
 
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -333,7 +333,7 @@
 
           <div id="system-message-container"></div>
           <div class="item-page" itemscope itemtype="https://schema.org/Article">
-            <meta itemprop="inLanguage" content="en-GB">
+            
             <div class="page-header">
               <h2 itemprop="headline">3.2.1 Comparison of Adjectives</h2>
             </div>
@@ -2114,6 +2114,6 @@
   </footer>
 </body>
 
-<!-- /exercise-3-adjectives/321-comparing-adjectives.html, Tue, 24 Nov 2020 12:32:25 GMT -->
+<!-- /exercise-3-adjectives/321-comparing-adjectives.html, updated:  January 2026 12:32:25 GMT -->
 
 </html>

@@ -1,7 +1,7 @@
 <!-- prettier-ignore -->
 <!doctype html>
 <html lang="en">
-<!-- /exercise-4-adverbs/412-using-adverbs-part-2.html, Tue, 24 Nov 2020 12:32:31 GMT -->
+<!-- /exercise-4-adverbs/412-using-adverbs-part-2.html, updated:  January 2026 12:32:31 GMT -->
 
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -334,7 +334,7 @@
 
           <div id="system-message-container"></div>
           <div class="item-page" itemscope itemtype="https://schema.org/Article">
-            <meta itemprop="inLanguage" content="en-GB">
+            
             <div class="page-header">
               <h2 itemprop="headline">4.1.2 Using Adverbs (Part 2)</h2>
             </div>
@@ -2095,6 +2095,6 @@
   </footer>
 </body>
 
-<!-- /exercise-4-adverbs/412-using-adverbs-part-2.html, Tue, 24 Nov 2020 12:32:32 GMT -->
+<!-- /exercise-4-adverbs/412-using-adverbs-part-2.html, updated:  January 2026 12:32:32 GMT -->
 
 </html>

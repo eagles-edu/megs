@@ -80,7 +80,7 @@
 
 div.accordion-inner > p {
   color: var(--answer-txtcolor);
-  font-weight: n;
+  font-weight: 400;
 }
 
 /* Hide duplicated legacy heading inside accordion body */
