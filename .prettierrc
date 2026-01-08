@@ -19,7 +19,7 @@
         "bracketSameLine": true,
         "singleAttributePerLine": true,
         "printWidth": 140,
-        "htmlWhitespaceSensitivity": "ignore"
+        "htmlWhitespaceSensitivity": "strict"
       }
     }
   ]

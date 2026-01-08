@@ -61,7 +61,7 @@ const KEYWORD_PATTERNS = [
   /\bquestion\w*\b/i,
 ]
 const PAUSE_PROMPT =
-  "PAUSE, DISPLAY SUMMARY, PRESS ENTER TO EXECUTE, verify completion, & continue, OR Q TO EXIT AND FIX PARAMETERS."
+  "\n\nPAUSE, DISPLAY SUMMARY, PRESS ENTER TO EXECUTE, verify completion, & continue, OR Q TO EXIT AND FIX PARAMETERS."
 
 function fail(message) {
   console.error(message)
@@ -525,6 +525,7 @@ function splitParagraphIntoItems($, pEl, wordBank) {
 
 function buildWordBankNode($, listText) {
   const blockdiv = $('<div class="blockdiv"></div>')
+  blockdiv.append("<!-- prettier-ignore -->\n") // CHANGE: comment must be its own node right before the element
   const blockquote = $('<blockquote class="blockwrap"></blockquote>')
   blockquote.html(listText)
   blockdiv.append(blockquote)
