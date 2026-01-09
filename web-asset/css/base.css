@@ -777,33 +777,37 @@ h4.box-head4 {
   background: linear-gradient(to bottom left, #d4d4d4 5%, #f5f5f5 35%);
   border: 1px solid var(--background-color, #798ea4);
   border-radius: var(--radius);
-  display: inline-block;
+  display: block;
   margin-bottom: 1rem;
-  padding: 5%;
+  padding: 1rem;
+  width: 100%
 }
 
 .lessinstruct {
   background: linear-gradient(to bottom left, #dcf0ff 5%, #f5f5f5 35%);;
   border: 1px solid var(--tertiary-color, #002786);
   border-radius: var(--radius);
+  display: block;
   margin-bottom: 1rem;
-  padding: 1.3rem;
+  padding: 1rem;
+  width: 100%
 }
 
 .blockdiv {
-  display: inline-block;
+  display: block;
   margin-bottom: 1rem;
   padding: 0 7%;
 }
 
 
 .blockdivless {
+  display: block;
   margin-bottom: 1rem;
   padding: 0 1rem;
 }
 
 .blockwrap {
-  display: inline-block;
+  display: block;
   font-weight: 600;
   line-height: 2.15em;
   margin: 0 auto;

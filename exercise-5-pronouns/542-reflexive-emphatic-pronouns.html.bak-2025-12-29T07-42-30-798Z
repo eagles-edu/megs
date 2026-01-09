@@ -374,7 +374,8 @@
               <div class="exinstruct">
                   <p>Fill each blank with the correct reflexive pronoun.</p>
                   <div class="blockdiv">
-                    <blockquote class="blockwrap">myself &nbsp;yourself &nbsp;himself &nbsp;herself &nbsp;itself &nbsp;ourselves &nbsp;yourselves &nbsp;themselves &nbsp;oneself</blockquote>
+                <!-- prettier-ignore -->
+                    <blockquote class="blockwrap-txt">myself &nbsp;yourself &nbsp;himself &nbsp;herself &nbsp;itself &nbsp;ourselves &nbsp;yourselves &nbsp;themselves &nbsp;oneself</blockquote>
                   </div>
                   <p>Click the questions to check the answers.</p>
                 </div>
@@ -670,7 +671,8 @@
               <div class="exinstruct">
                   <p>Fill each blank with the correct emphatic pronoun.</p>
                   <div class="blockdiv">
-                    <blockquote class="blockwrap">myself &nbsp;yourself &nbsp;himself &nbsp;herself &nbsp;itself &nbsp;ourselves &nbsp;yourselves &nbsp;themselves &nbsp;oneself</blockquote>
+                <!-- prettier-ignore -->
+                    <blockquote class="blockwrap-txt">myself &nbsp;yourself &nbsp;himself &nbsp;herself &nbsp;itself &nbsp;ourselves &nbsp;yourselves &nbsp;themselves &nbsp;oneself</blockquote>
                   </div>
                   <p>Click the questions to check the answers.</p>
                 </div>
