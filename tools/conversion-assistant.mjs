@@ -335,7 +335,7 @@ function buildPrompt1(target, answerSource) {
     " pull answers from question p-tags, " +
     sourceText +
     ", then copying those words / phrases / sentences, sans question numbers (i.e., 1. , 2. , etc.), to `tools/input.txt` overwriting it, formatting only a linebreak between answers of the same answer group and a blank line between answer groups.\n\n" +
-    '"'
+    '"' + " Save my Tokens! [agents.md temp override] - Whenever you are writing edits to local repo files, do not create a unified diff, print the edits, or run other non-requested, token burning, machinations, etc.; rather, perform this command, verify completion, and end it."
   )
 }
 
@@ -345,7 +345,7 @@ function buildPrompt4(target, answersMode) {
     "inject `tools/hashes.txt` into the answer array JSON in " +
     target +
     " following user input for answersAccepted shaping: " +
-    modeText
+    modeText + " Save my Tokens! [agents.md temp override] - Whenever you are writing edits to local repo files, do not create a unified diff, print the edits, or run other non-requested, token burning, machinations, etc.; rather, perform this command, verify completion, and end it."
   )
 }
 

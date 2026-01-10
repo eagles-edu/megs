@@ -696,6 +696,10 @@ function injectTemplate(
     const introBlocks = Array.isArray(scraped.instructionBlocks)
       ? scraped.instructionBlocks.filter(Boolean)
       : []
+    articleBody
+      .find(".exinstruct")
+      .filter((_, el) => $(el).nextAll("form.exercise-form").length > 0)
+      .remove()
     // Clear any existing intro paragraphs directly before the form
     articleBody
       .find("p")

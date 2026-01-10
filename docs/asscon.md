@@ -22,7 +22,7 @@ If flags are not present, pause for user to enter input; enter conversion detail
    2. **title/ID**: default to filename slug sans .html
    3. **p-tag answers bolded or underlined**: to set `--answer-source` for the extraction prompt: `<undies|p|auto|sentence>` (default auto):
       1. **undies**: extract from between `<span class="undies">`, `<b>`, and `<strong>` tags in question blocks
-      2. **p**: derive from AI reading p-tag directions, answering  each question (per p-tag directions), and writing these to file
+      2. **p**: derive from AI reading p-tag directions, answering each question (per p-tag directions), and writing these to file
       3. **auto**: (default) extract from between `<span class="undies">`, `<b>`, and `<strong>` tags in question blocks; if none, derive from AI reading p-tag directions, answering each question (per p-tag directions), and writing these to file
       4. **sentence**: extract everything verbatim between form-based question block (p-tag) answers, sans HTML, and copy to file; warn that linting/IDE wrapping and source text can introduce spacing, punctuation, grammar, or usage artifacts in plain-text copies, and offer optional normalization to USA spelling/grammar/vernacular/usage only (including punctuation fixes) with explicit approval
    4. **multiple provided answers**: to set `--answers-mode`:

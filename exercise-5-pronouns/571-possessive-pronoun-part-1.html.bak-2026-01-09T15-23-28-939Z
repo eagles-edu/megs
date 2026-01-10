@@ -1,7 +1,7 @@
 <!-- prettier-ignore -->
 <!doctype html>
 <html lang="en">
-<!-- /exercise-5-pronouns/572-possessive-pronoun-part-2.html, updated:  January 2026 12:32:54 GMT -->
+<!-- /exercise-5-pronouns/571-possessive-pronoun-part-1.html, updated:  January 2026 12:32:52 GMT -->
 
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,8 +11,8 @@
     content="ESL, TOESL, TOEFL, courses, english, english courses, education, english degree, degree, english education, exercises, english exercises, grammar, verb, english grammar, noun, adverb, adjective, english adverb, english noun, english adjective">
   <meta name="description" content="A comprehensive site for free English courses and exercises.">
   <meta name="generator" content="English Grammar - intermediate levels A2 and above">
-  <title>5.7.2 Possessive Pronoun (Part 2)</title>
-  <link href="572-possessive-pronoun-part-2.html" rel="non-canonical">
+  <title>5.7.1 Possessive Pronoun (Part 1)</title>
+  <link href="571-possessive-pronoun-part-1.html" rel="non-canonical">
   <link href="../web-asset/icons/favicon.ico" rel="shortcut icon" type="image/vnd.microsoft.icon">
   <link href="../web-asset/css/style.min.css" rel="stylesheet">
   <link href="../web-asset/css/template592f.css" rel="stylesheet">
@@ -120,7 +120,7 @@
   <link href="../web-asset/css/meg-2.css" rel="stylesheet">
 </head>
 
-<body class="site com_content view-article no-layout no-task itemid-3298">
+<body class="site com_content view-article no-layout no-task itemid-3297">
   <!-- Body -->
   <div class="body" id="top">
     <div class="container">
@@ -336,12 +336,12 @@
           <div class="item-page" itemscope itemtype="https://schema.org/Article">
 
             <div class="page-header">
-              <h2 itemprop="headline">5.7.2 Possessive Pronoun (Part 2)</h2>
+              <h2 itemprop="headline">5.7.1 Possessive Pronoun (Part 1)</h2>
             </div>
             <div itemprop="articleBody">
               <ul class="pager pagenav">
                 <li class="previous">
-                  <a href="571-possessive-pronoun-part-1.html" rel="prev" aria-label="Previous">
+                  <a href="566-relative-pronoun-who-which-whom-whose-iv.html" rel="prev" aria-label="Previous">
                     <svg
                         version="1.1"
                         xmlns="http://www.w3.org/2000/svg"
@@ -352,12 +352,12 @@
                           d="M16.795 14.571c0 0.214-0.107 0.455-0.268 0.616l-10.527 10.527 10.527 10.527c0.161 0.161 0.268 0.402 0.268 0.616s-0.107 0.455-0.268 0.616l-1.339 1.339c-0.161 0.161-0.402 0.268-0.616 0.268s-0.455-0.107-0.616-0.268l-12.482-12.482c-0.161-0.161-0.268-0.402-0.268-0.616s0.107-0.455 0.268-0.616l12.482-12.482c0.161-0.161 0.402-0.268 0.616-0.268s0.455 0.107 0.616 0.268l1.339 1.339c0.161 0.161 0.268 0.375 0.268 0.616z">
                         </path>
                       </svg>
-                    5.7.1 Possessive Pronoun (Part 1)
+                    5.6.6 Relative Pronoun (who, which, whom,&nbsp; whose) IV
                   </a>
                 </li>
                 <li class="next">
-                  <a href="573-possessive-pronoun-part-3.html" rel="next" aria-label="Next">
-                    5.7.3 Possessive Pronoun (Part 3)
+                  <a href="572-possessive-pronoun-part-2.html" rel="prev" aria-label="Previous">
+                    5.7.2 Possessive Pronoun (Part 2)
                     <svg
                         version="1.1"
                         xmlns="http://www.w3.org/2000/svg"
@@ -371,31 +371,32 @@
                   </a>
                 </li>
               </ul>
-              <p>Fill each blank with the correct possessive pronoun.</p>
+              <p>Rewrite each of these sentences by using a possessive pronoun in place of a possessive adjective, i.e.:</p>
+
+                <blockquote>my &nbsp;your &nbsp;his &nbsp;her &nbsp;its &nbsp;their</blockquote>
+
               <p>Check out your answers by clicking the sentences.</p>
               <div class="nn_sliders accordion panel-group" id="set-nn_sliders-1">
                 <a id="nn_sliders-scrollto_1" class="anchor nn_sliders-scroll"></a>
                 <div class="accordion-group panel nn_sliders-group">
-                  <a id="nn_sliders-scrollto_example-look-at-those-women-they-are-wives-of-the-tribal-leader-they-are-_____"
+                  <a id="nn_sliders-scrollto_example-this-is-his-watch-and-this-is-her-ring"
                     class="anchor nn_sliders-scroll"></a>
                   <div class="accordion-heading panel-heading">
-                    <a href="572-possessive-pronoun-part-2.html#example-look-at-those-women-they-are-wives-of-the-tribal-leader-they-are-_____"
+                    <a href="571-possessive-pronoun-part-1.html#example-this-is-his-watch-and-this-is-her-ring"
                       aria-label="Answer" class="accordion-toggle nn_sliders-toggle" data-toggle="collapse"
-                      data-id="example-look-at-those-women-they-are-wives-of-the-tribal-leader-they-are-_____"
-                      data-parent="#set-nn_sliders-1">
-                      <span class="nn_sliders-toggle-inner">
-                        Example: Look at those women. They are wives of the tribal leader. They are _____.
-                      </span>
+                      data-id="example-this-is-his-watch-and-this-is-her-ring" data-parent="#set-nn_sliders-1">
+                      <span class="nn_sliders-toggle-inner">Example: This is his watch and this is her ring.</span>
                     </a>
                   </div>
                   <div class="accordion-body nn_sliders-body collapse"
-                    id="example-look-at-those-women-they-are-wives-of-the-tribal-leader-they-are-_____">
+                    id="example-this-is-his-watch-and-this-is-her-ring">
                     <div class="accordion-inner panel-body">
-                      <h2 class="nn_sliders-title">Example: Look at those women. They are wives of the tribal leader.
-                        They are _____.</h2>
+                      <h2 class="nn_sliders-title">Example: This is his watch and this is her ring.</h2>
                       <p>
-                        They are
+                        This is
                         <span class="undies">his</span>
+                        and this is
+                        <span class="undies">hers</span>
                         .
                       </p>
                     </div>
@@ -405,26 +406,30 @@
               <div class="nn_sliders accordion panel-group" id="set-nn_sliders-2">
                 <a id="nn_sliders-scrollto_2" class="anchor nn_sliders-scroll"></a>
                 <div class="accordion-group panel nn_sliders-group">
-                  <a id="nn_sliders-scrollto_1-whose-muddy-footprints-are-these-they-are-peter-s-footprints-they-are-_____"
+                  <a id="nn_sliders-scrollto_1-this-is-my-pooch-that-one-is-your-pooch-and-the-other-one-must-be-her-pooch"
                     class="anchor nn_sliders-scroll"></a>
                   <div class="accordion-heading panel-heading">
-                    <a href="572-possessive-pronoun-part-2.html#1-whose-muddy-footprints-are-these-they-are-peter-s-footprints-they-are-_____"
+                    <a href="571-possessive-pronoun-part-1.html#1-this-is-my-pooch-that-one-is-your-pooch-and-the-other-one-must-be-her-pooch"
                       aria-label="Answer" class="accordion-toggle nn_sliders-toggle" data-toggle="collapse"
-                      data-id="q1-whose-muddy-footprints-are-these-they-are-peter-s-footprints-they-are-_____"
+                      data-id="q1-this-is-my-pooch-that-one-is-your-pooch-and-the-other-one-must-be-her-pooch"
                       data-parent="#set-nn_sliders-2">
                       <span class="nn_sliders-toggle-inner">
-                        1. Whose muddy footprints are these? They are Peter's footprints. They are _____ .
+                        1. This is my pooch. That one is your pooch, and the other one must be her pooch.
                       </span>
                     </a>
                   </div>
                   <div class="accordion-body nn_sliders-body collapse"
-                    id="q1-whose-muddy-footprints-are-these-they-are-peter-s-footprints-they-are-_____">
+                    id="q1-this-is-my-pooch-that-one-is-your-pooch-and-the-other-one-must-be-her-pooch">
                     <div class="accordion-inner panel-body">
-                      <h2 class="nn_sliders-title">1. Whose muddy footprints are these? They are Peter's footprints.
-                        They are _____ .</h2>
+                      <h2 class="nn_sliders-title">1. This is my pooch. That one is your pooch, and the other one must
+                        be her pooch.</h2>
                       <p>
-                        1. They are
-                        <span class="undies">his</span>
+                        1. This is
+                        <span class="undies">mine</span>
+                        . That one is
+                        <span class="undies">yours</span>
+                        , and the other one must be
+                        <span class="undies">hers</span>
                         .
                       </p>
                     </div>
@@ -434,26 +439,33 @@
               <div class="nn_sliders accordion panel-group" id="set-nn_sliders-3">
                 <a id="nn_sliders-scrollto_3" class="anchor nn_sliders-scroll"></a>
                 <div class="accordion-group panel nn_sliders-group">
-                  <a id="nn_sliders-scrollto_2-listen-someone-s-crying-softly-it-s-granny-s-voice-it-is-_____"
+                  <a id="nn_sliders-scrollto_2-these-old-worn-out-shoes-cannot-be-our-shoes-they-must-be-their-shoes-where-then-are-our-shoes"
                     class="anchor nn_sliders-scroll"></a>
                   <div class="accordion-heading panel-heading">
-                    <a href="572-possessive-pronoun-part-2.html#2-listen-someone-s-crying-softly-it-s-granny-s-voice-it-is-_____"
+                    <a href="571-possessive-pronoun-part-1.html#2-these-old-worn-out-shoes-cannot-be-our-shoes-they-must-be-their-shoes-where-then-are-our-shoes"
                       aria-label="Answer" class="accordion-toggle nn_sliders-toggle" data-toggle="collapse"
-                      data-id="q2-listen-someone-s-crying-softly-it-s-granny-s-voice-it-is-_____"
+                      data-id="q2-these-old-worn-out-shoes-cannot-be-our-shoes-they-must-be-their-shoes-where-then-are-our-shoes"
                       data-parent="#set-nn_sliders-3">
-                      <span class="nn_sliders-toggle-inner">2. Listen! Someone's crying softly. It's granny's voice. It
-                        is _____.</span>
+                      <span class="nn_sliders-toggle-inner">
+                        2. These old worn out shoes cannot be our shoes. They must be their shoes. Where then are our
+                        shoes?
+                      </span>
                     </a>
                   </div>
                   <div class="accordion-body nn_sliders-body collapse"
-                    id="q2-listen-someone-s-crying-softly-it-s-granny-s-voice-it-is-_____">
+                    id="q2-these-old-worn-out-shoes-cannot-be-our-shoes-they-must-be-their-shoes-where-then-are-our-shoes">
                     <div class="accordion-inner panel-body">
-                      <h2 class="nn_sliders-title">2. Listen! Someone's crying softly. It's granny's voice. It is _____.
+                      <h2 class="nn_sliders-title">
+                        2. These old worn out shoes cannot be our shoes. They must be their shoes. Where then are our shoes?
                       </h2>
                       <p>
-                        2. It is
-                        <span class="undies">hers</span>
-                        .
+                        2. These old worn out shoes cannot be
+                        <span class="undies">ours</span>
+                        . They must be
+                        <span class="undies">theirs</span>
+                        . Where then are
+                        <span class="undies">ours</span>
+                        ?
                       </p>
                     </div>
                   </div>
@@ -462,29 +474,34 @@
               <div class="nn_sliders accordion panel-group" id="set-nn_sliders-4">
                 <a id="nn_sliders-scrollto_4" class="anchor nn_sliders-scroll"></a>
                 <div class="accordion-group panel nn_sliders-group">
-                  <a id="nn_sliders-scrollto_3-these-are-your-wacky-ideas-not-my-wacky-ideas-these-are-_____-not-_____"
+                  <a id="nn_sliders-scrollto_3-these-marbles-are-mixed-up-which-are-his-marbles-which-are-your-marbles-and-which-are-my-marbles"
                     class="anchor nn_sliders-scroll"></a>
                   <div class="accordion-heading panel-heading">
-                    <a href="572-possessive-pronoun-part-2.html#3-these-are-your-wacky-ideas-not-my-wacky-ideas-these-are-_____-not-_____"
+                    <a href="571-possessive-pronoun-part-1.html#3-these-marbles-are-mixed-up-which-are-his-marbles-which-are-your-marbles-and-which-are-my-marbles"
                       aria-label="Answer" class="accordion-toggle nn_sliders-toggle" data-toggle="collapse"
-                      data-id="q3-these-are-your-wacky-ideas-not-my-wacky-ideas-these-are-_____-not-_____"
+                      data-id="q3-these-marbles-are-mixed-up-which-are-his-marbles-which-are-your-marbles-and-which-are-my-marbles"
                       data-parent="#set-nn_sliders-4">
                       <span class="nn_sliders-toggle-inner">
-                        3. These are your wacky ideas, not my wacky ideas. These are _____ not _____.
+                        3. These marbles are mixed up. Which are his marbles, which are your marbles and which are my
+                        marbles?.
                       </span>
                     </a>
                   </div>
                   <div class="accordion-body nn_sliders-body collapse"
-                    id="q3-these-are-your-wacky-ideas-not-my-wacky-ideas-these-are-_____-not-_____">
+                    id="q3-these-marbles-are-mixed-up-which-are-his-marbles-which-are-your-marbles-and-which-are-my-marbles">
                     <div class="accordion-inner panel-body">
-                      <h2 class="nn_sliders-title">3. These are your wacky ideas, not my wacky ideas. These are _____
-                        not _____.</h2>
+                      <h2 class="nn_sliders-title">
+                        3. These marbles are mixed up. Which are his marbles, which are your marbles and which are my
+                        marbles?.
+                      </h2>
                       <p>
-                        3. These are
+                        3. These marbles are mixed up. Which are
+                        <span class="undies">his</span>
+                        , which are
                         <span class="undies">yours</span>
-                        , not
+                        and which are
                         <span class="undies">mine</span>
-                        .
+                        ?
                       </p>
                     </div>
                   </div>
@@ -493,30 +510,32 @@
               <div class="nn_sliders accordion panel-group" id="set-nn_sliders-5">
                 <a id="nn_sliders-scrollto_5" class="anchor nn_sliders-scroll"></a>
                 <div class="accordion-group panel nn_sliders-group">
-                  <a id="nn_sliders-scrollto_4-where-are-our-children-those-are-their-children-where-are-_____-those-are-_____"
+                  <a id="nn_sliders-scrollto_4-their-coach-is-telling-them-what-they-should-not-do-and-our-coach-is-telling-us-what-we-should-do"
                     class="anchor nn_sliders-scroll"></a>
                   <div class="accordion-heading panel-heading">
-                    <a href="572-possessive-pronoun-part-2.html#4-where-are-our-children-those-are-their-children-where-are-_____-those-are-_____"
+                    <a href="571-possessive-pronoun-part-1.html#4-their-coach-is-telling-them-what-they-should-not-do-and-our-coach-is-telling-us-what-we-should-do"
                       aria-label="Answer" class="accordion-toggle nn_sliders-toggle" data-toggle="collapse"
-                      data-id="q4-where-are-our-children-those-are-their-children-where-are-_____-those-are-_____"
+                      data-id="q4-their-coach-is-telling-them-what-they-should-not-do-and-our-coach-is-telling-us-what-we-should-do"
                       data-parent="#set-nn_sliders-5">
                       <span class="nn_sliders-toggle-inner">
-                        4. Where are our children? Those are their children. Where are _____. Those are _____.
+                        4. Their coach is telling them what they should not do, and our coach is telling us what we
+                        should do.
                       </span>
                     </a>
                   </div>
                   <div class="accordion-body nn_sliders-body collapse"
-                    id="q4-where-are-our-children-those-are-their-children-where-are-_____-those-are-_____">
+                    id="q4-their-coach-is-telling-them-what-they-should-not-do-and-our-coach-is-telling-us-what-we-should-do">
                     <div class="accordion-inner panel-body">
                       <h2 class="nn_sliders-title">
-                        4. Where are our children? Those are their children. Where are _____. Those are _____.
+                        4. Their coach is telling them what they should not do, and our coach is telling us what we
+                        should do.
                       </h2>
                       <p>
-                        4. Where are
+                        4.
+                        <span class="undies">Theirs</span>
+                        is telling them what they should not do, and
                         <span class="undies">ours</span>
-                        ? Those are
-                        <span class="undies">theirs</span>
-                        .
+                        is telling us what we should do.
                       </p>
                     </div>
                   </div>
@@ -525,34 +544,25 @@
               <div class="nn_sliders accordion panel-group" id="set-nn_sliders-6">
                 <a id="nn_sliders-scrollto_6" class="anchor nn_sliders-scroll"></a>
                 <div class="accordion-group panel nn_sliders-group">
-                  <a id="nn_sliders-scrollto_5-look-at-that-kite-it-looks-like-your-kite-yeah-it-looks-like-my-kite-look-at-that-kite-it-looks-like-_____-yeah-it-looks-like-_____"
+                  <a id="nn_sliders-scrollto_5-i-think-that-is-bob-s-watch-and-this-one-is-her-watch"
                     class="anchor nn_sliders-scroll"></a>
                   <div class="accordion-heading panel-heading">
-                    <a href="572-possessive-pronoun-part-2.html#5-look-at-that-kite-it-looks-like-your-kite-yeah-it-looks-like-my-kite-look-at-that-kite-it-looks-like-_____-yeah-it-looks-like-_____"
+                    <a href="571-possessive-pronoun-part-1.html#5-i-think-that-is-bob-s-watch-and-this-one-is-her-watch"
                       aria-label="Answer" class="accordion-toggle nn_sliders-toggle" data-toggle="collapse"
-                      data-id="q5-look-at-that-kite-it-looks-like-your-kite-yeah-it-looks-like-my-kite-look-at-that-kite-it-looks-like-_____-yeah-it-looks-like-_____"
+                      data-id="q5-i-think-that-is-bob-s-watch-and-this-one-is-her-watch"
                       data-parent="#set-nn_sliders-6">
-                      <span class="nn_sliders-toggle-inner">
-                        5. "Look at that kite. It looks like your kite." "Yeah, it looks like my kite." "Look at that
-                        kite. It looks like
-                        _____." "Yeah, it looks like _____."
-                      </span>
+                      <span class="nn_sliders-toggle-inner">5. I think that is Bob's watch and this one is her
+                        watch.</span>
                     </a>
                   </div>
                   <div class="accordion-body nn_sliders-body collapse"
-                    id="q5-look-at-that-kite-it-looks-like-your-kite-yeah-it-looks-like-my-kite-look-at-that-kite-it-looks-like-_____-yeah-it-looks-like-_____">
+                    id="q5-i-think-that-is-bob-s-watch-and-this-one-is-her-watch">
                     <div class="accordion-inner panel-body">
-                      <h2 class="nn_sliders-title">
-                        5. "Look at that kite. It looks like your kite." "Yeah, it looks like my kite." "Look at that
-                        kite. It looks like
-                        _____." "Yeah, it looks like _____."
-                      </h2>
+                      <h2 class="nn_sliders-title">5. I think that is Bob's watch and this one is her watch.</h2>
                       <p>
-                        5. "Look at that kite. It looks like
-                        <span class="undies">yours</span>
-                        ." "Yeah, it looks like
-                        <span class="undies">mine</span>
-                        ."
+                        5. I think that is Bob's watch and this one is
+                        <span class="undies">hers</span>
+                        .
                       </p>
                     </div>
                   </div>
@@ -561,32 +571,27 @@
               <div class="nn_sliders accordion panel-group" id="set-nn_sliders-7">
                 <a id="nn_sliders-scrollto_7" class="anchor nn_sliders-scroll"></a>
                 <div class="accordion-group panel nn_sliders-group">
-                  <a id="nn_sliders-scrollto_6-i-can-t-forget-my-horrible-dream-i-had-my-horrible-dream-too-i-can-t-forget-_____-i-had-______-too"
+                  <a id="nn_sliders-scrollto_6-look-at-that-big-monkey-its-tail-is-the-longest-among-the-many-there"
                     class="anchor nn_sliders-scroll"></a>
                   <div class="accordion-heading panel-heading">
-                    <a href="572-possessive-pronoun-part-2.html#6-i-can-t-forget-my-horrible-dream-i-had-my-horrible-dream-too-i-can-t-forget-_____-i-had-______-too"
+                    <a href="571-possessive-pronoun-part-1.html#6-look-at-that-big-monkey-its-tail-is-the-longest-among-the-many-there"
                       aria-label="Answer" class="accordion-toggle nn_sliders-toggle" data-toggle="collapse"
-                      data-id="q6-i-can-t-forget-my-horrible-dream-i-had-my-horrible-dream-too-i-can-t-forget-_____-i-had-______-too"
+                      data-id="q6-look-at-that-big-monkey-its-tail-is-the-longest-among-the-many-there"
                       data-parent="#set-nn_sliders-7">
                       <span class="nn_sliders-toggle-inner">
-                        6. "I can't forget my horrible dream." "I had my horrible dream too." "I can't forget _____." "I
-                        had ______ too."
+                        6. Look at that big monkey. Its tail is the longest among the many there.
                       </span>
                     </a>
                   </div>
                   <div class="accordion-body nn_sliders-body collapse"
-                    id="q6-i-can-t-forget-my-horrible-dream-i-had-my-horrible-dream-too-i-can-t-forget-_____-i-had-______-too">
+                    id="q6-look-at-that-big-monkey-its-tail-is-the-longest-among-the-many-there">
                     <div class="accordion-inner panel-body">
-                      <h2 class="nn_sliders-title">
-                        6. "I can't forget my horrible dream." "I had my horrible dream too." "I can't forget _____." "I
-                        had ______ too."
-                      </h2>
+                      <h2 class="nn_sliders-title">6. Look at that big monkey. Its tail is the longest among the many
+                        there.</h2>
                       <p>
-                        6. "I can't forget
-                        <span class="undies">mine</span>
-                        ." "I had
-                        <span class="undies">mine</span>
-                        too.
+                        6. Look at that big monkey.
+                        <span class="undies">Its</span>
+                        is the longest among the many there.
                       </p>
                     </div>
                   </div>
@@ -595,34 +600,34 @@
               <div class="nn_sliders accordion panel-group" id="set-nn_sliders-8">
                 <a id="nn_sliders-scrollto_8" class="anchor nn_sliders-scroll"></a>
                 <div class="accordion-group panel nn_sliders-group">
-                  <a id="nn_sliders-scrollto_7-their-players-are-older-than-the-referee-but-their-players-are-a-gifted-lot-_____-are-older-than-the-referee-but-_____-are-a-gifted-lot"
+                  <a id="nn_sliders-scrollto_7-he-said-your-shaved-head-is-darker-than-my-shaved-head-we-both-nodded-our-shaved-heads-in-agreement"
                     class="anchor nn_sliders-scroll"></a>
                   <div class="accordion-heading panel-heading">
-                    <a href="572-possessive-pronoun-part-2.html#7-their-players-are-older-than-the-referee-but-their-players-are-a-gifted-lot-_____-are-older-than-the-referee-but-_____-are-a-gifted-lot"
+                    <a href="571-possessive-pronoun-part-1.html#7-he-said-your-shaved-head-is-darker-than-my-shaved-head-we-both-nodded-our-shaved-heads-in-agreement"
                       aria-label="Answer" class="accordion-toggle nn_sliders-toggle" data-toggle="collapse"
-                      data-id="q7-their-players-are-older-than-the-referee-but-their-players-are-a-gifted-lot-_____-are-older-than-the-referee-but-_____-are-a-gifted-lot"
+                      data-id="q7-he-said-your-shaved-head-is-darker-than-my-shaved-head-we-both-nodded-our-shaved-heads-in-agreement"
                       data-parent="#set-nn_sliders-8">
                       <span class="nn_sliders-toggle-inner">
-                        7. Their players are older than the referee. But their players are a gifted lot. _____ are older
-                        than the referee.
-                        But _____ are a gifted lot.
+                        7. He said your shaved head is darker than my shaved head. We both nodded our shaved heads in
+                        agreement.
                       </span>
                     </a>
                   </div>
                   <div class="accordion-body nn_sliders-body collapse"
-                    id="q7-their-players-are-older-than-the-referee-but-their-players-are-a-gifted-lot-_____-are-older-than-the-referee-but-_____-are-a-gifted-lot">
+                    id="q7-he-said-your-shaved-head-is-darker-than-my-shaved-head-we-both-nodded-our-shaved-heads-in-agreement">
                     <div class="accordion-inner panel-body">
                       <h2 class="nn_sliders-title">
-                        7. Their players are older than the referee. But their players are a gifted lot. _____ are older
-                        than the referee.
-                        But _____ are a gifted lot.
+                        7. He said your shaved head is darker than my shaved head. We both nodded our shaved heads in
+                        agreement.
                       </h2>
                       <p>
-                        7.
-                        <span class="undies">Theirs</span>
-                        are older than the referee. But
-                        <span class="undies">theirs</span>
-                        are a gifted lot.
+                        7. He said
+                        <span class="undies">yours</span>
+                        is darker than
+                        <span class="undies">mine</span>
+                        . We both nodded
+                        <span class="undies">ours</span>
+                        in agreement.
                       </p>
                     </div>
                   </div>
@@ -631,43 +636,28 @@
               <div class="nn_sliders accordion panel-group" id="set-nn_sliders-9">
                 <a id="nn_sliders-scrollto_9" class="anchor nn_sliders-scroll"></a>
                 <div class="accordion-group panel nn_sliders-group">
-                  <a id="nn_sliders-scrollto_8-this-is-her-seat-that-is-his-seat-your-seat-is-over-there-and-the-other-one-is-my-seat-all-these-seats-are-our-seats-this-is-_____-that-is-_____-_____-is-over-there-and-the-other-one-is-_____-all-these-seats-are-_____"
+                  <a id="nn_sliders-scrollto_8-you-must-do-your-homework-first-before-you-can-help-them-do-their-homework"
                     class="anchor nn_sliders-scroll"></a>
                   <div class="accordion-heading panel-heading">
-                    <a href="572-possessive-pronoun-part-2.html#8-this-is-her-seat-that-is-his-seat-your-seat-is-over-there-and-the-other-one-is-my-seat-all-these-seats-are-our-seats-this-is-_____-that-is-_____-_____-is-over-there-and-the-other-one-is-_____-all-these-seats-are-_____"
+                    <a href="571-possessive-pronoun-part-1.html#8-you-must-do-your-homework-first-before-you-can-help-them-do-their-homework"
                       aria-label="Answer" class="accordion-toggle nn_sliders-toggle" data-toggle="collapse"
-                      data-id="q8-this-is-her-seat-that-is-his-seat-your-seat-is-over-there-and-the-other-one-is-my-seat-all-these-seats-are-our-seats-this-is-_____-that-is-_____-_____-is-over-there-and-the-other-one-is-_____-all-these-seats-are-_____"
+                      data-id="q8-you-must-do-your-homework-first-before-you-can-help-them-do-their-homework"
                       data-parent="#set-nn_sliders-9">
                       <span class="nn_sliders-toggle-inner">
-                        8. This is her seat, that is his seat, your seat is over there, and the other one is my seat.
-                        All these seats are
-                        our seats. This is _____, that is _____, _____ is over there, and the other one is _____. All
-                        these seats are
-                        _____.
+                        8. You must do your homework first before you can help them do their homework.
                       </span>
                     </a>
                   </div>
                   <div class="accordion-body nn_sliders-body collapse"
-                    id="q8-this-is-her-seat-that-is-his-seat-your-seat-is-over-there-and-the-other-one-is-my-seat-all-these-seats-are-our-seats-this-is-_____-that-is-_____-_____-is-over-there-and-the-other-one-is-_____-all-these-seats-are-_____">
+                    id="q8-you-must-do-your-homework-first-before-you-can-help-them-do-their-homework">
                     <div class="accordion-inner panel-body">
-                      <h2 class="nn_sliders-title">
-                        8. This is her seat, that is his seat, your seat is over there, and the other one is my seat.
-                        All these seats are
-                        our seats. This is _____, that is _____, _____ is over there, and the other one is _____. All
-                        these seats are
-                        _____.
-                      </h2>
+                      <h2 class="nn_sliders-title">8. You must do your homework first before you can help them do their
+                        homework.</h2>
                       <p>
-                        8. This is
-                        <span class="undies">hers</span>
-                        ; that is
-                        <span class="undies">his</span>
-                        ,
+                        8. You must do
                         <span class="undies">yours</span>
-                        is over there, and the other one is
-                        <span class="undies">mine</span>
-                        . All these seats are
-                        <span class="undies">ours</span>
+                        first before you can help them do
+                        <span class="undies">theirs</span>
                         .
                       </p>
                     </div>
@@ -677,28 +667,28 @@
               <div class="nn_sliders accordion panel-group" id="set-nn_sliders-10">
                 <a id="nn_sliders-scrollto_10" class="anchor nn_sliders-scroll"></a>
                 <div class="accordion-group panel nn_sliders-group">
-                  <a id="nn_sliders-scrollto_9-the-cheap-carefree-hotel-has-its-own-swimming-pool-too-its-swimming-pool-is-said-to-be-the-largest-in-the-city-_____-is-said-to-be-the-largest-in-the-city"
+                  <a id="nn_sliders-scrollto_9-these-are-all-his-things-not-even-one-item-that-is-not-his-thing"
                     class="anchor nn_sliders-scroll"></a>
                   <div class="accordion-heading panel-heading">
-                    <a href="572-possessive-pronoun-part-2.html#9-the-cheap-carefree-hotel-has-its-own-swimming-pool-too-its-swimming-pool-is-said-to-be-the-largest-in-the-city-_____-is-said-to-be-the-largest-in-the-city"
+                    <a href="571-possessive-pronoun-part-1.html#9-these-are-all-his-things-not-even-one-item-that-is-not-his-thing"
                       aria-label="Answer" class="accordion-toggle nn_sliders-toggle" data-toggle="collapse"
-                      data-id="q9-the-cheap-carefree-hotel-has-its-own-swimming-pool-too-its-swimming-pool-is-said-to-be-the-largest-in-the-city-_____-is-said-to-be-the-largest-in-the-city"
+                      data-id="q9-these-are-all-his-things-not-even-one-item-that-is-not-his-thing"
                       data-parent="#set-nn_sliders-10">
-                      <span class="nn_sliders-toggle-inner">
-                        9. The cheap Carefree Hotel has its own swimming pool, too. Its swimming pool is said to be the largest in the city. _____ is said to be the  largest in the city.
-                      </span>
+                      <span class="nn_sliders-toggle-inner">9. These are all his things, not even one item that is not
+                        his thing.</span>
                     </a>
                   </div>
                   <div class="accordion-body nn_sliders-body collapse"
-                    id="q9-the-cheap-carefree-hotel-has-its-own-swimming-pool-too-its-swimming-pool-is-said-to-be-the-largest-in-the-city-_____-is-said-to-be-the-largest-in-the-city">
+                    id="q9-these-are-all-his-things-not-even-one-item-that-is-not-his-thing">
                     <div class="accordion-inner panel-body">
-                      <h2 class="nn_sliders-title">
-                        9. The cheap Carefree hotel has its own swimming pool too. Its swimming pool is said to be the largest in the city. _____ is said to be the largest in the city.
+                      <h2 class="nn_sliders-title">9. These are all his things, not even one item that is not his thing.
                       </h2>
                       <p>
-                        9.
-                        <span class="undies">Its</span>
-                        is said to be the largest in the city.
+                        9. These are all
+                        <span class="undies">his</span>
+                        , not even one item that is not
+                        <span class="undies">his</span>
+                        .
                       </p>
                     </div>
                   </div>
@@ -707,34 +697,42 @@
               <div class="nn_sliders accordion panel-group" id="set-nn_sliders-11">
                 <a id="nn_sliders-scrollto_11" class="anchor nn_sliders-scroll"></a>
                 <div class="accordion-group panel nn_sliders-group">
-                  <a id="nn_sliders-scrollto_10-i-asked-the-farmer-if-those-cows-are-his-cows-he-said-they-are-not-just-his-cows-they-are-also-their-cows-as-they-belong-to-the-whole-family"
+                  <a id="nn_sliders-scrollto_10-take-this-if-it-is-your-book-don-t-take-his-book-tell-her-to-take-her-book-and-leave-my-book-alone-the-remainder-are-their-books-they-can-collect-their-books-later"
                     class="anchor nn_sliders-scroll"></a>
                   <div class="accordion-heading panel-heading">
-                    <a href="572-possessive-pronoun-part-2.html#10-i-asked-the-farmer-if-those-cows-are-his-cows-he-said-they-are-not-just-his-cows-they-are-also-their-cows-as-they-belong-to-the-whole-family"
+                    <a href="571-possessive-pronoun-part-1.html#10-take-this-if-it-is-your-book-don-t-take-his-book-tell-her-to-take-her-book-and-leave-my-book-alone-the-remainder-are-their-books-they-can-collect-their-books-later"
                       aria-label="Answer" class="accordion-toggle nn_sliders-toggle" data-toggle="collapse"
-                      data-id="q10-i-asked-the-farmer-if-those-cows-are-his-cows-he-said-they-are-not-just-his-cows-they-are-also-their-cows-as-they-belong-to-the-whole-family"
+                      data-id="q10-take-this-if-it-is-your-book-don-t-take-his-book-tell-her-to-take-her-book-and-leave-my-book-alone-the-remainder-are-their-books-they-can-collect-their-books-later"
                       data-parent="#set-nn_sliders-11">
                       <span class="nn_sliders-toggle-inner">
-                        10. I asked the farmer if those cows are his cows. He said they are not just his cows, they are
-                        also their cows as
-                        they belong to the whole family.
+                        10. Take this if it is your book, don't take his book, tell her to take her book, and leave my
+                        book alone. The
+                        remainder are their books. They can collect their books later.
                       </span>
                     </a>
                   </div>
                   <div class="accordion-body nn_sliders-body collapse"
-                    id="q10-i-asked-the-farmer-if-those-cows-are-his-cows-he-said-they-are-not-just-his-cows-they-are-also-their-cows-as-they-belong-to-the-whole-family">
+                    id="q10-take-this-if-it-is-your-book-don-t-take-his-book-tell-her-to-take-her-book-and-leave-my-book-alone-the-remainder-are-their-books-they-can-collect-their-books-later">
                     <div class="accordion-inner panel-body">
                       <h2 class="nn_sliders-title">
-                        10. I asked the farmer if those cows are his cows. He said they are not just his cows, they are also our cows as they belong to the whole family.
+                        10. Take this if it is your book, don't take his book, tell her to take her book, and leave my
+                        book alone. The
+                        remainder are their books. They can collect their books later.
                       </h2>
                       <p>
-                        10. I asked the farmer if those cows are
+                        10. Take this if it is
+                        <span class="undies">yours</span>
+                        , don't take
                         <span class="undies">his</span>
-                        . He said they are not just
-                        <span class="undies">his</span>
-                        , they are also
-                        <span class="undies">ours</span>
-                        as they belong to the whole family.
+                        , tell her to take
+                        <span class="undies">hers</span>
+                        , and leave
+                        <span class="undies">mine</span>
+                        alone. The remainder are
+                        <span class="undies">theirs</span>
+                        . They can collect
+                        <span class="undies">theirs</span>
+                        later.
                       </p>
                     </div>
                   </div>
@@ -742,7 +740,7 @@
               </div>
               <ul class="pager pagenav">
                 <li class="previous">
-                  <a href="571-possessive-pronoun-part-1.html" rel="prev" aria-label="Previous">
+                  <a href="566-relative-pronoun-who-which-whom-whose-iv.html" rel="prev" aria-label="Previous">
                    <svg
                         version="1.1"
                         xmlns="http://www.w3.org/2000/svg"
@@ -753,12 +751,12 @@
                           d="M16.795 14.571c0 0.214-0.107 0.455-0.268 0.616l-10.527 10.527 10.527 10.527c0.161 0.161 0.268 0.402 0.268 0.616s-0.107 0.455-0.268 0.616l-1.339 1.339c-0.161 0.161-0.402 0.268-0.616 0.268s-0.455-0.107-0.616-0.268l-12.482-12.482c-0.161-0.161-0.268-0.402-0.268-0.616s0.107-0.455 0.268-0.616l12.482-12.482c0.161-0.161 0.402-0.268 0.616-0.268s0.455 0.107 0.616 0.268l1.339 1.339c0.161 0.161 0.268 0.375 0.268 0.616z">
                         </path>
                       </svg>
-                    5.7.1 Possessive Pronoun (Part 1)
+                    5.6.6 Relative Pronoun (who, which, whom,&nbsp; whose) IV
                   </a>
                 </li>
                 <li class="next">
-                  <a href="573-possessive-pronoun-part-3.html" rel="next" aria-label="Next">
-                    5.7.3 Possessive Pronoun (Part 3)
+                  <a href="572-possessive-pronoun-part-2.html" rel="prev" aria-label="Previous">
+                    5.7.2 Possessive Pronoun (Part 2)
                     <svg
                         version="1.1"
                         xmlns="http://www.w3.org/2000/svg"
@@ -797,7 +795,7 @@
               <meta itemprop="position" content="2">
             </li>
             <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem" class="active">
-              <span itemprop="name">5.7.2 Possessive Pronoun (Part 2)</span>
+              <span itemprop="name">5.7.1 Possessive Pronoun (Part 1)</span>
               <meta itemprop="position" content="3">
             </li>
           </ul>
@@ -1340,7 +1338,7 @@
                         </div>
                       </div>
                     </li>
-                    <li>
+                    <li class="current">
                       <div class="item-wrapper">
                         <div class="menu-link">
                           <a href="571-possessive-pronoun-part-1.html" aria-label="Menu Link">
@@ -1349,7 +1347,7 @@
                         </div>
                       </div>
                     </li>
-                    <li class="current">
+                    <li>
                       <div class="item-wrapper">
                         <div class="menu-link">
                           <a href="572-possessive-pronoun-part-2.html" aria-label="Menu Link">
@@ -2211,6 +2209,6 @@
   </footer>
 </body>
 
-<!-- /exercise-5-pronouns/572-possessive-pronoun-part-2.html, updated:  January 2026 12:32:55 GMT -->
+<!-- /exercise-5-pronouns/571-possessive-pronoun-part-1.html, updated:  January 2026 12:32:54 GMT -->
 
 </html>
