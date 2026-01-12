@@ -1,6 +1,6 @@
 {
   "logLevel": "debug",
-  "printWidth": 100,
+  "printWidth": 250,
   "tabWidth": 2,
   "useTabs": false,
   "semi": false,
@@ -13,13 +13,13 @@
   "htmlWhitespaceSensitivity": "ignore",
   "overrides": [
     {
-      "files": ["*.html", "*.htm"],
+      "files": ["**/*.html", "**/*.htm"],
       "options": {
         "parser": "html",
+        "printWidth": 250,
+        "htmlWhitespaceSensitivity": "ignore",
         "bracketSameLine": true,
-        "singleAttributePerLine": true,
-        "printWidth": 140,
-        "htmlWhitespaceSensitivity": "strict"
+        "singleAttributePerLine": false
       }
     }
   ]

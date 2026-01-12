@@ -17,11 +17,22 @@ _Critically, consistently, and before every coding attempt, ALWAYS reread agents
 5. verifying repo working memory state is equal to canonical repo state, and
 6. performing All per agents.md rules.
 
+### Repo-Start Decision Tree (Local vs Online)
+
+1. Determine context: local workspace vs GitHub connector/online session.
+2. If GitHub connector/online: apply all MANDATORY + IMPORTANT directives (rescan, memory flush, `git status -sb` before edits, unified diff, etc.).
+3. If local workspace and the prompt includes the exact line below, treat it as a temp override:
+   - `Save my Tokens! [agents.md temp override] - Whenever you are writing edits to local repo files, do not create a unified diff, print the edits, or run other non-requested, token burning, machinations, etc.; rather, perform this command, verify completion, and end it.`
+   - Execute only the requested action, verify completion with the minimum required command(s), then end the response.
+   - Skip unified diff/full-file printing/extra commands unless a higher-priority instruction explicitly requires them.
+   - If a higher-priority instruction conflicts, state the conflict, redetermine which mode we're currently operating under, 1. online codex, 2. local codex, or 3. temp override and follow the current mode's directive set.
+4. If local workspace without the override: follow standard local workflow with concise outputs.
+
 #### MANDATORY
 
 > **_BEFORE_** you (codex) evaluates any code to suggest edits and/or provide unified differential patches, you MUST ALWAYS, WITHOUT EXCEPTION:
 
-1. RESCAN REPO FOR CHANGED CANONICAL files,
+1. RESCAN REPO FOR CHANGED CANONICAL files, (only in online mode )
 
 2. COMPLETELY FLUSH working memory (head),
 
@@ -47,7 +58,7 @@ _Critically, consistently, and before every coding attempt, ALWAYS reread agents
 
 ### CRITICAL RESOURCES
 
-**Always rescan docs/exercise-system.md on startup!** Maintain current, regularly updated ancilary repositories of _critical_ systems' information.
+**Always rescan docs/exercise-system.md on startup!** Maintain current, regularly updated ancillary repositories of _critical_ systems' information.
 
 #### I. Exercise System and Conversion Guide
 
@@ -66,12 +77,14 @@ _Critically, consistently, and before every coding attempt, ALWAYS reread agents
 ### IMPORTANT
 
 - **RESCAN REPO mandate**: rerun discovery (`git status -sb`, `rg`, etc.) immediately before changing files, and explicitly note in responses the current working tree state (clean/dirty), that working memory was flushed, then refreshed at that moment.
+
 - **Local workflow continuity**: when working locally, do not interrupt conversation prompts about dirty state or unexpected deltas; proceed with tasks and note that repo state is updated periodically.
+
 - **No inline styles in legacy p-tags**: never add or reintroduce `style="..."` in legacy exercise `<p>` content; preserve existing legacy p-tag HTML without stripping or restyling, and follow `docs/asscon.md` conventions for answer highlighting.
 
-- **Between edits, recheck repo state**: after each edit is applied (and before starting another), run `git status -sb` to confirm the current tree state and call it out in replies.
+- **Before edits, recheck repo state**: before each edit is computed and written, run `git status -sb` to confirm the current tree state and call it out in replies.
 
-- **Working-memory cadence**: before drafting any new patch, refresh your view of the repo (`git status -sb`, `rg`, etc.) and state the current tree state (clean/dirty) at that moment; after supplying an edit, re-run `git status -sb` and report the updated tree state before beginning the next edit.
+- **Working-memory cadence**: before drafting any new patch, refresh your view of the repo (`git status -sb`, `rg`, etc.) and state the current tree state (clean/dirty) at that moment; after supplying an edit, re-run `git status -sb` and report the updated tree state before beginning the next edit. (only in online mode )
 
 - **Always document** the current working tree state (clean/dirty) (e.g., via `git status -sb`) before presenting a diff or set of edits.
 
@@ -112,6 +125,15 @@ _Critically, consistently, and before every coding attempt, ALWAYS reread agents
 
   4. If something looks off, re-copy the printed content and re-run the diff to verify the file matches the canonical output.
 
+### Best-Practice Checklist (When Optional)
+
+- Recency: verify versions, deprecations, and compatibility when the task depends on tooling or APIs.
+- Repo rescan: run `git status -sb` and `rg` before edits to capture current deltas.
+- Memory refresh: flush and reload working memory after rescans to keep state aligned.
+- Git status cadence: capture state before crafting each edit.
+- Unified diffs: generate when explicitly requested or when a patch is the safest delivery format.
+- Full-file output: provide only when explicitly requested; prefer focused diffs otherwise.
+
 ### Delivery
 
 - Provide complete, executable code when asked (POIA); never abridge.
@@ -126,7 +148,7 @@ _Critically, consistently, and before every coding attempt, ALWAYS reread agents
 
 - **Never reprint edits** that have already been provided unless additional clarification is explicitly required (POIA).
 
-- **Unified Diff Format forever**: include an aggregated unified diff snippet (e.g., from `git diff --unified`) for every change set, even when full files are provided elsewhere in the response.
+- **Unified Diff Format on Request**: include an aggregated unified diff snippet (e.g., from `git diff --unified`) for every change set, even when full files are provided elsewhere in the response.
 - When presenting prompts/commands from `docs/asscon.md`, always substitute user-provided values (e.g., target path, title, source choice) before printing—never leave placeholders in displayed prompts or commands.
 
 ### Scope & safety rails
@@ -143,7 +165,7 @@ _Critically, consistently, and before every coding attempt, ALWAYS reread agents
 
 - Track and recall project versions, toolchains, linters, build targets, browser support, and prior decisions. Reuse working patterns; avoid past mistakes.
 
-- Record lessons learned (successes/failures) and apply them in later sessions.
+- Record lessons learned in agents.md in discreet categories (successes/failures) and apply them in later sessions.
 
 ## Recent exercise system improvements
 
