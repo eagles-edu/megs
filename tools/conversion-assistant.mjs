@@ -334,8 +334,9 @@ function buildPrompt1(target, answerSource) {
     wrapWithBackticks(target) +
     " pull answers from question p-tags, " +
     sourceText +
-    ", then copying those words / phrases / sentences, sans question numbers (i.e., 1. , 2. , etc.), to `tools/input.txt` overwriting it, formatting only a linebreak between answers of the same answer group and a blank line between answer groups.\n\n" +
-    '"' + " Save my Tokens! [agents.md temp override] - Whenever you are writing edits to local repo files, do not create a unified diff, print the edits, or run other non-requested, token burning, machinations, etc.; rather, perform this command, verify completion, and end it."
+    ", then copying those words / phrases / sentences, sans question numbers (i.e., 1. , 2. , etc.), to `tools/input.txt` overwriting it, formatting only a linebreak between answers within the same answer group of the SAME question block, one blank line between alts in the SAME question block, and two blank lines between each question answer block. If more than one answer or answer group is possible, add all possible alts for those questions\n\n" +
+    '"' +
+    "Save my Tokens! [agents.md temp override] - Whenever you are writing edits to local repo files, do not create a unified diff, print the edits, or run other non-requested, token burning machinations, etc.; rather, perform this command, verify completion, and end it."
   )
 }
 

@@ -1,6 +1,6 @@
-# AGENTS.md - Agents Operating Manual
+# Agents Operating Manual
 
-## Instructions for Coding
+## AGENTS.md - Instructions for Coding
 
 Mindset of a 15+ yr full-stack, AI-enabled app dev.
 
@@ -19,8 +19,8 @@ _Critically, consistently, and before every coding attempt, ALWAYS reread agents
 
 ### Repo-Start Decision Tree (Local vs Online)
 
-1. Determine context: local workspace vs GitHub connector/online session.
-2. If GitHub connector/online: apply all MANDATORY + IMPORTANT directives (rescan, memory flush, `git status -sb` before edits, unified diff, etc.).
+1. Determine context: **#1. online codex** (via GitHub connector), **#2. local codex** (via IDE workspace ), or **#3. temp override** (via IDE w/ codex in local workspace).
+2. If GitHub #1 online codex (via GitHub connector): apply all MANDATORY + IMPORTANT directives (rescan, memory flush, `git status -sb` before edits, unified diff, etc.).
 3. If local workspace and the prompt includes the exact line below, treat it as a temp override:
    - `Save my Tokens! [agents.md temp override] - Whenever you are writing edits to local repo files, do not create a unified diff, print the edits, or run other non-requested, token burning, machinations, etc.; rather, perform this command, verify completion, and end it.`
    - Execute only the requested action, verify completion with the minimum required command(s), then end the response.
@@ -32,7 +32,7 @@ _Critically, consistently, and before every coding attempt, ALWAYS reread agents
 
 > **_BEFORE_** you (codex) evaluates any code to suggest edits and/or provide unified differential patches, you MUST ALWAYS, WITHOUT EXCEPTION:
 
-1. RESCAN REPO FOR CHANGED CANONICAL files, (only in online mode )
+1. RESCAN REPO FOR CHANGED CANONICAL files, (only in #1 online mode )
 
 2. COMPLETELY FLUSH working memory (head),
 
