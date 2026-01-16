@@ -1,4 +1,4 @@
-import fs from "node:fs/promises"
+import { promises as fs } from "fs"
 import path from "node:path"
 import process from "node:process"
 import * as cheerio from "cheerio"

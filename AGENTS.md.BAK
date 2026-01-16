@@ -8,22 +8,34 @@ Mindset of a 15+ yr full-stack, AI-enabled app dev.
 
 _Critically, consistently, and before every coding attempt, ALWAYS reread agents.md instructions. Reread docs/exercise-system.md on startup!_
 
-**Startup checklist (every session)**:
+**Prepare to continue** dev by:
 
-1. Reread AGENTS.md instructions.
-2. Reread `docs/exercise-system.md` and `docs/asscon.md`.
-3. Determine context: **#1 online codex**, **#2 local codex**, or **#3 temp override**.
-4. If **#1 online**, rescan the repo and identify changed files.
-5. Flush working memory, refresh canonical state, and verify alignment.
-6. Record the current working tree state (clean/dirty) before computing diffs or edits.
-7. Keep critical systems documents current with regular updates (at least daily).
+1. rescanning repo,
+2. identifying all changed files in repo,
+3. fully purging your working memory,
+4. refreshing repo working memory with current canonical repo state,
+5. verifying repo working memory state is equal to canonical repo state, and
+6. performing All per agents.md rules.
+7. **Always rescan docs/exercise-system.md, asscon.md on startup!**
+8. **Always maintain all _critical systems' information_ documents current** by writing regular updates, at least daily.
+9. - **Always document** the current working tree state (clean/dirty) (e.g., via `git status -sb`) before computing a diff or set of edits.
 
 ### Global Instructions (All Modes)
 
-1. Apply **MANDATORY** + **IMPORTANT** unless a mode below explicitly overrides.
-2. If instructions conflict, state the conflict and re-evaluate which mode (#1/#2/#3) is active before continuing.
-3. **No inline styles**: never add or reintroduce `style="..."` in legacy exercise `<p>` content; preserve existing HTML and follow `docs/asscon.md` conventions for answer highlighting.
-4. Use AL/ALT/QB nomenclature for `tools/input.txt` formatting (see Obfuscation SOP).
+1. Determine context: **#1. online codex** (via GitHub connector), **#2. local codex** (via IDE workspace), or **#3. temp override** (local workspace + override line).
+2. Apply **MANDATORY** + **IMPORTANT** sections unless a mode below explicitly overrides.
+3. If instructions conflict, state the conflict and re-evaluate which mode (#1/#2/#3) is active before continuing.
+
+- **ALWAYS** Cautious, incremental, validation-first problem solving.
+- **No assumptions**; clarify missing context with focused questions.
+- **Recency obsession**: verify versions, syntax, deprecations, and compatibility online, **from today to your (the GPT model’s) info cutoff date** before advising.
+- **Defer to current sources** when legacy conflicts appear; note impacts.
+- **Focused-diff edits**; change only what’s required; avoid over-engineering.
+- **Break down large problems** into multiple simple, specific, detailed steps when creating Implementation steps.
+- Dont '**reinvent the wheel**' or **modify existing code** unless requested or absolutely necessary to fulfill this documents instructions.
+- **Look for ways to implement changes by using existing code first**; then, if not possible, create new code solutions.
+- **Work slowly and go step-by-step** to make compact, requirement fulfilling, working, elegant, best-practices code.
+- **No inline styles**: never add or reintroduce `style="..."` in HTML tags, e.g., in legacy p-tags `<p>` content, etc.,; otherwise, preserve existing legacy p-tag HTML without stripping or restyling, and follow `docs/asscon.md` conventions for answer highlighting.
 
 ---
 
@@ -31,15 +43,21 @@ _Critically, consistently, and before every coding attempt, ALWAYS reread agents
 
 #### #1 Online Codex (GitHub connector)
 
-- Rerun discovery (`git status -sb`, `rg`, etc.) immediately before changes and report the current working tree state.
-- Flush and refresh working memory; confirm it matches the canonical repo state.
-- Follow online-only cadence: refresh repo view before each patch and report updated state after each edit.
+- **RESCAN REPO mandate**: rerun discovery (`git status -sb`, `rg`, etc.) immediately before changing files, and explicitly note in responses the current working tree state (clean/dirty), that working memory was flushed, then refreshed at that moment.
+- Apply all **MANDATORY** + **IMPORTANT** directives (rescan, memory flush, `git status -sb` before edits, unified diff, etc.).
+- Follow any rules marked **only in online mode**.
+- **_BEFORE_** you (codex) evaluates any code to craft or suggest edits and/or provide unified differential patches, you MUST ALWAYS, WITHOUT EXCEPTION:
+  1. RESCAN REPO FOR CHANGED CANONICAL files, (only in **#1 online mode** )
+  2. COMPLETELY FLUSH working memory (head),
+  3. REFRESH working memory with freshly updated canonical state.
+- **Working-memory cadence**: before drafting any new patch, refresh your view of the repo (`git status -sb`, `rg`, etc.) and state the current tree state (clean/dirty) at that moment; (only in online mode )
 
 #### #2 Local Codex (IDE workspace)
 
 - Follow standard local workflow with concise outputs.
 - Do not interrupt for dirty state or unexpected deltas; note repo state is updated periodically.
-- Before edits, run `git status -sb` and report the current state.
+- **Local workflow continuity**: when working locally, do not interrupt conversation prompts about dirty state or unexpected deltas; proceed with tasks and note that repo state is updated periodically.
+- **Before edits, recheck repo state**: before each edit is computed and written, run `git status -sb` to confirm the current tree state and call it out in replies.
 
 #### #3 Temp Override (Local + Save my Tokens)
 
@@ -51,29 +69,11 @@ _Critically, consistently, and before every coding attempt, ALWAYS reread agents
 
 #### MANDATORY
 
-> **_BEFORE_** you (codex) evaluate any code to craft or suggest edits and/or provide unified differential patches, you MUST ALWAYS, WITHOUT EXCEPTION:
 
-1. RESCAN REPO FOR CHANGED CANONICAL files (only in **#1 online mode**).
-2. COMPLETELY FLUSH working memory (head).
-3. REFRESH working memory with freshly updated canonical state.
-4. **ALWAYS** cautious, incremental, validation-first problem solving.
-5. **No assumptions**; clarify missing context with focused questions.
-6. **Recency obsession**: verify versions, syntax, deprecations, and compatibility online, **from today to your (the GPT model’s) info cutoff date** before advising.
-7. **Defer to current sources** when legacy conflicts appear; note impacts.
-8. **Focused-diff edits**; change only what’s required; avoid over-engineering.
-9. **Break down large problems** into multiple simple, specific, detailed steps when creating Implementation steps.
-10. Dont '**reinvent the wheel**' or **modify existing code** unless requested or absolutely necessary to fulfill this documents instructions.
-11. **Look for ways to implement changes by using existing code first**; then, if not possible, create new code solutions.
-12. **Work slowly and go step-by-step** to make compact, requirement fulfilling, working, elegant, best-practices code.
 
 ### CRITICAL RESOURCES
 
-**Always rescan** `docs/exercise-system.md` and `docs/asscon.md` on startup.
-**Always update documentation** maintain critical systems information documents current with regular updates (at least daily). include
 
-    1. AGENTS.md
-    2. docs/asscon.md
-    3. docs/exercise-system.md
 
 #### I. Exercise System and Conversion Guide
 
@@ -91,19 +91,33 @@ _Critically, consistently, and before every coding attempt, ALWAYS reread agents
 
 ### IMPORTANT
 
-- **RESCAN REPO mandate (online)**: rerun discovery (`git status -sb`, `rg`, etc.) immediately before computing changes in files, and explicitly note in responses the current working tree state (clean/dirty) and memory refresh status.
-- **Before edits, recheck repo state**: run `git status -sb` and call it out in replies (required in #1/#2; skip only in #3).
-- **Working-memory cadence (online)**: before drafting any new patch, refresh your view of the repo and report the current tree state; after supplying an edit, re-run `git status -sb` and report the updated state before the next edit.
-- **Always document** the current working tree state (clean/dirty) before presenting a diff or set of edits.
+
+
+
+
+
+
+
+
+
+
 - **Note prototype impact**: call out when edits touch prototype vs. live flows and reference the `npm run verify:prototype` script when relevant.
-- **Always use Unified Differential Format** patches for every file you modify unless **#3 temp override** requires skipping; ensure compatibility with vscode extension 'nakadehitsujiko.paste-and-apply-patch' so requestors can apply patches easily.
+
+- **Always use Unified Differential Format** patches for every file you modify; ensure compatibility with vscode extension 'nakadehitsujiko.paste-and-apply-patch' so requestors can apply the new new patches easily.
+
 - **Keep the instructions scoped** to just the new changes.
+
 - **Backup naming**: when creating backups, use a `.BAK` suffix or `-copy` suffix without asking.
+
 - When a request asks for complete, fully updated files **provide the latest, full, post-change file content (per-file) alongside a verified clean `patch diff`** so downstream users can apply or verify changes without hunting prior diffs. The previous "Requirement" for this instruction has now been downgraded to "provide only if asked (POIA)."
+
 - **Direct-edit delivery rule (overrides POIA full-file guidance)**: When I edit a file directly, provide **only** the unified diff by default; include the full post-change file (or `sed -i`/download for >2000 lines) **only if explicitly requested**.
+
 - (POIA, only on explicit request) For files under 2000 lines, include the entire post-change file inline (copy/paste ready) and **also** include the unified diff required elsewhere in this SOP.
 - (POIA, only on explicit request) For files 2000 lines or longer, provide a `sed -i` script or download link for the complete file instead of inline content. Use exactly one of these options per file; never mix both or omit the mandated delivery format.
+
 - "**Inline content**" = the full, ready-to-paste body of a file (no ellipses, no truncation), enclosed in a code fence, matching the exact post-change file.
+
 - (POIA, only on explicit request) For files 2000 lines or longer, provide one or both of the following so requestors can fetch the canonical file without scrolling in chat:
 
   - A shell command using the current repo state, e.g., `git show HEAD:path/to/file > path/to/file` (or substitute a specific commit/branch ref as needed).
@@ -130,12 +144,12 @@ _Critically, consistently, and before every coding attempt, ALWAYS reread agents
 - Repo rescan: run `git status -sb` and `rg` before edits to capture current deltas.
 - Memory refresh: flush and reload working memory after rescans to keep state aligned.
 - Git status cadence: capture state before crafting each edit.
-- Unified diffs: generate **only when explicitly requested** or when a patch is the safest delivery format.
+- Unified diffs: generate when explicitly requested or when a patch is the safest delivery format.
 - Full-file output: provide only when explicitly requested; prefer focused diffs otherwise.
 
 ### Delivery
 
-- Provide complete, executable code **when asked** (POIA); never abridge.
+- Provide complete, executable code when asked (POIA); never abridge.
 
 - Mention the filename + full path for every file you touch in your summary.
 
@@ -159,12 +173,6 @@ _Critically, consistently, and before every coding attempt, ALWAYS reread agents
 - If anything is unclear or risky, pause and ask.
 
 - **Unexpected changes policy**: the "stop immediately if unexpected changes appear" rule applies only when working with Codex online in GitHub; for local workflows, note the delta and continue without interrupting the prompt (repo state is updated periodically).
-
-- **Assistant edit controls**: only edit files explicitly requested; if another file is required, ask before touching it.
-
-- **Undo capture**: before any edit, save a timestamped `.BAK-<YYYYmmdd-HHMMSS>` copy of each target file and write an undo patch to `/tmp/codex-undo-<timestamp>.patch` with `git diff -- <files>`; keep until the user asks to delete it.
-
-- **Undo restore**: when reverting, use the stored `.BAK` or reverse patch and limit changes to the files requested.
 
 ### Memory & continuity
 
@@ -216,17 +224,19 @@ When proposing code changes, the assistant MUST provide:
 2. **Exact line numbers** and **context** (3–5 lines around changes).
    - If line numbers aren’t known, include a grep to locate anchors:
 
-    `nl -ba path/to/file | sed -n 120,150p`
-    `rg -n anchor text path/to/file`
+```bash
+    nl -ba path/to/file | sed -n 120,150p
+    rg -n anchor text path/to/file
+```
 
 3. **Unified diff** (copy-pasteable) **and** a shell-ready way to apply it:
-   1. Prefer (in order) `diff patch from freshly updated rescan of repo`, `in-chat manual code window`, `patch` then `git apply` ;
+   - Prefer (in order) `diff patch from freshly updated rescan of repo`, `in-chat manual code window`, `patch` then `git apply` ;
 
-4. **Post-change verification** steps (lint/test/run commands).
+2. **Post-change verification** steps (lint/test/run commands).
 
-5. **Rollback** note (how to revert the commit or restore backup).
+3. **Rollback** note (how to revert the commit or restore backup).
 
-6. **Completed full file-update delivery**: Only when a full file is explicitly requested; otherwise (direct edits) provide the unified diff only.
+4. **Completed full file-update delivery**: Only when a full file is explicitly requested; otherwise (direct edits) provide the unified diff only.
 
 ### Patch Template
 

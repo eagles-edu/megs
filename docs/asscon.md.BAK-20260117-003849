@@ -241,14 +241,14 @@ _user input_:
 - --answer-source `<undies|p|auto|sentence>` (default undies):
   - **undies**: default; extract from between `<span class="undies">`, `<b>`, and `<strong>` tags in question blocks
   - **p**: extract bold/underlined/strong from `<p>` (or prompt to derive from directions if missing)
-  - **auto**: use **undies** if present, otherwise derive by **p** answer-source reading p-tag directions and answering questions
+  - **auto**: use **undies** if present, otherwise derive by **P** answer-source reading p-tag directions and answering questions
   - **sentence**: extract everything verbatim between form-based question blocks (p-tag) answers, sans HTML, and copy to file; warn that linting/IDE wrapping and source text can introduce spacing, punctuation, grammar, or usage artifacts in plain-text copies, and offer optional normalization to USA spelling/grammar/vernacular/usage only (including punctuation fixes) with explicit approval
 - --answers-mode `<all|alts>` (default all; sets answersAccepted combos)
   - all: one combo per QB (question block); if ALT blocks exist, keep one combo per ALT block; all hashes required per combo
   - alts: one combo per ALT block (blank-line separated); combos may include multiple hashes
 - --ignore-example `[auto|prefix|first|none]` (default none when flag is unset)
-  - auto: scan for Example.* and prompt; defaults to none if no Example blocks are found
-  - prefix: skip questions that start with `Example.`
+  - auto: scan for Example* and prompt; defaults to none if no Example blocks are found
+  - prefix: skip questions that start with `Example`
   - first: skip the first question block
   - none: skip nothing (convert all questions)
 - --scope `<form|form-highlighted|highlighted|all>` (default form-highlighted):

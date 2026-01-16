@@ -10,13 +10,13 @@
  * ********* PROMPTS
  * 1) exercise-1-nouns/141-forming-nouns.html
  *    - read instructions paragraph, extract the correct answers, destructively place them in tools/input.txt
- *    - each answer separated by a blank line
+ *    - AL/ALT/QB formatting: AL=\n, ALT=\n\n, QB=\n\n\n
  *
  * 2) exercise-1-nouns/151-gender.html using tools/hashes.txt
  *    - put the sequential hashes in tools/hashes.txt into the answer array JSON as combos:
  *      - "answersAccepted": [["hash1"]] for single answers
  *      - ALL required: "answersAccepted": [["hash1","hash2",...]]
- *      - ALTS: "answersAccepted": [["hash1"],["hash2"],...]
+ *      - ALTS: one combo per ALT block (combo may include multiple hashes), e.g. [["hash1","hash2"],["hash1","hash3"]]
  *
  * 3) Format each question's <p> tag exactly like:
  *    #2: <h2 class="nn_sliders-title">2. I forgot to renew my _____ (member) in the sailing club.</h2>
@@ -113,6 +113,7 @@ function buildDictionaryFromText(text, normalize) {
   const lines = (text || "").split(/\r?\n/)
   const map = new Map()
   for (const line of lines) {
+    if (!line.trim()) continue
     const prepared = prepareValue(line, normalize)
     if (!prepared) continue
     const hash = fnv1a64(prepared, false)
@@ -144,6 +145,7 @@ function encodeLines(text, normalize) {
   const lines = text.split(/\r?\n/)
   return lines
     .map((line) => {
+      if (!line.trim()) return ""
       const hash = fnv1a64(line, normalize)
       if (!hash) return ""
       return `fnv1a-64:${hash}`
@@ -216,6 +218,42 @@ function printHelp() {
 
 function normalizeForCompare(text) {
   return text.replace(/\r\n/g, "\n").replace(/\n+$/, "")
+}
+
+function extractCanonicalAnswerBlocks(text) {
+  if (!text) return []
+  const lines = text.split(/\r?\n/)
+  const blocks = []
+  let currentBlock = []
+  let blankStreak = 0
+
+  function pushBlock() {
+    if (currentBlock.length) blocks.push(currentBlock)
+    currentBlock = []
+    blankStreak = 0
+  }
+
+  for (const line of lines) {
+    if (line === " ") {
+      pushBlock()
+      continue
+    }
+
+    if (!line.trim()) {
+      blankStreak += 1
+      if (blankStreak >= 2) pushBlock()
+      continue
+    }
+
+    blankStreak = 0
+    currentBlock.push(line.trim())
+  }
+
+  if (currentBlock.length) {
+    blocks.push(currentBlock)
+  }
+
+  return blocks
 }
 
 function findFirstDiff(aLines, bLines) {
@@ -293,13 +331,18 @@ function runRoundTrip(inputPathArg, normalize, title) {
 
   console.log("100% identical - successful encode-decode round trip.")
 
+  const canonicalBlocks = extractCanonicalAnswerBlocks(inputText)
+
   return promptForTitle(title).then((resolvedTitle) => {
     if (!resolvedTitle) return
     const devDir = path.resolve(scriptDir, "..", "dev")
     if (!fs.existsSync(devDir)) fs.mkdirSync(devDir, { recursive: true })
     const targetPath = path.join(devDir, `${resolvedTitle}.txt`)
-    fs.copyFileSync(decodedPath, targetPath)
-    console.log(`Copied decoded answers to ${targetPath}`)
+    const content = canonicalBlocks.length
+      ? `${canonicalBlocks.map((block) => block.join("\n")).join("\n\n")}\n`
+      : "\n"
+    fs.writeFileSync(targetPath, content, "utf8")
+    console.log(`Wrote canonical dev answers to ${targetPath}`)
   })
 }
 

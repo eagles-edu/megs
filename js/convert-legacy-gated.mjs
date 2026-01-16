@@ -26,6 +26,9 @@ Flag combos:
 Per-question options:
   Add data-answer-ui="textarea" ****on a legacy .nn_sliders block**** to force a single, full-width, auto-resizing textarea (ignores --answer-fields overrides).
   The --answer-ui flag applies this to all questions; per-question data attributes still win.
+
+Answer formatting terminology used in the conversion workflow:
+  AL = answer line, ALT = alternate group, QB = question block (see docs/exercise-system.md).
 */
 import { ArgumentParser } from "argparse"
 import { load } from "cheerio"
