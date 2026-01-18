@@ -458,7 +458,7 @@ function buildPrompt1(target, answerSource) {
     wrapWithBackticks(target) +
     " pull answers from question p-tags, " +
     sourceText +
-    ", then copy words/phrases/sentences (no question numbers like 1., 2.) to `tools/input.txt` (overwrite). " +
+    ", then copy words / phrases / sentences (no question numbers like 1. | 2. ) to `tools/input.txt` (overwrite). Format 'answer1/answer2...' p-tag answers as same question's alts. " +
     INPUT_FORMAT_TEXT +
     "\n\n" +
     '"' +
