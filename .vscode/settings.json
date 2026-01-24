@@ -162,7 +162,7 @@
   "highlight.regexFlags": "gim",
   "highlight.maxMatches": 1000,
   "highlight.regexes": {
-    // ---------- TABLE TAG PAIRS ---------- 
+    // ---------- TABLE TAG PAIRS ----------
     "(<table\\b[^>]*?>)|(</table>)": [
       {
         "overviewRulerColor": "#fde171",
@@ -252,7 +252,7 @@
         "fontWeight": "bold"
       }
     ],
-    
+
     // ---------- TABLE ATTRIBUTES ----------
     "(<t[dh]\\b[^>]*?\\s)(rowspan)(\\s*=\\s*)(\"[^\"]*\"|'[^']*'|[^\\s>]+)": [
       {},

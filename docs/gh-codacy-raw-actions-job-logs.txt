@@ -129,33 +129,33 @@
 2025-09-28T05:37:00.8753554Z npm warn deprecated abab@2.0.6: Use your platform's native atob() and btoa() methods instead
 2025-09-28T05:37:01.6309325Z npm warn deprecated glob@7.2.3: Glob versions prior to v9 are no longer supported
 2025-09-28T05:37:02.0331969Z npm warn deprecated puppeteer@2.1.1: < 24.10.2 is no longer supported
-2025-09-28T05:37:09.3091642Z 
+2025-09-28T05:37:09.3091642Z
 2025-09-28T05:37:09.3092720Z added 779 packages, and audited 780 packages in 12s
-2025-09-28T05:37:09.3093214Z 
+2025-09-28T05:37:09.3093214Z
 2025-09-28T05:37:09.3093515Z 162 packages are looking for funding
 2025-09-28T05:37:09.3094021Z   run `npm fund` for details
-2025-09-28T05:37:09.3105406Z 
+2025-09-28T05:37:09.3105406Z
 2025-09-28T05:37:09.3105697Z found 0 vulnerabilities
 2025-09-28T05:37:09.3419410Z ##[group]Run npm run lint
 2025-09-28T05:37:09.3419693Z [36;1mnpm run lint[0m
 2025-09-28T05:37:09.3452714Z shell: /usr/bin/bash -e {0}
 2025-09-28T05:37:09.3452953Z ##[endgroup]
-2025-09-28T05:37:09.4522902Z 
+2025-09-28T05:37:09.4522902Z
 2025-09-28T05:37:09.4523470Z > megs@2.0.3 lint
 2025-09-28T05:37:09.4523988Z > npm run lint:js && npm run lint:css && npm run lint:html
-2025-09-28T05:37:09.4524294Z 
-2025-09-28T05:37:09.5605918Z 
+2025-09-28T05:37:09.4524294Z
+2025-09-28T05:37:09.5605918Z
 2025-09-28T05:37:09.5606518Z > megs@2.0.3 lint:js
 2025-09-28T05:37:09.5607011Z > eslint "**/*.{js,mjs,cjs}"
-2025-09-28T05:37:09.5607334Z 
-2025-09-28T05:37:10.3174504Z 
+2025-09-28T05:37:09.5607334Z
+2025-09-28T05:37:10.3174504Z
 2025-09-28T05:37:10.3174835Z > megs@2.0.3 lint:css
 2025-09-28T05:37:10.3175505Z > stylelint "**/*.{css,scss,less}" --allow-empty-input
-2025-09-28T05:37:10.3175925Z 
-2025-09-28T05:37:11.4040834Z 
+2025-09-28T05:37:10.3175925Z
+2025-09-28T05:37:11.4040834Z
 2025-09-28T05:37:11.4041472Z > megs@2.0.3 lint:html
 2025-09-28T05:37:11.4042087Z > html-validate "**/*.{html,htm}"
-2025-09-28T05:37:11.4042345Z 
+2025-09-28T05:37:11.4042345Z
 2025-09-28T05:37:43.4615672Z ##[warning]Unexpected input(s) 'extra-args', valid inputs are ['verbose', 'project-token', 'api-token', 'codacy-api-base-url', 'format', 'output', 'directory', 'parallel', 'max-tool-memory', 'max-allowed-issues', 'registry-address', 'tool', 'tool-timeout', 'upload', 'upload-batch-size', 'fail-if-incomplete', 'allow-network', 'force-file-permissions', 'gh-code-scanning-compat', 'run-docker-tools', 'run-gosec', 'run-staticcheck', 'clang-tidy-output', 'faux-pas-output', 'skip-uncommitted-files-check', 'skip-container-engine-check']
 2025-09-28T05:37:43.4631700Z ##[group]Run codacy/codacy-analysis-cli-action@v4.4.7
 2025-09-28T05:37:43.4632214Z with:
@@ -376,11 +376,11 @@
 2025-09-28T05:37:43.6389629Z HTTP request sent, awaiting response... 200 OK
 2025-09-28T05:37:43.6390319Z Length: 3291 (3.2K) [text/plain]
 2025-09-28T05:37:43.6391250Z Saving to: ‘STDOUT’
-2025-09-28T05:37:43.6391501Z 
+2025-09-28T05:37:43.6391501Z
 2025-09-28T05:37:43.6391800Z      0K ...                                                   100% 51.1M=0s
-2025-09-28T05:37:43.6392220Z 
+2025-09-28T05:37:43.6392220Z
 2025-09-28T05:37:43.6392655Z 2025-09-28 05:37:43 (51.1 MB/s) - written to stdout [3291/3291]
-2025-09-28T05:37:43.6393104Z 
+2025-09-28T05:37:43.6393104Z
 2025-09-28T05:37:43.6420408Z ##[group]Run chmod +x "/home/runner/work/_actions/codacy/codacy-analysis-cli-action/v4.4.7/codacy-analysis-cli.sh"
 2025-09-28T05:37:43.6421285Z [36;1mchmod +x "/home/runner/work/_actions/codacy/codacy-analysis-cli-action/v4.4.7/codacy-analysis-cli.sh"[0m
 2025-09-28T05:37:43.6445710Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
@@ -454,12 +454,12 @@
 2025-09-28T05:37:49.4157909Z 96fa1203d65f: Pull complete
 2025-09-28T05:37:49.4191196Z Digest: sha256:339e0103e28804f9d76aff34503e505440e5d5b42f5dd70dae73b592ea87826a
 2025-09-28T05:37:49.4209837Z Status: Downloaded newer image for codacy/codacy-analysis-cli:7.9.25
-2025-09-28T05:40:41.0679920Z 09/28 05:40:41 [1;31mERROR[0;39m [36mc.c.a.c.a.CodacyPluginsAnalyser:31[0;39m - Failed analysis for trivy 
-2025-09-28T05:40:41.0694642Z java.lang.Throwable: 
+2025-09-28T05:40:41.0679920Z 09/28 05:40:41 [1;31mERROR[0;39m [36mc.c.a.c.a.CodacyPluginsAnalyser:31[0;39m - Failed analysis for trivy
+2025-09-28T05:40:41.0694642Z java.lang.Throwable:
 2025-09-28T05:40:41.0696192Z Docker exited with code 1
-2025-09-28T05:40:41.0696731Z stdout: 
+2025-09-28T05:40:41.0696731Z stdout:
 2025-09-28T05:40:41.0697955Z stderr: time="2025-09-28T05:40:40Z" level=error msg="Failed to run the tool: codacy-trivy/tool: Failed to configure Codacy Trivy: no patterns configured"
-2025-09-28T05:40:41.0698921Z            
+2025-09-28T05:40:41.0698921Z
 2025-09-28T05:40:41.0699681Z 	at com.codacy.plugins.runners.BinaryDockerRunner.$anonfun$run$4(BinaryDockerRunner.scala:84)
 2025-09-28T05:40:41.0700573Z 	at scala.util.Success.flatMap(Try.scala:251)
 2025-09-28T05:40:41.0701405Z 	at com.codacy.plugins.runners.BinaryDockerRunner.run(BinaryDockerRunner.scala:69)
@@ -523,12 +523,12 @@
 2025-09-28T05:40:41.0773447Z 	at java.util.concurrent.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1056)
 2025-09-28T05:40:41.0774427Z 	at java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1692)
 2025-09-28T05:40:41.0775465Z 	at java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:175)
-2025-09-28T05:40:59.0901721Z 09/28 05:40:59 [1;31mERROR[0;39m [36mc.c.a.c.a.CodacyPluginsAnalyser:31[0;39m - Failed analysis for trivy 
-2025-09-28T05:40:59.0902664Z java.lang.Throwable: 
+2025-09-28T05:40:59.0901721Z 09/28 05:40:59 [1;31mERROR[0;39m [36mc.c.a.c.a.CodacyPluginsAnalyser:31[0;39m - Failed analysis for trivy
+2025-09-28T05:40:59.0902664Z java.lang.Throwable:
 2025-09-28T05:40:59.0903110Z Docker exited with code 1
-2025-09-28T05:40:59.0903465Z stdout: 
+2025-09-28T05:40:59.0903465Z stdout:
 2025-09-28T05:40:59.0904709Z stderr: time="2025-09-28T05:40:59Z" level=error msg="Failed to run the tool: codacy-trivy/tool: Failed to configure Codacy Trivy: no patterns configured"
-2025-09-28T05:40:59.0905736Z            
+2025-09-28T05:40:59.0905736Z
 2025-09-28T05:40:59.0906754Z 	at com.codacy.plugins.runners.BinaryDockerRunner.$anonfun$run$4(BinaryDockerRunner.scala:84)
 2025-09-28T05:40:59.0907745Z 	at scala.util.Success.flatMap(Try.scala:251)
 2025-09-28T05:40:59.0908632Z 	at com.codacy.plugins.runners.BinaryDockerRunner.run(BinaryDockerRunner.scala:69)
@@ -592,10 +592,10 @@
 2025-09-28T05:40:59.0980048Z 	at java.util.concurrent.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1056)
 2025-09-28T05:40:59.0981088Z 	at java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1692)
 2025-09-28T05:40:59.0982168Z 	at java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:175)
-2025-09-28T05:41:03.2362807Z 09/28 05:41:03 [1;31mERROR[0;39m [36mc.c.a.c.a.CodacyPluginsAnalyser:31[0;39m - Failed analysis for eslint 
-2025-09-28T05:41:03.2363582Z java.lang.Throwable: 
+2025-09-28T05:41:03.2362807Z 09/28 05:41:03 [1;31mERROR[0;39m [36mc.c.a.c.a.CodacyPluginsAnalyser:31[0;39m - Failed analysis for eslint
+2025-09-28T05:41:03.2363582Z java.lang.Throwable:
 2025-09-28T05:41:03.2363952Z Docker exited with code 1
-2025-09-28T05:41:03.2364277Z stdout: 
+2025-09-28T05:41:03.2364277Z stdout:
 2025-09-28T05:41:03.2365030Z stderr: ConfigurationNotFoundError: No ESLint configuration found in /src/.codacy/tools-configs.
 2025-09-28T05:41:03.2368006Z     at CascadingConfigArrayFactory._finalizeConfigArray (/node_modules/@eslint/eslintrc/lib/cascading-config-array-factory.js:508:19)
 2025-09-28T05:41:03.2369866Z     at CascadingConfigArrayFactory.getConfigArrayForFile (/node_modules/@eslint/eslintrc/lib/cascading-config-array-factory.js:299:21)
@@ -610,7 +610,7 @@
 2025-09-28T05:41:03.2387260Z   messageTemplate: 'no-config-found',
 2025-09-28T05:41:03.2387969Z   messageData: { directoryPath: '/src/.codacy/tools-configs' }
 2025-09-28T05:41:03.2388527Z }
-2025-09-28T05:41:03.2388783Z            
+2025-09-28T05:41:03.2388783Z
 2025-09-28T05:41:03.2389580Z 	at com.codacy.plugins.runners.BinaryDockerRunner.$anonfun$run$4(BinaryDockerRunner.scala:84)
 2025-09-28T05:41:03.2390533Z 	at scala.util.Success.flatMap(Try.scala:251)
 2025-09-28T05:41:03.2391376Z 	at com.codacy.plugins.runners.BinaryDockerRunner.run(BinaryDockerRunner.scala:69)
@@ -654,12 +654,12 @@
 2025-09-28T05:41:03.2452475Z 	at java.util.concurrent.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1056)
 2025-09-28T05:41:03.2453422Z 	at java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1692)
 2025-09-28T05:41:03.2454451Z 	at java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:175)
-2025-09-28T05:41:03.5287053Z 09/28 05:41:03 [1;31mERROR[0;39m [36mc.c.a.c.a.CodacyPluginsAnalyser:31[0;39m - Failed analysis for trivy 
-2025-09-28T05:41:03.5289828Z java.lang.Throwable: 
+2025-09-28T05:41:03.5287053Z 09/28 05:41:03 [1;31mERROR[0;39m [36mc.c.a.c.a.CodacyPluginsAnalyser:31[0;39m - Failed analysis for trivy
+2025-09-28T05:41:03.5289828Z java.lang.Throwable:
 2025-09-28T05:41:03.5290241Z Docker exited with code 1
-2025-09-28T05:41:03.5290735Z stdout: 
+2025-09-28T05:41:03.5290735Z stdout:
 2025-09-28T05:41:03.5292366Z stderr: time="2025-09-28T05:41:03Z" level=error msg="Failed to run the tool: codacy-trivy/tool: Failed to configure Codacy Trivy: no patterns configured"
-2025-09-28T05:41:03.5293369Z            
+2025-09-28T05:41:03.5293369Z
 2025-09-28T05:41:03.5294118Z 	at com.codacy.plugins.runners.BinaryDockerRunner.$anonfun$run$4(BinaryDockerRunner.scala:84)
 2025-09-28T05:41:03.5294953Z 	at scala.util.Success.flatMap(Try.scala:251)
 2025-09-28T05:41:03.5295796Z 	at com.codacy.plugins.runners.BinaryDockerRunner.run(BinaryDockerRunner.scala:69)
@@ -703,12 +703,12 @@
 2025-09-28T05:41:03.5342255Z 	at java.util.concurrent.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1056)
 2025-09-28T05:41:03.5343190Z 	at java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1692)
 2025-09-28T05:41:03.5344254Z 	at java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:175)
-2025-09-28T05:41:30.2544725Z 09/28 05:41:30 [1;31mERROR[0;39m [36mc.c.a.c.a.CodacyPluginsAnalyser:31[0;39m - Failed analysis for trivy 
-2025-09-28T05:41:30.2545576Z java.lang.Throwable: 
+2025-09-28T05:41:30.2544725Z 09/28 05:41:30 [1;31mERROR[0;39m [36mc.c.a.c.a.CodacyPluginsAnalyser:31[0;39m - Failed analysis for trivy
+2025-09-28T05:41:30.2545576Z java.lang.Throwable:
 2025-09-28T05:41:30.2549589Z Docker exited with code 1
-2025-09-28T05:41:30.2551086Z stdout: 
+2025-09-28T05:41:30.2551086Z stdout:
 2025-09-28T05:41:30.2552561Z stderr: time="2025-09-28T05:41:30Z" level=error msg="Failed to run the tool: codacy-trivy/tool: Failed to configure Codacy Trivy: no patterns configured"
-2025-09-28T05:41:30.2553364Z            
+2025-09-28T05:41:30.2553364Z
 2025-09-28T05:41:30.2553967Z 	at com.codacy.plugins.runners.BinaryDockerRunner.$anonfun$run$4(BinaryDockerRunner.scala:84)
 2025-09-28T05:41:30.2555230Z 	at scala.util.Success.flatMap(Try.scala:251)
 2025-09-28T05:41:30.2557742Z 	at com.codacy.plugins.runners.BinaryDockerRunner.run(BinaryDockerRunner.scala:69)
@@ -753,7 +753,7 @@
 2025-09-28T05:41:30.2593192Z 	at java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1692)
 2025-09-28T05:41:30.2594182Z 	at java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:175)
 2025-09-28T05:41:56.4977787Z 09/28 05:41:56 [1;31mERROR[0;39m [36mCodacyPlugins:11[0;39m - Failed to parse output: Unrecognized token 'No': was expecting 'null', 'true', 'false' or NaN
-2025-09-28T05:41:56.4979656Z  at [Source: (String)"No specified files"; line: 1, column: 3] - No specified files 
+2025-09-28T05:41:56.4979656Z  at [Source: (String)"No specified files"; line: 1, column: 3] - No specified files
 2025-09-28T05:41:56.4981243Z com.fasterxml.jackson.core.JsonParseException: Unrecognized token 'No': was expecting 'null', 'true', 'false' or NaN
 2025-09-28T05:41:56.4982586Z  at [Source: (String)"No specified files"; line: 1, column: 3]
 2025-09-28T05:41:56.4983919Z 	at com.fasterxml.jackson.core.JsonParser._constructError(JsonParser.java:1804)
@@ -825,12 +825,12 @@
 2025-09-28T05:41:56.5070987Z 	at java.util.concurrent.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1056)
 2025-09-28T05:41:56.5072980Z 	at java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1692)
 2025-09-28T05:41:56.5074107Z 	at java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:175)
-2025-09-28T05:42:34.2064189Z 09/28 05:42:34 [1;31mERROR[0;39m [36mc.c.a.c.a.CodacyPluginsAnalyser:31[0;39m - Failed analysis for trivy 
-2025-09-28T05:42:34.2064931Z java.lang.Throwable: 
+2025-09-28T05:42:34.2064189Z 09/28 05:42:34 [1;31mERROR[0;39m [36mc.c.a.c.a.CodacyPluginsAnalyser:31[0;39m - Failed analysis for trivy
+2025-09-28T05:42:34.2064931Z java.lang.Throwable:
 2025-09-28T05:42:34.2066722Z Docker exited with code 1
-2025-09-28T05:42:34.2068757Z stdout: 
+2025-09-28T05:42:34.2068757Z stdout:
 2025-09-28T05:42:34.2070218Z stderr: time="2025-09-28T05:42:34Z" level=error msg="Failed to run the tool: codacy-trivy/tool: Failed to configure Codacy Trivy: no patterns configured"
-2025-09-28T05:42:34.2071165Z            
+2025-09-28T05:42:34.2071165Z
 2025-09-28T05:42:34.2071861Z 	at com.codacy.plugins.runners.BinaryDockerRunner.$anonfun$run$4(BinaryDockerRunner.scala:84)
 2025-09-28T05:42:34.2072692Z 	at scala.util.Success.flatMap(Try.scala:251)
 2025-09-28T05:42:34.2073498Z 	at com.codacy.plugins.runners.BinaryDockerRunner.run(BinaryDockerRunner.scala:69)
@@ -874,10 +874,10 @@
 2025-09-28T05:42:34.2113043Z 	at java.util.concurrent.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1056)
 2025-09-28T05:42:34.2113857Z 	at java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1692)
 2025-09-28T05:42:34.2114943Z 	at java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:175)
-2025-09-28T05:42:49.6889559Z 09/28 05:42:49 [1;31mERROR[0;39m [36mc.c.a.c.a.CodacyPluginsAnalyser:31[0;39m - Failed analysis for eslint-8 
-2025-09-28T05:42:49.6891986Z java.lang.Throwable: 
+2025-09-28T05:42:49.6889559Z 09/28 05:42:49 [1;31mERROR[0;39m [36mc.c.a.c.a.CodacyPluginsAnalyser:31[0;39m - Failed analysis for eslint-8
+2025-09-28T05:42:49.6891986Z java.lang.Throwable:
 2025-09-28T05:42:49.6897321Z Docker exited with code 1
-2025-09-28T05:42:49.6897712Z stdout: 
+2025-09-28T05:42:49.6897712Z stdout:
 2025-09-28T05:42:49.6898659Z stderr: ConfigurationNotFoundError: No ESLint configuration found in /src/.codacy/tools-configs.
 2025-09-28T05:42:49.6900079Z     at CascadingConfigArrayFactory._finalizeConfigArray (/node_modules/@eslint/eslintrc/dist/eslintrc.cjs:4000:19)
 2025-09-28T05:42:49.6901638Z     at CascadingConfigArrayFactory.getConfigArrayForFile (/node_modules/@eslint/eslintrc/dist/eslintrc.cjs:3791:21)
@@ -892,7 +892,7 @@
 2025-09-28T05:42:49.6910907Z   messageTemplate: 'no-config-found',
 2025-09-28T05:42:49.6911555Z   messageData: { directoryPath: '/src/.codacy/tools-configs' }
 2025-09-28T05:42:49.6912093Z }
-2025-09-28T05:42:49.6912350Z            
+2025-09-28T05:42:49.6912350Z
 2025-09-28T05:42:49.6913124Z 	at com.codacy.plugins.runners.BinaryDockerRunner.$anonfun$run$4(BinaryDockerRunner.scala:84)
 2025-09-28T05:42:49.6914021Z 	at scala.util.Success.flatMap(Try.scala:251)
 2025-09-28T05:42:49.6914881Z 	at com.codacy.plugins.runners.BinaryDockerRunner.run(BinaryDockerRunner.scala:69)

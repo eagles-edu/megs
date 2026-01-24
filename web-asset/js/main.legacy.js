@@ -391,7 +391,7 @@
       // no-op
     }
   }
-  
+
   // jQuery compatibility
   function initJQueryCompat() {
     if (!window.jQuery) return

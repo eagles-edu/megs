@@ -1,0 +1,1149 @@
+eagles@cloud:~/dockerz/megs$ npm run lint
+
+> megs@2.0.7 lint
+> npm run lint:js && npm run lint:css && npm run lint:html
+
+
+> megs@2.0.7 lint:js
+> eslint "**/*.{js,mjs,cjs}"
+
+
+> megs@2.0.7 lint:css
+> stylelint "**/*.{css,scss,less}" --allow-empty-input
+
+
+> megs@2.0.7 lint:html
+> html-validate "**/*.{html,htm}"
+
+
+/home/eagles/dockerz/megs/a-b.html
+  292:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/c-d.html
+  320:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/future-perfect-tense.html
+  241:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/grammar-lessons.html
+  1279:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/lesson-20-phrasal-verbs.html
+  243:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/lesson-5-pronouns.html
+  243:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/list-13-forming-abstract-nouns.html
+  227:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/list-19-irregular-verbs.html
+  229:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/list-6-adjectives.html
+  353:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/past-continuous-tense.html
+  238:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/present-perfect-continuous-tense.html
+  244:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/present-perfect-tense.html
+  241:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/r-s.html
+  211:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/exercise-13-indirect-speech/1331-direct-to-indirect-speech-using-past-perfect-tense.html
+  349:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/exercise-13-indirect-speech/1341-direct-to-indirect-speech-using-passive-voice.html
+  349:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/exercise-15-passive-voice/1511-passive-voice-simple-present-tense.html
+  349:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/exercise-15-passive-voice/1521-passive-voice-present-perfect-tense.html
+  234:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/exercise-15-passive-voice/1531-passive-voice-present-continuous-tense.html
+  337:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/exercise-15-passive-voice/1541-passive-voice-part-simple-past-tense-i.html
+  337:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/exercise-15-passive-voice/1542-passive-voice-simple-past-tense-ii.html
+  337:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/exercise-15-passive-voice/1551-passive-voice-past-continuous-tense.html
+  337:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/exercise-15-passive-voice/1561-passive-voice-past-perfect-tense.html
+  349:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/exercise-15-passive-voice/1571-passive-voice-simple-future-tense.html
+  337:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/exercise-17-clauses/1731-adverbial-clauses.html
+  233:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/exercise-17-clauses/1741-noun-clauses.html
+  233:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/exercise-18-verb-ing-gerunds-and-particles/1811-verb-ing-gerund.html
+  337:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/exercise-18-verb-ing-gerunds-and-particles/1812-verb-ing-gerund-and-present-participle.html
+  337:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/exercise-18-verb-ing-gerunds-and-particles/1821-verb-ing-gerund-and-particle.html
+  337:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/exercise-18-verb-ing-gerunds-and-particles/1831-verb-ing-adjective-part-1.html
+  250:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/exercise-18-verb-ing-gerunds-and-particles/1832-verb-ing-adjective-part-2.html
+  233:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/exercise-19-determiners-and-quantifiers/1911-determiners-a-an-the.html
+  337:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/exercise-19-determiners-and-quantifiers/1912-determiners-a-an-the-some.html
+  337:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/exercise-19-determiners-and-quantifiers/1921-quantity-words.html
+  252:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/exercise-21-general/2111-part-of-speech-i.html
+  233:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/exercise-21-general/2112-part-of-speech-ii.html
+  337:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/exercise-21-general/2113-part-of-speech-adverb.html
+  233:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/exercise-21-general/2121-gerund-and-present-participle.html
+  337:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/exercise-22-test-your-vocabulary/2211-test-your-vocabulary-adjective.html
+  349:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/exercise-22-test-your-vocabulary/2221-test-your-vocabulary-verb.html
+  233:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/exercise-5-pronouns/562-relative-pronoun-who-which-copy.html
+  337:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/lesson-1-nouns/3-singular-and-plural-nouns.html
+  340:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/lesson-1-nouns/5-collective-nouns.html
+  346:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/lesson-10-modal-verb/1-can-and-could.html
+  342:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/lesson-10-modal-verb/2-may-and-might.html
+  329:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/lesson-10-modal-verb/3-will-and-would.html
+  330:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/lesson-10-modal-verb/4-shall-and-should.html
+  342:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/lesson-10-modal-verb/5-must.html
+  342:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/lesson-10-modal-verb/6-semi-modal-verbs-had-better.html
+  330:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/lesson-10-modal-verb/7-ought-to-and-used-to.html
+  318:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/lesson-10-modal-verb/8-dare-and-need.html
+  306:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/lesson-11-conditionals/1-the-first-conditional.html
+  316:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/lesson-11-conditionals/2-the-second-conditional.html
+  307:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/lesson-11-conditionals/3-the-third-conditional.html
+  343:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/lesson-11-conditionals/4-the-zero-conditional.html
+  329:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/lesson-12-modifiers/1-adjectives-and-adverbs-as-modifiers.html
+  308:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/lesson-12-modifiers/2-comparatives-and-superlatives-as-modifiers.html
+  342:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/lesson-12-modifiers/3-multiple-modifiers.html
+  343:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/lesson-12-modifiers/4-nouns-as-modifiers.html
+  338:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/lesson-12-modifiers/5-participles-as-modifiers.html
+  338:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/lesson-12-modifiers/6-phrases-and-clauses-as-modifiers.html
+  325:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/lesson-12-modifiers/7-dangling-modifiers.html
+  325:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/lesson-12-modifiers/8-misplaced-squinting-modifiers.html
+  325:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/lesson-13-indirect-speech/1-direct-speech-or-quoted-speech.html
+  330:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/lesson-13-indirect-speech/2-indirect-speech-or-reported-speech.html
+  331:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/lesson-13-indirect-speech/3-changing-direct-speech-to-indirect-speech.html
+  328:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/lesson-13-indirect-speech/4-changes-in-indirect-speech.html
+  343:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/lesson-13-indirect-speech/5-reporting-questions.html
+  329:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/lesson-14-either-neither/1-used-as-a-pronoun.html
+  331:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/lesson-14-either-neither/2-used-as-a-determiner.html
+  331:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/lesson-14-either-neither/3-used-as-a-conjunction.html
+  331:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/lesson-14-either-neither/4-used-as-an-adverb.html
+  331:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/lesson-14-either-neither/5-using-nor-without-neither.html
+  331:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/lesson-15-active-and-passive-voice/1-active-and-passive-voice.html
+  251:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/lesson-15-active-and-passive-voice/2-tenses-in-the-passive-voice.html
+  331:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/lesson-15-active-and-passive-voice/3-passive-sentence-with-two-objects.html
+  343:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/lesson-15-active-and-passive-voice/4-reasons-for-and-against-passive-voice.html
+  343:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/lesson-15-active-and-passive-voice/5-more-on-passive-voice.html
+  331:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/lesson-16-punctuation/1-full-stopperiod.html
+  331:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/lesson-16-punctuation/10-parentheses-brackets.html
+  331:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/lesson-16-punctuation/11-ellipsis.html
+  331:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/lesson-16-punctuation/11-ellipsis2.html
+  343:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/lesson-16-punctuation/2-comma.html
+  343:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/lesson-16-punctuation/3-question-mark.html
+  331:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/lesson-16-punctuation/4-exclamation-mark.html
+  331:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/lesson-16-punctuation/5-colon.html
+  343:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/lesson-16-punctuation/6-semicolon.html
+  331:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/lesson-16-punctuation/7-apostrophe.html
+  331:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/lesson-16-punctuation/8-hyphen-dash.html
+  331:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/lesson-16-punctuation/9-quotation-marks-qq.html
+  331:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/lesson-17-clauses/1-independent-clause-main-clause.html
+  331:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/lesson-17-clauses/2-dependent-clause-subordinate-clause.html
+  331:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/lesson-17-clauses/3-adverbial-clause.html
+  308:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/lesson-17-clauses/4-noun-clause.html
+  343:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/lesson-17-clauses/5-relative-clause.html
+  232:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/lesson-17-clauses/6-finite-and-nonfinite-clauses.html
+  331:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/lesson-17-clauses/7-defining-and-non-defining-relative-clauses.html
+  330:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/lesson-17-clauses/8-that-clause.html
+  331:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/lesson-17-clauses/8-that-clause2.html
+  331:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/lesson-18-verb-ing/1-the-verb-ing-used-as-the-present-participle.html
+  332:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/lesson-18-verb-ing/2-the-verb-ing-used-as-an-adjective.html
+  332:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/lesson-18-verb-ing/3-the-verb-ing-used-as-a-gerund.html
+  332:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/lesson-19-determiners-and-quantifiers/1-definite-article.html
+  316:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/lesson-19-determiners-and-quantifiers/2-demonstratives.html
+  316:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/lesson-19-determiners-and-quantifiers/3-possessive-determiners.html
+  329:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/lesson-19-determiners-and-quantifiers/4-distributives.html
+  230:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/lesson-19-determiners-and-quantifiers/5-quantifiers-countable-nouns.html
+  331:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/lesson-19-determiners-and-quantifiers/6-quantifiers-uncountable-nouns.html
+  331:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/lesson-19-determiners-and-quantifiers/7-quantifiers-countable-and-uncountable-nouns.html
+  331:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/lesson-19-determiners-and-quantifiers/8-some-and-any.html
+  328:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/lesson-19-determiners-and-quantifiers/9-this-that-these-and-those.html
+  328:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/lesson-2-verbs/1-principal-parts-of-a-verb.html
+  339:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/lesson-2-verbs/10-conjugation-of-verb-p2.html
+  341:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/lesson-2-verbs/10-conjugation-of-verb.html
+  339:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/lesson-2-verbs/2-auxiliary-verbs.html
+  230:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/lesson-2-verbs/3-transitive-and-intransitive-verbs.html
+  233:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/lesson-2-verbs/4-regular-and-irregular-verbs.html
+  339:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/lesson-2-verbs/5-linking-verbs.html
+  343:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/lesson-2-verbs/6-finite-verb-and-non-finite-verb.html
+  340:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/lesson-2-verbs/7-other-types-of-verbs.html
+  340:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/lesson-2-verbs/8-stative-state-verbs.html
+  339:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/lesson-2-verbs/8-stative-state-verbs2.html
+  342:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/lesson-2-verbs/9-moods-of-the-verb.html
+  338:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/lesson-20-phrasal-verbs/1-separable-and-non-separable-phrasal-verbs.html
+  343:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/lesson-20-phrasal-verbs/2-separable-transitive-phrasal-verb.html
+  331:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/lesson-20-phrasal-verbs/3-non-separable-transitive-phrasal-verb.html
+  232:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/lesson-20-phrasal-verbs/4-non-separable-intransitive-phrasal-verb.html
+  330:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/lesson-20-phrasal-verbs/5-phrasal-verbs-intransitive.html
+  330:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/lesson-21-phrases/1-absolute-phrase.html
+  330:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/lesson-21-phrases/1-absolute-phrase2.html
+  338:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/lesson-21-phrases/1-blank-phrase.html
+  341:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/lesson-21-phrases/2-adjective-phrase.html
+  330:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/lesson-21-phrases/2-adjective-phrase2.html
+  341:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/lesson-21-phrases/3-adverbial-phrase.html
+  330:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/lesson-21-phrases/3-adverbial-phrase2.html
+  340:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/lesson-21-phrases/4-appositive-phrase.html
+  330:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/lesson-21-phrases/4-appositive-phrase2.html
+  341:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/lesson-21-phrases/5-gerund-phrase.html
+  329:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/lesson-21-phrases/5-gerund-phrase2.html
+  341:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/lesson-21-phrases/6-infinitive-phrase.html
+  231:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/lesson-21-phrases/6-infinitive-phrase2.html
+  341:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/lesson-21-phrases/7-participial-phrase.html
+  330:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/lesson-21-phrases/7-participial-phrase2.html
+  341:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/lesson-21-phrases/8-prepositional-phrase.html
+  330:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/lesson-21-phrases/8-prepositional-phrase2.html
+  341:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/lesson-22-participles/1-participle-and-verb-tenses.html
+  231:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/lesson-22-participles/1-participle-and-verb-tenses2.html
+  248:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/lesson-22-participles/2-present-particles-i.html
+  231:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/lesson-22-participles/2-present-particles-i2.html
+  248:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/lesson-22-participles/3-present-particles-ii.html
+  231:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/lesson-22-participles/3-present-particles-ii2.html
+  248:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/lesson-22-participles/4-past-particles.html
+  231:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/lesson-22-participles/4-past-particles2.html
+  233:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/lesson-22-participles/5-fused-participles.html
+  231:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/lesson-22-participles/5-fused-participles2.html
+  270:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/lesson-22-participles/6-dangling-participles.html
+  330:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/lesson-22-participles/6-dangling-participles2.html
+  341:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/lesson-3-adjectives/1a-types-of-adjectives.html
+  339:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/lesson-3-adjectives/3-participial-adjectives.html
+  330:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/lesson-3-adjectives/4-adjectives-function-as-nouns.html
+  330:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/lesson-3-adjectives/5-attributive-and-predicative-adjectives.html
+  339:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/lesson-3-adjectives/6-order-of-adjectives.html
+  339:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/lesson-5-pronouns/7-interrogative-pronouns.html
+  340:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/lesson-5-pronouns/9-intensive-or-emphatic-pronouns.html
+  330:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/lesson-6-prepositions/3-prepositions-of-direction.html
+  343:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/lesson-6-prepositions/4-prepositions-of-manner-prepositions-of-cause-and-effect.html
+  343:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/lesson-6-prepositions/5-simple-and-compound-prepositions.html
+  232:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/lesson-6-prepositions/6-same-word-used-as-preposition-and-adverb.html
+  231:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/lesson-6-prepositions/7-same-word-used-as-preposition-and-other-parts-of-speech.html
+  248:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/lesson-6-prepositions/8-positions-of-preposition-in-the-sentence.html
+  343:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/lesson-6-prepositions/9-ending-a-sentence-with-a-preposition.html
+  275:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/lesson-7-conjunctions/1-coordinating-conjunctions.html
+  329:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/lesson-7-conjunctions/2-subordinating-conjunctions.html
+  357:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/lesson-7-conjunctions/3-correlative-conjunctions.html
+  340:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/lesson-7-conjunctions/4-connecting-conjunctions.html
+  340:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/lesson-7-conjunctions/5-conjunctions-function-as-preposition-adverb-or-adjective.html
+  340:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/lesson-7-conjunctions/6-more-on-conjunctions.html
+  340:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/lesson-7-conjunctions/7-the-conjunction-that.html
+  330:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/lesson-8-subject-verb-agreement/1-the-verb-must-agree-with-the-subject.html
+  332:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/lesson-8-subject-verb-agreement/2-compound-subjects-and-the-verbs.html
+  330:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/lesson-8-subject-verb-agreement/3-subjects-coming-after-the-verbs.html
+  314:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/lesson-8-subject-verb-agreement/4-two-subjects-nouns-with-singular-verb.html
+  330:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/lesson-8-subject-verb-agreement/5-agreement-with-indefinite-pronouns.html
+  331:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/lesson-8-subject-verb-agreement/6-words-that-intervene-between-subject-and-verb.html
+  330:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/lesson-9-articles/3-zero-article 1.html
+  311:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/lesson-9-articles/3-zero-article.html
+  329:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/lesson-9-articles/4-articles-before-countable-and-uncountable-nouns.html
+  328:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/lesson-9-articles/5-same-noun-used-with-all-three-articles.html
+  330:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/lesson-9-articles/6-position-of-an-article-in-a-sentence.html
+  329:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/list-1-singular-and-plural-nouns/by-adding-es-to-nouns-ending-in-ch-s-sh-ss-x-and-z.html
+  341:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/list-1-singular-and-plural-nouns/by-adding-es-to-nouns-ending-in-o.html
+  340:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/list-1-singular-and-plural-nouns/by-adding-s-if-there-is-a-vowel-before-the-y.html
+  341:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/list-1-singular-and-plural-nouns/by-adding-s-or-changing-f-into-ves.html
+  314:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/list-1-singular-and-plural-nouns/by-adding-s-or-es-to-nouns-ending-in-o.html
+  341:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/list-1-singular-and-plural-nouns/by-adding-s-to-nouns-ending-in-f-or-fe.html
+  343:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/list-1-singular-and-plural-nouns/by-adding-s-to-nouns-ending-in-o.html
+  341:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/list-1-singular-and-plural-nouns/by-adding-s.html
+  341:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/list-1-singular-and-plural-nouns/by-changing-f-or-fe-into-ves.html
+  341:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/list-1-singular-and-plural-nouns/by-changing-the-vowels.html
+  341:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/list-1-singular-and-plural-nouns/by-changing-y-into-ies-if-a-noun-ends-in-a-consonant-before-the-y.html
+  341:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/list-1-singular-and-plural-nouns/singular-and-plural-forms-of-compound-nouns.html
+  341:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/list-1-singular-and-plural-nouns/some-nouns-have-same-singular-and-plural-forms-or-have-plural-ending-s.html
+  341:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/list-1-singular-and-plural-nouns/the-ending-is-is-changed-to-es.html
+  341:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/list-1-singular-and-plural-nouns/the-singular-and-plural-forms-of-some-nouns-are-the-same.html
+  343:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/list-11-prepositions/list-of-prepositions.html
+  341:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/list-11-prepositions/prepositions-after-adjectives.html
+  303:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/list-11-prepositions/prepositions-after-nouns.html
+  330:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/list-11-prepositions/prepositions-after-verbs-examples.html
+  327:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/list-11-prepositions/prepositions-after-verbs.html
+  327:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/list-11-prepositions/prepositions-how-they-are-used.html
+  330:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/list-11-prepositions/prepositions-usage-list.html
+  331:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/list-11-prepositions/prepositions.html
+  342:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/list-14-phrasal-verbs/phrasal-verbs-accede-to-buy-up.html
+  342:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/list-14-phrasal-verbs/phrasal-verbs-call-back-cut-up.html
+  330:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/list-14-phrasal-verbs/phrasal-verbs-dawn-on-dry-up.html
+  227:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/list-14-phrasal-verbs/phrasal-verbs-eat-away--follow-up.html
+  328:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/list-14-phrasal-verbs/phrasal-verbs-get-about-get-up-to.html
+  330:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/list-14-phrasal-verbs/phrasal-verbs-give-away-go-without.html
+  322:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/list-14-phrasal-verbs/phrasal-verbs-hand-aroundround-hold-up-as.html
+  248:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/list-14-phrasal-verbs/phrasal-verbs-identify-with-knock-up.html
+  343:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/list-14-phrasal-verbs/phrasal-verbs-lapse-into-level-with.html
+  343:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/list-14-phrasal-verbs/phrasal-verbs-lie-around-look-up-to.html
+  341:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/list-14-phrasal-verbs/phrasal-verbs-make-away-with-open-up.html
+  330:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/list-14-phrasal-verbs/phrasal-verbs-pass-aroundround-polish-up.html
+  324:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/list-14-phrasal-verbs/phrasal-verbs-pull-ahead-put-up-with.html
+  330:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/list-14-phrasal-verbs/phrasal-verbs-read-into-rush-out.html
+  330:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/list-14-phrasal-verbs/phrasal-verbs-save-on-serve-out.html
+  341:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/list-14-phrasal-verbs/phrasal-verbs-set-about-shoot-up.html
+  330:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/list-14-phrasal-verbs/phrasal-verbs-show-aroundround-slip-up.html
+  341:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/list-14-phrasal-verbs/phrasal-verbs-slow-down-start-up.html
+  343:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/list-14-phrasal-verbs/phrasal-verbs-stay-behind-switch-over.html
+  341:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/list-14-phrasal-verbs/phrasal-verbs-take-aback--talk-up.html
+  313:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/list-14-phrasal-verbs/phrasal-verbs-tear-apart-tie-up.html
+  314:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/list-14-phrasal-verbs/phrasal-verbs-touch-at-turn-up.html
+  313:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/list-14-phrasal-verbs/phrasal-verbs-use-up-yield-to.html
+  313:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/list-16-phrases-and-idioms/phrases-and-idioms-001-100-acid-call.html
+  343:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/list-16-phrases-and-idioms/phrases-and-idioms-101-200-call-crime.html
+  343:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/list-16-phrases-and-idioms/phrases-and-idioms-201-300-critical-event.html
+  344:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/list-16-phrases-and-idioms/phrases-and-idioms-301-400-ever-half.html
+  343:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/list-16-phrases-and-idioms/phrases-and-idioms-401-500-hammer-kick.html
+  343:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/list-16-phrases-and-idioms/phrases-and-idioms-501-600-killing-mind.html
+  342:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/list-16-phrases-and-idioms/phrases-and-idioms-601-700-mind-part.html
+  342:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/list-16-phrases-and-idioms/phrases-and-idioms-701-800-past-rough.html
+  341:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/list-16-phrases-and-idioms/phrases-and-idioms-801-900-rough-state.html
+  342:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/list-16-phrases-and-idioms/phrases-and-idioms-901-1000-state-world.html
+  342:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/list-17-proverbs-and-sayings/proverbs-and-sayings-001-100.html
+  337:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/list-17-proverbs-and-sayings/proverbs-and-sayings-101-200.html
+  355:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/list-17-proverbs-and-sayings/proverbs-and-sayings-201-300.html
+  237:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/list-17-proverbs-and-sayings/proverbs-and-sayings-301-370.html
+  331:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/list-2-uncountable-nouns-made-countable/1.activity-cynicism.html
+  337:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/list-2-uncountable-nouns-made-countable/2.danger-fruit.html
+  337:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/list-2-uncountable-nouns-made-countable/3.l.html
+  337:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/list-2-uncountable-nouns-made-countable/4.marble-rum.html
+  337:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/list-2-uncountable-nouns-made-countable/5.sadness-sunlight.html
+  337:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/list-2-uncountable-nouns-made-countable/6.tea-yogurt.html
+  337:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/list-2-uncountable-nouns-made-countable/activity-cynicism.html
+  337:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/list-2-uncountable-nouns-made-countable/danger-fruit.html
+  337:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/list-2-uncountable-nouns-made-countable/l.html
+  337:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/list-2-uncountable-nouns-made-countable/marble-rum.html
+  337:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/list-2-uncountable-nouns-made-countable/marble-rum2.html
+  337:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/list-2-uncountable-nouns-made-countable/sadness-sunlight.html
+  337:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/list-2-uncountable-nouns-made-countable/tea-yogurt.html
+  652:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/list-20-gender/common-gender-people-a-creatures.html
+  281:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/list-20-gender/masculine-and-feminine-gender-people.html
+  281:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/list-3-collective-nouns/650-collective-nouns-people.html
+  314:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/list-3-collective-nouns/651-collective-nouns-things.html
+  345:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/list-3-collective-nouns/652-collective-nouns-creatures.html
+  341:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/list-3-collective-nouns/collective-nouns-creatures.html
+  315:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/list-3-collective-nouns/collective-nouns-people.html
+  315:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/list-3-collective-nouns/collective-nouns-things.html
+  636:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/list-4-verbs/different-verb-types.html
+  229:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/list-4-verbs/forming-verbs.html
+  315:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/list-5-irregular-verbs/all-three-forms-are-different.html
+  344:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/list-5-irregular-verbs/all-three-forms-are-the-same.html
+  327:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/list-5-irregular-verbs/only-the-simple-past-and-past-participle-are-the-same.html
+  315:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/list-6-adjectives/adjectives-ending-in-ly.html
+  285:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/list-6-adjectives/collective-adjectives-describing-group-of-people.html
+  285:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/list-6-adjectives/different-adjective-types.html
+  285:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/list-6-adjectives/different-adjective-types2.html
+  312:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/list-6-adjectives/forming-adjectives.html
+  249:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/list-6-adjectives/list-of-absolute-adjectives.html
+  315:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/list-6-adjectives/list-of-nominal-adjectives.html
+  315:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/list-6-adjectives/list-of-proper-adjectives.html
+  312:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/list-7-comparison-of-adjectives/659-comparatives-and-superlatives-that-are-formed-irregularly.html
+  312:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/list-7-comparison-of-adjectives/660-comparatives-and-superlatives-using-more-and-most.html
+  344:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/list-7-comparison-of-adjectives/661-comparatives-and-superlatives-using-er-and-est.html
+  344:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/list-7-comparison-of-adjectives/comparatives-and-superlatives-that-are-formed-irregularly.html
+  315:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/list-7-comparison-of-adjectives/comparatives-and-superlatives-using-er-and-est.html
+  312:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/list-7-comparison-of-adjectives/comparatives-and-superlatives-using-more-and-most.html
+  312:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/list-8-adverbs/adverbs-with-two-adverbial-forms.html
+  315:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/list-8-adverbs/comparison-of-adverbs.html
+  315:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/list-8-adverbs/forming-adverbs.html
+  312:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/list-8-adverbs/forming-adverbs2.html
+  315:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/lists2/1-a-c.html
+  340:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/lists2/2-d-f.html
+  329:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/lists2/2-e-g.html
+  339:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/lists2/4-j-l.html
+  323:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/lists2/5-p-r.html
+  328:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/lists2/6-s-t.html
+  326:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/lists2/7-u-z.html
+  315:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/lists2/g-i.html
+  327:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/lists2/words-from-a-z.html
+  1279:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/vocabulary/passageway-a-way-allowing-passage.html
+  312:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/vocabulary/receptaclesobjects-that-are-used-to-hold-things.html
+  315:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/vocabulary/religious-homes-and-places-of-worship.html
+  312:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/vocabulary/rude-words-describing-people.html
+  315:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/vocabulary/ways-of-expressing.html
+  315:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/writing/3-subject-complement.html
+  311:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/writing/4-sentence-structures.html
+  312:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/writing/5-sentence-functions.html
+  315:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/writing/6-agreement-within-a-sentence.html
+  343:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/writing/7-sentence-errors.html
+  330:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/writing/8-parallelism.html
+  315:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/writing/9-summary-proper-sentence-construction.html
+  311:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/list-11-prepositions/sentences-examples/prepositions-after-verbs-gladden-by-muster-up.html
+  231:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/list-4-verbs/different-verb-types/linking-verbs.html
+  193:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/list-4-verbs/different-verb-types/transitive-intransitive-verbs.html
+  194:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/lists/68-grammar-lists/623-list-17-the-comparison-of-adjectives.html
+  239:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/lists/68-grammar-lists/633-list-21-homes-of-people-and-creatures.html
+  239:1  warning  Trailing whitespace  no-trailing-whitespace
+
+✖ 318 problems (0 errors, 318 warnings)
+
+More information:
+  https://html-validate.org/rules/no-trailing-whitespace.html
+
+eagles@cloud:~/dockerz/megs$ npm run lint
+
+> megs@2.0.7 lint
+> npm run lint:js && npm run lint:css && npm run lint:html
+
+
+> megs@2.0.7 lint:js
+> eslint "**/*.{js,mjs,cjs}"
+
+
+> megs@2.0.7 lint:css
+> stylelint "**/*.{css,scss,less}" --allow-empty-input
+
+
+> megs@2.0.7 lint:html
+> html-validate "**/*.{html,htm}"
+
+
+/home/eagles/dockerz/megs/future-perfect-tense.html
+  241:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/grammar-lessons.html
+  1279:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/lesson-20-phrasal-verbs.html
+  243:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/lesson-5-pronouns.html
+  243:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/list-13-forming-abstract-nouns.html
+  227:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/list-19-irregular-verbs.html
+  229:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/past-continuous-tense.html
+  238:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/present-perfect-continuous-tense.html
+  244:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/present-perfect-tense.html
+  241:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/r-s.html
+  211:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/exercise-15-passive-voice/1521-passive-voice-present-perfect-tense.html
+  234:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/exercise-17-clauses/1731-adverbial-clauses.html
+  233:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/exercise-17-clauses/1741-noun-clauses.html
+  233:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/exercise-18-verb-ing-gerunds-and-particles/1831-verb-ing-adjective-part-1.html
+  250:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/exercise-18-verb-ing-gerunds-and-particles/1832-verb-ing-adjective-part-2.html
+  233:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/exercise-19-determiners-and-quantifiers/1921-quantity-words.html
+  252:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/exercise-21-general/2111-part-of-speech-i.html
+  233:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/exercise-21-general/2113-part-of-speech-adverb.html
+  233:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/exercise-22-test-your-vocabulary/2221-test-your-vocabulary-verb.html
+  233:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/lesson-15-active-and-passive-voice/1-active-and-passive-voice.html
+  251:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/lesson-17-clauses/5-relative-clause.html
+  232:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/lesson-19-determiners-and-quantifiers/4-distributives.html
+  230:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/lesson-2-verbs/2-auxiliary-verbs.html
+  230:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/lesson-2-verbs/3-transitive-and-intransitive-verbs.html
+  233:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/lesson-20-phrasal-verbs/3-non-separable-transitive-phrasal-verb.html
+  232:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/lesson-21-phrases/6-infinitive-phrase.html
+  231:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/lesson-22-participles/1-participle-and-verb-tenses.html
+  231:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/lesson-22-participles/1-participle-and-verb-tenses2.html
+  248:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/lesson-22-participles/2-present-particles-i.html
+  231:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/lesson-22-participles/2-present-particles-i2.html
+  248:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/lesson-22-participles/3-present-particles-ii.html
+  231:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/lesson-22-participles/3-present-particles-ii2.html
+  248:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/lesson-22-participles/4-past-particles.html
+  231:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/lesson-22-participles/4-past-particles2.html
+  233:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/lesson-22-participles/5-fused-participles.html
+  231:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/lesson-22-participles/5-fused-participles2.html
+  270:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/lesson-6-prepositions/5-simple-and-compound-prepositions.html
+  232:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/lesson-6-prepositions/6-same-word-used-as-preposition-and-adverb.html
+  231:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/lesson-6-prepositions/7-same-word-used-as-preposition-and-other-parts-of-speech.html
+  248:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/lesson-6-prepositions/9-ending-a-sentence-with-a-preposition.html
+  275:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/list-14-phrasal-verbs/phrasal-verbs-dawn-on-dry-up.html
+  227:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/list-14-phrasal-verbs/phrasal-verbs-hand-aroundround-hold-up-as.html
+  248:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/list-17-proverbs-and-sayings/proverbs-and-sayings-201-300.html
+  237:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/list-4-verbs/different-verb-types.html
+  229:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/list-6-adjectives/forming-adjectives.html
+  249:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/list-11-prepositions/sentences-examples/prepositions-after-verbs-gladden-by-muster-up.html
+  231:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/list-4-verbs/different-verb-types/linking-verbs.html
+  193:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/list-4-verbs/different-verb-types/transitive-intransitive-verbs.html
+  194:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/lists/68-grammar-lists/623-list-17-the-comparison-of-adjectives.html
+  239:1  warning  Trailing whitespace  no-trailing-whitespace
+
+/home/eagles/dockerz/megs/lists/68-grammar-lists/633-list-21-homes-of-people-and-creatures.html
+  239:1  warning  Trailing whitespace  no-trailing-whitespace
+
+✖ 50 problems (0 errors, 50 warnings)
+
+More information:
+  https://html-validate.org/rules/no-trailing-whitespace.html

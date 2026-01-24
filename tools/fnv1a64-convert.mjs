@@ -35,7 +35,7 @@
  *   node tools/fnv1a64-convert.mjs --encode --input tools/input.txt > tools/hashes.txt
  *   node tools/fnv1a64-convert.mjs --decode --dictionary tools/dict.txt --input hashes.txt
  *   node tools/fnv1a64-convert.mjs --verify --input tools/input.txt
- * 
+ *
  *   node tools/fnv1a64-convert.mjs --round-trip --input tools/input.txt --title 431-modifying-verbs
  *
  * # encode → decode using tools/*.txt; copies decoded.txt to dev/<title>.ext when title provided/prompted

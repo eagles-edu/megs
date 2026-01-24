@@ -78,23 +78,23 @@ index c0e74af349a1617bf719316554850e6ea6077b26..3aa9671172c718952761cc8fed01c892
        { except: ['first-nested'], ignore: ['after-comment', 'inside-block'] },
      ],
      'declaration-block-single-line-max-declarations': 3,
- 
+
      // Naming conventions OFF per your policy
      'selector-class-pattern': null,
      'selector-id-pattern': null,
- 
+
 -    // 🔕 DEAD CLASSES OFF (global)
 -    'plugin/no-unused-selectors': null,
 +    // 🔕 Dead class detection removed:
      //    plugin incompatible with Stylelint 16
- 
+
      // Relaxers you chose
      'number-max-precision': null,
      'at-rule-no-unknown': null,
      'no-descending-specificity': null,
      'property-disallowed-list': null,
      'declaration-property-value-disallowed-list': null,
- 
+
      'declaration-block-no-duplicate-properties': [
        true,
        {

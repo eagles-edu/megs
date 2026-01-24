@@ -133,7 +133,7 @@
 <body class="site com_content view-article no-layout no-task itemid-3554">
   <!-- Body -->
   <div class="body" id="top">
-    <div class="container">      
+    <div class="container">
       <div class="row-fluid">
         <!-- Begin Sidebar -->
         <div id="sidebar" class="span2">
@@ -343,7 +343,7 @@
 
           <div id="system-message-container"></div>
           <div class="item-page" itemscope itemtype="https://schema.org/Article">
-            
+
             <div class="page-header">
               <h2 itemprop="headline">3.1.1 Kinds of Adjectives</h2>
             </div>

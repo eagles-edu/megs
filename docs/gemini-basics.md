@@ -67,4 +67,4 @@ Basics:                                                                     │
 │ Up/Down - Cycle through your prompt history                                 │
 │                                                                             │
 │ For a full list of shortcuts, see docs/keyboard-shortcuts.md                │
-│                                                                   
+│

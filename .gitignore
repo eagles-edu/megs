@@ -2,7 +2,7 @@
 .DS_Store
 Thumbs.db
 .htaccess
-
+*.BAK-20260124-174433
 # ── Archives
 *.zip
 

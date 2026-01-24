@@ -311,11 +311,11 @@
 2025-09-28T10:04:52.8585219Z HTTP request sent, awaiting response... 200 OK
 2025-09-28T10:04:52.8585915Z Length: 3291 (3.2K) [text/plain]
 2025-09-28T10:04:52.8586847Z Saving to: ‘STDOUT’
-2025-09-28T10:04:52.8587144Z 
+2025-09-28T10:04:52.8587144Z
 2025-09-28T10:04:52.8587379Z      0K ...                                                   100% 39.4M=0s
-2025-09-28T10:04:52.8587819Z 
+2025-09-28T10:04:52.8587819Z
 2025-09-28T10:04:52.8588361Z 2025-09-28 10:04:52 (39.4 MB/s) - written to stdout [3291/3291]
-2025-09-28T10:04:52.8588888Z 
+2025-09-28T10:04:52.8588888Z
 2025-09-28T10:04:52.8619720Z ##[group]Run chmod +x "/home/runner/work/_actions/codacy/codacy-analysis-cli-action/v4/codacy-analysis-cli.sh"
 2025-09-28T10:04:52.8620647Z [36;1mchmod +x "/home/runner/work/_actions/codacy/codacy-analysis-cli-action/v4/codacy-analysis-cli.sh"[0m
 2025-09-28T10:04:52.8646801Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
@@ -387,12 +387,12 @@
 2025-09-28T10:04:58.7320953Z 96fa1203d65f: Pull complete
 2025-09-28T10:04:58.7369593Z Digest: sha256:339e0103e28804f9d76aff34503e505440e5d5b42f5dd70dae73b592ea87826a
 2025-09-28T10:04:58.7388750Z Status: Downloaded newer image for codacy/codacy-analysis-cli:7.9.25
-2025-09-28T10:05:12.0747116Z 09/28 10:05:12 [1;31mERROR[0;39m [36mc.c.a.c.a.CodacyPluginsAnalyser:31[0;39m - Failed analysis for trivy 
-2025-09-28T10:05:12.0747823Z java.lang.Throwable: 
+2025-09-28T10:05:12.0747116Z 09/28 10:05:12 [1;31mERROR[0;39m [36mc.c.a.c.a.CodacyPluginsAnalyser:31[0;39m - Failed analysis for trivy
+2025-09-28T10:05:12.0747823Z java.lang.Throwable:
 2025-09-28T10:05:12.0748142Z Docker exited with code 1
-2025-09-28T10:05:12.0748451Z stdout: 
+2025-09-28T10:05:12.0748451Z stdout:
 2025-09-28T10:05:12.0749268Z stderr: time="2025-09-28T10:05:12Z" level=error msg="Failed to run the tool: codacy-trivy/tool: Failed to configure Codacy Trivy: no patterns configured"
-2025-09-28T10:05:12.0750184Z            
+2025-09-28T10:05:12.0750184Z
 2025-09-28T10:05:12.0751066Z 	at com.codacy.plugins.runners.BinaryDockerRunner.$anonfun$run$4(BinaryDockerRunner.scala:84)
 2025-09-28T10:05:12.0751905Z 	at scala.util.Success.flatMap(Try.scala:251)
 2025-09-28T10:05:12.0752614Z 	at com.codacy.plugins.runners.BinaryDockerRunner.run(BinaryDockerRunner.scala:69)
@@ -436,12 +436,12 @@
 2025-09-28T10:05:12.0790260Z 	at java.util.concurrent.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1056)
 2025-09-28T10:05:12.0791370Z 	at java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1692)
 2025-09-28T10:05:12.0792314Z 	at java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:175)
-2025-09-28T10:05:12.0793589Z 09/28 10:05:12 [1;31mERROR[0;39m [36mc.c.a.c.a.CodacyPluginsAnalyser:31[0;39m - Failed analysis for trivy 
-2025-09-28T10:05:12.0794367Z java.lang.Throwable: 
+2025-09-28T10:05:12.0793589Z 09/28 10:05:12 [1;31mERROR[0;39m [36mc.c.a.c.a.CodacyPluginsAnalyser:31[0;39m - Failed analysis for trivy
+2025-09-28T10:05:12.0794367Z java.lang.Throwable:
 2025-09-28T10:05:12.0794735Z Docker exited with code 1
-2025-09-28T10:05:12.0795092Z stdout: 
+2025-09-28T10:05:12.0795092Z stdout:
 2025-09-28T10:05:12.0795944Z stderr: time="2025-09-28T10:05:12Z" level=error msg="Failed to run the tool: codacy-trivy/tool: Failed to configure Codacy Trivy: no patterns configured"
-2025-09-28T10:05:12.0796889Z            
+2025-09-28T10:05:12.0796889Z
 2025-09-28T10:05:12.0797552Z 	at com.codacy.plugins.runners.BinaryDockerRunner.$anonfun$run$4(BinaryDockerRunner.scala:84)
 2025-09-28T10:05:12.0798369Z 	at scala.util.Success.flatMap(Try.scala:251)
 2025-09-28T10:05:12.0799114Z 	at com.codacy.plugins.runners.BinaryDockerRunner.run(BinaryDockerRunner.scala:69)
@@ -505,12 +505,12 @@
 2025-09-28T10:05:12.0851946Z 	at java.util.concurrent.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1056)
 2025-09-28T10:05:12.0852407Z 	at java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1692)
 2025-09-28T10:05:12.0852880Z 	at java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:175)
-2025-09-28T10:05:12.3554913Z 09/28 10:05:12 [1;31mERROR[0;39m [36mc.c.a.c.a.CodacyPluginsAnalyser:31[0;39m - Failed analysis for trivy 
-2025-09-28T10:05:12.3555684Z java.lang.Throwable: 
+2025-09-28T10:05:12.3554913Z 09/28 10:05:12 [1;31mERROR[0;39m [36mc.c.a.c.a.CodacyPluginsAnalyser:31[0;39m - Failed analysis for trivy
+2025-09-28T10:05:12.3555684Z java.lang.Throwable:
 2025-09-28T10:05:12.3556038Z Docker exited with code 1
-2025-09-28T10:05:12.3556359Z stdout: 
+2025-09-28T10:05:12.3556359Z stdout:
 2025-09-28T10:05:12.3557106Z stderr: time="2025-09-28T10:05:12Z" level=error msg="Failed to run the tool: codacy-trivy/tool: Failed to configure Codacy Trivy: no patterns configured"
-2025-09-28T10:05:12.3558021Z            
+2025-09-28T10:05:12.3558021Z
 2025-09-28T10:05:12.3558621Z 	at com.codacy.plugins.runners.BinaryDockerRunner.$anonfun$run$4(BinaryDockerRunner.scala:84)
 2025-09-28T10:05:12.3559423Z 	at scala.util.Success.flatMap(Try.scala:251)
 2025-09-28T10:05:12.3560144Z 	at com.codacy.plugins.runners.BinaryDockerRunner.run(BinaryDockerRunner.scala:69)
@@ -554,12 +554,12 @@
 2025-09-28T10:05:12.3603239Z 	at java.util.concurrent.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1056)
 2025-09-28T10:05:12.3604047Z 	at java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1692)
 2025-09-28T10:05:12.3604910Z 	at java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:175)
-2025-09-28T10:05:12.3606117Z 09/28 10:05:12 [1;31mERROR[0;39m [36mc.c.a.c.a.CodacyPluginsAnalyser:31[0;39m - Failed analysis for trivy 
-2025-09-28T10:05:12.3606763Z java.lang.Throwable: 
+2025-09-28T10:05:12.3606117Z 09/28 10:05:12 [1;31mERROR[0;39m [36mc.c.a.c.a.CodacyPluginsAnalyser:31[0;39m - Failed analysis for trivy
+2025-09-28T10:05:12.3606763Z java.lang.Throwable:
 2025-09-28T10:05:12.3607090Z Docker exited with code 1
-2025-09-28T10:05:12.3607400Z stdout: 
+2025-09-28T10:05:12.3607400Z stdout:
 2025-09-28T10:05:12.3608132Z stderr: time="2025-09-28T10:05:12Z" level=error msg="Failed to run the tool: codacy-trivy/tool: Failed to configure Codacy Trivy: no patterns configured"
-2025-09-28T10:05:12.3608863Z            
+2025-09-28T10:05:12.3608863Z
 2025-09-28T10:05:12.3609366Z 	at com.codacy.plugins.runners.BinaryDockerRunner.$anonfun$run$4(BinaryDockerRunner.scala:84)
 2025-09-28T10:05:12.3610019Z 	at scala.util.Success.flatMap(Try.scala:251)
 2025-09-28T10:05:12.3610830Z 	at com.codacy.plugins.runners.BinaryDockerRunner.run(BinaryDockerRunner.scala:69)
@@ -623,12 +623,12 @@
 2025-09-28T10:05:12.3664504Z 	at java.util.concurrent.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1056)
 2025-09-28T10:05:12.3665380Z 	at java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1692)
 2025-09-28T10:05:12.3666268Z 	at java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:175)
-2025-09-28T10:05:12.5781488Z 09/28 10:05:12 [1;31mERROR[0;39m [36mc.c.a.c.a.CodacyPluginsAnalyser:31[0;39m - Failed analysis for trivy 
-2025-09-28T10:05:12.5782360Z java.lang.Throwable: 
+2025-09-28T10:05:12.5781488Z 09/28 10:05:12 [1;31mERROR[0;39m [36mc.c.a.c.a.CodacyPluginsAnalyser:31[0;39m - Failed analysis for trivy
+2025-09-28T10:05:12.5782360Z java.lang.Throwable:
 2025-09-28T10:05:12.5782688Z Docker exited with code 1
-2025-09-28T10:05:12.5783055Z stdout: 
+2025-09-28T10:05:12.5783055Z stdout:
 2025-09-28T10:05:12.5783928Z stderr: time="2025-09-28T10:05:12Z" level=error msg="Failed to run the tool: codacy-trivy/tool: Failed to configure Codacy Trivy: no patterns configured"
-2025-09-28T10:05:12.5784816Z            
+2025-09-28T10:05:12.5784816Z
 2025-09-28T10:05:12.5785519Z 	at com.codacy.plugins.runners.BinaryDockerRunner.$anonfun$run$4(BinaryDockerRunner.scala:84)
 2025-09-28T10:05:12.5786294Z 	at scala.util.Success.flatMap(Try.scala:251)
 2025-09-28T10:05:12.5786749Z 	at com.codacy.plugins.runners.BinaryDockerRunner.run(BinaryDockerRunner.scala:69)

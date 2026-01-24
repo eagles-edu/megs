@@ -159,12 +159,12 @@
 2025-09-28T10:05:03.5796425Z npm warn deprecated glob@7.2.3: Glob versions prior to v9 are no longer supported
 2025-09-28T10:05:03.6325877Z npm warn deprecated domexception@4.0.0: Use your platform's native DOMException instead
 2025-09-28T10:05:04.3571364Z npm warn deprecated puppeteer@2.1.1: < 24.10.2 is no longer supported
-2025-09-28T10:05:11.0260104Z 
+2025-09-28T10:05:11.0260104Z
 2025-09-28T10:05:11.0260731Z added 779 packages, and audited 780 packages in 10s
-2025-09-28T10:05:11.0261461Z 
+2025-09-28T10:05:11.0261461Z
 2025-09-28T10:05:11.0261834Z 162 packages are looking for funding
 2025-09-28T10:05:11.0262286Z   run `npm fund` for details
-2025-09-28T10:05:11.0274344Z 
+2025-09-28T10:05:11.0274344Z
 2025-09-28T10:05:11.0274750Z found 0 vulnerabilities
 2025-09-28T10:05:11.0756289Z ##[group]Run npm run lint
 2025-09-28T10:05:11.0756581Z [36;1mnpm run lint[0m
@@ -172,22 +172,22 @@
 2025-09-28T10:05:11.0783948Z env:
 2025-09-28T10:05:11.0784127Z   ESLINT_USE_FLAT_CONFIG: true
 2025-09-28T10:05:11.0784346Z ##[endgroup]
-2025-09-28T10:05:11.1947515Z 
+2025-09-28T10:05:11.1947515Z
 2025-09-28T10:05:11.1952275Z > megs@2.0.3 lint
 2025-09-28T10:05:11.1955484Z > npm run lint:js && npm run lint:css && npm run lint:html
-2025-09-28T10:05:11.1957164Z 
-2025-09-28T10:05:11.3131976Z 
+2025-09-28T10:05:11.1957164Z
+2025-09-28T10:05:11.3131976Z
 2025-09-28T10:05:11.3132550Z > megs@2.0.3 lint:js
 2025-09-28T10:05:11.3133232Z > eslint "**/*.{js,mjs,cjs}"
-2025-09-28T10:05:11.3133533Z 
-2025-09-28T10:05:12.1422761Z 
+2025-09-28T10:05:11.3133533Z
+2025-09-28T10:05:12.1422761Z
 2025-09-28T10:05:12.1423116Z > megs@2.0.3 lint:css
 2025-09-28T10:05:12.1423579Z > stylelint "**/*.{css,scss,less}" --allow-empty-input
-2025-09-28T10:05:12.1423826Z 
-2025-09-28T10:05:13.2790518Z 
+2025-09-28T10:05:12.1423826Z
+2025-09-28T10:05:13.2790518Z
 2025-09-28T10:05:13.2792167Z > megs@2.0.3 lint:html
 2025-09-28T10:05:13.2792749Z > html-validate "**/*.{html,htm}"
-2025-09-28T10:05:13.2793175Z 
+2025-09-28T10:05:13.2793175Z
 2025-09-28T10:05:46.1288133Z ##[group]Run codacy/codacy-analysis-cli-action@v4
 2025-09-28T10:05:46.1288450Z with:
 2025-09-28T10:05:46.1288625Z   tool: eslint
@@ -412,11 +412,11 @@
 2025-09-28T10:05:46.4032334Z HTTP request sent, awaiting response... 200 OK
 2025-09-28T10:05:46.4033217Z Length: 3291 (3.2K) [text/plain]
 2025-09-28T10:05:46.4034774Z Saving to: ‘STDOUT’
-2025-09-28T10:05:46.4035119Z 
+2025-09-28T10:05:46.4035119Z
 2025-09-28T10:05:46.4035474Z      0K ...                                                   100% 28.4M=0s
-2025-09-28T10:05:46.4035905Z 
+2025-09-28T10:05:46.4035905Z
 2025-09-28T10:05:46.4036483Z 2025-09-28 10:05:46 (28.4 MB/s) - written to stdout [3291/3291]
-2025-09-28T10:05:46.4037041Z 
+2025-09-28T10:05:46.4037041Z
 2025-09-28T10:05:46.4073443Z ##[group]Run chmod +x "/home/runner/work/_actions/codacy/codacy-analysis-cli-action/v4/codacy-analysis-cli.sh"
 2025-09-28T10:05:46.4074164Z [36;1mchmod +x "/home/runner/work/_actions/codacy/codacy-analysis-cli-action/v4/codacy-analysis-cli.sh"[0m
 2025-09-28T10:05:46.4101667Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
@@ -490,10 +490,10 @@
 2025-09-28T10:05:51.4479821Z 96fa1203d65f: Pull complete
 2025-09-28T10:05:51.4509401Z Digest: sha256:339e0103e28804f9d76aff34503e505440e5d5b42f5dd70dae73b592ea87826a
 2025-09-28T10:05:51.4519395Z Status: Downloaded newer image for codacy/codacy-analysis-cli:7.9.25
-2025-09-28T10:06:52.1396246Z 09/28 10:06:52 [1;31mERROR[0;39m [36mc.c.a.c.a.CodacyPluginsAnalyser:31[0;39m - Failed analysis for eslint 
-2025-09-28T10:06:52.1397924Z java.lang.Throwable: 
+2025-09-28T10:06:52.1396246Z 09/28 10:06:52 [1;31mERROR[0;39m [36mc.c.a.c.a.CodacyPluginsAnalyser:31[0;39m - Failed analysis for eslint
+2025-09-28T10:06:52.1397924Z java.lang.Throwable:
 2025-09-28T10:06:52.1398539Z Docker exited with code 1
-2025-09-28T10:06:52.1399166Z stdout: 
+2025-09-28T10:06:52.1399166Z stdout:
 2025-09-28T10:06:52.1400202Z stderr: ConfigurationNotFoundError: No ESLint configuration found in /src/.codacy/tools-configs.
 2025-09-28T10:06:52.1401906Z     at CascadingConfigArrayFactory._finalizeConfigArray (/node_modules/@eslint/eslintrc/lib/cascading-config-array-factory.js:508:19)
 2025-09-28T10:06:52.1403062Z     at CascadingConfigArrayFactory.getConfigArrayForFile (/node_modules/@eslint/eslintrc/lib/cascading-config-array-factory.js:299:21)
@@ -508,7 +508,7 @@
 2025-09-28T10:06:52.1412075Z   messageTemplate: 'no-config-found',
 2025-09-28T10:06:52.1413041Z   messageData: { directoryPath: '/src/.codacy/tools-configs' }
 2025-09-28T10:06:52.1413867Z }
-2025-09-28T10:06:52.1414256Z            
+2025-09-28T10:06:52.1414256Z
 2025-09-28T10:06:52.1415556Z 	at com.codacy.plugins.runners.BinaryDockerRunner.$anonfun$run$4(BinaryDockerRunner.scala:84)
 2025-09-28T10:06:52.1416713Z 	at scala.util.Success.flatMap(Try.scala:251)
 2025-09-28T10:06:52.1417909Z 	at com.codacy.plugins.runners.BinaryDockerRunner.run(BinaryDockerRunner.scala:69)

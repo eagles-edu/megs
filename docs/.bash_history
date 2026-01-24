@@ -26,7 +26,7 @@ google-chrome
 Xorg :0
 sudo apt install tilix -y
 sudo apt install thunar -y
-sudo apt install lightdm 
+sudo apt install lightdm
 sudo chmod u+s /usr/lib/xorg/Xorg
 sudo usermod -aG video,input $USER
 sudo chmod u+s /usr/lib/xorg/Xorg
@@ -54,11 +54,11 @@ sudo thunar
 sudo netstat -tulnp | grep -E '80|443'
 sudo systemctl start nginx
 sudo systemctl status nginx
-sudo ln -s /etc/nginx/sites-available/anhngu.eagles.edu.vn /etc/nginx/sites-enabled/ && sudo ln -s /etc/nginx/sites-available/eagles.edu.vn /etc/nginx/sites-enabled/ && sudo ln -s /etc/nginx/sites-available/anhngu.eaglesvn.com /etc/nginx/sites-enabled/ && sudo ln -s /etc/nginx/sites-available/thuvien.eaglesvn.com /etc/nginx/sites-enabled/ && sudo ln -s /etc/nginx/sites-available/thuvien.eagles.edu.vn /etc/nginx/sites-enabled/ && sudo ln -s /etc/nginx/sites-available/eaglesvn.com /etc/nginx/sites-enabled/ 
+sudo ln -s /etc/nginx/sites-available/anhngu.eagles.edu.vn /etc/nginx/sites-enabled/ && sudo ln -s /etc/nginx/sites-available/eagles.edu.vn /etc/nginx/sites-enabled/ && sudo ln -s /etc/nginx/sites-available/anhngu.eaglesvn.com /etc/nginx/sites-enabled/ && sudo ln -s /etc/nginx/sites-available/thuvien.eaglesvn.com /etc/nginx/sites-enabled/ && sudo ln -s /etc/nginx/sites-available/thuvien.eagles.edu.vn /etc/nginx/sites-enabled/ && sudo ln -s /etc/nginx/sites-available/eaglesvn.com /etc/nginx/sites-enabled/
 sudo nginx -t
 nginx -V 2>&1 | grep -o with-http_v2_module
 sudo nginx -t
-sudo ln -s /etc/nginx/sites-available/thuvien.eaglesvn.com /etc/nginx/sites-enabled/ 
+sudo ln -s /etc/nginx/sites-available/thuvien.eaglesvn.com /etc/nginx/sites-enabled/
 sudo nginx -t
 sudo nginx -T | grep -i listen
 sudo systemctl reload nginx
@@ -337,7 +337,7 @@ curl -I http://eaglesvn.com/.well-known/acme-challenge/test-file
 sudo netstat -tulnp | grep ":80"
 echo "test" | sudo tee /home/eaglesvn.com/public_html/.well-known/acme-challenge/test-file2
 curl -I http://eaglesvn.com/.well-known/acme-challenge/test-file
-sudo ln -s /etc/nginx/sites-available/ssl_eaglesvn.com /etc/nginx/sites-enabled/  && sudo ln -s /etc/nginx/sites-available/anhngu.eagles.edu.vn /etc/nginx/sites-enabled/ && sudo ln -s /etc/nginx/sites-available/eagles.edu.vn /etc/nginx/sites-enabled/ && sudo ln -s /etc/nginx/sites-available/thuvien.eagles.edu.vn /etc/nginx/sites-enabled/ 
+sudo ln -s /etc/nginx/sites-available/ssl_eaglesvn.com /etc/nginx/sites-enabled/  && sudo ln -s /etc/nginx/sites-available/anhngu.eagles.edu.vn /etc/nginx/sites-enabled/ && sudo ln -s /etc/nginx/sites-available/eagles.edu.vn /etc/nginx/sites-enabled/ && sudo ln -s /etc/nginx/sites-available/thuvien.eagles.edu.vn /etc/nginx/sites-enabled/
 sudo nginx -t
 sudo systemctl restart nginx
 sudo systemctl status nginx
@@ -384,10 +384,10 @@ docker ps
 docker network create --driver bridge redis-stack  && docker network create --driver bridge app-network  && docker network create --driver bridge joomla-network
 docker network connect app-network redis-stack
 docker run -d --name redis-stack   --network redis-network   -p 6379:6379 -p 8001:8001   -e REDIS_ARGS="--requirepass L8ZsQ5zDk6XrPz49"   -v /local-data/:/data   redis/redis-stack:7.4.0-v1
-docker network create --driver bridge redis-network 
+docker network create --driver bridge redis-network
 docker network connect app-network redis-network
 docker network connect joomla-network redis-stack
-docker network create --driver bridge redis-network 
+docker network create --driver bridge redis-network
 docker run -d --name redis-stack   --network redis-network   -p 6379:6379 -p 8001:8001   -e REDIS_ARGS="--requirepass L8ZsQ5zDk6XrPz49"   -v /local-data/:/data   redis/redis-stack:7.4.0-v1
 docker network create --driver bridge app-network  && docker network create --driver bridge joomla-network
 docker network connect app-network redis-stack &&    docker network connect joomla-network redis-stack
@@ -398,7 +398,7 @@ docker network create --driver bridge redis-network  && docker network create --
 docker run -d --name redis-stack   --network redis-network   -p 6379:6379 -p 8001:8001   -e REDIS_ARGS="--requirepass L8ZsQ5zDk6XrPz49"   -v /local-data/:/data   redis/redis-stack:7.4.0-v1
 docker network connect redis-network redis-stack &&  docker network connect app-network redis-stack &&  docker network connect joomla-network redis-stack && docker network connect moodle-network redis-stack
 docker network create --driver bridge app-network  && docker network create --driver bridge joomla-network && docker network create --driver bridge moodle-network
-docker network create --driver bridge joomla-network 
+docker network create --driver bridge joomla-network
 docker network create --driver bridge moodle-network
 docker network connect moodle-network redis-stack
 docker network connect joomla-network redis-stack
@@ -547,7 +547,7 @@ sudo nginx -t
 sudo systemctl restart nginx
 sudo nano /etc/mysql/my.cnf
 sudo systemctl restart mysql
-sudo nano /etc/redis/redis.conf 
+sudo nano /etc/redis/redis.conf
 sudo systemctl restart redis
 sudo apt update && sudo apt upgrade -y
 sudo apt install software-properties-common apt-transport-https wget -y
@@ -571,7 +571,7 @@ sudo passwd root
 su -
 for domain in eagles.edu.vn anhngu.eagles.edu.vn thuvien.eagles.edu.vn     eaglesvn.com anhngu.eaglesvn.com thuvien.eaglesvn.com     gptpatient.com obgyn.gptpatient.com     eaglesvn.online eagles.vn; do     echo "📌 Checking /home/$domain/public_html...";     if [ -d "/home/$domain/public_html" ]; then         echo "✅ Exists: /home/$domain/public_html";     else         echo "❌ MISSING: /home/$domain/public_html";     fi;     echo "----------------------------------------"; done
 sudo nginx -t && sudo systemctl restart nginx
-sudo nginx -t && sudo systemctl restart nginx && sudo systemctl status nginx 
+sudo nginx -t && sudo systemctl restart nginx && sudo systemctl status nginx
 cd dockerz
 ls
 cd neuginx
@@ -697,23 +697,23 @@ nginx -V 2>&1 | grep -o with-http_v3_module
 sudo nginx -t
 sudo nginx -t  # Test configuration
 sudo systemctl restart nginx  # Apply changes
-sudo systemctl restart nginx 
+sudo systemctl restart nginx
 sudo nginx -t  # Test configuration
-sudo systemctl restart nginx 
+sudo systemctl restart nginx
 sudo nginx -t  # Test configuration
-sudo systemctl restart nginx 
+sudo systemctl restart nginx
 sudo nginx -t  # Test configuration
-sudo systemctl restart nginx 
-sudo ln -s /etc/nginx/sites-available/anhngu.eaglesvn.com /etc/nginx/sites-enabled/ && sudo ln -s /etc/nginx/sites-available/thuvien.eaglesvn.com /etc/nginx/sites-enabled/ 
+sudo systemctl restart nginx
+sudo ln -s /etc/nginx/sites-available/anhngu.eaglesvn.com /etc/nginx/sites-enabled/ && sudo ln -s /etc/nginx/sites-available/thuvien.eaglesvn.com /etc/nginx/sites-enabled/
 curl -I -H "Accept-Encoding: gzip" https://eagles.edu.vn
 sudo nginx -t  # Test configuration
-sudo systemctl restart nginx 
+sudo systemctl restart nginx
 sudo systemctl status nginx
 sudo nginx -t  # Test configuration
-sudo systemctl restart nginx 
+sudo systemctl restart nginx
 sudo systemctl status nginx
 sudo nginx -t  # Test configuration
-sudo systemctl restart nginx 
+sudo systemctl restart nginx
 sudo systemctl status nginx
 sudo cat /etc/mysql/mariadb.conf.d/50-server.cnf | grep port
 sudo mysql -u root -p
@@ -791,7 +791,7 @@ wget -O installer.sh https://cyberpanel.net/install.sh
 sudo sh <(curl https://cyberpanel.net/install.sh | tr -d '\r') --reinstall
 sh <(curl https://cyberpanel.net/install.sh | tr -d '\r') --reinstall
 sudo -i
-su - 
+su -
 su - root
 sudo systemctl restart cyberpanel
 sudo /usr/bin/python3 /usr/local/CyberCP/CyberCP.py
@@ -800,7 +800,7 @@ sudo ss -tulnp | grep 8090
 sudo nano /etc/systemd/system/lscpd.service
 sudo systemctl daemon-reload
 sudo systemctl restart lscpd
-cd 
+cd
 ls
 sudo systemctl status lscpd
 ls -lah /var/run/lscpd.pid
@@ -1030,9 +1030,9 @@ cd ~/eagles/.config/Code/Dictionaries
 cd eagles/.config/Code/Dictionaries
 cd /home/eagles/.config/Code/Dictionaries
 cd ..
-cd 
+cd
 cd /home/eagles/.config/Code/Dictionaries
-cd 
+cd
 sudo apt update
 sudo apt upgrade code
 mkdir -p ~/tools && cd ~/tools
@@ -1298,7 +1298,7 @@ nvm install 18
 apt install nvm
 nvm install 18
 sudo apt install nvm
-nvm 
+nvm
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.5/install.sh | bash
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
@@ -1344,7 +1344,7 @@ git lfs install
 git lfs track "*.mp3"
 git add .gitattributes
 git push -f origin main
-rm -rf .git 
+rm -rf .git
 git tfs --version
 git lfs version
 git tfs --version
@@ -1407,7 +1407,7 @@ cd audio
 ls
 git add -A :/
 git commit -m "Initial import"
-git lfs status  
+git lfs status
 git rm -r --cached .
 git add -A :/
 git rm -r --cached .
@@ -1417,22 +1417,22 @@ cat .gitattributes
 cd ../
 cat .gitattributes
 git show --name-status --stat -n 1
-ls -l audio | head 
+ls -l audio | head
 git add -- ':glob:**/*.mp3'
-git lfs status 
+git lfs status
 find . -type f -name '*.mp3' -print0 | xargs -0 git add
 find . -type -f -name '*.mp3' -print0 | xargs -0 git add
 find . -type f -name '*.mp3' -print0 | xargs -0 git add
 git lfs status
 find audio -type f -name '*.mp3' -print0 | xargs -0 git add
 git lfs status
-git lfs ls-files | wc -l 
+git lfs ls-files | wc -l
 git show :audio/dailylife001.mp3 | head -5
 git commit -m "Add MP3s via Git LFS (audio/)"
 git push -u origin main
 sudo chown -R eagles:eagles .
 find . -type d -exec chmod 755 {} \;
-find . -type f -exec chmod 644 {} \; 
+find . -type f -exec chmod 644 {} \;
 find . -type f -name '*.mp3' -exec chmod 644 {} \;
 namei -l "$(realpath audio/dailylife001.mp3)"
 namei -l "$(realpath audio/transportation12.mp3)"
@@ -1440,12 +1440,12 @@ namei -l "$(realpath begin1/audio/d/b1d00103.mp3)"
 git commit -m "Add MP3 audio via Git LFS"
 git push -u origin main
 git lfs push origin main
-git status --short | wc -l 
+git status --short | wc -l
 git commit -m "Add remaining MP3s (LFS)"
 chmod +x .git/hooks/pre-push
 git lfs install --force
 git lfs status | head -30
-git diff --cached -- audio/dailylife001.mp3 | head -5 
+git diff --cached -- audio/dailylife001.mp3 | head -5
 git commit -m "Add remaining audio (Git LFS)"
 no changes added to commit (use "git add" and/or "git commit -a")
 eagles@cloud:~/dockerz/efast-copy$ git commit -m "Add remaining audio (Git LFS)"
@@ -1461,7 +1461,7 @@ find . -type f -name '*.mp3' -not -path './robot/*' -print0 | xargs -0 git add -
 git config core.filemode false
 git show :audio/dailylife001.mp3 | head -3
 git show :begin1/audio/d/b1d00104.mp3 | head -3
-git diff --cached --name-only | wc -l 
+git diff --cached --name-only | wc -l
 find . -type f -name '*.mp3' -not -path './robot/*' | wc -l
 # --- Set an exclude for robot/, since you said "forget robot"
 EXCLUDE='^robot/'
@@ -1493,7 +1493,7 @@ LFS_TRACKED=$(git lfs ls-files -n | grep -E '\.mp3$' | grep -Ev "$EXCLUDE" | wc 
 echo "LFS-tracked mp3 files: $LFS_TRACKED"
 echo
 echo "== LFS push dry-run =="
-git lfs push origin main --dry-run 
+git lfs push origin main --dry-run
 TMP=$(mktemp -d)
 git clone https://github.com/eagles-edu/reading-update.git "$TMP"
 cd "$TMP"
@@ -1556,7 +1556,7 @@ git push -u origin main
 git cat-file -t $BLOB
 cd ~/dockerz/megs
 BLOB=428f414a72d462e03edfeed5c0ea798d27ac55d5
-git cat-file -t "$BLOB" 
+git cat-file -t "$BLOB"
 git cat-file -s "$BLOB"
 git rev-list --all --objects | grep -F "$BLOB" || echo UNREACHABLE
 rm -rf .git
@@ -1706,15 +1706,15 @@ gemini
 cd "/home/eagles/dockerz/megs"
 codex
 npm ls
-npm uninstall -g codex 
+npm uninstall -g codex
 nvm use 20
-npm i -g @openai/codex 
+npm i -g @openai/codex
 which codex && codex --version
-codex login 
+codex login
 codex
 cd "/home/eagles/dockerz/megs"
 codex
-codex login 
+codex login
 npm ls
 which codex
 npm i -g @openai/codex@latest
