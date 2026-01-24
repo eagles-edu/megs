@@ -364,9 +364,24 @@
 
 .exercise-response-input--textarea {
   line-height: 1.25;
-  min-height: calc(1.25em + 0.35rem);
+  min-height: var(
+    --exercise-textarea-min-height-field,
+    var(--exercise-textarea-min-height, calc(1.25em + 0.35rem))
+  );
   resize: vertical;
-  width: 100%;
+  width: var(
+    --exercise-textarea-width-field,
+    var(--exercise-textarea-width, 100%)
+  );
+}
+
+/* Textarea width helpers (override via page-level or field-level vars) */
+.sizeformtextarea {
+  --exercise-textarea-width: var(--sizeformtextarea)!important;
+}
+
+.sizetextarea {
+  --exercise-textarea-width-field: var(--sizetextarea)!important;
 }
 
 .exercise-response-input--textarea[data-autosize="true"] {
@@ -414,7 +429,7 @@
 
   50% {
     border-color: var(--exercise-success-glow);
-    box-shadow: 0 0 0 8px rgb(76 175 80 / 30%);
+    box-shadow: 0 0 8px 8px rgb(76 175 80 / 30%);
   }
 }
 
@@ -427,7 +442,7 @@
 
   50% {
     border-color: var(--exercise-error-glow);
-    box-shadow: 0 0 0 8px rgb(207 59 50 / 32%);
+    box-shadow: 0 0 8px 8px rgb(207 59 50 / 32%);
   }
 }
 
@@ -445,7 +460,7 @@
   }
 }
 
-/* Developer QA helper: floating auto-fill control */
+/* Developer QA helper: floating auto-fill control  box-shadow offset-x, offset-y, blur-radius, spread-radius, and color */
 .exercise-devtools__fill-button {
   align-items: center;
   background: linear-gradient(135deg, rgb(224 22 43 / 92%), rgb(0 39 134 / 92%));
@@ -512,3 +527,18 @@
     padding-inline: 1.1rem;
   }
 }
+
+@media screen and (width <= 767px) {
+        :root {
+          --sizeformtextarea: 100%;
+        }
+      }
+
+      .resizable-both {
+        resize:;
+      }
+
+      .resizable-none {
+        resize: none;
+      }
+

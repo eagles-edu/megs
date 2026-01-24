@@ -9,7 +9,7 @@
  * 1) Print Prompt1 (answer extraction instructions for tools/input.txt).
  * 2) Run fnv1a64 round-trip to generate hashes and dev dictionary.
  * 3) Run convert-legacy-gated with the chosen answer-field settings (diff preview on by default).
- * 4) Print Prompt4 (inject tools/hashes.txt into the answer key JSON).
+ * 4) Print Prompt4 and inject tools/hashes.txt into the answer key JSON.
  * 5) Run sync-answer-lengths to align lengths/min/max with answersAccepted.
  * 6) Run encode-p-text obfuscation unless obfuscation=none.
  * 7) Run normalize-exinstruct unless normalize-exinstruct=skip.
@@ -55,11 +55,11 @@ const VALID_NORMALIZE_EXINSTRUCT = ["write", "dry-run", "skip"]
 const ANSWER_SOURCE_TEXT = {
   undies:
     'by extracting p-tag answers from between `<span class="undies">`, `<b>`, and `<strong>` tags in the target HTML',
-  p: "by reading exercise p-tag instructions, reading each question, determining each correct answer",
+  p: "by reading exercise p-tag instructions, reading each question, manually determining each correct answer",
   auto:
     'by extracting p-tag answers from between `<span class="undies">`, `<b>`, and `<strong>` tags in the target HTML question blocks; else, if tags aren\'t present, via **p** by reading exercise p-tag instructions, reading each question, determining each correct answer',
   sentence:
-    "by extracting everything verbatim between form-based question blocks (p-tag) answers, sans HTML",
+    "by extracting the full sentence text verbatim from each form-based question block (p-tag), sans HTML (include all non-blank words, not just the underlined answers); warn that linting/IDE wrapping and source text can introduce spacing/punctuation artifacts, and offer optional USA spelling/grammar/vernacular/usage-only normalization (including fixing \", -> ,\") with explicit approval",
 }
 
 const ANSWERS_MODE_TEXT = {
@@ -72,10 +72,205 @@ const ANSWERS_MODE_TEXT = {
 const INPUT_FORMAT_TEXT =
   "Format tools/input.txt using Answer Line (AL) / ALTernate answers (ALT) / Question Block (QB): AL separated by \\n, ALT separated by \\n\\n, QB separated by \\n\\n\\n. Include all ALT combos when multiple answers are possible. Each ALT block in a QB must have the same number of lines (one per blank)."
 
+const US_WORD_RULES = [
+  {
+    from: "colour",
+    to: "color",
+    suffixes: ["", "s", "ed", "ing", "ful", "fully", "fulness", "less", "lessly", "lessness"],
+  },
+  {
+    from: "favourit",
+    to: "favorit",
+    suffixes: ["e", "es", "ed", "ing", "ism", "isms"],
+  },
+  {
+    from: "centre",
+    to: "center",
+    suffixes: ["", "s", { fromSuffix: "d", toSuffix: "ed" }, { fromSuffix: "ing", toSuffix: "ing", dropFromE: true }],
+  },
+  {
+    from: "metre",
+    to: "meter",
+    suffixes: ["", "s", { fromSuffix: "d", toSuffix: "ed" }, { fromSuffix: "ing", toSuffix: "ing", dropFromE: true }],
+  },
+  { from: "kilometre", to: "kilometer", suffixes: ["", "s"] },
+  {
+    from: "litre",
+    to: "liter",
+    suffixes: ["", "s", { fromSuffix: "d", toSuffix: "ed" }, { fromSuffix: "ing", toSuffix: "ing", dropFromE: true }],
+  },
+  { from: "theatre", to: "theater", suffixes: ["", "s"] },
+  {
+    from: "organis",
+    to: "organiz",
+    suffixes: [
+      "e",
+      "es",
+      "ed",
+      "ing",
+      "er",
+      "ers",
+      "ation",
+      "ations",
+      "ational",
+      "ationally",
+      "able",
+      "ably",
+      "ability",
+    ],
+  },
+  {
+    from: "realis",
+    to: "realiz",
+    suffixes: [
+      "e",
+      "es",
+      "ed",
+      "ing",
+      "er",
+      "ers",
+      "ation",
+      "ations",
+      "ational",
+      "ationally",
+      "able",
+      "ably",
+      "ability",
+    ],
+  },
+  {
+    from: "analys",
+    to: "analyz",
+    suffixes: ["e", "es", "ed", "ing", "er", "ers", "able", "ably", "ability"],
+  },
+  { from: "defenc", to: "defens", suffixes: ["e", "es", "eless", "elessly", "elessness"] },
+  { from: "offenc", to: "offens", suffixes: ["e", "es", "eless", "elessly", "elessness"] },
+  { from: "licenc", to: "licens", suffixes: ["e", "es", "ed", "ing", "er", "ers"] },
+  { from: "travell", to: "travel", suffixes: ["ed", "ing", "er", "ers"] },
+  { from: "cancell", to: "cancel", suffixes: ["ed", "ing"] },
+  { from: "jewell", to: "jewel", suffixes: ["ed", "ing", "er", "ers"] },
+  {
+    from: "neighbour",
+    to: "neighbor",
+    suffixes: ["", "s", "ed", "ing", "hood", "hoods", "ly", "liness", "linesses"],
+  },
+  { from: "grey", to: "gray", suffixes: ["", "s", "ed", "ing", "er", "est", "ish", "ness"] },
+]
+
+const US_WORD_EXACT = [
+  { from: "jewellery", to: "jewelry" },
+  { from: "programme", to: "program" },
+  { from: "programmes", to: "programs" },
+  { from: "learnt", to: "learned" },
+  { from: "towards", to: "toward" },
+  { from: "amongst", to: "among" },
+  { from: "whilst", to: "while" },
+  { from: "cheque", to: "check" },
+  { from: "cheques", to: "checks" },
+  { from: "lift", to: "elevator" },
+  { from: "pram", to: "stroller" },
+]
+
+const US_WORD_REPLACEMENTS = buildUsWordReplacements(US_WORD_RULES, US_WORD_EXACT)
+
 const PAUSE_PROMPT =
   "PAUSE, DISPLAY PROMPT, PRESS ENTER TO EXECUTE, verify completion, & continue, OR Q TO EXIT AND FIX PARAMETERS."
 const PAUSE_COMMAND =
   "PAUSE, DISPLAY COMMAND, PRESS ENTER TO EXECUTE, verify completion, & continue, OR Q TO EXIT AND FIX PARAMETERS."
+
+const RUN_SETTINGS = {
+  args: null,
+  targetDisplay: "",
+  provided: null,
+  prompted: null,
+}
+
+let runSettingsPrinted = false
+
+function formatSettingLine(label, value, source) {
+  const suffix = source ? ` (${source})` : ""
+  return `- ${label}: ${value}${suffix}`
+}
+
+function resolveSettingSource(settings, key) {
+  const provided = settings?.provided || {}
+  const prompted = settings?.prompted || {}
+  if (provided[key]) return "cli"
+  if (prompted[key]) return "prompt"
+  return "default"
+}
+
+function resolveAnswerUiSource(settings) {
+  const args = settings?.args || {}
+  const provided = settings?.provided || {}
+  const prompted = settings?.prompted || {}
+  if (provided.answerUi) return "cli"
+  if (args.answerUi && (provided.answerFields || prompted.answerFields)) return "derived"
+  if (prompted.answerUi) return "prompt"
+  return "default"
+}
+
+function formatRunSettings(settings) {
+  if (!settings || !settings.args) return null
+  const args = settings.args
+  const target = settings.targetDisplay || args.target || "(none)"
+  const answerUi = args.answerUi || "(none)"
+  const lines = [
+    "",
+    "Conversion settings used:",
+    formatSettingLine("target", target, resolveSettingSource(settings, "target")),
+    formatSettingLine("title", args.title || "(none)", resolveSettingSource(settings, "title")),
+    formatSettingLine(
+      "answer-fields",
+      args.answerFields,
+      resolveSettingSource(settings, "answerFields")
+    ),
+    formatSettingLine("answer-ui", answerUi, resolveAnswerUiSource(settings)),
+    formatSettingLine(
+      "answer-source",
+      args.answerSource,
+      resolveSettingSource(settings, "answerSource")
+    ),
+    formatSettingLine(
+      "answers-mode",
+      args.answersMode,
+      resolveSettingSource(settings, "answersMode")
+    ),
+    formatSettingLine(
+      "ignore-example",
+      args.ignoreExample,
+      resolveSettingSource(settings, "ignoreExample")
+    ),
+    formatSettingLine(
+      "obfuscation",
+      args.obfuscation,
+      resolveSettingSource(settings, "obfuscation")
+    ),
+    formatSettingLine(
+      "diff-preview",
+      args.diffPreview,
+      resolveSettingSource(settings, "diffPreview")
+    ),
+    formatSettingLine(
+      "normalize-exinstruct",
+      args.normalizeExinstruct,
+      resolveSettingSource(settings, "normalizeExinstruct")
+    ),
+  ]
+  return lines.join("\n")
+}
+
+function printRunSettings(settings) {
+  if (runSettingsPrinted) return
+  const output = formatRunSettings(settings)
+  if (!output) return
+  runSettingsPrinted = true
+  console.log(output)
+}
+
+process.on("exit", () => {
+  printRunSettings(RUN_SETTINGS)
+})
 
 function fail(message) {
   console.error(message)
@@ -317,6 +512,266 @@ function normalizeChoice(value, allowed, label) {
   return normalized
 }
 
+function buildUsWordReplacements(rules, exact) {
+  const map = new Map()
+  const add = (from, to, force = false) => {
+    if (!from || !to) return
+    const key = from.toLowerCase()
+    if (map.has(key) && !force) return
+    map.set(key, { from, to })
+  }
+
+  rules.forEach((rule) => {
+    const suffixes = Array.isArray(rule.suffixes) && rule.suffixes.length ? rule.suffixes : [""]
+    const fromDrop = new Set(rule.fromDropESuffixes || [])
+    const toDrop = new Set(rule.toDropESuffixes || [])
+    suffixes.forEach((suffix) => {
+      const entry =
+        typeof suffix === "string"
+          ? { fromSuffix: suffix, toSuffix: suffix }
+          : {
+              fromSuffix: suffix.fromSuffix,
+              toSuffix: suffix.toSuffix,
+              dropFromE: suffix.dropFromE,
+              dropToE: suffix.dropToE,
+            }
+      const fromSuffix = entry.fromSuffix ?? ""
+      const toSuffix = entry.toSuffix ?? fromSuffix
+      const dropFromE =
+        typeof entry.dropFromE === "boolean" ? entry.dropFromE : fromDrop.has(fromSuffix)
+      const dropToE =
+        typeof entry.dropToE === "boolean" ? entry.dropToE : toDrop.has(toSuffix)
+      const fromBase =
+        dropFromE && rule.from.endsWith("e") ? rule.from.slice(0, -1) : rule.from
+      const toBase = dropToE && rule.to.endsWith("e") ? rule.to.slice(0, -1) : rule.to
+      add(fromBase + fromSuffix, toBase + toSuffix)
+    })
+  })
+
+  exact.forEach((entry) => add(entry.from, entry.to, true))
+  return Array.from(map.values())
+}
+
+function scanExampleBlocks(html) {
+  const matches = []
+  const regex =
+    /<(?:span|h2)[^>]*class="[^"]*nn_sliders-(?:toggle-inner|title)[^"]*"[^>]*>([^<]*)/gi
+  let match = null
+  while ((match = regex.exec(html))) {
+    const text = match[1].replace(/\s+/g, " ").trim()
+    if (/^Example[.:]/i.test(text)) {
+      matches.push(text)
+    }
+  }
+  return matches
+}
+
+async function resolveIgnoreExampleAuto(targetAbsolute, ask, prompted) {
+  const html = fs.readFileSync(targetAbsolute, "utf8")
+  const matches = scanExampleBlocks(html)
+  if (!matches.length) {
+    console.log(
+      "[conversion-assistant] No Example-prefixed question blocks found; using ignore-example=none."
+    )
+    return "none"
+  }
+
+  console.log(
+    `[conversion-assistant] Found ${matches.length} Example-prefixed question block(s).`
+  )
+  matches.slice(0, 3).forEach((text, index) => {
+    console.log(`  Example ${index + 1}: ${text}`)
+  })
+  if (matches.length > 3) {
+    console.log(`  ...and ${matches.length - 3} more.`)
+  }
+
+  if (!ask) {
+    console.log("[conversion-assistant] No TTY available; defaulting ignore-example=prefix.")
+    return "prefix"
+  }
+
+  if (prompted) {
+    prompted.ignoreExample = true
+  }
+  return await promptChoice(
+    ask,
+    "Example handling for detected blocks --ignore-example",
+    ["prefix", "first", "none"],
+    "prefix"
+  )
+}
+
+function escapeRegExp(value) {
+  return value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")
+}
+
+function applyMatchCase(source, replacement) {
+  if (!source) return replacement
+  const upper = source.toUpperCase()
+  const lower = source.toLowerCase()
+  if (source === upper) return replacement.toUpperCase()
+  if (source[0] === source[0].toUpperCase() && source.slice(1) === lower.slice(1)) {
+    return replacement[0].toUpperCase() + replacement.slice(1)
+  }
+  return replacement
+}
+
+function applyUsWordReplacements(text) {
+  let out = text
+  for (const entry of US_WORD_REPLACEMENTS) {
+    const regex = new RegExp(`\\b${escapeRegExp(entry.from)}\\b`, "gi")
+    out = out.replace(regex, (match) => applyMatchCase(match, entry.to))
+  }
+  return out
+}
+
+function findUsSpellingCandidates(raw) {
+  const matches = []
+  const lines = (raw || "").split(/\r?\n/)
+  lines.forEach((line, index) => {
+    if (!line.trim()) return
+    const hits = []
+    for (const entry of US_WORD_REPLACEMENTS) {
+      const regex = new RegExp(`\\b${escapeRegExp(entry.from)}\\b`, "i")
+      if (regex.test(line)) hits.push(entry.from)
+    }
+    if (hits.length) {
+      matches.push({ line: index + 1, hits, text: line })
+    }
+  })
+  return matches
+}
+
+function findSentenceArtifacts(raw) {
+  const issues = []
+  const lines = (raw || "").split(/\r?\n/)
+  lines.forEach((line, index) => {
+    if (!line.trim()) return
+    const flags = []
+    if (/\s{2,}/.test(line)) flags.push("multi-space")
+    if (/\s+[,.!?;:]/.test(line)) flags.push("space-before-punct")
+    if (/"\s*[,.](?!")/.test(line)) flags.push("quote-punct-order")
+    if (/\.\.(?!\.)/.test(line)) flags.push("double-period")
+    if (/\s+['\u2019]/.test(line) || /['\u2019]\s+/.test(line)) {
+      flags.push("space-around-apostrophe")
+    }
+    if (flags.length) {
+      issues.push({ line: index + 1, flags, text: line })
+    }
+  })
+  return issues
+}
+
+function findShortSentenceLines(raw) {
+  const shortLines = []
+  const lines = (raw || "").split(/\r?\n/)
+  lines.forEach((line, index) => {
+    const trimmed = line.trim()
+    if (!trimmed) return
+    const words = trimmed.split(/\s+/)
+    if (words.length <= 2) {
+      shortLines.push({ line: index + 1, text: line })
+    }
+  })
+  const totalLines = lines.filter((line) => line.trim()).length
+  return { totalLines, shortLines }
+}
+
+function normalizeSentenceLine(line) {
+  let out = line.replace(/\s+/g, " ")
+  out = out.replace(/\s+([,.;:?!])/g, "$1")
+  out = out.replace(/"\s*([,.])(?!")/g, '$1"')
+  out = out.replace(/\.\.(?!\.)/g, ".")
+  out = out.replace(/\s+(['\u2019])/g, "$1")
+  out = out.replace(/(['\u2019])\s+/g, "$1")
+  out = applyUsWordReplacements(out)
+  return out.trim()
+}
+
+function normalizeSentenceInput(raw) {
+  const lines = (raw || "").split(/\r?\n/)
+  const normalized = lines.map((line) => (line.trim() ? normalizeSentenceLine(line) : ""))
+  let output = normalized.join("\n")
+  if (!output.endsWith("\n")) output += "\n"
+  return output
+}
+
+async function reviewSentenceInput(inputPath, ask) {
+  if (!fs.existsSync(inputPath)) {
+    fail(`tools/input.txt not found at ${inputPath}.`)
+  }
+  const raw = fs.readFileSync(inputPath, "utf8")
+  const issues = findSentenceArtifacts(raw)
+  const spellingIssues = findUsSpellingCandidates(raw)
+  const { totalLines, shortLines } = findShortSentenceLines(raw)
+  const shortRatio = totalLines ? shortLines.length / totalLines : 0
+  let warned = false
+
+  if (shortRatio >= 0.4 && shortLines.length) {
+    warned = true
+    console.log(
+      `[conversion-assistant] ${shortLines.length}/${totalLines} lines are 1-2 words; verify sentence extraction.`
+    )
+    shortLines.slice(0, 5).forEach((entry) => {
+      console.log(`  L${entry.line}: ${entry.text}`)
+    })
+    if (shortLines.length > 5) {
+      console.log(`  ...and ${shortLines.length - 5} more.`)
+    }
+  }
+
+  if (!issues.length && !spellingIssues.length) {
+    if (!warned) {
+      console.log("[conversion-assistant] No sentence artifacts detected in tools/input.txt.")
+    }
+    return
+  }
+
+  if (issues.length) {
+    console.log("[conversion-assistant] Sentence-mode artifacts detected in tools/input.txt:")
+    issues.slice(0, 5).forEach((issue) => {
+      console.log(`  L${issue.line}: ${issue.flags.join(", ")} :: ${issue.text}`)
+    })
+    if (issues.length > 5) {
+      console.log(`  ...and ${issues.length - 5} more.`)
+    }
+  }
+
+  if (spellingIssues.length) {
+    console.log("[conversion-assistant] Sentence-mode US spelling/usage candidates detected:")
+    spellingIssues.slice(0, 5).forEach((issue) => {
+      console.log(`  L${issue.line}: ${issue.hits.join(", ")} :: ${issue.text}`)
+    })
+    if (spellingIssues.length > 5) {
+      console.log(`  ...and ${spellingIssues.length - 5} more.`)
+    }
+  }
+
+  if (!ask) {
+    console.log("[conversion-assistant] No TTY available; skipping normalization.")
+    return
+  }
+
+  const response = (await ask(
+    "Normalize sentence answers to USA spelling/grammar/vernacular/usage (includes spacing/punctuation fixes and \", -> ,\")? [y/N]: "
+  ))
+    .trim()
+    .toLowerCase()
+  if (!["y", "yes"].includes(response)) {
+    console.log("[conversion-assistant] Keeping verbatim sentence text.")
+    return
+  }
+
+  const normalized = normalizeSentenceInput(raw)
+  if (normalized === raw) {
+    console.log("[conversion-assistant] Sentence normalization found no changes.")
+    return
+  }
+  fs.writeFileSync(inputPath, normalized, "utf8")
+  console.log("[conversion-assistant] Normalized sentence text in tools/input.txt.")
+}
+
 function parseAnswerInput(text) {
   const lines = (text || "").split(/\r?\n/)
   const questions = []
@@ -361,6 +816,79 @@ function formatAnswerInput(questions) {
   if (!questions.length) return "\n"
   const blocks = questions.map((alts) => alts.map((lines) => lines.join("\n")).join("\n\n"))
   return `${blocks.join("\n\n\n")}\n`
+}
+
+function sortAnswerKeys(keys) {
+  return keys.slice().sort((a, b) => {
+    const aNum = parseInt(String(a).replace(/\D/g, ""), 10)
+    const bNum = parseInt(String(b).replace(/\D/g, ""), 10)
+    if (!Number.isNaN(aNum) && !Number.isNaN(bNum) && aNum !== bNum) return aNum - bNum
+    return String(a).localeCompare(String(b))
+  })
+}
+
+function parseHashCombos(rawHashes) {
+  const questions = parseAnswerInput(rawHashes)
+  return questions.map((alts, index) => {
+    const combos = alts
+      .map((lines) => lines.map((line) => line.trim()).filter(Boolean))
+      .filter((combo) => combo.length)
+    if (!combos.length) {
+      fail(`tools/hashes.txt has no hashes for question ${index + 1}.`)
+    }
+    return combos
+  })
+}
+
+function injectHashesIntoAnswerKey(targetPath, hashesPath, answersMode) {
+  if (!fs.existsSync(hashesPath)) {
+    fail(`tools/hashes.txt not found at ${hashesPath}. Run fnv1a64 round-trip first.`)
+  }
+  const rawHashes = fs.readFileSync(hashesPath, "utf8")
+  if (!rawHashes.trim()) {
+    fail("tools/hashes.txt is empty. Run fnv1a64 round-trip first.")
+  }
+  const mode = answersMode === "alts" ? "alts" : "all"
+  const combosByQuestion = parseHashCombos(rawHashes)
+  const rawHtml = fs.readFileSync(targetPath, "utf8")
+  const pattern =
+    /(<script[^>]*id=["']exercise-answer-key["'][^>]*>)([\s\S]*?)(<\/script>)/i
+  const match = rawHtml.match(pattern)
+  if (!match) {
+    fail(`exercise-answer-key script not found in ${path.relative(repoRoot, targetPath)}`)
+  }
+  let parsed
+  try {
+    parsed = JSON.parse(match[2].trim())
+  } catch (error) {
+    fail(`exercise-answer-key JSON invalid in ${path.relative(repoRoot, targetPath)}: ${error.message}`)
+  }
+  const answerArray = parsed?.answerArrays?.answerArray
+  if (!answerArray || typeof answerArray !== "object") {
+    fail(`answerArrays.answerArray missing in ${path.relative(repoRoot, targetPath)}`)
+  }
+  const keys = sortAnswerKeys(Object.keys(answerArray))
+  if (keys.length !== combosByQuestion.length) {
+    fail(
+      `answersAccepted mismatch: ${keys.length} questions in answer key vs ${combosByQuestion.length} in tools/hashes.txt (${mode} mode).`
+    )
+  }
+  keys.forEach((key, index) => {
+    const entry = answerArray[key]
+    if (!entry || typeof entry !== "object") {
+      fail(`answerArrays.answerArray.${key} is missing or invalid.`)
+    }
+    entry.answersAccepted = combosByQuestion[index].map((combo) => combo.slice())
+  })
+  const serialized = JSON.stringify(parsed, null, 2)
+  const updated = rawHtml.replace(pattern, `$1\n${serialized}\n$3`)
+  fs.writeFileSync(targetPath, updated, "utf8")
+  console.log(
+    `[conversion-assistant] Injected answersAccepted from ${path.relative(
+      repoRoot,
+      hashesPath
+    )} into ${path.relative(repoRoot, targetPath)} (${mode} mode).`
+  )
 }
 
 function cartesianProduct(lists) {
@@ -453,12 +981,16 @@ function wrapWithBackticks(value) {
 
 function buildPrompt1(target, answerSource) {
   const sourceText = ANSWER_SOURCE_TEXT[answerSource]
+  const copyText =
+    answerSource === "sentence" ? "copy full sentences" : "copy words / phrases / sentences"
   return (
     '"' +
     wrapWithBackticks(target) +
     " pull answers from question p-tags, " +
     sourceText +
-    ", then copy words / phrases / sentences (no question numbers like 1. | 2. ) to `tools/input.txt` (overwrite). Format 'answer1/answer2...' p-tag answers as same question's alts. " +
+    ", then " +
+    copyText +
+    " (no question numbers like 1. | 2. ) to `tools/input.txt` (overwrite). Format 'answer1/answer2...' p-tag answers as same question's alts. " +
     INPUT_FORMAT_TEXT +
     "\n\n" +
     '"' +
@@ -558,6 +1090,21 @@ function runCommand(cmd, label) {
 
 async function main() {
   const { args, provided } = parseArgs(process.argv)
+  const prompted = {
+    target: false,
+    title: false,
+    answerFields: false,
+    answerUi: false,
+    answerSource: false,
+    answersMode: false,
+    ignoreExample: false,
+    obfuscation: false,
+    normalizeExinstruct: false,
+    diffPreview: false,
+  }
+  RUN_SETTINGS.args = args
+  RUN_SETTINGS.provided = provided
+  RUN_SETTINGS.prompted = prompted
   const prompter = createPrompter()
   const ask = prompter ? prompter.ask : null
 
@@ -566,18 +1113,22 @@ async function main() {
   }
 
   if (!provided.target) {
+    if (ask) prompted.target = true
     args.target = await promptTarget(ask)
   }
 
   const { absolute: targetAbsolute, display: targetDisplay } = resolveTarget(args.target)
+  RUN_SETTINGS.targetDisplay = targetDisplay
   const defaultTitle = path.basename(targetAbsolute, path.extname(targetAbsolute))
 
   if (!provided.title) {
+    if (ask) prompted.title = true
     args.title = ask ? await promptTitle(ask, defaultTitle) : defaultTitle
   }
   if (!args.title) args.title = defaultTitle
 
   if (!provided.answerSource) {
+    if (ask) prompted.answerSource = true
     args.answerSource = ask
       ? await promptChoice(
           ask,
@@ -588,6 +1139,7 @@ async function main() {
       : DEFAULTS.answerSource
   }
   if (!provided.answersMode) {
+    if (ask) prompted.answersMode = true
     args.answersMode = ask
       ? await promptChoice(
           ask,
@@ -598,6 +1150,7 @@ async function main() {
       : DEFAULTS.answersMode
   }
   if (!provided.ignoreExample) {
+    if (ask) prompted.ignoreExample = true
     args.ignoreExample = ask
       ? await promptChoice(
           ask,
@@ -608,11 +1161,13 @@ async function main() {
       : DEFAULTS.ignoreExample
   }
   if (!provided.obfuscation) {
+    if (ask) prompted.obfuscation = true
     args.obfuscation = ask
       ? await promptChoice(ask, "obfuscation scope", VALID_OBFUSCATION, DEFAULTS.obfuscation)
       : DEFAULTS.obfuscation
   }
   if (!provided.normalizeExinstruct) {
+    if (ask) prompted.normalizeExinstruct = true
     args.normalizeExinstruct = ask
       ? await promptChoice(
           ask,
@@ -623,6 +1178,7 @@ async function main() {
       : DEFAULTS.normalizeExinstruct
   }
   if (!provided.diffPreview) {
+    if (ask) prompted.diffPreview = true
     args.diffPreview = ask ? await promptDiffPreview(ask, DEFAULTS.diffPreview) : DEFAULTS.diffPreview
   }
 
@@ -635,6 +1191,10 @@ async function main() {
     VALID_NORMALIZE_EXINSTRUCT,
     "normalize-exinstruct"
   )
+
+  if (args.ignoreExample === "auto") {
+    args.ignoreExample = await resolveIgnoreExampleAuto(targetAbsolute, ask, prompted)
+  }
 
   const prompt1 = buildPrompt1(targetDisplay, args.answerSource)
   const cmd2 = buildCmd2(args.title)
@@ -650,11 +1210,16 @@ async function main() {
     process.exit(0)
   }
 
+  if (args.answerSource === "sentence") {
+    await reviewSentenceInput(path.join(repoRoot, "tools/input.txt"), ask)
+  }
+
   console.log("\n1b. Normalize tools/input.txt:")
   normalizeAnswerCombos(path.join(repoRoot, "tools/input.txt"))
 
   if (!provided.answerFields && !provided.answerUi) {
     if (ask) {
+      prompted.answerFields = true
       const { fields, ui } = await promptAnswerFields(ask)
       args.answerFields = fields
       if (ui) args.answerUi = ui
@@ -694,6 +1259,7 @@ async function main() {
     prompter?.close()
     process.exit(0)
   }
+  injectHashesIntoAnswerKey(targetAbsolute, path.join(repoRoot, "tools/hashes.txt"), args.answersMode)
 
   console.log("\n5. Execute CMD4:")
   console.log(commandToString(cmd4))

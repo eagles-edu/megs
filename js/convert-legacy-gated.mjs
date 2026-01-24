@@ -802,7 +802,7 @@ function showDiff(original, updated) {
 }
 
 function isExampleText(text) {
-  return /^\s*example\./i.test(text || "")
+  return /^\s*example\b/i.test(text || "")
 }
 
 function scanExampleQuestions(questions) {

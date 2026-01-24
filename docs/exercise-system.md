@@ -52,6 +52,7 @@
 
 - Use `tools/fnv1a64-convert.mjs --encode --input tools/input.txt > tools/hashes.txt` (exact match).
 - Populate `answersAccepted` with quoted hashes inside combos (e.g., `[["fnv1a-64:..."]]`).
+- Conversion assistant now auto-injects `tools/hashes.txt` into the target answer key after Prompt4; manual copy is no longer required when using the assistant.
 - `tools/hashes.txt` preserves AL/ALT/QB spacing from `tools/input.txt`; treat each ALT block (blank-line separated) as a combo and each QB (double blank line) as a question boundary.
 
 #### Defaults/Requirements
@@ -97,6 +98,8 @@
 - For textarea/full-width responses, set `data-answer-ui="textarea"` in legacy or run with `--answer-ui textarea`.
 - `tools/input.txt` formatting (AL/ALT/QB): AL (answer line) separated by `\n`, ALT (alternate group) separated by `\n\n`, QB (question block) separated by `\n\n\n`.
 - Each ALT combo in a QB must have the same number of lines (one per blank); the conversion assistant auto-expands per-blank alternatives when mismatched.
+- Conversion assistant: `--ignore-example auto` scans for Example-prefixed headings, prompts for handling, and defaults to `prefix` when examples are found without a TTY.
+- Conversion assistant: sentence answer-source flags spacing/punctuation artifacts, quote punctuation order, US spelling candidates, and short-line ratios in `tools/input.txt`, and can apply USA spelling/grammar/vernacular/usage normalization (including \", -> ,\") with approval.
 - If panels open without correct answers, verify `requireCorrectBeforeReveal` is `true` and hashes match exactly.**
 
 ### New _autofill_ system

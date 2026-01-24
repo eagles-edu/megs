@@ -24,12 +24,12 @@ If flags are not present, pause for user to enter input; enter conversion detail
       1. **undies**: (default) extract from between `<span class="undies">`, `<b>`, and `<strong>` tags in question blocks
       2. **p**: derive from AI reading p-tag directions, answering each question (per p-tag directions), and writing these to file
       3. **auto**: extract from between `<span class="undies">`, `<b>`, and `<strong>` tags in question blocks; if none, derive from AI reading p-tag directions, answering each question (per p-tag directions), and writing these to file
-      4. **sentence**: extract everything verbatim between form-based question block (p-tag) answers, sans HTML, and copy to file; warn that linting/IDE wrapping and source text can introduce spacing, punctuation, grammar, or usage artifacts in plain-text copies, and offer optional normalization to USA spelling/grammar/vernacular/usage only (including punctuation fixes) with explicit approval
+      4. **sentence**: extract the full sentence text verbatim from each form-based question block (p-tag), sans HTML (include all non-blank words, not just the underlined answers), and copy to file; warn that linting/IDE wrapping and source text can introduce spacing/punctuation artifacts, and offer optional USA spelling/grammar/vernacular/usage-only normalization (including fixing \", -> ,\") with explicit approval
    4. **multiple provided answers**: to set `--answers-mode`:
       1. **all** - one combo per QB (question block); if a QB contains ALT blocks, keep one combo per ALT block; all hashes required per combo (default)
       2. **alts** - one combo per ALT block (blank-line separated); only one combo required
    5. **Example handling**: to set `--ignore-example [mode]`:
-      1. **auto** scan for `Example.`-prefixed questions, report findings, pause for a choice, and default to **none** if no Example blocks are found
+      1. **auto** scan for `Example.`-prefixed questions, report findings, pause for a choice, and default to **none** if no Example blocks are found; if no TTY and examples are found, default to **prefix**
       2. **prefix** (default when `--ignore-example` is provided with no value): skip questions that start with `Example.`
       3. **first**: skip the first question block
       4. **none**: (default when flag is unset): skip nothing (convert all questions)
@@ -52,14 +52,16 @@ Runtime rules for all prompts/commands: replace every placeholder (e.g., `<targe
 
 ---
 
-1. **Print Prompt1**: "`<target-path>` pull answers from question p-tags, `<undies/p/auto/sentence>`, then copying those words / phrases / sentences to`tools/input.txt`. Format tools/input.txt using Answer Line (AL) / ALTernate answers (ALT) / Question Block (QB): AL separated by \n, ALT separated by \n\n, QB separated by \n\n\n. Include all ALT combos when multiple answers are possible."
+1. **Print Prompt1**: "`<target-path>` pull answers from question p-tags, `<undies/p/auto/sentence>`, then copying those words / phrases / sentences (sentence mode: full sentences, not just the blanked answers) to`tools/input.txt`. Format tools/input.txt using Answer Line (AL) / ALTernate answers (ALT) / Question Block (QB): AL separated by \n, ALT separated by \n\n, QB separated by \n\n\n. Include all ALT combos when multiple answers are possible."
+
+Prompts append the `Save my Tokens! [agents.md temp override]` line at the end; keep it intact in Prompt1 and Prompt4.
 
    - replace `<target-path>`, `<undies/p/auto/sentence>` with user input flag text:
 
       1. **undies**: (default) extract from between `<span class="undies">`, `<b>`, and `<strong>` tags in question blocks
       2. **p**: derive from AI reading p-tag directions, answering  each question (per p-tag directions), and writing these to file
       3. **auto**: extract from between `<span class="undies">`, `<b>`, and `<strong>` tags in question blocks; if none, derive from AI reading p-tag directions, answering each question (per p-tag directions), and writing these to file
-      4. **sentence**: extract everything verbatim between form-based question blocks (p-tag) answers, sans HTML, and copy to file; warn if linting/IDE wrapping or source text has introduced spacing, punctuation, grammar, or usage artifacts in this plain-text copy, and offer optional normalization to USA spelling/grammar/vernacular/usage only (including punctuation fixes) with explicit approval
+      4. **sentence**: extract the full sentence text verbatim from each form-based question block (p-tag), sans HTML (include all non-blank words, not just the underlined answers), and copy to file; warn if linting/IDE wrapping or source text has introduced spacing/punctuation artifacts in this plain-text copy, and offer optional USA spelling/grammar/vernacular/usage-only normalization (including fixing \", -> ,\") with explicit approval
 
 #### For example
 
@@ -76,7 +78,7 @@ _CMD produced_:
 
 ---
 
-**After Prompt1** (sentence only): scan `tools/input.txt` for linting/IDE spacing artifacts and any visible grammar/usage/punctuation irregularities; warn and ask whether to normalize to USA spelling/grammar/vernacular/usage only (including punctuation fixes). If yes, apply only the approved normalization; otherwise keep verbatim.
+**After Prompt1** (sentence only): scan `tools/input.txt` for linting/IDE spacing artifacts, quote punctuation order, and visible punctuation irregularities; warn if many lines are 1-2 words (possible incomplete sentence extraction), and ask whether to normalize to USA spelling/grammar/vernacular/usage (includes spacing/punctuation fixes and \", -> ,\"; no rewording beyond that). If yes, apply only the approved normalization; otherwise keep verbatim.
 
 **After Prompt1** (all modes): validate `tools/input.txt` so each ALT block in a QB has the same number of lines (one per blank). If mismatched, expand per-blank alternatives into full ALT combos (cartesian product) and rewrite `tools/input.txt`; stop if mismatches remain.
 
@@ -143,7 +145,7 @@ _CMD produced_:
 
 ---
 
-4. **Print Prompt4**:
+4. **Print Prompt4** (then auto-inject hashes into the answer key JSON):
 
 "inject `tools/hashes.txt` into the answer array JSON in `<target-path>` following user input for answersAccepted shaping: `<all|alts>`"
 
@@ -165,6 +167,10 @@ _user input_:
 "inject `tools/hashes.txt` into the answer array JSON in exercise-4-adverbs/411-using-adverbs-part-1.html following user input for answersAccepted shaping: ALTS: one combo per ALT block (blank-line separated inside a QB); each combo may contain multiple hashes; only one combo required: `"answersAccepted": [["hash1","hash2"],["hash1","hash3"],...]`"
 
 >PAUSE, DISPLAY PROMPT, PRESS ENTER TO EXECUTE, verify completion, & continue, OR Q TO EXIT AND FIX PARAMETERS.
+
+After Prompt4, the conversion assistant injects `tools/hashes.txt` into the target file's
+`answersAccepted` arrays using the chosen answers-mode (all/alts), then proceeds to the
+sync-lengths step.
 
 ---
 
@@ -235,19 +241,19 @@ _user input_:
 - **Priority rule**: Obfuscation SOP applies only when it does not conflict with the requirement that no human-readable answers remain visible/un-obfuscated after conversion. If there is a conflict, enforce "no readable answers after conversion."
 - **Execution**: the full conversion workflow must run end-to-end without interruption; do not pause between steps unless the user explicitly requests a stop.
 - **Session continuity**: treat the latest user-corrected state in this chat (e.g., `tools/input.txt` and visible GUI text) as canonical; do not reintroduce removed variants or undo approved changes unless explicitly requested.
-- never sanitize (i.e., trim, strip quotes/trailing punctuation); only allow sentence-mode normalization with explicit user approval: fix lint/IDE spacing artifacts and, if requested, normalize to USA spelling/grammar/vernacular/usage only (including punctuation fixes). These are all grammar questions, so **there are flags in the conversion system to set for this already.**
+- never sanitize (i.e., trim, strip quotes/trailing punctuation); only allow sentence-mode normalization with explicit user approval: fix lint/IDE spacing artifacts, quote punctuation order, and optional USA spelling/grammar/vernacular/usage normalization (no rewording beyond that).
 - --target `<target-path>` (required as --flag or user input)
 - --answer-fields <1-6> or <7> --answer-ui textarea (set UI to textarea; default is fields=1, ui unset)
 - --answer-source `<undies|p|auto|sentence>` (default undies):
   - **undies**: default; extract from between `<span class="undies">`, `<b>`, and `<strong>` tags in question blocks
   - **p**: extract bold/underlined/strong from `<p>` (or prompt to derive from directions if missing)
   - **auto**: use **undies** if present, otherwise derive by **p** answer-source reading p-tag directions and answering questions
-  - **sentence**: extract everything verbatim between form-based question blocks (p-tag) answers, sans HTML, and copy to file; warn that linting/IDE wrapping and source text can introduce spacing, punctuation, grammar, or usage artifacts in plain-text copies, and offer optional normalization to USA spelling/grammar/vernacular/usage only (including punctuation fixes) with explicit approval
+  - **sentence**: extract the full sentence text verbatim from each form-based question block (p-tag), sans HTML (include all non-blank words, not just the underlined answers), and copy to file; warn that linting/IDE wrapping and source text can introduce spacing/punctuation artifacts, and offer optional USA spelling/grammar/vernacular/usage-only normalization (including fixing \", -> ,\") with explicit approval
 - --answers-mode `<all|alts>` (default all; sets answersAccepted combos)
   - all: one combo per QB (question block); if ALT blocks exist, keep one combo per ALT block; all hashes required per combo
   - alts: one combo per ALT block (blank-line separated); combos may include multiple hashes
 - --ignore-example `[auto|prefix|first|none]` (default none when flag is unset)
-  - auto: scan for Example.* and prompt; defaults to none if no Example blocks are found
+  - auto: scan for Example.* and prompt; defaults to none if no Example blocks are found; if examples are found without a TTY, default to prefix
   - prefix: skip questions that start with `Example.`
   - first: skip the first question block
   - none: skip nothing (convert all questions)
