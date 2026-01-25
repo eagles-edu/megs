@@ -38,6 +38,7 @@ _Critically, consistently, and before every coding attempt, ALWAYS reread agents
 #### #2 Local Codex (IDE workspace)
 
 - Follow standard local workflow with concise outputs.
+- ALWAYS Set Node 20.19.4 BEFORE YOU, CODEX, PERFORM ANY COMMANDS OR CODE S
 - Do not interrupt for dirty state or unexpected deltas; note repo state is updated periodically.
 - Before edits, run `git status -sb` and report the current state.
 
