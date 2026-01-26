@@ -60,6 +60,12 @@ const KEYWORD_PATTERNS = [
   /\banswer\w*\b/i,
   /\bquestion\w*\b/i,
 ]
+const AUTO_SENTENCE_NORMALIZATIONS = [
+  {
+    sentence: "Click the sentences to see the answers.",
+    replacement: "Click the sentence to check your answers.",
+  },
+]
 const PAUSE_PROMPT =
   "\n\nPAUSE, DISPLAY SUMMARY, PRESS ENTER TO EXECUTE, verify completion, & continue, OR Q TO EXIT AND FIX PARAMETERS."
 
@@ -279,6 +285,20 @@ function replaceSentenceInHtml(html, sentence, replacement) {
   return { html: html.replace(pattern, replacement), replaced: true }
 }
 
+function applyAutoSentenceReplacements(html, state) {
+  if (!AUTO_SENTENCE_NORMALIZATIONS.length) return html
+  let updated = html
+  for (const { sentence, replacement } of AUTO_SENTENCE_NORMALIZATIONS) {
+    const result = replaceSentenceInHtml(updated, sentence, replacement)
+    if (!result.replaced) continue
+    updated = result.html
+    if (state && typeof state.positiveCount === "number") {
+      state.positiveCount += 1
+    }
+  }
+  return updated
+}
+
 function addPartialCandidate(state, sentence, score) {
   const key = sentence.toLowerCase()
   if (state.partialSet.has(key)) return
@@ -287,11 +307,12 @@ function addPartialCandidate(state, sentence, score) {
 }
 
 function replaceCheckSentence(html, state) {
-  const text = extractText(html)
-  if (!text) return html
+  const autoUpdated = applyAutoSentenceReplacements(html, state)
+  const text = extractText(autoUpdated)
+  if (!text) return autoUpdated
   const sentences = splitSentences(text)
-  if (!sentences.length) return html
-  let updated = html
+  if (!sentences.length) return autoUpdated
+  let updated = autoUpdated
   for (const sentence of sentences) {
     const score = countKeywordMatches(sentence)
     if (score >= POSITIVE_MATCH_THRESHOLD) {

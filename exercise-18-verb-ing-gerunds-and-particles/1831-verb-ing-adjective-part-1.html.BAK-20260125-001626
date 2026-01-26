@@ -290,7 +290,7 @@ class="accordion-toggle nn_sliders-toggle" data-toggle="collapse" data-id="q1-ma
 <div class="accordion-inner panel-body">
 <h2 class="nn_sliders-title">1.  Many are attracted to the _____ new magazine.</h2>
 <p>
-1.  Many are attracted to the <span class="hilite">exciting</span> new magazine.</p>
+1.  Many are attracted to the <span class="undies">exciting</span> new magazine.</p>
 </div></div></div></div></p>
 
 <div class="nn_sliders accordion panel-group" id="set-nn_sliders-2"><a id="nn_sliders-scrollto_2" class="anchor nn_sliders-scroll"></a>
@@ -306,7 +306,7 @@ class="accordion-toggle nn_sliders-toggle" data-toggle="collapse" data-id="q2-he
 <div class="accordion-inner panel-body">
 <h2 class="nn_sliders-title">2.  He was all _____ about his new car.</h2>
 <p>
-2.     He was all <span class="hilite">excited</span> about his new car.</p>
+2.     He was all <span class="undies">excited</span> about his new car.</p>
 </div></div></div></div>
 <p>(interested, interesting)</p>
 </p>
@@ -324,7 +324,7 @@ class="accordion-toggle nn_sliders-toggle" data-toggle="collapse" data-id="q3-th
 <div class="accordion-inner panel-body">
 <h2 class="nn_sliders-title">3.  They have chosen some _____ topics for discussion.</h2>
 <p>
-3.  They have chosen some <span class="hilite">interesting</span> topics for discussion.</p>
+3.  They have chosen some <span class="undies">interesting</span> topics for discussion.</p>
 </div></div></div></div></p>
 
 <div class="nn_sliders accordion panel-group" id="set-nn_sliders-4"><a id="nn_sliders-scrollto_4" class="anchor nn_sliders-scroll"></a>
@@ -340,7 +340,7 @@ class="accordion-toggle nn_sliders-toggle" data-toggle="collapse" data-id="q4-sh
 <div class="accordion-inner panel-body">
 <h2 class="nn_sliders-title">4.  She's always been _____ in other people.</h2>
 <p>
-4.  She's always been <span class="hilite">interested</span> in other people.</p>
+4.  She's always been <span class="undies">interested</span> in other people.</p>
 </div></div></div></div>
 <p>(annoyed, annoying)</p>
 </p>
@@ -358,7 +358,7 @@ class="accordion-toggle nn_sliders-toggle" data-toggle="collapse" data-id="q5-hi
 <div class="accordion-inner panel-body">
 <h2 class="nn_sliders-title">5. His attitude made me extremely _____.</h2>
 <p>
-5.  His attitude made me extremely <span class="hilite">annoyed</span>.</p>
+5.  His attitude made me extremely <span class="undies">annoyed</span>.</p>
 </div></div></div></div></p>
 
 <div class="nn_sliders accordion panel-group" id="set-nn_sliders-6"><a id="nn_sliders-scrollto_6" class="anchor nn_sliders-scroll"></a>
@@ -374,7 +374,7 @@ class="accordion-toggle nn_sliders-toggle" data-toggle="collapse" data-id="q6-ch
 <div class="accordion-inner panel-body">
 <h2 class="nn_sliders-title">6. Charles has an _____ habit of interrupting.</h2>
 <p>
-6. Charles has an <span class="hilite">annoying</span> habit of interrupting.</p>
+6. Charles has an <span class="undies">annoying</span> habit of interrupting.</p>
 </div></div></div></div>
 <p>(amazed, amazing)</p>
 </p>
@@ -392,7 +392,7 @@ class="accordion-toggle nn_sliders-toggle" data-toggle="collapse" data-id="q7-i-
 <div class="accordion-inner panel-body">
 <h2 class="nn_sliders-title">7. I am still _____ that she won first prize.</h2>
 <p>
-7.  I am still <span class="hilite">amazed</span> that she won first prize.</p>
+7.  I am still <span class="undies">amazed</span> that she won first prize.</p>
 </div></div></div></div></p>
 
 <div class="nn_sliders accordion panel-group" id="set-nn_sliders-8"><a id="nn_sliders-scrollto_8" class="anchor nn_sliders-scroll"></a>
@@ -408,7 +408,7 @@ class="accordion-toggle nn_sliders-toggle" data-toggle="collapse" data-id="q8-th
 <div class="accordion-inner panel-body">
 <h2 class="nn_sliders-title">8.  That really was a truly _____ achievement </h2>
 <p>
-8. That really was a truly <span class="hilite">amazing</span> achievement.</p>
+8. That really was a truly <span class="undies">amazing</span> achievement.</p>
 </div></div></div></div>
 <p>(exhausted, exhausting)</p>
 </p>
@@ -426,7 +426,7 @@ class="accordion-toggle nn_sliders-toggle" data-toggle="collapse" data-id="q9-i-
 <div class="accordion-inner panel-body">
 <h2 class="nn_sliders-title">9. I was _____ from the day's work.</h2>
 <p>
-9. I was <span class="hilite">exhausted</span> from the day's work.</p>
+9. I was <span class="undies">exhausted</span> from the day's work.</p>
 </div></div></div></div></p>
 
 <div class="nn_sliders accordion panel-group" id="set-nn_sliders-10"><a id="nn_sliders-scrollto_10" class="anchor nn_sliders-scroll"></a>
@@ -442,7 +442,7 @@ class="accordion-toggle nn_sliders-toggle" data-toggle="collapse" data-id="q10-i
 <div class="accordion-inner panel-body">
 <h2 class="nn_sliders-title">10. I will always remember that really _____ journey.</h2>
 <p>
-10. I will always remember that really <span class="hilite">exhausting</span> journey.</p>
+10. I will always remember that really <span class="undies">exhausting</span> journey.</p>
 </div></div></div></div>
 <p>(lost, losing)</p>
 </p>
@@ -460,7 +460,7 @@ class="accordion-toggle nn_sliders-toggle" data-toggle="collapse" data-id="q11-b
 <div class="accordion-inner panel-body">
 <h2 class="nn_sliders-title">11.  By this time we were completely _____.</h2>
 <p>
-11.  By this time we were completely <span class="hilite">lost</span>.</p>
+11.  By this time we were completely <span class="undies">lost</span>.</p>
 </div></div></div></div></p>
 
 <div class="nn_sliders accordion panel-group" id="set-nn_sliders-12"><a id="nn_sliders-scrollto_12" class="anchor nn_sliders-scroll"></a>
@@ -476,7 +476,7 @@ class="accordion-toggle nn_sliders-toggle" data-toggle="collapse" data-id="q12-t
 <div class="accordion-inner panel-body">
 <h2 class="nn_sliders-title">12. The _____ team had a player sent off earlier in the match.</h2>
 <p>
-12.   The <span class="hilite">losing</span> team had a player sent off earlier in the match.</p>
+12.   The <span class="undies">losing</span> team had a player sent off earlier in the match.</p>
 </div></div></div></div>
 <p>(worried, worrying)</p>
 </p>
@@ -494,7 +494,7 @@ class="accordion-toggle nn_sliders-toggle" data-toggle="collapse" data-id="q13-s
 <div class="accordion-inner panel-body">
 <h2 class="nn_sliders-title">13. She was _____ sick about her son.</h2>
 <p>
-13. She was <span class="hilite">worried</span> sick about her son.</p>
+13. She was <span class="undies">worried</span> sick about her son.</p>
 </div></div></div></div></p>
 
 <div class="nn_sliders accordion panel-group" id="set-nn_sliders-14"><a id="nn_sliders-scrollto_14" class="anchor nn_sliders-scroll"></a>
@@ -510,7 +510,7 @@ class="accordion-toggle nn_sliders-toggle" data-toggle="collapse" data-id="q14-t
 <div class="accordion-inner panel-body">
 <h2 class="nn_sliders-title">14.  The report highlights a _____ trend towards a sharp increase in violent crimes.</h2>
 <p>
-14.  The report highlights a <span class="hilite">worrying</span> trend towards a sharp increase in violent crimes.</p>
+14.  The report highlights a <span class="undies">worrying</span> trend towards a sharp increase in violent crimes.</p>
 </div></div></div></div>
 <p>(tired, tiring)</p>
 </p>
@@ -528,7 +528,7 @@ class="accordion-toggle nn_sliders-toggle" data-toggle="collapse" data-id="q15-h
 <div class="accordion-inner panel-body">
 <h2 class="nn_sliders-title">15.  He felt _____ enough to go to sleep standing up.</h2>
 <p>
-15.  He felt <span class="hilite">tired</span> enough to go to sleep standing up.</p>
+15.  He felt <span class="undies">tired</span> enough to go to sleep standing up.</p>
 </div></div></div></div></p>
 
 <div class="nn_sliders accordion panel-group" id="set-nn_sliders-16"><a id="nn_sliders-scrollto_16" class="anchor nn_sliders-scroll"></a>
@@ -544,7 +544,7 @@ class="accordion-toggle nn_sliders-toggle" data-toggle="collapse" data-id="q16-w
 <div class="accordion-inner panel-body">
 <h2 class="nn_sliders-title">16.  We have all had a very _____ day.</h2>
 <p>
-16. We have all had a very <span class="hilite">tiring</span> day.</p>
+16. We have all had a very <span class="undies">tiring</span> day.</p>
 </div></div></div></div>
 <p>(disappointed, disappointing)</p>
 </p>
@@ -562,7 +562,7 @@ class="accordion-toggle nn_sliders-toggle" data-toggle="collapse" data-id="q17-i
 <div class="accordion-inner panel-body">
 <h2 class="nn_sliders-title">17. It was a terribly _____ film.</h2>
 <p>
-17. It was a terribly <span class="hilite">disappointing</span> film.</p>
+17. It was a terribly <span class="undies">disappointing</span> film.</p>
 </div></div></div></div></p>
 
 <div class="nn_sliders accordion panel-group" id="set-nn_sliders-18"><a id="nn_sliders-scrollto_18" class="anchor nn_sliders-scroll"></a>
@@ -578,7 +578,7 @@ class="accordion-toggle nn_sliders-toggle" data-toggle="collapse" data-id="q18-i
 <div class="accordion-inner panel-body">
 <h2 class="nn_sliders-title">18. I felt very _____ when we lost.</h2>
 <p>
-18.  I felt very <span class="hilite">disappointed</span> when we lost.</p>
+18.  I felt very <span class="undies">disappointed</span> when we lost.</p>
 </div></div></div></div>
 <p>(threatened, threatening)</p>
 </p>
@@ -596,7 +596,7 @@ class="accordion-toggle nn_sliders-toggle" data-toggle="collapse" data-id="q19-t
 <div class="accordion-inner panel-body">
 <h2 class="nn_sliders-title">19.   They were very resentful of his _____ behavior.</h2>
 <p>
-19. They were very resentful of his <span class="hilite">threatening</span> behavior.</p>
+19. They were very resentful of his <span class="undies">threatening</span> behavior.</p>
 </div></div></div></div></p>
 
 <div class="nn_sliders accordion panel-group" id="set-nn_sliders-20"><a id="nn_sliders-scrollto_20" class="anchor nn_sliders-scroll"></a>
@@ -612,7 +612,7 @@ class="accordion-toggle nn_sliders-toggle" data-toggle="collapse" data-id="q20-m
 <div class="accordion-inner panel-body">
 <h2 class="nn_sliders-title">20.  Many species of fish are now _____ with extinction. </h2>
 <p>
-20.  Many species of fish are now <span class="hilite">threatened</span> with extinction.</p>
+20.  Many species of fish are now <span class="undies">threatened</span> with extinction.</p>
 </div></div></div></div><ul class="pager pagenav"><li class="previous"><a href="1821-verb-ing-gerund-and-particle.html" rel="prev" aria-label="Previous"><span class="icon-chevron-left"> </span> 18.2.1 Verb + -ing (Gerund and Participle)</a></li><li class="next"><a href="1832-verb-ing-adjective-part-2.html" rel="next" aria-label="Next">18.3.2 Verb + -ing (Adjective) Part 2 <span class="icon-chevron-right"> </span></a></li>
 				</ul>	</div>
 

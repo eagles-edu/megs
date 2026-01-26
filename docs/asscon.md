@@ -263,3 +263,4 @@ _user input_:
   - **highlighted**: obfuscate only `<span>`, `<b>`, `<strong>` text inside `<p>` (global)
   - **all**: obfuscate all `<p>` text nodes (omit HTML tags from encoding; leave tags intact, global)
 - obfuscation scope `none`: skip (do not run encode-p-text)
+- Alternates in answers: keep a single `<p>` per question block and separate multiple acceptable sentences with `<br>` tags; do not split a question’s answers across multiple `<p>` tags.

@@ -1,7 +1,7 @@
 <!-- prettier-ignore -->
 <!doctype html>
 <html lang="en">
-<!-- /exercise-15-passive-voice/1571-passive-voice-simple-future-tense.html, updated:  January 2026 12:33:38 GMT -->
+<!-- /exercise-15-passive-voice/1511-passive-voice-simple-present-tense.html, updated:  January 2026 12:33:32 GMT -->
 
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,8 +11,8 @@
     content="ESL, TOESL, TOEFL, courses, english, english courses, education, english degree, degree, english education, exercises, english exercises, grammar, verb, english grammar, noun, adverb, adjective, english adverb, english noun, english adjective">
   <meta name="description" content="A comprehensive site for free English courses and exercises.">
   <meta name="generator" content="English Grammar - intermediate levels A2 and above">
-  <title>15.7.1 Simple Future Tense</title>
-  <link href="1571-passive-voice-simple-future-tense.html" rel="non-canonical">
+  <title>15.1.1 Simple Present Tense</title>
+  <link href="1511-passive-voice-simple-present-tense.html" rel="non-canonical">
   <link href="../web-asset/icons/favicon.ico" rel="shortcut icon" type="image/vnd.microsoft.icon">
   <link href="../web-asset/css/style.min.css" rel="stylesheet">
   <link href="../web-asset/css/template592f.css" rel="stylesheet">
@@ -20,6 +20,16 @@
   <link href="../web-asset/css/flyout.css" rel="stylesheet">
   <link href="../web-asset/css/accordion.css" rel="stylesheet">
   <style>
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    .site-title {
+      font-family: "Roboto Condensed", sans-serif;
+    }
+
     body.site {
       border-top: 3px solid #004c75;
       background-color: #f4f6f7;
@@ -117,10 +127,11 @@
     var nn_sliders_use_hash = 1
     var nn_sliders_reload_iframes = 0
   </script>
+
   <link href="../web-asset/css/meg-2.css" rel="stylesheet">
 </head>
 
-<body class="site com_content view-article no-layout no-task itemid-3357">
+<body class="site com_content view-article no-layout no-task itemid-3350">
   <!-- Body -->
   <div class="body" id="top">
     <div class="container">
@@ -333,15 +344,18 @@
           <!-- Begin Content -->
 
           <div id="system-message-container"></div>
+
           <div class="item-page" itemscope itemtype="https://schema.org/Article">
 
+
             <div class="page-header">
-              <h2 itemprop="headline">15.7.1 Passive Voice - Simple Future Tense</h2>
+              <h2 itemprop="headline">15.1.1 Passive Voice - Simple Present Tense</h2>
             </div>
+
             <div itemprop="articleBody">
               <ul class="pager pagenav">
                 <li class="previous">
-                  <a href="1561-passive-voice-past-perfect-tense.html" rel="prev" aria-label="Previous">
+                  <a href="../exercise-15-passive-voice.html" rel="prev" aria-label="Previous">
                    <svg
                         version="1.1"
                         xmlns="http://www.w3.org/2000/svg"
@@ -352,331 +366,697 @@
                           d="M16.795 14.571c0 0.214-0.107 0.455-0.268 0.616l-10.527 10.527 10.527 10.527c0.161 0.161 0.268 0.402 0.268 0.616s-0.107 0.455-0.268 0.616l-1.339 1.339c-0.161 0.161-0.402 0.268-0.616 0.268s-0.455-0.107-0.616-0.268l-12.482-12.482c-0.161-0.161-0.268-0.402-0.268-0.616s0.107-0.455 0.268-0.616l12.482-12.482c0.161-0.161 0.402-0.268 0.616-0.268s0.455 0.107 0.616 0.268l1.339 1.339c0.161 0.161 0.268 0.375 0.268 0.616z">
                         </path>
                       </svg>
-                    15.6.1 Passive Voice - Past Perfect Tense
-                  </a>
-                </li>
-                <li class="next">
-                  <a href="../exercise-15-passive-voice.html" rel="next" aria-label="Next">
                     Exercise 15 - Passive Voice
                   </a>
                 </li>
+                <li class="next">
+                  <a href="1521-passive-voice-present-perfect-tense.html" rel="next" aria-label="Next">
+                    15.2.1 Passive Voice - Present Perfect Tense
+                    <svg
+                        version="1.1"
+                        xmlns="http://www.w3.org/2000/svg"
+                        height="24px"
+                        viewBox="0 0 18 48"
+                        fill="currentColor">
+                        <title>angle-right</title>
+                        <path
+                          d="M15.938 25.714c0 0.214-0.107 0.455-0.268 0.616l-12.482 12.482c-0.161 0.161-0.402 0.268-0.616 0.268s-0.455-0.107-0.616-0.268l-1.339-1.339c-0.161-0.161-0.268-0.375-0.268-0.616 0-0.214 0.107-0.455 0.268-0.616l10.527-10.527-10.527-10.527c-0.161-0.161-0.268-0.402-0.268-0.616s0.107-0.455 0.268-0.616l1.339-1.339c0.161-0.161 0.402-0.268 0.616-0.268s0.455 0.107 0.616 0.268l12.482 12.482c0.161 0.161 0.268 0.402 0.268 0.616z"></path>
+                      </svg>
+                  </a>
+                </li>
               </ul>
-              <p>Use the SIMPLE FUTURE TENSE of the verbs in bracket for the following passive sentences.</p>
-              <p>Click the sentences to see the answers.</p>
+              <br>
+              <div class="exinstruct">
+                <!-- prettier-ignore -->
+              <p>Use the SIMPLE PRESENT TENSE of the verbs in bracket for the following passive sentences. Click the sentence to check your the answer.</p>
+              </div>
               <div class="nn_sliders accordion panel-group" id="set-nn_sliders-1">
                 <a id="nn_sliders-scrollto_1" class="anchor nn_sliders-scroll"></a>
                 <div class="accordion-group panel nn_sliders-group">
-                  <a id="nn_sliders-scrollto_example-he-_____-choose-to-represent-the-company-at-the-funeral"
+                  <a id="nn_sliders-scrollto_example-i-_____-given-a-sweet-for-smiling-at-her"
                     class="anchor nn_sliders-scroll"></a>
                   <div class="accordion-heading panel-heading">
-                    <a href="1571-passive-voice-simple-future-tense.html#example-he-_____-choose-to-represent-the-company-at-the-funeral"
+                    <a href="1511-passive-voice-simple-present-tense.html#example-i-_____-given-a-sweet-for-smiling-at-her"
                       aria-label="Answer" class="accordion-toggle nn_sliders-toggle" data-toggle="collapse"
-                      data-id="example-he-_____-choose-to-represent-the-company-at-the-funeral"
-                      data-parent="#set-nn_sliders-1">
-                      <span class="nn_sliders-toggle-inner">Example: He _____ (choose) to represent the company at the
-                        funeral.</span>
+                      data-id="example-i-_____-given-a-sweet-for-smiling-at-her" data-parent="#set-nn_sliders-1">
+                      <span class="nn_sliders-toggle-inner">Example: I _____ (given) a sweet for smiling at her.</span>
                     </a>
                   </div>
                   <div class="accordion-body nn_sliders-body collapse"
-                    id="example-he-_____-choose-to-represent-the-company-at-the-funeral">
+                    id="example-i-_____-given-a-sweet-for-smiling-at-her">
                     <div class="accordion-inner panel-body">
-                      <h2 class="nn_sliders-title">Example: He _____ (choose) to represent the company at the funeral.
-                      </h2>
+                      <h2 class="nn_sliders-title">Example: I _____ (given) a sweet for smiling at her.</h2>
                       <p>
-                        He
-                        <span class="undies">will be chosen</span>
-                        to represent the company at the funeral..
+                        I
+                        <span class="undies">am given</span>
+                        a sweet for smiling at her.
                       </p>
                     </div>
                   </div>
                 </div>
               </div>
+
               <div class="nn_sliders accordion panel-group" id="set-nn_sliders-2">
                 <a id="nn_sliders-scrollto_2" class="anchor nn_sliders-scroll"></a>
                 <div class="accordion-group panel nn_sliders-group">
-                  <a id="nn_sliders-scrollto_1-the-police-said-the-identity-of-the-robbers-_____-know-fairly-soon"
-                    class="anchor nn_sliders-scroll"></a>
+                  <a id="nn_sliders-scrollto_1-nobody-_____-allow-to-go-in-there" class="anchor nn_sliders-scroll"></a>
                   <div class="accordion-heading panel-heading">
-                    <a href="1571-passive-voice-simple-future-tense.html#1-the-police-said-the-identity-of-the-robbers-_____-know-fairly-soon"
+                    <a href="1511-passive-voice-simple-present-tense.html#1-nobody-_____-allow-to-go-in-there"
                       aria-label="Answer" class="accordion-toggle nn_sliders-toggle" data-toggle="collapse"
-                      data-id="q1-the-police-said-the-identity-of-the-robbers-_____-know-fairly-soon"
-                      data-parent="#set-nn_sliders-2">
-                      <span class="nn_sliders-toggle-inner">
-                        1. The police said the identity of the robbers _____ (know) fairly soon.
-                      </span>
+                      data-id="q1-nobody-_____-allow-to-go-in-there" data-parent="#set-nn_sliders-2">
+                      <span class="nn_sliders-toggle-inner">1. Nobody _____ (allow) to go in there.</span>
                     </a>
                   </div>
-                  <div class="accordion-body nn_sliders-body collapse"
-                    id="q1-the-police-said-the-identity-of-the-robbers-_____-know-fairly-soon">
+                  <div class="accordion-body nn_sliders-body collapse" id="q1-nobody-_____-allow-to-go-in-there">
                     <div class="accordion-inner panel-body">
-                      <h2 class="nn_sliders-title">1. The police said the identity of the robbers _____ (know) fairly
-                        soon.</h2>
+                      <h2 class="nn_sliders-title">1. Nobody _____ (allow) to go in there.</h2>
                       <p>
-                        1. The police said the identity of the robbers
-                        <span class="undies">will be known</span>
-                        fairly soon.
+                        1. Nobody
+                        <span class="undies">is allowed</span>
+                        to go in there.
                       </p>
                     </div>
                   </div>
                 </div>
               </div>
+
               <div class="nn_sliders accordion panel-group" id="set-nn_sliders-3">
                 <a id="nn_sliders-scrollto_3" class="anchor nn_sliders-scroll"></a>
                 <div class="accordion-group panel nn_sliders-group">
-                  <a id="nn_sliders-scrollto_2-his-car-_____-leave-at-the-workshop-tomorrow"
+                  <a id="nn_sliders-scrollto_2-the-paper-_____-deliver-quite-early-in-the-morning"
                     class="anchor nn_sliders-scroll"></a>
                   <div class="accordion-heading panel-heading">
-                    <a href="1571-passive-voice-simple-future-tense.html#2-his-car-_____-leave-at-the-workshop-tomorrow"
+                    <a href="1511-passive-voice-simple-present-tense.html#2-the-paper-_____-deliver-quite-early-in-the-morning"
                       aria-label="Answer" class="accordion-toggle nn_sliders-toggle" data-toggle="collapse"
-                      data-id="q2-his-car-_____-leave-at-the-workshop-tomorrow" data-parent="#set-nn_sliders-3">
-                      <span class="nn_sliders-toggle-inner">2. His car _____ (leave) at the workshop tomorrow.</span>
+                      data-id="q2-the-paper-_____-deliver-quite-early-in-the-morning" data-parent="#set-nn_sliders-3">
+                      <span class="nn_sliders-toggle-inner">2. The paper _____ (deliver) quite early in the
+                        morning.</span>
                     </a>
                   </div>
                   <div class="accordion-body nn_sliders-body collapse"
-                    id="q2-his-car-_____-leave-at-the-workshop-tomorrow">
+                    id="q2-the-paper-_____-deliver-quite-early-in-the-morning">
                     <div class="accordion-inner panel-body">
-                      <h2 class="nn_sliders-title">2. His car _____ (leave) at the workshop tomorrow.</h2>
+                      <h2 class="nn_sliders-title">2. The paper _____ (deliver) quite early in the morning.</h2>
                       <p>
-                        2. His car
-                        <span class="undies">will be left</span>
-                        at the workshop tomorrow.
+                        2. The paper
+                        <span class="undies">is delivered</span>
+                        quite early in the morning.
                       </p>
                     </div>
                   </div>
                 </div>
               </div>
+
               <div class="nn_sliders accordion panel-group" id="set-nn_sliders-4">
                 <a id="nn_sliders-scrollto_4" class="anchor nn_sliders-scroll"></a>
                 <div class="accordion-group panel nn_sliders-group">
-                  <a id="nn_sliders-scrollto_3-three-representatives-from-our-side-_____-send-to-participate-in-the-discussion"
+                  <a id="nn_sliders-scrollto_3-the-name-of-the-winner-_____-engrave-on-the-shield"
                     class="anchor nn_sliders-scroll"></a>
                   <div class="accordion-heading panel-heading">
-                    <a href="1571-passive-voice-simple-future-tense.html#3-three-representatives-from-our-side-_____-send-to-participate-in-the-discussion"
+                    <a href="1511-passive-voice-simple-present-tense.html#3-the-name-of-the-winner-_____-engrave-on-the-shield"
                       aria-label="Answer" class="accordion-toggle nn_sliders-toggle" data-toggle="collapse"
-                      data-id="q3-three-representatives-from-our-side-_____-send-to-participate-in-the-discussion"
-                      data-parent="#set-nn_sliders-4">
-                      <span class="nn_sliders-toggle-inner">
-                        3. Three representatives from our side _____ (send) to participate in the discussion.
-                      </span>
+                      data-id="q3-the-name-of-the-winner-_____-engrave-on-the-shield" data-parent="#set-nn_sliders-4">
+                      <span class="nn_sliders-toggle-inner">3. The name of the winner _____ (engrave) on the
+                        shield.</span>
                     </a>
                   </div>
                   <div class="accordion-body nn_sliders-body collapse"
-                    id="q3-three-representatives-from-our-side-_____-send-to-participate-in-the-discussion">
+                    id="q3-the-name-of-the-winner-_____-engrave-on-the-shield">
                     <div class="accordion-inner panel-body">
-                      <h2 class="nn_sliders-title">
-                        3. Three representatives from our side _____ (send) to participate in the discussion.
-                      </h2>
+                      <h2 class="nn_sliders-title">3. The name of the winner _____ (engrave) on the shield.</h2>
                       <p>
-                        3. Three representatives from our side
-                        <span class="undies">will be sent</span>
-                        to participate in the discussion.
+                        3. The name of the winner
+                        <span class="undies">is engraved</span>
+                        on the shield.
                       </p>
                     </div>
                   </div>
                 </div>
               </div>
+
               <div class="nn_sliders accordion panel-group" id="set-nn_sliders-5">
                 <a id="nn_sliders-scrollto_5" class="anchor nn_sliders-scroll"></a>
                 <div class="accordion-group panel nn_sliders-group">
-                  <a id="nn_sliders-scrollto_4-the-documentary-film-_____-soon-_____-show-on-television"
+                  <a id="nn_sliders-scrollto_4-those-fans-_____-control-by-that-switch-over-there"
                     class="anchor nn_sliders-scroll"></a>
                   <div class="accordion-heading panel-heading">
-                    <a href="1571-passive-voice-simple-future-tense.html#4-the-documentary-film-_____-soon-_____-show-on-television"
+                    <a href="1511-passive-voice-simple-present-tense.html#4-those-fans-_____-control-by-that-switch-over-there"
                       aria-label="Answer" class="accordion-toggle nn_sliders-toggle" data-toggle="collapse"
-                      data-id="q4-the-documentary-film-_____-soon-_____-show-on-television"
-                      data-parent="#set-nn_sliders-5">
-                      <span class="nn_sliders-toggle-inner">4. The documentary film _____ soon _____ (show) on
-                        television.</span>
+                      data-id="q4-those-fans-_____-control-by-that-switch-over-there" data-parent="#set-nn_sliders-5">
+                      <span class="nn_sliders-toggle-inner">4. Those fans _____ (control) by that switch over
+                        there.</span>
                     </a>
                   </div>
                   <div class="accordion-body nn_sliders-body collapse"
-                    id="q4-the-documentary-film-_____-soon-_____-show-on-television">
+                    id="q4-those-fans-_____-control-by-that-switch-over-there">
                     <div class="accordion-inner panel-body">
-                      <h2 class="nn_sliders-title">4. The documentary film _____ soon _____ (show) on television.</h2>
+                      <h2 class="nn_sliders-title">4. Those fans _____ (control) by that switch over there.</h2>
                       <p>
-                        4. The documentary film
-                        <span class="undies">will</span>
-                        soon
-                        <span class="undies">be shown</span>
-                        on television.
+                        4. Those fans
+                        <span class="undies">are controlled</span>
+                        by that switch over there.
                       </p>
                     </div>
                   </div>
                 </div>
               </div>
+
               <div class="nn_sliders accordion panel-group" id="set-nn_sliders-6">
                 <a id="nn_sliders-scrollto_6" class="anchor nn_sliders-scroll"></a>
                 <div class="accordion-group panel nn_sliders-group">
-                  <a id="nn_sliders-scrollto_5-from-today-anybody-who-does-not-stop-at-the-red-light-_____-make-to-pay-a-heavy-fine"
+                  <a id="nn_sliders-scrollto_5-the-tyres-tires-of-those-lorries-_____-pump-up-carefully-every-week"
                     class="anchor nn_sliders-scroll"></a>
                   <div class="accordion-heading panel-heading">
-                    <a href="1571-passive-voice-simple-future-tense.html#5-from-today-anybody-who-does-not-stop-at-the-red-light-_____-make-to-pay-a-heavy-fine"
+                    <a href="1511-passive-voice-simple-present-tense.html#5-the-tyres-tires-of-those-lorries-_____-pump-up-carefully-every-week"
                       aria-label="Answer" class="accordion-toggle nn_sliders-toggle" data-toggle="collapse"
-                      data-id="q5-from-today-anybody-who-does-not-stop-at-the-red-light-_____-make-to-pay-a-heavy-fine"
+                      data-id="q5-the-tyres-tires-of-those-lorries-_____-pump-up-carefully-every-week"
                       data-parent="#set-nn_sliders-6">
                       <span class="nn_sliders-toggle-inner">
-                        5. From today, anybody who does not stop at the red light _____ (make) to pay a heavy fine.
+                        5. The tyres/tires of those lorries _____ (pump up) carefully every week.
                       </span>
                     </a>
                   </div>
                   <div class="accordion-body nn_sliders-body collapse"
-                    id="q5-from-today-anybody-who-does-not-stop-at-the-red-light-_____-make-to-pay-a-heavy-fine">
+                    id="q5-the-tyres-tires-of-those-lorries-_____-pump-up-carefully-every-week">
                     <div class="accordion-inner panel-body">
-                      <h2 class="nn_sliders-title">
-                        5. From today, anybody who does not stop at the red light _____ (make) to pay a heavy fine.
-                      </h2>
+                      <h2 class="nn_sliders-title">5. The tyres/tires of those lorries _____ (pump up) carefully every
+                        week.</h2>
                       <p>
-                        5. From today, anybody who does not stop at the red light
-                        <span class="undies">will be made</span>
-                        to pay a heavy fine.
+                        5. The tyres/tires of those lorries
+                        <span class="undies">are pumped up</span>
+                        carefully every week.
                       </p>
                     </div>
                   </div>
                 </div>
               </div>
+
               <div class="nn_sliders accordion panel-group" id="set-nn_sliders-7">
                 <a id="nn_sliders-scrollto_7" class="anchor nn_sliders-scroll"></a>
                 <div class="accordion-group panel nn_sliders-group">
-                  <a id="nn_sliders-scrollto_6-if-nobody-claims-the-lost-property-it-_____-sell-at-the-end-of-the-term"
+                  <a id="nn_sliders-scrollto_6-when-thieves-_____-arrest-they-_____-bring-to-a-police-station"
                     class="anchor nn_sliders-scroll"></a>
                   <div class="accordion-heading panel-heading">
-                    <a href="1571-passive-voice-simple-future-tense.html#6-if-nobody-claims-the-lost-property-it-_____-sell-at-the-end-of-the-term"
+                    <a href="1511-passive-voice-simple-present-tense.html#6-when-thieves-_____-arrest-they-_____-bring-to-a-police-station"
                       aria-label="Answer" class="accordion-toggle nn_sliders-toggle" data-toggle="collapse"
-                      data-id="q6-if-nobody-claims-the-lost-property-it-_____-sell-at-the-end-of-the-term"
+                      data-id="q6-when-thieves-_____-arrest-they-_____-bring-to-a-police-station"
                       data-parent="#set-nn_sliders-7">
-                      <span class="nn_sliders-toggle-inner">
-                        6. If nobody claims the lost property, it _____ (sell) at the end of the term.
-                      </span>
+                      <span class="nn_sliders-toggle-inner">6. When thieves _____ (arrest) they _____ (bring) to a
+                        police station.</span>
                     </a>
                   </div>
                   <div class="accordion-body nn_sliders-body collapse"
-                    id="q6-if-nobody-claims-the-lost-property-it-_____-sell-at-the-end-of-the-term">
+                    id="q6-when-thieves-_____-arrest-they-_____-bring-to-a-police-station">
                     <div class="accordion-inner panel-body">
-                      <h2 class="nn_sliders-title">6. If nobody claims the lost property, it _____ (sell) at the end of
-                        the term.</h2>
+                      <h2 class="nn_sliders-title">6. When thieves _____ (arrest) they _____ (bring) to a police
+                        station.</h2>
                       <p>
-                        6. If nobody claims the lost property, it
-                        <span class="undies">will be sold</span>
-                        at the end of the term.
+                        6. When thieves
+                        <span class="undies">are arrested</span>
+                        they
+                        <span class="undies">are brought</span>
+                        to a police station.
                       </p>
                     </div>
                   </div>
                 </div>
               </div>
+
               <div class="nn_sliders accordion panel-group" id="set-nn_sliders-8">
                 <a id="nn_sliders-scrollto_8" class="anchor nn_sliders-scroll"></a>
                 <div class="accordion-group panel nn_sliders-group">
-                  <a id="nn_sliders-scrollto_7-our-shop-_____-shut-down-for-a-week-for-repairs-and-renovation"
+                  <a id="nn_sliders-scrollto_7-at-the-olympic-games-the-top-three-winners-of-each-event-_____-award-medals"
                     class="anchor nn_sliders-scroll"></a>
                   <div class="accordion-heading panel-heading">
-                    <a href="1571-passive-voice-simple-future-tense.html#7-our-shop-_____-shut-down-for-a-week-for-repairs-and-renovation"
+                    <a href="1511-passive-voice-simple-present-tense.html#7-at-the-olympic-games-the-top-three-winners-of-each-event-_____-award-medals"
                       aria-label="Answer" class="accordion-toggle nn_sliders-toggle" data-toggle="collapse"
-                      data-id="q7-our-shop-_____-shut-down-for-a-week-for-repairs-and-renovation"
+                      data-id="q7-at-the-olympic-games-the-top-three-winners-of-each-event-_____-award-medals"
                       data-parent="#set-nn_sliders-8">
-                      <span class="nn_sliders-toggle-inner">7. Our shop _____ (shut down) for a week for repairs and
-                        renovation.</span>
+                      <span class="nn_sliders-toggle-inner">
+                        7. At the Olympic Games, the top three winners of each event _____ (award) medals.
+                      </span>
                     </a>
                   </div>
                   <div class="accordion-body nn_sliders-body collapse"
-                    id="q7-our-shop-_____-shut-down-for-a-week-for-repairs-and-renovation">
+                    id="q7-at-the-olympic-games-the-top-three-winners-of-each-event-_____-award-medals">
                     <div class="accordion-inner panel-body">
-                      <h2 class="nn_sliders-title">7. Our shop _____ (shut down) for a week for repairs and renovation.
-                      </h2>
+                      <h2 class="nn_sliders-title">7. At the Olympic Games, the top three winners of each event _____
+                        (award) medals.</h2>
                       <p>
-                        7. Our shop
-                        <span class="undies">will be shut down</span>
-                        for a week for repairs and renovation.
+                        7. At the Olympic Games, the top three winners of each event
+                        <span class="undies">are awarded</span>
+                        medals.
                       </p>
                     </div>
                   </div>
                 </div>
               </div>
+
               <div class="nn_sliders accordion panel-group" id="set-nn_sliders-9">
                 <a id="nn_sliders-scrollto_9" class="anchor nn_sliders-scroll"></a>
                 <div class="accordion-group panel nn_sliders-group">
-                  <a id="nn_sliders-scrollto_8-be-careful-your-hand-_____-cut-if-you-hold-it-too-near-to-that-circular-saw"
+                  <a id="nn_sliders-scrollto_8-huge-crocodiles-_____-sometimes-_____-see-in-that-swampy-area"
                     class="anchor nn_sliders-scroll"></a>
                   <div class="accordion-heading panel-heading">
-                    <a href="1571-passive-voice-simple-future-tense.html#8-be-careful-your-hand-_____-cut-if-you-hold-it-too-near-to-that-circular-saw"
+                    <a href="1511-passive-voice-simple-present-tense.html#8-huge-crocodiles-_____-sometimes-_____-see-in-that-swampy-area"
                       aria-label="Answer" class="accordion-toggle nn_sliders-toggle" data-toggle="collapse"
-                      data-id="q8-be-careful-your-hand-_____-cut-if-you-hold-it-too-near-to-that-circular-saw"
+                      data-id="q8-huge-crocodiles-_____-sometimes-_____-see-in-that-swampy-area"
                       data-parent="#set-nn_sliders-9">
-                      <span class="nn_sliders-toggle-inner">
-                        8. Be careful! Your hand _____ (cut) if you hold it too near to that circular saw.
-                      </span>
+                      <span class="nn_sliders-toggle-inner">8. Huge crocodiles _____ sometimes _____ (see) in that
+                        swampy area.</span>
                     </a>
                   </div>
                   <div class="accordion-body nn_sliders-body collapse"
-                    id="q8-be-careful-your-hand-_____-cut-if-you-hold-it-too-near-to-that-circular-saw">
+                    id="q8-huge-crocodiles-_____-sometimes-_____-see-in-that-swampy-area">
                     <div class="accordion-inner panel-body">
-                      <h2 class="nn_sliders-title">8. Be careful! Your hand _____ (cut) if you hold it too near to that
-                        circular saw.</h2>
+                      <h2 class="nn_sliders-title">8. Huge crocodiles _____ sometimes _____ (see) in that swampy area.
+                      </h2>
                       <p>
-                        8. Be careful! Your hand
-                        <span class="undies">will be cut</span>
-                        if you hold it too near to that circular saw.
+                        8. Huge crocodiles
+                        <span class="undies">are</span>
+                        sometimes
+                        <span class="undies">seen</span>
+                        in that swampy area.
                       </p>
                     </div>
                   </div>
                 </div>
               </div>
+
               <div class="nn_sliders accordion panel-group" id="set-nn_sliders-10">
                 <a id="nn_sliders-scrollto_10" class="anchor nn_sliders-scroll"></a>
                 <div class="accordion-group panel nn_sliders-group">
-                  <a id="nn_sliders-scrollto_9-with-two-very-fast-runners-in-the-race-the-record-_____-probably-_____-break-by-one-of-them"
+                  <a id="nn_sliders-scrollto_9-that-drain-_____-clear-out-regularly-and-all-the-rubbish-_____-remove"
                     class="anchor nn_sliders-scroll"></a>
                   <div class="accordion-heading panel-heading">
-                    <a href="1571-passive-voice-simple-future-tense.html#9-with-two-very-fast-runners-in-the-race-the-record-_____-probably-_____-break-by-one-of-them"
+                    <a href="1511-passive-voice-simple-present-tense.html#9-that-drain-_____-clear-out-regularly-and-all-the-rubbish-_____-remove"
                       aria-label="Answer" class="accordion-toggle nn_sliders-toggle" data-toggle="collapse"
-                      data-id="q9-with-two-very-fast-runners-in-the-race-the-record-_____-probably-_____-break-by-one-of-them"
+                      data-id="q9-that-drain-_____-clear-out-regularly-and-all-the-rubbish-_____-remove"
                       data-parent="#set-nn_sliders-10">
                       <span class="nn_sliders-toggle-inner">
-                        9. With two very fast runners in the race, the record _____ probably _____ (break) by one of
-                        them.
+                        9. That drain _____ (clear) out regularly and all the rubbish _____ (remove).
                       </span>
                     </a>
                   </div>
                   <div class="accordion-body nn_sliders-body collapse"
-                    id="q9-with-two-very-fast-runners-in-the-race-the-record-_____-probably-_____-break-by-one-of-them">
+                    id="q9-that-drain-_____-clear-out-regularly-and-all-the-rubbish-_____-remove">
                     <div class="accordion-inner panel-body">
-                      <h2 class="nn_sliders-title">
-                        9. With two very fast runners in the race, the record _____ probably _____ (break) by one of
-                        them.
-                      </h2>
+                      <h2 class="nn_sliders-title">9. That drain _____ (clear) out regularly and all the rubbish _____
+                        (remove).</h2>
                       <p>
-                        9. With two very fast runners in the race, the record
-                        <span class="undies">will</span>
-                        probably
-                        <span class="undies">be broken</span>
-                        by one of them.
+                        9. That drain
+                        <span class="undies">is cleared</span>
+                        out regularly and all the rubbish
+                        <span class="undies">is removed</span>
+                        .
                       </p>
                     </div>
                   </div>
                 </div>
               </div>
+
               <div class="nn_sliders accordion panel-group" id="set-nn_sliders-11">
                 <a id="nn_sliders-scrollto_11" class="anchor nn_sliders-scroll"></a>
                 <div class="accordion-group panel nn_sliders-group">
-                  <a id="nn_sliders-scrollto_10-i-have-set-the-alarm-clock-we-_____-awaken-at-six-o-clock"
+                  <a id="nn_sliders-scrollto_10-_____-football-matches-ever-_____-play-on-that-pitch"
                     class="anchor nn_sliders-scroll"></a>
                   <div class="accordion-heading panel-heading">
-                    <a href="1571-passive-voice-simple-future-tense.html#10-i-have-set-the-alarm-clock-we-_____-awaken-at-six-o-clock"
+                    <a href="1511-passive-voice-simple-present-tense.html#10-_____-football-matches-ever-_____-play-on-that-pitch"
                       aria-label="Answer" class="accordion-toggle nn_sliders-toggle" data-toggle="collapse"
-                      data-id="q10-i-have-set-the-alarm-clock-we-_____-awaken-at-six-o-clock"
+                      data-id="q10-_____-football-matches-ever-_____-play-on-that-pitch"
                       data-parent="#set-nn_sliders-11">
-                      <span class="nn_sliders-toggle-inner">10. I have set the alarm clock; we _____ (awaken) at six
-                        o'clock.</span>
+                      <span class="nn_sliders-toggle-inner">10. _____ football matches ever _____ (play) on that
+                        pitch?</span>
                     </a>
                   </div>
                   <div class="accordion-body nn_sliders-body collapse"
-                    id="q10-i-have-set-the-alarm-clock-we-_____-awaken-at-six-o-clock">
+                    id="q10-_____-football-matches-ever-_____-play-on-that-pitch">
                     <div class="accordion-inner panel-body">
-                      <h2 class="nn_sliders-title">10. I have set the alarm clock; we _____ (awaken) at six o'clock.
+                      <h2 class="nn_sliders-title">10. _____ football matches ever _____ (play) on that pitch?</h2>
+                      <p>
+                        10.
+                        <span class="undies">Are</span>
+                        football matches ever
+                        <span class="undies">played</span>
+                        on that pitch?
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="nn_sliders accordion panel-group" id="set-nn_sliders-12">
+                <a id="nn_sliders-scrollto_12" class="anchor nn_sliders-scroll"></a>
+                <div class="accordion-group panel nn_sliders-group">
+                  <a id="nn_sliders-scrollto_11-the-battery-in-my-car-_____-check-quite-often-and-it-_____-change-if-it-is-no-good"
+                    class="anchor nn_sliders-scroll"></a>
+                  <div class="accordion-heading panel-heading">
+                    <a href="1511-passive-voice-simple-present-tense.html#11-the-battery-in-my-car-_____-check-quite-often-and-it-_____-change-if-it-is-no-good"
+                      aria-label="Answer" class="accordion-toggle nn_sliders-toggle" data-toggle="collapse"
+                      data-id="q11-the-battery-in-my-car-_____-check-quite-often-and-it-_____-change-if-it-is-no-good"
+                      data-parent="#set-nn_sliders-12">
+                      <span class="nn_sliders-toggle-inner">
+                        11. The battery in my car _____ (check) quite often and it _____ (change) if it is no good.
+                      </span>
+                    </a>
+                  </div>
+                  <div class="accordion-body nn_sliders-body collapse"
+                    id="q11-the-battery-in-my-car-_____-check-quite-often-and-it-_____-change-if-it-is-no-good">
+                    <div class="accordion-inner panel-body">
+                      <h2 class="nn_sliders-title">
+                        11. The battery in my car _____ (check) quite often and it _____ (change) if it is no good.
                       </h2>
                       <p>
-                        10. I have set the alarm clock; we
-                        <span class="undies">will be awakened</span>
-                        at six o'clock.
+                        11. The battery in my car
+                        <span class="undies">is checked</span>
+                        quite often and it
+                        <span class="undies">is changed</span>
+                        if it is no good.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="nn_sliders accordion panel-group" id="set-nn_sliders-13">
+                <a id="nn_sliders-scrollto_13" class="anchor nn_sliders-scroll"></a>
+                <div class="accordion-group panel nn_sliders-group">
+                  <a id="nn_sliders-scrollto_12-books-_____-borrow-from-the-school-library-on-friday-and-then-they-_____-return-on-tuesday"
+                    class="anchor nn_sliders-scroll"></a>
+                  <div class="accordion-heading panel-heading">
+                    <a href="1511-passive-voice-simple-present-tense.html#12-books-_____-borrow-from-the-school-library-on-friday-and-then-they-_____-return-on-tuesday"
+                      aria-label="Answer" class="accordion-toggle nn_sliders-toggle" data-toggle="collapse"
+                      data-id="q12-books-_____-borrow-from-the-school-library-on-friday-and-then-they-_____-return-on-tuesday"
+                      data-parent="#set-nn_sliders-13">
+                      <span class="nn_sliders-toggle-inner">
+                        12. Books _____ (borrow) from the school library on Friday and then they _____ (return) on
+                        Tuesday.
+                      </span>
+                    </a>
+                  </div>
+                  <div class="accordion-body nn_sliders-body collapse"
+                    id="q12-books-_____-borrow-from-the-school-library-on-friday-and-then-they-_____-return-on-tuesday">
+                    <div class="accordion-inner panel-body">
+                      <h2 class="nn_sliders-title">
+                        12. Books _____ (borrow) from the school library on Friday and then they _____ (return) on
+                        Tuesday.
+                      </h2>
+                      <p>
+                        12. Books
+                        <span class="undies">are borrowed</span>
+                        from the school library on Friday and then they
+                        <span class="undies">are returned</span>
+                        on Tuesday.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="nn_sliders accordion panel-group" id="set-nn_sliders-14">
+                <a id="nn_sliders-scrollto_14" class="anchor nn_sliders-scroll"></a>
+                <div class="accordion-group panel nn_sliders-group">
+                  <a id="nn_sliders-scrollto_13-sometimes-children-_____-drown-in-old-mining-pools-which-_____-leave-in-a-dangerous-condition"
+                    class="anchor nn_sliders-scroll"></a>
+                  <div class="accordion-heading panel-heading">
+                    <a href="1511-passive-voice-simple-present-tense.html#13-sometimes-children-_____-drown-in-old-mining-pools-which-_____-leave-in-a-dangerous-condition"
+                      aria-label="Answer" class="accordion-toggle nn_sliders-toggle" data-toggle="collapse"
+                      data-id="q13-sometimes-children-_____-drown-in-old-mining-pools-which-_____-leave-in-a-dangerous-condition"
+                      data-parent="#set-nn_sliders-14">
+                      <span class="nn_sliders-toggle-inner">
+                        13. Sometimes children _____ (drown) in old mining pools which _____ (leave) in a dangerous
+                        condition.
+                      </span>
+                    </a>
+                  </div>
+                  <div class="accordion-body nn_sliders-body collapse"
+                    id="q13-sometimes-children-_____-drown-in-old-mining-pools-which-_____-leave-in-a-dangerous-condition">
+                    <div class="accordion-inner panel-body">
+                      <h2 class="nn_sliders-title">
+                        13. Sometimes children _____ (drown) in old mining pools which _____ (leave) in a dangerous
+                        condition.
+                      </h2>
+                      <p>
+                        13. Sometimes children
+                        <span class="undies">are drowned</span>
+                        in old mining pools which
+                        <span class="undies">are left</span>
+                        in a dangerous condition.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="nn_sliders accordion panel-group" id="set-nn_sliders-15">
+                <a id="nn_sliders-scrollto_15" class="anchor nn_sliders-scroll"></a>
+                <div class="accordion-group panel nn_sliders-group">
+                  <a id="nn_sliders-scrollto_14-you-_____-expect-to-be-quiet-when-you-go-into-a-library-and-_____-ask-not-to-talk"
+                    class="anchor nn_sliders-scroll"></a>
+                  <div class="accordion-heading panel-heading">
+                    <a href="1511-passive-voice-simple-present-tense.html#14-you-_____-expect-to-be-quiet-when-you-go-into-a-library-and-_____-ask-not-to-talk"
+                      aria-label="Answer" class="accordion-toggle nn_sliders-toggle" data-toggle="collapse"
+                      data-id="q14-you-_____-expect-to-be-quiet-when-you-go-into-a-library-and-_____-ask-not-to-talk"
+                      data-parent="#set-nn_sliders-15">
+                      <span class="nn_sliders-toggle-inner">
+                        14. You _____ (expect) to be quiet when you go into a library and _____ (ask) not to talk.
+                      </span>
+                    </a>
+                  </div>
+                  <div class="accordion-body nn_sliders-body collapse"
+                    id="q14-you-_____-expect-to-be-quiet-when-you-go-into-a-library-and-_____-ask-not-to-talk">
+                    <div class="accordion-inner panel-body">
+                      <h2 class="nn_sliders-title">
+                        14. You _____ (expect) to be quiet when you go into a library and _____ (ask) not to talk.
+                      </h2>
+                      <p>
+                        14. You
+                        <span class="undies">are expected</span>
+                        to be quiet when you go into a library and
+                        <span class="undies">are asked</span>
+                        not to talk.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="nn_sliders accordion panel-group" id="set-nn_sliders-16">
+                <a id="nn_sliders-scrollto_16" class="anchor nn_sliders-scroll"></a>
+                <div class="accordion-group panel nn_sliders-group">
+                  <a id="nn_sliders-scrollto_15-the-grass-_____-cut-and-the-field-_____-mark-out-before-each-game"
+                    class="anchor nn_sliders-scroll"></a>
+                  <div class="accordion-heading panel-heading">
+                    <a href="1511-passive-voice-simple-present-tense.html#15-the-grass-_____-cut-and-the-field-_____-mark-out-before-each-game"
+                      aria-label="Answer" class="accordion-toggle nn_sliders-toggle" data-toggle="collapse"
+                      data-id="q15-the-grass-_____-cut-and-the-field-_____-mark-out-before-each-game"
+                      data-parent="#set-nn_sliders-16">
+                      <span class="nn_sliders-toggle-inner">
+                        15. The grass _____ (cut) and the field _____ (mark) out before each game.
+                      </span>
+                    </a>
+                  </div>
+                  <div class="accordion-body nn_sliders-body collapse"
+                    id="q15-the-grass-_____-cut-and-the-field-_____-mark-out-before-each-game">
+                    <div class="accordion-inner panel-body">
+                      <h2 class="nn_sliders-title">15. The grass _____ (cut) and the field _____ (mark) out before each
+                        game.</h2>
+                      <p>
+                        15. The grass
+                        <span class="undies">is cut</span>
+                        and the field
+                        <span class="undies">is marked</span>
+                        out before each game.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="nn_sliders accordion panel-group" id="set-nn_sliders-17">
+                <a id="nn_sliders-scrollto_17" class="anchor nn_sliders-scroll"></a>
+                <div class="accordion-group panel nn_sliders-group">
+                  <a id="nn_sliders-scrollto_16-_____-the-new-school-_____-finish-yet-or-it-_____-build-already"
+                    class="anchor nn_sliders-scroll"></a>
+                  <div class="accordion-heading panel-heading">
+                    <a href="1511-passive-voice-simple-present-tense.html#16-_____-the-new-school-_____-finish-yet-or-it-_____-build-already"
+                      aria-label="Answer" class="accordion-toggle nn_sliders-toggle" data-toggle="collapse"
+                      data-id="q16-_____-the-new-school-_____-finish-yet-or-it-_____-build-already"
+                      data-parent="#set-nn_sliders-17">
+                      <span class="nn_sliders-toggle-inner">
+                        16. _____ the new school _____(finish) yet, or it _____ (build) already?
+                      </span>
+                    </a>
+                  </div>
+                  <div class="accordion-body nn_sliders-body collapse"
+                    id="q16-_____-the-new-school-_____-finish-yet-or-it-_____-build-already">
+                    <div class="accordion-inner panel-body">
+                      <h2 class="nn_sliders-title">16. _____ the new school _____(finish) yet, or it _____ (build)
+                        already?</h2>
+                      <p>
+                        16.
+                        <span class="undies">Is</span>
+                        the new school
+                        <span class="undies">finished</span>
+                        yet, or it
+                        <span class="undies">is built</span>
+                        already?
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="nn_sliders accordion panel-group" id="set-nn_sliders-18">
+                <a id="nn_sliders-scrollto_18" class="anchor nn_sliders-scroll"></a>
+                <div class="accordion-group panel nn_sliders-group">
+                  <a id="nn_sliders-scrollto_17-parcels-_____-wrap-firmly-especially-when-they-_____-send-on-a-long-distance-occasionally-some-_____-steal"
+                    class="anchor nn_sliders-scroll"></a>
+                  <div class="accordion-heading panel-heading">
+                    <a href="1511-passive-voice-simple-present-tense.html#17-parcels-_____-wrap-firmly-especially-when-they-_____-send-on-a-long-distance-occasionally-some-_____-steal"
+                      aria-label="Answer" class="accordion-toggle nn_sliders-toggle" data-toggle="collapse"
+                      data-id="q17-parcels-_____-wrap-firmly-especially-when-they-_____-send-on-a-long-distance-occasionally-some-_____-steal"
+                      data-parent="#set-nn_sliders-18">
+                      <span class="nn_sliders-toggle-inner">
+                        17. Parcels _____ (wrap) firmly, especially when they _____ (send) on a long distance.
+                        Occasionally, some _____
+                        (steal).
+                      </span>
+                    </a>
+                  </div>
+                  <div class="accordion-body nn_sliders-body collapse"
+                    id="q17-parcels-_____-wrap-firmly-especially-when-they-_____-send-on-a-long-distance-occasionally-some-_____-steal">
+                    <div class="accordion-inner panel-body">
+                      <h2 class="nn_sliders-title">
+                        17. Parcels _____ (wrap) firmly, especially when they _____ (send) on a long distance.
+                        Occasionally, some _____
+                        (steal).
+                      </h2>
+                      <p>
+                        17. Parcels
+                        <span class="undies">are wrapped</span>
+                        firmly, especially when they
+                        <span class="undies">are sent</span>
+                        on a long distance. Occasionally, some
+                        <span class="undies">are stolen</span>
+                        .
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="nn_sliders accordion panel-group" id="set-nn_sliders-19">
+                <a id="nn_sliders-scrollto_19" class="anchor nn_sliders-scroll"></a>
+                <div class="accordion-group panel nn_sliders-group">
+                  <a id="nn_sliders-scrollto_18-_____-those-fish-_____-sell-locally-or-_____-they-_____-send-to-overseas-markets"
+                    class="anchor nn_sliders-scroll"></a>
+                  <div class="accordion-heading panel-heading">
+                    <a href="1511-passive-voice-simple-present-tense.html#18-_____-those-fish-_____-sell-locally-or-_____-they-_____-send-to-overseas-markets"
+                      aria-label="Answer" class="accordion-toggle nn_sliders-toggle" data-toggle="collapse"
+                      data-id="q18-_____-those-fish-_____-sell-locally-or-_____-they-_____-send-to-overseas-markets"
+                      data-parent="#set-nn_sliders-19">
+                      <span class="nn_sliders-toggle-inner">
+                        18. _____ those fish _____ (sell) locally or _____ they _____ (send) to overseas markets?
+                      </span>
+                    </a>
+                  </div>
+                  <div class="accordion-body nn_sliders-body collapse"
+                    id="q18-_____-those-fish-_____-sell-locally-or-_____-they-_____-send-to-overseas-markets">
+                    <div class="accordion-inner panel-body">
+                      <h2 class="nn_sliders-title">
+                        18. _____ those fish _____ (sell) locally or _____ they _____ (send) to overseas markets?
+                      </h2>
+                      <p>
+                        18.
+                        <span class="undies">Are</span>
+                        those fish
+                        <span class="undies">sold</span>
+                        locally or
+                        <span class="undies">are</span>
+                        they
+                        <span class="undies">sent</span>
+                        to overseas markets?
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="nn_sliders accordion panel-group" id="set-nn_sliders-20">
+                <a id="nn_sliders-scrollto_20" class="anchor nn_sliders-scroll"></a>
+                <div class="accordion-group panel nn_sliders-group">
+                  <a id="nn_sliders-scrollto_19-the-soldiers-in-the-jungle-_____-supply-from-the-air-food-and-other-things-_____-fly-to-them-from-a-military-airport-then-the-bundles-of-supply-_____-drop-into-the-jungle-from-a-helicopter"
+                    class="anchor nn_sliders-scroll"></a>
+                  <div class="accordion-heading panel-heading">
+                    <a href="1511-passive-voice-simple-present-tense.html#19-the-soldiers-in-the-jungle-_____-supply-from-the-air-food-and-other-things-_____-fly-to-them-from-a-military-airport-then-the-bundles-of-supply-_____-drop-into-the-jungle-from-a-helicopter"
+                      aria-label="Answer" class="accordion-toggle nn_sliders-toggle" data-toggle="collapse"
+                      data-id="q19-the-soldiers-in-the-jungle-_____-supply-from-the-air-food-and-other-things-_____-fly-to-them-from-a-military-airport-then-the-bundles-of-supply-_____-drop-into-the-jungle-from-a-helicopter"
+                      data-parent="#set-nn_sliders-20">
+                      <span class="nn_sliders-toggle-inner">
+                        19. The soldiers in the jungle _____ (supply) from the air. Food and other things _____ (fly) to
+                        them from a
+                        military airport. Then the bundles of supply _____ (drop) into the jungle from a helicopter.
+                      </span>
+                    </a>
+                  </div>
+                  <div class="accordion-body nn_sliders-body collapse"
+                    id="q19-the-soldiers-in-the-jungle-_____-supply-from-the-air-food-and-other-things-_____-fly-to-them-from-a-military-airport-then-the-bundles-of-supply-_____-drop-into-the-jungle-from-a-helicopter">
+                    <div class="accordion-inner panel-body">
+                      <h2 class="nn_sliders-title">
+                        19. The soldiers in the jungle _____ (supply) from the air. Food and other things _____ (fly) to
+                        them from a
+                        military airport. Then the bundles of supply _____ (drop) into the jungle from a helicopter.
+                      </h2>
+                      <p>
+                        19. The soldiers in the jungle
+                        <span class="undies">are supplied</span>
+                        from the air. Food and other things
+                        <span class="undies">are flown</span>
+                        to them from a military airport. Then the bundles of supply
+                        <span class="undies">are dropped</span>
+                        into the jungle from a helicopter.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="nn_sliders accordion panel-group" id="set-nn_sliders-21">
+                <a id="nn_sliders-scrollto_21" class="anchor nn_sliders-scroll"></a>
+                <div class="accordion-group panel nn_sliders-group">
+                  <a id="nn_sliders-scrollto_20-sometimes-traffic-signs-_____-knock-down-by-careless-motorists-if-they-_____-damage-they-_____-take-away-to-_____-repair-or-discarded"
+                    class="anchor nn_sliders-scroll"></a>
+                  <div class="accordion-heading panel-heading">
+                    <a href="1511-passive-voice-simple-present-tense.html#20-sometimes-traffic-signs-_____-knock-down-by-careless-motorists-if-they-_____-damage-they-_____-take-away-to-_____-repair-or-discarded"
+                      aria-label="Answer" class="accordion-toggle nn_sliders-toggle" data-toggle="collapse"
+                      data-id="q20-sometimes-traffic-signs-_____-knock-down-by-careless-motorists-if-they-_____-damage-they-_____-take-away-to-_____-repair-or-discarded"
+                      data-parent="#set-nn_sliders-21">
+                      <span class="nn_sliders-toggle-inner">
+                        20. Sometimes traffic signs _____ (knock) down by careless motorists. If they _____ (damage),
+                        they _____ (take)
+                        away to _____ (repair) or discarded.
+                      </span>
+                    </a>
+                  </div>
+                  <div class="accordion-body nn_sliders-body collapse"
+                    id="q20-sometimes-traffic-signs-_____-knock-down-by-careless-motorists-if-they-_____-damage-they-_____-take-away-to-_____-repair-or-discarded">
+                    <div class="accordion-inner panel-body">
+                      <h2 class="nn_sliders-title">
+                        20. Sometimes traffic signs _____ (knock) down by careless motorists. If they _____ (damage),
+                        they _____ (take)
+                        away to _____ (repair) or discarded.
+                      </h2>
+                      <p>
+                        20. Sometimes traffic signs
+                        <span class="undies">are knocked</span>
+                        down by careless motorists. If they
+                        <span class="undies">are damaged</span>
+                        , they
+                        <span class="undies">are taken</span>
+                        away to
+                        <span class="undies">be repaired</span>
+                        or discarded.
                       </p>
                     </div>
                   </div>
@@ -684,7 +1064,7 @@
               </div>
               <ul class="pager pagenav">
                 <li class="previous">
-                  <a href="1561-passive-voice-past-perfect-tense.html" rel="prev" aria-label="Previous">
+                  <a href="../exercise-15-passive-voice.html" rel="prev" aria-label="Previous">
                    <svg
                         version="1.1"
                         xmlns="http://www.w3.org/2000/svg"
@@ -695,24 +1075,40 @@
                           d="M16.795 14.571c0 0.214-0.107 0.455-0.268 0.616l-10.527 10.527 10.527 10.527c0.161 0.161 0.268 0.402 0.268 0.616s-0.107 0.455-0.268 0.616l-1.339 1.339c-0.161 0.161-0.402 0.268-0.616 0.268s-0.455-0.107-0.616-0.268l-12.482-12.482c-0.161-0.161-0.268-0.402-0.268-0.616s0.107-0.455 0.268-0.616l12.482-12.482c0.161-0.161 0.402-0.268 0.616-0.268s0.455 0.107 0.616 0.268l1.339 1.339c0.161 0.161 0.268 0.375 0.268 0.616z">
                         </path>
                       </svg>
-                    15.6.1 Passive Voice - Past Perfect Tense
+                    Exercise 15 - Passive Voice
                   </a>
                 </li>
                 <li class="next">
-                  <a href="../exercise-15-passive-voice.html" rel="next" aria-label="Next">
-                    Exercise 15 - Passive Voice
+                  <a href="1521-passive-voice-present-perfect-tense.html" rel="next" aria-label="Next">
+                    15.2.1 Passive Voice - Present Perfect Tense
+                    <svg
+                        version="1.1"
+                        xmlns="http://www.w3.org/2000/svg"
+                        height="24px"
+                        viewBox="0 0 18 48"
+                        fill="currentColor">
+                        <title>angle-right</title>
+                        <path
+                          d="M15.938 25.714c0 0.214-0.107 0.455-0.268 0.616l-12.482 12.482c-0.161 0.161-0.402 0.268-0.616 0.268s-0.455-0.107-0.616-0.268l-1.339-1.339c-0.161-0.161-0.268-0.375-0.268-0.616 0-0.214 0.107-0.455 0.268-0.616l10.527-10.527-10.527-10.527c-0.161-0.161-0.268-0.402-0.268-0.616s0.107-0.455 0.268-0.616l1.339-1.339c0.161-0.161 0.402-0.268 0.616-0.268s0.455 0.107 0.616 0.268l12.482 12.482c0.161 0.161 0.268 0.402 0.268 0.616z"></path>
+                      </svg>
                   </a>
                 </li>
               </ul>
             </div>
           </div>
+
           <div class="clearfix"></div>
+
           <ul itemscope itemtype="https://schema.org/BreadcrumbList" class="breadcrumb">
-            <li class="active"></li>
+            <li class="active">
+              <span class="divider icon-location"></span>
+            </li>
+
             <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
               <a itemprop="item" href="../index-2.html" class="pathway" aria-label="Home">
                 <span itemprop="name">Home</span>
               </a>
+
               <span class="divider">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8 13.02" width="11" height="11"><polygon points="8 6.51 0 13.02 0 0 8 6.51" fill="#e0162b"></svg>
               </span>
@@ -722,13 +1118,14 @@
               <a itemprop="item" href="../exercise-15-passive-voice.html" class="pathway" aria-label="Menu Link">
                 <span itemprop="name">Exercise 15 - Passive Voice</span>
               </a>
+
               <span class="divider">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8 13.02" width="11" height="11"><polygon points="8 6.51 0 13.02 0 0 8 6.51" fill="#e0162b"></svg>
               </span>
               <meta itemprop="position" content="2">
             </li>
             <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem" class="active">
-              <span itemprop="name">15.7.1 Simple Future Tense</span>
+              <span itemprop="name">15.1.1 Simple Present Tense</span>
               <meta itemprop="position" content="3">
             </li>
           </ul>
@@ -1797,7 +2194,7 @@
                 </div>
                 <div class="ul-wrapper">
                   <ul>
-                    <li class="first">
+                    <li class="current first">
                       <div class="item-wrapper">
                         <div class="menu-link">
                           <a href="1511-passive-voice-simple-present-tense.html" aria-label="Menu Link">
@@ -1860,7 +2257,7 @@
                         </div>
                       </div>
                     </li>
-                    <li class="current last">
+                    <li class="last">
                       <div class="item-wrapper">
                         <div class="menu-link">
                           <a href="1571-passive-voice-simple-future-tense.html" aria-label="Menu Link">
@@ -2127,6 +2524,7 @@
   <footer class="footer">
     <div class="container">
       <hr>
+
       <p class="pull-right">
         <a href="#top" id="back-top" aria-label="Back to Top">
           Back to Top
@@ -2137,6 +2535,6 @@
   </footer>
 </body>
 
-<!-- /exercise-15-passive-voice/1571-passive-voice-simple-future-tense.html, updated:  January 2026 12:33:39 GMT -->
+<!-- /exercise-15-passive-voice/1511-passive-voice-simple-present-tense.html, updated:  January 2026 12:33:32 GMT -->
 
 </html>

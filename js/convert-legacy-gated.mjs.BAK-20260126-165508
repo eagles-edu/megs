@@ -712,7 +712,10 @@ function injectTemplate(
     if (introBlocks.length && !form.prev().is("br")) {
       $("<br>").insertBefore(form)
     }
-    introBlocks.forEach((block) => form.before(block))
+    introBlocks
+      .slice()
+      .reverse()
+      .forEach((block) => form.before(block))
   }
   if (Array.isArray(scraped.legacyExamples) && scraped.legacyExamples.length) {
     form.before(scraped.legacyExamples.join("\n"))

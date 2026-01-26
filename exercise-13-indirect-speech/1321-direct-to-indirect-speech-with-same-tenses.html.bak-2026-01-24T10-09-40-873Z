@@ -268,7 +268,7 @@ jQuery(document).ready(function($){
 <div class="accordion-heading panel-heading">
 <a href="1321-direct-to-indirect-speech-with-same-tenses.html#example-the-big-boy-told-the-small-boy-“the-sun-rises-in-the-east" aria-label="Answer"
 class="accordion-toggle nn_sliders-toggle" data-toggle="collapse" data-id="example-the-big-boy-told-the-small-boy-“the-sun-rises-in-the-east-”" data-parent="#set-nn_sliders-1"><span class="nn_sliders-toggle-inner">
-Example:  The big boy told the small boy, “The sun rises in the east.”
+Example: The big boy told the small boy, “The sun rises in the east.”
 </span></a>
 </div>
 <div class="accordion-body nn_sliders-body collapse" id="example-the-big-boy-told-the-small-boy-the-sun-rises-in-the-east">

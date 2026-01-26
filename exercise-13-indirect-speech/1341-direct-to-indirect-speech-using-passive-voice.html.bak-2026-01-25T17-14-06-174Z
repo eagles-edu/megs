@@ -1,7 +1,7 @@
 <!-- prettier-ignore -->
 <!doctype html>
 <html lang="en">
-<!-- /exercise-15-passive-voice/1571-passive-voice-simple-future-tense.html, updated:  January 2026 12:33:38 GMT -->
+<!-- /exercise-13-indirect-speech/1341-direct-to-indirect-speech-using-passive-voice.html, updated:  January 2026 12:33:30 GMT -->
 
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,8 +11,8 @@
     content="ESL, TOESL, TOEFL, courses, english, english courses, education, english degree, degree, english education, exercises, english exercises, grammar, verb, english grammar, noun, adverb, adjective, english adverb, english noun, english adjective">
   <meta name="description" content="A comprehensive site for free English courses and exercises.">
   <meta name="generator" content="English Grammar - intermediate levels A2 and above">
-  <title>15.7.1 Simple Future Tense</title>
-  <link href="1571-passive-voice-simple-future-tense.html" rel="non-canonical">
+  <title>13.4.1 Direct to Indirect Speech using Passive Voice</title>
+  <link href="1341-direct-to-indirect-speech-using-passive-voice.html" rel="non-canonical">
   <link href="../web-asset/icons/favicon.ico" rel="shortcut icon" type="image/vnd.microsoft.icon">
   <link href="../web-asset/css/style.min.css" rel="stylesheet">
   <link href="../web-asset/css/template592f.css" rel="stylesheet">
@@ -20,6 +20,16 @@
   <link href="../web-asset/css/flyout.css" rel="stylesheet">
   <link href="../web-asset/css/accordion.css" rel="stylesheet">
   <style>
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    .site-title {
+      font-family: "Roboto Condensed", sans-serif;
+    }
+
     body.site {
       border-top: 3px solid #004c75;
       background-color: #f4f6f7;
@@ -117,10 +127,11 @@
     var nn_sliders_use_hash = 1
     var nn_sliders_reload_iframes = 0
   </script>
+
   <link href="../web-asset/css/meg-2.css" rel="stylesheet">
 </head>
 
-<body class="site com_content view-article no-layout no-task itemid-3357">
+<body class="site com_content view-article no-layout no-task itemid-3346">
   <!-- Body -->
   <div class="body" id="top">
     <div class="container">
@@ -333,15 +344,19 @@
           <!-- Begin Content -->
 
           <div id="system-message-container"></div>
+
           <div class="item-page" itemscope itemtype="https://schema.org/Article">
 
+
             <div class="page-header">
-              <h2 itemprop="headline">15.7.1 Passive Voice - Simple Future Tense</h2>
+              <h2 itemprop="headline">13.4.1 Direct to Indirect Speech using Passive Voice</h2>
             </div>
+
             <div itemprop="articleBody">
               <ul class="pager pagenav">
                 <li class="previous">
-                  <a href="1561-passive-voice-past-perfect-tense.html" rel="prev" aria-label="Previous">
+                  <a href="1331-direct-to-indirect-speech-using-past-perfect-tense.html" rel="prev"
+                    aria-label="Previous">
                    <svg
                         version="1.1"
                         xmlns="http://www.w3.org/2000/svg"
@@ -352,339 +367,287 @@
                           d="M16.795 14.571c0 0.214-0.107 0.455-0.268 0.616l-10.527 10.527 10.527 10.527c0.161 0.161 0.268 0.402 0.268 0.616s-0.107 0.455-0.268 0.616l-1.339 1.339c-0.161 0.161-0.402 0.268-0.616 0.268s-0.455-0.107-0.616-0.268l-12.482-12.482c-0.161-0.161-0.268-0.402-0.268-0.616s0.107-0.455 0.268-0.616l12.482-12.482c0.161-0.161 0.402-0.268 0.616-0.268s0.455 0.107 0.616 0.268l1.339 1.339c0.161 0.161 0.268 0.375 0.268 0.616z">
                         </path>
                       </svg>
-                    15.6.1 Passive Voice - Past Perfect Tense
+                    13.3.1 Direct to Indirect Speech using Past Perfect Tense
                   </a>
                 </li>
                 <li class="next">
-                  <a href="../exercise-15-passive-voice.html" rel="next" aria-label="Next">
-                    Exercise 15 - Passive Voice
+                  <a href="../exercise-13-indirect-speech.html" rel="next" aria-label="Next">
+                    Exercise 13 - Indirect Speech
+                    <svg
+                        version="1.1"
+                        xmlns="http://www.w3.org/2000/svg"
+                        height="24px"
+                        viewBox="0 0 18 48"
+                        fill="currentColor">
+                        <title>angle-right</title>
+                        <path
+                          d="M15.938 25.714c0 0.214-0.107 0.455-0.268 0.616l-12.482 12.482c-0.161 0.161-0.402 0.268-0.616 0.268s-0.455-0.107-0.616-0.268l-1.339-1.339c-0.161-0.161-0.268-0.375-0.268-0.616 0-0.214 0.107-0.455 0.268-0.616l10.527-10.527-10.527-10.527c-0.161-0.161-0.268-0.402-0.268-0.616s0.107-0.455 0.268-0.616l1.339-1.339c0.161-0.161 0.402-0.268 0.616-0.268s0.455 0.107 0.616 0.268l12.482 12.482c0.161 0.161 0.268 0.402 0.268 0.616z"></path>
+                      </svg>
                   </a>
                 </li>
               </ul>
-              <p>Use the SIMPLE FUTURE TENSE of the verbs in bracket for the following passive sentences.</p>
-              <p>Click the sentences to see the answers.</p>
+                <div class="exinstruct"><!-- prettier-ignore --><p>Convert the following direct statements into indirect speech using the <b>passive form of the Past Perfect
+                tense</b>.</p>
+                <ul>
+                <li><b>Active Past Perfect</b>: had + Past Participle (V3)</li>
+                <li><b>Passive Past Perfect</b>: had + been + Past Participle (V3)</li>
+                </ul>
+								<div class="blockdiv">
+									<!-- prettier-ignore -->
+								<blockquote class="blockwrap-lt"><em>It's not always necessary to change the tenses when converting direct speech to indirect / reported speech made immediately, or shortly after, the direct speech occurred. However, when converting direct speech to indirect / reported speech that actually happening in the past, change tense to an appropriate past tense</em>.</blockquote>
+								</div>
+								<!-- prettier-ignore -->
+								<p>Check your answers by clicking the sentence.</p>
+								</div>
               <div class="nn_sliders accordion panel-group" id="set-nn_sliders-1">
                 <a id="nn_sliders-scrollto_1" class="anchor nn_sliders-scroll"></a>
                 <div class="accordion-group panel nn_sliders-group">
-                  <a id="nn_sliders-scrollto_example-he-_____-choose-to-represent-the-company-at-the-funeral"
+                  <a id="nn_sliders-scrollto_1-he-said-i-have-been-invited-to-her-wedding"
                     class="anchor nn_sliders-scroll"></a>
                   <div class="accordion-heading panel-heading">
-                    <a href="1571-passive-voice-simple-future-tense.html#example-he-_____-choose-to-represent-the-company-at-the-funeral"
+                    <a href="1341-direct-to-indirect-speech-using-passive-voice.html#1-he-said-i-have-been-invited-to-her-wedding"
                       aria-label="Answer" class="accordion-toggle nn_sliders-toggle" data-toggle="collapse"
-                      data-id="example-he-_____-choose-to-represent-the-company-at-the-funeral"
-                      data-parent="#set-nn_sliders-1">
-                      <span class="nn_sliders-toggle-inner">Example: He _____ (choose) to represent the company at the
-                        funeral.</span>
+                      data-id="q1-he-said-i-have-been-invited-to-her-wedding" data-parent="#set-nn_sliders-1">
+                      <span class="nn_sliders-toggle-inner">1. He said, "I have been invited to her wedding."</span>
                     </a>
                   </div>
                   <div class="accordion-body nn_sliders-body collapse"
-                    id="example-he-_____-choose-to-represent-the-company-at-the-funeral">
+                    id="q1-he-said-i-have-been-invited-to-her-wedding">
                     <div class="accordion-inner panel-body">
-                      <h2 class="nn_sliders-title">Example: He _____ (choose) to represent the company at the funeral.
-                      </h2>
-                      <p>
-                        He
-                        <span class="undies">will be chosen</span>
-                        to represent the company at the funeral..
-                      </p>
+                      <h2 class="nn_sliders-title">1. He said, "I have been invited to her wedding."</h2>
+                      <p>1. He said that he had been invited to her wedding.<br>
+                        1. He said he had been invited to her wedding.</p>
                     </div>
                   </div>
                 </div>
               </div>
+
               <div class="nn_sliders accordion panel-group" id="set-nn_sliders-2">
                 <a id="nn_sliders-scrollto_2" class="anchor nn_sliders-scroll"></a>
                 <div class="accordion-group panel nn_sliders-group">
-                  <a id="nn_sliders-scrollto_1-the-police-said-the-identity-of-the-robbers-_____-know-fairly-soon"
+                  <a id="nn_sliders-scrollto_2-i-told-them-the-new-hotel-has-been-opened-by-a-minister"
                     class="anchor nn_sliders-scroll"></a>
                   <div class="accordion-heading panel-heading">
-                    <a href="1571-passive-voice-simple-future-tense.html#1-the-police-said-the-identity-of-the-robbers-_____-know-fairly-soon"
+                    <a href="1341-direct-to-indirect-speech-using-passive-voice.html#2-i-told-them-the-new-hotel-has-been-opened-by-a-minister"
                       aria-label="Answer" class="accordion-toggle nn_sliders-toggle" data-toggle="collapse"
-                      data-id="q1-the-police-said-the-identity-of-the-robbers-_____-know-fairly-soon"
+                      data-id="q2-i-told-them-the-new-hotel-has-been-opened-by-a-minister"
                       data-parent="#set-nn_sliders-2">
-                      <span class="nn_sliders-toggle-inner">
-                        1. The police said the identity of the robbers _____ (know) fairly soon.
-                      </span>
+                      <span class="nn_sliders-toggle-inner">2. I told them, "The new hotel has been opened by a
+                        Minister."</span>
                     </a>
                   </div>
                   <div class="accordion-body nn_sliders-body collapse"
-                    id="q1-the-police-said-the-identity-of-the-robbers-_____-know-fairly-soon">
+                    id="q2-i-told-them-the-new-hotel-has-been-opened-by-a-minister">
                     <div class="accordion-inner panel-body">
-                      <h2 class="nn_sliders-title">1. The police said the identity of the robbers _____ (know) fairly
-                        soon.</h2>
-                      <p>
-                        1. The police said the identity of the robbers
-                        <span class="undies">will be known</span>
-                        fairly soon.
-                      </p>
+                      <h2 class="nn_sliders-title">2. I told them, "The new hotel has been opened by a Minister."</h2>
+                      <p>2. I told them that the new hotel had been opened by a Minister.<br>
+                        2. I told them the new hotel had been opened by a Minister.</p>
                     </div>
                   </div>
                 </div>
               </div>
+
               <div class="nn_sliders accordion panel-group" id="set-nn_sliders-3">
                 <a id="nn_sliders-scrollto_3" class="anchor nn_sliders-scroll"></a>
                 <div class="accordion-group panel nn_sliders-group">
-                  <a id="nn_sliders-scrollto_2-his-car-_____-leave-at-the-workshop-tomorrow"
+                  <a id="nn_sliders-scrollto_3-he-said-my-car-was-stolen-last-night"
                     class="anchor nn_sliders-scroll"></a>
                   <div class="accordion-heading panel-heading">
-                    <a href="1571-passive-voice-simple-future-tense.html#2-his-car-_____-leave-at-the-workshop-tomorrow"
+                    <a href="1341-direct-to-indirect-speech-using-passive-voice.html#3-he-said-my-car-was-stolen-last-night"
                       aria-label="Answer" class="accordion-toggle nn_sliders-toggle" data-toggle="collapse"
-                      data-id="q2-his-car-_____-leave-at-the-workshop-tomorrow" data-parent="#set-nn_sliders-3">
-                      <span class="nn_sliders-toggle-inner">2. His car _____ (leave) at the workshop tomorrow.</span>
+                      data-id="q3-he-said-my-car-was-stolen-last-night" data-parent="#set-nn_sliders-3">
+                      <span class="nn_sliders-toggle-inner">3. He said, "My car was stolen last night."</span>
                     </a>
                   </div>
-                  <div class="accordion-body nn_sliders-body collapse"
-                    id="q2-his-car-_____-leave-at-the-workshop-tomorrow">
+                  <div class="accordion-body nn_sliders-body collapse" id="q3-he-said-my-car-was-stolen-last-night">
                     <div class="accordion-inner panel-body">
-                      <h2 class="nn_sliders-title">2. His car _____ (leave) at the workshop tomorrow.</h2>
-                      <p>
-                        2. His car
-                        <span class="undies">will be left</span>
-                        at the workshop tomorrow.
-                      </p>
+                      <h2 class="nn_sliders-title">3. He said, "My car was stolen last night."</h2>
+                      <p>3. He said that his car had been stolen the night before. (Change 'last night' to 'the night
+                        before')<br>
+                        3. He said his car had been stolen the night before. (Change 'last night' to 'the night before')</p>
                     </div>
                   </div>
                 </div>
               </div>
+
               <div class="nn_sliders accordion panel-group" id="set-nn_sliders-4">
                 <a id="nn_sliders-scrollto_4" class="anchor nn_sliders-scroll"></a>
                 <div class="accordion-group panel nn_sliders-group">
-                  <a id="nn_sliders-scrollto_3-three-representatives-from-our-side-_____-send-to-participate-in-the-discussion"
+                  <a id="nn_sliders-scrollto_4-she-said-the-food-was-not-cooked-properly"
                     class="anchor nn_sliders-scroll"></a>
                   <div class="accordion-heading panel-heading">
-                    <a href="1571-passive-voice-simple-future-tense.html#3-three-representatives-from-our-side-_____-send-to-participate-in-the-discussion"
+                    <a href="1341-direct-to-indirect-speech-using-passive-voice.html#4-she-said-the-food-was-not-cooked-properly"
                       aria-label="Answer" class="accordion-toggle nn_sliders-toggle" data-toggle="collapse"
-                      data-id="q3-three-representatives-from-our-side-_____-send-to-participate-in-the-discussion"
-                      data-parent="#set-nn_sliders-4">
-                      <span class="nn_sliders-toggle-inner">
-                        3. Three representatives from our side _____ (send) to participate in the discussion.
-                      </span>
+                      data-id="q4-she-said-the-food-was-not-cooked-properly" data-parent="#set-nn_sliders-4">
+                      <span class="nn_sliders-toggle-inner">4. She said, "The food was not cooked properly."</span>
                     </a>
                   </div>
                   <div class="accordion-body nn_sliders-body collapse"
-                    id="q3-three-representatives-from-our-side-_____-send-to-participate-in-the-discussion">
+                    id="q4-she-said-the-food-was-not-cooked-properly">
                     <div class="accordion-inner panel-body">
-                      <h2 class="nn_sliders-title">
-                        3. Three representatives from our side _____ (send) to participate in the discussion.
-                      </h2>
-                      <p>
-                        3. Three representatives from our side
-                        <span class="undies">will be sent</span>
-                        to participate in the discussion.
-                      </p>
+                      <h2 class="nn_sliders-title">4. She said, "The food was not cooked properly."</h2>
+                      <p>4. She said that the food had not been cooked properly.<br>
+                        4. She said the food had not been cooked properly.</p>
                     </div>
                   </div>
                 </div>
               </div>
+
               <div class="nn_sliders accordion panel-group" id="set-nn_sliders-5">
                 <a id="nn_sliders-scrollto_5" class="anchor nn_sliders-scroll"></a>
                 <div class="accordion-group panel nn_sliders-group">
-                  <a id="nn_sliders-scrollto_4-the-documentary-film-_____-soon-_____-show-on-television"
+                  <a id="nn_sliders-scrollto_5-i-wasn-t-told-about-the-fire-he-complained"
                     class="anchor nn_sliders-scroll"></a>
                   <div class="accordion-heading panel-heading">
-                    <a href="1571-passive-voice-simple-future-tense.html#4-the-documentary-film-_____-soon-_____-show-on-television"
+                    <a href="1341-direct-to-indirect-speech-using-passive-voice.html#5-i-wasn-t-told-about-the-fire-he-complained"
                       aria-label="Answer" class="accordion-toggle nn_sliders-toggle" data-toggle="collapse"
-                      data-id="q4-the-documentary-film-_____-soon-_____-show-on-television"
-                      data-parent="#set-nn_sliders-5">
-                      <span class="nn_sliders-toggle-inner">4. The documentary film _____ soon _____ (show) on
-                        television.</span>
+                      data-id="q5-i-wasn-t-told-about-the-fire-he-complained" data-parent="#set-nn_sliders-5">
+                      <span class="nn_sliders-toggle-inner">5. "I wasn't told about the fire," he complained.</span>
                     </a>
                   </div>
                   <div class="accordion-body nn_sliders-body collapse"
-                    id="q4-the-documentary-film-_____-soon-_____-show-on-television">
+                    id="q5-i-wasn-t-told-about-the-fire-he-complained">
                     <div class="accordion-inner panel-body">
-                      <h2 class="nn_sliders-title">4. The documentary film _____ soon _____ (show) on television.</h2>
-                      <p>
-                        4. The documentary film
-                        <span class="undies">will</span>
-                        soon
-                        <span class="undies">be shown</span>
-                        on television.
-                      </p>
+                      <h2 class="nn_sliders-title">5. "I wasn't told about the fire," he complained.</h2>
+                      <p>5. He complained that he had not been told about the fire.<br>
+                        5. He complained he had not been told about the fire.</p>
                     </div>
                   </div>
                 </div>
               </div>
+
               <div class="nn_sliders accordion panel-group" id="set-nn_sliders-6">
                 <a id="nn_sliders-scrollto_6" class="anchor nn_sliders-scroll"></a>
                 <div class="accordion-group panel nn_sliders-group">
-                  <a id="nn_sliders-scrollto_5-from-today-anybody-who-does-not-stop-at-the-red-light-_____-make-to-pay-a-heavy-fine"
+                  <a id="nn_sliders-scrollto_6-the-duty-master-said-the-money-has-not-been-claimed-yet"
                     class="anchor nn_sliders-scroll"></a>
                   <div class="accordion-heading panel-heading">
-                    <a href="1571-passive-voice-simple-future-tense.html#5-from-today-anybody-who-does-not-stop-at-the-red-light-_____-make-to-pay-a-heavy-fine"
+                    <a href="1341-direct-to-indirect-speech-using-passive-voice.html#6-the-duty-master-said-the-money-has-not-been-claimed-yet"
                       aria-label="Answer" class="accordion-toggle nn_sliders-toggle" data-toggle="collapse"
-                      data-id="q5-from-today-anybody-who-does-not-stop-at-the-red-light-_____-make-to-pay-a-heavy-fine"
+                      data-id="q6-the-duty-master-said-the-money-has-not-been-claimed-yet"
                       data-parent="#set-nn_sliders-6">
-                      <span class="nn_sliders-toggle-inner">
-                        5. From today, anybody who does not stop at the red light _____ (make) to pay a heavy fine.
-                      </span>
+                      <span class="nn_sliders-toggle-inner">6. The duty master said, "The money has not been claimed
+                        yet."</span>
                     </a>
                   </div>
                   <div class="accordion-body nn_sliders-body collapse"
-                    id="q5-from-today-anybody-who-does-not-stop-at-the-red-light-_____-make-to-pay-a-heavy-fine">
+                    id="q6-the-duty-master-said-the-money-has-not-been-claimed-yet">
                     <div class="accordion-inner panel-body">
-                      <h2 class="nn_sliders-title">
-                        5. From today, anybody who does not stop at the red light _____ (make) to pay a heavy fine.
-                      </h2>
-                      <p>
-                        5. From today, anybody who does not stop at the red light
-                        <span class="undies">will be made</span>
-                        to pay a heavy fine.
-                      </p>
+                      <h2 class="nn_sliders-title">6. The duty master said, "The money has not been claimed yet."</h2>
+                      <p>6. The duty master said that the money had not been claimed yet.<br>
+                        6. The duty master said the money had not been claimed yet.</p>
                     </div>
                   </div>
                 </div>
               </div>
+
               <div class="nn_sliders accordion panel-group" id="set-nn_sliders-7">
                 <a id="nn_sliders-scrollto_7" class="anchor nn_sliders-scroll"></a>
                 <div class="accordion-group panel nn_sliders-group">
-                  <a id="nn_sliders-scrollto_6-if-nobody-claims-the-lost-property-it-_____-sell-at-the-end-of-the-term"
+                  <a id="nn_sliders-scrollto_7-nobody-was-injured-in-the-accident-a-police-spokesman-said"
                     class="anchor nn_sliders-scroll"></a>
                   <div class="accordion-heading panel-heading">
-                    <a href="1571-passive-voice-simple-future-tense.html#6-if-nobody-claims-the-lost-property-it-_____-sell-at-the-end-of-the-term"
+                    <a href="1341-direct-to-indirect-speech-using-passive-voice.html#7-nobody-was-injured-in-the-accident-a-police-spokesman-said"
                       aria-label="Answer" class="accordion-toggle nn_sliders-toggle" data-toggle="collapse"
-                      data-id="q6-if-nobody-claims-the-lost-property-it-_____-sell-at-the-end-of-the-term"
+                      data-id="q7-nobody-was-injured-in-the-accident-a-police-spokesman-said"
                       data-parent="#set-nn_sliders-7">
-                      <span class="nn_sliders-toggle-inner">
-                        6. If nobody claims the lost property, it _____ (sell) at the end of the term.
-                      </span>
+                      <span class="nn_sliders-toggle-inner">7. "Nobody was injured in the accident," a police spokesman
+                        said.</span>
                     </a>
                   </div>
                   <div class="accordion-body nn_sliders-body collapse"
-                    id="q6-if-nobody-claims-the-lost-property-it-_____-sell-at-the-end-of-the-term">
+                    id="q7-nobody-was-injured-in-the-accident-a-police-spokesman-said">
                     <div class="accordion-inner panel-body">
-                      <h2 class="nn_sliders-title">6. If nobody claims the lost property, it _____ (sell) at the end of
-                        the term.</h2>
-                      <p>
-                        6. If nobody claims the lost property, it
-                        <span class="undies">will be sold</span>
-                        at the end of the term.
-                      </p>
+                      <h2 class="nn_sliders-title">7. "Nobody was injured in the accident," a police spokesman said.
+                      </h2>
+                      <p>7. A police spokesman said that nobody had been injured in the accident.<br>
+                        7. A police spokesman said nobody had been injured in the accident.</p>
                     </div>
                   </div>
                 </div>
               </div>
+
               <div class="nn_sliders accordion panel-group" id="set-nn_sliders-8">
                 <a id="nn_sliders-scrollto_8" class="anchor nn_sliders-scroll"></a>
                 <div class="accordion-group panel nn_sliders-group">
-                  <a id="nn_sliders-scrollto_7-our-shop-_____-shut-down-for-a-week-for-repairs-and-renovation"
+                  <a id="nn_sliders-scrollto_8-that-door-wasn-t-locked-last-night-my-mother-said"
                     class="anchor nn_sliders-scroll"></a>
                   <div class="accordion-heading panel-heading">
-                    <a href="1571-passive-voice-simple-future-tense.html#7-our-shop-_____-shut-down-for-a-week-for-repairs-and-renovation"
+                    <a href="1341-direct-to-indirect-speech-using-passive-voice.html#8-that-door-wasn-t-locked-last-night-my-mother-said"
                       aria-label="Answer" class="accordion-toggle nn_sliders-toggle" data-toggle="collapse"
-                      data-id="q7-our-shop-_____-shut-down-for-a-week-for-repairs-and-renovation"
-                      data-parent="#set-nn_sliders-8">
-                      <span class="nn_sliders-toggle-inner">7. Our shop _____ (shut down) for a week for repairs and
-                        renovation.</span>
+                      data-id="q8-that-door-wasn-t-locked-last-night-my-mother-said" data-parent="#set-nn_sliders-8">
+                      <span class="nn_sliders-toggle-inner">8. "That door wasn't locked last night," my mother
+                        said.</span>
                     </a>
                   </div>
                   <div class="accordion-body nn_sliders-body collapse"
-                    id="q7-our-shop-_____-shut-down-for-a-week-for-repairs-and-renovation">
+                    id="q8-that-door-wasn-t-locked-last-night-my-mother-said">
                     <div class="accordion-inner panel-body">
-                      <h2 class="nn_sliders-title">7. Our shop _____ (shut down) for a week for repairs and renovation.
-                      </h2>
-                      <p>
-                        7. Our shop
-                        <span class="undies">will be shut down</span>
-                        for a week for repairs and renovation.
-                      </p>
+                      <h2 class="nn_sliders-title">8. "That door wasn't locked last night," my mother said.</h2>
+                      <p>8. My mother said that that door had not been locked the night before.<br>
+                        8. My mother said that door had not been locked the night before.</p>
                     </div>
                   </div>
                 </div>
               </div>
+
               <div class="nn_sliders accordion panel-group" id="set-nn_sliders-9">
                 <a id="nn_sliders-scrollto_9" class="anchor nn_sliders-scroll"></a>
                 <div class="accordion-group panel nn_sliders-group">
-                  <a id="nn_sliders-scrollto_8-be-careful-your-hand-_____-cut-if-you-hold-it-too-near-to-that-circular-saw"
+                  <a id="nn_sliders-scrollto_9-the-stewardess-on-the-plane-said-to-me-your-safety-belt-has-not-been-fastened-properly"
                     class="anchor nn_sliders-scroll"></a>
                   <div class="accordion-heading panel-heading">
-                    <a href="1571-passive-voice-simple-future-tense.html#8-be-careful-your-hand-_____-cut-if-you-hold-it-too-near-to-that-circular-saw"
+                    <a href="1341-direct-to-indirect-speech-using-passive-voice.html#9-the-stewardess-on-the-plane-said-to-me-your-safety-belt-has-not-been-fastened-properly"
                       aria-label="Answer" class="accordion-toggle nn_sliders-toggle" data-toggle="collapse"
-                      data-id="q8-be-careful-your-hand-_____-cut-if-you-hold-it-too-near-to-that-circular-saw"
+                      data-id="q9-the-stewardess-on-the-plane-said-to-me-your-safety-belt-has-not-been-fastened-properly"
                       data-parent="#set-nn_sliders-9">
                       <span class="nn_sliders-toggle-inner">
-                        8. Be careful! Your hand _____ (cut) if you hold it too near to that circular saw.
+                        9. The stewardess on the plane said to me, "Your safety-belt has not been fastened properly.
                       </span>
                     </a>
                   </div>
                   <div class="accordion-body nn_sliders-body collapse"
-                    id="q8-be-careful-your-hand-_____-cut-if-you-hold-it-too-near-to-that-circular-saw">
+                    id="q9-the-stewardess-on-the-plane-said-to-me-your-safety-belt-has-not-been-fastened-properly">
                     <div class="accordion-inner panel-body">
-                      <h2 class="nn_sliders-title">8. Be careful! Your hand _____ (cut) if you hold it too near to that
-                        circular saw.</h2>
-                      <p>
-                        8. Be careful! Your hand
-                        <span class="undies">will be cut</span>
-                        if you hold it too near to that circular saw.
-                      </p>
+                      <h2 class="nn_sliders-title">
+                        9. The stewardess on the plane said to me, "Your safety-belt has not been fastened properly.
+                      </h2>
+                      <p>9. The stewardess on the plane said to me that my safety-belt had not been fastened properly.<br>
+                        9. The stewardess on the plane said to me my safety-belt had not been fastened properly.</p>
                     </div>
                   </div>
                 </div>
               </div>
+
               <div class="nn_sliders accordion panel-group" id="set-nn_sliders-10">
                 <a id="nn_sliders-scrollto_10" class="anchor nn_sliders-scroll"></a>
                 <div class="accordion-group panel nn_sliders-group">
-                  <a id="nn_sliders-scrollto_9-with-two-very-fast-runners-in-the-race-the-record-_____-probably-_____-break-by-one-of-them"
+                  <a id="nn_sliders-scrollto_10-he-told-the-manager-the-parcel-was-sent-two-days-ago"
                     class="anchor nn_sliders-scroll"></a>
                   <div class="accordion-heading panel-heading">
-                    <a href="1571-passive-voice-simple-future-tense.html#9-with-two-very-fast-runners-in-the-race-the-record-_____-probably-_____-break-by-one-of-them"
+                    <a href="1341-direct-to-indirect-speech-using-passive-voice.html#10-he-told-the-manager-the-parcel-was-sent-two-days-ago"
                       aria-label="Answer" class="accordion-toggle nn_sliders-toggle" data-toggle="collapse"
-                      data-id="q9-with-two-very-fast-runners-in-the-race-the-record-_____-probably-_____-break-by-one-of-them"
+                      data-id="q10-he-told-the-manager-the-parcel-was-sent-two-days-ago"
                       data-parent="#set-nn_sliders-10">
-                      <span class="nn_sliders-toggle-inner">
-                        9. With two very fast runners in the race, the record _____ probably _____ (break) by one of
-                        them.
-                      </span>
+                      <span class="nn_sliders-toggle-inner">10. He told the Manager, "The parcel was sent two days
+                        ago."</span>
                     </a>
                   </div>
                   <div class="accordion-body nn_sliders-body collapse"
-                    id="q9-with-two-very-fast-runners-in-the-race-the-record-_____-probably-_____-break-by-one-of-them">
+                    id="q10-he-told-the-manager-the-parcel-was-sent-two-days-ago">
                     <div class="accordion-inner panel-body">
-                      <h2 class="nn_sliders-title">
-                        9. With two very fast runners in the race, the record _____ probably _____ (break) by one of
-                        them.
-                      </h2>
-                      <p>
-                        9. With two very fast runners in the race, the record
-                        <span class="undies">will</span>
-                        probably
-                        <span class="undies">be broken</span>
-                        by one of them.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="nn_sliders accordion panel-group" id="set-nn_sliders-11">
-                <a id="nn_sliders-scrollto_11" class="anchor nn_sliders-scroll"></a>
-                <div class="accordion-group panel nn_sliders-group">
-                  <a id="nn_sliders-scrollto_10-i-have-set-the-alarm-clock-we-_____-awaken-at-six-o-clock"
-                    class="anchor nn_sliders-scroll"></a>
-                  <div class="accordion-heading panel-heading">
-                    <a href="1571-passive-voice-simple-future-tense.html#10-i-have-set-the-alarm-clock-we-_____-awaken-at-six-o-clock"
-                      aria-label="Answer" class="accordion-toggle nn_sliders-toggle" data-toggle="collapse"
-                      data-id="q10-i-have-set-the-alarm-clock-we-_____-awaken-at-six-o-clock"
-                      data-parent="#set-nn_sliders-11">
-                      <span class="nn_sliders-toggle-inner">10. I have set the alarm clock; we _____ (awaken) at six
-                        o'clock.</span>
-                    </a>
-                  </div>
-                  <div class="accordion-body nn_sliders-body collapse"
-                    id="q10-i-have-set-the-alarm-clock-we-_____-awaken-at-six-o-clock">
-                    <div class="accordion-inner panel-body">
-                      <h2 class="nn_sliders-title">10. I have set the alarm clock; we _____ (awaken) at six o'clock.
-                      </h2>
-                      <p>
-                        10. I have set the alarm clock; we
-                        <span class="undies">will be awakened</span>
-                        at six o'clock.
-                      </p>
+                      <h2 class="nn_sliders-title">10. He told the Manager, "The parcel was sent two days ago."</h2>
+                      <p>10. He told the Manager that the parcel had been sent two days previously. (Change 'ago' to
+                        'previously.')<br>
+                        10. He told the Manager the parcel had been sent two days previously. (Change 'ago' to 'previously.')</p>
                     </div>
                   </div>
                 </div>
               </div>
               <ul class="pager pagenav">
                 <li class="previous">
-                  <a href="1561-passive-voice-past-perfect-tense.html" rel="prev" aria-label="Previous">
+                  <a href="1331-direct-to-indirect-speech-using-past-perfect-tense.html" rel="prev"
+                    aria-label="Previous">
                    <svg
                         version="1.1"
                         xmlns="http://www.w3.org/2000/svg"
@@ -695,40 +658,57 @@
                           d="M16.795 14.571c0 0.214-0.107 0.455-0.268 0.616l-10.527 10.527 10.527 10.527c0.161 0.161 0.268 0.402 0.268 0.616s-0.107 0.455-0.268 0.616l-1.339 1.339c-0.161 0.161-0.402 0.268-0.616 0.268s-0.455-0.107-0.616-0.268l-12.482-12.482c-0.161-0.161-0.268-0.402-0.268-0.616s0.107-0.455 0.268-0.616l12.482-12.482c0.161-0.161 0.402-0.268 0.616-0.268s0.455 0.107 0.616 0.268l1.339 1.339c0.161 0.161 0.268 0.375 0.268 0.616z">
                         </path>
                       </svg>
-                    15.6.1 Passive Voice - Past Perfect Tense
+                    13.3.1 Direct to Indirect Speech using Past Perfect Tense
                   </a>
                 </li>
                 <li class="next">
-                  <a href="../exercise-15-passive-voice.html" rel="next" aria-label="Next">
-                    Exercise 15 - Passive Voice
+                  <a href="../exercise-13-indirect-speech.html" rel="next" aria-label="Next">
+                    Exercise 13 - Indirect Speech
+                    <svg
+                        version="1.1"
+                        xmlns="http://www.w3.org/2000/svg"
+                        height="24px"
+                        viewBox="0 0 18 48"
+                        fill="currentColor">
+                        <title>angle-right</title>
+                        <path
+                          d="M15.938 25.714c0 0.214-0.107 0.455-0.268 0.616l-12.482 12.482c-0.161 0.161-0.402 0.268-0.616 0.268s-0.455-0.107-0.616-0.268l-1.339-1.339c-0.161-0.161-0.268-0.375-0.268-0.616 0-0.214 0.107-0.455 0.268-0.616l10.527-10.527-10.527-10.527c-0.161-0.161-0.268-0.402-0.268-0.616s0.107-0.455 0.268-0.616l1.339-1.339c0.161-0.161 0.402-0.268 0.616-0.268s0.455 0.107 0.616 0.268l12.482 12.482c0.161 0.161 0.268 0.402 0.268 0.616z"></path>
+                      </svg>
                   </a>
                 </li>
               </ul>
             </div>
           </div>
+
           <div class="clearfix"></div>
+
           <ul itemscope itemtype="https://schema.org/BreadcrumbList" class="breadcrumb">
-            <li class="active"></li>
+            <li class="active">
+              <span class="divider icon-location"></span>
+            </li>
+
             <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
               <a itemprop="item" href="../index-2.html" class="pathway" aria-label="Home">
                 <span itemprop="name">Home</span>
               </a>
+
               <span class="divider">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8 13.02" width="11" height="11"><polygon points="8 6.51 0 13.02 0 0 8 6.51" fill="#e0162b"></svg>
               </span>
               <meta itemprop="position" content="1">
             </li>
             <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-              <a itemprop="item" href="../exercise-15-passive-voice.html" class="pathway" aria-label="Menu Link">
-                <span itemprop="name">Exercise 15 - Passive Voice</span>
+              <a itemprop="item" href="../exercise-13-indirect-speech.html" class="pathway" aria-label="Menu Link">
+                <span itemprop="name">Exercise 13 - Indirect Speech</span>
               </a>
+
               <span class="divider">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8 13.02" width="11" height="11"><polygon points="8 6.51 0 13.02 0 0 8 6.51" fill="#e0162b"></svg>
               </span>
               <meta itemprop="position" content="2">
             </li>
             <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem" class="active">
-              <span itemprop="name">15.7.1 Simple Future Tense</span>
+              <span itemprop="name">13.4.1 Direct to Indirect Speech using Passive Voice</span>
               <meta itemprop="position" content="3">
             </li>
           </ul>
@@ -1699,7 +1679,7 @@
                   </ul>
                 </div>
               </li>
-              <li>
+              <li class="current">
                 <div class="item-wrapper">
                   <div class="menu-button">
                     <img class="menuicon" alt="" src="../web-asset/icons/svg/plus3.svg">
@@ -1715,8 +1695,7 @@
                     <li class="first">
                       <div class="item-wrapper">
                         <div class="menu-link">
-                          <a href="../exercise-13-indirect-speech/1311-direct-to-indirect-speech-i.html"
-                            aria-label="Menu Link">
+                          <a href="1311-direct-to-indirect-speech-i.html" aria-label="Menu Link">
                             13.1.1 Direct to Indirect Speech I
                           </a>
                         </div>
@@ -1725,8 +1704,7 @@
                     <li>
                       <div class="item-wrapper">
                         <div class="menu-link">
-                          <a href="../exercise-13-indirect-speech/1312-direct-to-indirect-speech-ii.html"
-                            aria-label="Menu Link">
+                          <a href="1312-direct-to-indirect-speech-ii.html" aria-label="Menu Link">
                             13.1.2 Direct to Indirect Speech II
                           </a>
                         </div>
@@ -1735,8 +1713,7 @@
                     <li>
                       <div class="item-wrapper">
                         <div class="menu-link">
-                          <a href="../exercise-13-indirect-speech/1313-direct-to-indirect-speech-iii.html"
-                            aria-label="Menu Link">
+                          <a href="1313-direct-to-indirect-speech-iii.html" aria-label="Menu Link">
                             13.1.3 Direct to Indirect Speech III
                           </a>
                         </div>
@@ -1745,8 +1722,7 @@
                     <li>
                       <div class="item-wrapper">
                         <div class="menu-link">
-                          <a href="../exercise-13-indirect-speech/1321-direct-to-indirect-speech-with-same-tenses.html"
-                            aria-label="Menu Link">
+                          <a href="1321-direct-to-indirect-speech-with-same-tenses.html" aria-label="Menu Link">
                             13.2.1 Direct to Indirect Speech with Same Tenses
                           </a>
                         </div>
@@ -1755,18 +1731,16 @@
                     <li>
                       <div class="item-wrapper">
                         <div class="menu-link">
-                          <a href="../exercise-13-indirect-speech/1331-direct-to-indirect-speech-using-past-perfect-tense.html"
-                            aria-label="Menu Link">
+                          <a href="1331-direct-to-indirect-speech-using-past-perfect-tense.html" aria-label="Menu Link">
                             13.3.1 Direct to Indirect Speech using Past Perfect
                           </a>
                         </div>
                       </div>
                     </li>
-                    <li class="last">
+                    <li class="current last">
                       <div class="item-wrapper">
                         <div class="menu-link">
-                          <a href="../exercise-13-indirect-speech/1341-direct-to-indirect-speech-using-passive-voice.html"
-                            aria-label="Menu Link">
+                          <a href="1341-direct-to-indirect-speech-using-passive-voice.html" aria-label="Menu Link">
                             13.4.1 Direct to Indirect Speech using Passive Voice
                           </a>
                         </div>
@@ -1784,7 +1758,7 @@
                   </div>
                 </div>
               </li>
-              <li class="current">
+              <li>
                 <div class="item-wrapper">
                   <div class="menu-button">
                     <img class="menuicon" alt="" src="../web-asset/icons/svg/plus3.svg">
@@ -1800,7 +1774,8 @@
                     <li class="first">
                       <div class="item-wrapper">
                         <div class="menu-link">
-                          <a href="1511-passive-voice-simple-present-tense.html" aria-label="Menu Link">
+                          <a href="../exercise-15-passive-voice/1511-passive-voice-simple-present-tense.html"
+                            aria-label="Menu Link">
                             15.1.1 Simple Present
                           </a>
                         </div>
@@ -1809,7 +1784,8 @@
                     <li>
                       <div class="item-wrapper">
                         <div class="menu-link">
-                          <a href="1521-passive-voice-present-perfect-tense.html" aria-label="Menu Link">
+                          <a href="../exercise-15-passive-voice/1521-passive-voice-present-perfect-tense.html"
+                            aria-label="Menu Link">
                             15.2.1 Present Perfect
                           </a>
                         </div>
@@ -1818,7 +1794,8 @@
                     <li>
                       <div class="item-wrapper">
                         <div class="menu-link">
-                          <a href="1531-passive-voice-present-continuous-tense.html" aria-label="Menu Link">
+                          <a href="../exercise-15-passive-voice/1531-passive-voice-present-continuous-tense.html"
+                            aria-label="Menu Link">
                             15.3.1 Present Continuous
                           </a>
                         </div>
@@ -1827,7 +1804,8 @@
                     <li>
                       <div class="item-wrapper">
                         <div class="menu-link">
-                          <a href="1541-passive-voice-part-simple-past-tense-i.html" aria-label="Menu Link">
+                          <a href="../exercise-15-passive-voice/1541-passive-voice-part-simple-past-tense-i.html"
+                            aria-label="Menu Link">
                             15.4.1 Simple Past Tense I
                           </a>
                         </div>
@@ -1836,7 +1814,8 @@
                     <li>
                       <div class="item-wrapper">
                         <div class="menu-link">
-                          <a href="1542-passive-voice-simple-past-tense-ii.html" aria-label="Menu Link">
+                          <a href="../exercise-15-passive-voice/1542-passive-voice-simple-past-tense-ii.html"
+                            aria-label="Menu Link">
                             15.4.2 Simple Past Tense II
                           </a>
                         </div>
@@ -1845,7 +1824,8 @@
                     <li>
                       <div class="item-wrapper">
                         <div class="menu-link">
-                          <a href="1551-passive-voice-past-continuous-tense.html" aria-label="Menu Link">
+                          <a href="../exercise-15-passive-voice/1551-passive-voice-past-continuous-tense.html"
+                            aria-label="Menu Link">
                             15.5.1 Past Continuous
                           </a>
                         </div>
@@ -1854,16 +1834,18 @@
                     <li>
                       <div class="item-wrapper">
                         <div class="menu-link">
-                          <a href="1561-passive-voice-past-perfect-tense.html" aria-label="Menu Link">
+                          <a href="../exercise-15-passive-voice/1561-passive-voice-past-perfect-tense.html"
+                            aria-label="Menu Link">
                             15.6.1 Past Perfect
                           </a>
                         </div>
                       </div>
                     </li>
-                    <li class="current last">
+                    <li class="last">
                       <div class="item-wrapper">
                         <div class="menu-link">
-                          <a href="1571-passive-voice-simple-future-tense.html" aria-label="Menu Link">
+                          <a href="../exercise-15-passive-voice/1571-passive-voice-simple-future-tense.html"
+                            aria-label="Menu Link">
                             15.7.1 Simple Future
                           </a>
                         </div>
@@ -2127,6 +2109,7 @@
   <footer class="footer">
     <div class="container">
       <hr>
+
       <p class="pull-right">
         <a href="#top" id="back-top" aria-label="Back to Top">
           Back to Top
@@ -2137,6 +2120,6 @@
   </footer>
 </body>
 
-<!-- /exercise-15-passive-voice/1571-passive-voice-simple-future-tense.html, updated:  January 2026 12:33:39 GMT -->
+<!-- /exercise-13-indirect-speech/1341-direct-to-indirect-speech-using-passive-voice.html, updated:  January 2026 12:33:31 GMT -->
 
 </html>
