@@ -51,9 +51,9 @@ _Critically, consistently, and before every coding attempt, ALWAYS reread agents
 
 #### MANDATORY
 
-> **_BEFORE_** you (codex) evaluate any code to craft or suggest edits and/or provide unified differential patches, you MUST ALWAYS, WITHOUT EXCEPTION:
+> **_BEFORE_** you (codex) evaluate any code to craft or suggest edits and/or provide unified differential patches, or perform terminal Operation you MUST ALWAYS, WITHOUT EXCEPTION:
 
-#### Set Node v20.19.4 BEFORE you (codex) run  terminal operations
+#### Set Node v20.19.4 BEFORE you (codex) run terminal operations; Other Node versions are prohibited
 
 1. RESCAN REPO FOR CHANGED CANONICAL files (only in **#1 online mode**).
 2. COMPLETELY FLUSH working memory (head).
