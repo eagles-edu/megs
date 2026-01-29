@@ -1,13 +1,8 @@
-<!-- prettier-ignore -->
-<!doctype html>
-<html lang="en">
-  <head>
+<!-- prettier-ignore --><!doctype html><html lang="en"><head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#e0162b">
-    <meta
-      name="keywords"
-      content="ESL, TOESL, TOEFL, courses, english, english courses, education, english degree, degree, english education, exercises, english exercises, grammar, verb, english grammar, noun, adverb, adjective, english adverb, english noun, english adjective">
+    <meta name="keywords" content="ESL, TOESL, TOEFL, courses, english, english courses, education, english degree, degree, english education, exercises, english exercises, grammar, verb, english grammar, noun, adverb, adjective, english adverb, english noun, english adjective">
     <meta name="description" content="A comprehensive site for free English courses and exercises.">
     <meta name="generator" content="English Grammar - IELTS intermediate levels A2 and above">
     <link href="1832-verb-ing-adjective-part-2.html" rel="non-canonical">
@@ -1178,13 +1173,13 @@
   </head>
 
   <body class="base exercize" data-exercise-devtools="auto">
-    <svg xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" aria-hidden="true" style="position: absolute; width: 0; height: 0; overflow: hidden">
+    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" style="position: absolute; width: 0; height: 0; overflow: hidden">
       <defs>
         <symbol id="icon-plus" viewBox="0 0 24 24">
-          <path fill="currentColor" d="M12 5a1 1 0 0 0-1 1v5H6a1 1 0 1 0 0 2h5v5a1 1 0 1 0 2 0v-5h5a1 1 0 1 0 0-2h-5V6a1 1 0 0 0-1-1z" />
+          <path fill="currentColor" d="M12 5a1 1 0 0 0-1 1v5H6a1 1 0 1 0 0 2h5v5a1 1 0 1 0 2 0v-5h5a1 1 0 1 0 0-2h-5V6a1 1 0 0 0-1-1z"></path>
         </symbol>
         <symbol id="icon-minus" viewBox="0 0 24 24">
-          <rect x="9" y="11" width="6" height="2" rx="1" fill="currentColor" />
+          <rect x="9" y="11" width="6" height="2" rx="1" fill="currentColor"></rect>
         </symbol>
       </defs>
     </svg>
@@ -1207,7 +1202,7 @@
                           <a href="../index-2.html">
                             <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 48 48" fill="currentColor">
                               <title>office</title>
-                              <path d="M0 48h24v-48h-24v48zM15 6h6v6h-6v-6zM15 18h6v6h-6v-6zM15 30h6v6h-6v-6zM3 6h6v6h-6v-6zM3 18h6v6h-6v-6zM3 30h6v6h-6v-6zM27 15h21v3h-21zM27 48h6v-12h9v12h6v-27h-21z" />
+                              <path d="M0 48h24v-48h-24v48zM15 6h6v6h-6v-6zM15 18h6v6h-6v-6zM15 30h6v6h-6v-6zM3 6h6v6h-6v-6zM3 18h6v6h-6v-6zM3 30h6v6h-6v-6zM27 15h21v3h-21zM27 48h6v-12h9v12h6v-27h-21z"></path>
                             </svg>
                             Home
                           </a>
@@ -1221,7 +1216,7 @@
                           <a href="../grammar-lessons.html">
                             <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 48 48" fill="currentColor">
                               <title>display</title>
-                              <path d="M0 3v30h48v-30h-48zM45 30h-42v-24h42v24zM31.5 36h-15l-1.5 6-3 3h24l-3-3z" />
+                              <path d="M0 3v30h48v-30h-48zM45 30h-42v-24h42v24zM31.5 36h-15l-1.5 6-3 3h24l-3-3z"></path>
                             </svg>
                             Lessons
                           </a>
@@ -1234,8 +1229,7 @@
                         <div class="menu-link">
                           <a href="../grammar-exercises.html">
                             <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 48 48" fill="currentColor">
-                              <path
-                                d="M33.094 22.031l-7.125-7.125 2.813-2.813 4.313 4.219 8.438-8.438 2.813 2.813zM22.031 13.969h-18v4.031h18v-4.031zM42 26.813l-2.813-2.813-5.156 5.156-5.25-5.156-2.813 2.813 5.25 5.156-5.25 5.25 2.813 2.813 5.25-5.25 5.156 5.25 2.813-2.813-5.156-5.25zM22.031 30h-18v4.031h18v-4.031z" />
+                              <path d="M33.094 22.031l-7.125-7.125 2.813-2.813 4.313 4.219 8.438-8.438 2.813 2.813zM22.031 13.969h-18v4.031h18v-4.031zM42 26.813l-2.813-2.813-5.156 5.156-5.25-5.156-2.813 2.813 5.25 5.156-5.25 5.25 2.813 2.813 5.25-5.25 5.156 5.25 2.813-2.813-5.156-5.25zM22.031 30h-18v4.031h18v-4.031z"></path>
                             </svg>
                             Exercises
                           </a>
@@ -1248,8 +1242,7 @@
                         <div class="menu-link">
                           <a href="../introduction-to-tenses.html">
                             <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 48 48" fill="currentColor">
-                              <path
-                                d="M0 24.5c0 12.98 10.52 23.5 23.5 23.5s23.5-10.52 23.5-23.5-10.52-23.5-23.5-23.5c-12.98 0-23.5 10.52-23.5 23.5zM21 8.5c0-1.38 1.12-2.5 2.5-2.5s2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5-2.5-1.12-2.5-2.5zM5 24.5c0-1.38 1.12-2.5 2.5-2.5s2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5-2.5-1.12-2.5-2.5zM37 24.5c0-1.38 1.12-2.5 2.5-2.5s2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5-2.5-1.12-2.5-2.5zM21 40.5c0-1.38 1.12-2.5 2.5-2.5s2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5-2.5-1.12-2.5-2.5zM19.83 25.689c-0.53-0.52-7.26-7.369-7.26-7.369-0.76-0.76-0.76-1.99 0-2.75s1.99-0.76 2.75 0l6.6 6.619c0.59 0.58 1.56 0.58 2.141 0l9.619-9.619c0.76-0.76 1.99-0.76 2.75 0s0.76 1.99 0 2.75c0 0-9.76 9.88-10.279 10.4-0.811 0.79-1.93 1.28-3.151 1.28-1.24 0-2.36-0.5-3.17-1.311z" />
+                              <path d="M0 24.5c0 12.98 10.52 23.5 23.5 23.5s23.5-10.52 23.5-23.5-10.52-23.5-23.5-23.5c-12.98 0-23.5 10.52-23.5 23.5zM21 8.5c0-1.38 1.12-2.5 2.5-2.5s2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5-2.5-1.12-2.5-2.5zM5 24.5c0-1.38 1.12-2.5 2.5-2.5s2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5-2.5-1.12-2.5-2.5zM37 24.5c0-1.38 1.12-2.5 2.5-2.5s2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5-2.5-1.12-2.5-2.5zM21 40.5c0-1.38 1.12-2.5 2.5-2.5s2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5-2.5-1.12-2.5-2.5zM19.83 25.689c-0.53-0.52-7.26-7.369-7.26-7.369-0.76-0.76-0.76-1.99 0-2.75s1.99-0.76 2.75 0l6.6 6.619c0.59 0.58 1.56 0.58 2.141 0l9.619-9.619c0.76-0.76 1.99-0.76 2.75 0s0.76 1.99 0 2.75c0 0-9.76 9.88-10.279 10.4-0.811 0.79-1.93 1.28-3.151 1.28-1.24 0-2.36-0.5-3.17-1.311z"></path>
                             </svg>
                             Tenses
                           </a>
@@ -1263,8 +1256,7 @@
                           <a href="../writing.html">
                             <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 48 48" fill="currentColor">
                               <title>pencil</title>
-                              <path
-                                d="M40.5 0c4.142 0 7.5 3.358 7.5 7.5 0 1.688-0.558 3.246-1.5 4.5l-3 3-10.5-10.5 3-3c1.254-0.942 2.811-1.5 4.5-1.5zM3 34.5l-3 13.5 13.5-3 27.75-27.75-10.5-10.5-27.75 27.75zM33.543 17.043l-21 21-2.585-2.585 21-21 2.585 2.585z" />
+                              <path d="M40.5 0c4.142 0 7.5 3.358 7.5 7.5 0 1.688-0.558 3.246-1.5 4.5l-3 3-10.5-10.5 3-3c1.254-0.942 2.811-1.5 4.5-1.5zM3 34.5l-3 13.5 13.5-3 27.75-27.75-10.5-10.5-27.75 27.75zM33.543 17.043l-21 21-2.585-2.585 21-21 2.585 2.585z"></path>
                             </svg>
                             Writing
                           </a>
@@ -1278,8 +1270,7 @@
                           <a href="../vocabulary.html">
                             <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                               <title>file</title>
-                              <path
-                                d="M8.25 11.25h0.75v-0.75h-0.75v0.75zM8.25 13.5h0.75v-0.75h-0.75v0.75zM8.25 9h0.75v-0.75h-0.75v0.75zM8.25 15.75h0.75v-0.75h-0.75v0.75zM8.25 18h0.75v-0.75h-0.75v0.75zM9.75 13.5h6v-0.75h-6v0.75zM9.75 9h6v-0.75h-6v0.75zM15.703 3h-10.454v18h13.5v-15l-3.047-3zM17.25 19.453h-10.5v-14.953h7.5v2.204h3v12.75zM9.75 15.75h6v-0.75h-6v0.75zM9.75 11.25h6v-0.75h-6v0.75zM9.75 18h6v-0.75h-6v0.75z" />
+                              <path d="M8.25 11.25h0.75v-0.75h-0.75v0.75zM8.25 13.5h0.75v-0.75h-0.75v0.75zM8.25 9h0.75v-0.75h-0.75v0.75zM8.25 15.75h0.75v-0.75h-0.75v0.75zM8.25 18h0.75v-0.75h-0.75v0.75zM9.75 13.5h6v-0.75h-6v0.75zM9.75 9h6v-0.75h-6v0.75zM15.703 3h-10.454v18h13.5v-15l-3.047-3zM17.25 19.453h-10.5v-14.953h7.5v2.204h3v12.75zM9.75 15.75h6v-0.75h-6v0.75zM9.75 11.25h6v-0.75h-6v0.75zM9.75 18h6v-0.75h-6v0.75z"></path>
                             </svg>
                             Vocabulary
                           </a>
@@ -1293,10 +1284,9 @@
                           <a href="../glossary.html">
                             <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 54 48" fill="currentColor">
                               <title>Books</title>
-                              <path d="M10.5 6h-9c-0.825 0-1.5 0.675-1.5 1.5v33c0 0.825 0.675 1.5 1.5 1.5h9c0.825 0 1.5-0.675 1.5-1.5v-33c0-0.825-0.675-1.5-1.5-1.5zM9 15h-6v-3h6v3z" />
-                              <path d="M25.5 6h-9c-0.825 0-1.5 0.675-1.5 1.5v33c0 0.825 0.675 1.5 1.5 1.5h9c0.825 0 1.5-0.675 1.5-1.5v-33c0-0.825-0.675-1.5-1.5-1.5zM24 15h-6v-3h6v3z" />
-                              <path
-                                d="M35.864 8.319l-8.037 4.050c-0.737 0.371-1.036 1.278-0.665 2.014l13.499 26.791c0.371 0.737 1.278 1.036 2.014 0.665l8.037-4.050c0.737-0.371 1.036-1.278 0.665-2.014l-13.499-26.791c-0.371-0.737-1.278-1.036-2.014-0.665z" />
+                              <path d="M10.5 6h-9c-0.825 0-1.5 0.675-1.5 1.5v33c0 0.825 0.675 1.5 1.5 1.5h9c0.825 0 1.5-0.675 1.5-1.5v-33c0-0.825-0.675-1.5-1.5-1.5zM9 15h-6v-3h6v3z"></path>
+                              <path d="M25.5 6h-9c-0.825 0-1.5 0.675-1.5 1.5v33c0 0.825 0.675 1.5 1.5 1.5h9c0.825 0 1.5-0.675 1.5-1.5v-33c0-0.825-0.675-1.5-1.5-1.5zM24 15h-6v-3h6v3z"></path>
+                              <path d="M35.864 8.319l-8.037 4.050c-0.737 0.371-1.036 1.278-0.665 2.014l13.499 26.791c0.371 0.737 1.278 1.036 2.014 0.665l8.037-4.050c0.737-0.371 1.036-1.278 0.665-2.014l-13.499-26.791c-0.371-0.737-1.278-1.036-2.014-0.665z"></path>
                             </svg>
                             Glossary
                           </a>
@@ -1309,8 +1299,7 @@
                           <a href="../lists.html">
                             <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
                               <title>list-ol</title>
-                              <path
-                                d="M5.103 21.696c0 1.473-1.152 2.304-2.545 2.304-0.844 0-1.701-0.281-2.304-0.884l0.763-1.179c0.362 0.335 0.911 0.603 1.42 0.603 0.469 0 0.964-0.228 0.964-0.763 0-0.75-0.857-0.79-1.406-0.75l-0.348-0.75c0.482-0.616 0.924-1.299 1.5-1.821v-0.013c-0.429 0-0.871 0.027-1.299 0.027v0.71h-1.42v-2.036h4.46v1.179l-1.272 1.54c0.897 0.214 1.487 0.911 1.487 1.835zM5.129 13.299v2.129h-4.848c-0.040-0.241-0.080-0.482-0.080-0.723 0-2.478 3.027-2.853 3.027-3.978 0-0.455-0.281-0.696-0.723-0.696-0.469 0-0.857 0.402-1.085 0.777l-1.138-0.79c0.442-0.924 1.353-1.446 2.371-1.446 1.246 0 2.317 0.737 2.317 2.063 0 1.982-2.906 2.424-2.946 3.469h1.701v-0.804h1.406zM24 17.571v2.571c0 0.228-0.201 0.429-0.429 0.429h-16.286c-0.241 0-0.429-0.201-0.429-0.429v-2.571c0-0.241 0.188-0.429 0.429-0.429h16.286c0.228 0 0.429 0.188 0.429 0.429zM5.143 5.531v1.326h-4.487v-1.326h1.433c0-1.085 0.013-2.17 0.013-3.254v-0.161h-0.027c-0.147 0.295-0.415 0.496-0.67 0.723l-0.951-1.018 1.821-1.701h1.42v5.411h1.446zM24 10.714v2.571c0 0.228-0.201 0.429-0.429 0.429h-16.286c-0.241 0-0.429-0.201-0.429-0.429v-2.571c0-0.241 0.188-0.429 0.429-0.429h16.286c0.228 0 0.429 0.188 0.429 0.429zM24 3.857v2.571c0 0.228-0.201 0.429-0.429 0.429h-16.286c-0.241 0-0.429-0.201-0.429-0.429v-2.571c0-0.228 0.188-0.429 0.429-0.429h16.286c0.228 0 0.429 0.201 0.429 0.429z" />
+                              <path d="M5.103 21.696c0 1.473-1.152 2.304-2.545 2.304-0.844 0-1.701-0.281-2.304-0.884l0.763-1.179c0.362 0.335 0.911 0.603 1.42 0.603 0.469 0 0.964-0.228 0.964-0.763 0-0.75-0.857-0.79-1.406-0.75l-0.348-0.75c0.482-0.616 0.924-1.299 1.5-1.821v-0.013c-0.429 0-0.871 0.027-1.299 0.027v0.71h-1.42v-2.036h4.46v1.179l-1.272 1.54c0.897 0.214 1.487 0.911 1.487 1.835zM5.129 13.299v2.129h-4.848c-0.040-0.241-0.080-0.482-0.080-0.723 0-2.478 3.027-2.853 3.027-3.978 0-0.455-0.281-0.696-0.723-0.696-0.469 0-0.857 0.402-1.085 0.777l-1.138-0.79c0.442-0.924 1.353-1.446 2.371-1.446 1.246 0 2.317 0.737 2.317 2.063 0 1.982-2.906 2.424-2.946 3.469h1.701v-0.804h1.406zM24 17.571v2.571c0 0.228-0.201 0.429-0.429 0.429h-16.286c-0.241 0-0.429-0.201-0.429-0.429v-2.571c0-0.241 0.188-0.429 0.429-0.429h16.286c0.228 0 0.429 0.188 0.429 0.429zM5.143 5.531v1.326h-4.487v-1.326h1.433c0-1.085 0.013-2.17 0.013-3.254v-0.161h-0.027c-0.147 0.295-0.415 0.496-0.67 0.723l-0.951-1.018 1.821-1.701h1.42v5.411h1.446zM24 10.714v2.571c0 0.228-0.201 0.429-0.429 0.429h-16.286c-0.241 0-0.429-0.201-0.429-0.429v-2.571c0-0.241 0.188-0.429 0.429-0.429h16.286c0.228 0 0.429 0.188 0.429 0.429zM24 3.857v2.571c0 0.228-0.201 0.429-0.429 0.429h-16.286c-0.241 0-0.429-0.201-0.429-0.429v-2.571c0-0.228 0.188-0.429 0.429-0.429h16.286c0.228 0 0.429 0.201 0.429 0.429z"></path>
                             </svg>
                             Lists
                           </a>
@@ -1362,1191 +1351,367 @@
                 <h2>18.3.2 Verb + -ing (Adjective) Part 2</h2>
                 <div class="clearfix"></div>
                 <nav class="breadcrumb-wrap">
-                  <ul class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
-                    <li class="active"><span class="divider icon-location"></span></li>
-                    <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-                      <a itemprop="item" href="../index-2.html" class="pathway" aria-label="Home"><span itemprop="name">Home</span></a>
-                      <span class="divider">
-                         
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8 13.02" width="9" height="9"><polygon points="8 6.51 0 13.02 0 0 8 6.51" fill="#e0162b" /></svg>
-                      </span>
-                      <meta itemprop="position" content="1">
-                    </li>
-                    <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-                      <a itemprop="item" href="../exercise-18-verb-ing-gerunds-and-particles.html" class="pathway" aria-label="Exercise 18 - Verb + ing (Gerunds and Particles)">
-                        <span itemprop="name">Exercise 18 - Verb + ing (Gerunds and Particles)</span>
-                      </a>
-                      <span class="divider">
-                         
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8 13.02" width="9" height="9"><polygon points="8 6.51 0 13.02 0 0 8 6.51" fill="#e0162b" /></svg>
-                      </span>
-                      <meta itemprop="position" content="2">
-                    </li>
-                    <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem" class="active">
-                      <span itemprop="name">18.3.2 Verb + -ing (Adjective) Part 2</span>
-                      <meta itemprop="position" content="3">
-                    </li>
-                  </ul>
+                  <ul class="breadcrumb" itemscope="" itemtype="https://schema.org/BreadcrumbList"><li class="active"><span class="divider icon-location"></span></li><li itemprop="itemListElement" itemscope="" itemtype="https://schema.org/ListItem"><a itemprop="item" href="../index-2.html" class="pathway" aria-label="Home"><span itemprop="name">Home</span></a><span class="divider">&nbsp;<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8 13.02" width="9" height="9"><polygon points="8 6.51 0 13.02 0 0 8 6.51" fill="#e0162b"></polygon></svg></span><meta itemprop="position" content="1"></li><li itemprop="itemListElement" itemscope="" itemtype="https://schema.org/ListItem"><a itemprop="item" href="../exercise-18-verb-ing-gerunds-and-particles.html" class="pathway" aria-label="Exercise 18 - Verb + ing (Gerunds and Particles)"><span itemprop="name">Exercise 18 - Verb + ing (Gerunds and Particles)</span></a><span class="divider">&nbsp;<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8 13.02" width="9" height="9"><polygon points="8 6.51 0 13.02 0 0 8 6.51" fill="#e0162b"></polygon></svg></span><meta itemprop="position" content="2"></li><li itemprop="itemListElement" itemscope="" itemtype="https://schema.org/ListItem" class="active"><span itemprop="name">18.3.2 Verb + -ing (Adjective) Part 2</span><meta itemprop="position" content="3"></li></ul>
                 </nav>
               </div>
               <div itemprop="articleBody">
                 <ul class="pager pagenav">
                   <li class="previous">
-                    <a href="1831-verb-ing-adjective-part-1.html" rel="prev">
-                      <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 48" fill="currentColor">
+                    <a href="1831-verb-ing-adjective-part-1.html" rel="prev"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 48" fill="currentColor">
                         <title>angle-left</title>
-                        <path
-                          d="M16.795 14.571c0 0.214-0.107 0.455-0.268 0.616l-10.527 10.527 10.527 10.527c0.161 0.161 0.268 0.402 0.268 0.616s-0.107 0.455-0.268 0.616l-1.339 1.339c-0.161 0.161-0.402 0.268-0.616 0.268s-0.455-0.107-0.616-0.268l-12.482-12.482c-0.161-0.161-0.268-0.402-0.268-0.616s0.107-0.455 0.268-0.616l12.482-12.482c0.161-0.161 0.402-0.268 0.616-0.268s0.455 0.107 0.616 0.268l1.339 1.339c0.161 0.161 0.268 0.375 0.268 0.616z" />
-                      </svg>
-                      <span class="pager-label">18.3.1 Verb + -ing (Adjective) Part 1</span>
-                    </a>
+                        <path d="M16.795 14.571c0 0.214-0.107 0.455-0.268 0.616l-10.527 10.527 10.527 10.527c0.161 0.161 0.268 0.402 0.268 0.616s-0.107 0.455-0.268 0.616l-1.339 1.339c-0.161 0.161-0.402 0.268-0.616 0.268s-0.455-0.107-0.616-0.268l-12.482-12.482c-0.161-0.161-0.268-0.402-0.268-0.616s0.107-0.455 0.268-0.616l12.482-12.482c0.161-0.161 0.402-0.268 0.616-0.268s0.455 0.107 0.616 0.268l1.339 1.339c0.161 0.161 0.268 0.375 0.268 0.616z"></path>
+                      </svg><span class="pager-label">18.3.1 Verb + -ing (Adjective) Part 1</span></a>
                   </li>
                   <li class="next">
-                    <a href="../exercise-18-verb-ing-gerunds-and-particles.html" rel="next">
-                      <span class="pager-label">Exercise 18 - Verb + ing</span>
-                      <svg version="1.1" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 18 48" fill="currentColor">
+                    <a href="../exercise-18-verb-ing-gerunds-and-particles.html" rel="next"><span class="pager-label">Exercise 18 - Verb + ing</span><svg version="1.1" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 18 48" fill="currentColor">
                         <title>angle-right</title>
-                        <path
-                          d="M15.938 25.714c0 0.214-0.107 0.455-0.268 0.616l-12.482 12.482c-0.161 0.161-0.402 0.268-0.616 0.268s-0.455-0.107-0.616-0.268l-1.339-1.339c-0.161-0.161-0.268-0.375-0.268-0.616 0-0.214 0.107-0.455 0.268-0.616l10.527-10.527-10.527-10.527c-0.161-0.161-0.268-0.402-0.268-0.616s0.107-0.455 0.268-0.616l1.339-1.339c0.161-0.161 0.402-0.268 0.616-0.268s0.455 0.107 0.616 0.268l12.482 12.482c0.161 0.161 0.268 0.402 0.268 0.616z" />
-                      </svg>
-                    </a>
+                        <path d="M15.938 25.714c0 0.214-0.107 0.455-0.268 0.616l-12.482 12.482c-0.161 0.161-0.402 0.268-0.616 0.268s-0.455-0.107-0.616-0.268l-1.339-1.339c-0.161-0.161-0.268-0.375-0.268-0.616 0-0.214 0.107-0.455 0.268-0.616l10.527-10.527-10.527-10.527c-0.161-0.161-0.268-0.402-0.268-0.616s0.107-0.455 0.268-0.616l1.339-1.339c0.161-0.161 0.402-0.268 0.616-0.268s0.455 0.107 0.616 0.268l12.482 12.482c0.161 0.161 0.268 0.402 0.268 0.616z"></path>
+                      </svg></a>
                   </li>
                 </ul>
                 <br>
 
-                <div class="exinstruct"><p>Use the answer words as provided. Click the question to check your answer.</p></div>
-                <form class="exercise-form exercise-gate" data-exercise-form data-storage-key="exercise-1832-verb-ing-adjective-part-2" novalidate>
+                <p>Use the answer words as provided.</p><p>Click the sentences to see the answers.</p><form class="exercise-form exercise-gate" data-exercise-form="" data-storage-key="exercise-1832-verb-ing-adjective-part-2" novalidate>
                   <fieldset class="exercise-form__intro">
                     <legend class="visually-hidden">Exercise setup</legend>
                     <div class="exercise-form__intro-layout">
                       <div class="exercise-form__intro-fields">
                         <div class="exercise-form__email">
-                          <input class="exercise-form__email-input" type="email" id="exercise-email" name="exerciseEmail" autocomplete="email" required data-exercise-email placeholder="name@example.com">
+                          <input class="exercise-form__email-input" type="email" id="exercise-email" name="exerciseEmail" autocomplete="email" required data-exercise-email="" placeholder="name@example.com">
                         </div>
                         <div class="exercise-form__student-id">
-                          <input
-                            class="exercise-form__email-input exercise-form__student-id-input"
-                            type="text"
-                            id="exercise-student-id"
-                            name="exerciseStudentId"
-                            inputmode="text"
-                            autocomplete="off"
-                            autocapitalize="none"
-                            spellcheck="false"
-                            required
-                            pattern="^[a-z]+\d{3}$"
-                            data-exercise-student-id
-                            placeholder="Eagles user ID - e.g., tammy001"
-                            aria-describedby="exercise-student-id-note">
+                          <input class="exercise-form__email-input exercise-form__student-id-input" type="text" id="exercise-student-id" name="exerciseStudentId" inputmode="text" autocomplete="off" autocapitalize="none" spellcheck="false" required pattern="^[a-z]+\d{3}$" data-exercise-student-id="" placeholder="Eagles user ID - e.g., tammy001" aria-describedby="exercise-student-id-note">
                         </div>
                       </div>
-                      <p class="exercise-form__progress tm01" data-exercise-progress aria-live="polite">0 of 20 questions completed.</p>
-                      <span class="exercise-form__last-attempt" data-exercise-last-attempt hidden aria-live="polite"></span>
-                      <div class="exercise-form__feedback" data-exercise-feedback aria-live="polite"></div>
+                      <p class="exercise-form__progress tm01" data-exercise-progress="" aria-live="polite">0 of 20 questions completed.</p>
+                      <span class="exercise-form__last-attempt" data-exercise-last-attempt="" hidden aria-live="polite"></span>
+                      <div class="exercise-form__feedback" data-exercise-feedback="" aria-live="polite"></div>
                     </div>
                   </fieldset>
 
-                  <div class="quest-bg" data-exercise-question="q1-the-body-of-the-_____-woman-was-found-after-an-extensive-search">
-                    <div class="nn_sliders accordion panel-group" id="set-nn_sliders-1">
-                      <span id="nn_sliders-scrollto_1" class="anchor nn_sliders-scroll"></span>
-                      <div class="accordion-group panel nn_sliders-group">
-                        <span id="nn_sliders-scrollto_1-q1-the-body-of-the-_____-woman-was-found-after-an-extensive-search" class="anchor nn_sliders-scroll"></span>
-                        <div class="accordion-heading panel-heading">
-                          <a
-                            class="accordion-toggle nn_sliders-toggle"
-                            href="1832-verb-ing-adjective-part-2.html#1832-verb-ing-adjective-part-2.html#1-the-body-of-the-_____-woman-was-found-after-an-extensive-search"
-                            data-toggle="collapse"
-                            data-parent="#set-nn_sliders-1"
-                            data-id="q1-the-body-of-the-_____-woman-was-found-after-an-extensive-search"
-                            aria-expanded="false"
-                            aria-controls="1832-verb-ing-adjective-part-2.html#1-the-body-of-the-_____-woman-was-found-after-an-extensive-search">
-                            <span class="nn_sliders-toggle-inner">1. The body of the _____ woman was found after an extensive search.</span>
-                          </a>
-                        </div>
-                        <div class="accordion-body nn_sliders-body collapse" id="q1-the-body-of-the-_____-woman-was-found-after-an-extensive-search" aria-hidden="true">
-                          <div class="accordion-inner panel-body">
-                            <h2 class="nn_sliders-title">1. The body of the _____ woman was found after an extensive search.</h2>
-                            <p>
-                              1. The body of the
-                              <span class="undies">&#100;&#114;&#111;&#119;&#110;&#101;&#100;</span>
-                              woman was found after an extensive search.
-                            </p>
-                          </div>
-                        </div>
-                        <div class="exercise-response-row" data-item="q1-the-body-of-the-_____-woman-was-found-after-an-extensive-search" data-answer-ui>
-                          <label class="exercise-response-field">
-                            <span class="visually-hidden">Response for item q1-the-body-of-the-_____-woman-was-found-after-an-extensive-search (answer_01)</span>
-                            <input class="exercise-response-input" type="text" placeholder="Answer" data-item="q1-the-body-of-the-_____-woman-was-found-after-an-extensive-search" data-field="answer_01" inputmode="text">
-                          </label>
-                          <label class="exercise-response-field">
-                            <span class="visually-hidden">Response for item q1-the-body-of-the-_____-woman-was-found-after-an-extensive-search (answer_02)</span>
-                            <input class="exercise-response-input" type="text" placeholder="Answer" data-item="q1-the-body-of-the-_____-woman-was-found-after-an-extensive-search" data-field="answer_02" inputmode="text">
-                          </label>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="quest-bg" data-exercise-question="q2-george-swam-towards-the-_____-child-in-an-effort-to-save-him">
-                    <div class="nn_sliders accordion panel-group" id="set-nn_sliders-2">
-                      <span id="nn_sliders-scrollto_2" class="anchor nn_sliders-scroll"></span>
-                      <div class="accordion-group panel nn_sliders-group">
-                        <span id="nn_sliders-scrollto_2-q2-george-swam-towards-the-_____-child-in-an-effort-to-save-him" class="anchor nn_sliders-scroll"></span>
-                        <div class="accordion-heading panel-heading">
-                          <a
-                            class="accordion-toggle nn_sliders-toggle"
-                            href="1832-verb-ing-adjective-part-2.html#1832-verb-ing-adjective-part-2.html#2-george-swam-towards-the-_____-child-in-an-effort-to-save-him"
-                            data-toggle="collapse"
-                            data-parent="#set-nn_sliders-2"
-                            data-id="q2-george-swam-towards-the-_____-child-in-an-effort-to-save-him"
-                            aria-expanded="false"
-                            aria-controls="1832-verb-ing-adjective-part-2.html#2-george-swam-towards-the-_____-child-in-an-effort-to-save-him">
-                            <span class="nn_sliders-toggle-inner">2. George swam towards the _____ child in an effort to save him.</span>
-                          </a>
-                        </div>
-                        <div class="accordion-body nn_sliders-body collapse" id="q2-george-swam-towards-the-_____-child-in-an-effort-to-save-him" aria-hidden="true">
-                          <div class="accordion-inner panel-body">
-                            <h2 class="nn_sliders-title">2. George swam towards the _____ child in an effort to save him.</h2>
-                            <p>
-                              2. George swam towards the
-                              <span class="undies">&#100;&#114;&#111;&#119;&#110;&#105;&#110;&#103;</span>
-                              child in an effort to save him.
-                            </p>
-                          </div>
-                        </div>
-                        <div class="exercise-response-row" data-item="q2-george-swam-towards-the-_____-child-in-an-effort-to-save-him" data-answer-ui>
-                          <label class="exercise-response-field">
-                            <span class="visually-hidden">Response for item q2-george-swam-towards-the-_____-child-in-an-effort-to-save-him (answer_01)</span>
-                            <input class="exercise-response-input" type="text" placeholder="Answer" data-item="q2-george-swam-towards-the-_____-child-in-an-effort-to-save-him" data-field="answer_01" inputmode="text">
-                          </label>
-                          <label class="exercise-response-field">
-                            <span class="visually-hidden">Response for item q2-george-swam-towards-the-_____-child-in-an-effort-to-save-him (answer_02)</span>
-                            <input class="exercise-response-input" type="text" placeholder="Answer" data-item="q2-george-swam-towards-the-_____-child-in-an-effort-to-save-him" data-field="answer_02" inputmode="text">
-                          </label>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="quest-bg" data-exercise-question="q3-are-you-_____-in-buying-a-car-i-m-trying-to-sell-mine">
-                    <div class="nn_sliders accordion panel-group" id="set-nn_sliders-3">
-                      <span id="nn_sliders-scrollto_3" class="anchor nn_sliders-scroll"></span>
-                      <div class="accordion-group panel nn_sliders-group">
-                        <span id="nn_sliders-scrollto_3-q3-are-you-_____-in-buying-a-car-i-m-trying-to-sell-mine" class="anchor nn_sliders-scroll"></span>
-                        <div class="accordion-heading panel-heading">
-                          <a
-                            class="accordion-toggle nn_sliders-toggle"
-                            href="1832-verb-ing-adjective-part-2.html#1832-verb-ing-adjective-part-2.html#3-are-you-_____-in-buying-a-car-i-m-trying-to-sell-mine"
-                            data-toggle="collapse"
-                            data-parent="#set-nn_sliders-3"
-                            data-id="q3-are-you-_____-in-buying-a-car-i-m-trying-to-sell-mine"
-                            aria-expanded="false"
-                            aria-controls="1832-verb-ing-adjective-part-2.html#3-are-you-_____-in-buying-a-car-i-m-trying-to-sell-mine">
-                            <span class="nn_sliders-toggle-inner">3. Are you _____ in buying a car? I'm trying to sell mine.</span>
-                          </a>
-                        </div>
-                        <div class="accordion-body nn_sliders-body collapse" id="q3-are-you-_____-in-buying-a-car-i-m-trying-to-sell-mine" aria-hidden="true">
-                          <div class="accordion-inner panel-body">
-                            <h2 class="nn_sliders-title">3. Are you _____ in buying a car? I'm trying to sell mine.</h2>
-                            <p>
-                              3. Are you
-                              <span class="undies">&#105;&#110;&#116;&#101;&#114;&#101;&#115;&#116;&#101;&#100;</span>
-                              in buying a car? I'm trying to sell mine.
-                            </p>
-                          </div>
-                        </div>
-                        <div class="exercise-response-row" data-item="q3-are-you-_____-in-buying-a-car-i-m-trying-to-sell-mine" data-answer-ui>
-                          <label class="exercise-response-field">
-                            <span class="visually-hidden">Response for item q3-are-you-_____-in-buying-a-car-i-m-trying-to-sell-mine (answer_01)</span>
-                            <input class="exercise-response-input" type="text" placeholder="Answer" data-item="q3-are-you-_____-in-buying-a-car-i-m-trying-to-sell-mine" data-field="answer_01" inputmode="text">
-                          </label>
-                          <label class="exercise-response-field">
-                            <span class="visually-hidden">Response for item q3-are-you-_____-in-buying-a-car-i-m-trying-to-sell-mine (answer_02)</span>
-                            <input class="exercise-response-input" type="text" placeholder="Answer" data-item="q3-are-you-_____-in-buying-a-car-i-m-trying-to-sell-mine" data-field="answer_02" inputmode="text">
-                          </label>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="quest-bg" data-exercise-question="q4-did-you-meet-anyone-_____-at-the-party">
-                    <div class="nn_sliders accordion panel-group" id="set-nn_sliders-4">
-                      <span id="nn_sliders-scrollto_4" class="anchor nn_sliders-scroll"></span>
-                      <div class="accordion-group panel nn_sliders-group">
-                        <span id="nn_sliders-scrollto_4-q4-did-you-meet-anyone-_____-at-the-party" class="anchor nn_sliders-scroll"></span>
-                        <div class="accordion-heading panel-heading">
-                          <a
-                            class="accordion-toggle nn_sliders-toggle"
-                            href="1832-verb-ing-adjective-part-2.html#1832-verb-ing-adjective-part-2.html#4-did-you-meet-anyone-_____-at-the-party"
-                            data-toggle="collapse"
-                            data-parent="#set-nn_sliders-4"
-                            data-id="q4-did-you-meet-anyone-_____-at-the-party"
-                            aria-expanded="false"
-                            aria-controls="1832-verb-ing-adjective-part-2.html#4-did-you-meet-anyone-_____-at-the-party">
-                            <span class="nn_sliders-toggle-inner">4. Did you meet anyone _____ at the party?</span>
-                          </a>
-                        </div>
-                        <div class="accordion-body nn_sliders-body collapse" id="q4-did-you-meet-anyone-_____-at-the-party" aria-hidden="true">
-                          <div class="accordion-inner panel-body">
-                            <h2 class="nn_sliders-title">4. Did you meet anyone _____ at the party?</h2>
-                            <p>
-                              4. Did you meet anyone
-                              <span class="undies">&#105;&#110;&#116;&#101;&#114;&#101;&#115;&#116;&#105;&#110;&#103;</span>
-                              at the party?
-                            </p>
-                          </div>
-                        </div>
-                        <div class="exercise-response-row" data-item="q4-did-you-meet-anyone-_____-at-the-party" data-answer-ui>
-                          <label class="exercise-response-field">
-                            <span class="visually-hidden">Response for item q4-did-you-meet-anyone-_____-at-the-party (answer_01)</span>
-                            <input class="exercise-response-input" type="text" placeholder="Answer" data-item="q4-did-you-meet-anyone-_____-at-the-party" data-field="answer_01" inputmode="text">
-                          </label>
-                          <label class="exercise-response-field">
-                            <span class="visually-hidden">Response for item q4-did-you-meet-anyone-_____-at-the-party (answer_02)</span>
-                            <input class="exercise-response-input" type="text" placeholder="Answer" data-item="q4-did-you-meet-anyone-_____-at-the-party" data-field="answer_02" inputmode="text">
-                          </label>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="quest-bg" data-exercise-question="q5-i-m-_____-in-listening-if-you-have-_____-things-to-say">
-                    <div class="nn_sliders accordion panel-group" id="set-nn_sliders-5">
-                      <span id="nn_sliders-scrollto_5" class="anchor nn_sliders-scroll"></span>
-                      <div class="accordion-group panel nn_sliders-group">
-                        <span id="nn_sliders-scrollto_5-q5-i-m-_____-in-listening-if-you-have-_____-things-to-say" class="anchor nn_sliders-scroll"></span>
-                        <div class="accordion-heading panel-heading">
-                          <a
-                            class="accordion-toggle nn_sliders-toggle"
-                            href="1832-verb-ing-adjective-part-2.html#1832-verb-ing-adjective-part-2.html#5-i-m-_____-in-listening-if-you-have-_____-things-to-say"
-                            data-toggle="collapse"
-                            data-parent="#set-nn_sliders-5"
-                            data-id="q5-i-m-_____-in-listening-if-you-have-_____-things-to-say"
-                            aria-expanded="false"
-                            aria-controls="1832-verb-ing-adjective-part-2.html#5-i-m-_____-in-listening-if-you-have-_____-things-to-say">
-                            <span class="nn_sliders-toggle-inner">5. I'm _____ in listening if you have _____ things to say.</span>
-                          </a>
-                        </div>
-                        <div class="accordion-body nn_sliders-body collapse" id="q5-i-m-_____-in-listening-if-you-have-_____-things-to-say" aria-hidden="true">
-                          <div class="accordion-inner panel-body">
-                            <h2 class="nn_sliders-title">5. I'm _____ in listening if you have _____ things to say.</h2>
-                            <p>
-                              5. I'm
-                              <span class="undies">&#105;&#110;&#116;&#101;&#114;&#101;&#115;&#116;&#101;&#100;</span>
-                              in listening if you have
-                              <span class="undies">&#105;&#110;&#116;&#101;&#114;&#101;&#115;&#116;&#105;&#110;&#103;</span>
-                              things to say.
-                            </p>
-                          </div>
-                        </div>
-                        <div class="exercise-response-row" data-item="q5-i-m-_____-in-listening-if-you-have-_____-things-to-say" data-answer-ui>
-                          <label class="exercise-response-field">
-                            <span class="visually-hidden">Response for item q5-i-m-_____-in-listening-if-you-have-_____-things-to-say (answer_01)</span>
-                            <input class="exercise-response-input" type="text" placeholder="Answer" data-item="q5-i-m-_____-in-listening-if-you-have-_____-things-to-say" data-field="answer_01" inputmode="text">
-                          </label>
-                          <label class="exercise-response-field">
-                            <span class="visually-hidden">Response for item q5-i-m-_____-in-listening-if-you-have-_____-things-to-say (answer_02)</span>
-                            <input class="exercise-response-input" type="text" placeholder="Answer" data-item="q5-i-m-_____-in-listening-if-you-have-_____-things-to-say" data-field="answer_02" inputmode="text">
-                          </label>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="quest-bg" data-exercise-question="q6-julia-thinks-politics-is-very-_____-but-her-father-was-never-_____-in-it">
-                    <div class="nn_sliders accordion panel-group" id="set-nn_sliders-6">
-                      <span id="nn_sliders-scrollto_6" class="anchor nn_sliders-scroll"></span>
-                      <div class="accordion-group panel nn_sliders-group">
-                        <span id="nn_sliders-scrollto_6-q6-julia-thinks-politics-is-very-_____-but-her-father-was-never-_____-in-it" class="anchor nn_sliders-scroll"></span>
-                        <div class="accordion-heading panel-heading">
-                          <a
-                            class="accordion-toggle nn_sliders-toggle"
-                            href="1832-verb-ing-adjective-part-2.html#1832-verb-ing-adjective-part-2.html#6-julia-thinks-politics-is-very-_____-but-her-father-was-never-_____-in-it"
-                            data-toggle="collapse"
-                            data-parent="#set-nn_sliders-6"
-                            data-id="q6-julia-thinks-politics-is-very-_____-but-her-father-was-never-_____-in-it"
-                            aria-expanded="false"
-                            aria-controls="1832-verb-ing-adjective-part-2.html#6-julia-thinks-politics-is-very-_____-but-her-father-was-never-_____-in-it">
-                            <span class="nn_sliders-toggle-inner">6. Julia thinks politics is very _____, but her father was never _____ in it.</span>
-                          </a>
-                        </div>
-                        <div class="accordion-body nn_sliders-body collapse" id="q6-julia-thinks-politics-is-very-_____-but-her-father-was-never-_____-in-it" aria-hidden="true">
-                          <div class="accordion-inner panel-body">
-                            <h2 class="nn_sliders-title">6. Julia thinks politics is very _____, but her father was never _____ in it.</h2>
-                            <p>
-                              6. Julia thinks politics is very
-                              <span class="undies">&#105;&#110;&#116;&#101;&#114;&#101;&#115;&#116;&#105;&#110;&#103;</span>
-                              , but her father was never
-                              <span class="undies">&#105;&#110;&#116;&#101;&#114;&#101;&#115;&#116;&#101;&#100;</span>
-                              in it.
-                            </p>
-                          </div>
-                        </div>
-                        <div class="exercise-response-row" data-item="q6-julia-thinks-politics-is-very-_____-but-her-father-was-never-_____-in-it" data-answer-ui>
-                          <label class="exercise-response-field">
-                            <span class="visually-hidden">Response for item q6-julia-thinks-politics-is-very-_____-but-her-father-was-never-_____-in-it (answer_01)</span>
-                            <input class="exercise-response-input" type="text" placeholder="Answer" data-item="q6-julia-thinks-politics-is-very-_____-but-her-father-was-never-_____-in-it" data-field="answer_01" inputmode="text">
-                          </label>
-                          <label class="exercise-response-field">
-                            <span class="visually-hidden">Response for item q6-julia-thinks-politics-is-very-_____-but-her-father-was-never-_____-in-it (answer_02)</span>
-                            <input class="exercise-response-input" type="text" placeholder="Answer" data-item="q6-julia-thinks-politics-is-very-_____-but-her-father-was-never-_____-in-it" data-field="answer_02" inputmode="text">
-                          </label>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="quest-bg" data-exercise-question="q7-it-was-_____-to-learn-dressmaking-but-now-i-m-not-so-_____-in-it-she-told-him">
-                    <div class="nn_sliders accordion panel-group" id="set-nn_sliders-7">
-                      <span id="nn_sliders-scrollto_7" class="anchor nn_sliders-scroll"></span>
-                      <div class="accordion-group panel nn_sliders-group">
-                        <span id="nn_sliders-scrollto_7-q7-it-was-_____-to-learn-dressmaking-but-now-i-m-not-so-_____-in-it-she-told-him" class="anchor nn_sliders-scroll"></span>
-                        <div class="accordion-heading panel-heading">
-                          <a
-                            class="accordion-toggle nn_sliders-toggle"
-                            href="1832-verb-ing-adjective-part-2.html#1832-verb-ing-adjective-part-2.html#7-it-was-_____-to-learn-dressmaking-but-now-i-m-not-so-_____-in-it-she-told-him"
-                            data-toggle="collapse"
-                            data-parent="#set-nn_sliders-7"
-                            data-id="q7-it-was-_____-to-learn-dressmaking-but-now-i-m-not-so-_____-in-it-she-told-him"
-                            aria-expanded="false"
-                            aria-controls="1832-verb-ing-adjective-part-2.html#7-it-was-_____-to-learn-dressmaking-but-now-i-m-not-so-_____-in-it-she-told-him">
-                            <span class="nn_sliders-toggle-inner">7. "It was _____ to learn dressmaking, but now I'm not so _____ in it." she told him.</span>
-                          </a>
-                        </div>
-                        <div class="accordion-body nn_sliders-body collapse" id="q7-it-was-_____-to-learn-dressmaking-but-now-i-m-not-so-_____-in-it-she-told-him" aria-hidden="true">
-                          <div class="accordion-inner panel-body">
-                            <h2 class="nn_sliders-title">7. "It was _____ to learn dressmaking, but now I'm not so _____ in it." she told him.</h2>
-                            <p>
-                              7. "It was
-                              <span class="undies">&#105;&#110;&#116;&#101;&#114;&#101;&#115;&#116;&#105;&#110;&#103;</span>
-                              to learn dressmaking, but now I'm not so
-                              <span class="undies">&#105;&#110;&#116;&#101;&#114;&#101;&#115;&#116;&#101;&#100;</span>
-                              in it." she told him.
-                            </p>
-                          </div>
-                        </div>
-                        <div class="exercise-response-row" data-item="q7-it-was-_____-to-learn-dressmaking-but-now-i-m-not-so-_____-in-it-she-told-him" data-answer-ui>
-                          <label class="exercise-response-field">
-                            <span class="visually-hidden">Response for item q7-it-was-_____-to-learn-dressmaking-but-now-i-m-not-so-_____-in-it-she-told-him (answer_01)</span>
-                            <input class="exercise-response-input" type="text" placeholder="Answer" data-item="q7-it-was-_____-to-learn-dressmaking-but-now-i-m-not-so-_____-in-it-she-told-him" data-field="answer_01" inputmode="text">
-                          </label>
-                          <label class="exercise-response-field">
-                            <span class="visually-hidden">Response for item q7-it-was-_____-to-learn-dressmaking-but-now-i-m-not-so-_____-in-it-she-told-him (answer_02)</span>
-                            <input class="exercise-response-input" type="text" placeholder="Answer" data-item="q7-it-was-_____-to-learn-dressmaking-but-now-i-m-not-so-_____-in-it-she-told-him" data-field="answer_02" inputmode="text">
-                          </label>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="quest-bg" data-exercise-question="q8-the-game-was-very-_____-to-watch-but-i-wouldn-t-be-_____-in-playing-it">
-                    <div class="nn_sliders accordion panel-group" id="set-nn_sliders-8">
-                      <span id="nn_sliders-scrollto_8" class="anchor nn_sliders-scroll"></span>
-                      <div class="accordion-group panel nn_sliders-group">
-                        <span id="nn_sliders-scrollto_8-q8-the-game-was-very-_____-to-watch-but-i-wouldn-t-be-_____-in-playing-it" class="anchor nn_sliders-scroll"></span>
-                        <div class="accordion-heading panel-heading">
-                          <a
-                            class="accordion-toggle nn_sliders-toggle"
-                            href="1832-verb-ing-adjective-part-2.html#1832-verb-ing-adjective-part-2.html#8-the-game-was-very-_____-to-watch-but-i-wouldn-t-be-_____-in-playing-it"
-                            data-toggle="collapse"
-                            data-parent="#set-nn_sliders-8"
-                            data-id="q8-the-game-was-very-_____-to-watch-but-i-wouldn-t-be-_____-in-playing-it"
-                            aria-expanded="false"
-                            aria-controls="1832-verb-ing-adjective-part-2.html#8-the-game-was-very-_____-to-watch-but-i-wouldn-t-be-_____-in-playing-it">
-                            <span class="nn_sliders-toggle-inner">8. The game was very _____ to watch. But I wouldn't be _____ in playing it.</span>
-                          </a>
-                        </div>
-                        <div class="accordion-body nn_sliders-body collapse" id="q8-the-game-was-very-_____-to-watch-but-i-wouldn-t-be-_____-in-playing-it" aria-hidden="true">
-                          <div class="accordion-inner panel-body">
-                            <h2 class="nn_sliders-title">8. The game was very _____ to watch. But I wouldn't be _____ in playing it.</h2>
-                            <p>
-                              8. The game was very
-                              <span class="undies">&#105;&#110;&#116;&#101;&#114;&#101;&#115;&#116;&#105;&#110;&#103;</span>
-                              to watch. But I wouldn't be
-                              <span class="undies">&#105;&#110;&#116;&#101;&#114;&#101;&#115;&#116;&#101;&#100;</span>
-                              in playing it.
-                            </p>
-                          </div>
-                        </div>
-                        <div class="exercise-response-row" data-item="q8-the-game-was-very-_____-to-watch-but-i-wouldn-t-be-_____-in-playing-it" data-answer-ui>
-                          <label class="exercise-response-field">
-                            <span class="visually-hidden">Response for item q8-the-game-was-very-_____-to-watch-but-i-wouldn-t-be-_____-in-playing-it (answer_01)</span>
-                            <input class="exercise-response-input" type="text" placeholder="Answer" data-item="q8-the-game-was-very-_____-to-watch-but-i-wouldn-t-be-_____-in-playing-it" data-field="answer_01" inputmode="text">
-                          </label>
-                          <label class="exercise-response-field">
-                            <span class="visually-hidden">Response for item q8-the-game-was-very-_____-to-watch-but-i-wouldn-t-be-_____-in-playing-it (answer_02)</span>
-                            <input class="exercise-response-input" type="text" placeholder="Answer" data-item="q8-the-game-was-very-_____-to-watch-but-i-wouldn-t-be-_____-in-playing-it" data-field="answer_02" inputmode="text">
-                          </label>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="quest-bg" data-exercise-question="q9-the-bystanders-watched-the-_____-driver-getting-out-of-his-car-and-arguing-with-the-policemen">
-                    <div class="nn_sliders accordion panel-group" id="set-nn_sliders-9">
-                      <span id="nn_sliders-scrollto_9" class="anchor nn_sliders-scroll"></span>
-                      <div class="accordion-group panel nn_sliders-group">
-                        <span id="nn_sliders-scrollto_9-q9-the-bystanders-watched-the-_____-driver-getting-out-of-his-car-and-arguing-with-the-policemen" class="anchor nn_sliders-scroll"></span>
-                        <div class="accordion-heading panel-heading">
-                          <a
-                            class="accordion-toggle nn_sliders-toggle"
-                            href="1832-verb-ing-adjective-part-2.html#1832-verb-ing-adjective-part-2.html#9-the-bystanders-watched-the-_____-driver-getting-out-of-his-car-and-arguing-with-the-policemen"
-                            data-toggle="collapse"
-                            data-parent="#set-nn_sliders-9"
-                            data-id="q9-the-bystanders-watched-the-_____-driver-getting-out-of-his-car-and-arguing-with-the-policemen"
-                            aria-expanded="false"
-                            aria-controls="1832-verb-ing-adjective-part-2.html#9-the-bystanders-watched-the-_____-driver-getting-out-of-his-car-and-arguing-with-the-policemen">
-                            <span class="nn_sliders-toggle-inner">9. The bystanders watched the _____ driver getting out of his car and arguing with the policemen.</span>
-                          </a>
-                        </div>
-                        <div class="accordion-body nn_sliders-body collapse" id="q9-the-bystanders-watched-the-_____-driver-getting-out-of-his-car-and-arguing-with-the-policemen" aria-hidden="true">
-                          <div class="accordion-inner panel-body">
-                            <h2 class="nn_sliders-title">9. The bystanders watched the _____ driver getting out of his car and arguing with the policemen.</h2>
-                            <p>
-                              9. The bystanders watched the
-                              <span class="undies">&#101;&#120;&#99;&#105;&#116;&#101;&#100;</span>
-                              driver getting out of his car and arguing with the policemen.
-                            </p>
-                          </div>
-                        </div>
-                        <div class="exercise-response-row" data-item="q9-the-bystanders-watched-the-_____-driver-getting-out-of-his-car-and-arguing-with-the-policemen" data-answer-ui>
-                          <label class="exercise-response-field">
-                            <span class="visually-hidden">Response for item q9-the-bystanders-watched-the-_____-driver-getting-out-of-his-car-and-arguing-with-the-policemen (answer_01)</span>
-                            <input
-                              class="exercise-response-input"
-                              type="text"
-                              placeholder="Answer"
-                              data-item="q9-the-bystanders-watched-the-_____-driver-getting-out-of-his-car-and-arguing-with-the-policemen"
-                              data-field="answer_01"
-                              inputmode="text">
-                          </label>
-                          <label class="exercise-response-field">
-                            <span class="visually-hidden">Response for item q9-the-bystanders-watched-the-_____-driver-getting-out-of-his-car-and-arguing-with-the-policemen (answer_02)</span>
-                            <input
-                              class="exercise-response-input"
-                              type="text"
-                              placeholder="Answer"
-                              data-item="q9-the-bystanders-watched-the-_____-driver-getting-out-of-his-car-and-arguing-with-the-policemen"
-                              data-field="answer_02"
-                              inputmode="text">
-                          </label>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="quest-bg" data-exercise-question="q10-the-_____-boys-couldn-t-wait-to-spend-a-week-camping-in-a-jungle-as-they-expected-to-have-a-very-_____-time">
-                    <div class="nn_sliders accordion panel-group" id="set-nn_sliders-10">
-                      <span id="nn_sliders-scrollto_10" class="anchor nn_sliders-scroll"></span>
-                      <div class="accordion-group panel nn_sliders-group">
-                        <span id="nn_sliders-scrollto_10-q10-the-_____-boys-couldn-t-wait-to-spend-a-week-camping-in-a-jungle-as-they-expected-to-have-a-very-_____-time" class="anchor nn_sliders-scroll"></span>
-                        <div class="accordion-heading panel-heading">
-                          <a
-                            class="accordion-toggle nn_sliders-toggle"
-                            href="1832-verb-ing-adjective-part-2.html#1832-verb-ing-adjective-part-2.html#10-the-_____-boys-couldn-t-wait-to-spend-a-week-camping-in-a-jungle-as-they-expected-to-have-a-very-_____-time"
-                            data-toggle="collapse"
-                            data-parent="#set-nn_sliders-10"
-                            data-id="q10-the-_____-boys-couldn-t-wait-to-spend-a-week-camping-in-a-jungle-as-they-expected-to-have-a-very-_____-time"
-                            aria-expanded="false"
-                            aria-controls="1832-verb-ing-adjective-part-2.html#10-the-_____-boys-couldn-t-wait-to-spend-a-week-camping-in-a-jungle-as-they-expected-to-have-a-very-_____-time">
-                            <span class="nn_sliders-toggle-inner">10. The _____ boys couldn't wait to spend a week camping in a jungle as they expected to have a very _____ time.</span>
-                          </a>
-                        </div>
-                        <div class="accordion-body nn_sliders-body collapse" id="q10-the-_____-boys-couldn-t-wait-to-spend-a-week-camping-in-a-jungle-as-they-expected-to-have-a-very-_____-time" aria-hidden="true">
-                          <div class="accordion-inner panel-body">
-                            <h2 class="nn_sliders-title">10. The _____ boys couldn't wait to spend a week camping in a jungle as they expected to have a very _____ time.</h2>
-                            <p>
-                              10. The
-                              <span class="undies">&#101;&#120;&#99;&#105;&#116;&#101;&#100;</span>
-                              boys couldn't wait to spend a week camping in a jungle as they expected to have a very
-                              <span class="undies">&#101;&#120;&#99;&#105;&#116;&#105;&#110;&#103;</span>
-                              time.
-                            </p>
-                          </div>
-                        </div>
-                        <div class="exercise-response-row" data-item="q10-the-_____-boys-couldn-t-wait-to-spend-a-week-camping-in-a-jungle-as-they-expected-to-have-a-very-_____-time" data-answer-ui>
-                          <label class="exercise-response-field">
-                            <span class="visually-hidden">Response for item q10-the-_____-boys-couldn-t-wait-to-spend-a-week-camping-in-a-jungle-as-they-expected-to-have-a-very-_____-time (answer_01)</span>
-                            <input
-                              class="exercise-response-input"
-                              type="text"
-                              placeholder="Answer"
-                              data-item="q10-the-_____-boys-couldn-t-wait-to-spend-a-week-camping-in-a-jungle-as-they-expected-to-have-a-very-_____-time"
-                              data-field="answer_01"
-                              inputmode="text">
-                          </label>
-                          <label class="exercise-response-field">
-                            <span class="visually-hidden">Response for item q10-the-_____-boys-couldn-t-wait-to-spend-a-week-camping-in-a-jungle-as-they-expected-to-have-a-very-_____-time (answer_02)</span>
-                            <input
-                              class="exercise-response-input"
-                              type="text"
-                              placeholder="Answer"
-                              data-item="q10-the-_____-boys-couldn-t-wait-to-spend-a-week-camping-in-a-jungle-as-they-expected-to-have-a-very-_____-time"
-                              data-field="answer_02"
-                              inputmode="text">
-                          </label>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="quest-bg" data-exercise-question="q11-she-took-the-_____-egg-carefully-out-of-the-_____-water">
-                    <div class="nn_sliders accordion panel-group" id="set-nn_sliders-11">
-                      <span id="nn_sliders-scrollto_11" class="anchor nn_sliders-scroll"></span>
-                      <div class="accordion-group panel nn_sliders-group">
-                        <span id="nn_sliders-scrollto_11-q11-she-took-the-_____-egg-carefully-out-of-the-_____-water" class="anchor nn_sliders-scroll"></span>
-                        <div class="accordion-heading panel-heading">
-                          <a
-                            class="accordion-toggle nn_sliders-toggle"
-                            href="1832-verb-ing-adjective-part-2.html#1832-verb-ing-adjective-part-2.html#11-she-took-the-_____-egg-carefully-out-of-the-_____-water"
-                            data-toggle="collapse"
-                            data-parent="#set-nn_sliders-11"
-                            data-id="q11-she-took-the-_____-egg-carefully-out-of-the-_____-water"
-                            aria-expanded="false"
-                            aria-controls="1832-verb-ing-adjective-part-2.html#11-she-took-the-_____-egg-carefully-out-of-the-_____-water">
-                            <span class="nn_sliders-toggle-inner">11. She took the _____ egg carefully out of the _____ water.</span>
-                          </a>
-                        </div>
-                        <div class="accordion-body nn_sliders-body collapse" id="q11-she-took-the-_____-egg-carefully-out-of-the-_____-water" aria-hidden="true">
-                          <div class="accordion-inner panel-body">
-                            <h2 class="nn_sliders-title">11. She took the _____ egg carefully out of the _____ water.</h2>
-                            <p>
-                              11. She took the
-                              <span class="undies">&#98;&#111;&#105;&#108;&#101;&#100;</span>
-                              egg carefully out of the
-                              <span class="undies">&#98;&#111;&#105;&#108;&#105;&#110;&#103;</span>
-                              water.
-                            </p>
-                          </div>
-                        </div>
-                        <div class="exercise-response-row" data-item="q11-she-took-the-_____-egg-carefully-out-of-the-_____-water" data-answer-ui>
-                          <label class="exercise-response-field">
-                            <span class="visually-hidden">Response for item q11-she-took-the-_____-egg-carefully-out-of-the-_____-water (answer_01)</span>
-                            <input class="exercise-response-input" type="text" placeholder="Answer" data-item="q11-she-took-the-_____-egg-carefully-out-of-the-_____-water" data-field="answer_01" inputmode="text">
-                          </label>
-                          <label class="exercise-response-field">
-                            <span class="visually-hidden">Response for item q11-she-took-the-_____-egg-carefully-out-of-the-_____-water (answer_02)</span>
-                            <input class="exercise-response-input" type="text" placeholder="Answer" data-item="q11-she-took-the-_____-egg-carefully-out-of-the-_____-water" data-field="answer_02" inputmode="text">
-                          </label>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="quest-bg" data-exercise-question="q12-the-_____-journey-made-us-both-feel-very-_____">
-                    <div class="nn_sliders accordion panel-group" id="set-nn_sliders-12">
-                      <span id="nn_sliders-scrollto_12" class="anchor nn_sliders-scroll"></span>
-                      <div class="accordion-group panel nn_sliders-group">
-                        <span id="nn_sliders-scrollto_12-q12-the-_____-journey-made-us-both-feel-very-_____" class="anchor nn_sliders-scroll"></span>
-                        <div class="accordion-heading panel-heading">
-                          <a
-                            class="accordion-toggle nn_sliders-toggle"
-                            href="1832-verb-ing-adjective-part-2.html#1832-verb-ing-adjective-part-2.html#12-the-_____-journey-made-us-both-feel-very-_____"
-                            data-toggle="collapse"
-                            data-parent="#set-nn_sliders-12"
-                            data-id="q12-the-_____-journey-made-us-both-feel-very-_____"
-                            aria-expanded="false"
-                            aria-controls="1832-verb-ing-adjective-part-2.html#12-the-_____-journey-made-us-both-feel-very-_____">
-                            <span class="nn_sliders-toggle-inner">12. The _____ journey made us both feel very _____.</span>
-                          </a>
-                        </div>
-                        <div class="accordion-body nn_sliders-body collapse" id="q12-the-_____-journey-made-us-both-feel-very-_____" aria-hidden="true">
-                          <div class="accordion-inner panel-body">
-                            <h2 class="nn_sliders-title">12. The _____ journey made us both feel very _____.</h2>
-                            <p>
-                              12. The
-                              <span class="undies">&#116;&#105;&#114;&#105;&#110;&#103;</span>
-                              journey made us both feel very
-                              <span class="undies">&#116;&#105;&#114;&#101;&#100;</span>
-                              .
-                            </p>
-                          </div>
-                        </div>
-                        <div class="exercise-response-row" data-item="q12-the-_____-journey-made-us-both-feel-very-_____" data-answer-ui>
-                          <label class="exercise-response-field">
-                            <span class="visually-hidden">Response for item q12-the-_____-journey-made-us-both-feel-very-_____ (answer_01)</span>
-                            <input class="exercise-response-input" type="text" placeholder="Answer" data-item="q12-the-_____-journey-made-us-both-feel-very-_____" data-field="answer_01" inputmode="text">
-                          </label>
-                          <label class="exercise-response-field">
-                            <span class="visually-hidden">Response for item q12-the-_____-journey-made-us-both-feel-very-_____ (answer_02)</span>
-                            <input class="exercise-response-input" type="text" placeholder="Answer" data-item="q12-the-_____-journey-made-us-both-feel-very-_____" data-field="answer_02" inputmode="text">
-                          </label>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="quest-bg" data-exercise-question="q13-we-re-going-to-see-the-film-but-_____-to-hear-you-say-you-are-_____-because-it-was-a-boring-one">
-                    <div class="nn_sliders accordion panel-group" id="set-nn_sliders-13">
-                      <span id="nn_sliders-scrollto_13" class="anchor nn_sliders-scroll"></span>
-                      <div class="accordion-group panel nn_sliders-group">
-                        <span id="nn_sliders-scrollto_13-q13-we-re-going-to-see-the-film-but-_____-to-hear-you-say-you-are-_____-because-it-was-a-boring-one" class="anchor nn_sliders-scroll"></span>
-                        <div class="accordion-heading panel-heading">
-                          <a
-                            class="accordion-toggle nn_sliders-toggle"
-                            href="1832-verb-ing-adjective-part-2.html#1832-verb-ing-adjective-part-2.html#13-we-re-going-to-see-the-film-but-_____-to-hear-you-say-you-are-_____-because-it-was-a-boring-one"
-                            data-toggle="collapse"
-                            data-parent="#set-nn_sliders-13"
-                            data-id="q13-we-re-going-to-see-the-film-but-_____-to-hear-you-say-you-are-_____-because-it-was-a-boring-one"
-                            aria-expanded="false"
-                            aria-controls="1832-verb-ing-adjective-part-2.html#13-we-re-going-to-see-the-film-but-_____-to-hear-you-say-you-are-_____-because-it-was-a-boring-one">
-                            <span class="nn_sliders-toggle-inner">13. We're going to see the film but _____ to hear you say you are _____ because it was a boring one.</span>
-                          </a>
-                        </div>
-                        <div class="accordion-body nn_sliders-body collapse" id="q13-we-re-going-to-see-the-film-but-_____-to-hear-you-say-you-are-_____-because-it-was-a-boring-one" aria-hidden="true">
-                          <div class="accordion-inner panel-body">
-                            <h2 class="nn_sliders-title">13. We're going to see the film but _____ to hear you say you are _____ because it was a boring one.</h2>
-                            <p>
-                              13. We're going to see the film but
-                              <span class="undies">&#100;&#105;&#115;&#97;&#112;&#112;&#111;&#105;&#110;&#116;&#101;&#100;</span>
-                              to hear you say you are
-                              <span class="undies">&#100;&#105;&#115;&#97;&#112;&#112;&#111;&#105;&#110;&#116;&#101;&#100;</span>
-                              because it was a boring one.
-                            </p>
-                          </div>
-                        </div>
-                        <div class="exercise-response-row" data-item="q13-we-re-going-to-see-the-film-but-_____-to-hear-you-say-you-are-_____-because-it-was-a-boring-one" data-answer-ui>
-                          <label class="exercise-response-field">
-                            <span class="visually-hidden">Response for item q13-we-re-going-to-see-the-film-but-_____-to-hear-you-say-you-are-_____-because-it-was-a-boring-one (answer_01)</span>
-                            <input
-                              class="exercise-response-input"
-                              type="text"
-                              placeholder="Answer"
-                              data-item="q13-we-re-going-to-see-the-film-but-_____-to-hear-you-say-you-are-_____-because-it-was-a-boring-one"
-                              data-field="answer_01"
-                              inputmode="text">
-                          </label>
-                          <label class="exercise-response-field">
-                            <span class="visually-hidden">Response for item q13-we-re-going-to-see-the-film-but-_____-to-hear-you-say-you-are-_____-because-it-was-a-boring-one (answer_02)</span>
-                            <input
-                              class="exercise-response-input"
-                              type="text"
-                              placeholder="Answer"
-                              data-item="q13-we-re-going-to-see-the-film-but-_____-to-hear-you-say-you-are-_____-because-it-was-a-boring-one"
-                              data-field="answer_02"
-                              inputmode="text">
-                          </label>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="quest-bg" data-exercise-question="q14-my-father-said-to-me-last-year-your-results-were-_____-i-hope-you-will-not-have-us-_____-again-this-year">
-                    <div class="nn_sliders accordion panel-group" id="set-nn_sliders-14">
-                      <span id="nn_sliders-scrollto_14" class="anchor nn_sliders-scroll"></span>
-                      <div class="accordion-group panel nn_sliders-group">
-                        <span id="nn_sliders-scrollto_14-q14-my-father-said-to-me-last-year-your-results-were-_____-i-hope-you-will-not-have-us-_____-again-this-year" class="anchor nn_sliders-scroll"></span>
-                        <div class="accordion-heading panel-heading">
-                          <a
-                            class="accordion-toggle nn_sliders-toggle"
-                            href="1832-verb-ing-adjective-part-2.html#1832-verb-ing-adjective-part-2.html#14-my-father-said-to-me-last-year-your-results-were-_____-i-hope-you-will-not-have-us-_____-again-this-year"
-                            data-toggle="collapse"
-                            data-parent="#set-nn_sliders-14"
-                            data-id="q14-my-father-said-to-me-last-year-your-results-were-_____-i-hope-you-will-not-have-us-_____-again-this-year"
-                            aria-expanded="false"
-                            aria-controls="1832-verb-ing-adjective-part-2.html#14-my-father-said-to-me-last-year-your-results-were-_____-i-hope-you-will-not-have-us-_____-again-this-year">
-                            <span class="nn_sliders-toggle-inner">14. My father said to me, "Last year your results were _____. I hope you will not have us _____ again this year."</span>
-                          </a>
-                        </div>
-                        <div class="accordion-body nn_sliders-body collapse" id="q14-my-father-said-to-me-last-year-your-results-were-_____-i-hope-you-will-not-have-us-_____-again-this-year" aria-hidden="true">
-                          <div class="accordion-inner panel-body">
-                            <h2 class="nn_sliders-title">14. My father said to me, "Last year your results were _____. I hope you will not have us _____ again this year."</h2>
-                            <p>
-                              14. My father said to me, "Last year your results were
-                              <span class="undies">&#100;&#105;&#115;&#97;&#112;&#112;&#111;&#105;&#110;&#116;&#105;&#110;&#103;</span>
-                              . I hope you will not have us
-                              <span class="undies">&#100;&#105;&#115;&#97;&#112;&#112;&#111;&#105;&#110;&#116;&#101;&#100;</span>
-                              again this year."
-                            </p>
-                          </div>
-                        </div>
-                        <div class="exercise-response-row" data-item="q14-my-father-said-to-me-last-year-your-results-were-_____-i-hope-you-will-not-have-us-_____-again-this-year" data-answer-ui>
-                          <label class="exercise-response-field">
-                            <span class="visually-hidden">Response for item q14-my-father-said-to-me-last-year-your-results-were-_____-i-hope-you-will-not-have-us-_____-again-this-year (answer_01)</span>
-                            <input
-                              class="exercise-response-input"
-                              type="text"
-                              placeholder="Answer"
-                              data-item="q14-my-father-said-to-me-last-year-your-results-were-_____-i-hope-you-will-not-have-us-_____-again-this-year"
-                              data-field="answer_01"
-                              inputmode="text">
-                          </label>
-                          <label class="exercise-response-field">
-                            <span class="visually-hidden">Response for item q14-my-father-said-to-me-last-year-your-results-were-_____-i-hope-you-will-not-have-us-_____-again-this-year (answer_02)</span>
-                            <input
-                              class="exercise-response-input"
-                              type="text"
-                              placeholder="Answer"
-                              data-item="q14-my-father-said-to-me-last-year-your-results-were-_____-i-hope-you-will-not-have-us-_____-again-this-year"
-                              data-field="answer_02"
-                              inputmode="text">
-                          </label>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="quest-bg" data-exercise-question="q15-the-match-was-_____-fans-of-both-teams-must-have-found-it-_____-too">
-                    <div class="nn_sliders accordion panel-group" id="set-nn_sliders-15">
-                      <span id="nn_sliders-scrollto_15" class="anchor nn_sliders-scroll"></span>
-                      <div class="accordion-group panel nn_sliders-group">
-                        <span id="nn_sliders-scrollto_15-q15-the-match-was-_____-fans-of-both-teams-must-have-found-it-_____-too" class="anchor nn_sliders-scroll"></span>
-                        <div class="accordion-heading panel-heading">
-                          <a
-                            class="accordion-toggle nn_sliders-toggle"
-                            href="1832-verb-ing-adjective-part-2.html#1832-verb-ing-adjective-part-2.html#15-the-match-was-_____-fans-of-both-teams-must-have-found-it-_____-too"
-                            data-toggle="collapse"
-                            data-parent="#set-nn_sliders-15"
-                            data-id="q15-the-match-was-_____-fans-of-both-teams-must-have-found-it-_____-too"
-                            aria-expanded="false"
-                            aria-controls="1832-verb-ing-adjective-part-2.html#15-the-match-was-_____-fans-of-both-teams-must-have-found-it-_____-too">
-                            <span class="nn_sliders-toggle-inner">15. The match was _____. Fans of both teams must have found it _____ too.</span>
-                          </a>
-                        </div>
-                        <div class="accordion-body nn_sliders-body collapse" id="q15-the-match-was-_____-fans-of-both-teams-must-have-found-it-_____-too" aria-hidden="true">
-                          <div class="accordion-inner panel-body">
-                            <h2 class="nn_sliders-title">15. The match was _____. Fans of both teams must have found it _____ too.</h2>
-                            <p>
-                              15. The match was
-                              <span class="undies">&#100;&#105;&#115;&#97;&#112;&#112;&#111;&#105;&#110;&#116;&#105;&#110;&#103;</span>
-                              . Fans of both teams must have found it
-                              <span class="undies">&#100;&#105;&#115;&#97;&#112;&#112;&#111;&#105;&#110;&#116;&#105;&#110;&#103;</span>
-                              too.
-                            </p>
-                          </div>
-                        </div>
-                        <div class="exercise-response-row" data-item="q15-the-match-was-_____-fans-of-both-teams-must-have-found-it-_____-too" data-answer-ui>
-                          <label class="exercise-response-field">
-                            <span class="visually-hidden">Response for item q15-the-match-was-_____-fans-of-both-teams-must-have-found-it-_____-too (answer_01)</span>
-                            <input class="exercise-response-input" type="text" placeholder="Answer" data-item="q15-the-match-was-_____-fans-of-both-teams-must-have-found-it-_____-too" data-field="answer_01" inputmode="text">
-                          </label>
-                          <label class="exercise-response-field">
-                            <span class="visually-hidden">Response for item q15-the-match-was-_____-fans-of-both-teams-must-have-found-it-_____-too (answer_02)</span>
-                            <input class="exercise-response-input" type="text" placeholder="Answer" data-item="q15-the-match-was-_____-fans-of-both-teams-must-have-found-it-_____-too" data-field="answer_02" inputmode="text">
-                          </label>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="quest-bg" data-exercise-question="q16-i-was-_____-with-the-way-you-behaved-last-night-why-did-you-have-to-make-yourself-so-_____">
-                    <div class="nn_sliders accordion panel-group" id="set-nn_sliders-16">
-                      <span id="nn_sliders-scrollto_16" class="anchor nn_sliders-scroll"></span>
-                      <div class="accordion-group panel nn_sliders-group">
-                        <span id="nn_sliders-scrollto_16-q16-i-was-_____-with-the-way-you-behaved-last-night-why-did-you-have-to-make-yourself-so-_____" class="anchor nn_sliders-scroll"></span>
-                        <div class="accordion-heading panel-heading">
-                          <a
-                            class="accordion-toggle nn_sliders-toggle"
-                            href="1832-verb-ing-adjective-part-2.html#1832-verb-ing-adjective-part-2.html#16-i-was-_____-with-the-way-you-behaved-last-night-why-did-you-have-to-make-yourself-so-_____"
-                            data-toggle="collapse"
-                            data-parent="#set-nn_sliders-16"
-                            data-id="q16-i-was-_____-with-the-way-you-behaved-last-night-why-did-you-have-to-make-yourself-so-_____"
-                            aria-expanded="false"
-                            aria-controls="1832-verb-ing-adjective-part-2.html#16-i-was-_____-with-the-way-you-behaved-last-night-why-did-you-have-to-make-yourself-so-_____">
-                            <span class="nn_sliders-toggle-inner">16. I was _____ with the way you behaved last night. Why did you have to make yourself so _____?</span>
-                          </a>
-                        </div>
-                        <div class="accordion-body nn_sliders-body collapse" id="q16-i-was-_____-with-the-way-you-behaved-last-night-why-did-you-have-to-make-yourself-so-_____" aria-hidden="true">
-                          <div class="accordion-inner panel-body">
-                            <h2 class="nn_sliders-title">16. I was _____ with the way you behaved last night. Why did you have to make yourself so _____?</h2>
-                            <p>
-                              16. I was
-                              <span class="undies">&#100;&#105;&#115;&#97;&#112;&#112;&#111;&#105;&#110;&#116;&#101;&#100;</span>
-                              with the way you behaved last night. Why did you have to make yourself so
-                              <span class="undies">&#100;&#105;&#115;&#97;&#112;&#112;&#111;&#105;&#110;&#116;&#105;&#110;&#103;</span>
-                              ?
-                            </p>
-                          </div>
-                        </div>
-                        <div class="exercise-response-row" data-item="q16-i-was-_____-with-the-way-you-behaved-last-night-why-did-you-have-to-make-yourself-so-_____" data-answer-ui>
-                          <label class="exercise-response-field">
-                            <span class="visually-hidden">Response for item q16-i-was-_____-with-the-way-you-behaved-last-night-why-did-you-have-to-make-yourself-so-_____ (answer_01)</span>
-                            <input class="exercise-response-input" type="text" placeholder="Answer" data-item="q16-i-was-_____-with-the-way-you-behaved-last-night-why-did-you-have-to-make-yourself-so-_____" data-field="answer_01" inputmode="text">
-                          </label>
-                          <label class="exercise-response-field">
-                            <span class="visually-hidden">Response for item q16-i-was-_____-with-the-way-you-behaved-last-night-why-did-you-have-to-make-yourself-so-_____ (answer_02)</span>
-                            <input class="exercise-response-input" type="text" placeholder="Answer" data-item="q16-i-was-_____-with-the-way-you-behaved-last-night-why-did-you-have-to-make-yourself-so-_____" data-field="answer_02" inputmode="text">
-                          </label>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="quest-bg" data-exercise-question="q17-it-was-quite-_____-that-he-passed-the-examination">
-                    <div class="nn_sliders accordion panel-group" id="set-nn_sliders-17">
-                      <span id="nn_sliders-scrollto_17" class="anchor nn_sliders-scroll"></span>
-                      <div class="accordion-group panel nn_sliders-group">
-                        <span id="nn_sliders-scrollto_17-q17-it-was-quite-_____-that-he-passed-the-examination" class="anchor nn_sliders-scroll"></span>
-                        <div class="accordion-heading panel-heading">
-                          <a
-                            class="accordion-toggle nn_sliders-toggle"
-                            href="1832-verb-ing-adjective-part-2.html#1832-verb-ing-adjective-part-2.html#17-it-was-quite-_____-that-he-passed-the-examination"
-                            data-toggle="collapse"
-                            data-parent="#set-nn_sliders-17"
-                            data-id="q17-it-was-quite-_____-that-he-passed-the-examination"
-                            aria-expanded="false"
-                            aria-controls="1832-verb-ing-adjective-part-2.html#17-it-was-quite-_____-that-he-passed-the-examination">
-                            <span class="nn_sliders-toggle-inner">17. It was quite _____ that he passed the examination.</span>
-                          </a>
-                        </div>
-                        <div class="accordion-body nn_sliders-body collapse" id="q17-it-was-quite-_____-that-he-passed-the-examination" aria-hidden="true">
-                          <div class="accordion-inner panel-body">
-                            <h2 class="nn_sliders-title">17. It was quite _____ that he passed the examination.</h2>
-                            <p>
-                              17. It was quite
-                              <span class="undies">&#115;&#117;&#114;&#112;&#114;&#105;&#115;&#105;&#110;&#103;</span>
-                              that he passed the examination.
-                            </p>
-                          </div>
-                        </div>
-                        <div class="exercise-response-row" data-item="q17-it-was-quite-_____-that-he-passed-the-examination" data-answer-ui>
-                          <label class="exercise-response-field">
-                            <span class="visually-hidden">Response for item q17-it-was-quite-_____-that-he-passed-the-examination (answer_01)</span>
-                            <input class="exercise-response-input" type="text" placeholder="Answer" data-item="q17-it-was-quite-_____-that-he-passed-the-examination" data-field="answer_01" inputmode="text">
-                          </label>
-                          <label class="exercise-response-field">
-                            <span class="visually-hidden">Response for item q17-it-was-quite-_____-that-he-passed-the-examination (answer_02)</span>
-                            <input class="exercise-response-input" type="text" placeholder="Answer" data-item="q17-it-was-quite-_____-that-he-passed-the-examination" data-field="answer_02" inputmode="text">
-                          </label>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="quest-bg" data-exercise-question="q18-everybody-was-_____-that-he-passed-the-examination">
-                    <div class="nn_sliders accordion panel-group" id="set-nn_sliders-18">
-                      <span id="nn_sliders-scrollto_18" class="anchor nn_sliders-scroll"></span>
-                      <div class="accordion-group panel nn_sliders-group">
-                        <span id="nn_sliders-scrollto_18-q18-everybody-was-_____-that-he-passed-the-examination" class="anchor nn_sliders-scroll"></span>
-                        <div class="accordion-heading panel-heading">
-                          <a
-                            class="accordion-toggle nn_sliders-toggle"
-                            href="1832-verb-ing-adjective-part-2.html#1832-verb-ing-adjective-part-2.html#18-everybody-was-_____-that-he-passed-the-examination"
-                            data-toggle="collapse"
-                            data-parent="#set-nn_sliders-18"
-                            data-id="q18-everybody-was-_____-that-he-passed-the-examination"
-                            aria-expanded="false"
-                            aria-controls="1832-verb-ing-adjective-part-2.html#18-everybody-was-_____-that-he-passed-the-examination">
-                            <span class="nn_sliders-toggle-inner">18. Everybody was _____ that he passed the examination.</span>
-                          </a>
-                        </div>
-                        <div class="accordion-body nn_sliders-body collapse" id="q18-everybody-was-_____-that-he-passed-the-examination" aria-hidden="true">
-                          <div class="accordion-inner panel-body">
-                            <h2 class="nn_sliders-title">18. Everybody was _____ that he passed the examination.</h2>
-                            <p>
-                              18. Everybody was
-                              <span class="undies">&#115;&#117;&#114;&#112;&#114;&#105;&#115;&#101;&#100;</span>
-                              that he passed the examination.
-                            </p>
-                          </div>
-                        </div>
-                        <div class="exercise-response-row" data-item="q18-everybody-was-_____-that-he-passed-the-examination" data-answer-ui>
-                          <label class="exercise-response-field">
-                            <span class="visually-hidden">Response for item q18-everybody-was-_____-that-he-passed-the-examination (answer_01)</span>
-                            <input class="exercise-response-input" type="text" placeholder="Answer" data-item="q18-everybody-was-_____-that-he-passed-the-examination" data-field="answer_01" inputmode="text">
-                          </label>
-                          <label class="exercise-response-field">
-                            <span class="visually-hidden">Response for item q18-everybody-was-_____-that-he-passed-the-examination (answer_02)</span>
-                            <input class="exercise-response-input" type="text" placeholder="Answer" data-item="q18-everybody-was-_____-that-he-passed-the-examination" data-field="answer_02" inputmode="text">
-                          </label>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="quest-bg" data-exercise-question="q19-the-news-was-_____-and-we-were-_____-at-how-the-prisoners-had-been-treated">
-                    <div class="nn_sliders accordion panel-group" id="set-nn_sliders-19">
-                      <span id="nn_sliders-scrollto_19" class="anchor nn_sliders-scroll"></span>
-                      <div class="accordion-group panel nn_sliders-group">
-                        <span id="nn_sliders-scrollto_19-q19-the-news-was-_____-and-we-were-_____-at-how-the-prisoners-had-been-treated" class="anchor nn_sliders-scroll"></span>
-                        <div class="accordion-heading panel-heading">
-                          <a
-                            class="accordion-toggle nn_sliders-toggle"
-                            href="1832-verb-ing-adjective-part-2.html#1832-verb-ing-adjective-part-2.html#19-the-news-was-_____-and-we-were-_____-at-how-the-prisoners-had-been-treated"
-                            data-toggle="collapse"
-                            data-parent="#set-nn_sliders-19"
-                            data-id="q19-the-news-was-_____-and-we-were-_____-at-how-the-prisoners-had-been-treated"
-                            aria-expanded="false"
-                            aria-controls="1832-verb-ing-adjective-part-2.html#19-the-news-was-_____-and-we-were-_____-at-how-the-prisoners-had-been-treated">
-                            <span class="nn_sliders-toggle-inner">19. The news was _____, and we were _____ at how the prisoners had been treated.</span>
-                          </a>
-                        </div>
-                        <div class="accordion-body nn_sliders-body collapse" id="q19-the-news-was-_____-and-we-were-_____-at-how-the-prisoners-had-been-treated" aria-hidden="true">
-                          <div class="accordion-inner panel-body">
-                            <h2 class="nn_sliders-title">19. The news was _____, and we were _____ at how the prisoners had been treated.</h2>
-                            <p>
-                              19. The news was
-                              <span class="undies">&#115;&#104;&#111;&#99;&#107;&#105;&#110;&#103;</span>
-                              , and we were
-                              <span class="undies">&#115;&#104;&#111;&#99;&#107;&#101;&#100;</span>
-                              at how the prisoners had been treated.
-                            </p>
-                          </div>
-                        </div>
-                        <div class="exercise-response-row" data-item="q19-the-news-was-_____-and-we-were-_____-at-how-the-prisoners-had-been-treated" data-answer-ui>
-                          <label class="exercise-response-field">
-                            <span class="visually-hidden">Response for item q19-the-news-was-_____-and-we-were-_____-at-how-the-prisoners-had-been-treated (answer_01)</span>
-                            <input class="exercise-response-input" type="text" placeholder="Answer" data-item="q19-the-news-was-_____-and-we-were-_____-at-how-the-prisoners-had-been-treated" data-field="answer_01" inputmode="text">
-                          </label>
-                          <label class="exercise-response-field">
-                            <span class="visually-hidden">Response for item q19-the-news-was-_____-and-we-were-_____-at-how-the-prisoners-had-been-treated (answer_02)</span>
-                            <input class="exercise-response-input" type="text" placeholder="Answer" data-item="q19-the-news-was-_____-and-we-were-_____-at-how-the-prisoners-had-been-treated" data-field="answer_02" inputmode="text">
-                          </label>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="quest-bg" data-exercise-question="q20-at-first-we-were-_____-by-it-but-later-we-found-it-wasn-t-all-that-_____">
-                    <div class="nn_sliders accordion panel-group" id="set-nn_sliders-20">
-                      <span id="nn_sliders-scrollto_20" class="anchor nn_sliders-scroll"></span>
-                      <div class="accordion-group panel nn_sliders-group">
-                        <span id="nn_sliders-scrollto_20-q20-at-first-we-were-_____-by-it-but-later-we-found-it-wasn-t-all-that-_____" class="anchor nn_sliders-scroll"></span>
-                        <div class="accordion-heading panel-heading">
-                          <a
-                            class="accordion-toggle nn_sliders-toggle"
-                            href="1832-verb-ing-adjective-part-2.html#1832-verb-ing-adjective-part-2.html#20-at-first-we-were-_____-by-it-but-later-we-found-it-wasn-t-all-that-_____"
-                            data-toggle="collapse"
-                            data-parent="#set-nn_sliders-20"
-                            data-id="q20-at-first-we-were-_____-by-it-but-later-we-found-it-wasn-t-all-that-_____"
-                            aria-expanded="false"
-                            aria-controls="1832-verb-ing-adjective-part-2.html#20-at-first-we-were-_____-by-it-but-later-we-found-it-wasn-t-all-that-_____">
-                            <span class="nn_sliders-toggle-inner">20. At first we were _____ by it but later we found it wasn't all that _____.</span>
-                          </a>
-                        </div>
-                        <div class="accordion-body nn_sliders-body collapse" id="q20-at-first-we-were-_____-by-it-but-later-we-found-it-wasn-t-all-that-_____" aria-hidden="true">
-                          <div class="accordion-inner panel-body">
-                            <h2 class="nn_sliders-title">20. At first we were _____ by it but later we found it wasn't all that _____.</h2>
-                            <p>
-                              20. At first we were
-                              <span class="undies">&#115;&#104;&#111;&#99;&#107;&#101;&#100;</span>
-                              by it but later we found it wasn't all that
-                              <span class="undies">&#115;&#104;&#111;&#99;&#107;&#105;&#110;&#103;</span>
-                              .
-                            </p>
-                          </div>
-                        </div>
-                        <div class="exercise-response-row" data-item="q20-at-first-we-were-_____-by-it-but-later-we-found-it-wasn-t-all-that-_____" data-answer-ui>
-                          <label class="exercise-response-field">
-                            <span class="visually-hidden">Response for item q20-at-first-we-were-_____-by-it-but-later-we-found-it-wasn-t-all-that-_____ (answer_01)</span>
-                            <input class="exercise-response-input" type="text" placeholder="Answer" data-item="q20-at-first-we-were-_____-by-it-but-later-we-found-it-wasn-t-all-that-_____" data-field="answer_01" inputmode="text">
-                          </label>
-                          <label class="exercise-response-field">
-                            <span class="visually-hidden">Response for item q20-at-first-we-were-_____-by-it-but-later-we-found-it-wasn-t-all-that-_____ (answer_02)</span>
-                            <input class="exercise-response-input" type="text" placeholder="Answer" data-item="q20-at-first-we-were-_____-by-it-but-later-we-found-it-wasn-t-all-that-_____" data-field="answer_02" inputmode="text">
-                          </label>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="exercise-submit-row" data-exercise-submit-row hidden>
-                    <button type="submit" class="exercise-submit-button" data-exercise-submit disabled>Submit answers</button>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                  <div class="quest-bg" data-exercise-question="q1-the-body-of-the-_____-woman-was-found-after-an-extensive-search"><div class="nn_sliders accordion panel-group" id="set-nn_sliders-1"><span id="nn_sliders-scrollto_1" class="anchor nn_sliders-scroll"></span><div class="accordion-group panel nn_sliders-group"><span id="nn_sliders-scrollto_1-q1-the-body-of-the-_____-woman-was-found-after-an-extensive-search" class="anchor nn_sliders-scroll"></span><div class="accordion-heading panel-heading"><a class="accordion-toggle nn_sliders-toggle" href="1832-verb-ing-adjective-part-2.html#1832-verb-ing-adjective-part-2.html#1-the-body-of-the-_____-woman-was-found-after-an-extensive-search" data-toggle="collapse" data-parent="#set-nn_sliders-1" data-id="q1-the-body-of-the-_____-woman-was-found-after-an-extensive-search" aria-expanded="false" aria-controls="1832-verb-ing-adjective-part-2.html#1-the-body-of-the-_____-woman-was-found-after-an-extensive-search"><span class="nn_sliders-toggle-inner">1.  The body of the _____ woman was found after an extensive search.</span></a></div><div class="accordion-body nn_sliders-body collapse" id="q1-the-body-of-the-_____-woman-was-found-after-an-extensive-search" aria-hidden="true"><div class="accordion-inner panel-body"><h2 class="nn_sliders-title">1.  The body of the _____ woman was found after an extensive search.</h2>
+                    <p> 1.  The body of the <span class="undies">drowned</span> woman was found after an extensive search.</p></div></div><div class="exercise-response-row" data-item="q1-the-body-of-the-_____-woman-was-found-after-an-extensive-search" data-answer-ui=""><label class="exercise-response-field"><span class="visually-hidden">Response for item q1-the-body-of-the-_____-woman-was-found-after-an-extensive-search (answer_01)</span><input class="exercise-response-input" type="text" placeholder="Answer" data-item="q1-the-body-of-the-_____-woman-was-found-after-an-extensive-search" data-field="answer_01" inputmode="text"></label><label class="exercise-response-field"><span class="visually-hidden">Response for item q1-the-body-of-the-_____-woman-was-found-after-an-extensive-search (answer_02)</span><input class="exercise-response-input" type="text" placeholder="Answer" data-item="q1-the-body-of-the-_____-woman-was-found-after-an-extensive-search" data-field="answer_02" inputmode="text"></label></div></div></div></div><div class="quest-bg" data-exercise-question="q2-george-swam-towards-the-_____-child-in-an-effort-to-save-him"><div class="nn_sliders accordion panel-group" id="set-nn_sliders-2"><span id="nn_sliders-scrollto_2" class="anchor nn_sliders-scroll"></span><div class="accordion-group panel nn_sliders-group"><span id="nn_sliders-scrollto_2-q2-george-swam-towards-the-_____-child-in-an-effort-to-save-him" class="anchor nn_sliders-scroll"></span><div class="accordion-heading panel-heading"><a class="accordion-toggle nn_sliders-toggle" href="1832-verb-ing-adjective-part-2.html#1832-verb-ing-adjective-part-2.html#2-george-swam-towards-the-_____-child-in-an-effort-to-save-him" data-toggle="collapse" data-parent="#set-nn_sliders-2" data-id="q2-george-swam-towards-the-_____-child-in-an-effort-to-save-him" aria-expanded="false" aria-controls="1832-verb-ing-adjective-part-2.html#2-george-swam-towards-the-_____-child-in-an-effort-to-save-him"><span class="nn_sliders-toggle-inner">2.  George swam towards the _____ child in an effort to save him.</span></a></div><div class="accordion-body nn_sliders-body collapse" id="q2-george-swam-towards-the-_____-child-in-an-effort-to-save-him" aria-hidden="true"><div class="accordion-inner panel-body"><h2 class="nn_sliders-title">2.  George swam towards the _____ child in an effort to save him.</h2>
+                    <p> 2.     George swam towards the <span class="undies">drowning</span> child in an effort to save him.</p></div></div><div class="exercise-response-row" data-item="q2-george-swam-towards-the-_____-child-in-an-effort-to-save-him" data-answer-ui=""><label class="exercise-response-field"><span class="visually-hidden">Response for item q2-george-swam-towards-the-_____-child-in-an-effort-to-save-him (answer_01)</span><input class="exercise-response-input" type="text" placeholder="Answer" data-item="q2-george-swam-towards-the-_____-child-in-an-effort-to-save-him" data-field="answer_01" inputmode="text"></label><label class="exercise-response-field"><span class="visually-hidden">Response for item q2-george-swam-towards-the-_____-child-in-an-effort-to-save-him (answer_02)</span><input class="exercise-response-input" type="text" placeholder="Answer" data-item="q2-george-swam-towards-the-_____-child-in-an-effort-to-save-him" data-field="answer_02" inputmode="text"></label></div></div></div></div><div class="quest-bg" data-exercise-question="q3-are-you-_____-in-buying-a-car-i-m-trying-to-sell-mine"><div class="nn_sliders accordion panel-group" id="set-nn_sliders-3"><span id="nn_sliders-scrollto_3" class="anchor nn_sliders-scroll"></span><div class="accordion-group panel nn_sliders-group"><span id="nn_sliders-scrollto_3-q3-are-you-_____-in-buying-a-car-i-m-trying-to-sell-mine" class="anchor nn_sliders-scroll"></span><div class="accordion-heading panel-heading"><a class="accordion-toggle nn_sliders-toggle" href="1832-verb-ing-adjective-part-2.html#1832-verb-ing-adjective-part-2.html#3-are-you-_____-in-buying-a-car-i-m-trying-to-sell-mine" data-toggle="collapse" data-parent="#set-nn_sliders-3" data-id="q3-are-you-_____-in-buying-a-car-i-m-trying-to-sell-mine" aria-expanded="false" aria-controls="1832-verb-ing-adjective-part-2.html#3-are-you-_____-in-buying-a-car-i-m-trying-to-sell-mine"><span class="nn_sliders-toggle-inner">3.  Are you _____ in buying a car? I'm trying to sell mine.</span></a></div><div class="accordion-body nn_sliders-body collapse" id="q3-are-you-_____-in-buying-a-car-i-m-trying-to-sell-mine" aria-hidden="true"><div class="accordion-inner panel-body"><h2 class="nn_sliders-title">3.  Are you _____ in buying a car? I'm trying to sell mine.</h2>
+                    <p> 3.  Are you <span class="undies">interested</span> in buying a car? I'm trying to sell mine.</p></div></div><div class="exercise-response-row" data-item="q3-are-you-_____-in-buying-a-car-i-m-trying-to-sell-mine" data-answer-ui=""><label class="exercise-response-field"><span class="visually-hidden">Response for item q3-are-you-_____-in-buying-a-car-i-m-trying-to-sell-mine (answer_01)</span><input class="exercise-response-input" type="text" placeholder="Answer" data-item="q3-are-you-_____-in-buying-a-car-i-m-trying-to-sell-mine" data-field="answer_01" inputmode="text"></label><label class="exercise-response-field"><span class="visually-hidden">Response for item q3-are-you-_____-in-buying-a-car-i-m-trying-to-sell-mine (answer_02)</span><input class="exercise-response-input" type="text" placeholder="Answer" data-item="q3-are-you-_____-in-buying-a-car-i-m-trying-to-sell-mine" data-field="answer_02" inputmode="text"></label></div></div></div></div><div class="quest-bg" data-exercise-question="q4-did-you-meet-anyone-_____-at-the-party"><div class="nn_sliders accordion panel-group" id="set-nn_sliders-4"><span id="nn_sliders-scrollto_4" class="anchor nn_sliders-scroll"></span><div class="accordion-group panel nn_sliders-group"><span id="nn_sliders-scrollto_4-q4-did-you-meet-anyone-_____-at-the-party" class="anchor nn_sliders-scroll"></span><div class="accordion-heading panel-heading"><a class="accordion-toggle nn_sliders-toggle" href="1832-verb-ing-adjective-part-2.html#1832-verb-ing-adjective-part-2.html#4-did-you-meet-anyone-_____-at-the-party" data-toggle="collapse" data-parent="#set-nn_sliders-4" data-id="q4-did-you-meet-anyone-_____-at-the-party" aria-expanded="false" aria-controls="1832-verb-ing-adjective-part-2.html#4-did-you-meet-anyone-_____-at-the-party"><span class="nn_sliders-toggle-inner">4.  Did you meet anyone _____ at the party?</span></a></div><div class="accordion-body nn_sliders-body collapse" id="q4-did-you-meet-anyone-_____-at-the-party" aria-hidden="true"><div class="accordion-inner panel-body"><h2 class="nn_sliders-title">4.  Did you meet anyone _____ at the party?</h2>
+                    <p> 4.  Did you meet anyone <span class="undies">interesting</span> at the party?</p></div></div><div class="exercise-response-row" data-item="q4-did-you-meet-anyone-_____-at-the-party" data-answer-ui=""><label class="exercise-response-field"><span class="visually-hidden">Response for item q4-did-you-meet-anyone-_____-at-the-party (answer_01)</span><input class="exercise-response-input" type="text" placeholder="Answer" data-item="q4-did-you-meet-anyone-_____-at-the-party" data-field="answer_01" inputmode="text"></label><label class="exercise-response-field"><span class="visually-hidden">Response for item q4-did-you-meet-anyone-_____-at-the-party (answer_02)</span><input class="exercise-response-input" type="text" placeholder="Answer" data-item="q4-did-you-meet-anyone-_____-at-the-party" data-field="answer_02" inputmode="text"></label></div></div></div></div><div class="quest-bg" data-exercise-question="q5-i-m-_____-in-listening-if-you-have-_____-things-to-say"><div class="nn_sliders accordion panel-group" id="set-nn_sliders-5"><span id="nn_sliders-scrollto_5" class="anchor nn_sliders-scroll"></span><div class="accordion-group panel nn_sliders-group"><span id="nn_sliders-scrollto_5-q5-i-m-_____-in-listening-if-you-have-_____-things-to-say" class="anchor nn_sliders-scroll"></span><div class="accordion-heading panel-heading"><a class="accordion-toggle nn_sliders-toggle" href="1832-verb-ing-adjective-part-2.html#1832-verb-ing-adjective-part-2.html#5-i-m-_____-in-listening-if-you-have-_____-things-to-say" data-toggle="collapse" data-parent="#set-nn_sliders-5" data-id="q5-i-m-_____-in-listening-if-you-have-_____-things-to-say" aria-expanded="false" aria-controls="1832-verb-ing-adjective-part-2.html#5-i-m-_____-in-listening-if-you-have-_____-things-to-say"><span class="nn_sliders-toggle-inner">5. I'm _____ in listening if you have _____ things to say.</span></a></div><div class="accordion-body nn_sliders-body collapse" id="q5-i-m-_____-in-listening-if-you-have-_____-things-to-say" aria-hidden="true"><div class="accordion-inner panel-body"><h2 class="nn_sliders-title">5. I'm _____ in listening if you have _____ things to say.</h2>
+                    <p> 5.  I'm <span class="undies">interested</span> in listening if you have <span class="undies">interesting</span> things to say.</p></div></div><div class="exercise-response-row" data-item="q5-i-m-_____-in-listening-if-you-have-_____-things-to-say" data-answer-ui=""><label class="exercise-response-field"><span class="visually-hidden">Response for item q5-i-m-_____-in-listening-if-you-have-_____-things-to-say (answer_01)</span><input class="exercise-response-input" type="text" placeholder="Answer" data-item="q5-i-m-_____-in-listening-if-you-have-_____-things-to-say" data-field="answer_01" inputmode="text"></label><label class="exercise-response-field"><span class="visually-hidden">Response for item q5-i-m-_____-in-listening-if-you-have-_____-things-to-say (answer_02)</span><input class="exercise-response-input" type="text" placeholder="Answer" data-item="q5-i-m-_____-in-listening-if-you-have-_____-things-to-say" data-field="answer_02" inputmode="text"></label></div></div></div></div><div class="quest-bg" data-exercise-question="q6-julia-thinks-politics-is-very-_____-but-her-father-was-never-_____-in-it"><div class="nn_sliders accordion panel-group" id="set-nn_sliders-6"><span id="nn_sliders-scrollto_6" class="anchor nn_sliders-scroll"></span><div class="accordion-group panel nn_sliders-group"><span id="nn_sliders-scrollto_6-q6-julia-thinks-politics-is-very-_____-but-her-father-was-never-_____-in-it" class="anchor nn_sliders-scroll"></span><div class="accordion-heading panel-heading"><a class="accordion-toggle nn_sliders-toggle" href="1832-verb-ing-adjective-part-2.html#1832-verb-ing-adjective-part-2.html#6-julia-thinks-politics-is-very-_____-but-her-father-was-never-_____-in-it" data-toggle="collapse" data-parent="#set-nn_sliders-6" data-id="q6-julia-thinks-politics-is-very-_____-but-her-father-was-never-_____-in-it" aria-expanded="false" aria-controls="1832-verb-ing-adjective-part-2.html#6-julia-thinks-politics-is-very-_____-but-her-father-was-never-_____-in-it"><span class="nn_sliders-toggle-inner">6. Julia thinks politics is very _____, but her father was never _____ in it.</span></a></div><div class="accordion-body nn_sliders-body collapse" id="q6-julia-thinks-politics-is-very-_____-but-her-father-was-never-_____-in-it" aria-hidden="true"><div class="accordion-inner panel-body"><h2 class="nn_sliders-title">6. Julia thinks politics is very _____, but her father was never _____ in it.</h2>
+                    <p> 6. Julia thinks politics is very <span class="undies">interesting</span>, but her father was never <span class="undies">interested</span> in it.</p></div></div><div class="exercise-response-row" data-item="q6-julia-thinks-politics-is-very-_____-but-her-father-was-never-_____-in-it" data-answer-ui=""><label class="exercise-response-field"><span class="visually-hidden">Response for item q6-julia-thinks-politics-is-very-_____-but-her-father-was-never-_____-in-it (answer_01)</span><input class="exercise-response-input" type="text" placeholder="Answer" data-item="q6-julia-thinks-politics-is-very-_____-but-her-father-was-never-_____-in-it" data-field="answer_01" inputmode="text"></label><label class="exercise-response-field"><span class="visually-hidden">Response for item q6-julia-thinks-politics-is-very-_____-but-her-father-was-never-_____-in-it (answer_02)</span><input class="exercise-response-input" type="text" placeholder="Answer" data-item="q6-julia-thinks-politics-is-very-_____-but-her-father-was-never-_____-in-it" data-field="answer_02" inputmode="text"></label></div></div></div></div><div class="quest-bg" data-exercise-question="q7-it-was-_____-to-learn-dressmaking-but-now-i-m-not-so-_____-in-it-she-told-him"><div class="nn_sliders accordion panel-group" id="set-nn_sliders-7"><span id="nn_sliders-scrollto_7" class="anchor nn_sliders-scroll"></span><div class="accordion-group panel nn_sliders-group"><span id="nn_sliders-scrollto_7-q7-it-was-_____-to-learn-dressmaking-but-now-i-m-not-so-_____-in-it-she-told-him" class="anchor nn_sliders-scroll"></span><div class="accordion-heading panel-heading"><a class="accordion-toggle nn_sliders-toggle" href="1832-verb-ing-adjective-part-2.html#1832-verb-ing-adjective-part-2.html#7-it-was-_____-to-learn-dressmaking-but-now-i-m-not-so-_____-in-it-she-told-him" data-toggle="collapse" data-parent="#set-nn_sliders-7" data-id="q7-it-was-_____-to-learn-dressmaking-but-now-i-m-not-so-_____-in-it-she-told-him" aria-expanded="false" aria-controls="1832-verb-ing-adjective-part-2.html#7-it-was-_____-to-learn-dressmaking-but-now-i-m-not-so-_____-in-it-she-told-him"><span class="nn_sliders-toggle-inner">7. "It was _____ to learn dressmaking, but now I'm not so _____ in it." she told him.</span></a></div><div class="accordion-body nn_sliders-body collapse" id="q7-it-was-_____-to-learn-dressmaking-but-now-i-m-not-so-_____-in-it-she-told-him" aria-hidden="true"><div class="accordion-inner panel-body"><h2 class="nn_sliders-title">7. "It was _____ to learn dressmaking, but now I'm not so _____ in it." she told him.</h2>
+                    <p> 7.  "It was <span class="undies">interesting</span> to learn dressmaking, but now I'm not so <span class="undies">interested</span> in it." she told him.</p></div></div><div class="exercise-response-row" data-item="q7-it-was-_____-to-learn-dressmaking-but-now-i-m-not-so-_____-in-it-she-told-him" data-answer-ui=""><label class="exercise-response-field"><span class="visually-hidden">Response for item q7-it-was-_____-to-learn-dressmaking-but-now-i-m-not-so-_____-in-it-she-told-him (answer_01)</span><input class="exercise-response-input" type="text" placeholder="Answer" data-item="q7-it-was-_____-to-learn-dressmaking-but-now-i-m-not-so-_____-in-it-she-told-him" data-field="answer_01" inputmode="text"></label><label class="exercise-response-field"><span class="visually-hidden">Response for item q7-it-was-_____-to-learn-dressmaking-but-now-i-m-not-so-_____-in-it-she-told-him (answer_02)</span><input class="exercise-response-input" type="text" placeholder="Answer" data-item="q7-it-was-_____-to-learn-dressmaking-but-now-i-m-not-so-_____-in-it-she-told-him" data-field="answer_02" inputmode="text"></label></div></div></div></div><div class="quest-bg" data-exercise-question="q8-the-game-was-very-_____-to-watch-but-i-wouldn-t-be-_____-in-playing-it"><div class="nn_sliders accordion panel-group" id="set-nn_sliders-8"><span id="nn_sliders-scrollto_8" class="anchor nn_sliders-scroll"></span><div class="accordion-group panel nn_sliders-group"><span id="nn_sliders-scrollto_8-q8-the-game-was-very-_____-to-watch-but-i-wouldn-t-be-_____-in-playing-it" class="anchor nn_sliders-scroll"></span><div class="accordion-heading panel-heading"><a class="accordion-toggle nn_sliders-toggle" href="1832-verb-ing-adjective-part-2.html#1832-verb-ing-adjective-part-2.html#8-the-game-was-very-_____-to-watch-but-i-wouldn-t-be-_____-in-playing-it" data-toggle="collapse" data-parent="#set-nn_sliders-8" data-id="q8-the-game-was-very-_____-to-watch-but-i-wouldn-t-be-_____-in-playing-it" aria-expanded="false" aria-controls="1832-verb-ing-adjective-part-2.html#8-the-game-was-very-_____-to-watch-but-i-wouldn-t-be-_____-in-playing-it"><span class="nn_sliders-toggle-inner">8.  The game was very _____ to watch. But I wouldn't be _____ in playing it.</span></a></div><div class="accordion-body nn_sliders-body collapse" id="q8-the-game-was-very-_____-to-watch-but-i-wouldn-t-be-_____-in-playing-it" aria-hidden="true"><div class="accordion-inner panel-body"><h2 class="nn_sliders-title">8.  The game was very _____ to watch. But I wouldn't be _____ in playing it.</h2>
+                    <p> 8. The game was very <span class="undies">interesting</span> to watch. But I wouldn't be <span class="undies">interested</span> in playing it.</p></div></div><div class="exercise-response-row" data-item="q8-the-game-was-very-_____-to-watch-but-i-wouldn-t-be-_____-in-playing-it" data-answer-ui=""><label class="exercise-response-field"><span class="visually-hidden">Response for item q8-the-game-was-very-_____-to-watch-but-i-wouldn-t-be-_____-in-playing-it (answer_01)</span><input class="exercise-response-input" type="text" placeholder="Answer" data-item="q8-the-game-was-very-_____-to-watch-but-i-wouldn-t-be-_____-in-playing-it" data-field="answer_01" inputmode="text"></label><label class="exercise-response-field"><span class="visually-hidden">Response for item q8-the-game-was-very-_____-to-watch-but-i-wouldn-t-be-_____-in-playing-it (answer_02)</span><input class="exercise-response-input" type="text" placeholder="Answer" data-item="q8-the-game-was-very-_____-to-watch-but-i-wouldn-t-be-_____-in-playing-it" data-field="answer_02" inputmode="text"></label></div></div></div></div><div class="quest-bg" data-exercise-question="q9-the-bystanders-watched-the-_____-driver-getting-out-of-his-car-and-arguing-with-the-policemen"><div class="nn_sliders accordion panel-group" id="set-nn_sliders-9"><span id="nn_sliders-scrollto_9" class="anchor nn_sliders-scroll"></span><div class="accordion-group panel nn_sliders-group"><span id="nn_sliders-scrollto_9-q9-the-bystanders-watched-the-_____-driver-getting-out-of-his-car-and-arguing-with-the-policemen" class="anchor nn_sliders-scroll"></span><div class="accordion-heading panel-heading"><a class="accordion-toggle nn_sliders-toggle" href="1832-verb-ing-adjective-part-2.html#1832-verb-ing-adjective-part-2.html#9-the-bystanders-watched-the-_____-driver-getting-out-of-his-car-and-arguing-with-the-policemen" data-toggle="collapse" data-parent="#set-nn_sliders-9" data-id="q9-the-bystanders-watched-the-_____-driver-getting-out-of-his-car-and-arguing-with-the-policemen" aria-expanded="false" aria-controls="1832-verb-ing-adjective-part-2.html#9-the-bystanders-watched-the-_____-driver-getting-out-of-his-car-and-arguing-with-the-policemen"><span class="nn_sliders-toggle-inner">9. The bystanders watched the _____ driver getting out of his car and arguing with the policemen.</span></a></div><div class="accordion-body nn_sliders-body collapse" id="q9-the-bystanders-watched-the-_____-driver-getting-out-of-his-car-and-arguing-with-the-policemen" aria-hidden="true"><div class="accordion-inner panel-body"><h2 class="nn_sliders-title">9. The bystanders watched the _____ driver getting out of his car and arguing with the policemen.</h2>
+                    <p> 9. The bystanders watched the <span class="undies">excited</span> driver getting out of his car and arguing with the policemen.</p></div></div><div class="exercise-response-row" data-item="q9-the-bystanders-watched-the-_____-driver-getting-out-of-his-car-and-arguing-with-the-policemen" data-answer-ui=""><label class="exercise-response-field"><span class="visually-hidden">Response for item q9-the-bystanders-watched-the-_____-driver-getting-out-of-his-car-and-arguing-with-the-policemen (answer_01)</span><input class="exercise-response-input" type="text" placeholder="Answer" data-item="q9-the-bystanders-watched-the-_____-driver-getting-out-of-his-car-and-arguing-with-the-policemen" data-field="answer_01" inputmode="text"></label><label class="exercise-response-field"><span class="visually-hidden">Response for item q9-the-bystanders-watched-the-_____-driver-getting-out-of-his-car-and-arguing-with-the-policemen (answer_02)</span><input class="exercise-response-input" type="text" placeholder="Answer" data-item="q9-the-bystanders-watched-the-_____-driver-getting-out-of-his-car-and-arguing-with-the-policemen" data-field="answer_02" inputmode="text"></label></div></div></div></div><div class="quest-bg" data-exercise-question="q10-the-_____-boys-couldn-t-wait-to-spend-a-week-camping-in-a-jungle-as-they-expected-to-have-a-very-_____-time"><div class="nn_sliders accordion panel-group" id="set-nn_sliders-10"><span id="nn_sliders-scrollto_10" class="anchor nn_sliders-scroll"></span><div class="accordion-group panel nn_sliders-group"><span id="nn_sliders-scrollto_10-q10-the-_____-boys-couldn-t-wait-to-spend-a-week-camping-in-a-jungle-as-they-expected-to-have-a-very-_____-time" class="anchor nn_sliders-scroll"></span><div class="accordion-heading panel-heading"><a class="accordion-toggle nn_sliders-toggle" href="1832-verb-ing-adjective-part-2.html#1832-verb-ing-adjective-part-2.html#10-the-_____-boys-couldn-t-wait-to-spend-a-week-camping-in-a-jungle-as-they-expected-to-have-a-very-_____-time" data-toggle="collapse" data-parent="#set-nn_sliders-10" data-id="q10-the-_____-boys-couldn-t-wait-to-spend-a-week-camping-in-a-jungle-as-they-expected-to-have-a-very-_____-time" aria-expanded="false" aria-controls="1832-verb-ing-adjective-part-2.html#10-the-_____-boys-couldn-t-wait-to-spend-a-week-camping-in-a-jungle-as-they-expected-to-have-a-very-_____-time"><span class="nn_sliders-toggle-inner">10. The _____ boys couldn't wait to spend a week camping in a jungle as they expected to have a very _____ time.</span></a></div><div class="accordion-body nn_sliders-body collapse" id="q10-the-_____-boys-couldn-t-wait-to-spend-a-week-camping-in-a-jungle-as-they-expected-to-have-a-very-_____-time" aria-hidden="true"><div class="accordion-inner panel-body"><h2 class="nn_sliders-title">10. The _____ boys couldn't wait to spend a week camping in a jungle as they expected to have a very _____ time.</h2>
+                    <p> 10. The <span class="undies">excited</span> boys couldn't wait to spend a week camping in a jungle as they expected to have a very <span class="undies">exciting</span> time.</p></div></div><div class="exercise-response-row" data-item="q10-the-_____-boys-couldn-t-wait-to-spend-a-week-camping-in-a-jungle-as-they-expected-to-have-a-very-_____-time" data-answer-ui=""><label class="exercise-response-field"><span class="visually-hidden">Response for item q10-the-_____-boys-couldn-t-wait-to-spend-a-week-camping-in-a-jungle-as-they-expected-to-have-a-very-_____-time (answer_01)</span><input class="exercise-response-input" type="text" placeholder="Answer" data-item="q10-the-_____-boys-couldn-t-wait-to-spend-a-week-camping-in-a-jungle-as-they-expected-to-have-a-very-_____-time" data-field="answer_01" inputmode="text"></label><label class="exercise-response-field"><span class="visually-hidden">Response for item q10-the-_____-boys-couldn-t-wait-to-spend-a-week-camping-in-a-jungle-as-they-expected-to-have-a-very-_____-time (answer_02)</span><input class="exercise-response-input" type="text" placeholder="Answer" data-item="q10-the-_____-boys-couldn-t-wait-to-spend-a-week-camping-in-a-jungle-as-they-expected-to-have-a-very-_____-time" data-field="answer_02" inputmode="text"></label></div></div></div></div><div class="quest-bg" data-exercise-question="q11-she-took-the-_____-egg-carefully-out-of-the-_____-water"><div class="nn_sliders accordion panel-group" id="set-nn_sliders-11"><span id="nn_sliders-scrollto_11" class="anchor nn_sliders-scroll"></span><div class="accordion-group panel nn_sliders-group"><span id="nn_sliders-scrollto_11-q11-she-took-the-_____-egg-carefully-out-of-the-_____-water" class="anchor nn_sliders-scroll"></span><div class="accordion-heading panel-heading"><a class="accordion-toggle nn_sliders-toggle" href="1832-verb-ing-adjective-part-2.html#1832-verb-ing-adjective-part-2.html#11-she-took-the-_____-egg-carefully-out-of-the-_____-water" data-toggle="collapse" data-parent="#set-nn_sliders-11" data-id="q11-she-took-the-_____-egg-carefully-out-of-the-_____-water" aria-expanded="false" aria-controls="1832-verb-ing-adjective-part-2.html#11-she-took-the-_____-egg-carefully-out-of-the-_____-water"><span class="nn_sliders-toggle-inner">11.  She took the _____ egg carefully out of the _____ water.</span></a></div><div class="accordion-body nn_sliders-body collapse" id="q11-she-took-the-_____-egg-carefully-out-of-the-_____-water" aria-hidden="true"><div class="accordion-inner panel-body"><h2 class="nn_sliders-title">11.  She took the _____ egg carefully out of the _____ water.</h2>
+                    <p> 11.  She took the <span class="undies">boiled</span> egg carefully out of the <span class="undies">boiling</span> water.</p></div></div><div class="exercise-response-row" data-item="q11-she-took-the-_____-egg-carefully-out-of-the-_____-water" data-answer-ui=""><label class="exercise-response-field"><span class="visually-hidden">Response for item q11-she-took-the-_____-egg-carefully-out-of-the-_____-water (answer_01)</span><input class="exercise-response-input" type="text" placeholder="Answer" data-item="q11-she-took-the-_____-egg-carefully-out-of-the-_____-water" data-field="answer_01" inputmode="text"></label><label class="exercise-response-field"><span class="visually-hidden">Response for item q11-she-took-the-_____-egg-carefully-out-of-the-_____-water (answer_02)</span><input class="exercise-response-input" type="text" placeholder="Answer" data-item="q11-she-took-the-_____-egg-carefully-out-of-the-_____-water" data-field="answer_02" inputmode="text"></label></div></div></div></div><div class="quest-bg" data-exercise-question="q12-the-_____-journey-made-us-both-feel-very-_____"><div class="nn_sliders accordion panel-group" id="set-nn_sliders-12"><span id="nn_sliders-scrollto_12" class="anchor nn_sliders-scroll"></span><div class="accordion-group panel nn_sliders-group"><span id="nn_sliders-scrollto_12-q12-the-_____-journey-made-us-both-feel-very-_____" class="anchor nn_sliders-scroll"></span><div class="accordion-heading panel-heading"><a class="accordion-toggle nn_sliders-toggle" href="1832-verb-ing-adjective-part-2.html#1832-verb-ing-adjective-part-2.html#12-the-_____-journey-made-us-both-feel-very-_____" data-toggle="collapse" data-parent="#set-nn_sliders-12" data-id="q12-the-_____-journey-made-us-both-feel-very-_____" aria-expanded="false" aria-controls="1832-verb-ing-adjective-part-2.html#12-the-_____-journey-made-us-both-feel-very-_____"><span class="nn_sliders-toggle-inner">12. The _____ journey made us both feel very _____.</span></a></div><div class="accordion-body nn_sliders-body collapse" id="q12-the-_____-journey-made-us-both-feel-very-_____" aria-hidden="true"><div class="accordion-inner panel-body"><h2 class="nn_sliders-title">12. The _____ journey made us both feel very _____.</h2>
+                    <p> 12.   The <span class="undies">tiring</span> journey made us both feel very <span class="undies">tired</span>.</p></div></div><div class="exercise-response-row" data-item="q12-the-_____-journey-made-us-both-feel-very-_____" data-answer-ui=""><label class="exercise-response-field"><span class="visually-hidden">Response for item q12-the-_____-journey-made-us-both-feel-very-_____ (answer_01)</span><input class="exercise-response-input" type="text" placeholder="Answer" data-item="q12-the-_____-journey-made-us-both-feel-very-_____" data-field="answer_01" inputmode="text"></label><label class="exercise-response-field"><span class="visually-hidden">Response for item q12-the-_____-journey-made-us-both-feel-very-_____ (answer_02)</span><input class="exercise-response-input" type="text" placeholder="Answer" data-item="q12-the-_____-journey-made-us-both-feel-very-_____" data-field="answer_02" inputmode="text"></label></div></div></div></div><div class="quest-bg" data-exercise-question="q13-we-re-going-to-see-the-film-but-_____-to-hear-you-say-you-are-_____-because-it-was-a-boring-one"><div class="nn_sliders accordion panel-group" id="set-nn_sliders-13"><span id="nn_sliders-scrollto_13" class="anchor nn_sliders-scroll"></span><div class="accordion-group panel nn_sliders-group"><span id="nn_sliders-scrollto_13-q13-we-re-going-to-see-the-film-but-_____-to-hear-you-say-you-are-_____-because-it-was-a-boring-one" class="anchor nn_sliders-scroll"></span><div class="accordion-heading panel-heading"><a class="accordion-toggle nn_sliders-toggle" href="1832-verb-ing-adjective-part-2.html#1832-verb-ing-adjective-part-2.html#13-we-re-going-to-see-the-film-but-_____-to-hear-you-say-you-are-_____-because-it-was-a-boring-one" data-toggle="collapse" data-parent="#set-nn_sliders-13" data-id="q13-we-re-going-to-see-the-film-but-_____-to-hear-you-say-you-are-_____-because-it-was-a-boring-one" aria-expanded="false" aria-controls="1832-verb-ing-adjective-part-2.html#13-we-re-going-to-see-the-film-but-_____-to-hear-you-say-you-are-_____-because-it-was-a-boring-one"><span class="nn_sliders-toggle-inner">13. We're going to see the film but _____ to hear you say you are _____ because it was a boring one.</span></a></div><div class="accordion-body nn_sliders-body collapse" id="q13-we-re-going-to-see-the-film-but-_____-to-hear-you-say-you-are-_____-because-it-was-a-boring-one" aria-hidden="true"><div class="accordion-inner panel-body"><h2 class="nn_sliders-title">13. We're going to see the film but _____ to hear you say you are _____ because it was a boring one.</h2>
+                    <p> 13. We're going to see the film but <span class="undies">disappointed</span> to hear you say you are <span class="undies">disappointed</span> because it was a boring one.</p></div></div><div class="exercise-response-row" data-item="q13-we-re-going-to-see-the-film-but-_____-to-hear-you-say-you-are-_____-because-it-was-a-boring-one" data-answer-ui=""><label class="exercise-response-field"><span class="visually-hidden">Response for item q13-we-re-going-to-see-the-film-but-_____-to-hear-you-say-you-are-_____-because-it-was-a-boring-one (answer_01)</span><input class="exercise-response-input" type="text" placeholder="Answer" data-item="q13-we-re-going-to-see-the-film-but-_____-to-hear-you-say-you-are-_____-because-it-was-a-boring-one" data-field="answer_01" inputmode="text"></label><label class="exercise-response-field"><span class="visually-hidden">Response for item q13-we-re-going-to-see-the-film-but-_____-to-hear-you-say-you-are-_____-because-it-was-a-boring-one (answer_02)</span><input class="exercise-response-input" type="text" placeholder="Answer" data-item="q13-we-re-going-to-see-the-film-but-_____-to-hear-you-say-you-are-_____-because-it-was-a-boring-one" data-field="answer_02" inputmode="text"></label></div></div></div></div><div class="quest-bg" data-exercise-question="q14-my-father-said-to-me-last-year-your-results-were-_____-i-hope-you-will-not-have-us-_____-again-this-year"><div class="nn_sliders accordion panel-group" id="set-nn_sliders-14"><span id="nn_sliders-scrollto_14" class="anchor nn_sliders-scroll"></span><div class="accordion-group panel nn_sliders-group"><span id="nn_sliders-scrollto_14-q14-my-father-said-to-me-last-year-your-results-were-_____-i-hope-you-will-not-have-us-_____-again-this-year" class="anchor nn_sliders-scroll"></span><div class="accordion-heading panel-heading"><a class="accordion-toggle nn_sliders-toggle" href="1832-verb-ing-adjective-part-2.html#1832-verb-ing-adjective-part-2.html#14-my-father-said-to-me-last-year-your-results-were-_____-i-hope-you-will-not-have-us-_____-again-this-year" data-toggle="collapse" data-parent="#set-nn_sliders-14" data-id="q14-my-father-said-to-me-last-year-your-results-were-_____-i-hope-you-will-not-have-us-_____-again-this-year" aria-expanded="false" aria-controls="1832-verb-ing-adjective-part-2.html#14-my-father-said-to-me-last-year-your-results-were-_____-i-hope-you-will-not-have-us-_____-again-this-year"><span class="nn_sliders-toggle-inner">14.  My father said to me, "Last year your results were _____. I hope you will not have us _____ again this year."</span></a></div><div class="accordion-body nn_sliders-body collapse" id="q14-my-father-said-to-me-last-year-your-results-were-_____-i-hope-you-will-not-have-us-_____-again-this-year" aria-hidden="true"><div class="accordion-inner panel-body"><h2 class="nn_sliders-title">14.  My father said to me, "Last year your results were _____. I hope you will not have us _____ again this year."</h2>
+                    <p> 14.  My father said to me, "Last year your results were <span class="undies">disappointing</span>. I hope you will not have us <span class="undies">disappointed</span> again this year."</p></div></div><div class="exercise-response-row" data-item="q14-my-father-said-to-me-last-year-your-results-were-_____-i-hope-you-will-not-have-us-_____-again-this-year" data-answer-ui=""><label class="exercise-response-field"><span class="visually-hidden">Response for item q14-my-father-said-to-me-last-year-your-results-were-_____-i-hope-you-will-not-have-us-_____-again-this-year (answer_01)</span><input class="exercise-response-input" type="text" placeholder="Answer" data-item="q14-my-father-said-to-me-last-year-your-results-were-_____-i-hope-you-will-not-have-us-_____-again-this-year" data-field="answer_01" inputmode="text"></label><label class="exercise-response-field"><span class="visually-hidden">Response for item q14-my-father-said-to-me-last-year-your-results-were-_____-i-hope-you-will-not-have-us-_____-again-this-year (answer_02)</span><input class="exercise-response-input" type="text" placeholder="Answer" data-item="q14-my-father-said-to-me-last-year-your-results-were-_____-i-hope-you-will-not-have-us-_____-again-this-year" data-field="answer_02" inputmode="text"></label></div></div></div></div><div class="quest-bg" data-exercise-question="q15-the-match-was-_____-fans-of-both-teams-must-have-found-it-_____-too"><div class="nn_sliders accordion panel-group" id="set-nn_sliders-15"><span id="nn_sliders-scrollto_15" class="anchor nn_sliders-scroll"></span><div class="accordion-group panel nn_sliders-group"><span id="nn_sliders-scrollto_15-q15-the-match-was-_____-fans-of-both-teams-must-have-found-it-_____-too" class="anchor nn_sliders-scroll"></span><div class="accordion-heading panel-heading"><a class="accordion-toggle nn_sliders-toggle" href="1832-verb-ing-adjective-part-2.html#1832-verb-ing-adjective-part-2.html#15-the-match-was-_____-fans-of-both-teams-must-have-found-it-_____-too" data-toggle="collapse" data-parent="#set-nn_sliders-15" data-id="q15-the-match-was-_____-fans-of-both-teams-must-have-found-it-_____-too" aria-expanded="false" aria-controls="1832-verb-ing-adjective-part-2.html#15-the-match-was-_____-fans-of-both-teams-must-have-found-it-_____-too"><span class="nn_sliders-toggle-inner">15.  The match was _____. Fans of both teams must have found it _____ too.</span></a></div><div class="accordion-body nn_sliders-body collapse" id="q15-the-match-was-_____-fans-of-both-teams-must-have-found-it-_____-too" aria-hidden="true"><div class="accordion-inner panel-body"><h2 class="nn_sliders-title">15.  The match was _____. Fans of both teams must have found it _____ too.</h2>
+                    <p> 15.  The match was <span class="undies">disappointing</span>. Fans of both teams must have found it <span class="undies">disappointing</span> too.</p></div></div><div class="exercise-response-row" data-item="q15-the-match-was-_____-fans-of-both-teams-must-have-found-it-_____-too" data-answer-ui=""><label class="exercise-response-field"><span class="visually-hidden">Response for item q15-the-match-was-_____-fans-of-both-teams-must-have-found-it-_____-too (answer_01)</span><input class="exercise-response-input" type="text" placeholder="Answer" data-item="q15-the-match-was-_____-fans-of-both-teams-must-have-found-it-_____-too" data-field="answer_01" inputmode="text"></label><label class="exercise-response-field"><span class="visually-hidden">Response for item q15-the-match-was-_____-fans-of-both-teams-must-have-found-it-_____-too (answer_02)</span><input class="exercise-response-input" type="text" placeholder="Answer" data-item="q15-the-match-was-_____-fans-of-both-teams-must-have-found-it-_____-too" data-field="answer_02" inputmode="text"></label></div></div></div></div><div class="quest-bg" data-exercise-question="q16-i-was-_____-with-the-way-you-behaved-last-night-why-did-you-have-to-make-yourself-so-_____"><div class="nn_sliders accordion panel-group" id="set-nn_sliders-16"><span id="nn_sliders-scrollto_16" class="anchor nn_sliders-scroll"></span><div class="accordion-group panel nn_sliders-group"><span id="nn_sliders-scrollto_16-q16-i-was-_____-with-the-way-you-behaved-last-night-why-did-you-have-to-make-yourself-so-_____" class="anchor nn_sliders-scroll"></span><div class="accordion-heading panel-heading"><a class="accordion-toggle nn_sliders-toggle" href="1832-verb-ing-adjective-part-2.html#1832-verb-ing-adjective-part-2.html#16-i-was-_____-with-the-way-you-behaved-last-night-why-did-you-have-to-make-yourself-so-_____" data-toggle="collapse" data-parent="#set-nn_sliders-16" data-id="q16-i-was-_____-with-the-way-you-behaved-last-night-why-did-you-have-to-make-yourself-so-_____" aria-expanded="false" aria-controls="1832-verb-ing-adjective-part-2.html#16-i-was-_____-with-the-way-you-behaved-last-night-why-did-you-have-to-make-yourself-so-_____"><span class="nn_sliders-toggle-inner">16.  I was _____ with the way you behaved last night. Why did you have to make yourself so _____?</span></a></div><div class="accordion-body nn_sliders-body collapse" id="q16-i-was-_____-with-the-way-you-behaved-last-night-why-did-you-have-to-make-yourself-so-_____" aria-hidden="true"><div class="accordion-inner panel-body"><h2 class="nn_sliders-title">16.  I was _____ with the way you behaved last night. Why did you have to make yourself so _____?</h2>
+                    <p> 16. I was <span class="undies">disappointed</span> with the way you behaved last night. Why did you have to make yourself so <span class="undies">disappointing</span>?</p></div></div><div class="exercise-response-row" data-item="q16-i-was-_____-with-the-way-you-behaved-last-night-why-did-you-have-to-make-yourself-so-_____" data-answer-ui=""><label class="exercise-response-field"><span class="visually-hidden">Response for item q16-i-was-_____-with-the-way-you-behaved-last-night-why-did-you-have-to-make-yourself-so-_____ (answer_01)</span><input class="exercise-response-input" type="text" placeholder="Answer" data-item="q16-i-was-_____-with-the-way-you-behaved-last-night-why-did-you-have-to-make-yourself-so-_____" data-field="answer_01" inputmode="text"></label><label class="exercise-response-field"><span class="visually-hidden">Response for item q16-i-was-_____-with-the-way-you-behaved-last-night-why-did-you-have-to-make-yourself-so-_____ (answer_02)</span><input class="exercise-response-input" type="text" placeholder="Answer" data-item="q16-i-was-_____-with-the-way-you-behaved-last-night-why-did-you-have-to-make-yourself-so-_____" data-field="answer_02" inputmode="text"></label></div></div></div></div><div class="quest-bg" data-exercise-question="q17-it-was-quite-_____-that-he-passed-the-examination"><div class="nn_sliders accordion panel-group" id="set-nn_sliders-17"><span id="nn_sliders-scrollto_17" class="anchor nn_sliders-scroll"></span><div class="accordion-group panel nn_sliders-group"><span id="nn_sliders-scrollto_17-q17-it-was-quite-_____-that-he-passed-the-examination" class="anchor nn_sliders-scroll"></span><div class="accordion-heading panel-heading"><a class="accordion-toggle nn_sliders-toggle" href="1832-verb-ing-adjective-part-2.html#1832-verb-ing-adjective-part-2.html#17-it-was-quite-_____-that-he-passed-the-examination" data-toggle="collapse" data-parent="#set-nn_sliders-17" data-id="q17-it-was-quite-_____-that-he-passed-the-examination" aria-expanded="false" aria-controls="1832-verb-ing-adjective-part-2.html#17-it-was-quite-_____-that-he-passed-the-examination"><span class="nn_sliders-toggle-inner">17. It was quite _____ that he passed the examination.</span></a></div><div class="accordion-body nn_sliders-body collapse" id="q17-it-was-quite-_____-that-he-passed-the-examination" aria-hidden="true"><div class="accordion-inner panel-body"><h2 class="nn_sliders-title">17. It was quite _____ that he passed the examination.</h2>
+                    <p> 17. It was quite <span class="undies">surprising</span> that he passed the examination.</p></div></div><div class="exercise-response-row" data-item="q17-it-was-quite-_____-that-he-passed-the-examination" data-answer-ui=""><label class="exercise-response-field"><span class="visually-hidden">Response for item q17-it-was-quite-_____-that-he-passed-the-examination (answer_01)</span><input class="exercise-response-input" type="text" placeholder="Answer" data-item="q17-it-was-quite-_____-that-he-passed-the-examination" data-field="answer_01" inputmode="text"></label><label class="exercise-response-field"><span class="visually-hidden">Response for item q17-it-was-quite-_____-that-he-passed-the-examination (answer_02)</span><input class="exercise-response-input" type="text" placeholder="Answer" data-item="q17-it-was-quite-_____-that-he-passed-the-examination" data-field="answer_02" inputmode="text"></label></div></div></div></div><div class="quest-bg" data-exercise-question="q18-everybody-was-_____-that-he-passed-the-examination"><div class="nn_sliders accordion panel-group" id="set-nn_sliders-18"><span id="nn_sliders-scrollto_18" class="anchor nn_sliders-scroll"></span><div class="accordion-group panel nn_sliders-group"><span id="nn_sliders-scrollto_18-q18-everybody-was-_____-that-he-passed-the-examination" class="anchor nn_sliders-scroll"></span><div class="accordion-heading panel-heading"><a class="accordion-toggle nn_sliders-toggle" href="1832-verb-ing-adjective-part-2.html#1832-verb-ing-adjective-part-2.html#18-everybody-was-_____-that-he-passed-the-examination" data-toggle="collapse" data-parent="#set-nn_sliders-18" data-id="q18-everybody-was-_____-that-he-passed-the-examination" aria-expanded="false" aria-controls="1832-verb-ing-adjective-part-2.html#18-everybody-was-_____-that-he-passed-the-examination"><span class="nn_sliders-toggle-inner">18. Everybody was _____ that he passed the examination.</span></a></div><div class="accordion-body nn_sliders-body collapse" id="q18-everybody-was-_____-that-he-passed-the-examination" aria-hidden="true"><div class="accordion-inner panel-body"><h2 class="nn_sliders-title">18. Everybody was _____ that he passed the examination.</h2>
+                    <p> 18.  Everybody was <span class="undies">surprised</span> that he passed the examination.</p></div></div><div class="exercise-response-row" data-item="q18-everybody-was-_____-that-he-passed-the-examination" data-answer-ui=""><label class="exercise-response-field"><span class="visually-hidden">Response for item q18-everybody-was-_____-that-he-passed-the-examination (answer_01)</span><input class="exercise-response-input" type="text" placeholder="Answer" data-item="q18-everybody-was-_____-that-he-passed-the-examination" data-field="answer_01" inputmode="text"></label><label class="exercise-response-field"><span class="visually-hidden">Response for item q18-everybody-was-_____-that-he-passed-the-examination (answer_02)</span><input class="exercise-response-input" type="text" placeholder="Answer" data-item="q18-everybody-was-_____-that-he-passed-the-examination" data-field="answer_02" inputmode="text"></label></div></div></div></div><div class="quest-bg" data-exercise-question="q19-the-news-was-_____-and-we-were-_____-at-how-the-prisoners-had-been-treated"><div class="nn_sliders accordion panel-group" id="set-nn_sliders-19"><span id="nn_sliders-scrollto_19" class="anchor nn_sliders-scroll"></span><div class="accordion-group panel nn_sliders-group"><span id="nn_sliders-scrollto_19-q19-the-news-was-_____-and-we-were-_____-at-how-the-prisoners-had-been-treated" class="anchor nn_sliders-scroll"></span><div class="accordion-heading panel-heading"><a class="accordion-toggle nn_sliders-toggle" href="1832-verb-ing-adjective-part-2.html#1832-verb-ing-adjective-part-2.html#19-the-news-was-_____-and-we-were-_____-at-how-the-prisoners-had-been-treated" data-toggle="collapse" data-parent="#set-nn_sliders-19" data-id="q19-the-news-was-_____-and-we-were-_____-at-how-the-prisoners-had-been-treated" aria-expanded="false" aria-controls="1832-verb-ing-adjective-part-2.html#19-the-news-was-_____-and-we-were-_____-at-how-the-prisoners-had-been-treated"><span class="nn_sliders-toggle-inner">19.   The news was _____, and we were _____ at how the prisoners had been treated.</span></a></div><div class="accordion-body nn_sliders-body collapse" id="q19-the-news-was-_____-and-we-were-_____-at-how-the-prisoners-had-been-treated" aria-hidden="true"><div class="accordion-inner panel-body"><h2 class="nn_sliders-title">19.   The news was _____, and we were _____ at how the prisoners had been treated.</h2>
+                    <p> 19. The news was <span class="undies">shocking</span>, and we were <span class="undies">shocked</span> at how the prisoners had been treated.</p></div></div><div class="exercise-response-row" data-item="q19-the-news-was-_____-and-we-were-_____-at-how-the-prisoners-had-been-treated" data-answer-ui=""><label class="exercise-response-field"><span class="visually-hidden">Response for item q19-the-news-was-_____-and-we-were-_____-at-how-the-prisoners-had-been-treated (answer_01)</span><input class="exercise-response-input" type="text" placeholder="Answer" data-item="q19-the-news-was-_____-and-we-were-_____-at-how-the-prisoners-had-been-treated" data-field="answer_01" inputmode="text"></label><label class="exercise-response-field"><span class="visually-hidden">Response for item q19-the-news-was-_____-and-we-were-_____-at-how-the-prisoners-had-been-treated (answer_02)</span><input class="exercise-response-input" type="text" placeholder="Answer" data-item="q19-the-news-was-_____-and-we-were-_____-at-how-the-prisoners-had-been-treated" data-field="answer_02" inputmode="text"></label></div></div></div></div><div class="quest-bg" data-exercise-question="q20-at-first-we-were-_____-by-it-but-later-we-found-it-wasn-t-all-that-_____"><div class="nn_sliders accordion panel-group" id="set-nn_sliders-20"><span id="nn_sliders-scrollto_20" class="anchor nn_sliders-scroll"></span><div class="accordion-group panel nn_sliders-group"><span id="nn_sliders-scrollto_20-q20-at-first-we-were-_____-by-it-but-later-we-found-it-wasn-t-all-that-_____" class="anchor nn_sliders-scroll"></span><div class="accordion-heading panel-heading"><a class="accordion-toggle nn_sliders-toggle" href="1832-verb-ing-adjective-part-2.html#1832-verb-ing-adjective-part-2.html#20-at-first-we-were-_____-by-it-but-later-we-found-it-wasn-t-all-that-_____" data-toggle="collapse" data-parent="#set-nn_sliders-20" data-id="q20-at-first-we-were-_____-by-it-but-later-we-found-it-wasn-t-all-that-_____" aria-expanded="false" aria-controls="1832-verb-ing-adjective-part-2.html#20-at-first-we-were-_____-by-it-but-later-we-found-it-wasn-t-all-that-_____"><span class="nn_sliders-toggle-inner">20.  At first we were _____ by it but later we found it wasn't all that _____.</span></a></div><div class="accordion-body nn_sliders-body collapse" id="q20-at-first-we-were-_____-by-it-but-later-we-found-it-wasn-t-all-that-_____" aria-hidden="true"><div class="accordion-inner panel-body"><h2 class="nn_sliders-title">20.  At first we were _____ by it but later we found it wasn't all that _____.</h2>
+                    <p> 20.  At first we were <span class="undies">shocked</span> by it but later we found it wasn't all that <span class="undies">shocking</span>.</p></div></div><div class="exercise-response-row" data-item="q20-at-first-we-were-_____-by-it-but-later-we-found-it-wasn-t-all-that-_____" data-answer-ui=""><label class="exercise-response-field"><span class="visually-hidden">Response for item q20-at-first-we-were-_____-by-it-but-later-we-found-it-wasn-t-all-that-_____ (answer_01)</span><input class="exercise-response-input" type="text" placeholder="Answer" data-item="q20-at-first-we-were-_____-by-it-but-later-we-found-it-wasn-t-all-that-_____" data-field="answer_01" inputmode="text"></label><label class="exercise-response-field"><span class="visually-hidden">Response for item q20-at-first-we-were-_____-by-it-but-later-we-found-it-wasn-t-all-that-_____ (answer_02)</span><input class="exercise-response-input" type="text" placeholder="Answer" data-item="q20-at-first-we-were-_____-by-it-but-later-we-found-it-wasn-t-all-that-_____" data-field="answer_02" inputmode="text"></label></div></div></div></div><div class="exercise-submit-row" data-exercise-submit-row="" hidden>
+                    <button type="submit" class="exercise-submit-button" data-exercise-submit="" disabled>Submit answers</button>
                     <div id="exercise-status" class="status-warn" aria-live="polite" style="margin-top: 0.5rem"></div>
                   </div>
                 </form>
                 <!-- Page config: set recipients and where to POST -->
-                <script type="application/json" id="exercise-answer-key" data-exercise-answer-key>
-                  {
-                    "title": "1832-verb-ing-adjective-part-2",
-                    "version": "0.3.0",
-                    "publishDate": "2026-01-29T19:41:33.731Z",
-                    "description": "18.3.2 Verb + -ing (Adjective) Part 2",
-                    "options": {
-                      "requireCorrectBeforeReveal": true,
-                      "defaultHashAlgorithm": "fnv1a-64"
-                    },
-                    "answerArrays": {
-                      "exerciseName": "1832-verb-ing-adjective-part-2",
-                      "totalQuestions": 20,
-                      "answerArray": {
-                        "question01": {
-                          "id": "q1-the-body-of-the-_____-woman-was-found-after-an-extensive-search",
-                          "answersAccepted": [["fnv1a-64:eaf382bb65ae39dc"]],
-                          "lengths": [1],
-                          "minLength": 1,
-                          "maxLength": 1,
-                          "manualCheckOk": false
-                        },
-                        "question02": {
-                          "id": "q2-george-swam-towards-the-_____-child-in-an-effort-to-save-him",
-                          "answersAccepted": [["fnv1a-64:52d2ab6e02aa25cb"]],
-                          "lengths": [1],
-                          "minLength": 1,
-                          "maxLength": 1,
-                          "manualCheckOk": false
-                        },
-                        "question03": {
-                          "id": "q3-are-you-_____-in-buying-a-car-i-m-trying-to-sell-mine",
-                          "answersAccepted": [["fnv1a-64:1c2f1b70dc486a32"]],
-                          "lengths": [1],
-                          "minLength": 1,
-                          "maxLength": 1,
-                          "manualCheckOk": false
-                        },
-                        "question04": {
-                          "id": "q4-did-you-meet-anyone-_____-at-the-party",
-                          "answersAccepted": [["fnv1a-64:509179c663e9dec5"]],
-                          "lengths": [1],
-                          "minLength": 1,
-                          "maxLength": 1,
-                          "manualCheckOk": false
-                        },
-                        "question05": {
-                          "id": "q5-i-m-_____-in-listening-if-you-have-_____-things-to-say",
-                          "answersAccepted": [["fnv1a-64:1c2f1b70dc486a32", "fnv1a-64:509179c663e9dec5"]],
-                          "lengths": [2],
-                          "minLength": 2,
-                          "maxLength": 2,
-                          "manualCheckOk": false
-                        },
-                        "question06": {
-                          "id": "q6-julia-thinks-politics-is-very-_____-but-her-father-was-never-_____-in-it",
-                          "answersAccepted": [["fnv1a-64:509179c663e9dec5", "fnv1a-64:1c2f1b70dc486a32"]],
-                          "lengths": [2],
-                          "minLength": 2,
-                          "maxLength": 2,
-                          "manualCheckOk": false
-                        },
-                        "question07": {
-                          "id": "q7-it-was-_____-to-learn-dressmaking-but-now-i-m-not-so-_____-in-it-she-told-him",
-                          "answersAccepted": [["fnv1a-64:509179c663e9dec5", "fnv1a-64:1c2f1b70dc486a32"]],
-                          "lengths": [2],
-                          "minLength": 2,
-                          "maxLength": 2,
-                          "manualCheckOk": false
-                        },
-                        "question08": {
-                          "id": "q8-the-game-was-very-_____-to-watch-but-i-wouldn-t-be-_____-in-playing-it",
-                          "answersAccepted": [["fnv1a-64:509179c663e9dec5", "fnv1a-64:1c2f1b70dc486a32"]],
-                          "lengths": [2],
-                          "minLength": 2,
-                          "maxLength": 2,
-                          "manualCheckOk": false
-                        },
-                        "question09": {
-                          "id": "q9-the-bystanders-watched-the-_____-driver-getting-out-of-his-car-and-arguing-with-the-policemen",
-                          "answersAccepted": [["fnv1a-64:170badfcd57f0de5"]],
-                          "lengths": [1],
-                          "minLength": 1,
-                          "maxLength": 1,
-                          "manualCheckOk": false
-                        },
-                        "question10": {
-                          "id": "q10-the-_____-boys-couldn-t-wait-to-spend-a-week-camping-in-a-jungle-as-they-expected-to-have-a-very-_____-time",
-                          "answersAccepted": [["fnv1a-64:170badfcd57f0de5", "fnv1a-64:10ab229f0277c824"]],
-                          "lengths": [2],
-                          "minLength": 2,
-                          "maxLength": 2,
-                          "manualCheckOk": false
-                        },
-                        "question11": {
-                          "id": "q11-she-took-the-_____-egg-carefully-out-of-the-_____-water",
-                          "answersAccepted": [["fnv1a-64:a5b3cfb1c1bfc95a", "fnv1a-64:e7811c0bfd4478dd"]],
-                          "lengths": [2],
-                          "minLength": 2,
-                          "maxLength": 2,
-                          "manualCheckOk": false
-                        },
-                        "question12": {
-                          "id": "q12-the-_____-journey-made-us-both-feel-very-_____",
-                          "answersAccepted": [["fnv1a-64:d2d6d9a9a605fdf4", "fnv1a-64:eba27c6c1604f915"]],
-                          "lengths": [2],
-                          "minLength": 2,
-                          "maxLength": 2,
-                          "manualCheckOk": false
-                        },
-                        "question13": {
-                          "id": "q13-we-re-going-to-see-the-film-but-_____-to-hear-you-say-you-are-_____-because-it-was-a-boring-one",
-                          "answersAccepted": [["fnv1a-64:23781ae0f4335999", "fnv1a-64:23781ae0f4335999"]],
-                          "lengths": [2],
-                          "minLength": 2,
-                          "maxLength": 2,
-                          "manualCheckOk": false
-                        },
-                        "question14": {
-                          "id": "q14-my-father-said-to-me-last-year-your-results-were-_____-i-hope-you-will-not-have-us-_____-again-this-year",
-                          "answersAccepted": [["fnv1a-64:1339ae3ebab44470", "fnv1a-64:23781ae0f4335999"]],
-                          "lengths": [2],
-                          "minLength": 2,
-                          "maxLength": 2,
-                          "manualCheckOk": false
-                        },
-                        "question15": {
-                          "id": "q15-the-match-was-_____-fans-of-both-teams-must-have-found-it-_____-too",
-                          "answersAccepted": [["fnv1a-64:1339ae3ebab44470", "fnv1a-64:1339ae3ebab44470"]],
-                          "lengths": [2],
-                          "minLength": 2,
-                          "maxLength": 2,
-                          "manualCheckOk": false
-                        },
-                        "question16": {
-                          "id": "q16-i-was-_____-with-the-way-you-behaved-last-night-why-did-you-have-to-make-yourself-so-_____",
-                          "answersAccepted": [["fnv1a-64:23781ae0f4335999", "fnv1a-64:1339ae3ebab44470"]],
-                          "lengths": [2],
-                          "minLength": 2,
-                          "maxLength": 2,
-                          "manualCheckOk": false
-                        },
-                        "question17": {
-                          "id": "q17-it-was-quite-_____-that-he-passed-the-examination",
-                          "answersAccepted": [["fnv1a-64:1c02f1211ca43f5d"]],
-                          "lengths": [1],
-                          "minLength": 1,
-                          "maxLength": 1,
-                          "manualCheckOk": false
-                        },
-                        "question18": {
-                          "id": "q18-everybody-was-_____-that-he-passed-the-examination",
-                          "answersAccepted": [["fnv1a-64:8a6d9054d24ca8da"]],
-                          "lengths": [1],
-                          "minLength": 1,
-                          "maxLength": 1,
-                          "manualCheckOk": false
-                        },
-                        "question19": {
-                          "id": "q19-the-news-was-_____-and-we-were-_____-at-how-the-prisoners-had-been-treated",
-                          "answersAccepted": [["fnv1a-64:95f80174c9c5646f", "fnv1a-64:0f9e779c38eb9268"]],
-                          "lengths": [2],
-                          "minLength": 2,
-                          "maxLength": 2,
-                          "manualCheckOk": false
-                        },
-                        "question20": {
-                          "id": "q20-at-first-we-were-_____-by-it-but-later-we-found-it-wasn-t-all-that-_____",
-                          "answersAccepted": [["fnv1a-64:0f9e779c38eb9268", "fnv1a-64:95f80174c9c5646f"]],
-                          "lengths": [2],
-                          "minLength": 2,
-                          "maxLength": 2,
-                          "manualCheckOk": false
-                        }
-                      }
-                    }
-                  }
+                <script type="application/json" id="exercise-answer-key" data-exercise-answer-key="">
+{
+  "title": "1832-verb-ing-adjective-part-2",
+  "version": "0.3.0",
+  "publishDate": "2026-01-29T19:39:55.017Z",
+  "description": "18.3.2 Verb + -ing (Adjective) Part 2",
+  "options": {
+    "requireCorrectBeforeReveal": true,
+    "defaultHashAlgorithm": "fnv1a-64"
+  },
+  "answerArrays": {
+    "exerciseName": "1832-verb-ing-adjective-part-2",
+    "totalQuestions": 20,
+    "answerArray": {
+      "question01": {
+        "id": "q1-the-body-of-the-_____-woman-was-found-after-an-extensive-search",
+        "answersAccepted": [],
+        "lengths": [
+          2
+        ],
+        "minLength": 2,
+        "maxLength": 2,
+        "manualCheckOk": false
+      },
+      "question02": {
+        "id": "q2-george-swam-towards-the-_____-child-in-an-effort-to-save-him",
+        "answersAccepted": [],
+        "lengths": [
+          2
+        ],
+        "minLength": 2,
+        "maxLength": 2,
+        "manualCheckOk": false
+      },
+      "question03": {
+        "id": "q3-are-you-_____-in-buying-a-car-i-m-trying-to-sell-mine",
+        "answersAccepted": [],
+        "lengths": [
+          2
+        ],
+        "minLength": 2,
+        "maxLength": 2,
+        "manualCheckOk": false
+      },
+      "question04": {
+        "id": "q4-did-you-meet-anyone-_____-at-the-party",
+        "answersAccepted": [],
+        "lengths": [
+          2
+        ],
+        "minLength": 2,
+        "maxLength": 2,
+        "manualCheckOk": false
+      },
+      "question05": {
+        "id": "q5-i-m-_____-in-listening-if-you-have-_____-things-to-say",
+        "answersAccepted": [],
+        "lengths": [
+          2
+        ],
+        "minLength": 2,
+        "maxLength": 2,
+        "manualCheckOk": false
+      },
+      "question06": {
+        "id": "q6-julia-thinks-politics-is-very-_____-but-her-father-was-never-_____-in-it",
+        "answersAccepted": [],
+        "lengths": [
+          2
+        ],
+        "minLength": 2,
+        "maxLength": 2,
+        "manualCheckOk": false
+      },
+      "question07": {
+        "id": "q7-it-was-_____-to-learn-dressmaking-but-now-i-m-not-so-_____-in-it-she-told-him",
+        "answersAccepted": [],
+        "lengths": [
+          2
+        ],
+        "minLength": 2,
+        "maxLength": 2,
+        "manualCheckOk": false
+      },
+      "question08": {
+        "id": "q8-the-game-was-very-_____-to-watch-but-i-wouldn-t-be-_____-in-playing-it",
+        "answersAccepted": [],
+        "lengths": [
+          2
+        ],
+        "minLength": 2,
+        "maxLength": 2,
+        "manualCheckOk": false
+      },
+      "question09": {
+        "id": "q9-the-bystanders-watched-the-_____-driver-getting-out-of-his-car-and-arguing-with-the-policemen",
+        "answersAccepted": [],
+        "lengths": [
+          2
+        ],
+        "minLength": 2,
+        "maxLength": 2,
+        "manualCheckOk": false
+      },
+      "question10": {
+        "id": "q10-the-_____-boys-couldn-t-wait-to-spend-a-week-camping-in-a-jungle-as-they-expected-to-have-a-very-_____-time",
+        "answersAccepted": [],
+        "lengths": [
+          2
+        ],
+        "minLength": 2,
+        "maxLength": 2,
+        "manualCheckOk": false
+      },
+      "question11": {
+        "id": "q11-she-took-the-_____-egg-carefully-out-of-the-_____-water",
+        "answersAccepted": [],
+        "lengths": [
+          2
+        ],
+        "minLength": 2,
+        "maxLength": 2,
+        "manualCheckOk": false
+      },
+      "question12": {
+        "id": "q12-the-_____-journey-made-us-both-feel-very-_____",
+        "answersAccepted": [],
+        "lengths": [
+          2
+        ],
+        "minLength": 2,
+        "maxLength": 2,
+        "manualCheckOk": false
+      },
+      "question13": {
+        "id": "q13-we-re-going-to-see-the-film-but-_____-to-hear-you-say-you-are-_____-because-it-was-a-boring-one",
+        "answersAccepted": [],
+        "lengths": [
+          2
+        ],
+        "minLength": 2,
+        "maxLength": 2,
+        "manualCheckOk": false
+      },
+      "question14": {
+        "id": "q14-my-father-said-to-me-last-year-your-results-were-_____-i-hope-you-will-not-have-us-_____-again-this-year",
+        "answersAccepted": [],
+        "lengths": [
+          2
+        ],
+        "minLength": 2,
+        "maxLength": 2,
+        "manualCheckOk": false
+      },
+      "question15": {
+        "id": "q15-the-match-was-_____-fans-of-both-teams-must-have-found-it-_____-too",
+        "answersAccepted": [],
+        "lengths": [
+          2
+        ],
+        "minLength": 2,
+        "maxLength": 2,
+        "manualCheckOk": false
+      },
+      "question16": {
+        "id": "q16-i-was-_____-with-the-way-you-behaved-last-night-why-did-you-have-to-make-yourself-so-_____",
+        "answersAccepted": [],
+        "lengths": [
+          2
+        ],
+        "minLength": 2,
+        "maxLength": 2,
+        "manualCheckOk": false
+      },
+      "question17": {
+        "id": "q17-it-was-quite-_____-that-he-passed-the-examination",
+        "answersAccepted": [],
+        "lengths": [
+          2
+        ],
+        "minLength": 2,
+        "maxLength": 2,
+        "manualCheckOk": false
+      },
+      "question18": {
+        "id": "q18-everybody-was-_____-that-he-passed-the-examination",
+        "answersAccepted": [],
+        "lengths": [
+          2
+        ],
+        "minLength": 2,
+        "maxLength": 2,
+        "manualCheckOk": false
+      },
+      "question19": {
+        "id": "q19-the-news-was-_____-and-we-were-_____-at-how-the-prisoners-had-been-treated",
+        "answersAccepted": [],
+        "lengths": [
+          2
+        ],
+        "minLength": 2,
+        "maxLength": 2,
+        "manualCheckOk": false
+      },
+      "question20": {
+        "id": "q20-at-first-we-were-_____-by-it-but-later-we-found-it-wasn-t-all-that-_____",
+        "answersAccepted": [],
+        "lengths": [
+          2
+        ],
+        "minLength": 2,
+        "maxLength": 2,
+        "manualCheckOk": false
+      }
+    }
+  }
+}
                 </script>
-                <script type="application/json" id="exercise-config" data-exercise-config>
-                  {
-                    "title": "18.3.2 Verb + -ing (Adjective) Part 2",
-                    "canonical": "1832-verb-ing-adjective-part-2.html",
-                    "totalQuestions": 20,
-                    "submitUrl": "",
-                    "recipients": [],
-                    "breadcrumbs": [
-                      {
-                        "name": "Home",
-                        "href": "../index-2.html",
-                        "position": 1
-                      },
-                      {
-                        "name": "Exercise 18 - Verb + ing (Gerunds and Particles)",
-                        "href": "../exercise-18-verb-ing-gerunds-and-particles.html",
-                        "position": 2
-                      },
-                      {
-                        "name": "18.3.2 Verb + -ing (Adjective) Part 2",
-                        "href": "",
-                        "position": 3
-                      }
-                    ],
-                    "pager": {
-                      "previous": {
-                        "href": "1831-verb-ing-adjective-part-1.html",
-                        "label": "18.3.1 Verb + -ing (Adjective) Part 1",
-                        "ariaLabel": "",
-                        "rel": "prev",
-                        "html": "<svg version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 18 48\" fill=\"currentColor\">\n                        <title>angle-left</title>\n                        <path d=\"M16.795 14.571c0 0.214-0.107 0.455-0.268 0.616l-10.527 10.527 10.527 10.527c0.161 0.161 0.268 0.402 0.268 0.616s-0.107 0.455-0.268 0.616l-1.339 1.339c-0.161 0.161-0.402 0.268-0.616 0.268s-0.455-0.107-0.616-0.268l-12.482-12.482c-0.161-0.161-0.268-0.402-0.268-0.616s0.107-0.455 0.268-0.616l12.482-12.482c0.161-0.161 0.402-0.268 0.616-0.268s0.455 0.107 0.616 0.268l1.339 1.339c0.161 0.161 0.268 0.375 0.268 0.616z\"></path>\n                      </svg><span class=\"pager-label\">18.3.1 Verb + -ing (Adjective) Part 1</span>",
-                        "icon": "<svg version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 18 48\" fill=\"currentColor\">\n                        <title>angle-left</title>\n                        <path d=\"M16.795 14.571c0 0.214-0.107 0.455-0.268 0.616l-10.527 10.527 10.527 10.527c0.161 0.161 0.268 0.402 0.268 0.616s-0.107 0.455-0.268 0.616l-1.339 1.339c-0.161 0.161-0.402 0.268-0.616 0.268s-0.455-0.107-0.616-0.268l-12.482-12.482c-0.161-0.161-0.268-0.402-0.268-0.616s0.107-0.455 0.268-0.616l12.482-12.482c0.161-0.161 0.402-0.268 0.616-0.268s0.455 0.107 0.616 0.268l1.339 1.339c0.161 0.161 0.268 0.375 0.268 0.616z\"></path>\n                      </svg>"
-                      },
-                      "next": {
-                        "href": "../exercise-18-verb-ing-gerunds-and-particles.html",
-                        "label": "Exercise 18 - Verb + ing",
-                        "ariaLabel": "",
-                        "rel": "next",
-                        "html": "<span class=\"pager-label\">Exercise 18 - Verb + ing</span><svg version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" height=\"24px\" viewBox=\"0 0 18 48\" fill=\"currentColor\">\n                        <title>angle-right</title>\n                        <path d=\"M15.938 25.714c0 0.214-0.107 0.455-0.268 0.616l-12.482 12.482c-0.161 0.161-0.402 0.268-0.616 0.268s-0.455-0.107-0.616-0.268l-1.339-1.339c-0.161-0.161-0.268-0.375-0.268-0.616 0-0.214 0.107-0.455 0.268-0.616l10.527-10.527-10.527-10.527c-0.161-0.161-0.268-0.402-0.268-0.616s0.107-0.455 0.268-0.616l1.339-1.339c0.161-0.161 0.402-0.268 0.616-0.268s0.455 0.107 0.616 0.268l12.482 12.482c0.161 0.161 0.268 0.402 0.268 0.616z\"></path>\n                      </svg>",
-                        "icon": "<svg version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" height=\"24px\" viewBox=\"0 0 18 48\" fill=\"currentColor\">\n                        <title>angle-right</title>\n                        <path d=\"M15.938 25.714c0 0.214-0.107 0.455-0.268 0.616l-12.482 12.482c-0.161 0.161-0.402 0.268-0.616 0.268s-0.455-0.107-0.616-0.268l-1.339-1.339c-0.161-0.161-0.268-0.375-0.268-0.616 0-0.214 0.107-0.455 0.268-0.616l10.527-10.527-10.527-10.527c-0.161-0.161-0.268-0.402-0.268-0.616s0.107-0.455 0.268-0.616l1.339-1.339c0.161-0.161 0.402-0.268 0.616-0.268s0.455 0.107 0.616 0.268l12.482 12.482c0.161 0.161 0.268 0.402 0.268 0.616z\"></path>\n                      </svg>"
-                      }
-                    }
-                  }
+                <script type="application/json" id="exercise-config" data-exercise-config="">
+{
+  "title": "18.3.2 Verb + -ing (Adjective) Part 2",
+  "canonical": "1832-verb-ing-adjective-part-2.html",
+  "totalQuestions": 20,
+  "submitUrl": "",
+  "recipients": [],
+  "breadcrumbs": [
+    {
+      "name": "Home",
+      "href": "../index-2.html",
+      "position": 1
+    },
+    {
+      "name": "Exercise 18 - Verb + ing (Gerunds and Particles)",
+      "href": "../exercise-18-verb-ing-gerunds-and-particles.html",
+      "position": 2
+    },
+    {
+      "name": "18.3.2 Verb + -ing (Adjective) Part 2",
+      "href": "",
+      "position": 3
+    }
+  ],
+  "pager": {
+    "previous": {
+      "href": "1831-verb-ing-adjective-part-1.html",
+      "label": "18.3.1 Verb + -ing (Adjective) Part 1",
+      "ariaLabel": "Previous",
+      "rel": "prev",
+      "html": "<span class=\"icon-chevron-left\"> </span> 18.3.1 Verb + -ing (Adjective) Part 1",
+      "icon": ""
+    },
+    "next": {
+      "href": "../exercise-18-verb-ing-gerunds-and-particles.html",
+      "label": "Exercise 18 - Verb + ing",
+      "ariaLabel": "Next",
+      "rel": "next",
+      "html": "Exercise 18 - Verb + ing <span class=\"icon-chevron-right\"> </span>",
+      "icon": ""
+    }
+  }
+}
                 </script>
 
                 <!-- <script type="application/json" id="exercise-config" data-exercise-config>
@@ -2577,24 +1742,16 @@
 
                 <ul class="pager pagenav">
                   <li class="previous">
-                    <a href="1831-verb-ing-adjective-part-1.html" rel="prev">
-                      <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 48" fill="currentColor">
+                    <a href="1831-verb-ing-adjective-part-1.html" rel="prev"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 48" fill="currentColor">
                         <title>angle-left</title>
-                        <path
-                          d="M16.795 14.571c0 0.214-0.107 0.455-0.268 0.616l-10.527 10.527 10.527 10.527c0.161 0.161 0.268 0.402 0.268 0.616s-0.107 0.455-0.268 0.616l-1.339 1.339c-0.161 0.161-0.402 0.268-0.616 0.268s-0.455-0.107-0.616-0.268l-12.482-12.482c-0.161-0.161-0.268-0.402-0.268-0.616s0.107-0.455 0.268-0.616l12.482-12.482c0.161-0.161 0.402-0.268 0.616-0.268s0.455 0.107 0.616 0.268l1.339 1.339c0.161 0.161 0.268 0.375 0.268 0.616z" />
-                      </svg>
-                      <span class="pager-label">18.3.1 Verb + -ing (Adjective) Part 1</span>
-                    </a>
+                        <path d="M16.795 14.571c0 0.214-0.107 0.455-0.268 0.616l-10.527 10.527 10.527 10.527c0.161 0.161 0.268 0.402 0.268 0.616s-0.107 0.455-0.268 0.616l-1.339 1.339c-0.161 0.161-0.402 0.268-0.616 0.268s-0.455-0.107-0.616-0.268l-12.482-12.482c-0.161-0.161-0.268-0.402-0.268-0.616s0.107-0.455 0.268-0.616l12.482-12.482c0.161-0.161 0.402-0.268 0.616-0.268s0.455 0.107 0.616 0.268l1.339 1.339c0.161 0.161 0.268 0.375 0.268 0.616z"></path>
+                      </svg><span class="pager-label">18.3.1 Verb + -ing (Adjective) Part 1</span></a>
                   </li>
                   <li class="next">
-                    <a href="../exercise-18-verb-ing-gerunds-and-particles.html" rel="next">
-                      <span class="pager-label">Exercise 18 - Verb + ing</span>
-                      <svg version="1.1" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 18 48" fill="currentColor">
+                    <a href="../exercise-18-verb-ing-gerunds-and-particles.html" rel="next"><span class="pager-label">Exercise 18 - Verb + ing</span><svg version="1.1" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 18 48" fill="currentColor">
                         <title>angle-right</title>
-                        <path
-                          d="M15.938 25.714c0 0.214-0.107 0.455-0.268 0.616l-12.482 12.482c-0.161 0.161-0.402 0.268-0.616 0.268s-0.455-0.107-0.616-0.268l-1.339-1.339c-0.161-0.161-0.268-0.375-0.268-0.616 0-0.214 0.107-0.455 0.268-0.616l10.527-10.527-10.527-10.527c-0.161-0.161-0.268-0.402-0.268-0.616s0.107-0.455 0.268-0.616l1.339-1.339c0.161-0.161 0.402-0.268 0.616-0.268s0.455 0.107 0.616 0.268l12.482 12.482c0.161 0.161 0.268 0.402 0.268 0.616z" />
-                      </svg>
-                    </a>
+                        <path d="M15.938 25.714c0 0.214-0.107 0.455-0.268 0.616l-12.482 12.482c-0.161 0.161-0.402 0.268-0.616 0.268s-0.455-0.107-0.616-0.268l-1.339-1.339c-0.161-0.161-0.268-0.375-0.268-0.616 0-0.214 0.107-0.455 0.268-0.616l10.527-10.527-10.527-10.527c-0.161-0.161-0.268-0.402-0.268-0.616s0.107-0.455 0.268-0.616l1.339-1.339c0.161-0.161 0.402-0.268 0.616-0.268s0.455 0.107 0.616 0.268l12.482 12.482c0.161 0.161 0.268 0.402 0.268 0.616z"></path>
+                      </svg></a>
                   </li>
                 </ul>
               </div>
@@ -2604,15 +1761,15 @@
           <div id="aside" class="span2">
             <!-- Begin Right Sidebar -->
             <div class="well hidden-phone">
-              <ul class="r-flyout-menu" id="flyout_menu_93" data-r-flyout data-flyout-origin="right">
-                <li class="current first" data-r-flyout-item>
+              <ul class="r-flyout-menu" id="flyout_menu_93" data-r-flyout="" data-flyout-origin="right">
+                <li class="current first" data-r-flyout-item="">
                   <div class="item-wrapper r-flyout__header">
                     <button class="r-flyout__toggle" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="r-flyout-panel-nouns" aria-label="Toggle submenu for Nouns">
                       <svg class="r-flyout__icon r-flyout__icon--plus" aria-hidden="true" focusable="false">
-                        <use href="#icon-plus" />
+                        <use href="#icon-plus"></use>
                       </svg>
                       <svg class="r-flyout__icon r-flyout__icon--minus" aria-hidden="true" focusable="false">
-                        <use href="#icon-minus" />
+                        <use href="#icon-minus"></use>
                       </svg>
                     </button>
                     <div class="menu-link r-flyout__link-wrap">
@@ -2687,14 +1844,14 @@
                     </ul>
                   </div>
                 </li>
-                <li data-r-flyout-item>
+                <li data-r-flyout-item="">
                   <div class="item-wrapper r-flyout__header">
                     <button class="r-flyout__toggle" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="r-flyout-panel-verbs" aria-label="Toggle submenu for Verbs">
                       <svg class="r-flyout__icon r-flyout__icon--plus" aria-hidden="true" focusable="false">
-                        <use href="#icon-plus" />
+                        <use href="#icon-plus"></use>
                       </svg>
                       <svg class="r-flyout__icon r-flyout__icon--minus" aria-hidden="true" focusable="false">
-                        <use href="#icon-minus" />
+                        <use href="#icon-minus"></use>
                       </svg>
                     </button>
                     <div class="menu-link r-flyout__link-wrap">
@@ -2741,14 +1898,14 @@
                     </ul>
                   </div>
                 </li>
-                <li data-r-flyout-item>
+                <li data-r-flyout-item="">
                   <div class="item-wrapper r-flyout__header">
                     <button class="r-flyout__toggle" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="r-flyout-panel-adjectives" aria-label="Toggle submenu for Adjectives">
                       <svg class="r-flyout__icon r-flyout__icon--plus" aria-hidden="true" focusable="false">
-                        <use href="#icon-plus" />
+                        <use href="#icon-plus"></use>
                       </svg>
                       <svg class="r-flyout__icon r-flyout__icon--minus" aria-hidden="true" focusable="false">
-                        <use href="#icon-minus" />
+                        <use href="#icon-minus"></use>
                       </svg>
                     </button>
                     <div class="menu-link r-flyout__link-wrap">
@@ -2816,14 +1973,14 @@
                     </ul>
                   </div>
                 </li>
-                <li data-r-flyout-item>
+                <li data-r-flyout-item="">
                   <div class="item-wrapper r-flyout__header">
                     <button class="r-flyout__toggle" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="r-flyout-panel-adverbs" aria-label="Toggle submenu for Adverbs">
                       <svg class="r-flyout__icon r-flyout__icon--plus" aria-hidden="true" focusable="false">
-                        <use href="#icon-plus" />
+                        <use href="#icon-plus"></use>
                       </svg>
                       <svg class="r-flyout__icon r-flyout__icon--minus" aria-hidden="true" focusable="false">
-                        <use href="#icon-minus" />
+                        <use href="#icon-minus"></use>
                       </svg>
                     </button>
                     <div class="menu-link r-flyout__link-wrap">
@@ -2898,14 +2055,14 @@
                     </ul>
                   </div>
                 </li>
-                <li data-r-flyout-item>
+                <li data-r-flyout-item="">
                   <div class="item-wrapper r-flyout__header">
                     <button class="r-flyout__toggle" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="r-flyout-panel-pronouns" aria-label="Toggle submenu for Pronouns">
                       <svg class="r-flyout__icon r-flyout__icon--plus" aria-hidden="true" focusable="false">
-                        <use href="#icon-plus" />
+                        <use href="#icon-plus"></use>
                       </svg>
                       <svg class="r-flyout__icon r-flyout__icon--minus" aria-hidden="true" focusable="false">
-                        <use href="#icon-minus" />
+                        <use href="#icon-minus"></use>
                       </svg>
                     </button>
                     <div class="menu-link r-flyout__link-wrap">
@@ -3050,14 +2207,14 @@
                     </ul>
                   </div>
                 </li>
-                <li data-r-flyout-item>
+                <li data-r-flyout-item="">
                   <div class="item-wrapper r-flyout__header">
                     <button class="r-flyout__toggle" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="r-flyout-panel-prepositions" aria-label="Toggle submenu for Prepositions">
                       <svg class="r-flyout__icon r-flyout__icon--plus" aria-hidden="true" focusable="false">
-                        <use href="#icon-plus" />
+                        <use href="#icon-plus"></use>
                       </svg>
                       <svg class="r-flyout__icon r-flyout__icon--minus" aria-hidden="true" focusable="false">
-                        <use href="#icon-minus" />
+                        <use href="#icon-minus"></use>
                       </svg>
                     </button>
                     <div class="menu-link r-flyout__link-wrap">
@@ -3139,14 +2296,14 @@
                     </ul>
                   </div>
                 </li>
-                <li data-r-flyout-item>
+                <li data-r-flyout-item="">
                   <div class="item-wrapper r-flyout__header">
                     <button class="r-flyout__toggle" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="r-flyout-panel-conjunctions" aria-label="Toggle submenu for Conjunctions">
                       <svg class="r-flyout__icon r-flyout__icon--plus" aria-hidden="true" focusable="false">
-                        <use href="#icon-plus" />
+                        <use href="#icon-plus"></use>
                       </svg>
                       <svg class="r-flyout__icon r-flyout__icon--minus" aria-hidden="true" focusable="false">
-                        <use href="#icon-minus" />
+                        <use href="#icon-minus"></use>
                       </svg>
                     </button>
                     <div class="menu-link r-flyout__link-wrap">
@@ -3207,14 +2364,14 @@
                     </ul>
                   </div>
                 </li>
-                <li data-r-flyout-item>
+                <li data-r-flyout-item="">
                   <div class="item-wrapper r-flyout__header">
                     <button class="r-flyout__toggle" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="r-flyout-panel-agreement" aria-label="Toggle submenu for S plus V Agreement">
                       <svg class="r-flyout__icon r-flyout__icon--plus" aria-hidden="true" focusable="false">
-                        <use href="#icon-plus" />
+                        <use href="#icon-plus"></use>
                       </svg>
                       <svg class="r-flyout__icon r-flyout__icon--minus" aria-hidden="true" focusable="false">
-                        <use href="#icon-minus" />
+                        <use href="#icon-minus"></use>
                       </svg>
                     </button>
                     <div class="menu-link r-flyout__link-wrap">
@@ -3247,14 +2404,14 @@
                     </ul>
                   </div>
                 </li>
-                <li data-r-flyout-item>
+                <li data-r-flyout-item="">
                   <div class="item-wrapper r-flyout__header">
                     <button class="r-flyout__toggle" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="r-flyout-panel-articles" aria-label="Toggle submenu for Articles">
                       <svg class="r-flyout__icon r-flyout__icon--plus" aria-hidden="true" focusable="false">
-                        <use href="#icon-plus" />
+                        <use href="#icon-plus"></use>
                       </svg>
                       <svg class="r-flyout__icon r-flyout__icon--minus" aria-hidden="true" focusable="false">
-                        <use href="#icon-minus" />
+                        <use href="#icon-minus"></use>
                       </svg>
                     </button>
                     <div class="menu-link r-flyout__link-wrap">
@@ -3287,14 +2444,14 @@
                     </ul>
                   </div>
                 </li>
-                <li data-r-flyout-item>
+                <li data-r-flyout-item="">
                   <div class="item-wrapper r-flyout__header">
                     <button class="r-flyout__toggle" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="r-flyout-panel-conditionals" aria-label="Toggle submenu for Conditionals">
                       <svg class="r-flyout__icon r-flyout__icon--plus" aria-hidden="true" focusable="false">
-                        <use href="#icon-plus" />
+                        <use href="#icon-plus"></use>
                       </svg>
                       <svg class="r-flyout__icon r-flyout__icon--minus" aria-hidden="true" focusable="false">
-                        <use href="#icon-minus" />
+                        <use href="#icon-minus"></use>
                       </svg>
                     </button>
                     <div class="menu-link r-flyout__link-wrap">
@@ -3327,14 +2484,14 @@
                     </ul>
                   </div>
                 </li>
-                <li data-r-flyout-item>
+                <li data-r-flyout-item="">
                   <div class="item-wrapper r-flyout__header">
                     <button class="r-flyout__toggle" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="r-flyout-panel-modifiers" aria-label="Toggle submenu for Modifiers">
                       <svg class="r-flyout__icon r-flyout__icon--plus" aria-hidden="true" focusable="false">
-                        <use href="#icon-plus" />
+                        <use href="#icon-plus"></use>
                       </svg>
                       <svg class="r-flyout__icon r-flyout__icon--minus" aria-hidden="true" focusable="false">
-                        <use href="#icon-minus" />
+                        <use href="#icon-minus"></use>
                       </svg>
                     </button>
                     <div class="menu-link r-flyout__link-wrap">
@@ -3381,14 +2538,14 @@
                     </ul>
                   </div>
                 </li>
-                <li data-r-flyout-item>
+                <li data-r-flyout-item="">
                   <div class="item-wrapper r-flyout__header">
                     <button class="r-flyout__toggle" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="r-flyout-panel-speech" aria-label="Toggle submenu for Speech Direction">
                       <svg class="r-flyout__icon r-flyout__icon--plus" aria-hidden="true" focusable="false">
-                        <use href="#icon-plus" />
+                        <use href="#icon-plus"></use>
                       </svg>
                       <svg class="r-flyout__icon r-flyout__icon--minus" aria-hidden="true" focusable="false">
-                        <use href="#icon-minus" />
+                        <use href="#icon-minus"></use>
                       </svg>
                     </button>
                     <div class="menu-link r-flyout__link-wrap">
@@ -3442,11 +2599,11 @@
                     </ul>
                   </div>
                 </li>
-                <li data-r-flyout-item>
+                <li data-r-flyout-item="">
                   <div class="item-wrapper r-flyout__header">
                     <button class="r-flyout__toggle" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="r-flyout-panel-passive" aria-label="Toggle submenu for Active-Passive">
                       <svg class="r-flyout__icon r-flyout__icon--plus" aria-hidden="true" focusable="false">
-                        <use href="#icon-plus" />
+                        <use href="#icon-plus"></use>
                       </svg>
                     </button>
                     <div class="menu-link r-flyout__link-wrap">
@@ -3454,14 +2611,14 @@
                     </div>
                   </div>
                 </li>
-                <li data-r-flyout-item>
+                <li data-r-flyout-item="">
                   <div class="item-wrapper r-flyout__header">
                     <button class="r-flyout__toggle" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="r-flyout-panel-passive" aria-label="Toggle submenu for Active-Passive">
                       <svg class="r-flyout__icon r-flyout__icon--plus" aria-hidden="true" focusable="false">
-                        <use href="#icon-plus" />
+                        <use href="#icon-plus"></use>
                       </svg>
                       <svg class="r-flyout__icon r-flyout__icon--minus" aria-hidden="true" focusable="false">
-                        <use href="#icon-minus" />
+                        <use href="#icon-minus"></use>
                       </svg>
                     </button>
                     <div class="menu-link r-flyout__link-wrap">
@@ -3529,14 +2686,14 @@
                     </ul>
                   </div>
                 </li>
-                <li data-r-flyout-item>
+                <li data-r-flyout-item="">
                   <div class="item-wrapper r-flyout__header">
                     <button class="r-flyout__toggle" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="r-flyout-panel-clauses" aria-label="Toggle submenu for Clauses">
                       <svg class="r-flyout__icon r-flyout__icon--plus" aria-hidden="true" focusable="false">
-                        <use href="#icon-plus" />
+                        <use href="#icon-plus"></use>
                       </svg>
                       <svg class="r-flyout__icon r-flyout__icon--minus" aria-hidden="true" focusable="false">
-                        <use href="#icon-minus" />
+                        <use href="#icon-minus"></use>
                       </svg>
                     </button>
                     <div class="menu-link r-flyout__link-wrap">
@@ -3569,14 +2726,14 @@
                     </ul>
                   </div>
                 </li>
-                <li data-r-flyout-item>
+                <li data-r-flyout-item="">
                   <div class="item-wrapper r-flyout__header">
                     <button class="r-flyout__toggle" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="r-flyout-panel-verbing" aria-label="Toggle submenu for Verb-ing">
                       <svg class="r-flyout__icon r-flyout__icon--plus" aria-hidden="true" focusable="false">
-                        <use href="#icon-plus" />
+                        <use href="#icon-plus"></use>
                       </svg>
                       <svg class="r-flyout__icon r-flyout__icon--minus" aria-hidden="true" focusable="false">
-                        <use href="#icon-minus" />
+                        <use href="#icon-minus"></use>
                       </svg>
                     </button>
                     <div class="menu-link r-flyout__link-wrap">
@@ -3623,14 +2780,14 @@
                     </ul>
                   </div>
                 </li>
-                <li data-r-flyout-item>
+                <li data-r-flyout-item="">
                   <div class="item-wrapper r-flyout__header">
                     <button class="r-flyout__toggle" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="r-flyout-panel-determiners" aria-label="Toggle submenu for Determiners">
                       <svg class="r-flyout__icon r-flyout__icon--plus" aria-hidden="true" focusable="false">
-                        <use href="#icon-plus" />
+                        <use href="#icon-plus"></use>
                       </svg>
                       <svg class="r-flyout__icon r-flyout__icon--minus" aria-hidden="true" focusable="false">
-                        <use href="#icon-minus" />
+                        <use href="#icon-minus"></use>
                       </svg>
                     </button>
                     <div class="menu-link r-flyout__link-wrap">
@@ -3663,14 +2820,14 @@
                     </ul>
                   </div>
                 </li>
-                <li data-r-flyout-item>
+                <li data-r-flyout-item="">
                   <div class="item-wrapper r-flyout__header">
                     <button class="r-flyout__toggle" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="r-flyout-panel-pos" aria-label="Toggle submenu for Part of Speech">
                       <svg class="r-flyout__icon r-flyout__icon--plus" aria-hidden="true" focusable="false">
-                        <use href="#icon-plus" />
+                        <use href="#icon-plus"></use>
                       </svg>
                       <svg class="r-flyout__icon r-flyout__icon--minus" aria-hidden="true" focusable="false">
-                        <use href="#icon-minus" />
+                        <use href="#icon-minus"></use>
                       </svg>
                     </button>
                     <div class="menu-link r-flyout__link-wrap">
@@ -3710,14 +2867,14 @@
                     </ul>
                   </div>
                 </li>
-                <li class="last" data-r-flyout-item>
+                <li class="last" data-r-flyout-item="">
                   <div class="item-wrapper r-flyout__header">
                     <button class="r-flyout__toggle" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="r-flyout-panel-vocabulary" aria-label="Toggle submenu for Vocabulary">
                       <svg class="r-flyout__icon r-flyout__icon--plus" aria-hidden="true" focusable="false">
-                        <use href="#icon-plus" />
+                        <use href="#icon-plus"></use>
                       </svg>
                       <svg class="r-flyout__icon r-flyout__icon--minus" aria-hidden="true" focusable="false">
-                        <use href="#icon-minus" />
+                        <use href="#icon-minus"></use>
                       </svg>
                     </button>
                     <div class="menu-link r-flyout__link-wrap">
@@ -3758,7 +2915,7 @@
           </p>
           <p>
             ©
-            <span data-copyright-year></span>
+            <span data-copyright-year=""></span>
             All rights reserved.
           </p>
         </div>
@@ -4296,5 +3453,6 @@
     </script>
 
     <!-- Mobile navigation is handled globally via template asset -->
-  </body>
-</html>
+
+
+</body></html>

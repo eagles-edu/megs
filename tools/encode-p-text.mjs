@@ -7,6 +7,8 @@
 // Optional quick check: node tools/encode-p-text.mjs /tmp/sample.html | head
 // Rollback: rm tools/encode-p-t
 // node tools/encode-p-text.mjs [--write|--apply] [--scope <all|highlighted|form|form-highlighted>] <file...>
+// node tools/encode-p-text.mjs --write --apply --scope all|highlighted|form|form-highlighted>] <file...>
+// node tools/encode-p-text.mjs --write --apply --scope form
 // Default is dry-run to stdout; use --write/--apply to rewrite files in place.
 
 import fs from "node:fs"

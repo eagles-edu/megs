@@ -2,17 +2,17 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#e0162b">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#e0162b" />
     <meta
       name="keywords"
-      content="ESL, TOESL, TOEFL, courses, english, english courses, education, english degree, degree, english education, exercises, english exercises, grammar, verb, english grammar, noun, adverb, adjective, english adverb, english noun, english adjective">
-    <meta name="description" content="A comprehensive site for free English courses and exercises.">
-    <meta name="generator" content="English Grammar - IELTS intermediate levels A2 and above">
-    <link href="1832-verb-ing-adjective-part-2.html" rel="non-canonical">
+      content="ESL, TOESL, TOEFL, courses, english, english courses, education, english degree, degree, english education, exercises, english exercises, grammar, verb, english grammar, noun, adverb, adjective, english adverb, english noun, english adjective" />
+    <meta name="description" content="A comprehensive site for free English courses and exercises." />
+    <meta name="generator" content="English Grammar - IELTS intermediate levels A2 and above" />
+    <link href="1832-verb-ing-adjective-part-2.html" rel="non-canonical" />
     <title>18.3.2 Verb + -ing (Adjective) Part 2</title>
-    <link href="../favicon.ico" rel="shortcut icon" type="image/vnd.microsoft.icon">
+    <link href="../favicon.ico" rel="shortcut icon" type="image/vnd.microsoft.icon" />
     <!-- theme-vars.css eliminated; variables live in base.css -->
 
     <!-- Minimal theme tokens inline to avoid var() FOUC when base.css loads async -->
@@ -109,10 +109,10 @@
       }
     </style>
     <!-- Base CSS (SSOT) blocking to stabilize layout -->
-    <link rel="preload" href="../web-asset/css/base.css" as="style">
-    <link rel="stylesheet" href="../web-asset/css/base.css">
+    <link rel="preload" href="../web-asset/css/base.css" as="style" />
+    <link rel="stylesheet" href="../web-asset/css/base.css" />
     <noscript>
-      <link rel="stylesheet" href="../web-asset/css/base.css">
+      <link rel="stylesheet" href="../web-asset/css/base.css" />
     </noscript>
     <style id="pager-style-overrides">
       .pager {
@@ -973,35 +973,35 @@
     <!-- Icon font not used on Codex variant; removed icomoon.css includes -->
 
     <!-- Layout styles for exercises + mobile nav (blocking for CLS stability) -->
-    <link rel="preload" href="../web-asset/css/exercises.css" as="style">
-    <link rel="stylesheet" href="../web-asset/css/exercises.css">
+    <link rel="preload" href="../web-asset/css/exercises.css" as="style" />
+    <link rel="stylesheet" href="../web-asset/css/exercises.css" />
     <noscript>
-      <link rel="stylesheet" href="../web-asset/css/exercises.css">
+      <link rel="stylesheet" href="../web-asset/css/exercises.css" />
     </noscript>
     <!-- Use system default fonts (no webfont preloads) -->
 
     <!-- Flyout + menu layout styles (blocking for CLS stability) -->
-    <link rel="preload" href="../web-asset/css/right-rail-flyout.css" as="style">
-    <link rel="stylesheet" href="../web-asset/css/right-rail-flyout.css">
+    <link rel="preload" href="../web-asset/css/right-rail-flyout.css" as="style" />
+    <link rel="stylesheet" href="../web-asset/css/right-rail-flyout.css" />
     <noscript>
-      <link rel="stylesheet" href="../web-asset/css/right-rail-flyout.css">
+      <link rel="stylesheet" href="../web-asset/css/right-rail-flyout.css" />
     </noscript>
     <!-- Left-menu.css blocking; critical inline reserves layout -->
-    <link rel="preload" href="../web-asset/css/left-menu.css" as="style">
-    <link rel="stylesheet" href="../web-asset/css/left-menu.css">
+    <link rel="preload" href="../web-asset/css/left-menu.css" as="style" />
+    <link rel="stylesheet" href="../web-asset/css/left-menu.css" />
     <noscript>
-      <link rel="stylesheet" href="../web-asset/css/left-menu.css">
+      <link rel="stylesheet" href="../web-asset/css/left-menu.css" />
     </noscript>
-    <link rel="preload" href="../web-asset/css/page-classes.css" as="style">
-    <link rel="stylesheet" href="../web-asset/css/page-classes.css">
+    <link rel="preload" href="../web-asset/css/page-classes.css" as="style" />
+    <link rel="stylesheet" href="../web-asset/css/page-classes.css" />
     <noscript>
-      <link rel="stylesheet" href="../web-asset/css/page-classes.css">
+      <link rel="stylesheet" href="../web-asset/css/page-classes.css" />
     </noscript>
     <!-- Removed jQuery/Bootstrap/nn_sliders/template scripts on codex variant to keep console clean -->
-    <link rel="preload" href="../web-asset/css/exercise-1-nouns_new.css" as="style">
-    <link rel="stylesheet" href="../web-asset/css/exercise-1-nouns_new.css">
+    <link rel="preload" href="../web-asset/css/exercise-1-nouns_new.css" as="style" />
+    <link rel="stylesheet" href="../web-asset/css/exercise-1-nouns_new.css" />
     <noscript>
-      <link rel="stylesheet" href="../web-asset/css/exercise-1-nouns_new.css">
+      <link rel="stylesheet" href="../web-asset/css/exercise-1-nouns_new.css" />
     </noscript>
     <!-- Codex QA slider scoped overrides (inlined to remove render-blocking request) -->
     <style id="qa-accordion-inline">
@@ -1370,7 +1370,7 @@
                          
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8 13.02" width="9" height="9"><polygon points="8 6.51 0 13.02 0 0 8 6.51" fill="#e0162b" /></svg>
                       </span>
-                      <meta itemprop="position" content="1">
+                      <meta itemprop="position" content="1" />
                     </li>
                     <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
                       <a itemprop="item" href="../exercise-18-verb-ing-gerunds-and-particles.html" class="pathway" aria-label="Exercise 18 - Verb + ing (Gerunds and Particles)">
@@ -1380,11 +1380,11 @@
                          
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8 13.02" width="9" height="9"><polygon points="8 6.51 0 13.02 0 0 8 6.51" fill="#e0162b" /></svg>
                       </span>
-                      <meta itemprop="position" content="2">
+                      <meta itemprop="position" content="2" />
                     </li>
                     <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem" class="active">
                       <span itemprop="name">18.3.2 Verb + -ing (Adjective) Part 2</span>
-                      <meta itemprop="position" content="3">
+                      <meta itemprop="position" content="3" />
                     </li>
                   </ul>
                 </nav>
@@ -1412,7 +1412,7 @@
                     </a>
                   </li>
                 </ul>
-                <br>
+                <br />
 
                 <div class="exinstruct"><p>Use the answer words as provided. Click the question to check your answer.</p></div>
                 <form class="exercise-form exercise-gate" data-exercise-form data-storage-key="exercise-1832-verb-ing-adjective-part-2" novalidate>
@@ -1421,7 +1421,7 @@
                     <div class="exercise-form__intro-layout">
                       <div class="exercise-form__intro-fields">
                         <div class="exercise-form__email">
-                          <input class="exercise-form__email-input" type="email" id="exercise-email" name="exerciseEmail" autocomplete="email" required data-exercise-email placeholder="name@example.com">
+                          <input class="exercise-form__email-input" type="email" id="exercise-email" name="exerciseEmail" autocomplete="email" required data-exercise-email placeholder="name@example.com" />
                         </div>
                         <div class="exercise-form__student-id">
                           <input
@@ -1437,7 +1437,7 @@
                             pattern="^[a-z]+\d{3}$"
                             data-exercise-student-id
                             placeholder="Eagles user ID - e.g., tammy001"
-                            aria-describedby="exercise-student-id-note">
+                            aria-describedby="exercise-student-id-note" />
                         </div>
                       </div>
                       <p class="exercise-form__progress tm01" data-exercise-progress aria-live="polite">0 of 20 questions completed.</p>
@@ -1446,6 +1446,7 @@
                     </div>
                   </fieldset>
 
+                  <h4>(drowned, drowning)</h4>
                   <div class="quest-bg" data-exercise-question="q1-the-body-of-the-_____-woman-was-found-after-an-extensive-search">
                     <div class="nn_sliders accordion panel-group" id="set-nn_sliders-1">
                       <span id="nn_sliders-scrollto_1" class="anchor nn_sliders-scroll"></span>
@@ -1468,7 +1469,7 @@
                             <h2 class="nn_sliders-title">1. The body of the _____ woman was found after an extensive search.</h2>
                             <p>
                               1. The body of the
-                              <span class="undies">&#100;&#114;&#111;&#119;&#110;&#101;&#100;</span>
+                              <span class="undies">drowned</span>
                               woman was found after an extensive search.
                             </p>
                           </div>
@@ -1476,11 +1477,11 @@
                         <div class="exercise-response-row" data-item="q1-the-body-of-the-_____-woman-was-found-after-an-extensive-search" data-answer-ui>
                           <label class="exercise-response-field">
                             <span class="visually-hidden">Response for item q1-the-body-of-the-_____-woman-was-found-after-an-extensive-search (answer_01)</span>
-                            <input class="exercise-response-input" type="text" placeholder="Answer" data-item="q1-the-body-of-the-_____-woman-was-found-after-an-extensive-search" data-field="answer_01" inputmode="text">
+                            <input class="exercise-response-input" type="text" placeholder="Answer" data-item="q1-the-body-of-the-_____-woman-was-found-after-an-extensive-search" data-field="answer_01" inputmode="text" />
                           </label>
                           <label class="exercise-response-field">
                             <span class="visually-hidden">Response for item q1-the-body-of-the-_____-woman-was-found-after-an-extensive-search (answer_02)</span>
-                            <input class="exercise-response-input" type="text" placeholder="Answer" data-item="q1-the-body-of-the-_____-woman-was-found-after-an-extensive-search" data-field="answer_02" inputmode="text">
+                            <input class="exercise-response-input" type="text" placeholder="Answer" data-item="q1-the-body-of-the-_____-woman-was-found-after-an-extensive-search" data-field="answer_02" inputmode="text" />
                           </label>
                         </div>
                       </div>
@@ -1508,7 +1509,7 @@
                             <h2 class="nn_sliders-title">2. George swam towards the _____ child in an effort to save him.</h2>
                             <p>
                               2. George swam towards the
-                              <span class="undies">&#100;&#114;&#111;&#119;&#110;&#105;&#110;&#103;</span>
+                              <span class="undies">drowning</span>
                               child in an effort to save him.
                             </p>
                           </div>
@@ -1516,16 +1517,17 @@
                         <div class="exercise-response-row" data-item="q2-george-swam-towards-the-_____-child-in-an-effort-to-save-him" data-answer-ui>
                           <label class="exercise-response-field">
                             <span class="visually-hidden">Response for item q2-george-swam-towards-the-_____-child-in-an-effort-to-save-him (answer_01)</span>
-                            <input class="exercise-response-input" type="text" placeholder="Answer" data-item="q2-george-swam-towards-the-_____-child-in-an-effort-to-save-him" data-field="answer_01" inputmode="text">
+                            <input class="exercise-response-input" type="text" placeholder="Answer" data-item="q2-george-swam-towards-the-_____-child-in-an-effort-to-save-him" data-field="answer_01" inputmode="text" />
                           </label>
                           <label class="exercise-response-field">
                             <span class="visually-hidden">Response for item q2-george-swam-towards-the-_____-child-in-an-effort-to-save-him (answer_02)</span>
-                            <input class="exercise-response-input" type="text" placeholder="Answer" data-item="q2-george-swam-towards-the-_____-child-in-an-effort-to-save-him" data-field="answer_02" inputmode="text">
+                            <input class="exercise-response-input" type="text" placeholder="Answer" data-item="q2-george-swam-towards-the-_____-child-in-an-effort-to-save-him" data-field="answer_02" inputmode="text" />
                           </label>
                         </div>
                       </div>
                     </div>
                   </div>
+                  <h4>(interested, interesting)</h4>
                   <div class="quest-bg" data-exercise-question="q3-are-you-_____-in-buying-a-car-i-m-trying-to-sell-mine">
                     <div class="nn_sliders accordion panel-group" id="set-nn_sliders-3">
                       <span id="nn_sliders-scrollto_3" class="anchor nn_sliders-scroll"></span>
@@ -1548,7 +1550,7 @@
                             <h2 class="nn_sliders-title">3. Are you _____ in buying a car? I'm trying to sell mine.</h2>
                             <p>
                               3. Are you
-                              <span class="undies">&#105;&#110;&#116;&#101;&#114;&#101;&#115;&#116;&#101;&#100;</span>
+                              <span class="undies">interested</span>
                               in buying a car? I'm trying to sell mine.
                             </p>
                           </div>
@@ -1556,11 +1558,11 @@
                         <div class="exercise-response-row" data-item="q3-are-you-_____-in-buying-a-car-i-m-trying-to-sell-mine" data-answer-ui>
                           <label class="exercise-response-field">
                             <span class="visually-hidden">Response for item q3-are-you-_____-in-buying-a-car-i-m-trying-to-sell-mine (answer_01)</span>
-                            <input class="exercise-response-input" type="text" placeholder="Answer" data-item="q3-are-you-_____-in-buying-a-car-i-m-trying-to-sell-mine" data-field="answer_01" inputmode="text">
+                            <input class="exercise-response-input" type="text" placeholder="Answer" data-item="q3-are-you-_____-in-buying-a-car-i-m-trying-to-sell-mine" data-field="answer_01" inputmode="text" />
                           </label>
                           <label class="exercise-response-field">
                             <span class="visually-hidden">Response for item q3-are-you-_____-in-buying-a-car-i-m-trying-to-sell-mine (answer_02)</span>
-                            <input class="exercise-response-input" type="text" placeholder="Answer" data-item="q3-are-you-_____-in-buying-a-car-i-m-trying-to-sell-mine" data-field="answer_02" inputmode="text">
+                            <input class="exercise-response-input" type="text" placeholder="Answer" data-item="q3-are-you-_____-in-buying-a-car-i-m-trying-to-sell-mine" data-field="answer_02" inputmode="text" />
                           </label>
                         </div>
                       </div>
@@ -1588,7 +1590,7 @@
                             <h2 class="nn_sliders-title">4. Did you meet anyone _____ at the party?</h2>
                             <p>
                               4. Did you meet anyone
-                              <span class="undies">&#105;&#110;&#116;&#101;&#114;&#101;&#115;&#116;&#105;&#110;&#103;</span>
+                              <span class="undies">interesting</span>
                               at the party?
                             </p>
                           </div>
@@ -1596,11 +1598,11 @@
                         <div class="exercise-response-row" data-item="q4-did-you-meet-anyone-_____-at-the-party" data-answer-ui>
                           <label class="exercise-response-field">
                             <span class="visually-hidden">Response for item q4-did-you-meet-anyone-_____-at-the-party (answer_01)</span>
-                            <input class="exercise-response-input" type="text" placeholder="Answer" data-item="q4-did-you-meet-anyone-_____-at-the-party" data-field="answer_01" inputmode="text">
+                            <input class="exercise-response-input" type="text" placeholder="Answer" data-item="q4-did-you-meet-anyone-_____-at-the-party" data-field="answer_01" inputmode="text" />
                           </label>
                           <label class="exercise-response-field">
                             <span class="visually-hidden">Response for item q4-did-you-meet-anyone-_____-at-the-party (answer_02)</span>
-                            <input class="exercise-response-input" type="text" placeholder="Answer" data-item="q4-did-you-meet-anyone-_____-at-the-party" data-field="answer_02" inputmode="text">
+                            <input class="exercise-response-input" type="text" placeholder="Answer" data-item="q4-did-you-meet-anyone-_____-at-the-party" data-field="answer_02" inputmode="text" />
                           </label>
                         </div>
                       </div>
@@ -1628,9 +1630,9 @@
                             <h2 class="nn_sliders-title">5. I'm _____ in listening if you have _____ things to say.</h2>
                             <p>
                               5. I'm
-                              <span class="undies">&#105;&#110;&#116;&#101;&#114;&#101;&#115;&#116;&#101;&#100;</span>
+                              <span class="undies">interested</span>
                               in listening if you have
-                              <span class="undies">&#105;&#110;&#116;&#101;&#114;&#101;&#115;&#116;&#105;&#110;&#103;</span>
+                              <span class="undies">interesting</span>
                               things to say.
                             </p>
                           </div>
@@ -1638,11 +1640,11 @@
                         <div class="exercise-response-row" data-item="q5-i-m-_____-in-listening-if-you-have-_____-things-to-say" data-answer-ui>
                           <label class="exercise-response-field">
                             <span class="visually-hidden">Response for item q5-i-m-_____-in-listening-if-you-have-_____-things-to-say (answer_01)</span>
-                            <input class="exercise-response-input" type="text" placeholder="Answer" data-item="q5-i-m-_____-in-listening-if-you-have-_____-things-to-say" data-field="answer_01" inputmode="text">
+                            <input class="exercise-response-input" type="text" placeholder="Answer" data-item="q5-i-m-_____-in-listening-if-you-have-_____-things-to-say" data-field="answer_01" inputmode="text" />
                           </label>
                           <label class="exercise-response-field">
                             <span class="visually-hidden">Response for item q5-i-m-_____-in-listening-if-you-have-_____-things-to-say (answer_02)</span>
-                            <input class="exercise-response-input" type="text" placeholder="Answer" data-item="q5-i-m-_____-in-listening-if-you-have-_____-things-to-say" data-field="answer_02" inputmode="text">
+                            <input class="exercise-response-input" type="text" placeholder="Answer" data-item="q5-i-m-_____-in-listening-if-you-have-_____-things-to-say" data-field="answer_02" inputmode="text" />
                           </label>
                         </div>
                       </div>
@@ -1670,9 +1672,9 @@
                             <h2 class="nn_sliders-title">6. Julia thinks politics is very _____, but her father was never _____ in it.</h2>
                             <p>
                               6. Julia thinks politics is very
-                              <span class="undies">&#105;&#110;&#116;&#101;&#114;&#101;&#115;&#116;&#105;&#110;&#103;</span>
+                              <span class="undies">interesting</span>
                               , but her father was never
-                              <span class="undies">&#105;&#110;&#116;&#101;&#114;&#101;&#115;&#116;&#101;&#100;</span>
+                              <span class="undies">interested</span>
                               in it.
                             </p>
                           </div>
@@ -1680,11 +1682,11 @@
                         <div class="exercise-response-row" data-item="q6-julia-thinks-politics-is-very-_____-but-her-father-was-never-_____-in-it" data-answer-ui>
                           <label class="exercise-response-field">
                             <span class="visually-hidden">Response for item q6-julia-thinks-politics-is-very-_____-but-her-father-was-never-_____-in-it (answer_01)</span>
-                            <input class="exercise-response-input" type="text" placeholder="Answer" data-item="q6-julia-thinks-politics-is-very-_____-but-her-father-was-never-_____-in-it" data-field="answer_01" inputmode="text">
+                            <input class="exercise-response-input" type="text" placeholder="Answer" data-item="q6-julia-thinks-politics-is-very-_____-but-her-father-was-never-_____-in-it" data-field="answer_01" inputmode="text" />
                           </label>
                           <label class="exercise-response-field">
                             <span class="visually-hidden">Response for item q6-julia-thinks-politics-is-very-_____-but-her-father-was-never-_____-in-it (answer_02)</span>
-                            <input class="exercise-response-input" type="text" placeholder="Answer" data-item="q6-julia-thinks-politics-is-very-_____-but-her-father-was-never-_____-in-it" data-field="answer_02" inputmode="text">
+                            <input class="exercise-response-input" type="text" placeholder="Answer" data-item="q6-julia-thinks-politics-is-very-_____-but-her-father-was-never-_____-in-it" data-field="answer_02" inputmode="text" />
                           </label>
                         </div>
                       </div>
@@ -1712,9 +1714,9 @@
                             <h2 class="nn_sliders-title">7. "It was _____ to learn dressmaking, but now I'm not so _____ in it." she told him.</h2>
                             <p>
                               7. "It was
-                              <span class="undies">&#105;&#110;&#116;&#101;&#114;&#101;&#115;&#116;&#105;&#110;&#103;</span>
+                              <span class="undies">interesting</span>
                               to learn dressmaking, but now I'm not so
-                              <span class="undies">&#105;&#110;&#116;&#101;&#114;&#101;&#115;&#116;&#101;&#100;</span>
+                              <span class="undies">interested</span>
                               in it." she told him.
                             </p>
                           </div>
@@ -1722,11 +1724,11 @@
                         <div class="exercise-response-row" data-item="q7-it-was-_____-to-learn-dressmaking-but-now-i-m-not-so-_____-in-it-she-told-him" data-answer-ui>
                           <label class="exercise-response-field">
                             <span class="visually-hidden">Response for item q7-it-was-_____-to-learn-dressmaking-but-now-i-m-not-so-_____-in-it-she-told-him (answer_01)</span>
-                            <input class="exercise-response-input" type="text" placeholder="Answer" data-item="q7-it-was-_____-to-learn-dressmaking-but-now-i-m-not-so-_____-in-it-she-told-him" data-field="answer_01" inputmode="text">
+                            <input class="exercise-response-input" type="text" placeholder="Answer" data-item="q7-it-was-_____-to-learn-dressmaking-but-now-i-m-not-so-_____-in-it-she-told-him" data-field="answer_01" inputmode="text" />
                           </label>
                           <label class="exercise-response-field">
                             <span class="visually-hidden">Response for item q7-it-was-_____-to-learn-dressmaking-but-now-i-m-not-so-_____-in-it-she-told-him (answer_02)</span>
-                            <input class="exercise-response-input" type="text" placeholder="Answer" data-item="q7-it-was-_____-to-learn-dressmaking-but-now-i-m-not-so-_____-in-it-she-told-him" data-field="answer_02" inputmode="text">
+                            <input class="exercise-response-input" type="text" placeholder="Answer" data-item="q7-it-was-_____-to-learn-dressmaking-but-now-i-m-not-so-_____-in-it-she-told-him" data-field="answer_02" inputmode="text" />
                           </label>
                         </div>
                       </div>
@@ -1754,9 +1756,9 @@
                             <h2 class="nn_sliders-title">8. The game was very _____ to watch. But I wouldn't be _____ in playing it.</h2>
                             <p>
                               8. The game was very
-                              <span class="undies">&#105;&#110;&#116;&#101;&#114;&#101;&#115;&#116;&#105;&#110;&#103;</span>
+                              <span class="undies">interesting</span>
                               to watch. But I wouldn't be
-                              <span class="undies">&#105;&#110;&#116;&#101;&#114;&#101;&#115;&#116;&#101;&#100;</span>
+                              <span class="undies">interested</span>
                               in playing it.
                             </p>
                           </div>
@@ -1764,16 +1766,17 @@
                         <div class="exercise-response-row" data-item="q8-the-game-was-very-_____-to-watch-but-i-wouldn-t-be-_____-in-playing-it" data-answer-ui>
                           <label class="exercise-response-field">
                             <span class="visually-hidden">Response for item q8-the-game-was-very-_____-to-watch-but-i-wouldn-t-be-_____-in-playing-it (answer_01)</span>
-                            <input class="exercise-response-input" type="text" placeholder="Answer" data-item="q8-the-game-was-very-_____-to-watch-but-i-wouldn-t-be-_____-in-playing-it" data-field="answer_01" inputmode="text">
+                            <input class="exercise-response-input" type="text" placeholder="Answer" data-item="q8-the-game-was-very-_____-to-watch-but-i-wouldn-t-be-_____-in-playing-it" data-field="answer_01" inputmode="text" />
                           </label>
                           <label class="exercise-response-field">
                             <span class="visually-hidden">Response for item q8-the-game-was-very-_____-to-watch-but-i-wouldn-t-be-_____-in-playing-it (answer_02)</span>
-                            <input class="exercise-response-input" type="text" placeholder="Answer" data-item="q8-the-game-was-very-_____-to-watch-but-i-wouldn-t-be-_____-in-playing-it" data-field="answer_02" inputmode="text">
+                            <input class="exercise-response-input" type="text" placeholder="Answer" data-item="q8-the-game-was-very-_____-to-watch-but-i-wouldn-t-be-_____-in-playing-it" data-field="answer_02" inputmode="text" />
                           </label>
                         </div>
                       </div>
                     </div>
                   </div>
+                  <h4>(excited, exciting)</h4>
                   <div class="quest-bg" data-exercise-question="q9-the-bystanders-watched-the-_____-driver-getting-out-of-his-car-and-arguing-with-the-policemen">
                     <div class="nn_sliders accordion panel-group" id="set-nn_sliders-9">
                       <span id="nn_sliders-scrollto_9" class="anchor nn_sliders-scroll"></span>
@@ -1796,7 +1799,7 @@
                             <h2 class="nn_sliders-title">9. The bystanders watched the _____ driver getting out of his car and arguing with the policemen.</h2>
                             <p>
                               9. The bystanders watched the
-                              <span class="undies">&#101;&#120;&#99;&#105;&#116;&#101;&#100;</span>
+                              <span class="undies">excited</span>
                               driver getting out of his car and arguing with the policemen.
                             </p>
                           </div>
@@ -1810,7 +1813,7 @@
                               placeholder="Answer"
                               data-item="q9-the-bystanders-watched-the-_____-driver-getting-out-of-his-car-and-arguing-with-the-policemen"
                               data-field="answer_01"
-                              inputmode="text">
+                              inputmode="text" />
                           </label>
                           <label class="exercise-response-field">
                             <span class="visually-hidden">Response for item q9-the-bystanders-watched-the-_____-driver-getting-out-of-his-car-and-arguing-with-the-policemen (answer_02)</span>
@@ -1820,7 +1823,7 @@
                               placeholder="Answer"
                               data-item="q9-the-bystanders-watched-the-_____-driver-getting-out-of-his-car-and-arguing-with-the-policemen"
                               data-field="answer_02"
-                              inputmode="text">
+                              inputmode="text" />
                           </label>
                         </div>
                       </div>
@@ -1848,9 +1851,9 @@
                             <h2 class="nn_sliders-title">10. The _____ boys couldn't wait to spend a week camping in a jungle as they expected to have a very _____ time.</h2>
                             <p>
                               10. The
-                              <span class="undies">&#101;&#120;&#99;&#105;&#116;&#101;&#100;</span>
+                              <span class="undies">excited</span>
                               boys couldn't wait to spend a week camping in a jungle as they expected to have a very
-                              <span class="undies">&#101;&#120;&#99;&#105;&#116;&#105;&#110;&#103;</span>
+                              <span class="undies">exciting</span>
                               time.
                             </p>
                           </div>
@@ -1864,7 +1867,7 @@
                               placeholder="Answer"
                               data-item="q10-the-_____-boys-couldn-t-wait-to-spend-a-week-camping-in-a-jungle-as-they-expected-to-have-a-very-_____-time"
                               data-field="answer_01"
-                              inputmode="text">
+                              inputmode="text" />
                           </label>
                           <label class="exercise-response-field">
                             <span class="visually-hidden">Response for item q10-the-_____-boys-couldn-t-wait-to-spend-a-week-camping-in-a-jungle-as-they-expected-to-have-a-very-_____-time (answer_02)</span>
@@ -1874,12 +1877,13 @@
                               placeholder="Answer"
                               data-item="q10-the-_____-boys-couldn-t-wait-to-spend-a-week-camping-in-a-jungle-as-they-expected-to-have-a-very-_____-time"
                               data-field="answer_02"
-                              inputmode="text">
+                              inputmode="text" />
                           </label>
                         </div>
                       </div>
                     </div>
                   </div>
+                  <h4>(boiled, boiling)</h4>
                   <div class="quest-bg" data-exercise-question="q11-she-took-the-_____-egg-carefully-out-of-the-_____-water">
                     <div class="nn_sliders accordion panel-group" id="set-nn_sliders-11">
                       <span id="nn_sliders-scrollto_11" class="anchor nn_sliders-scroll"></span>
@@ -1902,9 +1906,9 @@
                             <h2 class="nn_sliders-title">11. She took the _____ egg carefully out of the _____ water.</h2>
                             <p>
                               11. She took the
-                              <span class="undies">&#98;&#111;&#105;&#108;&#101;&#100;</span>
+                              <span class="undies">boiled</span>
                               egg carefully out of the
-                              <span class="undies">&#98;&#111;&#105;&#108;&#105;&#110;&#103;</span>
+                              <span class="undies">boiling</span>
                               water.
                             </p>
                           </div>
@@ -1912,16 +1916,17 @@
                         <div class="exercise-response-row" data-item="q11-she-took-the-_____-egg-carefully-out-of-the-_____-water" data-answer-ui>
                           <label class="exercise-response-field">
                             <span class="visually-hidden">Response for item q11-she-took-the-_____-egg-carefully-out-of-the-_____-water (answer_01)</span>
-                            <input class="exercise-response-input" type="text" placeholder="Answer" data-item="q11-she-took-the-_____-egg-carefully-out-of-the-_____-water" data-field="answer_01" inputmode="text">
+                            <input class="exercise-response-input" type="text" placeholder="Answer" data-item="q11-she-took-the-_____-egg-carefully-out-of-the-_____-water" data-field="answer_01" inputmode="text" />
                           </label>
                           <label class="exercise-response-field">
                             <span class="visually-hidden">Response for item q11-she-took-the-_____-egg-carefully-out-of-the-_____-water (answer_02)</span>
-                            <input class="exercise-response-input" type="text" placeholder="Answer" data-item="q11-she-took-the-_____-egg-carefully-out-of-the-_____-water" data-field="answer_02" inputmode="text">
+                            <input class="exercise-response-input" type="text" placeholder="Answer" data-item="q11-she-took-the-_____-egg-carefully-out-of-the-_____-water" data-field="answer_02" inputmode="text" />
                           </label>
                         </div>
                       </div>
                     </div>
                   </div>
+                  <h4>(tired, tiring)</h4>
                   <div class="quest-bg" data-exercise-question="q12-the-_____-journey-made-us-both-feel-very-_____">
                     <div class="nn_sliders accordion panel-group" id="set-nn_sliders-12">
                       <span id="nn_sliders-scrollto_12" class="anchor nn_sliders-scroll"></span>
@@ -1944,9 +1949,9 @@
                             <h2 class="nn_sliders-title">12. The _____ journey made us both feel very _____.</h2>
                             <p>
                               12. The
-                              <span class="undies">&#116;&#105;&#114;&#105;&#110;&#103;</span>
+                              <span class="undies">tiring</span>
                               journey made us both feel very
-                              <span class="undies">&#116;&#105;&#114;&#101;&#100;</span>
+                              <span class="undies">tired</span>
                               .
                             </p>
                           </div>
@@ -1954,16 +1959,17 @@
                         <div class="exercise-response-row" data-item="q12-the-_____-journey-made-us-both-feel-very-_____" data-answer-ui>
                           <label class="exercise-response-field">
                             <span class="visually-hidden">Response for item q12-the-_____-journey-made-us-both-feel-very-_____ (answer_01)</span>
-                            <input class="exercise-response-input" type="text" placeholder="Answer" data-item="q12-the-_____-journey-made-us-both-feel-very-_____" data-field="answer_01" inputmode="text">
+                            <input class="exercise-response-input" type="text" placeholder="Answer" data-item="q12-the-_____-journey-made-us-both-feel-very-_____" data-field="answer_01" inputmode="text" />
                           </label>
                           <label class="exercise-response-field">
                             <span class="visually-hidden">Response for item q12-the-_____-journey-made-us-both-feel-very-_____ (answer_02)</span>
-                            <input class="exercise-response-input" type="text" placeholder="Answer" data-item="q12-the-_____-journey-made-us-both-feel-very-_____" data-field="answer_02" inputmode="text">
+                            <input class="exercise-response-input" type="text" placeholder="Answer" data-item="q12-the-_____-journey-made-us-both-feel-very-_____" data-field="answer_02" inputmode="text" />
                           </label>
                         </div>
                       </div>
                     </div>
                   </div>
+                  <h4>(disappointed, disappointing)</h4>
                   <div class="quest-bg" data-exercise-question="q13-we-re-going-to-see-the-film-but-_____-to-hear-you-say-you-are-_____-because-it-was-a-boring-one">
                     <div class="nn_sliders accordion panel-group" id="set-nn_sliders-13">
                       <span id="nn_sliders-scrollto_13" class="anchor nn_sliders-scroll"></span>
@@ -1986,9 +1992,9 @@
                             <h2 class="nn_sliders-title">13. We're going to see the film but _____ to hear you say you are _____ because it was a boring one.</h2>
                             <p>
                               13. We're going to see the film but
-                              <span class="undies">&#100;&#105;&#115;&#97;&#112;&#112;&#111;&#105;&#110;&#116;&#101;&#100;</span>
+                              <span class="undies">disappointed</span>
                               to hear you say you are
-                              <span class="undies">&#100;&#105;&#115;&#97;&#112;&#112;&#111;&#105;&#110;&#116;&#101;&#100;</span>
+                              <span class="undies">disappointed</span>
                               because it was a boring one.
                             </p>
                           </div>
@@ -2002,7 +2008,7 @@
                               placeholder="Answer"
                               data-item="q13-we-re-going-to-see-the-film-but-_____-to-hear-you-say-you-are-_____-because-it-was-a-boring-one"
                               data-field="answer_01"
-                              inputmode="text">
+                              inputmode="text" />
                           </label>
                           <label class="exercise-response-field">
                             <span class="visually-hidden">Response for item q13-we-re-going-to-see-the-film-but-_____-to-hear-you-say-you-are-_____-because-it-was-a-boring-one (answer_02)</span>
@@ -2012,7 +2018,7 @@
                               placeholder="Answer"
                               data-item="q13-we-re-going-to-see-the-film-but-_____-to-hear-you-say-you-are-_____-because-it-was-a-boring-one"
                               data-field="answer_02"
-                              inputmode="text">
+                              inputmode="text" />
                           </label>
                         </div>
                       </div>
@@ -2040,9 +2046,9 @@
                             <h2 class="nn_sliders-title">14. My father said to me, "Last year your results were _____. I hope you will not have us _____ again this year."</h2>
                             <p>
                               14. My father said to me, "Last year your results were
-                              <span class="undies">&#100;&#105;&#115;&#97;&#112;&#112;&#111;&#105;&#110;&#116;&#105;&#110;&#103;</span>
+                              <span class="undies">disappointing</span>
                               . I hope you will not have us
-                              <span class="undies">&#100;&#105;&#115;&#97;&#112;&#112;&#111;&#105;&#110;&#116;&#101;&#100;</span>
+                              <span class="undies">disappointed</span>
                               again this year."
                             </p>
                           </div>
@@ -2056,7 +2062,7 @@
                               placeholder="Answer"
                               data-item="q14-my-father-said-to-me-last-year-your-results-were-_____-i-hope-you-will-not-have-us-_____-again-this-year"
                               data-field="answer_01"
-                              inputmode="text">
+                              inputmode="text" />
                           </label>
                           <label class="exercise-response-field">
                             <span class="visually-hidden">Response for item q14-my-father-said-to-me-last-year-your-results-were-_____-i-hope-you-will-not-have-us-_____-again-this-year (answer_02)</span>
@@ -2066,7 +2072,7 @@
                               placeholder="Answer"
                               data-item="q14-my-father-said-to-me-last-year-your-results-were-_____-i-hope-you-will-not-have-us-_____-again-this-year"
                               data-field="answer_02"
-                              inputmode="text">
+                              inputmode="text" />
                           </label>
                         </div>
                       </div>
@@ -2094,9 +2100,9 @@
                             <h2 class="nn_sliders-title">15. The match was _____. Fans of both teams must have found it _____ too.</h2>
                             <p>
                               15. The match was
-                              <span class="undies">&#100;&#105;&#115;&#97;&#112;&#112;&#111;&#105;&#110;&#116;&#105;&#110;&#103;</span>
+                              <span class="undies">disappointing</span>
                               . Fans of both teams must have found it
-                              <span class="undies">&#100;&#105;&#115;&#97;&#112;&#112;&#111;&#105;&#110;&#116;&#105;&#110;&#103;</span>
+                              <span class="undies">disappointing</span>
                               too.
                             </p>
                           </div>
@@ -2104,11 +2110,11 @@
                         <div class="exercise-response-row" data-item="q15-the-match-was-_____-fans-of-both-teams-must-have-found-it-_____-too" data-answer-ui>
                           <label class="exercise-response-field">
                             <span class="visually-hidden">Response for item q15-the-match-was-_____-fans-of-both-teams-must-have-found-it-_____-too (answer_01)</span>
-                            <input class="exercise-response-input" type="text" placeholder="Answer" data-item="q15-the-match-was-_____-fans-of-both-teams-must-have-found-it-_____-too" data-field="answer_01" inputmode="text">
+                            <input class="exercise-response-input" type="text" placeholder="Answer" data-item="q15-the-match-was-_____-fans-of-both-teams-must-have-found-it-_____-too" data-field="answer_01" inputmode="text" />
                           </label>
                           <label class="exercise-response-field">
                             <span class="visually-hidden">Response for item q15-the-match-was-_____-fans-of-both-teams-must-have-found-it-_____-too (answer_02)</span>
-                            <input class="exercise-response-input" type="text" placeholder="Answer" data-item="q15-the-match-was-_____-fans-of-both-teams-must-have-found-it-_____-too" data-field="answer_02" inputmode="text">
+                            <input class="exercise-response-input" type="text" placeholder="Answer" data-item="q15-the-match-was-_____-fans-of-both-teams-must-have-found-it-_____-too" data-field="answer_02" inputmode="text" />
                           </label>
                         </div>
                       </div>
@@ -2136,9 +2142,9 @@
                             <h2 class="nn_sliders-title">16. I was _____ with the way you behaved last night. Why did you have to make yourself so _____?</h2>
                             <p>
                               16. I was
-                              <span class="undies">&#100;&#105;&#115;&#97;&#112;&#112;&#111;&#105;&#110;&#116;&#101;&#100;</span>
+                              <span class="undies">disappointed</span>
                               with the way you behaved last night. Why did you have to make yourself so
-                              <span class="undies">&#100;&#105;&#115;&#97;&#112;&#112;&#111;&#105;&#110;&#116;&#105;&#110;&#103;</span>
+                              <span class="undies">disappointing</span>
                               ?
                             </p>
                           </div>
@@ -2146,16 +2152,17 @@
                         <div class="exercise-response-row" data-item="q16-i-was-_____-with-the-way-you-behaved-last-night-why-did-you-have-to-make-yourself-so-_____" data-answer-ui>
                           <label class="exercise-response-field">
                             <span class="visually-hidden">Response for item q16-i-was-_____-with-the-way-you-behaved-last-night-why-did-you-have-to-make-yourself-so-_____ (answer_01)</span>
-                            <input class="exercise-response-input" type="text" placeholder="Answer" data-item="q16-i-was-_____-with-the-way-you-behaved-last-night-why-did-you-have-to-make-yourself-so-_____" data-field="answer_01" inputmode="text">
+                            <input class="exercise-response-input" type="text" placeholder="Answer" data-item="q16-i-was-_____-with-the-way-you-behaved-last-night-why-did-you-have-to-make-yourself-so-_____" data-field="answer_01" inputmode="text" />
                           </label>
                           <label class="exercise-response-field">
                             <span class="visually-hidden">Response for item q16-i-was-_____-with-the-way-you-behaved-last-night-why-did-you-have-to-make-yourself-so-_____ (answer_02)</span>
-                            <input class="exercise-response-input" type="text" placeholder="Answer" data-item="q16-i-was-_____-with-the-way-you-behaved-last-night-why-did-you-have-to-make-yourself-so-_____" data-field="answer_02" inputmode="text">
+                            <input class="exercise-response-input" type="text" placeholder="Answer" data-item="q16-i-was-_____-with-the-way-you-behaved-last-night-why-did-you-have-to-make-yourself-so-_____" data-field="answer_02" inputmode="text" />
                           </label>
                         </div>
                       </div>
                     </div>
                   </div>
+                  <h4>(surprising, surprised)</h4>
                   <div class="quest-bg" data-exercise-question="q17-it-was-quite-_____-that-he-passed-the-examination">
                     <div class="nn_sliders accordion panel-group" id="set-nn_sliders-17">
                       <span id="nn_sliders-scrollto_17" class="anchor nn_sliders-scroll"></span>
@@ -2178,7 +2185,7 @@
                             <h2 class="nn_sliders-title">17. It was quite _____ that he passed the examination.</h2>
                             <p>
                               17. It was quite
-                              <span class="undies">&#115;&#117;&#114;&#112;&#114;&#105;&#115;&#105;&#110;&#103;</span>
+                              <span class="undies">surprising</span>
                               that he passed the examination.
                             </p>
                           </div>
@@ -2186,11 +2193,11 @@
                         <div class="exercise-response-row" data-item="q17-it-was-quite-_____-that-he-passed-the-examination" data-answer-ui>
                           <label class="exercise-response-field">
                             <span class="visually-hidden">Response for item q17-it-was-quite-_____-that-he-passed-the-examination (answer_01)</span>
-                            <input class="exercise-response-input" type="text" placeholder="Answer" data-item="q17-it-was-quite-_____-that-he-passed-the-examination" data-field="answer_01" inputmode="text">
+                            <input class="exercise-response-input" type="text" placeholder="Answer" data-item="q17-it-was-quite-_____-that-he-passed-the-examination" data-field="answer_01" inputmode="text" />
                           </label>
                           <label class="exercise-response-field">
                             <span class="visually-hidden">Response for item q17-it-was-quite-_____-that-he-passed-the-examination (answer_02)</span>
-                            <input class="exercise-response-input" type="text" placeholder="Answer" data-item="q17-it-was-quite-_____-that-he-passed-the-examination" data-field="answer_02" inputmode="text">
+                            <input class="exercise-response-input" type="text" placeholder="Answer" data-item="q17-it-was-quite-_____-that-he-passed-the-examination" data-field="answer_02" inputmode="text" />
                           </label>
                         </div>
                       </div>
@@ -2218,7 +2225,7 @@
                             <h2 class="nn_sliders-title">18. Everybody was _____ that he passed the examination.</h2>
                             <p>
                               18. Everybody was
-                              <span class="undies">&#115;&#117;&#114;&#112;&#114;&#105;&#115;&#101;&#100;</span>
+                              <span class="undies">surprised</span>
                               that he passed the examination.
                             </p>
                           </div>
@@ -2226,16 +2233,17 @@
                         <div class="exercise-response-row" data-item="q18-everybody-was-_____-that-he-passed-the-examination" data-answer-ui>
                           <label class="exercise-response-field">
                             <span class="visually-hidden">Response for item q18-everybody-was-_____-that-he-passed-the-examination (answer_01)</span>
-                            <input class="exercise-response-input" type="text" placeholder="Answer" data-item="q18-everybody-was-_____-that-he-passed-the-examination" data-field="answer_01" inputmode="text">
+                            <input class="exercise-response-input" type="text" placeholder="Answer" data-item="q18-everybody-was-_____-that-he-passed-the-examination" data-field="answer_01" inputmode="text" />
                           </label>
                           <label class="exercise-response-field">
                             <span class="visually-hidden">Response for item q18-everybody-was-_____-that-he-passed-the-examination (answer_02)</span>
-                            <input class="exercise-response-input" type="text" placeholder="Answer" data-item="q18-everybody-was-_____-that-he-passed-the-examination" data-field="answer_02" inputmode="text">
+                            <input class="exercise-response-input" type="text" placeholder="Answer" data-item="q18-everybody-was-_____-that-he-passed-the-examination" data-field="answer_02" inputmode="text" />
                           </label>
                         </div>
                       </div>
                     </div>
                   </div>
+                  <h4>(shocking, shocked)</h4>
                   <div class="quest-bg" data-exercise-question="q19-the-news-was-_____-and-we-were-_____-at-how-the-prisoners-had-been-treated">
                     <div class="nn_sliders accordion panel-group" id="set-nn_sliders-19">
                       <span id="nn_sliders-scrollto_19" class="anchor nn_sliders-scroll"></span>
@@ -2258,9 +2266,9 @@
                             <h2 class="nn_sliders-title">19. The news was _____, and we were _____ at how the prisoners had been treated.</h2>
                             <p>
                               19. The news was
-                              <span class="undies">&#115;&#104;&#111;&#99;&#107;&#105;&#110;&#103;</span>
+                              <span class="undies">shocking</span>
                               , and we were
-                              <span class="undies">&#115;&#104;&#111;&#99;&#107;&#101;&#100;</span>
+                              <span class="undies">shocked</span>
                               at how the prisoners had been treated.
                             </p>
                           </div>
@@ -2268,11 +2276,11 @@
                         <div class="exercise-response-row" data-item="q19-the-news-was-_____-and-we-were-_____-at-how-the-prisoners-had-been-treated" data-answer-ui>
                           <label class="exercise-response-field">
                             <span class="visually-hidden">Response for item q19-the-news-was-_____-and-we-were-_____-at-how-the-prisoners-had-been-treated (answer_01)</span>
-                            <input class="exercise-response-input" type="text" placeholder="Answer" data-item="q19-the-news-was-_____-and-we-were-_____-at-how-the-prisoners-had-been-treated" data-field="answer_01" inputmode="text">
+                            <input class="exercise-response-input" type="text" placeholder="Answer" data-item="q19-the-news-was-_____-and-we-were-_____-at-how-the-prisoners-had-been-treated" data-field="answer_01" inputmode="text" />
                           </label>
                           <label class="exercise-response-field">
                             <span class="visually-hidden">Response for item q19-the-news-was-_____-and-we-were-_____-at-how-the-prisoners-had-been-treated (answer_02)</span>
-                            <input class="exercise-response-input" type="text" placeholder="Answer" data-item="q19-the-news-was-_____-and-we-were-_____-at-how-the-prisoners-had-been-treated" data-field="answer_02" inputmode="text">
+                            <input class="exercise-response-input" type="text" placeholder="Answer" data-item="q19-the-news-was-_____-and-we-were-_____-at-how-the-prisoners-had-been-treated" data-field="answer_02" inputmode="text" />
                           </label>
                         </div>
                       </div>
@@ -2300,9 +2308,9 @@
                             <h2 class="nn_sliders-title">20. At first we were _____ by it but later we found it wasn't all that _____.</h2>
                             <p>
                               20. At first we were
-                              <span class="undies">&#115;&#104;&#111;&#99;&#107;&#101;&#100;</span>
+                              <span class="undies">shocked</span>
                               by it but later we found it wasn't all that
-                              <span class="undies">&#115;&#104;&#111;&#99;&#107;&#105;&#110;&#103;</span>
+                              <span class="undies">shocking</span>
                               .
                             </p>
                           </div>
@@ -2310,11 +2318,11 @@
                         <div class="exercise-response-row" data-item="q20-at-first-we-were-_____-by-it-but-later-we-found-it-wasn-t-all-that-_____" data-answer-ui>
                           <label class="exercise-response-field">
                             <span class="visually-hidden">Response for item q20-at-first-we-were-_____-by-it-but-later-we-found-it-wasn-t-all-that-_____ (answer_01)</span>
-                            <input class="exercise-response-input" type="text" placeholder="Answer" data-item="q20-at-first-we-were-_____-by-it-but-later-we-found-it-wasn-t-all-that-_____" data-field="answer_01" inputmode="text">
+                            <input class="exercise-response-input" type="text" placeholder="Answer" data-item="q20-at-first-we-were-_____-by-it-but-later-we-found-it-wasn-t-all-that-_____" data-field="answer_01" inputmode="text" />
                           </label>
                           <label class="exercise-response-field">
                             <span class="visually-hidden">Response for item q20-at-first-we-were-_____-by-it-but-later-we-found-it-wasn-t-all-that-_____ (answer_02)</span>
-                            <input class="exercise-response-input" type="text" placeholder="Answer" data-item="q20-at-first-we-were-_____-by-it-but-later-we-found-it-wasn-t-all-that-_____" data-field="answer_02" inputmode="text">
+                            <input class="exercise-response-input" type="text" placeholder="Answer" data-item="q20-at-first-we-were-_____-by-it-but-later-we-found-it-wasn-t-all-that-_____" data-field="answer_02" inputmode="text" />
                           </label>
                         </div>
                       </div>
@@ -2330,7 +2338,7 @@
                   {
                     "title": "1832-verb-ing-adjective-part-2",
                     "version": "0.3.0",
-                    "publishDate": "2026-01-29T19:41:33.731Z",
+                    "publishDate": "2026-01-29T17:59:49.359Z",
                     "description": "18.3.2 Verb + -ing (Adjective) Part 2",
                     "options": {
                       "requireCorrectBeforeReveal": true,
@@ -2532,18 +2540,18 @@
                       "previous": {
                         "href": "1831-verb-ing-adjective-part-1.html",
                         "label": "18.3.1 Verb + -ing (Adjective) Part 1",
-                        "ariaLabel": "",
+                        "ariaLabel": "Previous",
                         "rel": "prev",
-                        "html": "<svg version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 18 48\" fill=\"currentColor\">\n                        <title>angle-left</title>\n                        <path d=\"M16.795 14.571c0 0.214-0.107 0.455-0.268 0.616l-10.527 10.527 10.527 10.527c0.161 0.161 0.268 0.402 0.268 0.616s-0.107 0.455-0.268 0.616l-1.339 1.339c-0.161 0.161-0.402 0.268-0.616 0.268s-0.455-0.107-0.616-0.268l-12.482-12.482c-0.161-0.161-0.268-0.402-0.268-0.616s0.107-0.455 0.268-0.616l12.482-12.482c0.161-0.161 0.402-0.268 0.616-0.268s0.455 0.107 0.616 0.268l1.339 1.339c0.161 0.161 0.268 0.375 0.268 0.616z\"></path>\n                      </svg><span class=\"pager-label\">18.3.1 Verb + -ing (Adjective) Part 1</span>",
-                        "icon": "<svg version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 18 48\" fill=\"currentColor\">\n                        <title>angle-left</title>\n                        <path d=\"M16.795 14.571c0 0.214-0.107 0.455-0.268 0.616l-10.527 10.527 10.527 10.527c0.161 0.161 0.268 0.402 0.268 0.616s-0.107 0.455-0.268 0.616l-1.339 1.339c-0.161 0.161-0.402 0.268-0.616 0.268s-0.455-0.107-0.616-0.268l-12.482-12.482c-0.161-0.161-0.268-0.402-0.268-0.616s0.107-0.455 0.268-0.616l12.482-12.482c0.161-0.161 0.402-0.268 0.616-0.268s0.455 0.107 0.616 0.268l1.339 1.339c0.161 0.161 0.268 0.375 0.268 0.616z\"></path>\n                      </svg>"
+                        "html": "<span class=\"icon-chevron-left\"> </span> 18.3.1 Verb + -ing (Adjective) Part 1",
+                        "icon": ""
                       },
                       "next": {
                         "href": "../exercise-18-verb-ing-gerunds-and-particles.html",
                         "label": "Exercise 18 - Verb + ing",
-                        "ariaLabel": "",
+                        "ariaLabel": "Next",
                         "rel": "next",
-                        "html": "<span class=\"pager-label\">Exercise 18 - Verb + ing</span><svg version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" height=\"24px\" viewBox=\"0 0 18 48\" fill=\"currentColor\">\n                        <title>angle-right</title>\n                        <path d=\"M15.938 25.714c0 0.214-0.107 0.455-0.268 0.616l-12.482 12.482c-0.161 0.161-0.402 0.268-0.616 0.268s-0.455-0.107-0.616-0.268l-1.339-1.339c-0.161-0.161-0.268-0.375-0.268-0.616 0-0.214 0.107-0.455 0.268-0.616l10.527-10.527-10.527-10.527c-0.161-0.161-0.268-0.402-0.268-0.616s0.107-0.455 0.268-0.616l1.339-1.339c0.161-0.161 0.402-0.268 0.616-0.268s0.455 0.107 0.616 0.268l12.482 12.482c0.161 0.161 0.268 0.402 0.268 0.616z\"></path>\n                      </svg>",
-                        "icon": "<svg version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" height=\"24px\" viewBox=\"0 0 18 48\" fill=\"currentColor\">\n                        <title>angle-right</title>\n                        <path d=\"M15.938 25.714c0 0.214-0.107 0.455-0.268 0.616l-12.482 12.482c-0.161 0.161-0.402 0.268-0.616 0.268s-0.455-0.107-0.616-0.268l-1.339-1.339c-0.161-0.161-0.268-0.375-0.268-0.616 0-0.214 0.107-0.455 0.268-0.616l10.527-10.527-10.527-10.527c-0.161-0.161-0.268-0.402-0.268-0.616s0.107-0.455 0.268-0.616l1.339-1.339c0.161-0.161 0.402-0.268 0.616-0.268s0.455 0.107 0.616 0.268l12.482 12.482c0.161 0.161 0.268 0.402 0.268 0.616z\"></path>\n                      </svg>"
+                        "html": "Exercise 18 - Verb + ing <span class=\"icon-chevron-right\"> </span>",
+                        "icon": ""
                       }
                     }
                   }
@@ -3752,7 +3760,7 @@
       <!-- Footer -->
       <footer class="footer mar10">
         <div class="container2 inner-footer">
-          <br>
+          <br />
           <p class="pull-right">
             <a href="#top" id="back-top">Back to Top</a>
           </p>
