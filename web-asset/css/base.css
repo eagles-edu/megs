@@ -876,3 +876,16 @@ main#content .star-solid::before {
   content: "\2605";
   color: #e0162b;
 }
+
+.hr1x1 {
+  list-style: none;
+  display: block;
+  margin: 2rem 0;
+}
+
+.fs1-25 {
+  margin: 1rem 0;
+  font-size: 1.25rem;
+  font-style: italic;
+  font-weight: 500;
+}

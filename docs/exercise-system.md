@@ -132,3 +132,7 @@ The gate checks each token in the combo; all must succeed for that combo to pass
 
 - **Outer** [ ]: list of combos (**alternatives**).
 - **Inner** [ ]: the tokens **required together** for that combo.
+
+## Daily Updates
+
+- 2026-02-06: Recorded system-doc maintenance requirement and scope exemption alignment with AGENTS.md.

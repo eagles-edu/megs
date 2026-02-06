@@ -62,13 +62,38 @@ if (wantsHelp || files.length === 0) {
   process.exit(wantsHelp ? 0 : 1)
 }
 
-const ENCODED_RUN = /^(&#\d+;|\s)+$/
+const ENTITY_PATTERN = /&(?:#\d+|#x[0-9a-fA-F]+|[a-zA-Z][a-zA-Z0-9]+);/g
+const ENCODED_RUN = /^(&(?:#\d+|#x[0-9a-fA-F]+|[a-zA-Z][a-zA-Z0-9]+);|\s)+$/
+
+function encodeSegment(segment) {
+  if (!segment) return segment
+  if (!segment.trim()) return segment
+  return Array.from(segment, (char) => `&#${char.codePointAt(0)};`).join("")
+}
 
 function encodeText(text) {
   if (!text) return text
   if (!text.trim()) return text
   if (ENCODED_RUN.test(text)) return text
-  return Array.from(text, (char) => `&#${char.codePointAt(0)};`).join("")
+
+  const hasEntity = ENTITY_PATTERN.test(text)
+  ENTITY_PATTERN.lastIndex = 0
+  if (!hasEntity) return encodeSegment(text)
+
+  let encoded = ""
+  let lastIndex = 0
+  for (const match of text.matchAll(ENTITY_PATTERN)) {
+    const start = match.index ?? 0
+    if (start > lastIndex) {
+      encoded += encodeSegment(text.slice(lastIndex, start))
+    }
+    encoded += match[0]
+    lastIndex = start + match[0].length
+  }
+  if (lastIndex < text.length) {
+    encoded += encodeSegment(text.slice(lastIndex))
+  }
+  return encoded
 }
 
 function encodeTextNodes(node) {

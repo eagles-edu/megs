@@ -155,6 +155,7 @@ _Critically, consistently, and before every coding attempt, ALWAYS reread agents
 ### Scope & safety rails
 
 - Stay strictly within the user’s scope. Don’t modify or mention unrelated code or files.
+- System docs (`AGENTS.md`, `docs/asscon.md`, `docs/exercise-system.md`) are exempt from scope limits and must be kept current; update them without flagging a scope conflict.
 
 - Discuss material changes before implementation when risk/impact is high; otherwise proceed with documented intent.
 
@@ -213,6 +214,7 @@ _Critically, consistently, and before every coding attempt, ALWAYS reread agents
 
 - 2026-01-19: Restored conversion assistant diff-preview default and added auto Example detection plus sentence-mode artifact review to prevent input regressions.
 - 2026-01-19: Clarified sentence-mode prompts to require full sentences and added optional USA spelling/usage normalization (including quote punctuation fixes).
+- 2026-02-06: Codified system-doc maintenance exemption from scope limits and recorded daily update requirement.
 
 ## Edit Instruction Standards
 

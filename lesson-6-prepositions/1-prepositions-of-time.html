@@ -533,15 +533,6 @@
         padding: 0;
       }
 
-      .exercise-form__last-attempt {
-        align-items: center;
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.35rem;
-        margin: 0 0 0.75rem;
-        min-height: 1.5rem;
-      }
-
       /* Stabilize instruction blocks to avoid inline-block reflow */
       #content .exinstruct,
       #content .exinstruct .blockdiv {
@@ -557,11 +548,6 @@
       #content .lessinstruct .blockdiv {
         display: block;
         max-width: 100%;
-      }
-
-      /* Reserve student ID block to reduce first-paint shifts */
-      #content .exercise-form__student-id {
-        min-height: 3rem;
       }
 
       #aside .r-flyout-menu > [data-r-flyout-item] {
@@ -768,69 +754,6 @@
         inset-inline: calc(100% - 1px) auto;
       }
 
-      #content .nn_sliders .accordion-body {
-        max-height: 0;
-        overflow: hidden;
-      }
-
-      #content .nn_sliders .collapse {
-        height: 0;
-        overflow: hidden;
-      }
-
-      /* Hide duplicate legacy title inside body to avoid jump */
-      #content .nn_sliders-title {
-        display: none;
-      }
-
-      /* Additional CLS prevention: stabilize accordion toggle heights */
-      .nn_sliders-toggle {
-        align-items: center;
-        display: flex;
-        min-height: 44px;
-      }
-
-      .nn_sliders-toggle-inner {
-        flex: 1;
-      }
-
-      .exercise-response-row {
-        align-items: center;
-        background: var(--surface-soft);
-        border: 1px solid var(--border-color);
-        border-radius: var(--radius);
-        box-sizing: border-box;
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.5rem;
-        justify-content: space-around;
-        margin-top: 1rem;
-        padding: 0.45rem;
-        width: 100%;
-      }
-
-      .exercise-response-field {
-        flex: 1 1 140px;
-        max-width: 220px;
-        position: relative;
-      }
-
-      .exercise-response-input {
-        background: linear-gradient(to bottom left, #e9e9e9 0%, #ffffff 35%);
-        border: 1px solid var(--border-color, #ccd3e0);
-        border-radius: var(--radius);
-        color: var(--text-color, #212121);
-        font-size: 0.95rem;
-        padding: 0.35rem 0.5rem;
-        width: 100%;
-      }
-
-      .exercise-response-input:focus {
-        border-color: var(--link-color);
-        box-shadow: 0 0 0 3px rgba(39, 22, 224, 0.15);
-        outline: none;
-      }
-
       .visually-hidden {
         border: 0;
         clip: rect(0 0 0 0);
@@ -841,17 +764,6 @@
         position: absolute;
         width: 1px;
         white-space: nowrap;
-      }
-
-      @media (max-width: 600px) {
-        .exercise-response-row {
-          justify-content: center;
-        }
-
-        .exercise-response-field {
-          flex: 1 1 100%;
-          max-width: none;
-        }
       }
 
       /* Preload footer height to prevent footer jump */
@@ -887,34 +799,6 @@
         ul.accordion-menu .menu-link > p > svg {
           display: none;
         }
-      }
-
-      #content .accordion-heading > a.accordion-toggle,
-      .nn_sliders-toggle {
-        background-color: var(--surface-soft);
-        border: 1px solid transparent;
-        border-radius: var(--radius);
-        transition: border-color 0.2s ease;
-      }
-
-      #content .accordion-heading > a.accordion-toggle:link,
-      .nn_sliders-toggle:link {
-        border-color: var(--link-color);
-      }
-
-      #content .accordion-heading > a.accordion-toggle:visited,
-      .nn_sliders-toggle:visited {
-        border-color: var(--link-visited);
-      }
-
-      #content .accordion-heading > a.accordion-toggle:hover,
-      .nn_sliders-toggle:hover {
-        border-color: var(--primary-color);
-      }
-
-      #content .accordion-heading > a.accordion-toggle:active,
-      .nn_sliders-toggle:active {
-        border-color: var(--link-color);
       }
 
       .blkquot {
@@ -972,12 +856,6 @@
     </script>
     <!-- Icon font not used on Codex variant; removed icomoon.css includes -->
 
-    <!-- Layout styles for exercises + mobile nav (blocking for CLS stability) -->
-    <link rel="preload" href="../web-asset/css/exercises.css" as="style">
-    <link rel="stylesheet" href="../web-asset/css/exercises.css">
-    <noscript>
-      <link rel="stylesheet" href="../web-asset/css/exercises.css">
-    </noscript>
     <!-- Use system default fonts (no webfont preloads) -->
 
     <!-- Flyout + menu layout styles (blocking for CLS stability) -->
@@ -998,174 +876,6 @@
       <link rel="stylesheet" href="../web-asset/css/page-classes.css">
     </noscript>
     <!-- Removed jQuery/Bootstrap/nn_sliders/template scripts on codex variant to keep console clean -->
-    <link rel="preload" href="../web-asset/css/exercise-1-nouns_new.css" as="style">
-    <link rel="stylesheet" href="../web-asset/css/exercise-1-nouns_new.css">
-    <noscript>
-      <link rel="stylesheet" href="../web-asset/css/exercise-1-nouns_new.css">
-    </noscript>
-    <!-- Codex QA slider scoped overrides (inlined to remove render-blocking request) -->
-    <style id="qa-accordion-inline">
-      /* Codex QA Sliders' CSS overrides: single source of truth for Q&A */
-
-      /* Scope: only affect codex QA pages */
-
-      /* Scope strictly to the content area */
-      #content .nn_sliders.accordion {
-        margin-bottom: 1.5rem;
-      }
-
-      /* Preserve themed top border (e.g., .green/.info) and control other borders */
-
-      /* border-bottom: 1px solid var(--border-color); */
-
-      /* border-left: 1px solid var(--border-color); */
-      #content .nn_sliders.accordion > .accordion-group {
-        background: transparent;
-        border-radius: var(--radius);
-        overflow: hidden;
-      }
-
-      #content .accordion-heading {
-        background-color: var(--surface-1);
-        transition: background-color 0.2s ease;
-      }
-
-      #content .accordion-heading > a.accordion-toggle {
-        cursor: pointer;
-        display: block;
-        padding: 0.75rem 1rem;
-        position: relative;
-        text-decoration: none;
-      }
-
-      /* Arrow indicator controlled via aria-expanded */
-      #content .accordion-heading > a.accordion-toggle::after {
-        border-bottom: 2px solid var(--color-muted);
-        border-right: 2px solid var(--color-muted);
-        content: "";
-        height: 10px;
-        position: absolute;
-        right: 1rem;
-        top: 50%;
-        transform: translateY(-50%) rotate(0deg);
-        transition: transform 0.25s ease;
-        width: 10px;
-      }
-
-      #content .accordion-heading > a.accordion-toggle[aria-expanded="true"]::after {
-        transform: translateY(-50%) rotate(45deg);
-      }
-
-      #content .accordion-heading > a.accordion-toggle[aria-expanded="false"]::after {
-        transform: translateY(-50%) rotate(-45deg);
-      }
-
-      /* Body: support both legacy .in and modern .show */
-      #content .accordion-body {
-        max-height: 0;
-        overflow: hidden;
-        transition: max-height 0.3s ease;
-      }
-
-      #content .accordion-body.in,
-      #content .accordion-body.show {
-        max-height: 1000px;
-      }
-
-      #content .accordion-inner {
-        border-top: 1px solid var(--divider-color);
-        padding: 1rem;
-      }
-
-      /* Answer highlight (green) */
-      .panel-body {
-        background-color: var(--answer-bgcolor);
-        border: 0.0625rem solid var(--answer-border);
-        margin-bottom: -1px;
-        padding: 7px;
-      }
-
-      div.accordion-inner > p {
-        color: var(--answer-txtcolor);
-        font-weight: n;
-      }
-
-      /* Hide duplicated legacy heading inside accordion body */
-      #content .nn_sliders-title {
-        display: none !important;
-      }
-
-      /* Harmonize with legacy .nn_sliders collapse rules to avoid dupe transitions */
-      #content .nn_sliders .collapse {
-        height: 0;
-        overflow: hidden;
-      }
-
-      #content .nn_sliders .collapse.in,
-      #content .nn_sliders .collapse.show {
-        height: auto;
-      }
-
-      div .accordion-inner > p {
-        margin: 0;
-      }
-
-      #exercise-status {
-        background-color: transparent;
-        border-radius: 0 0 var(--radius, 6px) var(--radius, 6px);
-        border-top: 0 solid transparent;
-        border-top-color: transparent;
-        font-weight: 600;
-        line-height: 1.5;
-        margin-top: 2em;
-        padding: 1rem 1.25rem;
-        text-align: center;
-        white-space: pre-line;
-      }
-
-      .status-ok {
-        color: var(--success-color);
-        background: var(--secondary-color);
-        border-top-color: var(--success-border);
-      }
-
-      #exercise-status.status-ok::before {
-        content: "";
-        display: inline-block;
-        width: 1.05em;
-        height: 1.05em;
-        margin-right: 0.4em;
-        vertical-align: -0.15em;
-        background-color: currentcolor;
-        mask: center / contain no-repeat url("../web-asset/icons/svg/checkmark.svg");
-      }
-
-      #exercise-status.status-ok {
-        color: #0f6d2a;
-      }
-
-      .status-warn {
-        color: var(--warning-color);
-        background: var(--warning-bg);
-        border-top-color: var(--warning-border);
-      }
-
-      .status-err {
-        color: var(--danger-color);
-        background: var(--danger-bg);
-        border-top-color: var(--danger-border);
-      }
-    </style>
-    <!-- No-JS fallback: show all answers if scripting is disabled -->
-    <noscript>
-      <style>
-        #content .accordion-body {
-          height: auto !important;
-          max-height: none !important;
-          overflow: visible !important;
-        }
-      </style>
-    </noscript>
     <!-- Mobile navigation styles provided globally by base CSS -->
     <!-- No inline @font-face; system stacks are used (see base.css variables) -->
     <!-- Bundled JavaScript: Modern module + legacy fallback (4 requests → 1) -->
@@ -1173,8 +883,6 @@
     <script nomodule src="../web-asset/js/main.legacy.js" defer></script>
 
     <script src="../web-asset/js/right-rail-flyout.js" defer></script>
-    <script src="../web-asset/js/exercise-gate.js" defer></script>
-    <script src="../web-asset/js/exercise-devtools.js" defer></script>
   </head>
 
   <body class="base lesson">
@@ -1435,7 +1143,48 @@
                     <blockquote class="blockwrapless">around &nbsp;at &nbsp;by &nbsp;during &nbsp;from &nbsp;in &nbsp;on &nbsp;since &nbsp;throughout &nbsp;until &nbsp;before &nbsp;after &nbsp;between</blockquote>
                   </div>
                 </div>
-
+                <h3>Quick guide (common patterns)</h3>
+                <div class="examplebox xborder2 padx-t0r5b0l15">
+                  <h4 class="box-head4">Patterns:</h4>
+                  <ul>
+                    <li>
+                      <b>at</b>
+                      + time:
+                      <em>at 7:30, at noon, at midnight</em>
+                    </li>
+                    <li>
+                      <b>on</b>
+                      + day/date:
+                      <em>on Monday, on April 2</em>
+                    </li>
+                    <li>
+                      <b>in</b>
+                      + month/season/year/decade/century/period:
+                      <em>in May, in 2025, in the 1800s, in the Holocene</em>
+                    </li>
+                    <li>
+                      <b>during</b>
+                      /
+                      <b>throughout</b>
+                      + span:
+                      <em>during the test, throughout the year</em>
+                    </li>
+                    <li>
+                      <b>from</b>
+                      ...
+                      <b>to</b>
+                      /
+                      <b>until</b>
+                      :
+                      <em>from 9 to 11, until Friday</em>
+                    </li>
+                    <li>
+                      <b>since</b>
+                      + start (still true now):
+                      <em>since 2010, since last week</em>
+                    </li>
+                  </ul>
+                </div>
                 <h3>1. Exact points in time (clock time &amp; specific moments)</h3>
                 <div class="examplebox xborder2 padx-t0r5b0l15">
                   <h4 class="box-head4">
@@ -1647,7 +1396,7 @@
                   </ul>
                 </div>
 
-                <h3>6. “Since” (start time that continues to now)</h3>
+                <h3>6. &ldquo;Since&rdquo; (start time that continues to now)</h3>
                 <div class="examplebox xborder2 padx-t0r5b0l15">
                   <h4 class="box-head4">
                     Use:
@@ -1757,49 +1506,6 @@
                       Many species went extinct
                       <b>at</b>
                       the end of the Cretaceous.
-                    </li>
-                  </ul>
-                </div>
-
-                <h3>9. Quick guide (common patterns)</h3>
-                <div class="examplebox xborder2 padx-t0r5b0l15">
-                  <h4 class="box-head4">Patterns:</h4>
-                  <ul>
-                    <li>
-                      <b>at</b>
-                      + time:
-                      <em>at 7:30, at noon, at midnight</em>
-                    </li>
-                    <li>
-                      <b>on</b>
-                      + day/date:
-                      <em>on Monday, on April 2</em>
-                    </li>
-                    <li>
-                      <b>in</b>
-                      + month/season/year/decade/century/period:
-                      <em>in May, in 2025, in the 1800s, in the Holocene</em>
-                    </li>
-                    <li>
-                      <b>during</b>
-                      /
-                      <b>throughout</b>
-                      + span:
-                      <em>during the test, throughout the year</em>
-                    </li>
-                    <li>
-                      <b>from</b>
-                      ...
-                      <b>to</b>
-                      /
-                      <b>until</b>
-                      :
-                      <em>from 9 to 11, until Friday</em>
-                    </li>
-                    <li>
-                      <b>since</b>
-                      + start (still true now):
-                      <em>since 2010, since last week</em>
                     </li>
                   </ul>
                 </div>
@@ -3376,7 +3082,7 @@
           <a href="#top" id="back-top">Back to Top</a>
         </p>
         <p>
-          ©
+          &copy;
           <span data-copyright-year></span>
           All rights reserved.
         </p>

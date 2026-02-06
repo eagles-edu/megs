@@ -153,7 +153,19 @@ _user input_:
 
 ---
 
-5. Run `encode-p-text.mjs` for obfuscation per user input (skip if scope is `none`):
+5. Run `normalize-exinstruct.mjs` unless normalize-exinstruct=skip:
+
+```bash
+node tools/normalize-exinstruct.mjs --target <target-path> --write
+```
+
+- replace `<target-path>` with the user input target path; keep command text unchanged.
+- if normalize-exinstruct mode is `dry-run`, use `--dry-run` instead of `--write`.
+- if normalize-exinstruct mode is `skip`, do not run this step.
+
+---
+
+6. Run `encode-p-text.mjs` for obfuscation per user input (skip if scope is `none`):
 --scope `<form|form-highlighted|highlighted|all>` (default form):
 
    - form-highlighted: obfuscate only `<span>`, `<b>`, `<strong>` text inside `<p>` within `form.exercise-form`

@@ -1,7 +1,7 @@
 <!-- prettier-ignore -->
 <!doctype html>
 <html lang="en">
-  <!-- /exercise-19-determiners-and-quantifiers.html, updated:  January 2026 12:31:24 GMT -->
+  <!-- /lesson-6-prepositions/1-prepositions-of-time.html, updated:  January 2026 12:23:59 GMT -->
 
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,9 +12,8 @@
       content="ESL, TOESL, TOEFL, courses, english, english courses, education, english degree, degree, english education, exercises, english exercises, grammar, verb, english grammar, noun, adverb, adjective, english adverb, english noun, english adjective">
     <meta name="description" content="A comprehensive site for free English courses and exercises.">
     <meta name="generator" content="English Grammar - intermediate levels A2 and above">
-    <title>Exercise 19 - Determiners and Quantifiers</title>
-    <link href="web-asset/icons/favicon.ico" rel="shortcut icon" type="image/vnd.microsoft.icon">
-
+    <title>1. Prepositions of Time</title>
+    <link href="../favicon.ico" rel="shortcut icon" type="image/vnd.microsoft.icon">
     <!-- theme-vars.css eliminated; variables live in base.css -->
 
     <!-- Minimal theme tokens inline to avoid var() FOUC when base.css loads async -->
@@ -72,10 +71,14 @@
       body.base,
       body.site {
         border-top: 15px solid var(--footer-background);
-        padding: 20px;
         background-color: var(--background-color);
+        color: var(--text-color);
+        font-family: var(--font-base);
+        line-height: 1.5;
+        padding: 20px;
       }
 
+      /* Preload critical image dimensions to prevent CLS */
       img[src*="../favicon.png"] {
         height: 24px;
         max-height: 28px;
@@ -104,16 +107,9 @@
         max-height: 28px;
       }
     </style>
-    <!-- Base CSS (SSOT) async with print-swap to improve FCP/LCP -->
-    <link
-      rel="preload"
-      href="../web-asset/css/base.css"
-      as="style"
-      onload="
-        this.onload = null
-        this.rel = 'stylesheet'
-      ">
-    <link rel="stylesheet" href="../web-asset/css/base.css" media="print" onload="this.media = 'all'">
+    <!-- Base CSS (SSOT) blocking to stabilize layout -->
+    <link rel="preload" href="../web-asset/css/base.css" as="style">
+    <link rel="stylesheet" href="../web-asset/css/base.css">
     <noscript>
       <link rel="stylesheet" href="../web-asset/css/base.css">
     </noscript>
@@ -188,7 +184,16 @@
       }
 
       .pager .next > a {
-        justify-content: flex-end;
+        justify-content: flex-start;
+        text-align: left;
+      }
+      .pager .pager-label {
+        flex: 1 1 auto;
+        min-width: 0;
+        overflow: hidden;
+        text-overflow: var(--pager-label-truncate);
+        white-space: var(--pager-label-wrap);
+        text-align: left;
       }
 
       .pager > li > a svg,
@@ -220,12 +225,26 @@
         margin: 0;
       }
 
+      /* Mirror body padding/border early to avoid late layout shrink */
+      body.base,
+      body.site {
+        background-color: var(--background-color);
+        border-top: 15px solid var(--footer-background);
+        padding: 20px;
+      }
+
+      .icon-sprite {
+        height: 0;
+        overflow: hidden;
+        position: absolute;
+        width: 0;
+      }
+
       .grid-modern .row-fluid {
         background: var(--secondary-color);
         border-radius: var(--radius);
         margin-block: 12px;
-        padding-block-start: 8px;
-        padding-block-end: 0;
+        padding-block: 8px;
       }
 
       .header {
@@ -266,6 +285,22 @@
     <!-- Critical augment: stabilize grid/menu to reduce CLS -->
     <style id="critical-inline-augment">
       /* Grid layout (avoid block→flex shift when async CSS loads) */
+      .container {
+        margin: 0 auto;
+        max-width: 1100px;
+        padding: 0 18px;
+      }
+
+      .container2 {
+        margin: 0 auto;
+        max-width: 1085px;
+        padding: 0 18px;
+      }
+
+      .padme1 {
+        padding-top: 3rem !important;
+      }
+
       .row-fluid {
         display: flex;
         flex-wrap: wrap;
@@ -273,16 +308,19 @@
         margin-right: -8px;
       }
 
-      .row-fluid > [class*="span"] {
+      .row-fluid > [class*="span"],
+      .row-fluid > #aside {
         box-sizing: border-box;
         flex: 0 0 100%;
         max-width: 100%;
+        min-width: 0;
         padding-left: 8px;
         padding-right: 8px;
       }
 
       @media (min-width: 768px) {
-        .row-fluid > .span2 {
+        .row-fluid > .span2,
+        .row-fluid > #aside {
           flex: 0 0 16.6667%;
           max-width: 16.6667%;
         }
@@ -290,6 +328,20 @@
         .row-fluid > .span8 {
           flex: 0 0 66.6667%;
           max-width: 66.6667%;
+        }
+
+        #sidebar {
+          min-width: 130px;
+        }
+
+        #aside {
+          min-width: 120px;
+        }
+
+        #content {
+          flex: 0 0 66.6667%;
+          max-width: 66.6667%;
+          min-width: 0;
         }
       }
 
@@ -403,8 +455,19 @@
 
       ul.accordion-menu li:hover > .item-wrapper > .menu-button,
       ul.accordion-menu li:focus-within > .item-wrapper > .menu-button,
-      ul.accordion-menu li.opened > .item-wrapper > .menu-button {
+      ul.accordion-menu li.opened > .item-wrapper > .menu-button,
+      ul.accordion-menu li.current > .item-wrapper > .menu-button {
         color: var(--primary-color);
+      }
+
+      ul.accordion-menu li.current {
+        background: var(--surface-warm, #fff);
+      }
+
+      ul.accordion-menu li.current > .item-wrapper > .menu-link > a,
+      ul.accordion-menu li.current > .item-wrapper > .menu-link > p {
+        color: var(--primary-color, #e0162b);
+        text-decoration: none;
       }
 
       ul.accordion-menu .menu-button > svg {
@@ -479,6 +542,23 @@
         padding: 0;
       }
 
+      /* Stabilize instruction blocks to avoid inline-block reflow */
+      #content .exinstruct,
+      #content .exinstruct .blockdiv {
+        display: block;
+      }
+
+      #content .exinstruct .blockdiv {
+        min-height: 3rem;
+      }
+
+      #content .exinstruct .blockwrap,
+      #content .exinstruct .blockwrap-txt #content .lessinstruct,
+      #content .lessinstruct .blockdiv {
+        display: block;
+        max-width: 100%;
+      }
+
       #aside .r-flyout-menu > [data-r-flyout-item] {
         border-bottom: 1px solid var(--divider-color, #e1e7f0);
         position: relative;
@@ -510,12 +590,29 @@
       }
 
       #aside .r-flyout-menu > [data-r-flyout-item].current > .r-flyout__header {
+        background: var(--surface-warm, #fff);
         color: var(--primary-color, #e0162b);
       }
 
       #aside .r-flyout__link {
         color: currentColor;
         text-decoration: none;
+      }
+
+      #aside .r-flyout__sublist li.current > .item-wrapper {
+        background: var(--surface-warm, #fff);
+      }
+
+      #aside .r-flyout__sublist li.current > .item-wrapper a {
+        color: var(--primary-color, #e0162b);
+        text-decoration: none;
+      }
+
+      #aside .r-flyout__sublist a:hover,
+      #aside .r-flyout__sublist a:focus,
+      #aside .r-flyout__sublist li.current > .item-wrapper a,
+      #aside .r-flyout__sublist li.active > .item-wrapper a {
+        font-weight: 400;
       }
 
       #aside .r-flyout__link:hover,
@@ -666,80 +763,6 @@
         inset-inline: calc(100% - 1px) auto;
       }
 
-      .bm3 {
-        display: inline-block;
-        margin-bottom: 3em;
-      }
-
-      #content .nn_sliders .accordion-body {
-        max-height: 0;
-        overflow: hidden;
-      }
-
-      #content .nn_sliders .collapse {
-        height: 0;
-        overflow: hidden;
-      }
-
-      /* Hide duplicate legacy title inside body to avoid jump */
-      #content .nn_sliders-title {
-        display: none;
-      }
-
-      /* Breadcrumb divider icon explicit size, belt-and-suspenders */
-      ul.breadcrumb > li > span.divider > img {
-        height: 9px;
-        width: 9px;
-      }
-
-      /* Additional CLS prevention: stabilize accordion toggle heights */
-      .nn_sliders-toggle {
-        align-items: center;
-        display: flex;
-        min-height: 44px;
-      }
-
-      .nn_sliders-toggle-inner {
-        flex: 1;
-      }
-
-      .exercise-response-row {
-        align-items: center;
-        background: var(--surface-soft);
-        border: 1px solid var(--border-color);
-        border-radius: var(--radius);
-        box-sizing: border-box;
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.5rem;
-        justify-content: space-around;
-        margin-top: 1rem;
-        padding: 0.45rem;
-        width: 100%;
-      }
-
-      .exercise-response-field {
-        flex: 1 1 140px;
-        max-width: 220px;
-        position: relative;
-      }
-
-      .exercise-response-input {
-        background: linear-gradient(to bottom left, #e9e9e9 0%, #ffffff 35%);
-        border: 1px solid var(--border-color, #ccd3e0);
-        border-radius: var(--radius);
-        color: var(--text-color, #212121);
-        font-size: 0.95rem;
-        padding: 0.35rem 0.5rem;
-        width: 100%;
-      }
-
-      .exercise-response-input:focus {
-        border-color: var(--link-color);
-        box-shadow: 0 0 0 3px rgba(39, 22, 224, 0.15);
-        outline: none;
-      }
-
       .visually-hidden {
         border: 0;
         clip: rect(0 0 0 0);
@@ -752,23 +775,6 @@
         white-space: nowrap;
       }
 
-      @media (max-width: 600px) {
-        .exercise-response-row {
-          justify-content: center;
-        }
-
-        .exercise-response-field {
-          flex: 1 1 100%;
-          max-width: none;
-        }
-      }
-
-      .prefooter {
-        background-color: var(--info-bg);
-        height: 60px;
-        margin-bottom: 0;
-        width: 100%;
-      }
       /* Preload footer height to prevent footer jump */
       .footer {
         min-height: 80px;
@@ -785,11 +791,9 @@
         }
       }
 
-      @media (width <=909px) {
-        /* Prevent the right rail from wrapping beneath the article on mid-sized viewports */
-        #aside,
-        ul.accordion-menu .menu-link > a > svg,
-        ul.accordion-menu .menu-link > p > svg {
+      @media (width <= 900px) {
+        /* Reduce visual clutter on narrow viewports */
+        #aside {
           display: none;
         }
 
@@ -799,32 +803,11 @@
         }
       }
 
-      #content .accordion-heading > a.accordion-toggle,
-      .nn_sliders-toggle {
-        background-color: var(--surface-soft);
-        border: 1px solid transparent;
-        border-radius: var(--radius);
-        transition: border-color 0.2s ease;
-      }
-
-      #content .accordion-heading > a.accordion-toggle:link,
-      .nn_sliders-toggle:link {
-        border-color: var(--link-color);
-      }
-
-      #content .accordion-heading > a.accordion-toggle:visited,
-      .nn_sliders-toggle:visited {
-        border-color: var(--link-visited);
-      }
-
-      #content .accordion-heading > a.accordion-toggle:hover,
-      .nn_sliders-toggle:hover {
-        border-color: var(--primary-color);
-      }
-
-      #content .accordion-heading > a.accordion-toggle:active,
-      .nn_sliders-toggle:active {
-        border-color: var(--link-color);
+      @media (width <= 1000px) {
+        ul.accordion-menu .menu-link > a > svg,
+        ul.accordion-menu .menu-link > p > svg {
+          display: none;
+        }
       }
 
       .blkquot {
@@ -882,74 +865,50 @@
     </script>
     <!-- Icon font not used on Codex variant; removed icomoon.css includes -->
 
-    <!-- Minimal base for layout/mobile nav used by prototype (async) -->
-    <link rel="preload" href="../web-asset/css/exercises.css" as="style">
-    <link rel="stylesheet" href="../web-asset/css/exercises.css" media="print" onload="this.media = 'all'">
-    <noscript>
-      <link rel="stylesheet" href="../web-asset/css/exercises.css">
-    </noscript>
     <!-- Use system default fonts (no webfont preloads) -->
 
-    <!-- Defer non-critical CSS with preload+print media swap -->
+    <!-- Flyout + menu layout styles (blocking for CLS stability) -->
     <link rel="preload" href="../web-asset/css/right-rail-flyout.css" as="style">
-    <link rel="stylesheet" href="../web-asset/css/right-rail-flyout.css" media="print" onload="this.media = 'all'">
+    <link rel="stylesheet" href="../web-asset/css/right-rail-flyout.css">
     <noscript>
       <link rel="stylesheet" href="../web-asset/css/right-rail-flyout.css">
     </noscript>
-    <!-- Left-menu.css async; critical inline reserves layout to avoid flash -->
+    <!-- Left-menu.css blocking; critical inline reserves layout -->
     <link rel="preload" href="../web-asset/css/left-menu.css" as="style">
-    <link rel="stylesheet" href="../web-asset/css/left-menu.css" media="print" onload="this.media = 'all'">
+    <link rel="stylesheet" href="../web-asset/css/left-menu.css">
     <noscript>
       <link rel="stylesheet" href="../web-asset/css/left-menu.css">
     </noscript>
     <link rel="preload" href="../web-asset/css/page-classes.css" as="style">
-    <link rel="stylesheet" href="../web-asset/css/page-classes.css" media="print" onload="this.media = 'all'">
+    <link rel="stylesheet" href="../web-asset/css/page-classes.css">
     <noscript>
       <link rel="stylesheet" href="../web-asset/css/page-classes.css">
     </noscript>
     <!-- Removed jQuery/Bootstrap/nn_sliders/template scripts on codex variant to keep console clean -->
-    <link rel="preload" href="../web-asset/css/exercise-1-nouns_new.css" as="style">
-    <link rel="stylesheet" href="../web-asset/css/exercise-1-nouns_new.css" media="print" onload="this.media = 'all'">
-    <noscript>
-      <link rel="stylesheet" href="../web-asset/css/exercise-1-nouns_new.css">
-    </noscript>
-    <!-- Codex QA slider scoped overrides (synchronous to avoid flash) -->
-    <link rel="stylesheet" href="../web-asset/css/qa-accordion.css">
-    <!-- No-JS fallback: show all answers if scripting is disabled -->
-    <noscript>
-      <style>
-        #content .accordion-body {
-          height: auto !important;
-          max-height: none !important;
-          overflow: visible !important;
-        }
-      </style>
-    </noscript>
     <!-- Mobile navigation styles provided globally by base CSS -->
     <!-- No inline @font-face; system stacks are used (see base.css variables) -->
-    <!-- Bundled JavaScript: Modern module bundle (4 requests → 1) -->
+    <!-- Bundled JavaScript: Modern module + legacy fallback (4 requests → 1) -->
     <script type="module" src="../web-asset/js/main.bundle.js"></script>
+    <script nomodule src="../web-asset/js/main.legacy.js" defer></script>
 
     <script src="../web-asset/js/right-rail-flyout.js" defer></script>
-    <script src="../web-asset/js/exercise-gate.js" defer></script>
-    <script src="../web-asset/js/exercise-devtools.js" defer></script>
   </head>
 
-  <body class="base exercize" data-exercise-devtools="auto">
-    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" style="position: absolute; width: 0; height: 0; overflow: hidden">
+  <body class="base lesson">
+    <svg xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" aria-hidden="true" class="icon-sprite">
       <defs>
         <symbol id="icon-plus" viewBox="0 0 24 24">
-          <path fill="currentColor" d="M12 5a1 1 0 0 0-1 1v5H6a1 1 0 1 0 0 2h5v5a1 1 0 1 0 2 0v-5h5a1 1 0 1 0 0-2h-5V6a1 1 0 0 0-1-1z"></path>
+          <path fill="currentColor" d="M12 5a1 1 0 0 0-1 1v5H6a1 1 0 1 0 0 2h5v5a1 1 0 1 0 2 0v-5h5a1 1 0 1 0 0-2h-5V6a1 1 0 0 0-1-1z" />
         </symbol>
         <symbol id="icon-minus" viewBox="0 0 24 24">
-          <rect x="9" y="11" width="6" height="2" rx="1" fill="currentColor"></rect>
+          <rect x="9" y="11" width="6" height="2" rx="1" fill="currentColor" />
         </symbol>
       </defs>
     </svg>
     <!-- Body -->
     <div class="body grid-modern" id="top">
       <div class="container">
-        <!-- Header removed on Codex variant to avoid load-time CLS. See ../web-asset/js/template.js for details-->
+        <!-- Header -->
         <div class="row-fluid padme1">
           <!-- Begin Sidebar -->
           <div id="sidebar" class="span2">
@@ -962,7 +921,7 @@
                       <div class="item-wrapper">
                         <div class="menu-button"></div>
                         <div class="menu-link">
-                          <a href="../index-2.html" aria-label="Home">
+                          <a href="../index-2.html">
                             <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 48 48" fill="currentColor">
                               <title>office</title>
                               <path d="M0 48h24v-48h-24v48zM15 6h6v6h-6v-6zM15 18h6v6h-6v-6zM15 30h6v6h-6v-6zM3 6h6v6h-6v-6zM3 18h6v6h-6v-6zM3 30h6v6h-6v-6zM27 15h21v3h-21zM27 48h6v-12h9v12h6v-27h-21z"></path>
@@ -976,7 +935,7 @@
                       <div class="item-wrapper">
                         <div class="menu-button"></div>
                         <div class="menu-link">
-                          <a href="../grammar-lessons.html" aria-label="Lessons">
+                          <a href="../grammar-lessons.html">
                             <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 48 48" fill="currentColor">
                               <title>display</title>
                               <path d="M0 3v30h48v-30h-48zM45 30h-42v-24h42v24zM31.5 36h-15l-1.5 6-3 3h24l-3-3z"></path>
@@ -986,11 +945,11 @@
                         </div>
                       </div>
                     </li>
-                    <li>
+                    <li class="current">
                       <div class="item-wrapper">
                         <div class="menu-button"></div>
                         <div class="menu-link">
-                          <a href="../grammar-exercises.html" aria-label="Exercises">
+                          <a href="../grammar-exercises.html">
                             <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 48 48" fill="currentColor">
                               <path
                                 d="M33.094 22.031l-7.125-7.125 2.813-2.813 4.313 4.219 8.438-8.438 2.813 2.813zM22.031 13.969h-18v4.031h18v-4.031zM42 26.813l-2.813-2.813-5.156 5.156-5.25-5.156-2.813 2.813 5.25 5.156-5.25 5.25 2.813 2.813 5.25-5.25 5.156 5.25 2.813-2.813-5.156-5.25zM22.031 30h-18v4.031h18v-4.031z"></path>
@@ -1004,7 +963,7 @@
                       <div class="item-wrapper">
                         <div class="menu-button"></div>
                         <div class="menu-link">
-                          <a href="../introduction-to-tenses.html" aria-label="Tenses">
+                          <a href="../introduction-to-tenses.html">
                             <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 48 48" fill="currentColor">
                               <path
                                 d="M0 24.5c0 12.98 10.52 23.5 23.5 23.5s23.5-10.52 23.5-23.5-10.52-23.5-23.5-23.5c-12.98 0-23.5 10.52-23.5 23.5zM21 8.5c0-1.38 1.12-2.5 2.5-2.5s2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5-2.5-1.12-2.5-2.5zM5 24.5c0-1.38 1.12-2.5 2.5-2.5s2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5-2.5-1.12-2.5-2.5zM37 24.5c0-1.38 1.12-2.5 2.5-2.5s2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5-2.5-1.12-2.5-2.5zM21 40.5c0-1.38 1.12-2.5 2.5-2.5s2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5-2.5-1.12-2.5-2.5zM19.83 25.689c-0.53-0.52-7.26-7.369-7.26-7.369-0.76-0.76-0.76-1.99 0-2.75s1.99-0.76 2.75 0l6.6 6.619c0.59 0.58 1.56 0.58 2.141 0l9.619-9.619c0.76-0.76 1.99-0.76 2.75 0s0.76 1.99 0 2.75c0 0-9.76 9.88-10.279 10.4-0.811 0.79-1.93 1.28-3.151 1.28-1.24 0-2.36-0.5-3.17-1.311z"></path>
@@ -1018,7 +977,7 @@
                       <div class="item-wrapper">
                         <div class="menu-button"></div>
                         <div class="menu-link">
-                          <a href="../writing.html" aria-label="Writing">
+                          <a href="../writing.html">
                             <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 48 48" fill="currentColor">
                               <title>pencil</title>
                               <path
@@ -1033,7 +992,7 @@
                       <div class="item-wrapper">
                         <div class="menu-button"></div>
                         <div class="menu-link">
-                          <a href="../vocabulary.html" aria-label="Vocabulary">
+                          <a href="../vocabulary.html">
                             <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                               <title>file</title>
                               <path
@@ -1048,7 +1007,7 @@
                       <div class="item-wrapper">
                         <div class="menu-button"></div>
                         <div class="menu-link">
-                          <a href="../glossary.html" aria-label="Glossary">
+                          <a href="../glossary.html">
                             <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 54 48" fill="currentColor">
                               <title>Books</title>
                               <path d="M10.5 6h-9c-0.825 0-1.5 0.675-1.5 1.5v33c0 0.825 0.675 1.5 1.5 1.5h9c0.825 0 1.5-0.675 1.5-1.5v-33c0-0.825-0.675-1.5-1.5-1.5zM9 15h-6v-3h6v3z"></path>
@@ -1064,7 +1023,7 @@
                     <li id="lists-menu-item">
                       <div class="item-wrapper">
                         <div class="menu-link">
-                          <a href="../lists.html" aria-label="Lists">
+                          <a href="../lists.html">
                             <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
                               <title>list-ol</title>
                               <path
@@ -1080,7 +1039,7 @@
                             <div class="item-wrapper">
                               <div class="menu-button"></div>
                               <div class="menu-link">
-                                <a href="../lists.html" aria-label="Lists">Lists</a>
+                                <a href="../lists.html">Lists</a>
                               </div>
                             </div>
                           </li>
@@ -1088,7 +1047,7 @@
                             <div class="item-wrapper">
                               <div class="menu-button"></div>
                               <div class="menu-link">
-                                <a href="../prepositions.html" aria-label="Prepositions">Prepositions</a>
+                                <a href="../prepositions.html">Prepositions</a>
                               </div>
                             </div>
                           </li>
@@ -1096,7 +1055,7 @@
                             <div class="item-wrapper">
                               <div class="menu-button"></div>
                               <div class="menu-link">
-                                <a href="../lists2/words-from-a-z.html" aria-label="Sentences (v+prep)">Sentences</a>
+                                <a href="../lists2/words-from-a-z.html">Sentences</a>
                               </div>
                             </div>
                           </li>
@@ -1113,25 +1072,64 @@
           <!-- End Sidebar -->
           <main id="content" class="span8">
             <!-- Begin Content -->
-
             <div id="system-message-container"></div>
-            <div class="category-list">
-              <div class="content-category">
-                <h2 class="page-header">Exercise 19 - Determiners and Quantifiers</h2>
+            <div class="item-page" itemscope itemtype="https://schema.org/Article">
+              <meta itemprop="inLanguage" content="en-GB">
+              <div class="page-header">
+                <h2 itemprop="headline">1. Prepositions of Time</h2>
+              </div>
+              <div itemprop="articleBody">
+                <nav class="breadcrumb-wrap" aria-label="breadcrumbs-top">
+                  <ul class="breadcrumb" itemscope="" itemtype="https://schema.org/BreadcrumbList">
+                    <li class="active">
+                      <span class="divider icon-location"></span>
+                    </li>
+
+                    <li itemprop="itemListElement" itemscope="" itemtype="https://schema.org/ListItem">
+                      <a itemprop="item" href="../index-2.html" class="pathway">
+                        <span itemprop="name">Home</span>
+                      </a>
+                      <span class="divider">
+                        &nbsp;
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8 13.02" width="11" height="11">
+                          <polygon points="8 6.51 0 13.02 0 0 8 6.51" fill="#e0162b"></polygon>
+                        </svg>
+                      </span>
+                      <meta itemprop="position" content="1">
+                    </li>
+                    <li itemprop="itemListElement" itemscope="" itemtype="https://schema.org/ListItem">
+                      <a itemprop="item" href="../lesson-6-prepositions.html" class="pathway">
+                        <span itemprop="name">Lesson 6 - Prepositions</span>
+                      </a>
+
+                      <span class="divider">
+                        &nbsp;
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8 13.02" width="11" height="11">
+                          <polygon points="8 6.51 0 13.02 0 0 8 6.51" fill="#e0162b"></polygon>
+                        </svg>
+                      </span>
+                      <meta itemprop="position" content="2">
+                    </li>
+                    <li itemprop="itemListElement" itemscope="" itemtype="https://schema.org/ListItem" class="active">
+                      <span itemprop="name">1. Prepositions of Time</span>
+                      <meta itemprop="position" content="3">
+                    </li>
+                  </ul>
+                </nav>
                 <ul class="pager pagenav">
                   <li class="previous">
-                    <a href="exercise-18-verb-ing-gerunds-and-particles.html" rel="prev" aria-label="Previous">
+                    <a href="../lesson-6-prepositions.html" rel="prev" aria-label="Previous">
                       <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 48" fill="currentColor">
                         <title>angle-left</title>
                         <path
                           d="M16.795 14.571c0 0.214-0.107 0.455-0.268 0.616l-10.527 10.527 10.527 10.527c0.161 0.161 0.268 0.402 0.268 0.616s-0.107 0.455-0.268 0.616l-1.339 1.339c-0.161 0.161-0.402 0.268-0.616 0.268s-0.455-0.107-0.616-0.268l-12.482-12.482c-0.161-0.161-0.268-0.402-0.268-0.616s0.107-0.455 0.268-0.616l12.482-12.482c0.161-0.161 0.402-0.268 0.616-0.268s0.455 0.107 0.616 0.268l1.339 1.339c0.161 0.161 0.268 0.375 0.268 0.616z"></path>
                       </svg>
-                      Exercise 18 - Verb + ing
+                      Lesson 6 - Prepositions
                     </a>
                   </li>
                   <li class="next">
-                    <a href="exercise-21-general.html" rel="next" aria-label="Next">
-                      Exercise 21 - POS &amp; Gerunds
+                    <a href="2-prepositions-of-place.html" rel="next" aria-label="Next">
+                      2. Prepositions of Place
                       <svg version="1.1" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 18 48" fill="currentColor">
                         <title>angle-right</title>
                         <path
@@ -1140,44 +1138,401 @@
                     </a>
                   </li>
                 </ul>
-                <table class="tablesty1">
-                  <thead>
-                    <tr>
-                      <th scope="col">Determiner and Quantifier Exercises</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr class="cat-list-row0">
-                      <td class="list-title">
-                        <a href="exercise-19-determiners-and-quantifiers/1911-determiners-a-an-the.html" aria-label="Menu Link">19.1.1 Determiners: a, an, the</a>
-                      </td>
-                    </tr>
-                    <tr class="cat-list-row1">
-                      <td class="list-title">
-                        <a href="exercise-19-determiners-and-quantifiers/1912-determiners-a-an-the-some.html" aria-label="Menu Link">19.1.2 Determiners: a, an, the, some</a>
-                      </td>
-                    </tr>
-                    <tr class="cat-list-row0">
-                      <td class="list-title">
-                        <a href="exercise-19-determiners-and-quantifiers/1921-quantity-words.html" aria-label="Menu Link">19.2.1 Quantity Words</a>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
+                <h2>Prepositions of time</h2>
+                <div class="lessinstruct">
+                  <p>
+                    Prepositions of time help indicate
+                    <em>when</em>
+                    ; i.e.,
+                    <b>the time and date, month, season, year, decade, century, period, age (e.g., stone-age, iron-age), millennium, epoch, deep-time periods (e.g., cretaceous, holocene), or the period of time</b>
+                    that something happens.
+                  </p>
+                  <p>Some of the prepositions used include:</p>
+                  <div class="blockdivless">
+                    <blockquote class="blockwrapless">around &nbsp;at &nbsp;by &nbsp;during &nbsp;from &nbsp;in &nbsp;on &nbsp;since &nbsp;throughout &nbsp;until &nbsp;before &nbsp;after &nbsp;between</blockquote>
+                  </div>
+                </div>
+                <h3>Quick guide (common patterns)</h3>
+                <div class="examplebox xborder2 padx-t0r5b0l15">
+                  <h4 class="box-head4">Patterns:</h4>
+                  <ul>
+                    <li>
+                      <b>at</b>
+                      + time:
+                      <em>at 7:30, at noon, at midnight</em>
+                    </li>
+                    <li>
+                      <b>on</b>
+                      + day/date:
+                      <em>on Monday, on April 2</em>
+                    </li>
+                    <li>
+                      <b>in</b>
+                      + month/season/year/decade/century/period:
+                      <em>in May, in 2025, in the 1800s, in the Holocene</em>
+                    </li>
+                    <li>
+                      <b>during</b>
+                      /
+                      <b>throughout</b>
+                      + span:
+                      <em>during the test, throughout the year</em>
+                    </li>
+                    <li>
+                      <b>from</b>
+                      ...
+                      <b>to</b>
+                      /
+                      <b>until</b>
+                      :
+                      <em>from 9 to 11, until Friday</em>
+                    </li>
+                    <li>
+                      <b>since</b>
+                      + start (still true now):
+                      <em>since 2010, since last week</em>
+                    </li>
+                  </ul>
+                </div>
+                <h3>1. Exact points in time (clock time &amp; specific moments)</h3>
+                <div class="examplebox xborder2 padx-t0r5b0l15">
+                  <h4 class="box-head4">
+                    Use:
+                    <b>at</b>
+                    ,
+                    <b>around</b>
+                    ,
+                    <b>by</b>
+                  </h4>
+                  <ul>
+                    <li>
+                      The lesson starts
+                      <b>at</b>
+                      9:00 a.m.
+                    </li>
+                    <li>
+                      Please call me
+                      <b>around</b>
+                      noon.
+                    </li>
+                    <li>
+                      Be home
+                      <b>by</b>
+                      10 p.m.
+                    </li>
+                    <li>
+                      The bus arrived
+                      <b>at</b>
+                      midnight.
+                    </li>
+                    <li>
+                      The report should be finished
+                      <b>by</b>
+                      Friday morning.
+                    </li>
+                  </ul>
+                </div>
+
+                <h3>2. Dates &amp; days (calendar time)</h3>
+                <div class="examplebox xborder2 padx-t0r5b0l15">
+                  <h4 class="box-head4">
+                    Use:
+                    <b>on</b>
+                    + day/date;
+                    <b>at</b>
+                    (some holidays);
+                    <b>by</b>
+                    (deadline)
+                  </h4>
+                  <ul>
+                    <li>
+                      We have class
+                      <b>on</b>
+                      Monday.
+                    </li>
+                    <li>
+                      The meeting is
+                      <b>on</b>
+                      March 12.
+                    </li>
+                    <li>
+                      She arrived
+                      <b>on</b>
+                      the first day of school.
+                    </li>
+                    <li>
+                      We open presents
+                      <b>at</b>
+                      New Year.
+                    </li>
+                    <li>
+                      Send it
+                      <b>by</b>
+                      Monday (deadline).
+                    </li>
+                  </ul>
+                </div>
+
+                <h3>3. Months, seasons, years, decades, centuries, and longer blocks</h3>
+                <div class="examplebox xborder2 padx-t0r5b0l15">
+                  <h4 class="box-head4">
+                    Use:
+                    <b>in</b>
+                    + month/season/year/decade/century/millennium
+                  </h4>
+                  <ul>
+                    <li>
+                      School starts
+                      <b>in</b>
+                      September.
+                    </li>
+                    <li>
+                      It rains a lot
+                      <b>in</b>
+                      the rainy season.
+                    </li>
+                    <li>
+                      He was born
+                      <b>in</b>
+                      2009.
+                    </li>
+                    <li>
+                      Many trends changed
+                      <b>in</b>
+                      the 1990s.
+                    </li>
+                    <li>
+                      Air travel grew quickly
+                      <b>in</b>
+                      the 20th century.
+                    </li>
+                    <li>
+                      Computers became smaller
+                      <b>in</b>
+                      the 21st century.
+                    </li>
+                    <li>
+                      Some civilizations developed writing
+                      <b>in</b>
+                      the 3rd millennium BCE (Before Common Era).
+                    </li>
+                  </ul>
+                </div>
+
+                <h3>4. Time spans (duration: how long something happens)</h3>
+                <div class="examplebox xborder2 padx-t0r5b0l15">
+                  <h4 class="box-head4">
+                    Use:
+                    <b>during</b>
+                    ,
+                    <b>throughout</b>
+                    ,
+                    <b>for</b>
+                    (duration)
+                  </h4>
+                  <ul>
+                    <li>
+                      I felt nervous
+                      <b>during</b>
+                      the exam.
+                    </li>
+                    <li>
+                      The lights stayed on
+                      <b>throughout</b>
+                      the night.
+                    </li>
+                    <li>
+                      He slept
+                      <b>throughout</b>
+                      the lecture.
+                    </li>
+                    <li>
+                      They traveled
+                      <b>during</b>
+                      the holiday break.
+                    </li>
+                    <li>
+                      She lived there
+                      <b>for</b>
+                      three years.
+                    </li>
+                  </ul>
+                </div>
+
+                <h3>5. Start &rarr; end (from one time to another)</h3>
+                <div class="examplebox xborder2 padx-t0r5b0l15">
+                  <h4 class="box-head4">
+                    Use:
+                    <b>from</b>
+                    ...
+                    <b>to</b>
+                    ;
+                    <b>until</b>
+                    (end point)
+                  </h4>
+                  <ul>
+                    <li>
+                      We work
+                      <b>from</b>
+                      8 a.m.
+                      <b>to</b>
+                      5 p.m.
+                    </li>
+                    <li>
+                      The store is open
+                      <b>from</b>
+                      Monday
+                      <b>to</b>
+                      Saturday.
+                    </li>
+                    <li>
+                      Wait here
+                      <b>until</b>
+                      I come back.
+                    </li>
+                    <li>
+                      The museum is closed
+                      <b>until</b>
+                      July.
+                    </li>
+                    <li>
+                      They practiced every day
+                      <b>from</b>
+                      January
+                      <b>to</b>
+                      May.
+                    </li>
+                  </ul>
+                </div>
+
+                <h3>6. &ldquo;Since&rdquo; (start time that continues to now)</h3>
+                <div class="examplebox xborder2 padx-t0r5b0l15">
+                  <h4 class="box-head4">
+                    Use:
+                    <b>since</b>
+                    + starting point (still true now)
+                  </h4>
+                  <ul>
+                    <li>
+                      I have lived here
+                      <b>since</b>
+                      2018.
+                    </li>
+                    <li>
+                      She has been busy
+                      <b>since</b>
+                      Monday.
+                    </li>
+                    <li>
+                      They have known each other
+                      <b>since</b>
+                      childhood.
+                    </li>
+                    <li>
+                      The bridge has been closed
+                      <b>since</b>
+                      last week.
+                    </li>
+                    <li>
+                      He has studied English
+                      <b>since</b>
+                      he was ten.
+                    </li>
+                  </ul>
+                </div>
+
+                <h3>7. Relative time (before/after &amp; order of events)</h3>
+                <div class="examplebox xborder2 padx-t0r5b0l15">
+                  <h4 class="box-head4">
+                    Use:
+                    <b>before</b>
+                    ,
+                    <b>after</b>
+                    ,
+                    <b>by</b>
+                    (no later than)
+                  </h4>
+                  <ul>
+                    <li>
+                      Wash your hands
+                      <b>before</b>
+                      dinner.
+                    </li>
+                    <li>
+                      We went for coffee
+                      <b>after</b>
+                      class.
+                    </li>
+                    <li>
+                      Please finish
+                      <b>before</b>
+                      you leave.
+                    </li>
+                    <li>By the time we arrived, the movie had started. (no later than)</li>
+                    <li>
+                      <b>After</b>
+                      the storm, the streets were quiet.
+                    </li>
+                  </ul>
+                </div>
+
+                <h3>8. Historical periods, ages, and deep time</h3>
+                <div class="examplebox xborder2 padx-t0r5b0l15">
+                  <h4 class="box-head4">
+                    Use:
+                    <b>in</b>
+                    (period),
+                    <b>during</b>
+                    (events within a period)
+                  </h4>
+                  <ul>
+                    <li>
+                      Early farming developed
+                      <b>in</b>
+                      the Neolithic period.
+                    </li>
+                    <li>
+                      People used bronze tools
+                      <b>in</b>
+                      the Bronze Age.
+                    </li>
+                    <li>
+                      Dinosaurs lived
+                      <b>during</b>
+                      the Cretaceous period.
+                    </li>
+                    <li>
+                      Modern humans spread widely
+                      <b>during</b>
+                      the Late Pleistocene.
+                    </li>
+                    <li>
+                      Sea levels changed
+                      <b>in</b>
+                      the Holocene epoch.
+                    </li>
+                    <li>
+                      Many species went extinct
+                      <b>at</b>
+                      the end of the Cretaceous.
+                    </li>
+                  </ul>
+                </div>
+
                 <ul class="pager pagenav">
                   <li class="previous">
-                    <a href="exercise-18-verb-ing-gerunds-and-particles.html" rel="prev" aria-label="Previous">
+                    <a href="../lesson-6-prepositions.html" rel="prev" aria-label="Previous">
                       <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 48" fill="currentColor">
                         <title>angle-left</title>
                         <path
                           d="M16.795 14.571c0 0.214-0.107 0.455-0.268 0.616l-10.527 10.527 10.527 10.527c0.161 0.161 0.268 0.402 0.268 0.616s-0.107 0.455-0.268 0.616l-1.339 1.339c-0.161 0.161-0.402 0.268-0.616 0.268s-0.455-0.107-0.616-0.268l-12.482-12.482c-0.161-0.161-0.268-0.402-0.268-0.616s0.107-0.455 0.268-0.616l12.482-12.482c0.161-0.161 0.402-0.268 0.616-0.268s0.455 0.107 0.616 0.268l1.339 1.339c0.161 0.161 0.268 0.375 0.268 0.616z"></path>
                       </svg>
-                      Exercise 18 - Verb + ing
+                      Lesson 6 - Prepositions
                     </a>
                   </li>
                   <li class="next">
-                    <a href="exercise-21-general.html" rel="next" aria-label="Next">
-                      Exercise 21 - POS &amp; Gerunds
+                    <a href="2-prepositions-of-place.html" rel="next" aria-label="Next">
+                      2. Prepositions of Place
                       <svg version="1.1" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 18 48" fill="currentColor">
                         <title>angle-right</title>
                         <path
@@ -1189,1161 +1544,1532 @@
               </div>
             </div>
             <div class="clearfix"></div>
-            <ul itemscope itemtype="https://schema.org/BreadcrumbList" class="breadcrumb">
-              <li class="active"></li>
-              <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-                <a itemprop="item" href="index-2.html" class="pathway" aria-label="Home">
-                  <span itemprop="name">Home</span>
-                </a>
-                <span class="divider">
-                  <img src="images/arrow.svg" alt="">
-                </span>
-                <meta itemprop="position" content="1">
-              </li>
-              <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem" class="active">
-                <span itemprop="name">Exercise 19 - Determiners and Quantifiers</span>
-                <meta itemprop="position" content="2">
-              </li>
-            </ul>
+            <nav class="breadcrumb-wrap" aria-label="breadcrumbs-bottom">
+              <ul class="breadcrumb" itemscope="" itemtype="https://schema.org/BreadcrumbList">
+                <li class="active">
+                  <span class="divider icon-location"></span>
+                </li>
 
+                <li itemprop="itemListElement" itemscope="" itemtype="https://schema.org/ListItem">
+                  <a itemprop="item" href="../index-2.html" class="pathway">
+                    <span itemprop="name">Home</span>
+                  </a>
+
+                  <span class="divider">
+                    &nbsp;
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8 13.02" width="11" height="11">
+                      <polygon points="8 6.51 0 13.02 0 0 8 6.51" fill="#e0162b"></polygon>
+                    </svg>
+                  </span>
+                  <meta itemprop="position" content="1">
+                </li>
+                <li itemprop="itemListElement" itemscope="" itemtype="https://schema.org/ListItem">
+                  <a itemprop="item" href="../lesson-6-prepositions.html" class="pathway">
+                    <span itemprop="name">Lesson 6 - Prepositions</span>
+                  </a>
+
+                  <span class="divider">
+                    &nbsp;
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8 13.02" width="9" height="9">
+                      <polygon points="8 6.51 0 13.02 0 0 8 6.51" fill="#e0162b"></polygon>
+                    </svg>
+                  </span>
+                  <meta itemprop="position" content="2">
+                </li>
+                <li itemprop="itemListElement" itemscope="" itemtype="https://schema.org/ListItem" class="active">
+                  <span itemprop="name">1. Prepositions of Time</span>
+                  <meta itemprop="position" content="3">
+                </li>
+              </ul>
+            </nav>
             <!-- End Content -->
           </main>
-          <div id="aside" class="span2 bm3">
+          <aside id="aside">
             <!-- Begin Right Sidebar -->
-            <div class="well hidden-phone">
-              <ul class="r-flyout-menu" id="flyout_menu_93" data-r-flyout="" data-flyout-origin="right">
-                <li class="current first" data-r-flyout-item="">
+            <nav class="r-flyout-nav" aria-label="Lessons">
+              <ul class="r-flyout-menu" id="flyout_menu_93" data-r-flyout data-flyout-origin="right">
+                <!-- Lesson 1: Nouns -->
+                <li class="first" data-r-flyout-item>
                   <div class="item-wrapper r-flyout__header">
-                    <button class="r-flyout__toggle" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="r-flyout-panel-nouns" aria-label="Toggle submenu for Nouns">
+                    <button class="r-flyout__toggle" type="button" aria-haspopup="menu" aria-expanded="false" aria-controls="r-flyout-panel-lesson-nouns" aria-label="Toggle submenu for Nouns">
                       <svg class="r-flyout__icon r-flyout__icon--plus" aria-hidden="true" focusable="false">
-                        <use xlink:href="#icon-plus"></use>
+                        <use href="#icon-plus"></use>
                       </svg>
                       <svg class="r-flyout__icon r-flyout__icon--minus" aria-hidden="true" focusable="false">
-                        <use xlink:href="#icon-minus"></use>
+                        <use href="#icon-minus"></use>
                       </svg>
                     </button>
                     <div class="menu-link r-flyout__link-wrap">
-                      <a class="r-flyout__link" href="../exercise-1-nouns.html" aria-label="Nouns">Nouns</a>
+                      <a class="r-flyout__link" href="../lesson-1-nouns.html">Nouns</a>
                     </div>
                   </div>
-                  <div class="ul-wrapper r-flyout__panel" id="r-flyout-panel-nouns" aria-hidden="true" hidden>
+                  <div class="ul-wrapper r-flyout__panel" id="r-flyout-panel-lesson-nouns" aria-hidden="true" hidden>
+                    <ul class="r-flyout__sublist">
+                      <li class="first">
+                        <div class="item-wrapper">
+                          <div class="menu-link">
+                            <a href="../lesson-1-nouns/1-types-of-nouns.html">1. Types of Nouns</a>
+                          </div>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="item-wrapper">
+                          <div class="menu-link">
+                            <a href="../lesson-1-nouns/2-functions-of-a-noun.html">2. Functions of a Noun</a>
+                          </div>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="item-wrapper">
+                          <div class="menu-link">
+                            <a href="../lesson-1-nouns/3-singular-and-plural-nouns.html">3. Singular and Plural Nouns</a>
+                          </div>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="item-wrapper">
+                          <div class="menu-link">
+                            <a href="../lesson-1-nouns/4-countable-and-uncountable-nouns.html">4. Countable and Uncountable Nouns</a>
+                          </div>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="item-wrapper">
+                          <div class="menu-link">
+                            <a href="../lesson-1-nouns/5-collective-nouns.html">5. Collective Nouns</a>
+                          </div>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="item-wrapper">
+                          <div class="menu-link">
+                            <a href="../lesson-1-nouns/6-possessive-form-of-nouns.html">6. Possessive form of nouns</a>
+                          </div>
+                        </div>
+                      </li>
+                      <li class="last">
+                        <div class="item-wrapper">
+                          <div class="menu-link">
+                            <a href="../lesson-1-nouns/7-gender-neutral-nouns.html">7. Gender &amp; Neutrality</a>
+                          </div>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                </li>
+
+                <!-- Lesson 2: Verbs -->
+                <li data-r-flyout-item>
+                  <div class="item-wrapper r-flyout__header">
+                    <button class="r-flyout__toggle" type="button" aria-haspopup="menu" aria-expanded="false" aria-controls="r-flyout-panel-lesson-verbs" aria-label="Toggle submenu for Verbs">
+                      <svg class="r-flyout__icon r-flyout__icon--plus" aria-hidden="true" focusable="false">
+                        <use href="#icon-plus"></use>
+                      </svg>
+                      <svg class="r-flyout__icon r-flyout__icon--minus" aria-hidden="true" focusable="false">
+                        <use href="#icon-minus"></use>
+                      </svg>
+                    </button>
+                    <div class="menu-link r-flyout__link-wrap">
+                      <a class="r-flyout__link" href="../lesson-2-verbs.html">Verbs</a>
+                    </div>
+                  </div>
+                  <div class="ul-wrapper r-flyout__panel" id="r-flyout-panel-lesson-verbs" aria-hidden="true" hidden>
+                    <ul class="r-flyout__sublist">
+                      <li class="first">
+                        <div class="item-wrapper">
+                          <div class="menu-link">
+                            <a href="../lesson-2-verbs/1-principal-parts-of-a-verb.html">1. Principal parts of a verb</a>
+                          </div>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="item-wrapper">
+                          <div class="menu-link">
+                            <a href="../lesson-2-verbs/2-auxiliary-verbs.html">2. Auxiliary Verbs</a>
+                          </div>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="item-wrapper">
+                          <div class="menu-link">
+                            <a href="../lesson-2-verbs/3-transitive-and-intransitive-verbs.html">3. Transitive and Intransitive Verbs</a>
+                          </div>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="item-wrapper">
+                          <div class="menu-link">
+                            <a href="../lesson-2-verbs/4-regular-and-irregular-verbs.html">4. Regular and Irregular Verbs</a>
+                          </div>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="item-wrapper">
+                          <div class="menu-link">
+                            <a href="../lesson-2-verbs/5-linking-verbs.html">5. Linking Verbs</a>
+                          </div>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="item-wrapper">
+                          <div class="menu-link">
+                            <a href="../lesson-2-verbs/6-finite-verb-and-non-finite-verb.html">6. Finite Verb and Nonfinite Verb</a>
+                          </div>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="item-wrapper">
+                          <div class="menu-link">
+                            <a href="../lesson-2-verbs/7-other-types-of-verbs.html">7. Other types of verbs</a>
+                          </div>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="item-wrapper">
+                          <div class="menu-link">
+                            <a href="../lesson-2-verbs/8-stative-state-verbs.html">8. Stative Verbs</a>
+                          </div>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="item-wrapper">
+                          <div class="menu-link">
+                            <a href="../lesson-2-verbs/9-moods-of-the-verb.html">9. Moods of the verb</a>
+                          </div>
+                        </div>
+                      </li>
+                      <li class="last">
+                        <div class="item-wrapper">
+                          <div class="menu-link">
+                            <a href="../lesson-2-verbs/10-conjugation-of-verb.html">10. Conjugation of verb</a>
+                          </div>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                </li>
+
+                <!-- Lesson 3: Adjectives -->
+                <li data-r-flyout-item>
+                  <div class="item-wrapper r-flyout__header">
+                    <button class="r-flyout__toggle" type="button" aria-haspopup="menu" aria-expanded="false" aria-controls="r-flyout-panel-lesson-adjectives" aria-label="Toggle submenu for Adjectives">
+                      <svg class="r-flyout__icon r-flyout__icon--plus" aria-hidden="true" focusable="false">
+                        <use href="#icon-plus"></use>
+                      </svg>
+                      <svg class="r-flyout__icon r-flyout__icon--minus" aria-hidden="true" focusable="false">
+                        <use href="#icon-minus"></use>
+                      </svg>
+                    </button>
+                    <div class="menu-link r-flyout__link-wrap">
+                      <a class="r-flyout__link" href="../lesson-3-adjectives.html">Adjectives</a>
+                    </div>
+                  </div>
+                  <div class="ul-wrapper r-flyout__panel" id="r-flyout-panel-lesson-adjectives" aria-hidden="true" hidden>
+                    <ul class="r-flyout__sublist">
+                      <li class="first">
+                        <div class="item-wrapper">
+                          <div class="menu-link">
+                            <a href="../lesson-3-adjectives/1-types-of-adjectives.html">1. Types of Adjectives</a>
+                          </div>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="item-wrapper">
+                          <div class="menu-link">
+                            <a href="../lesson-3-adjectives/2-comparative-adjectives.html">2. Comparative Adjectives</a>
+                          </div>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="item-wrapper">
+                          <div class="menu-link">
+                            <a href="../lesson-3-adjectives/3-participial-adjectives.html">3. Participial Adjectives</a>
+                          </div>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="item-wrapper">
+                          <div class="menu-link">
+                            <a href="../lesson-3-adjectives/4-adjectives-function-as-nouns.html">4. Adjectives Function as Nouns</a>
+                          </div>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="item-wrapper">
+                          <div class="menu-link">
+                            <a href="../lesson-3-adjectives/5-attributive-and-predicative-adjectives.html">5. Position of adjective in a sentence</a>
+                          </div>
+                        </div>
+                      </li>
+                      <li class="last">
+                        <div class="item-wrapper">
+                          <div class="menu-link">
+                            <a href="../lesson-3-adjectives/6-order-of-adjectives.html">6. Order of Adjectives</a>
+                          </div>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                </li>
+
+                <!-- Lesson 4: Adverbs -->
+                <li data-r-flyout-item>
+                  <div class="item-wrapper r-flyout__header">
+                    <button class="r-flyout__toggle" type="button" aria-haspopup="menu" aria-expanded="false" aria-controls="r-flyout-panel-lesson-adverbs" aria-label="Toggle submenu for Adverbs">
+                      <svg class="r-flyout__icon r-flyout__icon--plus" aria-hidden="true" focusable="false">
+                        <use href="#icon-plus"></use>
+                      </svg>
+                      <svg class="r-flyout__icon r-flyout__icon--minus" aria-hidden="true" focusable="false">
+                        <use href="#icon-minus"></use>
+                      </svg>
+                    </button>
+                    <div class="menu-link r-flyout__link-wrap">
+                      <a class="r-flyout__link" href="../lesson-4-adverbs.html">Adverbs</a>
+                    </div>
+                  </div>
+                  <div class="ul-wrapper r-flyout__panel" id="r-flyout-panel-lesson-adverbs" aria-hidden="true" hidden>
+                    <ul class="r-flyout__sublist">
+                      <li class="first">
+                        <div class="item-wrapper">
+                          <div class="menu-link">
+                            <a href="../lesson-4-adverbs/1-types-of-adverbs.html">1. Types of Adverbs</a>
+                          </div>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="item-wrapper">
+                          <div class="menu-link">
+                            <a href="../lesson-4-adverbs/2-comparison-of-adverbs.html">2. Comparison of Adverbs</a>
+                          </div>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="item-wrapper">
+                          <div class="menu-link">
+                            <a href="../lesson-4-adverbs/3-forming-adverbs.html">3. Forming Adverbs</a>
+                          </div>
+                        </div>
+                      </li>
+                      <li class="last">
+                        <div class="item-wrapper">
+                          <div class="menu-link">
+                            <a href="../lesson-4-adverbs/4-position-of-adverbs.html">4. Position of Adverbs</a>
+                          </div>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                </li>
+
+                <!-- Lesson 5: Pronouns -->
+                <li data-r-flyout-item>
+                  <div class="item-wrapper r-flyout__header">
+                    <button class="r-flyout__toggle" type="button" aria-haspopup="menu" aria-expanded="false" aria-controls="r-flyout-panel-lesson-pronouns" aria-label="Toggle submenu for Pronouns">
+                      <svg class="r-flyout__icon r-flyout__icon--plus" aria-hidden="true" focusable="false">
+                        <use href="#icon-plus"></use>
+                      </svg>
+                      <svg class="r-flyout__icon r-flyout__icon--minus" aria-hidden="true" focusable="false">
+                        <use href="#icon-minus"></use>
+                      </svg>
+                    </button>
+                    <div class="menu-link r-flyout__link-wrap">
+                      <a class="r-flyout__link" href="../lesson-5-pronouns.html">Pronouns</a>
+                    </div>
+                  </div>
+                  <div class="ul-wrapper r-flyout__panel" id="r-flyout-panel-lesson-pronouns" aria-hidden="true" hidden>
+                    <ul class="r-flyout__sublist">
+                      <li class="first">
+                        <div class="item-wrapper">
+                          <div class="menu-link">
+                            <a href="../lesson-5-pronouns/1-personal-pronouns.html">1. Personal Pronouns</a>
+                          </div>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="item-wrapper">
+                          <div class="menu-link">
+                            <a href="../lesson-5-pronouns/2-reflexive-pronouns.html">2. Reflexive Pronouns</a>
+                          </div>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="item-wrapper">
+                          <div class="menu-link">
+                            <a href="../lesson-5-pronouns/3-relative-pronouns.html">3. Relative Pronouns</a>
+                          </div>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="item-wrapper">
+                          <div class="menu-link">
+                            <a href="../lesson-5-pronouns/4-possessive-pronouns.html">4. Possessive Pronouns</a>
+                          </div>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="item-wrapper">
+                          <div class="menu-link">
+                            <a href="../lesson-5-pronouns/5-demonstrative-pronouns.html">5. Demonstrative Pronouns</a>
+                          </div>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="item-wrapper">
+                          <div class="menu-link">
+                            <a href="../lesson-5-pronouns/6-indefinite-pronouns.html">6. Indefinite pronouns</a>
+                          </div>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="item-wrapper">
+                          <div class="menu-link">
+                            <a href="../lesson-5-pronouns/7-interrogative-pronouns.html">7. Interrogative Pronouns</a>
+                          </div>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="item-wrapper">
+                          <div class="menu-link">
+                            <a href="../lesson-5-pronouns/8-reciprocal-pronouns.html">8. Reciprocal Pronouns</a>
+                          </div>
+                        </div>
+                      </li>
+                      <li class="last">
+                        <div class="item-wrapper">
+                          <div class="menu-link">
+                            <a href="../lesson-5-pronouns/9-intensive-or-emphatic-pronouns.html">9. Intensive/Emphatic Pronouns</a>
+                          </div>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                </li>
+
+                <!-- Lesson 6: Prepositions (keeps legacy relative hrefs for subitems) -->
+                <li class="current" data-r-flyout-item>
+                  <div class="item-wrapper r-flyout__header">
+                    <button class="r-flyout__toggle" type="button" aria-haspopup="menu" aria-expanded="false" aria-controls="r-flyout-panel-lesson-prepositions" aria-label="Toggle submenu for Prepositions">
+                      <svg class="r-flyout__icon r-flyout__icon--plus" aria-hidden="true" focusable="false">
+                        <use href="#icon-plus"></use>
+                      </svg>
+                      <svg class="r-flyout__icon r-flyout__icon--minus" aria-hidden="true" focusable="false">
+                        <use href="#icon-minus"></use>
+                      </svg>
+                    </button>
+                    <div class="menu-link r-flyout__link-wrap">
+                      <a class="r-flyout__link" href="../lesson-6-prepositions.html">Prepositions</a>
+                    </div>
+                  </div>
+                  <div class="ul-wrapper r-flyout__panel" id="r-flyout-panel-lesson-prepositions" aria-hidden="true" hidden>
                     <ul class="r-flyout__sublist">
                       <li class="current first">
                         <div class="item-wrapper">
                           <div class="menu-link">
-                            <a href="../exercise-1-nouns/111-common-nouns.html" aria-label="1.1.1 Common Nouns">1.1.1 Common Nouns</a>
+                            <a href="1-prepositions-of-time.html" aria-current="page">1. Prepositions of Time</a>
                           </div>
                         </div>
                       </li>
                       <li>
                         <div class="item-wrapper">
                           <div class="menu-link">
-                            <a href="../exercise-1-nouns/112-proper-nouns.html" aria-label="1.1.2 Proper Nouns">1.1.2 Proper Nouns</a>
+                            <a href="2-prepositions-of-place.html">2. Prepositions of Place</a>
                           </div>
                         </div>
                       </li>
                       <li>
                         <div class="item-wrapper">
                           <div class="menu-link">
-                            <a href="../exercise-1-nouns/113-abstract-nouns.html" aria-label="1.1.3 Abstract Nouns">1.1.3 Abstract Nouns</a>
+                            <a href="3-prepositions-of-direction.html">3. Prepositions of Direction</a>
                           </div>
                         </div>
                       </li>
                       <li>
                         <div class="item-wrapper">
                           <div class="menu-link">
-                            <a href="../exercise-1-nouns/114-collective-nouns.html" aria-label="1.1.4 Collective Nouns">1.1.4 Collective Nouns</a>
+                            <a href="4-prepositions-of-manner-prepositions-of-cause-and-effect.html">4. Prepositions of Manner/Prepositions of Cause and Effect</a>
                           </div>
                         </div>
                       </li>
                       <li>
                         <div class="item-wrapper">
                           <div class="menu-link">
-                            <a href="../exercise-1-nouns/121-singular-and-plural-nouns.html" aria-label="1.2.1 Singular and Plural Nouns">1.2.1 Singular and Plural Nouns</a>
+                            <a href="5-simple-and-compound-prepositions.html">5. Simple and Compound Prepositions</a>
                           </div>
                         </div>
                       </li>
                       <li>
                         <div class="item-wrapper">
                           <div class="menu-link">
-                            <a href="../exercise-1-nouns/131-countable-and-uncountable-nouns.html" aria-label="1.3.1 Countable and Uncountable Nouns">1.3.1 Countable and Uncountable Nouns</a>
+                            <a href="6-same-word-used-as-preposition-and-adverb.html">6. Same word used as preposition and adverb</a>
                           </div>
                         </div>
                       </li>
                       <li>
                         <div class="item-wrapper">
                           <div class="menu-link">
-                            <a href="../exercise-1-nouns/141-forming-nouns.html" aria-label="1.4.1 Forming Nouns">1.4.1 Forming Nouns</a>
+                            <a href="7-same-word-used-as-preposition-and-other-parts-of-speech.html">7. Same word used as preposition and other parts of speech</a>
                           </div>
                         </div>
                       </li>
                       <li>
                         <div class="item-wrapper">
                           <div class="menu-link">
-                            <a href="../exercise-1-nouns/151-gender.html" aria-label="1.5.1 Gender">1.5.1 Gender</a>
+                            <a href="8-positions-of-preposition-in-the-sentence.html">8. Positions of preposition in the sentence</a>
                           </div>
                         </div>
                       </li>
                       <li class="last">
                         <div class="item-wrapper">
                           <div class="menu-link">
-                            <a href="../exercise-1-nouns/161-gender-neutral.html" aria-label="1.6.1 Gender Neutral">1.6.1 Gender Neutral</a>
+                            <a href="9-ending-a-sentence-with-a-preposition.html">9. Ending a sentence with a preposition</a>
                           </div>
                         </div>
                       </li>
                     </ul>
                   </div>
                 </li>
-                <li data-r-flyout-item="">
+
+                <!-- Lesson 7: Conjunctions -->
+                <li data-r-flyout-item>
                   <div class="item-wrapper r-flyout__header">
-                    <button class="r-flyout__toggle" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="r-flyout-panel-verbs" aria-label="Toggle submenu for Verbs">
+                    <button class="r-flyout__toggle" type="button" aria-haspopup="menu" aria-expanded="false" aria-controls="r-flyout-panel-lesson-conjunctions" aria-label="Toggle submenu for Conjunctions">
                       <svg class="r-flyout__icon r-flyout__icon--plus" aria-hidden="true" focusable="false">
-                        <use xlink:href="#icon-plus"></use>
+                        <use href="#icon-plus"></use>
                       </svg>
                       <svg class="r-flyout__icon r-flyout__icon--minus" aria-hidden="true" focusable="false">
-                        <use xlink:href="#icon-minus"></use>
+                        <use href="#icon-minus"></use>
                       </svg>
                     </button>
                     <div class="menu-link r-flyout__link-wrap">
-                      <a class="r-flyout__link" href="../exercise-2-verbs.html" aria-label="Verbs">Verbs</a>
+                      <a class="r-flyout__link" href="../lesson-7-conjunctions.html">Conjunctions</a>
                     </div>
                   </div>
-                  <div class="ul-wrapper r-flyout__panel" id="r-flyout-panel-verbs" aria-hidden="true" hidden>
+                  <div class="ul-wrapper r-flyout__panel" id="r-flyout-panel-lesson-conjunctions" aria-hidden="true" hidden>
                     <ul class="r-flyout__sublist">
                       <li class="first">
                         <div class="item-wrapper">
                           <div class="menu-link">
-                            <a href="../exercise-2-verbs/211-transitive-and-intransitive-verbs.html" aria-label="2.1.1 Transitive and Intransitive Verbs">2.1.1 Transitive and Intransitive Verbs</a>
+                            <a href="../lesson-7-conjunctions/1-coordinating-conjunctions.html">1. Coordinating Conjunctions</a>
                           </div>
                         </div>
                       </li>
                       <li>
                         <div class="item-wrapper">
                           <div class="menu-link">
-                            <a href="../exercise-2-verbs/221-linking-verbs.html" aria-label="2.2.1 Linking Verbs">2.2.1 Linking Verbs</a>
+                            <a href="../lesson-7-conjunctions/2-subordinating-conjunctions.html">2. Subordinating Conjunctions</a>
                           </div>
                         </div>
                       </li>
                       <li>
                         <div class="item-wrapper">
                           <div class="menu-link">
-                            <a href="../exercise-2-verbs/231-auxiliary-verbs.html" aria-label="2.3.1 Auxiliary Verbs">2.3.1 Auxiliary Verbs</a>
+                            <a href="../lesson-7-conjunctions/3-correlative-conjunctions.html">3. Correlative Conjunctions</a>
                           </div>
                         </div>
                       </li>
                       <li>
                         <div class="item-wrapper">
                           <div class="menu-link">
-                            <a href="../exercise-2-verbs/261-irregular-verbs-i.html" aria-label="2.6.1 Irregular Verbs">2.6.1 Irregular Verbs I</a>
+                            <a href="../lesson-7-conjunctions/4-connecting-conjunctions.html">4. Connecting Conjunctions</a>
+                          </div>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="item-wrapper">
+                          <div class="menu-link">
+                            <a href="../lesson-7-conjunctions/5-conjunctions-function-as-preposition-adverb-or-adjective.html">5. Conjunctions Function as Preposition, Adverb, or Adjective</a>
+                          </div>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="item-wrapper">
+                          <div class="menu-link">
+                            <a href="../lesson-7-conjunctions/6-more-on-conjunctions.html">6. More on Conjunctions</a>
                           </div>
                         </div>
                       </li>
                       <li class="last">
                         <div class="item-wrapper">
                           <div class="menu-link">
-                            <a href="../exercise-2-verbs/262-irregular-verbs-ii.html" aria-label="2.6.2 Irregular Verbs II">2.6.2 Irregular Verbs II</a>
+                            <a href="../lesson-7-conjunctions/7-the-conjunction-that.html">7. The conjunction 'that'</a>
                           </div>
                         </div>
                       </li>
                     </ul>
                   </div>
                 </li>
-                <li data-r-flyout-item="">
+
+                <!-- Lesson 8: S+V Agreement -->
+                <li data-r-flyout-item>
                   <div class="item-wrapper r-flyout__header">
-                    <button class="r-flyout__toggle" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="r-flyout-panel-adjectives" aria-label="Toggle submenu for Adjectives">
+                    <button class="r-flyout__toggle" type="button" aria-haspopup="menu" aria-expanded="false" aria-controls="r-flyout-panel-lesson-agreement" aria-label="Toggle submenu for S+V Agreement">
                       <svg class="r-flyout__icon r-flyout__icon--plus" aria-hidden="true" focusable="false">
-                        <use xlink:href="#icon-plus"></use>
+                        <use href="#icon-plus"></use>
                       </svg>
                       <svg class="r-flyout__icon r-flyout__icon--minus" aria-hidden="true" focusable="false">
-                        <use xlink:href="#icon-minus"></use>
+                        <use href="#icon-minus"></use>
                       </svg>
                     </button>
                     <div class="menu-link r-flyout__link-wrap">
-                      <a class="r-flyout__link" href="../exercise-3-adjectives.html" aria-label="Adjectives">Adjectives</a>
+                      <a class="r-flyout__link" href="../lesson-8-subject-verb-agreement.html">S+V Agreement</a>
                     </div>
                   </div>
-                  <div class="ul-wrapper r-flyout__panel" id="r-flyout-panel-adjectives" aria-hidden="true" hidden>
+                  <div class="ul-wrapper r-flyout__panel" id="r-flyout-panel-lesson-agreement" aria-hidden="true" hidden>
                     <ul class="r-flyout__sublist">
                       <li class="first">
                         <div class="item-wrapper">
                           <div class="menu-link">
-                            <a href="../exercise-3-adjectives/311-kinds-of-adjectives.html" aria-label="3.1.1 Kinds of Adjectives">3.1.1 Kinds of Adjectives</a>
+                            <a href="../lesson-8-subject-verb-agreement/1-the-verb-must-agree-with-the-subject.html">1. The verb must agree with the subject</a>
                           </div>
                         </div>
                       </li>
                       <li>
                         <div class="item-wrapper">
                           <div class="menu-link">
-                            <a href="../exercise-3-adjectives/321-comparing-adjectives.html" aria-label="3.2.1 Comparing Adjectives">3.2.1 Comparing Adjectives</a>
+                            <a href="../lesson-8-subject-verb-agreement/2-compound-subjects-and-the-verbs.html">2. Compound subjects and the verbs</a>
                           </div>
                         </div>
                       </li>
                       <li>
                         <div class="item-wrapper">
                           <div class="menu-link">
-                            <a href="../exercise-3-adjectives/331-forming-adjectives.html" aria-label="3.3.1 Forming Adjectives">3.3.1 Forming Adjectives</a>
+                            <a href="../lesson-8-subject-verb-agreement/3-subjects-coming-after-the-verbs.html">3. Subjects coming after the Verbs</a>
                           </div>
                         </div>
                       </li>
                       <li>
                         <div class="item-wrapper">
                           <div class="menu-link">
-                            <a href="../exercise-3-adjectives/341-using-adjectives-i.html" aria-label="3.4.1 Using Adjectives">3.4.1 Using Adjectives I</a>
+                            <a href="../lesson-8-subject-verb-agreement/4-two-subjects-nouns-with-singular-verb.html">4. Two subjects/nouns with singular verb</a>
                           </div>
                         </div>
                       </li>
                       <li>
                         <div class="item-wrapper">
                           <div class="menu-link">
-                            <a href="../exercise-3-adjectives/342-using-adjectives-ii.html" aria-label="3.4.2 Using Adjectives">3.4.2 Using Adjectives II</a>
-                          </div>
-                        </div>
-                      </li>
-                      <li>
-                        <div class="item-wrapper">
-                          <div class="menu-link">
-                            <a href="../exercise-3-adjectives/343-using-adjectives-iii.html" aria-label="3.4.3 Using Adjectives">3.4.3 Using Adjectives III</a>
-                          </div>
-                        </div>
-                      </li>
-                      <li>
-                        <div class="item-wrapper">
-                          <div class="menu-link">
-                            <a href="../exercise-3-adjectives/345-correct-usage-of-adjectives.html" aria-label="3.4.5 Correct Usage of Adjectives">3.4.5 Correct Usage of Adjectives</a>
+                            <a href="../lesson-8-subject-verb-agreement/5-agreement-with-indefinite-pronouns.html">5. Agreement with Indefinite Pronouns</a>
                           </div>
                         </div>
                       </li>
                       <li class="last">
                         <div class="item-wrapper">
                           <div class="menu-link">
-                            <a href="../exercise-3-adjectives/351-positioning-adjectives.html" aria-label="3.5.1 Ordering Adjectives">3.5.1 Ordering Adjectives</a>
+                            <a href="../lesson-8-subject-verb-agreement/6-words-that-intervene-between-subject-and-verb.html">6. Words that intervene between subject and verb</a>
                           </div>
                         </div>
                       </li>
                     </ul>
                   </div>
                 </li>
-                <li data-r-flyout-item="">
+
+                <!-- Lesson 9: Articles -->
+                <li data-r-flyout-item>
                   <div class="item-wrapper r-flyout__header">
-                    <button class="r-flyout__toggle" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="r-flyout-panel-adverbs" aria-label="Toggle submenu for Adverbs">
+                    <button class="r-flyout__toggle" type="button" aria-haspopup="menu" aria-expanded="false" aria-controls="r-flyout-panel-lesson-articles" aria-label="Toggle submenu for Articles">
                       <svg class="r-flyout__icon r-flyout__icon--plus" aria-hidden="true" focusable="false">
-                        <use xlink:href="#icon-plus"></use>
+                        <use href="#icon-plus"></use>
                       </svg>
                       <svg class="r-flyout__icon r-flyout__icon--minus" aria-hidden="true" focusable="false">
-                        <use xlink:href="#icon-minus"></use>
+                        <use href="#icon-minus"></use>
                       </svg>
                     </button>
                     <div class="menu-link r-flyout__link-wrap">
-                      <a class="r-flyout__link" href="../exercise-4-adverbs.html" aria-label="Menu Link">Adverbs</a>
+                      <a class="r-flyout__link" href="../lesson-9-articles.html">Articles</a>
                     </div>
                   </div>
-                  <div class="ul-wrapper r-flyout__panel" id="r-flyout-panel-adverbs" aria-hidden="true" hidden>
+                  <div class="ul-wrapper r-flyout__panel" id="r-flyout-panel-lesson-articles" aria-hidden="true" hidden>
                     <ul class="r-flyout__sublist">
                       <li class="first">
                         <div class="item-wrapper">
                           <div class="menu-link">
-                            <a href="../exercise-4-adverbs/411-using-adverbs-part-1.html" aria-label="Menu Link">4.1.1 Using Adverbs (Part 1)</a>
+                            <a href="../lesson-9-articles/1-definite-article-the.html">1. Definite article: the</a>
                           </div>
                         </div>
                       </li>
                       <li>
                         <div class="item-wrapper">
                           <div class="menu-link">
-                            <a href="../exercise-4-adverbs/412-using-adverbs-part-2.html" aria-label="Menu Link">4.1.2 Using Adverbs (Part 2)</a>
+                            <a href="../lesson-9-articles/2-indefinite-article-a-an.html">2. Indefinite Article: a, an</a>
                           </div>
                         </div>
                       </li>
                       <li>
                         <div class="item-wrapper">
                           <div class="menu-link">
-                            <a href="../exercise-4-adverbs/421-positioning-adverbs-part-1.html" aria-label="Menu Link">4.2.1 Positioning Adverbs (Part 1)</a>
+                            <a href="../lesson-9-articles/3-zero-article.html">3. Zero Article</a>
                           </div>
                         </div>
                       </li>
                       <li>
                         <div class="item-wrapper">
                           <div class="menu-link">
-                            <a href="../exercise-4-adverbs/422-positioning-adverbs-part-2.html" aria-label="Menu Link">4.2.2 Positioning Adverbs (Part 2)</a>
+                            <a href="../lesson-9-articles/4-articles-before-countable-and-uncountable-nouns.html">4. Articles before Countable and Uncountable Nouns</a>
                           </div>
                         </div>
                       </li>
                       <li>
                         <div class="item-wrapper">
                           <div class="menu-link">
-                            <a href="../exercise-4-adverbs/423-positioning-adverbs-part-3.html" aria-label="Menu Link">4.2.3 Positioning Adverbs (Part 3)</a>
-                          </div>
-                        </div>
-                      </li>
-                      <li>
-                        <div class="item-wrapper">
-                          <div class="menu-link">
-                            <a href="../exercise-4-adverbs/431-modifying-verbs.html" aria-label="Menu Link">4.3.1 Modifying Verbs</a>
-                          </div>
-                        </div>
-                      </li>
-                      <li>
-                        <div class="item-wrapper">
-                          <div class="menu-link">
-                            <a href="../exercise-4-adverbs/432-modifying-adjectives-part-1.html" aria-label="Menu Link">4.3.2 Modifying Adjectives (Part 1)</a>
-                          </div>
-                        </div>
-                      </li>
-                      <li>
-                        <div class="item-wrapper">
-                          <div class="menu-link">
-                            <a href="../exercise-4-adverbs/433-modifying-adjectives-part-2.html" aria-label="Menu Link">4.3.3 Modifying Adjectives (Part 2)</a>
+                            <a href="../lesson-9-articles/5-same-noun-used-with-all-three-articles.html">5. Same Noun Used with all Three Articles</a>
                           </div>
                         </div>
                       </li>
                       <li class="last">
                         <div class="item-wrapper">
                           <div class="menu-link">
-                            <a href="../exercise-4-adverbs/434-modifying-adverbs.html" aria-label="Menu Link">4.3.4 Modifying Adverbs</a>
+                            <a href="../lesson-9-articles/6-position-of-an-article-in-a-sentence.html">6. Position of an article in a sentence</a>
                           </div>
                         </div>
                       </li>
                     </ul>
                   </div>
                 </li>
-                <li data-r-flyout-item="">
+
+                <!-- Lesson 10: Modal Verb -->
+                <li data-r-flyout-item>
                   <div class="item-wrapper r-flyout__header">
-                    <button class="r-flyout__toggle" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="r-flyout-panel-pronouns" aria-label="Toggle submenu for Pronouns">
+                    <button class="r-flyout__toggle" type="button" aria-haspopup="menu" aria-expanded="false" aria-controls="r-flyout-panel-lesson-modal" aria-label="Toggle submenu for Modal Verb">
                       <svg class="r-flyout__icon r-flyout__icon--plus" aria-hidden="true" focusable="false">
-                        <use xlink:href="#icon-plus"></use>
+                        <use href="#icon-plus"></use>
                       </svg>
                       <svg class="r-flyout__icon r-flyout__icon--minus" aria-hidden="true" focusable="false">
-                        <use xlink:href="#icon-minus"></use>
+                        <use href="#icon-minus"></use>
                       </svg>
                     </button>
                     <div class="menu-link r-flyout__link-wrap">
-                      <a class="r-flyout__link" href="../exercise-5-pronouns.html" aria-label="Menu Link">Pronouns</a>
+                      <a class="r-flyout__link" href="../lesson-10-modal-verb.html">Modal Verb</a>
                     </div>
                   </div>
-                  <div class="ul-wrapper r-flyout__panel" id="r-flyout-panel-pronouns" aria-hidden="true" hidden>
+                  <div class="ul-wrapper r-flyout__panel" id="r-flyout-panel-lesson-modal" aria-hidden="true" hidden>
                     <ul class="r-flyout__sublist">
                       <li class="first">
                         <div class="item-wrapper">
                           <div class="menu-link">
-                            <a href="../exercise-5-pronouns/511-personal-pronoun-i.html" aria-label="Menu Link">5.1.1 Personal Pronoun I</a>
+                            <a href="../lesson-10-modal-verb/1-can-and-could.html">1. CAN and COULD</a>
                           </div>
                         </div>
                       </li>
                       <li>
                         <div class="item-wrapper">
                           <div class="menu-link">
-                            <a href="../exercise-5-pronouns/512-personal-pronoun-ii.html" aria-label="Menu Link">5.1.2 Personal Pronoun II</a>
+                            <a href="../lesson-10-modal-verb/2-may-and-might.html">2. MAY and MIGHT</a>
                           </div>
                         </div>
                       </li>
                       <li>
                         <div class="item-wrapper">
                           <div class="menu-link">
-                            <a href="../exercise-5-pronouns/513-personal-pronoun-iii.html" aria-label="Menu Link">5.1.3 Personal Pronoun III</a>
+                            <a href="../lesson-10-modal-verb/3-will-and-would.html">3. WILL and WOULD</a>
                           </div>
                         </div>
                       </li>
                       <li>
                         <div class="item-wrapper">
                           <div class="menu-link">
-                            <a href="../exercise-5-pronouns/521-pronoun-common-mistakes.html" aria-label="Menu Link">5.2.1 Pronoun - Common Mistakes</a>
+                            <a href="../lesson-10-modal-verb/4-shall-and-should.html">4. SHALL and SHOULD</a>
                           </div>
                         </div>
                       </li>
                       <li>
                         <div class="item-wrapper">
                           <div class="menu-link">
-                            <a href="../exercise-5-pronouns/531-indefinite-pronoun.html" aria-label="Menu Link">5.3.1 Indefinite Pronoun</a>
+                            <a href="../lesson-10-modal-verb/5-must.html">5. MUST</a>
                           </div>
                         </div>
                       </li>
                       <li>
                         <div class="item-wrapper">
                           <div class="menu-link">
-                            <a href="../exercise-5-pronouns/541-reflexive-pronoun.html" aria-label="Menu Link">5.4.1 Reflexive Pronoun</a>
+                            <a href="../lesson-10-modal-verb/6-semi-modal-verbs-had-better.html">6. Semi-modal verbs / HAD BETTER</a>
                           </div>
                         </div>
                       </li>
                       <li>
                         <div class="item-wrapper">
                           <div class="menu-link">
-                            <a href="../exercise-5-pronouns/542-reflexive-emphatic-pronouns.html" aria-label="Menu Link">5.4.2 Reflexive Emphatic Pronouns</a>
-                          </div>
-                        </div>
-                      </li>
-                      <li>
-                        <div class="item-wrapper">
-                          <div class="menu-link">
-                            <a href="../exercise-5-pronouns/551-pronouns-part-1.html" aria-label="Menu Link">5.5.1 Pronouns (Part 1)</a>
-                          </div>
-                        </div>
-                      </li>
-                      <li>
-                        <div class="item-wrapper">
-                          <div class="menu-link">
-                            <a href="../exercise-5-pronouns/552-pronouns-part-2.html" aria-label="Menu Link">5.5.2 Pronouns (Part 2)</a>
-                          </div>
-                        </div>
-                      </li>
-                      <li>
-                        <div class="item-wrapper">
-                          <div class="menu-link">
-                            <a href="../exercise-5-pronouns/561-relative-pronoun-who.html" aria-label="Menu Link">5.6.1 Relative Pronoun (who)</a>
-                          </div>
-                        </div>
-                      </li>
-                      <li>
-                        <div class="item-wrapper">
-                          <div class="menu-link">
-                            <a href="../exercise-5-pronouns/562-relative-pronoun-who-which.html" aria-label="Menu Link">5.6.2 Relative Pronoun (who, which)</a>
-                          </div>
-                        </div>
-                      </li>
-                      <li>
-                        <div class="item-wrapper">
-                          <div class="menu-link">
-                            <a href="../exercise-5-pronouns/563-relative-pronoun-who-which-whom-whose-i.html" aria-label="Menu Link">5.6.3 Relative Pronoun (who, which, whom, whose) I</a>
-                          </div>
-                        </div>
-                      </li>
-                      <li>
-                        <div class="item-wrapper">
-                          <div class="menu-link">
-                            <a href="../exercise-5-pronouns/564-relative-pronoun-who-which-whom-whose-ii.html" aria-label="Menu Link">5.6.4 Relative Pronoun (who, which, whom or whose) II</a>
-                          </div>
-                        </div>
-                      </li>
-                      <li>
-                        <div class="item-wrapper">
-                          <div class="menu-link">
-                            <a href="../exercise-5-pronouns/565-relative-pronoun-pairs-who-which-whom-whose-iii.html" aria-label="Menu Link">5.6.5 Relative Pronoun (who, which, whom or whose) III</a>
-                          </div>
-                        </div>
-                      </li>
-                      <li>
-                        <div class="item-wrapper">
-                          <div class="menu-link">
-                            <a href="../exercise-5-pronouns/566-relative-pronoun-who-which-whom-whose-iv.html" aria-label="5.6.6 Relative Pronoun (who, which, whom or whose) IV">5.6.6 Relative Pronoun (who, which, whom or whose) IV</a>
-                          </div>
-                        </div>
-                      </li>
-                      <li>
-                        <div class="item-wrapper">
-                          <div class="menu-link">
-                            <a href="../exercise-5-pronouns/571-possessive-pronoun-part-1.html" aria-label="Menu Link">5.7.1 Possessive Pronoun (Part 1)</a>
-                          </div>
-                        </div>
-                      </li>
-                      <li>
-                        <div class="item-wrapper">
-                          <div class="menu-link">
-                            <a href="../exercise-5-pronouns/572-possessive-pronoun-part-2.html" aria-label="Menu Link">5.7.2 Possessive Pronoun (Part 2)</a>
-                          </div>
-                        </div>
-                      </li>
-                      <li>
-                        <div class="item-wrapper">
-                          <div class="menu-link">
-                            <a href="../exercise-5-pronouns/573-possessive-pronoun-part-3.html" aria-label="Menu Link">5.7.3 Possessive Pronoun (Part 3)</a>
+                            <a href="../lesson-10-modal-verb/7-ought-to-and-used-to.html">7. OUGHT TO and USED TO</a>
                           </div>
                         </div>
                       </li>
                       <li class="last">
                         <div class="item-wrapper">
                           <div class="menu-link">
-                            <a href="../exercise-5-pronouns/574-possessive-pronoun-part-4.html" aria-label="Menu Link">5.7.4 Possessive Pronoun (Part 4)</a>
+                            <a href="../lesson-10-modal-verb/8-dare-and-need.html">8. DARE and NEED</a>
                           </div>
                         </div>
                       </li>
                     </ul>
                   </div>
                 </li>
-                <li data-r-flyout-item="">
+
+                <!-- Lesson 11: Conditionals -->
+                <li data-r-flyout-item>
                   <div class="item-wrapper r-flyout__header">
-                    <button class="r-flyout__toggle" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="r-flyout-panel-prepositions" aria-label="Toggle submenu for Prepositions">
+                    <button class="r-flyout__toggle" type="button" aria-haspopup="menu" aria-expanded="false" aria-controls="r-flyout-panel-lesson-conditionals" aria-label="Toggle submenu for Conditionals">
                       <svg class="r-flyout__icon r-flyout__icon--plus" aria-hidden="true" focusable="false">
-                        <use xlink:href="#icon-plus"></use>
+                        <use href="#icon-plus"></use>
                       </svg>
                       <svg class="r-flyout__icon r-flyout__icon--minus" aria-hidden="true" focusable="false">
-                        <use xlink:href="#icon-minus"></use>
+                        <use href="#icon-minus"></use>
                       </svg>
                     </button>
                     <div class="menu-link r-flyout__link-wrap">
-                      <a class="r-flyout__link" href="../exercise-6-prepositions.html" aria-label="Menu Link">Prepositions</a>
+                      <a class="r-flyout__link" href="../lesson-11-conditionals.html">Conditionals</a>
                     </div>
                   </div>
-                  <div class="ul-wrapper r-flyout__panel" id="r-flyout-panel-prepositions" aria-hidden="true" hidden>
+                  <div class="ul-wrapper r-flyout__panel" id="r-flyout-panel-lesson-conditionals" aria-hidden="true" hidden>
                     <ul class="r-flyout__sublist">
                       <li class="first">
                         <div class="item-wrapper">
                           <div class="menu-link">
-                            <a href="../exercise-6-prepositions/611-prepositions-in-on.html" aria-label="Menu Link">6.1.1 Prepositions (in, on)</a>
+                            <a href="../lesson-11-conditionals/1-the-first-conditional.html">1. The First Conditional</a>
                           </div>
                         </div>
                       </li>
                       <li>
                         <div class="item-wrapper">
                           <div class="menu-link">
-                            <a href="../exercise-6-prepositions/612-prepositions-at-from-of-to-with.html" aria-label="Menu Link">6.1.2 Prepositions (at, from, of, to, with)</a>
+                            <a href="../lesson-11-conditionals/2-the-second-conditional.html">2. The Second Conditional</a>
                           </div>
                         </div>
                       </li>
                       <li>
                         <div class="item-wrapper">
                           <div class="menu-link">
-                            <a href="../exercise-6-prepositions/613-prepositions-basic-i.html" aria-label="Menu Link">6.1.3 Prepositions - Basic I</a>
-                          </div>
-                        </div>
-                      </li>
-                      <li>
-                        <div class="item-wrapper">
-                          <div class="menu-link">
-                            <a href="../exercise-6-prepositions/614-prepositions-basic-ii.html" aria-label="Menu Link">6.1.4 Prepositions - Basic II</a>
-                          </div>
-                        </div>
-                      </li>
-                      <li>
-                        <div class="item-wrapper">
-                          <div class="menu-link">
-                            <a href="../exercise-6-prepositions/615-prepositions-basic-iii.html" aria-label="Menu Link">6.1.5 Prepositions - Basic III</a>
-                          </div>
-                        </div>
-                      </li>
-                      <li>
-                        <div class="item-wrapper">
-                          <div class="menu-link">
-                            <a href="../exercise-6-prepositions/621-prepositions-advanced-1.html" aria-label="Menu Link">6.2.1 Prepositions - Advanced 1</a>
-                          </div>
-                        </div>
-                      </li>
-                      <li>
-                        <div class="item-wrapper">
-                          <div class="menu-link">
-                            <a href="../exercise-6-prepositions/622-prepositions-advanced-2.html" aria-label="Menu Link">6.2.2 Prepositions - Advanced 2</a>
-                          </div>
-                        </div>
-                      </li>
-                      <li>
-                        <div class="item-wrapper">
-                          <div class="menu-link">
-                            <a href="../exercise-6-prepositions/623-prepositions-advanced-3.html" aria-label="Menu Link">6.2.3 Prepositions - Advanced 3</a>
-                          </div>
-                        </div>
-                      </li>
-                      <li>
-                        <div class="item-wrapper">
-                          <div class="menu-link">
-                            <a href="../exercise-6-prepositions/624-prepositions-advanced-4.html" aria-label="Menu Link">6.2.4 Prepositions - Advanced 4</a>
+                            <a href="../lesson-11-conditionals/3-the-third-conditional.html">3. The Third Conditional</a>
                           </div>
                         </div>
                       </li>
                       <li class="last">
                         <div class="item-wrapper">
                           <div class="menu-link">
-                            <a href="../exercise-6-prepositions/625-prepositions-advanced-5.html" aria-label="Menu Link">6.2.5 Prepositions - Advanced 5</a>
+                            <a href="../lesson-11-conditionals/4-the-zero-conditional.html">4. The Zero Conditional</a>
                           </div>
                         </div>
                       </li>
                     </ul>
                   </div>
                 </li>
-                <li data-r-flyout-item="">
+
+                <!-- Lesson 12: Modifiers -->
+                <li data-r-flyout-item>
                   <div class="item-wrapper r-flyout__header">
-                    <button class="r-flyout__toggle" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="r-flyout-panel-conjunctions" aria-label="Toggle submenu for Conjunctions">
+                    <button class="r-flyout__toggle" type="button" aria-haspopup="menu" aria-expanded="false" aria-controls="r-flyout-panel-lesson-modifiers" aria-label="Toggle submenu for Modifiers">
                       <svg class="r-flyout__icon r-flyout__icon--plus" aria-hidden="true" focusable="false">
-                        <use xlink:href="#icon-plus"></use>
+                        <use href="#icon-plus"></use>
                       </svg>
                       <svg class="r-flyout__icon r-flyout__icon--minus" aria-hidden="true" focusable="false">
-                        <use xlink:href="#icon-minus"></use>
+                        <use href="#icon-minus"></use>
                       </svg>
                     </button>
                     <div class="menu-link r-flyout__link-wrap">
-                      <a class="r-flyout__link" href="../exercise-7-conjunctions.html" aria-label="Menu Link">Conjunctions</a>
+                      <a class="r-flyout__link" href="../lesson-12-modifiers.html">Modifiers</a>
                     </div>
                   </div>
-                  <div class="ul-wrapper r-flyout__panel" id="r-flyout-panel-conjunctions" aria-hidden="true" hidden>
+                  <div class="ul-wrapper r-flyout__panel" id="r-flyout-panel-lesson-modifiers" aria-hidden="true" hidden>
                     <ul class="r-flyout__sublist">
                       <li class="first">
                         <div class="item-wrapper">
                           <div class="menu-link">
-                            <a href="../exercise-7-conjunctions/711-coordinating-conjunction-and-but.html" aria-label="Menu Link">7.1.1 Coordinating Conjunction (and, but)</a>
+                            <a href="../lesson-12-modifiers/1-adjectives-and-adverbs-as-modifiers.html">1. Adjectives and Adverbs as Modifiers</a>
                           </div>
                         </div>
                       </li>
                       <li>
                         <div class="item-wrapper">
                           <div class="menu-link">
-                            <a href="../exercise-7-conjunctions/712-coordinating-conjunction-and-but.html" aria-label="Menu Link">7.1.2 Coordinating Conjunction (and, but)</a>
+                            <a href="../lesson-12-modifiers/2-comparatives-and-superlatives-as-modifiers.html">2. Comparatives and Superlatives as Modifiers</a>
                           </div>
                         </div>
                       </li>
                       <li>
                         <div class="item-wrapper">
                           <div class="menu-link">
-                            <a href="../exercise-7-conjunctions/713-coordinating-conjunction-or-so.html" aria-label="Menu Link">7.1.3 Coordinating Conjunction (or, so)</a>
+                            <a href="../lesson-12-modifiers/3-multiple-modifiers.html">3. Multiple Modifiers</a>
                           </div>
                         </div>
                       </li>
                       <li>
                         <div class="item-wrapper">
                           <div class="menu-link">
-                            <a href="../exercise-7-conjunctions/714-coordinating-conjunction-for-nor-or-so-yet.html" aria-label="Menu Link">7.1.4 Coordinating Conjunction (for, and, nor, but, or, yet, so)</a>
+                            <a href="../lesson-12-modifiers/4-nouns-as-modifiers.html">4. Nouns as Modifiers</a>
                           </div>
                         </div>
                       </li>
                       <li>
                         <div class="item-wrapper">
                           <div class="menu-link">
-                            <a href="../exercise-7-conjunctions/721-subordinating-conjunction.html" aria-label="Menu Link">7.2.1 Subordinating Conjunction</a>
+                            <a href="../lesson-12-modifiers/5-participles-as-modifiers.html">5. Participles as Modifiers</a>
                           </div>
                         </div>
                       </li>
                       <li>
                         <div class="item-wrapper">
                           <div class="menu-link">
-                            <a href="../exercise-7-conjunctions/731-correlative-conjunction-i.html" aria-label="Menu Link">7.3.1 Correlative Conjunction I</a>
+                            <a href="../lesson-12-modifiers/6-phrases-and-clauses-as-modifiers.html">6. Phrases and Clauses as Modifiers</a>
+                          </div>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="item-wrapper">
+                          <div class="menu-link">
+                            <a href="../lesson-12-modifiers/7-dangling-modifiers.html">7. Dangling Modifiers</a>
                           </div>
                         </div>
                       </li>
                       <li class="last">
                         <div class="item-wrapper">
                           <div class="menu-link">
-                            <a href="../exercise-7-conjunctions/732-correlative-conjunction-ii.html" aria-label="Menu Link">7.3.2 Correlative Conjunction II</a>
+                            <a href="../lesson-12-modifiers/8-misplaced-squinting-modifiers.html">8. Misplaced &amp; Squinting Modifiers</a>
                           </div>
                         </div>
                       </li>
                     </ul>
                   </div>
                 </li>
-                <li data-r-flyout-item="">
+
+                <!-- Lesson 13: Speech Direction -->
+                <li data-r-flyout-item>
                   <div class="item-wrapper r-flyout__header">
-                    <button class="r-flyout__toggle" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="r-flyout-panel-agreement" aria-label="Toggle submenu for S plus V Agreement">
+                    <button class="r-flyout__toggle" type="button" aria-haspopup="menu" aria-expanded="false" aria-controls="r-flyout-panel-lesson-speech-direction" aria-label="Toggle submenu for Speech Direction">
                       <svg class="r-flyout__icon r-flyout__icon--plus" aria-hidden="true" focusable="false">
-                        <use xlink:href="#icon-plus"></use>
+                        <use href="#icon-plus"></use>
                       </svg>
                       <svg class="r-flyout__icon r-flyout__icon--minus" aria-hidden="true" focusable="false">
-                        <use xlink:href="#icon-minus"></use>
+                        <use href="#icon-minus"></use>
                       </svg>
                     </button>
                     <div class="menu-link r-flyout__link-wrap">
-                      <a class="r-flyout__link" href="../exercise-8-agreement.html" aria-label="Menu Link">S+V Agreement</a>
+                      <a class="r-flyout__link" href="../lesson-13-indirect-speech.html">Speech Direction</a>
                     </div>
                   </div>
-                  <div class="ul-wrapper r-flyout__panel" id="r-flyout-panel-agreement" aria-hidden="true" hidden>
+                  <div class="ul-wrapper r-flyout__panel" id="r-flyout-panel-lesson-speech-direction" aria-hidden="true" hidden>
                     <ul class="r-flyout__sublist">
                       <li class="first">
                         <div class="item-wrapper">
                           <div class="menu-link">
-                            <a href="../exercise-8-agreement/811-agreement-1.html" aria-label="Menu Link">8.1.1 Agreement 1</a>
+                            <a href="../lesson-13-indirect-speech/1-direct-speech-or-quoted-speech.html">1. Direct Speech or Quoted Speech</a>
                           </div>
                         </div>
                       </li>
                       <li>
                         <div class="item-wrapper">
                           <div class="menu-link">
-                            <a href="../exercise-8-agreement/812-agreement-2.html" aria-label="Menu Link">8.1.2 Agreement 2</a>
+                            <a href="../lesson-13-indirect-speech/2-indirect-speech-or-reported-speech.html">2. Indirect Speech or Reported Speech</a>
+                          </div>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="item-wrapper">
+                          <div class="menu-link">
+                            <a href="../lesson-13-indirect-speech/3-changing-direct-speech-to-indirect-speech.html">3. Changing Direct Speech to Indirect Speech</a>
+                          </div>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="item-wrapper">
+                          <div class="menu-link">
+                            <a href="../lesson-13-indirect-speech/4-changes-in-indirect-speech.html">4. Changes in Indirect Speech</a>
                           </div>
                         </div>
                       </li>
                       <li class="last">
                         <div class="item-wrapper">
                           <div class="menu-link">
-                            <a href="../exercise-8-agreement/813-agreement-3.html" aria-label="Menu Link">8.1.3 Agreement 3</a>
+                            <a href="../lesson-13-indirect-speech/5-reporting-questions.html">5. Reporting Questions</a>
                           </div>
                         </div>
                       </li>
                     </ul>
                   </div>
                 </li>
-                <li data-r-flyout-item="">
+
+                <!-- Lesson 14: Either-Neither -->
+                <li data-r-flyout-item>
                   <div class="item-wrapper r-flyout__header">
-                    <button class="r-flyout__toggle" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="r-flyout-panel-articles" aria-label="Toggle submenu for Articles">
+                    <button class="r-flyout__toggle" type="button" aria-haspopup="menu" aria-expanded="false" aria-controls="r-flyout-panel-lesson-either-neither" aria-label="Toggle submenu for Either-Neither">
                       <svg class="r-flyout__icon r-flyout__icon--plus" aria-hidden="true" focusable="false">
-                        <use xlink:href="#icon-plus"></use>
+                        <use href="#icon-plus"></use>
                       </svg>
                       <svg class="r-flyout__icon r-flyout__icon--minus" aria-hidden="true" focusable="false">
-                        <use xlink:href="#icon-minus"></use>
+                        <use href="#icon-minus"></use>
                       </svg>
                     </button>
                     <div class="menu-link r-flyout__link-wrap">
-                      <a class="r-flyout__link" href="../exercise-9-articles.html" aria-label="Menu Link">Articles</a>
+                      <a class="r-flyout__link" href="../lesson-14-either-neither.html">Either-Neither</a>
                     </div>
                   </div>
-                  <div class="ul-wrapper r-flyout__panel" id="r-flyout-panel-articles" aria-hidden="true" hidden>
+                  <div class="ul-wrapper r-flyout__panel" id="r-flyout-panel-lesson-either-neither" aria-hidden="true" hidden>
                     <ul class="r-flyout__sublist">
                       <li class="first">
                         <div class="item-wrapper">
                           <div class="menu-link">
-                            <a href="../exercise-9-articles/911-article-a-an-the-i.html" aria-label="Menu Link">9.1.1 Articles (a, an, the) I</a>
+                            <a href="../lesson-14-either-neither/1-used-as-a-pronoun.html">1. Used as a Pronoun</a>
                           </div>
                         </div>
                       </li>
                       <li>
                         <div class="item-wrapper">
                           <div class="menu-link">
-                            <a href="../exercise-9-articles/912-articles-a-an-the-ii.html" aria-label="Menu Link">9.1.2 Articles (a, an, the) II</a>
+                            <a href="../lesson-14-either-neither/2-used-as-a-determiner.html">2. Used as a Determiner</a>
+                          </div>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="item-wrapper">
+                          <div class="menu-link">
+                            <a href="../lesson-14-either-neither/3-used-as-a-conjunction.html">3. Used as a Conjunction</a>
+                          </div>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="item-wrapper">
+                          <div class="menu-link">
+                            <a href="../lesson-14-either-neither/4-used-as-an-adverb.html">4. Used as an Adverb</a>
                           </div>
                         </div>
                       </li>
                       <li class="last">
                         <div class="item-wrapper">
                           <div class="menu-link">
-                            <a href="../exercise-9-articles/913-articles-a-an-the-iii.html" aria-label="Menu Link">9.1.3 Articles (a, an, the) III</a>
+                            <a href="../lesson-14-either-neither/5-using-nor-without-neither.html">5. Using 'Nor' without Neither</a>
                           </div>
                         </div>
                       </li>
                     </ul>
                   </div>
                 </li>
-                <li data-r-flyout-item="">
+
+                <!-- Lesson 15: Active-Passive -->
+                <li data-r-flyout-item>
                   <div class="item-wrapper r-flyout__header">
-                    <button class="r-flyout__toggle" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="r-flyout-panel-conditionals" aria-label="Toggle submenu for Conditionals">
+                    <button class="r-flyout__toggle" type="button" aria-haspopup="menu" aria-expanded="false" aria-controls="r-flyout-panel-lesson-active-passive" aria-label="Toggle submenu for Active-Passive">
                       <svg class="r-flyout__icon r-flyout__icon--plus" aria-hidden="true" focusable="false">
-                        <use xlink:href="#icon-plus"></use>
+                        <use href="#icon-plus"></use>
                       </svg>
                       <svg class="r-flyout__icon r-flyout__icon--minus" aria-hidden="true" focusable="false">
-                        <use xlink:href="#icon-minus"></use>
+                        <use href="#icon-minus"></use>
                       </svg>
                     </button>
                     <div class="menu-link r-flyout__link-wrap">
-                      <a class="r-flyout__link" href="../exercise-11-conditionals.html" aria-label="Menu Link">Conditionals</a>
+                      <a class="r-flyout__link" href="../lesson-15-active-and-passive-voice.html">Active-Passive</a>
                     </div>
                   </div>
-                  <div class="ul-wrapper r-flyout__panel" id="r-flyout-panel-conditionals" aria-hidden="true" hidden>
+                  <div class="ul-wrapper r-flyout__panel" id="r-flyout-panel-lesson-active-passive" aria-hidden="true" hidden>
                     <ul class="r-flyout__sublist">
                       <li class="first">
                         <div class="item-wrapper">
                           <div class="menu-link">
-                            <a href="../exercise-11-conditionals/1111-first-conditional.html" aria-label="Menu Link">11.1.1 First Conditional</a>
+                            <a href="../lesson-15-active-and-passive-voice/1-active-and-passive-voice.html">1. Active and Passive Voice</a>
                           </div>
                         </div>
                       </li>
                       <li>
                         <div class="item-wrapper">
                           <div class="menu-link">
-                            <a href="../exercise-11-conditionals/1112-second-conditional.html" aria-label="Menu Link">11.1.2 Second Conditional</a>
+                            <a href="../lesson-15-active-and-passive-voice/2-tenses-in-the-passive-voice.html">2. Tenses in the Passive Voice</a>
+                          </div>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="item-wrapper">
+                          <div class="menu-link">
+                            <a href="../lesson-15-active-and-passive-voice/3-passive-sentence-with-two-objects.html">3. Passive Sentence with Two Objects</a>
+                          </div>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="item-wrapper">
+                          <div class="menu-link">
+                            <a href="../lesson-15-active-and-passive-voice/4-reasons-for-and-against-passive-voice.html">4. Reasons For and Against Passive Voice</a>
                           </div>
                         </div>
                       </li>
                       <li class="last">
                         <div class="item-wrapper">
                           <div class="menu-link">
-                            <a href="../exercise-11-conditionals/1113-third-conditional.html" aria-label="Menu Link">11.1.3 Third Conditional</a>
+                            <a href="../lesson-15-active-and-passive-voice/5-more-on-passive-voice.html">5. More on Passive Voice</a>
                           </div>
                         </div>
                       </li>
                     </ul>
                   </div>
                 </li>
-                <li data-r-flyout-item="">
+
+                <!-- Lesson 16: Punctuation -->
+                <li data-r-flyout-item>
                   <div class="item-wrapper r-flyout__header">
-                    <button class="r-flyout__toggle" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="r-flyout-panel-modifiers" aria-label="Toggle submenu for Modifiers">
+                    <button class="r-flyout__toggle" type="button" aria-haspopup="menu" aria-expanded="false" aria-controls="r-flyout-panel-lesson-punctuation" aria-label="Toggle submenu for Punctuation">
                       <svg class="r-flyout__icon r-flyout__icon--plus" aria-hidden="true" focusable="false">
-                        <use xlink:href="#icon-plus"></use>
+                        <use href="#icon-plus"></use>
                       </svg>
                       <svg class="r-flyout__icon r-flyout__icon--minus" aria-hidden="true" focusable="false">
-                        <use xlink:href="#icon-minus"></use>
+                        <use href="#icon-minus"></use>
                       </svg>
                     </button>
                     <div class="menu-link r-flyout__link-wrap">
-                      <a class="r-flyout__link" href="../exercise-12-modifiers.html" aria-label="Menu Link">Modifiers</a>
+                      <a class="r-flyout__link" href="../lesson-16-punctuation.html">Punctuation</a>
                     </div>
                   </div>
-                  <div class="ul-wrapper r-flyout__panel" id="r-flyout-panel-modifiers" aria-hidden="true" hidden>
+                  <div class="ul-wrapper r-flyout__panel" id="r-flyout-panel-lesson-punctuation" aria-hidden="true" hidden>
+                    <ul class="r-flyout__sublist">
+                      <li class="first">
+                        <div class="item-wrapper">
+                          <div class="menu-link"><a href="../lesson-16-punctuation/1-full-stopperiod.html">1. Full Stop/Period (.)</a></div>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="item-wrapper">
+                          <div class="menu-link"><a href="../lesson-16-punctuation/2-comma.html">2. Comma (,)</a></div>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="item-wrapper">
+                          <div class="menu-link"><a href="../lesson-16-punctuation/3-question-mark.html">3. Question Mark (?)</a></div>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="item-wrapper">
+                          <div class="menu-link">
+                            <a href="../lesson-16-punctuation/4-exclamation-mark.html">4. Exclamation Mark (!)</a>
+                          </div>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="item-wrapper">
+                          <div class="menu-link"><a href="../lesson-16-punctuation/5-colon.html">5. Colon (:)</a></div>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="item-wrapper">
+                          <div class="menu-link"><a href="../lesson-16-punctuation/6-semicolon.html">6. Semicolon (;)</a></div>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="item-wrapper">
+                          <div class="menu-link"><a href="../lesson-16-punctuation/7-apostrophe.html">7. Apostrophe (')</a></div>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="item-wrapper">
+                          <div class="menu-link"><a href="../lesson-16-punctuation/8-hyphen-dash.html">8. Hyphen (-) / Dash (–)</a></div>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="item-wrapper">
+                          <div class="menu-link">
+                            <a href="../lesson-16-punctuation/9-quotation-marks-qq.html">9. Quotation Marks ("...")</a>
+                          </div>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="item-wrapper">
+                          <div class="menu-link">
+                            <a href="../lesson-16-punctuation/10-parentheses-brackets.html">10. Parentheses / Brackets</a>
+                          </div>
+                        </div>
+                      </li>
+                      <li class="last">
+                        <div class="item-wrapper">
+                          <div class="menu-link"><a href="../lesson-16-punctuation/11-ellipsis.html">11. Ellipsis</a></div>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                </li>
+
+                <!-- Lesson 17: Clauses -->
+                <li data-r-flyout-item>
+                  <div class="item-wrapper r-flyout__header">
+                    <button class="r-flyout__toggle" type="button" aria-haspopup="menu" aria-expanded="false" aria-controls="r-flyout-panel-lesson-clauses" aria-label="Toggle submenu for Clauses">
+                      <svg class="r-flyout__icon r-flyout__icon--plus" aria-hidden="true" focusable="false">
+                        <use href="#icon-plus"></use>
+                      </svg>
+                      <svg class="r-flyout__icon r-flyout__icon--minus" aria-hidden="true" focusable="false">
+                        <use href="#icon-minus"></use>
+                      </svg>
+                    </button>
+                    <div class="menu-link r-flyout__link-wrap">
+                      <a class="r-flyout__link" href="../lesson-17-clauses.html">Clauses</a>
+                    </div>
+                  </div>
+                  <div class="ul-wrapper r-flyout__panel" id="r-flyout-panel-lesson-clauses" aria-hidden="true" hidden>
                     <ul class="r-flyout__sublist">
                       <li class="first">
                         <div class="item-wrapper">
                           <div class="menu-link">
-                            <a href="../exercise-12-modifiers/1211-adjectives-as-modifiers.html" aria-label="Menu Link">12.1.1 Adjectives as modifiers</a>
+                            <a href="../lesson-17-clauses/1-independent-clause-main-clause.html">1. Independent Clause / Main Clause</a>
                           </div>
                         </div>
                       </li>
                       <li>
                         <div class="item-wrapper">
                           <div class="menu-link">
-                            <a href="../exercise-12-modifiers/1212-adverbs-as-modifiers.html" aria-label="Menu Link">12.1.2 Adverbs as modifiers</a>
+                            <a href="../lesson-17-clauses/2-dependent-clause-subordinate-clause.html">2. Dependent Clause / Subordinate Clause</a>
                           </div>
                         </div>
                       </li>
                       <li>
                         <div class="item-wrapper">
                           <div class="menu-link">
-                            <a href="../exercise-12-modifiers/1213-adjectival-and-adverbial-phrases.html" aria-label="Menu Link">12.1.3 Adjectival and Adverbial Phrases</a>
+                            <a href="../lesson-17-clauses/3-adverbial-clause.html">3. Adverbial Clause</a>
                           </div>
                         </div>
                       </li>
                       <li>
                         <div class="item-wrapper">
                           <div class="menu-link">
-                            <a href="../exercise-12-modifiers/1221-comparatives-and-superlatives.html" aria-label="Menu Link">12.2.1 Comparatives and Superlatives as Modifiers</a>
+                            <a href="../lesson-17-clauses/4-noun-clause.html">4. Noun Clause</a>
+                          </div>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="item-wrapper">
+                          <div class="menu-link">
+                            <a href="../lesson-17-clauses/5-relative-clause.html">5. Relative Clause / Adjective Clause</a>
+                          </div>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="item-wrapper">
+                          <div class="menu-link">
+                            <a href="../lesson-17-clauses/6-finite-and-nonfinite-clauses.html">6. Finite and Nonfinite Clauses</a>
+                          </div>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="item-wrapper">
+                          <div class="menu-link">
+                            <a href="../lesson-17-clauses/7-defining-and-non-defining-relative-clauses.html">7. Restrictive (or defining) and Non-restrictive (or non-defining) Relative Clauses</a>
                           </div>
                         </div>
                       </li>
                       <li class="last">
                         <div class="item-wrapper">
                           <div class="menu-link">
-                            <a href="../exercise-12-modifiers/1241-misplaced-modifiers-and-dangling-participles.html" aria-label="Menu Link">12.4.1 Misplaced modifiers and Dangling participles</a>
+                            <a href="../lesson-17-clauses/8-that-clause.html">8. That-Clause</a>
                           </div>
                         </div>
                       </li>
                     </ul>
                   </div>
                 </li>
-                <li data-r-flyout-item="">
+
+                <!-- Lesson 18: Verb-ing -->
+                <li data-r-flyout-item>
                   <div class="item-wrapper r-flyout__header">
-                    <button class="r-flyout__toggle" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="r-flyout-panel-speech" aria-label="Toggle submenu for Speech Direction">
+                    <button class="r-flyout__toggle" type="button" aria-haspopup="menu" aria-expanded="false" aria-controls="r-flyout-panel-lesson-verbing" aria-label="Toggle submenu for Verb-ing">
                       <svg class="r-flyout__icon r-flyout__icon--plus" aria-hidden="true" focusable="false">
-                        <use xlink:href="#icon-plus"></use>
+                        <use href="#icon-plus"></use>
                       </svg>
                       <svg class="r-flyout__icon r-flyout__icon--minus" aria-hidden="true" focusable="false">
-                        <use xlink:href="#icon-minus"></use>
+                        <use href="#icon-minus"></use>
                       </svg>
                     </button>
                     <div class="menu-link r-flyout__link-wrap">
-                      <a class="r-flyout__link" href="../exercise-13-indirect-speech.html" aria-label="Menu Link">Speech Direction</a>
+                      <a class="r-flyout__link" href="../lesson-18-verb-ing.html">Verb-ing</a>
                     </div>
                   </div>
-                  <div class="ul-wrapper r-flyout__panel" id="r-flyout-panel-speech" aria-hidden="true" hidden>
+                  <div class="ul-wrapper r-flyout__panel" id="r-flyout-panel-lesson-verbing" aria-hidden="true" hidden>
                     <ul class="r-flyout__sublist">
                       <li class="first">
                         <div class="item-wrapper">
                           <div class="menu-link">
-                            <a href="../exercise-13-indirect-speech/1311-direct-to-indirect-speech-i.html" aria-label="Menu Link">13.1.1 Direct to Indirect Speech I</a>
+                            <a href="../lesson-18-verb-ing/1-the-verb-ing-used-as-the-present-participle.html">1. The Verb + -ing used as the Present Participle</a>
                           </div>
                         </div>
                       </li>
                       <li>
                         <div class="item-wrapper">
                           <div class="menu-link">
-                            <a href="../exercise-13-indirect-speech/1312-direct-to-indirect-speech-ii.html" aria-label="Menu Link">13.1.2 Direct to Indirect Speech II</a>
-                          </div>
-                        </div>
-                      </li>
-                      <li>
-                        <div class="item-wrapper">
-                          <div class="menu-link">
-                            <a href="../exercise-13-indirect-speech/1313-direct-to-indirect-speech-iii.html" aria-label="Menu Link">13.1.3 Direct to Indirect Speech III</a>
-                          </div>
-                        </div>
-                      </li>
-                      <li>
-                        <div class="item-wrapper">
-                          <div class="menu-link">
-                            <a href="../exercise-13-indirect-speech/1321-direct-to-indirect-speech-with-same-tenses.html" aria-label="Menu Link">13.2.1 Direct to Indirect Speech with Same Tenses</a>
-                          </div>
-                        </div>
-                      </li>
-                      <li>
-                        <div class="item-wrapper">
-                          <div class="menu-link">
-                            <a href="../exercise-13-indirect-speech/1331-direct-to-indirect-speech-using-past-perfect-tense.html" aria-label="Menu Link">13.3.1 Direct to Indirect Speech using Past Perfect</a>
+                            <a href="../lesson-18-verb-ing/2-the-verb-ing-used-as-an-adjective.html">2. The verb + –ing used as an Adjective</a>
                           </div>
                         </div>
                       </li>
                       <li class="last">
                         <div class="item-wrapper">
                           <div class="menu-link">
-                            <a href="../exercise-13-indirect-speech/1341-direct-to-indirect-speech-using-passive-voice.html" aria-label="Menu Link">13.4.1 Direct to Indirect Speech using Passive Voice</a>
+                            <a href="../lesson-18-verb-ing/3-the-verb-ing-used-as-a-gerund.html">3. The verb + –ing used as a Gerund</a>
                           </div>
                         </div>
                       </li>
                     </ul>
                   </div>
                 </li>
-                <li data-r-flyout-item="">
+
+                <!-- Lesson 19: Determiners -->
+                <li data-r-flyout-item>
                   <div class="item-wrapper r-flyout__header">
-                    <button class="r-flyout__toggle" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="r-flyout-panel-passive" aria-label="Toggle submenu for Active-Passive">
+                    <button class="r-flyout__toggle" type="button" aria-haspopup="menu" aria-expanded="false" aria-controls="r-flyout-panel-lesson-determiners" aria-label="Toggle submenu for Determiners">
                       <svg class="r-flyout__icon r-flyout__icon--plus" aria-hidden="true" focusable="false">
-                        <use xlink:href="#icon-plus"></use>
-                      </svg>
-                    </button>
-                    <div class="menu-link r-flyout__link-wrap">
-                      <a class="r-flyout__link" href="../exercise-14-either-neither.html" aria-label="Menu Link">Either-Neither</a>
-                    </div>
-                  </div>
-                </li>
-                <li data-r-flyout-item="">
-                  <div class="item-wrapper r-flyout__header">
-                    <button class="r-flyout__toggle" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="r-flyout-panel-passive" aria-label="Toggle submenu for Active-Passive">
-                      <svg class="r-flyout__icon r-flyout__icon--plus" aria-hidden="true" focusable="false">
-                        <use xlink:href="#icon-plus"></use>
+                        <use href="#icon-plus"></use>
                       </svg>
                       <svg class="r-flyout__icon r-flyout__icon--minus" aria-hidden="true" focusable="false">
-                        <use xlink:href="#icon-minus"></use>
+                        <use href="#icon-minus"></use>
                       </svg>
                     </button>
                     <div class="menu-link r-flyout__link-wrap">
-                      <a class="r-flyout__link" href="../exercise-15-passive-voice.html" aria-label="Menu Link">Active-Passive</a>
+                      <a class="r-flyout__link" href="../lesson-19-determiners-and-quantifiers.html">Determiners</a>
                     </div>
                   </div>
-                  <div class="ul-wrapper r-flyout__panel" id="r-flyout-panel-passive" aria-hidden="true" hidden>
+                  <div class="ul-wrapper r-flyout__panel" id="r-flyout-panel-lesson-determiners" aria-hidden="true" hidden>
                     <ul class="r-flyout__sublist">
                       <li class="first">
                         <div class="item-wrapper">
                           <div class="menu-link">
-                            <a href="../exercise-15-passive-voice/1511-passive-voice-simple-present-tense.html" aria-label="Menu Link">15.1.1 Simple Present</a>
+                            <a href="../lesson-19-determiners-and-quantifiers/1-definite-article.html">1. Definite Article</a>
                           </div>
                         </div>
                       </li>
                       <li>
                         <div class="item-wrapper">
                           <div class="menu-link">
-                            <a href="../exercise-15-passive-voice/1521-passive-voice-present-perfect-tense.html" aria-label="Menu Link">15.2.1 Present Perfect</a>
+                            <a href="../lesson-19-determiners-and-quantifiers/2-demonstratives.html">2. Demonstratives</a>
                           </div>
                         </div>
                       </li>
                       <li>
                         <div class="item-wrapper">
                           <div class="menu-link">
-                            <a href="../exercise-15-passive-voice/1531-passive-voice-present-continuous-tense.html" aria-label="Menu Link">15.3.1 Present Continuous</a>
+                            <a href="../lesson-19-determiners-and-quantifiers/3-possessive-determiners.html">3. Possessive determiners</a>
                           </div>
                         </div>
                       </li>
                       <li>
                         <div class="item-wrapper">
                           <div class="menu-link">
-                            <a href="../exercise-15-passive-voice/1541-passive-voice-part-simple-past-tense-i.html" aria-label="Menu Link">15.4.1 Simple Past Tense I</a>
+                            <a href="../lesson-19-determiners-and-quantifiers/4-distributives.html">4. Distributives</a>
                           </div>
                         </div>
                       </li>
                       <li>
                         <div class="item-wrapper">
                           <div class="menu-link">
-                            <a href="../exercise-15-passive-voice/1542-passive-voice-simple-past-tense-ii.html" aria-label="Menu Link">15.4.2 Simple Past Tense II</a>
+                            <a href="../lesson-19-determiners-and-quantifiers/5-quantifiers-countable-nouns.html">5. Quantifiers + Countable Nouns</a>
                           </div>
                         </div>
                       </li>
                       <li>
                         <div class="item-wrapper">
                           <div class="menu-link">
-                            <a href="../exercise-15-passive-voice/1551-passive-voice-past-continuous-tense.html" aria-label="Menu Link">15.5.1 Past Continuous</a>
+                            <a href="../lesson-19-determiners-and-quantifiers/6-quantifiers-uncountable-nouns.html">6. Quantifiers + Uncountable Nouns</a>
                           </div>
                         </div>
                       </li>
                       <li>
                         <div class="item-wrapper">
                           <div class="menu-link">
-                            <a href="../exercise-15-passive-voice/1561-passive-voice-past-perfect-tense.html" aria-label="Menu Link">15.6.1 Past Perfect</a>
+                            <a href="../lesson-19-determiners-and-quantifiers/7-quantifiers-countable-and-uncountable-nouns.html">7. Quantifiers + Countable and Uncountable Nouns</a>
+                          </div>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="item-wrapper">
+                          <div class="menu-link">
+                            <a href="../lesson-19-determiners-and-quantifiers/8-some-and-any.html">8. Some and Any</a>
                           </div>
                         </div>
                       </li>
                       <li class="last">
                         <div class="item-wrapper">
                           <div class="menu-link">
-                            <a href="../exercise-15-passive-voice/1571-passive-voice-simple-future-tense.html" aria-label="Menu Link">15.7.1 Simple Future</a>
+                            <a href="../lesson-19-determiners-and-quantifiers/9-this-that-these-and-those.html">9. THIS, THAT, THESE and THOSE</a>
                           </div>
                         </div>
                       </li>
                     </ul>
                   </div>
                 </li>
-                <li data-r-flyout-item="">
+
+                <!-- Lesson 20: Phrasal Verbs -->
+                <li data-r-flyout-item>
                   <div class="item-wrapper r-flyout__header">
-                    <button class="r-flyout__toggle" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="r-flyout-panel-clauses" aria-label="Toggle submenu for Clauses">
+                    <button class="r-flyout__toggle" type="button" aria-haspopup="menu" aria-expanded="false" aria-controls="r-flyout-panel-lesson-phrasal-verbs" aria-label="Toggle submenu for Phrasal Verbs">
                       <svg class="r-flyout__icon r-flyout__icon--plus" aria-hidden="true" focusable="false">
-                        <use xlink:href="#icon-plus"></use>
+                        <use href="#icon-plus"></use>
                       </svg>
                       <svg class="r-flyout__icon r-flyout__icon--minus" aria-hidden="true" focusable="false">
-                        <use xlink:href="#icon-minus"></use>
+                        <use href="#icon-minus"></use>
                       </svg>
                     </button>
                     <div class="menu-link r-flyout__link-wrap">
-                      <a class="r-flyout__link" href="../exercise-17-clauses.html" aria-label="Menu Link">Clauses</a>
+                      <a class="r-flyout__link" href="../lesson-20-phrasal-verbs.html">Phrasal Verbs</a>
                     </div>
                   </div>
-                  <div class="ul-wrapper r-flyout__panel" id="r-flyout-panel-clauses" aria-hidden="true" hidden>
+                  <div class="ul-wrapper r-flyout__panel" id="r-flyout-panel-lesson-phrasal-verbs" aria-hidden="true" hidden>
                     <ul class="r-flyout__sublist">
                       <li class="first">
                         <div class="item-wrapper">
                           <div class="menu-link">
-                            <a href="../exercise-17-clauses/1721-adjective-clauses.html" aria-label="Menu Link">17.2.1 Adjective Clauses</a>
+                            <a href="../lesson-20-phrasal-verbs/1-separable-and-non-separable-phrasal-verbs.html">1. Separable and non-separable phrasal verbs</a>
                           </div>
                         </div>
                       </li>
                       <li>
                         <div class="item-wrapper">
                           <div class="menu-link">
-                            <a href="../exercise-17-clauses/1731-adverbial-clauses.html" aria-label="Menu Link">17.3.1 Adverbial Clauses</a>
+                            <a href="../lesson-20-phrasal-verbs/2-separable-transitive-phrasal-verb.html">2. Separable Transitive Phrasal Verb</a>
+                          </div>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="item-wrapper">
+                          <div class="menu-link">
+                            <a href="../lesson-20-phrasal-verbs/3-non-separable-transitive-phrasal-verb.html">3. Non-separable Transitive Phrasal Verb</a>
+                          </div>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="item-wrapper">
+                          <div class="menu-link">
+                            <a href="../lesson-20-phrasal-verbs/4-non-separable-intransitive-phrasal-verb.html">4. Non-separable Intransitive Phrasal Verb</a>
                           </div>
                         </div>
                       </li>
                       <li class="last">
                         <div class="item-wrapper">
                           <div class="menu-link">
-                            <a href="../exercise-17-clauses/1741-noun-clauses.html" aria-label="Menu Link">17.4.1 Noun Clauses</a>
+                            <a href="../lesson-20-phrasal-verbs/5-phrasal-verbs-intransitive.html">5. Phrasal Verbs - Intransitive</a>
                           </div>
                         </div>
                       </li>
                     </ul>
                   </div>
                 </li>
-                <li data-r-flyout-item="">
+
+                <!-- Lesson 21: Phrases -->
+                <li data-r-flyout-item>
                   <div class="item-wrapper r-flyout__header">
-                    <button class="r-flyout__toggle" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="r-flyout-panel-verbing" aria-label="Toggle submenu for Verb-ing">
+                    <button class="r-flyout__toggle" type="button" aria-haspopup="menu" aria-expanded="false" aria-controls="r-flyout-panel-lesson-phrases" aria-label="Toggle submenu for Phrases">
                       <svg class="r-flyout__icon r-flyout__icon--plus" aria-hidden="true" focusable="false">
-                        <use xlink:href="#icon-plus"></use>
+                        <use href="#icon-plus"></use>
                       </svg>
                       <svg class="r-flyout__icon r-flyout__icon--minus" aria-hidden="true" focusable="false">
-                        <use xlink:href="#icon-minus"></use>
+                        <use href="#icon-minus"></use>
                       </svg>
                     </button>
                     <div class="menu-link r-flyout__link-wrap">
-                      <a class="r-flyout__link" href="../exercise-18-verb-ing-gerunds-and-particles.html" aria-label="Menu Link">Verb-ing</a>
+                      <a class="r-flyout__link" href="../lesson-21-phrases.html">Phrases</a>
                     </div>
                   </div>
-                  <div class="ul-wrapper r-flyout__panel" id="r-flyout-panel-verbing" aria-hidden="true" hidden>
+                  <div class="ul-wrapper r-flyout__panel" id="r-flyout-panel-lesson-phrases" aria-hidden="true" hidden>
                     <ul class="r-flyout__sublist">
                       <li class="first">
                         <div class="item-wrapper">
                           <div class="menu-link">
-                            <a href="../exercise-18-verb-ing-gerunds-and-particles/1811-verb-ing-gerund.html" aria-label="Menu Link">18.1.1 Verb + -ing (Gerund)</a>
+                            <a href="../lesson-21-phrases/1-absolute-phrase.html">1. Absolute Phrase</a>
                           </div>
                         </div>
                       </li>
                       <li>
                         <div class="item-wrapper">
                           <div class="menu-link">
-                            <a href="../exercise-18-verb-ing-gerunds-and-particles/1812-verb-ing-gerund-and-present-participle.html" aria-label="Menu Link">18.1.2 Verb + -ing (Gerund and Present Participle)</a>
+                            <a href="../lesson-21-phrases/2-adjective-phrase.html">2. Adjective Phrase</a>
                           </div>
                         </div>
                       </li>
                       <li>
                         <div class="item-wrapper">
                           <div class="menu-link">
-                            <a href="../exercise-18-verb-ing-gerunds-and-particles/1821-verb-ing-gerund-and-particle.html" aria-label="Menu Link">18.2.1 Verb + -ing (Gerund and Particle)</a>
+                            <a href="../lesson-21-phrases/3-adverbial-phrase.html">3. Adverbial Phrase</a>
                           </div>
                         </div>
                       </li>
                       <li>
                         <div class="item-wrapper">
                           <div class="menu-link">
-                            <a href="../exercise-18-verb-ing-gerunds-and-particles/1831-verb-ing-adjective-part-1.html" aria-label="Menu Link">18.3.1 Verb + -ing (Adjective) Part 1</a>
+                            <a href="../lesson-21-phrases/4-appositive-phrase.html">4. Appositive phrase</a>
+                          </div>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="item-wrapper">
+                          <div class="menu-link">
+                            <a href="../lesson-21-phrases/5-gerund-phrase.html">5. Gerund phrase</a>
+                          </div>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="item-wrapper">
+                          <div class="menu-link">
+                            <a href="../lesson-21-phrases/6-infinitive-phrase.html">6. Infinitive Phrase</a>
+                          </div>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="item-wrapper">
+                          <div class="menu-link">
+                            <a href="../lesson-21-phrases/7-participial-phrase.html">7. Participial Phrase</a>
                           </div>
                         </div>
                       </li>
                       <li class="last">
                         <div class="item-wrapper">
                           <div class="menu-link">
-                            <a href="../exercise-18-verb-ing-gerunds-and-particles/1832-verb-ing-adjective-part-2.html" aria-label="Menu Link">18.3.2 Verb + -ing (Adjective) Part 2</a>
+                            <a href="../lesson-21-phrases/8-prepositional-phrase.html">8. Prepositional Phrase</a>
                           </div>
                         </div>
                       </li>
                     </ul>
                   </div>
                 </li>
-                <li data-r-flyout-item="">
+
+                <!-- Lesson 22: Participles -->
+                <li class="last" data-r-flyout-item>
                   <div class="item-wrapper r-flyout__header">
-                    <button class="r-flyout__toggle" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="r-flyout-panel-determiners" aria-label="Toggle submenu for Determiners">
+                    <button class="r-flyout__toggle" type="button" aria-haspopup="menu" aria-expanded="false" aria-controls="r-flyout-panel-lesson-participles" aria-label="Toggle submenu for Participles">
                       <svg class="r-flyout__icon r-flyout__icon--plus" aria-hidden="true" focusable="false">
-                        <use xlink:href="#icon-plus"></use>
+                        <use href="#icon-plus"></use>
                       </svg>
                       <svg class="r-flyout__icon r-flyout__icon--minus" aria-hidden="true" focusable="false">
-                        <use xlink:href="#icon-minus"></use>
+                        <use href="#icon-minus"></use>
                       </svg>
                     </button>
                     <div class="menu-link r-flyout__link-wrap">
-                      <a class="r-flyout__link" href="../exercise-19-determiners-and-quantifiers.html" aria-label="Menu Link">Determiners</a>
+                      <a class="r-flyout__link" href="../lesson-22-participles.html">Participles</a>
                     </div>
                   </div>
-                  <div class="ul-wrapper r-flyout__panel" id="r-flyout-panel-determiners" aria-hidden="true" hidden>
+                  <div class="ul-wrapper r-flyout__panel" id="r-flyout-panel-lesson-participles" aria-hidden="true" hidden>
                     <ul class="r-flyout__sublist">
                       <li class="first">
                         <div class="item-wrapper">
                           <div class="menu-link">
-                            <a href="../exercise-19-determiners-and-quantifiers/1911-determiners-a-an-the.html" aria-label="Menu Link">19.1.1 Determiners: a, an, the</a>
+                            <a href="../lesson-22-participles/1-participle-and-verb-tenses.html">1. Participle and Verb Tenses</a>
                           </div>
                         </div>
                       </li>
                       <li>
                         <div class="item-wrapper">
                           <div class="menu-link">
-                            <a href="../exercise-19-determiners-and-quantifiers/1912-determiners-a-an-the-some.html" aria-label="Menu Link">19.1.2 Determiners: a, an, the, some</a>
-                          </div>
-                        </div>
-                      </li>
-                      <li class="last">
-                        <div class="item-wrapper">
-                          <div class="menu-link">
-                            <a href="../exercise-19-determiners-and-quantifiers/1921-quantity-words.html" aria-label="Menu Link">19.2.1 Quantity Words</a>
-                          </div>
-                        </div>
-                      </li>
-                    </ul>
-                  </div>
-                </li>
-                <li data-r-flyout-item="">
-                  <div class="item-wrapper r-flyout__header">
-                    <button class="r-flyout__toggle" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="r-flyout-panel-pos" aria-label="Toggle submenu for Part of Speech">
-                      <svg class="r-flyout__icon r-flyout__icon--plus" aria-hidden="true" focusable="false">
-                        <use xlink:href="#icon-plus"></use>
-                      </svg>
-                      <svg class="r-flyout__icon r-flyout__icon--minus" aria-hidden="true" focusable="false">
-                        <use xlink:href="#icon-minus"></use>
-                      </svg>
-                    </button>
-                    <div class="menu-link r-flyout__link-wrap">
-                      <a class="r-flyout__link" href="../exercise-21-general.html" aria-label="Menu Link">Part-of-Speech</a>
-                    </div>
-                  </div>
-                  <div class="ul-wrapper r-flyout__panel" id="r-flyout-panel-pos" aria-hidden="true" hidden>
-                    <ul class="r-flyout__sublist">
-                      <li class="first">
-                        <div class="item-wrapper">
-                          <div class="menu-link">
-                            <a href="../exercise-21-general/2111-part-of-speech-i.html" aria-label="Menu Link">21.1.1 Part of Speech I</a>
+                            <a href="../lesson-22-participles/2-present-particles-i.html">2. Present Particles (I)</a>
                           </div>
                         </div>
                       </li>
                       <li>
                         <div class="item-wrapper">
                           <div class="menu-link">
-                            <a href="../exercise-21-general/2112-part-of-speech-ii.html" aria-label="Menu Link">21.1.2 Part of Speech II</a>
+                            <a href="../lesson-22-participles/3-present-particles-ii.html">3. Present Particles (II)</a>
                           </div>
                         </div>
                       </li>
                       <li>
                         <div class="item-wrapper">
                           <div class="menu-link">
-                            <a href="../exercise-21-general/2113-part-of-speech-adverb.html" aria-label="Menu Link">21.1.3 Part of Speech: Adverb</a>
+                            <a href="../lesson-22-participles/4-past-particles.html">4. Past Particles</a>
+                          </div>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="item-wrapper">
+                          <div class="menu-link">
+                            <a href="../lesson-22-participles/5-fused-participles.html">5. Fused Participles</a>
                           </div>
                         </div>
                       </li>
                       <li class="last">
                         <div class="item-wrapper">
                           <div class="menu-link">
-                            <a href="../exercise-21-general/2121-gerund-and-present-participle.html" aria-label="Menu Link">21.2.1 Gerund and Present Participle</a>
-                          </div>
-                        </div>
-                      </li>
-                    </ul>
-                  </div>
-                </li>
-                <li class="last" data-r-flyout-item="">
-                  <div class="item-wrapper r-flyout__header">
-                    <button class="r-flyout__toggle" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="r-flyout-panel-vocabulary" aria-label="Toggle submenu for Vocabulary">
-                      <svg class="r-flyout__icon r-flyout__icon--plus" aria-hidden="true" focusable="false">
-                        <use xlink:href="#icon-plus"></use>
-                      </svg>
-                      <svg class="r-flyout__icon r-flyout__icon--minus" aria-hidden="true" focusable="false">
-                        <use xlink:href="#icon-minus"></use>
-                      </svg>
-                    </button>
-                    <div class="menu-link r-flyout__link-wrap">
-                      <a class="r-flyout__link" href="../exercise-22-test-your-vocabulary.html" aria-label="Vocabulary">Vocabulary</a>
-                    </div>
-                  </div>
-                  <div class="ul-wrapper r-flyout__panel" id="r-flyout-panel-vocabulary" aria-hidden="true" hidden>
-                    <ul class="r-flyout__sublist">
-                      <li class="first">
-                        <div class="item-wrapper">
-                          <div class="menu-link">
-                            <a href="../exercise-22-test-your-vocabulary/2211-test-your-vocabulary-adjective.html" aria-label="22.1.1 Test Your Vocabulary - Adjectives">22.1.1 Test Your Vocabulary: Adjectives</a>
-                          </div>
-                        </div>
-                      </li>
-                      <li class="last">
-                        <div class="item-wrapper">
-                          <div class="menu-link">
-                            <a href="../exercise-22-test-your-vocabulary/2221-test-your-vocabulary-verb.html" aria-label="Menu Link">22.2.1 Test Your Vocabulary: Verb</a>
+                            <a href="../lesson-22-participles/6-dangling-participles.html">6. Dangling Participles</a>
                           </div>
                         </div>
                       </li>
@@ -2351,10 +3077,9 @@
                   </div>
                 </li>
               </ul>
-            </div>
+            </nav>
             <!-- End Right Sidebar -->
-          </div>
-          <div class="prefooter"></div>
+          </aside>
         </div>
       </div>
     </div>
@@ -2363,15 +3088,16 @@
       <div class="container2 inner-footer">
         <br>
         <p class="pull-right">
-          <a href="#top" id="back-top" aria-label="Back to Top">Back to Top</a>
+          <a href="#top" id="back-top">Back to Top</a>
         </p>
         <p>
-          ©
-          <span data-copyright-year=""></span>
+          &copy;
+          <span data-copyright-year></span>
           All rights reserved.
         </p>
       </div>
     </footer>
+    <!-- NEW: auto-fills current year (or a range if data-start is set) -->
     <script>
       ;(() => {
         "use strict"
@@ -2384,5 +3110,5 @@
     </script>
   </body>
 
-  <!-- /exercise-19-determiners-and-quantifiers.html, updated:  January 2026 12:31:56 GMT -->
+  <!-- /lesson-6-prepositions/1-prepositions-of-time.html, updated:  January 2026 12:24:00 GMT -->
 </html>

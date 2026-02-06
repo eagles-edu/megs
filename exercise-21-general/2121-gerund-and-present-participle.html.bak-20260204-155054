@@ -5,8 +5,8 @@
     <meta name="keywords" content="ESL, TOESL, TOEFL, courses, english, english courses, education, english degree, degree, english education, exercises, english exercises, grammar, verb, english grammar, noun, adverb, adjective, english adverb, english noun, english adjective">
     <meta name="description" content="A comprehensive site for free English courses and exercises.">
     <meta name="generator" content="English Grammar - IELTS intermediate levels A2 and above">
-    <link href="1921-quantity-words.html" rel="non-canonical">
-    <title>19.2.1 Quantity Words</title>
+    <link href="2121-gerund-and-present-participle.html" rel="non-canonical">
+    <title>21.2.1 Gerund and Present Participle</title>
     <link href="../favicon.ico" rel="shortcut icon" type="image/vnd.microsoft.icon">
     <!-- theme-vars.css eliminated; variables live in base.css -->
 
@@ -1173,13 +1173,13 @@
   </head>
 
   <body class="base exercize" data-exercise-devtools="auto">
-    <svg xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" aria-hidden="true" style="position: absolute; width: 0; height: 0; overflow: hidden">
+    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" style="position: absolute; width: 0; height: 0; overflow: hidden">
       <defs>
         <symbol id="icon-plus" viewBox="0 0 24 24">
-          <path fill="currentColor" d="M12 5a1 1 0 0 0-1 1v5H6a1 1 0 1 0 0 2h5v5a1 1 0 1 0 2 0v-5h5a1 1 0 1 0 0-2h-5V6a1 1 0 0 0-1-1z"/>
+          <path fill="currentColor" d="M12 5a1 1 0 0 0-1 1v5H6a1 1 0 1 0 0 2h5v5a1 1 0 1 0 2 0v-5h5a1 1 0 1 0 0-2h-5V6a1 1 0 0 0-1-1z"></path>
         </symbol>
         <symbol id="icon-minus" viewBox="0 0 24 24">
-          <rect x="9" y="11" width="6" height="2" rx="1" fill="currentColor"/>
+          <rect x="9" y="11" width="6" height="2" rx="1" fill="currentColor"></rect>
         </symbol>
       </defs>
     </svg>
@@ -1202,7 +1202,7 @@
                           <a href="../index-2.html">
                             <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 48 48" fill="currentColor">
                               <title>office</title>
-                              <path d="M0 48h24v-48h-24v48zM15 6h6v6h-6v-6zM15 18h6v6h-6v-6zM15 30h6v6h-6v-6zM3 6h6v6h-6v-6zM3 18h6v6h-6v-6zM3 30h6v6h-6v-6zM27 15h21v3h-21zM27 48h6v-12h9v12h6v-27h-21z"/>
+                              <path d="M0 48h24v-48h-24v48zM15 6h6v6h-6v-6zM15 18h6v6h-6v-6zM15 30h6v6h-6v-6zM3 6h6v6h-6v-6zM3 18h6v6h-6v-6zM3 30h6v6h-6v-6zM27 15h21v3h-21zM27 48h6v-12h9v12h6v-27h-21z"></path>
                             </svg>
                             Home
                           </a>
@@ -1216,7 +1216,7 @@
                           <a href="../grammar-lessons.html">
                             <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 48 48" fill="currentColor">
                               <title>display</title>
-                              <path d="M0 3v30h48v-30h-48zM45 30h-42v-24h42v24zM31.5 36h-15l-1.5 6-3 3h24l-3-3z"/>
+                              <path d="M0 3v30h48v-30h-48zM45 30h-42v-24h42v24zM31.5 36h-15l-1.5 6-3 3h24l-3-3z"></path>
                             </svg>
                             Lessons
                           </a>
@@ -1229,7 +1229,7 @@
                         <div class="menu-link">
                           <a href="../grammar-exercises.html">
                             <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 48 48" fill="currentColor">
-                              <path d="M33.094 22.031l-7.125-7.125 2.813-2.813 4.313 4.219 8.438-8.438 2.813 2.813zM22.031 13.969h-18v4.031h18v-4.031zM42 26.813l-2.813-2.813-5.156 5.156-5.25-5.156-2.813 2.813 5.25 5.156-5.25 5.25 2.813 2.813 5.25-5.25 5.156 5.25 2.813-2.813-5.156-5.25zM22.031 30h-18v4.031h18v-4.031z"/>
+                              <path d="M33.094 22.031l-7.125-7.125 2.813-2.813 4.313 4.219 8.438-8.438 2.813 2.813zM22.031 13.969h-18v4.031h18v-4.031zM42 26.813l-2.813-2.813-5.156 5.156-5.25-5.156-2.813 2.813 5.25 5.156-5.25 5.25 2.813 2.813 5.25-5.25 5.156 5.25 2.813-2.813-5.156-5.25zM22.031 30h-18v4.031h18v-4.031z"></path>
                             </svg>
                             Exercises
                           </a>
@@ -1242,7 +1242,7 @@
                         <div class="menu-link">
                           <a href="../introduction-to-tenses.html">
                             <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 48 48" fill="currentColor">
-                              <path d="M0 24.5c0 12.98 10.52 23.5 23.5 23.5s23.5-10.52 23.5-23.5-10.52-23.5-23.5-23.5c-12.98 0-23.5 10.52-23.5 23.5zM21 8.5c0-1.38 1.12-2.5 2.5-2.5s2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5-2.5-1.12-2.5-2.5zM5 24.5c0-1.38 1.12-2.5 2.5-2.5s2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5-2.5-1.12-2.5-2.5zM37 24.5c0-1.38 1.12-2.5 2.5-2.5s2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5-2.5-1.12-2.5-2.5zM21 40.5c0-1.38 1.12-2.5 2.5-2.5s2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5-2.5-1.12-2.5-2.5zM19.83 25.689c-0.53-0.52-7.26-7.369-7.26-7.369-0.76-0.76-0.76-1.99 0-2.75s1.99-0.76 2.75 0l6.6 6.619c0.59 0.58 1.56 0.58 2.141 0l9.619-9.619c0.76-0.76 1.99-0.76 2.75 0s0.76 1.99 0 2.75c0 0-9.76 9.88-10.279 10.4-0.811 0.79-1.93 1.28-3.151 1.28-1.24 0-2.36-0.5-3.17-1.311z"/>
+                              <path d="M0 24.5c0 12.98 10.52 23.5 23.5 23.5s23.5-10.52 23.5-23.5-10.52-23.5-23.5-23.5c-12.98 0-23.5 10.52-23.5 23.5zM21 8.5c0-1.38 1.12-2.5 2.5-2.5s2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5-2.5-1.12-2.5-2.5zM5 24.5c0-1.38 1.12-2.5 2.5-2.5s2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5-2.5-1.12-2.5-2.5zM37 24.5c0-1.38 1.12-2.5 2.5-2.5s2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5-2.5-1.12-2.5-2.5zM21 40.5c0-1.38 1.12-2.5 2.5-2.5s2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5-2.5-1.12-2.5-2.5zM19.83 25.689c-0.53-0.52-7.26-7.369-7.26-7.369-0.76-0.76-0.76-1.99 0-2.75s1.99-0.76 2.75 0l6.6 6.619c0.59 0.58 1.56 0.58 2.141 0l9.619-9.619c0.76-0.76 1.99-0.76 2.75 0s0.76 1.99 0 2.75c0 0-9.76 9.88-10.279 10.4-0.811 0.79-1.93 1.28-3.151 1.28-1.24 0-2.36-0.5-3.17-1.311z"></path>
                             </svg>
                             Tenses
                           </a>
@@ -1256,7 +1256,7 @@
                           <a href="../writing.html">
                             <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 48 48" fill="currentColor">
                               <title>pencil</title>
-                              <path d="M40.5 0c4.142 0 7.5 3.358 7.5 7.5 0 1.688-0.558 3.246-1.5 4.5l-3 3-10.5-10.5 3-3c1.254-0.942 2.811-1.5 4.5-1.5zM3 34.5l-3 13.5 13.5-3 27.75-27.75-10.5-10.5-27.75 27.75zM33.543 17.043l-21 21-2.585-2.585 21-21 2.585 2.585z"/>
+                              <path d="M40.5 0c4.142 0 7.5 3.358 7.5 7.5 0 1.688-0.558 3.246-1.5 4.5l-3 3-10.5-10.5 3-3c1.254-0.942 2.811-1.5 4.5-1.5zM3 34.5l-3 13.5 13.5-3 27.75-27.75-10.5-10.5-27.75 27.75zM33.543 17.043l-21 21-2.585-2.585 21-21 2.585 2.585z"></path>
                             </svg>
                             Writing
                           </a>
@@ -1270,7 +1270,7 @@
                           <a href="../vocabulary.html">
                             <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                               <title>file</title>
-                              <path d="M8.25 11.25h0.75v-0.75h-0.75v0.75zM8.25 13.5h0.75v-0.75h-0.75v0.75zM8.25 9h0.75v-0.75h-0.75v0.75zM8.25 15.75h0.75v-0.75h-0.75v0.75zM8.25 18h0.75v-0.75h-0.75v0.75zM9.75 13.5h6v-0.75h-6v0.75zM9.75 9h6v-0.75h-6v0.75zM15.703 3h-10.454v18h13.5v-15l-3.047-3zM17.25 19.453h-10.5v-14.953h7.5v2.204h3v12.75zM9.75 15.75h6v-0.75h-6v0.75zM9.75 11.25h6v-0.75h-6v0.75zM9.75 18h6v-0.75h-6v0.75z"/>
+                              <path d="M8.25 11.25h0.75v-0.75h-0.75v0.75zM8.25 13.5h0.75v-0.75h-0.75v0.75zM8.25 9h0.75v-0.75h-0.75v0.75zM8.25 15.75h0.75v-0.75h-0.75v0.75zM8.25 18h0.75v-0.75h-0.75v0.75zM9.75 13.5h6v-0.75h-6v0.75zM9.75 9h6v-0.75h-6v0.75zM15.703 3h-10.454v18h13.5v-15l-3.047-3zM17.25 19.453h-10.5v-14.953h7.5v2.204h3v12.75zM9.75 15.75h6v-0.75h-6v0.75zM9.75 11.25h6v-0.75h-6v0.75zM9.75 18h6v-0.75h-6v0.75z"></path>
                             </svg>
                             Vocabulary
                           </a>
@@ -1284,9 +1284,9 @@
                           <a href="../glossary.html">
                             <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 54 48" fill="currentColor">
                               <title>Books</title>
-                              <path d="M10.5 6h-9c-0.825 0-1.5 0.675-1.5 1.5v33c0 0.825 0.675 1.5 1.5 1.5h9c0.825 0 1.5-0.675 1.5-1.5v-33c0-0.825-0.675-1.5-1.5-1.5zM9 15h-6v-3h6v3z"/>
-                              <path d="M25.5 6h-9c-0.825 0-1.5 0.675-1.5 1.5v33c0 0.825 0.675 1.5 1.5 1.5h9c0.825 0 1.5-0.675 1.5-1.5v-33c0-0.825-0.675-1.5-1.5-1.5zM24 15h-6v-3h6v3z"/>
-                              <path d="M35.864 8.319l-8.037 4.050c-0.737 0.371-1.036 1.278-0.665 2.014l13.499 26.791c0.371 0.737 1.278 1.036 2.014 0.665l8.037-4.050c0.737-0.371 1.036-1.278 0.665-2.014l-13.499-26.791c-0.371-0.737-1.278-1.036-2.014-0.665z"/>
+                              <path d="M10.5 6h-9c-0.825 0-1.5 0.675-1.5 1.5v33c0 0.825 0.675 1.5 1.5 1.5h9c0.825 0 1.5-0.675 1.5-1.5v-33c0-0.825-0.675-1.5-1.5-1.5zM9 15h-6v-3h6v3z"></path>
+                              <path d="M25.5 6h-9c-0.825 0-1.5 0.675-1.5 1.5v33c0 0.825 0.675 1.5 1.5 1.5h9c0.825 0 1.5-0.675 1.5-1.5v-33c0-0.825-0.675-1.5-1.5-1.5zM24 15h-6v-3h6v3z"></path>
+                              <path d="M35.864 8.319l-8.037 4.050c-0.737 0.371-1.036 1.278-0.665 2.014l13.499 26.791c0.371 0.737 1.278 1.036 2.014 0.665l8.037-4.050c0.737-0.371 1.036-1.278 0.665-2.014l-13.499-26.791c-0.371-0.737-1.278-1.036-2.014-0.665z"></path>
                             </svg>
                             Glossary
                           </a>
@@ -1299,7 +1299,7 @@
                           <a href="../lists.html">
                             <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
                               <title>list-ol</title>
-                              <path d="M5.103 21.696c0 1.473-1.152 2.304-2.545 2.304-0.844 0-1.701-0.281-2.304-0.884l0.763-1.179c0.362 0.335 0.911 0.603 1.42 0.603 0.469 0 0.964-0.228 0.964-0.763 0-0.75-0.857-0.79-1.406-0.75l-0.348-0.75c0.482-0.616 0.924-1.299 1.5-1.821v-0.013c-0.429 0-0.871 0.027-1.299 0.027v0.71h-1.42v-2.036h4.46v1.179l-1.272 1.54c0.897 0.214 1.487 0.911 1.487 1.835zM5.129 13.299v2.129h-4.848c-0.040-0.241-0.080-0.482-0.080-0.723 0-2.478 3.027-2.853 3.027-3.978 0-0.455-0.281-0.696-0.723-0.696-0.469 0-0.857 0.402-1.085 0.777l-1.138-0.79c0.442-0.924 1.353-1.446 2.371-1.446 1.246 0 2.317 0.737 2.317 2.063 0 1.982-2.906 2.424-2.946 3.469h1.701v-0.804h1.406zM24 17.571v2.571c0 0.228-0.201 0.429-0.429 0.429h-16.286c-0.241 0-0.429-0.201-0.429-0.429v-2.571c0-0.241 0.188-0.429 0.429-0.429h16.286c0.228 0 0.429 0.188 0.429 0.429zM5.143 5.531v1.326h-4.487v-1.326h1.433c0-1.085 0.013-2.17 0.013-3.254v-0.161h-0.027c-0.147 0.295-0.415 0.496-0.67 0.723l-0.951-1.018 1.821-1.701h1.42v5.411h1.446zM24 10.714v2.571c0 0.228-0.201 0.429-0.429 0.429h-16.286c-0.241 0-0.429-0.201-0.429-0.429v-2.571c0-0.241 0.188-0.429 0.429-0.429h16.286c0.228 0 0.429 0.188 0.429 0.429zM24 3.857v2.571c0 0.228-0.201 0.429-0.429 0.429h-16.286c-0.241 0-0.429-0.201-0.429-0.429v-2.571c0-0.228 0.188-0.429 0.429-0.429h16.286c0.228 0 0.429 0.201 0.429 0.429z"/>
+                              <path d="M5.103 21.696c0 1.473-1.152 2.304-2.545 2.304-0.844 0-1.701-0.281-2.304-0.884l0.763-1.179c0.362 0.335 0.911 0.603 1.42 0.603 0.469 0 0.964-0.228 0.964-0.763 0-0.75-0.857-0.79-1.406-0.75l-0.348-0.75c0.482-0.616 0.924-1.299 1.5-1.821v-0.013c-0.429 0-0.871 0.027-1.299 0.027v0.71h-1.42v-2.036h4.46v1.179l-1.272 1.54c0.897 0.214 1.487 0.911 1.487 1.835zM5.129 13.299v2.129h-4.848c-0.040-0.241-0.080-0.482-0.080-0.723 0-2.478 3.027-2.853 3.027-3.978 0-0.455-0.281-0.696-0.723-0.696-0.469 0-0.857 0.402-1.085 0.777l-1.138-0.79c0.442-0.924 1.353-1.446 2.371-1.446 1.246 0 2.317 0.737 2.317 2.063 0 1.982-2.906 2.424-2.946 3.469h1.701v-0.804h1.406zM24 17.571v2.571c0 0.228-0.201 0.429-0.429 0.429h-16.286c-0.241 0-0.429-0.201-0.429-0.429v-2.571c0-0.241 0.188-0.429 0.429-0.429h16.286c0.228 0 0.429 0.188 0.429 0.429zM5.143 5.531v1.326h-4.487v-1.326h1.433c0-1.085 0.013-2.17 0.013-3.254v-0.161h-0.027c-0.147 0.295-0.415 0.496-0.67 0.723l-0.951-1.018 1.821-1.701h1.42v5.411h1.446zM24 10.714v2.571c0 0.228-0.201 0.429-0.429 0.429h-16.286c-0.241 0-0.429-0.201-0.429-0.429v-2.571c0-0.241 0.188-0.429 0.429-0.429h16.286c0.228 0 0.429 0.188 0.429 0.429zM24 3.857v2.571c0 0.228-0.201 0.429-0.429 0.429h-16.286c-0.241 0-0.429-0.201-0.429-0.429v-2.571c0-0.228 0.188-0.429 0.429-0.429h16.286c0.228 0 0.429 0.201 0.429 0.429z"></path>
                             </svg>
                             Lists
                           </a>
@@ -1348,985 +1348,307 @@
             <div id="system-message-container"></div>
             <div class="item-page">
               <div class="page-header">
-                <h2>19.2.1 Quantity Words</h2>
+                <h2>21.2.1 Gerund and Present Participle</h2>
                 <div class="clearfix"></div>
                 <nav class="breadcrumb-wrap">
-                  <ul class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
-                    <li class="active"><span class="divider icon-location"></span></li>
-                    <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-                      <a itemprop="item" href="../index-2.html" class="pathway" aria-label="Home"><span itemprop="name">Home</span></a>
-                      <span class="divider">
-                         
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8 13.02" width="9" height="9"><polygon points="8 6.51 0 13.02 0 0 8 6.51" fill="#e0162b"/></svg>
-                      </span>
-                      <meta itemprop="position" content="1">
-                    </li>
-                    <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-                      <a itemprop="item" href="../exercise-19-determiners-and-quantifiers.html" class="pathway" aria-label="Exercise 19 - Determiners and Quantifiers"><span itemprop="name">Exercise 19 - Determiners and Quantifiers</span></a>
-                      <span class="divider">
-                         
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8 13.02" width="9" height="9"><polygon points="8 6.51 0 13.02 0 0 8 6.51" fill="#e0162b"/></svg>
-                      </span>
-                      <meta itemprop="position" content="2">
-                    </li>
-                    <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem" class="active">
-                      <span itemprop="name">19.2.1 Quantity Words</span>
-                      <meta itemprop="position" content="3">
-                    </li>
-                  </ul>
+                  <ul class="breadcrumb" itemscope="" itemtype="https://schema.org/BreadcrumbList"><li class="active"><span class="divider icon-location"></span></li><li itemprop="itemListElement" itemscope="" itemtype="https://schema.org/ListItem"><a itemprop="item" href="../index-2.html" class="pathway" aria-label="Home"><span itemprop="name">Home</span></a><span class="divider">&nbsp;<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8 13.02" width="9" height="9"><polygon points="8 6.51 0 13.02 0 0 8 6.51" fill="#e0162b"></polygon></svg></span><meta itemprop="position" content="1"></li><li itemprop="itemListElement" itemscope="" itemtype="https://schema.org/ListItem"><a itemprop="item" href="../exercise-21-general.html" class="pathway" aria-label="Exercise 21 - General"><span itemprop="name">Exercise 21 - General</span></a><span class="divider">&nbsp;<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8 13.02" width="9" height="9"><polygon points="8 6.51 0 13.02 0 0 8 6.51" fill="#e0162b"></polygon></svg></span><meta itemprop="position" content="2"></li><li itemprop="itemListElement" itemscope="" itemtype="https://schema.org/ListItem" class="active"><span itemprop="name">21.2.1 Gerund and Present Participle</span><meta itemprop="position" content="3"></li></ul>
                 </nav>
               </div>
               <div itemprop="articleBody">
                 <ul class="pager pagenav">
                   <li class="previous">
-                    <a href="1912-determiners-a-an-the-some.html" rel="next">
-                      <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 48" fill="currentColor">
+                    <a href="2113-part-of-speech-adverb.html" rel="prev"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 48" fill="currentColor">
                         <title>angle-left</title>
-                        <path d="M16.795 14.571c0 0.214-0.107 0.455-0.268 0.616l-10.527 10.527 10.527 10.527c0.161 0.161 0.268 0.402 0.268 0.616s-0.107 0.455-0.268 0.616l-1.339 1.339c-0.161 0.161-0.402 0.268-0.616 0.268s-0.455-0.107-0.616-0.268l-12.482-12.482c-0.161-0.161-0.268-0.402-0.268-0.616s0.107-0.455 0.268-0.616l12.482-12.482c0.161-0.161 0.402-0.268 0.616-0.268s0.455 0.107 0.616 0.268l1.339 1.339c0.161 0.161 0.268 0.375 0.268 0.616z"/>
-                      </svg>
-                      <span class="pager-label">19.1.2 Determiners: a, an, the, some</span>
-                    </a>
+                        <path d="M16.795 14.571c0 0.214-0.107 0.455-0.268 0.616l-10.527 10.527 10.527 10.527c0.161 0.161 0.268 0.402 0.268 0.616s-0.107 0.455-0.268 0.616l-1.339 1.339c-0.161 0.161-0.402 0.268-0.616 0.268s-0.455-0.107-0.616-0.268l-12.482-12.482c-0.161-0.161-0.268-0.402-0.268-0.616s0.107-0.455 0.268-0.616l12.482-12.482c0.161-0.161 0.402-0.268 0.616-0.268s0.455 0.107 0.616 0.268l1.339 1.339c0.161 0.161 0.268 0.375 0.268 0.616z"></path>
+                      </svg><span class="pager-label">21.1.3 Part of Speech: Adverb</span></a>
                   </li>
                   <li class="next">
-                    <a href="../exercise-19-determiners-and-quantifiers.html" rel="prev">
-                      <span class="pager-label">Exercise 19 - Determiners and Quantifiers</span>
-                      <svg version="1.1" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 18 48" fill="currentColor">
+                    <a href="../exercise-21-general.html" rel="next"><span class="pager-label">Exercise 21 - Parts-of-Speech &amp; Gerunds</span><svg version="1.1" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 18 48" fill="currentColor">
                         <title>angle-right</title>
-                        <path d="M15.938 25.714c0 0.214-0.107 0.455-0.268 0.616l-12.482 12.482c-0.161 0.161-0.402 0.268-0.616 0.268s-0.455-0.107-0.616-0.268l-1.339-1.339c-0.161-0.161-0.268-0.375-0.268-0.616 0-0.214 0.107-0.455 0.268-0.616l10.527-10.527-10.527-10.527c-0.161-0.161-0.268-0.402-0.268-0.616s0.107-0.455 0.268-0.616l1.339-1.339c0.161-0.161 0.402-0.268 0.616-0.268s0.455 0.107 0.616 0.268l12.482 12.482c0.161 0.161 0.268 0.402 0.268 0.616z"/>
-                      </svg>
-                    </a>
+                        <path d="M15.938 25.714c0 0.214-0.107 0.455-0.268 0.616l-12.482 12.482c-0.161 0.161-0.402 0.268-0.616 0.268s-0.455-0.107-0.616-0.268l-1.339-1.339c-0.161-0.161-0.268-0.375-0.268-0.616 0-0.214 0.107-0.455 0.268-0.616l10.527-10.527-10.527-10.527c-0.161-0.161-0.268-0.402-0.268-0.616s0.107-0.455 0.268-0.616l1.339-1.339c0.161-0.161 0.402-0.268 0.616-0.268s0.455 0.107 0.616 0.268l12.482 12.482c0.161 0.161 0.268 0.402 0.268 0.616z"></path>
+                      </svg></a>
                   </li>
                 </ul>
                 <br>
+
                 <div class="exinstruct">
-                  <!-- prettier-ignore -->
-                  <p>This exercise is about the use of quantity words. A quantity word is often used with a noun to indicate a quantity or only a part of a whole (partitive). For example, a wad of banknotes, a piece of cake, a slice of bread.</p>
-                  <p>Fill in each blank with one of the following quantity words. Each of these quantity words is to be used only once. Click the questions to see the answers.</p>
-                </div>
-                <form class="exercise-form exercise-gate" data-exercise-form data-storage-key="exercise-1921-quantity-words" novalidate>
+                <!-- prettier-ignore -->
+              <p>
+                <b>Gerund and present participle</b> are (V3) forms of verbs ending in -ing. Rewrite the following sentences using gerund or present participle:
+              </p>
+              <p>Check your answers by clicking the sentence.</p>
+            </div><form class="exercise-form exercise-gate" data-exercise-form="" data-storage-key="exercise-2121-gerund-and-present-participle" novalidate>
                   <fieldset class="exercise-form__intro">
                     <legend class="visually-hidden">Exercise setup</legend>
                     <div class="exercise-form__intro-layout">
                       <div class="exercise-form__intro-fields">
                         <div class="exercise-form__email">
-                          <input class="exercise-form__email-input" type="email" id="exercise-email" name="exerciseEmail" autocomplete="email" required data-exercise-email placeholder="name@example.com">
+                          <input class="exercise-form__email-input" type="email" id="exercise-email" name="exerciseEmail" autocomplete="email" required data-exercise-email="" placeholder="name@example.com">
                         </div>
                         <div class="exercise-form__student-id">
-                          <input class="exercise-form__email-input exercise-form__student-id-input" type="text" id="exercise-student-id" name="exerciseStudentId" inputmode="text" autocomplete="off" autocapitalize="none" spellcheck="false" required pattern="^[a-z]+\d{3}$" data-exercise-student-id placeholder="Eagles user ID - e.g., tammy001" aria-describedby="exercise-student-id-note">
+                          <input class="exercise-form__email-input exercise-form__student-id-input" type="text" id="exercise-student-id" name="exerciseStudentId" inputmode="text" autocomplete="off" autocapitalize="none" spellcheck="false" required pattern="^[a-z]+\d{3}$" data-exercise-student-id="" placeholder="Eagles user ID - e.g., tammy001" aria-describedby="exercise-student-id-note">
                         </div>
                       </div>
-                      <p class="exercise-form__progress tm01" data-exercise-progress aria-live="polite">0 of 10 questions completed.</p>
-                      <span class="exercise-form__last-attempt" data-exercise-last-attempt hidden aria-live="polite"></span>
-                      <div class="exercise-form__feedback" data-exercise-feedback aria-live="polite"></div>
+                      <p class="exercise-form__progress tm01" data-exercise-progress="" aria-live="polite">0 of 10 questions completed.</p>
+                      <span class="exercise-form__last-attempt" data-exercise-last-attempt="" hidden aria-live="polite"></span>
+                      <div class="exercise-form__feedback" data-exercise-feedback="" aria-live="polite"></div>
                     </div>
                   </fieldset>
-                  <h4>1. book, collection, copy, edition, file, pack, piece, scrap, set, sheet.</h4>
-                  <div class="quest-bg" data-exercise-question="q1a-a-book-_____-b-cardboard-_____-c-documents-_____-d-paper-_____-e-painting-______-f-stamp-_____">
-                    <div class="nn_sliders accordion panel-group" id="set-nn_sliders-1">
-                      <span id="nn_sliders-scrollto_1a" class="anchor nn_sliders-scroll"></span>
-                      <div class="accordion-group panel nn_sliders-group">
-                        <span id="nn_sliders-scrollto_1a-q1a-a-book-_____-b-cardboard-_____-c-documents-_____-d-paper-_____-e-painting-______-f-stamp-_____" class="anchor nn_sliders-scroll"></span>
-                        <div class="accordion-heading panel-heading">
-                          <a class="accordion-toggle nn_sliders-toggle" href="1921-quantity-words.html#1921-quantity-words.html#1a-a-book-_____-b-cardboard-_____-c-documents-_____-d-paper-_____-e-painting-______-f-stamp-_____" data-toggle="collapse" data-parent="#set-nn_sliders-1a" data-id="q1a-a-book-_____-b-cardboard-_____-c-documents-_____-d-paper-_____-e-painting-______-f-stamp-_____" aria-expanded="false" aria-controls="1921-quantity-words.html#1a-a-book-_____-b-cardboard-_____-c-documents-_____-d-paper-_____-e-painting-______-f-stamp-_____">
-                            <span class="nn_sliders-toggle-inner">
-                              1a. (a) I have two _____ of that book. | (b) Put a _____ of cardboard under the motorcycle.| (c) a _____ of documents | (d) You will need a _____ of paper, | (e) She likes that ______ of paintings | (f) Billy has a huge
-                              stamp _____.
-                            </span>
-                          </a>
-                        </div>
-                        <div class="accordion-body nn_sliders-body collapse" id="q1a-a-book-_____-b-cardboard-_____-c-documents-_____-d-paper-_____-e-painting-______-f-stamp-_____" aria-hidden="true">
-                          <div class="accordion-inner panel-body">
-                            <h2 class="nn_sliders-title">
-                              1a. (a) I have two _____ of that book. | (b) Put a _____ of cardboard under the motorcycle.| (c) a _____ of documents | (d) You will need a _____ of paper, | (e) She really likes that ______ of paintings | (f) Billy has
-                              a huge stamp _____.
-                            </h2>
-                            <p>
-                              1a. (a) I have two
-                              <b>&#99;&#111;&#112;&#105;&#101;&#115;&#47;&#101;&#100;&#105;&#116;&#105;&#111;&#110;&#115;</b>
-                              of that book. | (b) Put a
-                              <b>&#115;&#104;&#101;&#101;&#116;&#47;&#115;&#99;&#114;&#97;&#112;&#47;&#112;&#105;&#101;&#99;&#101;</b>
-                              of cardboard under the motorcycle.| (c) a
-                              <b>&#115;&#101;&#116;&#47;&#102;&#105;&#108;&#101;</b>
-                              of documents | (d) You will need a
-                              <b>&#112;&#97;&#99;&#107;&#47;&#115;&#104;&#101;&#101;&#116;&#47;&#115;&#99;&#114;&#97;&#112;&#47;&#112;&#105;&#101;&#99;&#101;</b>
-                              of paper, | (e) She really likes that
-                              <b>&#99;&#111;&#108;&#108;&#101;&#99;&#116;&#105;&#111;&#110;&#47;&#115;&#101;&#116;</b>
-                              of paintings. | (f) Billy has a huge stamp
-                              <b>&#99;&#111;&#108;&#108;&#101;&#99;&#116;&#105;&#111;&#110;</b>
-                              .
-                            </p>
-                          </div>
-                        </div>
-                        <div class="exercise-response-row" data-item="q1a-a-book-_____-b-cardboard-_____-c-documents-_____-d-paper-_____-e-painting-______-f-stamp-_____" data-answer-ui>
-                          <label class="exercise-response-field">
-                            <span class="visually-hidden">Response for item q1a-a-book-_____-b-cardboard-_____-c-documents-_____-d-paper-_____-e-painting-______-f-stamp-_____ (answer_01)</span>
-                            <input class="exercise-response-input" type="text" placeholder="a" data-item="q1a-a-book-_____-b-cardboard-_____-c-documents-_____-d-paper-_____-e-painting-______-f-stamp-_____" data-field="answer_01" inputmode="text">
-                          </label>
-                          <label class="exercise-response-field">
-                            <span class="visually-hidden">Response for item q1a-a-book-_____-b-cardboard-_____-c-documents-_____-d-paper-_____-e-painting-______-f-stamp-_____ (answer_02)</span>
-                            <input class="exercise-response-input" type="text" placeholder="b" data-item="q1a-a-book-_____-b-cardboard-_____-c-documents-_____-d-paper-_____-e-painting-______-f-stamp-_____" data-field="answer_02" inputmode="text">
-                          </label>
-                          <label class="exercise-response-field">
-                            <span class="visually-hidden">Response for item q1a-a-book-_____-b-cardboard-_____-c-documents-_____-d-paper-_____-e-painting-______-f-stamp-_____ (answer_03)</span>
-                            <input class="exercise-response-input" type="text" placeholder="c" data-item="q1a-a-book-_____-b-cardboard-_____-c-documents-_____-d-paper-_____-e-painting-______-f-stamp-_____" data-field="answer_03" inputmode="text">
-                          </label>
-                          <label class="exercise-response-field">
-                            <span class="visually-hidden">Response for item q1a-a-book-_____-b-cardboard-_____-c-documents-_____-d-paper-_____-e-painting-______-f-stamp-_____ (answer_04)</span>
-                            <input class="exercise-response-input" type="text" placeholder="d" data-item="q1a-a-book-_____-b-cardboard-_____-c-documents-_____-d-paper-_____-e-painting-______-f-stamp-_____" data-field="answer_04" inputmode="text">
-                          </label>
-                          <label class="exercise-response-field">
-                            <span class="visually-hidden">Response for item q1a-a-book-_____-b-cardboard-_____-c-documents-_____-d-paper-_____-e-painting-______-f-stamp-_____ (answer_05)</span>
-                            <input class="exercise-response-input" type="text" placeholder="e" data-item="q1a-a-book-_____-b-cardboard-_____-c-documents-_____-d-paper-_____-e-painting-______-f-stamp-_____" data-field="answer_05" inputmode="text">
-                          </label>
-                          <label class="exercise-response-field">
-                            <span class="visually-hidden">Response for item q1a-a-book-_____-b-cardboard-_____-c-documents-_____-d-paper-_____-e-painting-______-f-stamp-_____ (answer_06)</span>
-                            <input class="exercise-response-input" type="text" placeholder="f" data-item="q1a-a-book-_____-b-cardboard-_____-c-documents-_____-d-paper-_____-e-painting-______-f-stamp-_____" data-field="answer_06" inputmode="text">
-                          </label>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="quest-bg" data-exercise-question="q1b-g-tickets-_____-h-tissue-paper-handkerchief-_____-i-writing-_____-j-newspaper-_____">
-                    <div class="nn_sliders accordion panel-group" id="set-nn_sliders-2">
-                      <span id="nn_sliders-scrollto_1b" class="anchor nn_sliders-scroll"></span>
-                      <div class="accordion-group panel nn_sliders-group">
-                        <span id="nn_sliders-scrollto_1b-q1b-g-tickets-_____-h-tissue-paper-handkerchief-_____-i-writing-_____-j-newspaper-_____" class="anchor nn_sliders-scroll"></span>
-                        <div class="accordion-heading panel-heading">
-                          <a class="accordion-toggle nn_sliders-toggle" href="1921-quantity-words.html#1921-quantity-words.html#1b-g-tickets-_____-h-tissue-paper-handkerchief-_____-i-writing-_____-j-newspaper-_____" data-toggle="collapse" data-parent="#set-nn_sliders-1b" data-id="q1b-g-tickets-_____-h-tissue-paper-handkerchief-_____-i-writing-_____-j-newspaper-_____" aria-expanded="false" aria-controls="1921-quantity-words.html#1b-g-tickets-_____-h-tissue-paper-handkerchief-_____-i-writing-_____-j-newspaper-_____">
-                            <span class="nn_sliders-toggle-inner">1b. (g) I bought a _____ of stamps.| (h) She needs a _____ of facial tissue. | (i) That article is a great _____ of writing.| (j) The newspaper's early _____ is out at 5:00 AM.</span>
-                          </a>
-                        </div>
-                        <div class="accordion-body nn_sliders-body collapse" id="q1b-g-tickets-_____-h-tissue-paper-handkerchief-_____-i-writing-_____-j-newspaper-_____" aria-hidden="true">
-                          <div class="accordion-inner panel-body">
-                            <h2 class="nn_sliders-title">1b. (g) I bought a _____ of stamps.| (h) She needs a _____ of facial tissue. | (i) That article is a great _____ of writing.| (j) The newspaper's early _____ is out at 5:00 AM.</h2>
-                            <p>
-                              1b. (g) I bought a
-                              <b>&#98;&#111;&#111;&#107;</b>
-                              of stamps.| (h) She needs a
-                              <b>&#112;&#105;&#101;&#99;&#101;&#47;&#112;&#97;&#99;&#107;&#47;&#115;&#99;&#114;&#97;&#112;</b>
-                              of facial tissue.| (i) That article is a great
-                              <b>&#112;&#105;&#101;&#99;&#101;</b>
-                              of writing.| (j) The newspaper's early
-                              <b>&#101;&#100;&#105;&#116;&#105;&#111;&#110;</b>
-                              is out at 5:00 AM.
-                            </p>
-                          </div>
-                        </div>
-                        <div class="exercise-response-row" data-item="q1b-g-tickets-_____-h-tissue-paper-handkerchief-_____-i-writing-_____-j-newspaper-_____" data-answer-ui>
-                          <label class="exercise-response-field">
-                            <span class="visually-hidden">Response for item q1b-g-tickets-_____-h-tissue-paper-handkerchief-_____-i-writing-_____-j-newspaper-_____ (answer_01)</span>
-                            <input class="exercise-response-input" type="text" placeholder="g" data-item="q1b-g-tickets-_____-h-tissue-paper-handkerchief-_____-i-writing-_____-j-newspaper-_____" data-field="answer_01" inputmode="text">
-                          </label>
-                          <label class="exercise-response-field">
-                            <span class="visually-hidden">Response for item q1b-g-tickets-_____-h-tissue-paper-handkerchief-_____-i-writing-_____-j-newspaper-_____ (answer_02)</span>
-                            <input class="exercise-response-input" type="text" placeholder="h" data-item="q1b-g-tickets-_____-h-tissue-paper-handkerchief-_____-i-writing-_____-j-newspaper-_____" data-field="answer_02" inputmode="text">
-                          </label>
-                          <label class="exercise-response-field">
-                            <span class="visually-hidden">Response for item q1b-g-tickets-_____-h-tissue-paper-handkerchief-_____-i-writing-_____-j-newspaper-_____ (answer_03)</span>
-                            <input class="exercise-response-input" type="text" placeholder="i" data-item="q1b-g-tickets-_____-h-tissue-paper-handkerchief-_____-i-writing-_____-j-newspaper-_____" data-field="answer_03" inputmode="text">
-                          </label>
-                          <label class="exercise-response-field">
-                            <span class="visually-hidden">Response for item q1b-g-tickets-_____-h-tissue-paper-handkerchief-_____-i-writing-_____-j-newspaper-_____ (answer_04)</span>
-                            <input class="exercise-response-input" type="text" placeholder="j" data-item="q1b-g-tickets-_____-h-tissue-paper-handkerchief-_____-i-writing-_____-j-newspaper-_____" data-field="answer_04" inputmode="text">
-                          </label>
-                          <label class="exercise-response-field">
-                            <span class="visually-hidden">Response for item q1b-g-tickets-_____-h-tissue-paper-handkerchief-_____-i-writing-_____-j-newspaper-_____ (answer_05)</span>
-                            <input class="exercise-response-input" type="text" placeholder="k" data-item="q1b-g-tickets-_____-h-tissue-paper-handkerchief-_____-i-writing-_____-j-newspaper-_____" data-field="answer_05" inputmode="text">
-                          </label>
-                          <label class="exercise-response-field">
-                            <span class="visually-hidden">Response for item q1b-g-tickets-_____-h-tissue-paper-handkerchief-_____-i-writing-_____-j-newspaper-_____ (answer_06)</span>
-                            <input class="exercise-response-input" type="text" placeholder="l" data-item="q1b-g-tickets-_____-h-tissue-paper-handkerchief-_____-i-writing-_____-j-newspaper-_____" data-field="answer_06" inputmode="text">
-                          </label>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-									<br>
-                  <h4>2. bar, cake, cube, drop, ear, dollop, grain, ladle, pat, pinch, sack, schmear, serving</h4>
-                  <div class="quest-bg" data-exercise-question="q2a-a-soap-_____-b-sugar-_____-c-jam-_____-d-sauce-_____-e-salt-______-f-rice-_____">
-                    <div class="nn_sliders accordion panel-group" id="set-nn_sliders-3">
-                      <span id="nn_sliders-scrollto_2a" class="anchor nn_sliders-scroll"></span>
-                      <div class="accordion-group panel nn_sliders-group">
-                        <span id="nn_sliders-scrollto_2a-q2a-a-soap-_____-b-sugar-_____-c-jam-_____-d-sauce-_____-e-salt-______-f-rice-_____" class="anchor nn_sliders-scroll"></span>
-                        <div class="accordion-heading panel-heading">
-                          <a class="accordion-toggle nn_sliders-toggle" href="1921-quantity-words.html#1921-quantity-words.html#2a-a-soap-_____-b-sugar-_____-c-jam-_____-d-sauce-_____-e-salt-______-f-rice-_____" data-toggle="collapse" data-parent="#set-nn_sliders-2a" data-id="q2a-a-soap-_____-b-sugar-_____-c-jam-_____-d-sauce-_____-e-salt-______-f-rice-_____" aria-expanded="false" aria-controls="1921-quantity-words.html#2a-a-soap-_____-b-sugar-_____-c-jam-_____-d-sauce-_____-e-salt-______-f-rice-_____">
-                            <span class="nn_sliders-toggle-inner">
-                              2a. (a) Lynn needs a _____ of soap. | (b) The coffee needs one sugar _____.| (c) I like toast with a _____ of jam | (d) She'll have pasta with a _____ of sauce| (e) The soup needs a ______ of salt. | (f) Every _____ of
-                              rice was perfectly white.
-                            </span>
-                          </a>
-                        </div>
-                        <div class="accordion-body nn_sliders-body collapse" id="q2a-a-soap-_____-b-sugar-_____-c-jam-_____-d-sauce-_____-e-salt-______-f-rice-_____" aria-hidden="true">
-                          <div class="accordion-inner panel-body">
-                            <h2 class="nn_sliders-title">
-                              2a. (a) Lynn needs a _____ of soap. | (b) The coffee needs one sugar _____.| (c) I like toast with a _____ of jam | (d) She'll have pasta with a _____ of sauce| (e) The soup needs a ______ of salt. | (f) Every _____ of
-                              rice was perfectly white.
-                            </h2>
-                            <p>
-                              2a. (a) Lynn needs a
-                              <b>&#98;&#97;&#114;&#47;&#99;&#97;&#107;&#101;</b>
-                              of soap. | (b) The coffee needs one sugar
-                              <b>&#99;&#117;&#98;&#101;</b>
-                              . | (c) I like toast with a
-                              <b>&#100;&#111;&#108;&#108;&#111;&#112;&#47;&#115;&#99;&#104;&#109;&#101;&#97;&#114;</b>
-                              of jam. | (d) She'll have pasta with a
-                              <b>&#115;&#101;&#114;&#118;&#105;&#110;&#103;&#47;&#108;&#97;&#100;&#108;&#101;</b>
-                              of sauce| (e) The soup needs a
-                              <b>&#112;&#105;&#110;&#99;&#104;</b>
-                              of salt. | (f) Every
-                              <b>&#103;&#114;&#97;&#105;&#110;</b>
-                              of rice was perfectly white.
-                            </p>
-                          </div>
-                        </div>
-                        <div class="exercise-response-row" data-item="q2a-a-soap-_____-b-sugar-_____-c-jam-_____-d-sauce-_____-e-salt-______-f-rice-_____" data-answer-ui>
-                          <label class="exercise-response-field">
-                            <span class="visually-hidden">Response for item q2a-a-soap-_____-b-sugar-_____-c-jam-_____-d-sauce-_____-e-salt-______-f-rice-_____ (answer_01)</span>
-                            <input class="exercise-response-input" type="text" placeholder="a" data-item="q2a-a-soap-_____-b-sugar-_____-c-jam-_____-d-sauce-_____-e-salt-______-f-rice-_____" data-field="answer_01" inputmode="text">
-                          </label>
-                          <label class="exercise-response-field">
-                            <span class="visually-hidden">Response for item q2a-a-soap-_____-b-sugar-_____-c-jam-_____-d-sauce-_____-e-salt-______-f-rice-_____ (answer_02)</span>
-                            <input class="exercise-response-input" type="text" placeholder="b" data-item="q2a-a-soap-_____-b-sugar-_____-c-jam-_____-d-sauce-_____-e-salt-______-f-rice-_____" data-field="answer_02" inputmode="text">
-                          </label>
-                          <label class="exercise-response-field">
-                            <span class="visually-hidden">Response for item q2a-a-soap-_____-b-sugar-_____-c-jam-_____-d-sauce-_____-e-salt-______-f-rice-_____ (answer_03)</span>
-                            <input class="exercise-response-input" type="text" placeholder="c" data-item="q2a-a-soap-_____-b-sugar-_____-c-jam-_____-d-sauce-_____-e-salt-______-f-rice-_____" data-field="answer_03" inputmode="text">
-                          </label>
-                          <label class="exercise-response-field">
-                            <span class="visually-hidden">Response for item q2a-a-soap-_____-b-sugar-_____-c-jam-_____-d-sauce-_____-e-salt-______-f-rice-_____ (answer_04)</span>
-                            <input class="exercise-response-input" type="text" placeholder="d" data-item="q2a-a-soap-_____-b-sugar-_____-c-jam-_____-d-sauce-_____-e-salt-______-f-rice-_____" data-field="answer_04" inputmode="text">
-                          </label>
-                          <label class="exercise-response-field">
-                            <span class="visually-hidden">Response for item q2a-a-soap-_____-b-sugar-_____-c-jam-_____-d-sauce-_____-e-salt-______-f-rice-_____ (answer_05)</span>
-                            <input class="exercise-response-input" type="text" placeholder="e" data-item="q2a-a-soap-_____-b-sugar-_____-c-jam-_____-d-sauce-_____-e-salt-______-f-rice-_____" data-field="answer_05" inputmode="text">
-                          </label>
-                          <label class="exercise-response-field">
-                            <span class="visually-hidden">Response for item q2a-a-soap-_____-b-sugar-_____-c-jam-_____-d-sauce-_____-e-salt-______-f-rice-_____ (answer_06)</span>
-                            <input class="exercise-response-input" type="text" placeholder="f" data-item="q2a-a-soap-_____-b-sugar-_____-c-jam-_____-d-sauce-_____-e-salt-______-f-rice-_____" data-field="answer_06" inputmode="text">
-                          </label>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="quest-bg" data-exercise-question="q2b-g-flour-_____-h-butter-_____-i-corn-_____-j-chocolate-_____">
-                    <div class="nn_sliders accordion panel-group" id="set-nn_sliders-4">
-                      <span id="nn_sliders-scrollto_2b" class="anchor nn_sliders-scroll"></span>
-                      <div class="accordion-group panel nn_sliders-group">
-                        <span id="nn_sliders-scrollto_2b-q2b-g-flour-_____-h-butter-_____-i-corn-_____-j-chocolate-_____" class="anchor nn_sliders-scroll"></span>
-                        <div class="accordion-heading panel-heading">
-                          <a class="accordion-toggle nn_sliders-toggle" href="1921-quantity-words.html#1921-quantity-words.html#2b-g-flour-_____-h-butter-_____-i-corn-_____-j-chocolate-_____" data-toggle="collapse" data-parent="#set-nn_sliders-2b" data-id="q2b-g-flour-_____-h-butter-_____-i-corn-_____-j-chocolate-_____" aria-expanded="false" aria-controls="1921-quantity-words.html#2b-g-flour-_____-h-butter-_____-i-corn-_____-j-chocolate-_____">
-                            <span class="nn_sliders-toggle-inner">
-                              2b. (g) Mom bought a 10-pound _____ of flour | (h) I'll have potatoes with a _____ of butter. | (i) There's nothing tastier than a fresh-picked _____ of corn. | (j) Steve eats one chocolate _____ daily.
-                            </span>
-                          </a>
-                        </div>
-                        <div class="accordion-body nn_sliders-body collapse" id="q2b-g-flour-_____-h-butter-_____-i-corn-_____-j-chocolate-_____" aria-hidden="true">
-                          <div class="accordion-inner panel-body">
-                            <h2 class="nn_sliders-title">
-                              2b. (g) Mom bought a 10-pound _____ of flour | (h) I'll have potatoes with a _____ of butter. | (i) There's nothing tastier than a fresh-picked _____ of corn. | (j) Steve eats one chocolate _____ daily.
-                            </h2>
-                            <p>
-                              2b. (g) Mom bought a 10-pound
-                              <b>&#115;&#97;&#99;&#107;</b>
-                              of flour | (h) I'll have potatoes with a
-                              <b>&#112;&#97;&#116;</b>
-                              of butter. | (i) There's nothing tastier than a fresh-picked
-                              <b>&#101;&#97;&#114;</b>
-                              of corn. | (j) Steve eats one chocolate
-                              <b>&#98;&#97;&#114;</b>
-                              daily.
-                            </p>
-                          </div>
-                        </div>
-                        <div class="exercise-response-row" data-item="q2b-g-flour-_____-h-butter-_____-i-corn-_____-j-chocolate-_____" data-answer-ui>
-                          <label class="exercise-response-field">
-                            <span class="visually-hidden">Response for item q2b-g-flour-_____-h-butter-_____-i-corn-_____-j-chocolate-_____ (answer_01)</span>
-                            <input class="exercise-response-input" type="text" placeholder="g" data-item="q2b-g-flour-_____-h-butter-_____-i-corn-_____-j-chocolate-_____" data-field="answer_01" inputmode="text">
-                          </label>
-                          <label class="exercise-response-field">
-                            <span class="visually-hidden">Response for item q2b-g-flour-_____-h-butter-_____-i-corn-_____-j-chocolate-_____ (answer_02)</span>
-                            <input class="exercise-response-input" type="text" placeholder="h" data-item="q2b-g-flour-_____-h-butter-_____-i-corn-_____-j-chocolate-_____" data-field="answer_02" inputmode="text">
-                          </label>
-                          <label class="exercise-response-field">
-                            <span class="visually-hidden">Response for item q2b-g-flour-_____-h-butter-_____-i-corn-_____-j-chocolate-_____ (answer_03)</span>
-                            <input class="exercise-response-input" type="text" placeholder="i" data-item="q2b-g-flour-_____-h-butter-_____-i-corn-_____-j-chocolate-_____" data-field="answer_03" inputmode="text">
-                          </label>
-                          <label class="exercise-response-field">
-                            <span class="visually-hidden">Response for item q2b-g-flour-_____-h-butter-_____-i-corn-_____-j-chocolate-_____ (answer_04)</span>
-                            <input class="exercise-response-input" type="text" placeholder="j" data-item="q2b-g-flour-_____-h-butter-_____-i-corn-_____-j-chocolate-_____" data-field="answer_04" inputmode="text">
-                          </label>
-                          <label class="exercise-response-field">
-                            <span class="visually-hidden">Response for item q2b-g-flour-_____-h-butter-_____-i-corn-_____-j-chocolate-_____ (answer_05)</span>
-                            <input class="exercise-response-input" type="text" placeholder="k" data-item="q2b-g-flour-_____-h-butter-_____-i-corn-_____-j-chocolate-_____" data-field="answer_05" inputmode="text">
-                          </label>
-                          <label class="exercise-response-field">
-                            <span class="visually-hidden">Response for item q2b-g-flour-_____-h-butter-_____-i-corn-_____-j-chocolate-_____ (answer_06)</span>
-                            <input class="exercise-response-input" type="text" placeholder="l" data-item="q2b-g-flour-_____-h-butter-_____-i-corn-_____-j-chocolate-_____" data-field="answer_06" inputmode="text">
-                          </label>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-									<br>
-                  <h4>3. bale, blade, chunk, clod, grain, lump, pile, speck, slab, splinter</h4>
-                  <div class="quest-bg" data-exercise-question="q3a-a-coal-_____-b-concrete-_____-c-dirt-_____-d-earth-_____-e-grass-______-f-hay-_____">
-                    <div class="nn_sliders accordion panel-group" id="set-nn_sliders-5">
-                      <span id="nn_sliders-scrollto_3a" class="anchor nn_sliders-scroll"></span>
-                      <div class="accordion-group panel nn_sliders-group">
-                        <span id="nn_sliders-scrollto_3a-q3a-a-coal-_____-b-concrete-_____-c-dirt-_____-d-earth-_____-e-grass-______-f-hay-_____" class="anchor nn_sliders-scroll"></span>
-                        <div class="accordion-heading panel-heading">
-                          <a class="accordion-toggle nn_sliders-toggle" href="1921-quantity-words.html#1921-quantity-words.html#3a-a-coal-_____-b-concrete-_____-c-dirt-_____-d-earth-_____-e-grass-______-f-hay-_____" data-toggle="collapse" data-parent="#set-nn_sliders-3a" data-id="q3a-a-coal-_____-b-concrete-_____-c-dirt-_____-d-earth-_____-e-grass-______-f-hay-_____" aria-expanded="false" aria-controls="1921-quantity-words.html#3a-a-coal-_____-b-concrete-_____-c-dirt-_____-d-earth-_____-e-grass-______-f-hay-_____">
-                            <span class="nn_sliders-toggle-inner">
-                              3. (a) He received a _____ of coal in his Christmas stocking. | (b) For the driveway, they poured a big _____ of concrete. | (c) Timmy threw a dirt _____ at the wall. | (d) He can whistle using a single _____ of grass. |
-                              (e) The truck dumped a big ______ of wood near the garden. | (f) We fed the horses a fresh _____ of hay.
-                            </span>
-                          </a>
-                        </div>
-                        <div class="accordion-body nn_sliders-body collapse" id="q3a-a-coal-_____-b-concrete-_____-c-dirt-_____-d-earth-_____-e-grass-______-f-hay-_____" aria-hidden="true">
-                          <div class="accordion-inner panel-body">
-                            <h2 class="nn_sliders-title">
-                              3. (a) He received a _____ of coal in his Christmas stocking. | (b)For the driveway, they poured a big _____ of concrete. | (c) Timmy threw a dirt _____ at the wall. | (d) He can whistle using a single _____ of grass. |
-                              (e) The truck dumped a big ______ of wood near the garden. | (f) We fed the horses a fresh _____ of hay.
-                            </h2>
-                            <p>
-                              3. (a) He received a
-                              <b>&#108;&#117;&#109;&#112;</b>
-                              of coal in his Christmas stocking. | (b) For the driveway, they poured a big
-                              <b>&#115;&#108;&#97;&#98;</b>
-                              of concrete. | (c) Timmy threw a dirt
-                              <b>&#99;&#108;&#111;&#100;</b>
-                              at the wall. | (d) He can whistle using a single
-                              <b>&#98;&#108;&#97;&#100;&#101;</b>
-                              of grass. | (e) The truck dumped a big
-                              <b>&#112;&#105;&#108;&#101;</b>
-                              of firewood near the garden. | (f) We fed the horses a fresh
-                              <b>&#98;&#97;&#108;&#101;</b>
-                              of hay.
-                            </p>
-                          </div>
-                        </div>
-                        <div class="exercise-response-row" data-item="q3a-a-coal-_____-b-concrete-_____-c-dirt-_____-d-earth-_____-e-grass-______-f-hay-_____" data-answer-ui>
-                          <label class="exercise-response-field">
-                            <span class="visually-hidden">Response for item q3a-a-coal-_____-b-concrete-_____-c-dirt-_____-d-earth-_____-e-grass-______-f-hay-_____ (answer_01)</span>
-                            <input class="exercise-response-input" type="text" placeholder="a" data-item="q3a-a-coal-_____-b-concrete-_____-c-dirt-_____-d-earth-_____-e-grass-______-f-hay-_____" data-field="answer_01" inputmode="text">
-                          </label>
-                          <label class="exercise-response-field">
-                            <span class="visually-hidden">Response for item q3a-a-coal-_____-b-concrete-_____-c-dirt-_____-d-earth-_____-e-grass-______-f-hay-_____ (answer_02)</span>
-                            <input class="exercise-response-input" type="text" placeholder="b" data-item="q3a-a-coal-_____-b-concrete-_____-c-dirt-_____-d-earth-_____-e-grass-______-f-hay-_____" data-field="answer_02" inputmode="text">
-                          </label>
-                          <label class="exercise-response-field">
-                            <span class="visually-hidden">Response for item q3a-a-coal-_____-b-concrete-_____-c-dirt-_____-d-earth-_____-e-grass-______-f-hay-_____ (answer_03)</span>
-                            <input class="exercise-response-input" type="text" placeholder="c" data-item="q3a-a-coal-_____-b-concrete-_____-c-dirt-_____-d-earth-_____-e-grass-______-f-hay-_____" data-field="answer_03" inputmode="text">
-                          </label>
-                          <label class="exercise-response-field">
-                            <span class="visually-hidden">Response for item q3a-a-coal-_____-b-concrete-_____-c-dirt-_____-d-earth-_____-e-grass-______-f-hay-_____ (answer_04)</span>
-                            <input class="exercise-response-input" type="text" placeholder="d" data-item="q3a-a-coal-_____-b-concrete-_____-c-dirt-_____-d-earth-_____-e-grass-______-f-hay-_____" data-field="answer_04" inputmode="text">
-                          </label>
-                          <label class="exercise-response-field">
-                            <span class="visually-hidden">Response for item q3a-a-coal-_____-b-concrete-_____-c-dirt-_____-d-earth-_____-e-grass-______-f-hay-_____ (answer_05)</span>
-                            <input class="exercise-response-input" type="text" placeholder="e" data-item="q3a-a-coal-_____-b-concrete-_____-c-dirt-_____-d-earth-_____-e-grass-______-f-hay-_____" data-field="answer_05" inputmode="text">
-                          </label>
-                          <label class="exercise-response-field">
-                            <span class="visually-hidden">Response for item q3a-a-coal-_____-b-concrete-_____-c-dirt-_____-d-earth-_____-e-grass-______-f-hay-_____ (answer_06)</span>
-                            <input class="exercise-response-input" type="text" placeholder="f" data-item="q3a-a-coal-_____-b-concrete-_____-c-dirt-_____-d-earth-_____-e-grass-______-f-hay-_____" data-field="answer_06" inputmode="text">
-                          </label>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="quest-bg" data-exercise-question="q3b-g-rock-_____-h-rubbish-_____-i-sand-_____-j-wood-_____">
-                    <div class="nn_sliders accordion panel-group" id="set-nn_sliders-6">
-                      <span id="nn_sliders-scrollto_3b" class="anchor nn_sliders-scroll"></span>
-                      <div class="accordion-group panel nn_sliders-group">
-                        <span id="nn_sliders-scrollto_3b-q3b-g-rock-_____-h-rubbish-_____-i-sand-_____-j-wood-_____" class="anchor nn_sliders-scroll"></span>
-                        <div class="accordion-heading panel-heading">
-                          <a class="accordion-toggle nn_sliders-toggle" href="1921-quantity-words.html#1921-quantity-words.html#3b-g-rock-_____-h-rubbish-_____-i-sand-_____-j-wood-_____" data-toggle="collapse" data-parent="#set-nn_sliders-3b" data-id="q3b-g-rock-_____-h-rubbish-_____-i-sand-_____-j-wood-_____" aria-expanded="false" aria-controls="1921-quantity-words.html#3b-g-rock-_____-h-rubbish-_____-i-sand-_____-j-wood-_____">
-                            <span class="nn_sliders-toggle-inner">
-                              3b. (g) The truck hauled away a full _____ of rock. | (h) The neighbors had a big _____ of trash in their driveway. | (i) Our professor said there are more stars in the universe than _____ of sand on earth. | (j) The
-                              doctor removed a 3cm _____ of wood from my foot. | (k) The shark had bitten a large _____ out of my new surfboard!
-                            </span>
-                          </a>
-                        </div>
-                        <div class="accordion-body nn_sliders-body collapse" id="q3b-g-rock-_____-h-rubbish-_____-i-sand-_____-j-wood-_____" aria-hidden="true">
-                          <div class="accordion-inner panel-body">
-                            <h2 class="nn_sliders-title">
-                              3b. (g) The truck hauled away a full _____ of rock. | (h) The neighbors had a big _____ of trash in their driveway. | (i) Our professor said there are more stars in the universe than _____ of sand on earth. | (j) The
-                              doctor removed a 3cm _____ of wood from my foot. | (k) The shark had bitten a large _____ out of my new surfboard!
-                            </h2>
-                            <p>
-                              3b. (g) The truck hauled away a full
-                              <b>&#108;&#111;&#97;&#100;</b>
-                              of rock. | (h) The neighbors had a big
-                              <b>&#112;&#105;&#108;&#101;</b>
-                              of trash in their driveway. | (i) Our professor said there are more stars in the universe than
-                              <b>&#103;&#114;&#97;&#105;&#110;&#115;</b>
-                              of sand on earth. | (j) The doctor removed a 3cm
-                              <b>&#115;&#112;&#108;&#105;&#110;&#116;&#101;&#114;</b>
-                              of wood from my foot. | (k) The shark had bitten a large
-                              <b>&#99;&#104;&#117;&#110;&#107;</b>
-                              out of my new surfboard!
-                            </p>
-                          </div>
-                        </div>
-                        <div class="exercise-response-row" data-item="q3b-g-rock-_____-h-rubbish-_____-i-sand-_____-j-wood-_____" data-answer-ui>
-                          <label class="exercise-response-field">
-                            <span class="visually-hidden">Response for item q3b-g-rock-_____-h-rubbish-_____-i-sand-_____-j-wood-_____ (answer_01)</span>
-                            <input class="exercise-response-input" type="text" placeholder="g" data-item="q3b-g-rock-_____-h-rubbish-_____-i-sand-_____-j-wood-_____" data-field="answer_01" inputmode="text">
-                          </label>
-                          <label class="exercise-response-field">
-                            <span class="visually-hidden">Response for item q3b-g-rock-_____-h-rubbish-_____-i-sand-_____-j-wood-_____ (answer_02)</span>
-                            <input class="exercise-response-input" type="text" placeholder="h" data-item="q3b-g-rock-_____-h-rubbish-_____-i-sand-_____-j-wood-_____" data-field="answer_02" inputmode="text">
-                          </label>
-                          <label class="exercise-response-field">
-                            <span class="visually-hidden">Response for item q3b-g-rock-_____-h-rubbish-_____-i-sand-_____-j-wood-_____ (answer_03)</span>
-                            <input class="exercise-response-input" type="text" placeholder="i" data-item="q3b-g-rock-_____-h-rubbish-_____-i-sand-_____-j-wood-_____" data-field="answer_03" inputmode="text">
-                          </label>
-                          <label class="exercise-response-field">
-                            <span class="visually-hidden">Response for item q3b-g-rock-_____-h-rubbish-_____-i-sand-_____-j-wood-_____ (answer_04)</span>
-                            <input class="exercise-response-input" type="text" placeholder="j" data-item="q3b-g-rock-_____-h-rubbish-_____-i-sand-_____-j-wood-_____" data-field="answer_04" inputmode="text">
-                          </label>
-                          <label class="exercise-response-field">
-                            <span class="visually-hidden">Response for item q3b-g-rock-_____-h-rubbish-_____-i-sand-_____-j-wood-_____ (answer_05)</span>
-                            <input class="exercise-response-input" type="text" placeholder="k" data-item="q3b-g-rock-_____-h-rubbish-_____-i-sand-_____-j-wood-_____" data-field="answer_05" inputmode="text">
-                          </label>
-                          <label class="exercise-response-field">
-                            <span class="visually-hidden">Response for item q3b-g-rock-_____-h-rubbish-_____-i-sand-_____-j-wood-_____ (answer_06)</span>
-                            <input class="exercise-response-input" type="text" placeholder="l" data-item="q3b-g-rock-_____-h-rubbish-_____-i-sand-_____-j-wood-_____" data-field="answer_06" inputmode="text">
-                          </label>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-									<br>
-                  <h4>4. bead, blob, bottle, cloud, drop, jar, sip, pint, pool, puff</h4>
-                  <div class="quest-bg" data-exercise-question="q4a-a-beer-_____-b-blood-_____-c-brandy-_____-d-coffee-_____-e-steam-______-f-paint-_____">
-                    <div class="nn_sliders accordion panel-group" id="set-nn_sliders-7">
-                      <span id="nn_sliders-scrollto_4a" class="anchor nn_sliders-scroll"></span>
-                      <div class="accordion-group panel nn_sliders-group">
-                        <span id="nn_sliders-scrollto_4a-q4a-a-beer-_____-b-blood-_____-c-brandy-_____-d-coffee-_____-e-steam-______-f-paint-_____" class="anchor nn_sliders-scroll"></span>
-                        <div class="accordion-heading panel-heading">
-                          <a class="accordion-toggle nn_sliders-toggle" href="1921-quantity-words.html#1921-quantity-words.html#4a-a-beer-_____-b-blood-_____-c-brandy-_____-d-coffee-_____-e-steam-______-f-paint-_____" data-toggle="collapse" data-parent="#set-nn_sliders-4a" data-id="q4a-a-beer-_____-b-blood-_____-c-brandy-_____-d-coffee-_____-e-steam-______-f-paint-_____" aria-expanded="false" aria-controls="1921-quantity-words.html#4a-a-beer-_____-b-blood-_____-c-brandy-_____-d-coffee-_____-e-steam-______-f-paint-_____">
-                            <span class="nn_sliders-toggle-inner">
-                              4a. (a) Everyone likes a cold _____ of beer. | (b) We only need one _____ of blood for your test| (c) Would you care for a _____ of brandy? | (d) Tina drinks one _____ of coffee at breakfast. | (e) A ______ of steam rose
-                              from the opened rice-cooker | (f) I just noticed there's a big _____ of paint on the floor.
-                            </span>
-                          </a>
-                        </div>
-                        <div class="accordion-body nn_sliders-body collapse" id="q4a-a-beer-_____-b-blood-_____-c-brandy-_____-d-coffee-_____-e-steam-______-f-paint-_____" aria-hidden="true">
-                          <div class="accordion-inner panel-body">
-                            <h2 class="nn_sliders-title">
-                              4a. (a) Everyone likes a cold _____ of beer. | (b) We only need one _____ of blood for your test| (c) Would you care for a _____ of brandy? | (d) Tina drinks one _____ of coffee at breakfast. | (e) A ______ of steam rose
-                              from the opened rice-cooker| (f) I just noticed there's a big _____ of paint on the floor.
-                            </h2>
-                            <p>
-                              4a. (a) Everyone likes a cold
-                              <b>&#112;&#105;&#110;&#116;&#47;&#98;&#111;&#116;&#116;&#108;&#101;&#47;&#115;&#105;&#112;</b>
-                              of beer. | (b) We only need one
-                              <b>&#100;&#114;&#111;&#112;</b>
-                              of blood for your test. | (c) Would you care for a
-                              <b>&#98;&#111;&#116;&#116;&#108;&#101;&#47;&#115;&#105;&#112;&#47;&#115;&#110;&#105;&#102;&#116;&#101;&#114;</b>
-                              of brandy? | (d) Tina drinks one
-                              <b>&#99;&#117;&#112;</b>
-                              of coffee at breakfast. | (e) A
-                              <b>&#99;&#108;&#111;&#117;&#100;</b>
-                              of steam rose from the opened rice-cooker| (f) I just noticed there's a big
-                              <b>&#98;&#108;&#111;&#98;</b>
-                              of paint on the floor.
-                            </p>
-                          </div>
-                        </div>
-                        <div class="exercise-response-row" data-item="q4a-a-beer-_____-b-blood-_____-c-brandy-_____-d-coffee-_____-e-steam-______-f-paint-_____" data-answer-ui>
-                          <label class="exercise-response-field">
-                            <span class="visually-hidden">Response for item q4a-a-beer-_____-b-blood-_____-c-brandy-_____-d-coffee-_____-e-steam-______-f-paint-_____ (answer_01)</span>
-                            <input class="exercise-response-input" type="text" placeholder="a" data-item="q4a-a-beer-_____-b-blood-_____-c-brandy-_____-d-coffee-_____-e-steam-______-f-paint-_____" data-field="answer_01" inputmode="text">
-                          </label>
-                          <label class="exercise-response-field">
-                            <span class="visually-hidden">Response for item q4a-a-beer-_____-b-blood-_____-c-brandy-_____-d-coffee-_____-e-steam-______-f-paint-_____ (answer_02)</span>
-                            <input class="exercise-response-input" type="text" placeholder="b" data-item="q4a-a-beer-_____-b-blood-_____-c-brandy-_____-d-coffee-_____-e-steam-______-f-paint-_____" data-field="answer_02" inputmode="text">
-                          </label>
-                          <label class="exercise-response-field">
-                            <span class="visually-hidden">Response for item q4a-a-beer-_____-b-blood-_____-c-brandy-_____-d-coffee-_____-e-steam-______-f-paint-_____ (answer_03)</span>
-                            <input class="exercise-response-input" type="text" placeholder="c" data-item="q4a-a-beer-_____-b-blood-_____-c-brandy-_____-d-coffee-_____-e-steam-______-f-paint-_____" data-field="answer_03" inputmode="text">
-                          </label>
-                          <label class="exercise-response-field">
-                            <span class="visually-hidden">Response for item q4a-a-beer-_____-b-blood-_____-c-brandy-_____-d-coffee-_____-e-steam-______-f-paint-_____ (answer_04)</span>
-                            <input class="exercise-response-input" type="text" placeholder="d" data-item="q4a-a-beer-_____-b-blood-_____-c-brandy-_____-d-coffee-_____-e-steam-______-f-paint-_____" data-field="answer_04" inputmode="text">
-                          </label>
-                          <label class="exercise-response-field">
-                            <span class="visually-hidden">Response for item q4a-a-beer-_____-b-blood-_____-c-brandy-_____-d-coffee-_____-e-steam-______-f-paint-_____ (answer_05)</span>
-                            <input class="exercise-response-input" type="text" placeholder="e" data-item="q4a-a-beer-_____-b-blood-_____-c-brandy-_____-d-coffee-_____-e-steam-______-f-paint-_____" data-field="answer_05" inputmode="text">
-                          </label>
-                          <label class="exercise-response-field">
-                            <span class="visually-hidden">Response for item q4a-a-beer-_____-b-blood-_____-c-brandy-_____-d-coffee-_____-e-steam-______-f-paint-_____ (answer_06)</span>
-                            <input class="exercise-response-input" type="text" placeholder="f" data-item="q4a-a-beer-_____-b-blood-_____-c-brandy-_____-d-coffee-_____-e-steam-______-f-paint-_____" data-field="answer_06" inputmode="text">
-                          </label>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="quest-bg" data-exercise-question="q4b-g-perfume-_____-h-vapour-_____-i-water-_____-j-wine-_____">
-                    <div class="nn_sliders accordion panel-group" id="set-nn_sliders-8">
-                      <span id="nn_sliders-scrollto_4b" class="anchor nn_sliders-scroll"></span>
-                      <div class="accordion-group panel nn_sliders-group">
-                        <span id="nn_sliders-scrollto_4b-q4b-g-perfume-_____-h-vapour-_____-i-water-_____-j-wine-_____" class="anchor nn_sliders-scroll"></span>
-                        <div class="accordion-heading panel-heading">
-                          <a class="accordion-toggle nn_sliders-toggle" href="1921-quantity-words.html#1921-quantity-words.html#4b-g-perfume-_____-h-vapour-_____-i-water-_____-j-wine-_____" data-toggle="collapse" data-parent="#set-nn_sliders-4b" data-id="q4b-g-perfume-_____-h-vapour-_____-i-water-_____-j-wine-_____" aria-expanded="false" aria-controls="1921-quantity-words.html#4b-g-perfume-_____-h-vapour-_____-i-water-_____-j-wine-_____">
-                            <span class="nn_sliders-toggle-inner">
-                              4b. (g) Only a single _____ of perfume is used on your wrist| (h) A _____ of smoke rose from my car's engine| (i) Dad bought a big _____ of dill pickles| (j) The vineyard showed us a room with many large wooden _____ of
-                              aging wine. | (k) You could see a _____ of sweat forming on his upper lip. | I found a massive _____ of water under my air-conditioner.
-                            </span>
-                          </a>
-                        </div>
-                        <div class="accordion-body nn_sliders-body collapse" id="q4b-g-perfume-_____-h-vapour-_____-i-water-_____-j-wine-_____" aria-hidden="true">
-                          <div class="accordion-inner panel-body">
-                            <h2 class="nn_sliders-title">
-                              4b. (g) Only a single _____ of perfume is used on your wrist| (h) A _____ of smoke rose from my car's engine| (i) Dad bought a big _____ of dill pickles| (j) The vineyard showed us a room with many large wooden _____ of
-                              aging wine. | (k) You could see a _____ of sweat forming on his upper lip. | I found a massive _____ of water under my air-conditioner.
-                            </h2>
-                            <p>
-                              4b. (g) Only a single
-                              <b>&#100;&#114;&#111;&#112;</b>
-                              of perfume is used on your wrist | (h) A
-                              <b>&#99;&#108;&#111;&#117;&#100;&#47;&#112;&#117;&#102;&#102;</b>
-                              of smoke rose from my car's engine | (i) Dad bought a big
-                              <b>&#106;&#97;&#114;</b>
-                              of dill pickles| (j) The vineyard showed us a room with many large wooden
-                              <b>&#98;&#97;&#114;&#114;&#101;&#108;&#115;</b>
-                              of aging wine. | (k) You could see a
-                              <b>&#98;&#101;&#97;&#100;</b>
-                              of sweat forming on his upper lip. | (l) I found a massive
-                              <b>&#112;&#111;&#111;&#108;</b>
-                              of water under my air-conditioner.
-                            </p>
-                          </div>
-                        </div>
-                        <div class="exercise-response-row" data-item="q4b-g-perfume-_____-h-vapour-_____-i-water-_____-j-wine-_____" data-answer-ui>
-                          <label class="exercise-response-field">
-                            <span class="visually-hidden">Response for item q4b-g-perfume-_____-h-vapour-_____-i-water-_____-j-wine-_____ (answer_01)</span>
-                            <input class="exercise-response-input" type="text" placeholder="g" data-item="q4b-g-perfume-_____-h-vapour-_____-i-water-_____-j-wine-_____" data-field="answer_01" inputmode="text">
-                          </label>
-                          <label class="exercise-response-field">
-                            <span class="visually-hidden">Response for item q4b-g-perfume-_____-h-vapour-_____-i-water-_____-j-wine-_____ (answer_02)</span>
-                            <input class="exercise-response-input" type="text" placeholder="h" data-item="q4b-g-perfume-_____-h-vapour-_____-i-water-_____-j-wine-_____" data-field="answer_02" inputmode="text">
-                          </label>
-                          <label class="exercise-response-field">
-                            <span class="visually-hidden">Response for item q4b-g-perfume-_____-h-vapour-_____-i-water-_____-j-wine-_____ (answer_03)</span>
-                            <input class="exercise-response-input" type="text" placeholder="i" data-item="q4b-g-perfume-_____-h-vapour-_____-i-water-_____-j-wine-_____" data-field="answer_03" inputmode="text">
-                          </label>
-                          <label class="exercise-response-field">
-                            <span class="visually-hidden">Response for item q4b-g-perfume-_____-h-vapour-_____-i-water-_____-j-wine-_____ (answer_04)</span>
-                            <input class="exercise-response-input" type="text" placeholder="j" data-item="q4b-g-perfume-_____-h-vapour-_____-i-water-_____-j-wine-_____" data-field="answer_04" inputmode="text">
-                          </label>
-                          <label class="exercise-response-field">
-                            <span class="visually-hidden">Response for item q4b-g-perfume-_____-h-vapour-_____-i-water-_____-j-wine-_____ (answer_05)</span>
-                            <input class="exercise-response-input" type="text" placeholder="k" data-item="q4b-g-perfume-_____-h-vapour-_____-i-water-_____-j-wine-_____" data-field="answer_05" inputmode="text">
-                          </label>
-                          <label class="exercise-response-field">
-                            <span class="visually-hidden">Response for item q4b-g-perfume-_____-h-vapour-_____-i-water-_____-j-wine-_____ (answer_06)</span>
-                            <input class="exercise-response-input" type="text" placeholder="l" data-item="q4b-g-perfume-_____-h-vapour-_____-i-water-_____-j-wine-_____" data-field="answer_06" inputmode="text">
-                          </label>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-									<br>
-                  <h4>5. barrel, block, box, deck, pack, pair, sack, set, speck, splinter</h4>
-                  <div class="quest-bg" data-exercise-question="q5a-a-card-_____-b-cigar-_____-c-cigarette-_____-d-cutlery-_____-e-dust-______-f-glass-_____">
-                    <div class="nn_sliders accordion panel-group" id="set-nn_sliders-9">
-                      <span id="nn_sliders-scrollto_5a" class="anchor nn_sliders-scroll"></span>
-                      <div class="accordion-group panel nn_sliders-group">
-                        <span id="nn_sliders-scrollto_5a-q5a-a-card-_____-b-cigar-_____-c-cigarette-_____-d-cutlery-_____-e-dust-______-f-glass-_____" class="anchor nn_sliders-scroll"></span>
-                        <div class="accordion-heading panel-heading">
-                          <a class="accordion-toggle nn_sliders-toggle" href="1921-quantity-words.html#1921-quantity-words.html#5a-a-card-_____-b-cigar-_____-c-cigarette-_____-d-cutlery-_____-e-dust-______-f-glass-_____" data-toggle="collapse" data-parent="#set-nn_sliders-5a" data-id="q5a-a-card-_____-b-cigar-_____-c-cigarette-_____-d-cutlery-_____-e-dust-______-f-glass-_____" aria-expanded="false" aria-controls="1921-quantity-words.html#5a-a-card-_____-b-cigar-_____-c-cigarette-_____-d-cutlery-_____-e-dust-______-f-glass-_____">
-                            <span class="nn_sliders-toggle-inner">
-                              5a. (a) Does anyone have a new _____ of cards? | (b) My brother gave me a _____ of Cuban cigars for my birthday. | (c) I found an 80-year old _____ of cigarettes in the attic. | (d) Every chef must have a complete _____
-                              of cutlery. | (e) When Sarah cleans the house, you'll not find one ______ of dust. | (f) Be careful not to step on that big _____ of glass on the floor.
-                            </span>
-                          </a>
-                        </div>
-                        <div class="accordion-body nn_sliders-body collapse" id="q5a-a-card-_____-b-cigar-_____-c-cigarette-_____-d-cutlery-_____-e-dust-______-f-glass-_____" aria-hidden="true">
-                          <div class="accordion-inner panel-body">
-                            <h2 class="nn_sliders-title">
-                              5a. (a) Does anyone have a new _____ of cards? | (b) My brother gave me a _____ of Cuban cigars for my birthday. | (c) I found an 80-year old _____ of cigarettes in the attic. | (d) Every chef must have a complete _____
-                              of cutlery. | (e) When Sarah cleans the house, you'll not find one ______ of dust. | (f) Be careful not to step on that big _____ of glass on the floor.
-                            </h2>
-                            <p>
-                              5a. (a) Does anyone have a new
-                              <b>&#100;&#101;&#99;&#107;</b>
-                              of cards? | (b) My brother gave me a
-                              <b>&#98;&#111;&#120;</b>
-                              of Cuban cigars for my birthday. | (c) I found an 80-year old
-                              <b>&#112;&#97;&#99;&#107;</b>
-                              of cigarettes in the attic. | (d) Every chef must have a complete
-                              <b>&#115;&#101;&#116;</b>
-                              of cutlery. | (e) When Sarah cleans the house, you'll not find one
-                              <b>&#115;&#112;&#101;&#99;&#107;</b>
-                              of dust. | (f) Be careful not to step on that big
-                              <b>&#115;&#104;&#97;&#114;&#100;</b>
-                              of glass on the floor.
-                            </p>
-                          </div>
-                        </div>
-                        <div class="exercise-response-row" data-item="q5a-a-card-_____-b-cigar-_____-c-cigarette-_____-d-cutlery-_____-e-dust-______-f-glass-_____" data-answer-ui>
-                          <label class="exercise-response-field">
-                            <span class="visually-hidden">Response for item q5a-a-card-_____-b-cigar-_____-c-cigarette-_____-d-cutlery-_____-e-dust-______-f-glass-_____ (answer_01)</span>
-                            <input class="exercise-response-input" type="text" placeholder="a" data-item="q5a-a-card-_____-b-cigar-_____-c-cigarette-_____-d-cutlery-_____-e-dust-______-f-glass-_____" data-field="answer_01" inputmode="text">
-                          </label>
-                          <label class="exercise-response-field">
-                            <span class="visually-hidden">Response for item q5a-a-card-_____-b-cigar-_____-c-cigarette-_____-d-cutlery-_____-e-dust-______-f-glass-_____ (answer_02)</span>
-                            <input class="exercise-response-input" type="text" placeholder="b" data-item="q5a-a-card-_____-b-cigar-_____-c-cigarette-_____-d-cutlery-_____-e-dust-______-f-glass-_____" data-field="answer_02" inputmode="text">
-                          </label>
-                          <label class="exercise-response-field">
-                            <span class="visually-hidden">Response for item q5a-a-card-_____-b-cigar-_____-c-cigarette-_____-d-cutlery-_____-e-dust-______-f-glass-_____ (answer_03)</span>
-                            <input class="exercise-response-input" type="text" placeholder="c" data-item="q5a-a-card-_____-b-cigar-_____-c-cigarette-_____-d-cutlery-_____-e-dust-______-f-glass-_____" data-field="answer_03" inputmode="text">
-                          </label>
-                          <label class="exercise-response-field">
-                            <span class="visually-hidden">Response for item q5a-a-card-_____-b-cigar-_____-c-cigarette-_____-d-cutlery-_____-e-dust-______-f-glass-_____ (answer_04)</span>
-                            <input class="exercise-response-input" type="text" placeholder="d" data-item="q5a-a-card-_____-b-cigar-_____-c-cigarette-_____-d-cutlery-_____-e-dust-______-f-glass-_____" data-field="answer_04" inputmode="text">
-                          </label>
-                          <label class="exercise-response-field">
-                            <span class="visually-hidden">Response for item q5a-a-card-_____-b-cigar-_____-c-cigarette-_____-d-cutlery-_____-e-dust-______-f-glass-_____ (answer_05)</span>
-                            <input class="exercise-response-input" type="text" placeholder="e" data-item="q5a-a-card-_____-b-cigar-_____-c-cigarette-_____-d-cutlery-_____-e-dust-______-f-glass-_____" data-field="answer_05" inputmode="text">
-                          </label>
-                          <label class="exercise-response-field">
-                            <span class="visually-hidden">Response for item q5a-a-card-_____-b-cigar-_____-c-cigarette-_____-d-cutlery-_____-e-dust-______-f-glass-_____ (answer_06)</span>
-                            <input class="exercise-response-input" type="text" placeholder="f" data-item="q5a-a-card-_____-b-cigar-_____-c-cigarette-_____-d-cutlery-_____-e-dust-______-f-glass-_____" data-field="answer_06" inputmode="text">
-                          </label>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="quest-bg" data-exercise-question="q5b-g-ice-_____-h-oil-_____-i-potato-_____-j-sandal-_____">
-                    <div class="nn_sliders accordion panel-group" id="set-nn_sliders-10">
-                      <span id="nn_sliders-scrollto_5b" class="anchor nn_sliders-scroll"></span>
-                      <div class="accordion-group panel nn_sliders-group">
-                        <span id="nn_sliders-scrollto_5b-q5b-g-ice-_____-h-oil-_____-i-potato-_____-j-sandal-_____" class="anchor nn_sliders-scroll"></span>
-                        <div class="accordion-heading panel-heading">
-                          <a class="accordion-toggle nn_sliders-toggle" href="1921-quantity-words.html#1921-quantity-words.html#5b-g-ice-_____-h-oil-_____-i-potato-_____-j-sandal-_____" data-toggle="collapse" data-parent="#set-nn_sliders-5b" data-id="q5b-g-ice-_____-h-oil-_____-i-potato-_____-j-sandal-_____" aria-expanded="false" aria-controls="1921-quantity-words.html#5b-g-ice-_____-h-oil-_____-i-potato-_____-j-sandal-_____">
-                            <span class="nn_sliders-toggle-inner">
-                              5b. (g) We stored the fish we caught in a cooler with a _____ of ice. | (h) The price of a _____ of oil rose to $93 USD. | (i) Biff had to carry a 40KG _____ of potatoes back home on his back. | (j) Teri bought a
-                              beautiful _____ of sandals in Jamaica.
-                            </span>
-                          </a>
-                        </div>
-                        <div class="accordion-body nn_sliders-body collapse" id="q5b-g-ice-_____-h-oil-_____-i-potato-_____-j-sandal-_____" aria-hidden="true">
-                          <div class="accordion-inner panel-body">
-                            <h2 class="nn_sliders-title">
-                              5b. (g) We stored the fish we caught in a cooler with a _____ of ice. | (h) The price of a _____ of oil rose to $93 USD. | (i) Biff had to carry a 40KG _____ of potatoes back home on his back. | (j) Teri bought a
-                              beautiful _____ of sandals in Jamaica.
-                            </h2>
-                            <p>
-                              5b. (g) We stored the fish we caught in a cooler with a
-                              <b>&#98;&#108;&#111;&#99;&#107;</b>
-                              of ice. | (h) The price of a
-                              <b>&#98;&#97;&#114;&#114;&#101;&#108;</b>
-                              of oil rose to $93 USD. | (i) Biff had to carry a 40KG
-                              <b>&#115;&#97;&#99;&#107;</b>
-                              of potatoes back home on his back. | (j) Teri bought a beautiful
-                              <b>&#112;&#97;&#105;&#114;</b>
-                              of sandals in Jamaica.
-                            </p>
-                          </div>
-                        </div>
-                        <div class="exercise-response-row" data-item="q5b-g-ice-_____-h-oil-_____-i-potato-_____-j-sandal-_____" data-answer-ui>
-                          <label class="exercise-response-field">
-                            <span class="visually-hidden">Response for item q5b-g-ice-_____-h-oil-_____-i-potato-_____-j-sandal-_____ (answer_01)</span>
-                            <input class="exercise-response-input" type="text" placeholder="g" data-item="q5b-g-ice-_____-h-oil-_____-i-potato-_____-j-sandal-_____" data-field="answer_01" inputmode="text">
-                          </label>
-                          <label class="exercise-response-field">
-                            <span class="visually-hidden">Response for item q5b-g-ice-_____-h-oil-_____-i-potato-_____-j-sandal-_____ (answer_02)</span>
-                            <input class="exercise-response-input" type="text" placeholder="h" data-item="q5b-g-ice-_____-h-oil-_____-i-potato-_____-j-sandal-_____" data-field="answer_02" inputmode="text">
-                          </label>
-                          <label class="exercise-response-field">
-                            <span class="visually-hidden">Response for item q5b-g-ice-_____-h-oil-_____-i-potato-_____-j-sandal-_____ (answer_03)</span>
-                            <input class="exercise-response-input" type="text" placeholder="i" data-item="q5b-g-ice-_____-h-oil-_____-i-potato-_____-j-sandal-_____" data-field="answer_03" inputmode="text">
-                          </label>
-                          <label class="exercise-response-field">
-                            <span class="visually-hidden">Response for item q5b-g-ice-_____-h-oil-_____-i-potato-_____-j-sandal-_____ (answer_04)</span>
-                            <input class="exercise-response-input" type="text" placeholder="j" data-item="q5b-g-ice-_____-h-oil-_____-i-potato-_____-j-sandal-_____" data-field="answer_04" inputmode="text">
-                          </label>
-                          <label class="exercise-response-field">
-                            <span class="visually-hidden">Response for item q5b-g-ice-_____-h-oil-_____-i-potato-_____-j-sandal-_____ (answer_05)</span>
-                            <input class="exercise-response-input" type="text" placeholder="k" data-item="q5b-g-ice-_____-h-oil-_____-i-potato-_____-j-sandal-_____" data-field="answer_05" inputmode="text">
-                          </label>
-                          <label class="exercise-response-field">
-                            <span class="visually-hidden">Response for item q5b-g-ice-_____-h-oil-_____-i-potato-_____-j-sandal-_____ (answer_06)</span>
-                            <input class="exercise-response-input" type="text" placeholder="l" data-item="q5b-g-ice-_____-h-oil-_____-i-potato-_____-j-sandal-_____" data-field="answer_06" inputmode="text">
-                          </label>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="exercise-submit-row" data-exercise-submit-row hidden>
-                    <button type="submit" class="exercise-submit-button" data-exercise-submit disabled>Submit answers</button>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                  <div class="quest-bg" data-exercise-question="q1-i-enjoy-a-walk-in-the-park"><div class="nn_sliders accordion panel-group" id="set-nn_sliders-1"><span id="nn_sliders-scrollto_1" class="anchor nn_sliders-scroll"></span><div class="accordion-group panel nn_sliders-group"><span id="nn_sliders-scrollto_1-q1-i-enjoy-a-walk-in-the-park" class="anchor nn_sliders-scroll"></span><div class="accordion-heading panel-heading"><a class="accordion-toggle nn_sliders-toggle" href="2121-gerund-and-present-participle.html#2121-gerund-and-present-participle.html#1-i-enjoy-a-walk-in-the-park" data-toggle="collapse" data-parent="#set-nn_sliders-1" data-id="q1-i-enjoy-a-walk-in-the-park" aria-expanded="false" aria-controls="2121-gerund-and-present-participle.html#1-i-enjoy-a-walk-in-the-park"><span class="nn_sliders-toggle-inner">1. I enjoy a walk in the park.</span></a></div><div class="accordion-body nn_sliders-body collapse" id="q1-i-enjoy-a-walk-in-the-park" aria-hidden="true"><div class="accordion-inner panel-body"><h2 class="nn_sliders-title">1. I enjoy a walk in the park.</h2>
+                      <p>
+                        1. I enjoy
+                        <span class="undies">walking</span>
+                        in the park.
+                      </p></div></div><div class="exercise-response-row exercise-response-row--long" data-item="q1-i-enjoy-a-walk-in-the-park" data-answer-ui="textarea"><label class="exercise-response-field exercise-response-field--long"><span class="visually-hidden">Response for item q1-i-enjoy-a-walk-in-the-park (answer_01)</span><textarea class="exercise-response-input exercise-response-input--textarea" rows="1" placeholder="Rewrite here" data-item="q1-i-enjoy-a-walk-in-the-park" data-field="answer_01" data-autosize="true"></textarea></label></div></div></div></div><div class="quest-bg" data-exercise-question="q2-bob-finished-his-study"><div class="nn_sliders accordion panel-group" id="set-nn_sliders-2"><span id="nn_sliders-scrollto_2" class="anchor nn_sliders-scroll"></span><div class="accordion-group panel nn_sliders-group"><span id="nn_sliders-scrollto_2-q2-bob-finished-his-study" class="anchor nn_sliders-scroll"></span><div class="accordion-heading panel-heading"><a class="accordion-toggle nn_sliders-toggle" href="2121-gerund-and-present-participle.html#2121-gerund-and-present-participle.html#2-bob-finished-his-study" data-toggle="collapse" data-parent="#set-nn_sliders-2" data-id="q2-bob-finished-his-study" aria-expanded="false" aria-controls="2121-gerund-and-present-participle.html#2-bob-finished-his-study"><span class="nn_sliders-toggle-inner">2. Bob finished his study.</span></a></div><div class="accordion-body nn_sliders-body collapse" id="q2-bob-finished-his-study" aria-hidden="true"><div class="accordion-inner panel-body"><h2 class="nn_sliders-title">2. Bob finished his study.</h2>
+                      <p>
+                        2. Bob finished
+                        <span class="undies">studying</span>
+                        .
+                      </p></div></div><div class="exercise-response-row exercise-response-row--long" data-item="q2-bob-finished-his-study" data-answer-ui="textarea"><label class="exercise-response-field exercise-response-field--long"><span class="visually-hidden">Response for item q2-bob-finished-his-study (answer_01)</span><textarea class="exercise-response-input exercise-response-input--textarea" rows="1" placeholder="Rewrite here" data-item="q2-bob-finished-his-study" data-field="answer_01" data-autosize="true"></textarea></label></div></div></div></div><div class="quest-bg" data-exercise-question="q3-did-you-go-to-shop-yesterday"><div class="nn_sliders accordion panel-group" id="set-nn_sliders-3"><span id="nn_sliders-scrollto_3" class="anchor nn_sliders-scroll"></span><div class="accordion-group panel nn_sliders-group"><span id="nn_sliders-scrollto_3-q3-did-you-go-to-shop-yesterday" class="anchor nn_sliders-scroll"></span><div class="accordion-heading panel-heading"><a class="accordion-toggle nn_sliders-toggle" href="2121-gerund-and-present-participle.html#2121-gerund-and-present-participle.html#3-did-you-go-to-shop-yesterday" data-toggle="collapse" data-parent="#set-nn_sliders-3" data-id="q3-did-you-go-to-shop-yesterday" aria-expanded="false" aria-controls="2121-gerund-and-present-participle.html#3-did-you-go-to-shop-yesterday"><span class="nn_sliders-toggle-inner">3. Did you go to shop yesterday?</span></a></div><div class="accordion-body nn_sliders-body collapse" id="q3-did-you-go-to-shop-yesterday" aria-hidden="true"><div class="accordion-inner panel-body"><h2 class="nn_sliders-title">3. Did you go to shop yesterday?</h2>
+                      <p>
+                        3. Did you go
+                        <span class="undies">shopping</span>
+                        yesterday?
+                      </p></div></div><div class="exercise-response-row exercise-response-row--long" data-item="q3-did-you-go-to-shop-yesterday" data-answer-ui="textarea"><label class="exercise-response-field exercise-response-field--long"><span class="visually-hidden">Response for item q3-did-you-go-to-shop-yesterday (answer_01)</span><textarea class="exercise-response-input exercise-response-input--textarea" rows="1" placeholder="Rewrite here" data-item="q3-did-you-go-to-shop-yesterday" data-field="answer_01" data-autosize="true"></textarea></label></div></div></div></div><div class="quest-bg" data-exercise-question="q4-don-t-let-me-catch-you-do-that-again"><div class="nn_sliders accordion panel-group" id="set-nn_sliders-4"><span id="nn_sliders-scrollto_4" class="anchor nn_sliders-scroll"></span><div class="accordion-group panel nn_sliders-group"><span id="nn_sliders-scrollto_4-q4-don-t-let-me-catch-you-do-that-again" class="anchor nn_sliders-scroll"></span><div class="accordion-heading panel-heading"><a class="accordion-toggle nn_sliders-toggle" href="2121-gerund-and-present-participle.html#2121-gerund-and-present-participle.html#4-don-t-let-me-catch-you-do-that-again" data-toggle="collapse" data-parent="#set-nn_sliders-4" data-id="q4-don-t-let-me-catch-you-do-that-again" aria-expanded="false" aria-controls="2121-gerund-and-present-participle.html#4-don-t-let-me-catch-you-do-that-again"><span class="nn_sliders-toggle-inner">4. Don't let me catch you do that again.</span></a></div><div class="accordion-body nn_sliders-body collapse" id="q4-don-t-let-me-catch-you-do-that-again" aria-hidden="true"><div class="accordion-inner panel-body"><h2 class="nn_sliders-title">4. Don't let me catch you do that again.</h2>
+                      <p>
+                        4. Don't let me catch you
+                        <span class="undies">doing</span>
+                        that again.
+                      </p></div></div><div class="exercise-response-row exercise-response-row--long" data-item="q4-don-t-let-me-catch-you-do-that-again" data-answer-ui="textarea"><label class="exercise-response-field exercise-response-field--long"><span class="visually-hidden">Response for item q4-don-t-let-me-catch-you-do-that-again (answer_01)</span><textarea class="exercise-response-input exercise-response-input--textarea" rows="1" placeholder="Rewrite here" data-item="q4-don-t-let-me-catch-you-do-that-again" data-field="answer_01" data-autosize="true"></textarea></label></div></div></div></div><div class="quest-bg" data-exercise-question="q5-i-appreciate-you-write-that-letter-for-me"><div class="nn_sliders accordion panel-group" id="set-nn_sliders-5"><span id="nn_sliders-scrollto_5" class="anchor nn_sliders-scroll"></span><div class="accordion-group panel nn_sliders-group"><span id="nn_sliders-scrollto_5-q5-i-appreciate-you-write-that-letter-for-me" class="anchor nn_sliders-scroll"></span><div class="accordion-heading panel-heading"><a class="accordion-toggle nn_sliders-toggle" href="2121-gerund-and-present-participle.html#2121-gerund-and-present-participle.html#5-i-appreciate-you-write-that-letter-for-me" data-toggle="collapse" data-parent="#set-nn_sliders-5" data-id="q5-i-appreciate-you-write-that-letter-for-me" aria-expanded="false" aria-controls="2121-gerund-and-present-participle.html#5-i-appreciate-you-write-that-letter-for-me"><span class="nn_sliders-toggle-inner">5. I appreciate you write that letter for me.</span></a></div><div class="accordion-body nn_sliders-body collapse" id="q5-i-appreciate-you-write-that-letter-for-me" aria-hidden="true"><div class="accordion-inner panel-body"><h2 class="nn_sliders-title">5. I appreciate you write that letter for me.</h2>
+                      <p>
+                        5. I appreciate your
+                        <span class="undies">writing</span>
+                        that letter for me.
+                      </p></div></div><div class="exercise-response-row exercise-response-row--long" data-item="q5-i-appreciate-you-write-that-letter-for-me" data-answer-ui="textarea"><label class="exercise-response-field exercise-response-field--long"><span class="visually-hidden">Response for item q5-i-appreciate-you-write-that-letter-for-me (answer_01)</span><textarea class="exercise-response-input exercise-response-input--textarea" rows="1" placeholder="Rewrite here" data-item="q5-i-appreciate-you-write-that-letter-for-me" data-field="answer_01" data-autosize="true"></textarea></label></div></div></div></div><div class="quest-bg" data-exercise-question="q6-that-carpet-needs-to-vacuum"><div class="nn_sliders accordion panel-group" id="set-nn_sliders-6"><span id="nn_sliders-scrollto_6" class="anchor nn_sliders-scroll"></span><div class="accordion-group panel nn_sliders-group"><span id="nn_sliders-scrollto_6-q6-that-carpet-needs-to-vacuum" class="anchor nn_sliders-scroll"></span><div class="accordion-heading panel-heading"><a class="accordion-toggle nn_sliders-toggle" href="2121-gerund-and-present-participle.html#2121-gerund-and-present-participle.html#6-that-carpet-needs-to-vacuum" data-toggle="collapse" data-parent="#set-nn_sliders-6" data-id="q6-that-carpet-needs-to-vacuum" aria-expanded="false" aria-controls="2121-gerund-and-present-participle.html#6-that-carpet-needs-to-vacuum"><span class="nn_sliders-toggle-inner">6. That carpet needs to vacuum.</span></a></div><div class="accordion-body nn_sliders-body collapse" id="q6-that-carpet-needs-to-vacuum" aria-hidden="true"><div class="accordion-inner panel-body"><h2 class="nn_sliders-title">6. That carpet needs to vacuum.</h2>
+                      <p>
+                        6. That carpet needs
+                        <span class="undies">vacuuming</span>
+                        .
+                      </p></div></div><div class="exercise-response-row exercise-response-row--long" data-item="q6-that-carpet-needs-to-vacuum" data-answer-ui="textarea"><label class="exercise-response-field exercise-response-field--long"><span class="visually-hidden">Response for item q6-that-carpet-needs-to-vacuum (answer_01)</span><textarea class="exercise-response-input exercise-response-input--textarea" rows="1" placeholder="Rewrite here" data-item="q6-that-carpet-needs-to-vacuum" data-field="answer_01" data-autosize="true"></textarea></label></div></div></div></div><div class="quest-bg" data-exercise-question="q7-i-began-to-revise-my-lessons-before-the-year-end"><div class="nn_sliders accordion panel-group" id="set-nn_sliders-7"><span id="nn_sliders-scrollto_7" class="anchor nn_sliders-scroll"></span><div class="accordion-group panel nn_sliders-group"><span id="nn_sliders-scrollto_7-q7-i-began-to-revise-my-lessons-before-the-year-end" class="anchor nn_sliders-scroll"></span><div class="accordion-heading panel-heading"><a class="accordion-toggle nn_sliders-toggle" href="2121-gerund-and-present-participle.html#2121-gerund-and-present-participle.html#7-i-began-to-revise-my-lessons-before-the-year-end" data-toggle="collapse" data-parent="#set-nn_sliders-7" data-id="q7-i-began-to-revise-my-lessons-before-the-year-end" aria-expanded="false" aria-controls="2121-gerund-and-present-participle.html#7-i-began-to-revise-my-lessons-before-the-year-end"><span class="nn_sliders-toggle-inner">7. I began to revise my lessons before the year end.</span></a></div><div class="accordion-body nn_sliders-body collapse" id="q7-i-began-to-revise-my-lessons-before-the-year-end" aria-hidden="true"><div class="accordion-inner panel-body"><h2 class="nn_sliders-title">7. I began to revise my lessons before the year end.</h2>
+                      <p>
+                        7. I began
+                        <span class="undies">revising</span>
+                        my lessons before the year end.
+                      </p></div></div><div class="exercise-response-row exercise-response-row--long" data-item="q7-i-began-to-revise-my-lessons-before-the-year-end" data-answer-ui="textarea"><label class="exercise-response-field exercise-response-field--long"><span class="visually-hidden">Response for item q7-i-began-to-revise-my-lessons-before-the-year-end (answer_01)</span><textarea class="exercise-response-input exercise-response-input--textarea" rows="1" placeholder="Rewrite here" data-item="q7-i-began-to-revise-my-lessons-before-the-year-end" data-field="answer_01" data-autosize="true"></textarea></label></div></div></div></div><div class="quest-bg" data-exercise-question="q8-she-learned-to-hairdress-by-practice-on-her-sister"><div class="nn_sliders accordion panel-group" id="set-nn_sliders-8"><span id="nn_sliders-scrollto_8" class="anchor nn_sliders-scroll"></span><div class="accordion-group panel nn_sliders-group"><span id="nn_sliders-scrollto_8-q8-she-learned-to-hairdress-by-practice-on-her-sister" class="anchor nn_sliders-scroll"></span><div class="accordion-heading panel-heading"><a class="accordion-toggle nn_sliders-toggle" href="2121-gerund-and-present-participle.html#2121-gerund-and-present-participle.html#8-she-learned-to-hairdress-by-practice-on-her-sister" data-toggle="collapse" data-parent="#set-nn_sliders-8" data-id="q8-she-learned-to-hairdress-by-practice-on-her-sister" aria-expanded="false" aria-controls="2121-gerund-and-present-participle.html#8-she-learned-to-hairdress-by-practice-on-her-sister"><span class="nn_sliders-toggle-inner">8. She learned to 'hairdress' by practice on her
+                        sister.</span></a></div><div class="accordion-body nn_sliders-body collapse" id="q8-she-learned-to-hairdress-by-practice-on-her-sister" aria-hidden="true"><div class="accordion-inner panel-body"><h2 class="nn_sliders-title">8. She learned to 'hairdress' by practice on her sister.</h2>
+                      <p>
+                        8. She learned
+                        <span class="undies">hairdressing</span>
+                        by practicing on her sister.
+                      </p></div></div><div class="exercise-response-row exercise-response-row--long" data-item="q8-she-learned-to-hairdress-by-practice-on-her-sister" data-answer-ui="textarea"><label class="exercise-response-field exercise-response-field--long"><span class="visually-hidden">Response for item q8-she-learned-to-hairdress-by-practice-on-her-sister (answer_01)</span><textarea class="exercise-response-input exercise-response-input--textarea" rows="1" placeholder="Rewrite here" data-item="q8-she-learned-to-hairdress-by-practice-on-her-sister" data-field="answer_01" data-autosize="true"></textarea></label></div></div></div></div><div class="quest-bg" data-exercise-question="q9-we-love-a-ride-along-the-country-lane"><div class="nn_sliders accordion panel-group" id="set-nn_sliders-9"><span id="nn_sliders-scrollto_9" class="anchor nn_sliders-scroll"></span><div class="accordion-group panel nn_sliders-group"><span id="nn_sliders-scrollto_9-q9-we-love-a-ride-along-the-country-lane" class="anchor nn_sliders-scroll"></span><div class="accordion-heading panel-heading"><a class="accordion-toggle nn_sliders-toggle" href="2121-gerund-and-present-participle.html#2121-gerund-and-present-participle.html#9-we-love-a-ride-along-the-country-lane" data-toggle="collapse" data-parent="#set-nn_sliders-9" data-id="q9-we-love-a-ride-along-the-country-lane" aria-expanded="false" aria-controls="2121-gerund-and-present-participle.html#9-we-love-a-ride-along-the-country-lane"><span class="nn_sliders-toggle-inner">9. We love a ride along the country lane.</span></a></div><div class="accordion-body nn_sliders-body collapse" id="q9-we-love-a-ride-along-the-country-lane" aria-hidden="true"><div class="accordion-inner panel-body"><h2 class="nn_sliders-title">9. We love a ride along the country lane.</h2>
+                      <p>
+                        9. We love
+                        <span class="undies">riding</span>
+                        along the country lane.
+                      </p></div></div><div class="exercise-response-row exercise-response-row--long" data-item="q9-we-love-a-ride-along-the-country-lane" data-answer-ui="textarea"><label class="exercise-response-field exercise-response-field--long"><span class="visually-hidden">Response for item q9-we-love-a-ride-along-the-country-lane (answer_01)</span><textarea class="exercise-response-input exercise-response-input--textarea" rows="1" placeholder="Rewrite here" data-item="q9-we-love-a-ride-along-the-country-lane" data-field="answer_01" data-autosize="true"></textarea></label></div></div></div></div><div class="quest-bg" data-exercise-question="q10-she-decided-to-go-to-jog-each-morning"><div class="nn_sliders accordion panel-group" id="set-nn_sliders-10"><span id="nn_sliders-scrollto_10" class="anchor nn_sliders-scroll"></span><div class="accordion-group panel nn_sliders-group"><span id="nn_sliders-scrollto_10-q10-she-decided-to-go-to-jog-each-morning" class="anchor nn_sliders-scroll"></span><div class="accordion-heading panel-heading"><a class="accordion-toggle nn_sliders-toggle" href="2121-gerund-and-present-participle.html#2121-gerund-and-present-participle.html#10-she-decided-to-go-to-jog-each-morning" data-toggle="collapse" data-parent="#set-nn_sliders-10" data-id="q10-she-decided-to-go-to-jog-each-morning" aria-expanded="false" aria-controls="2121-gerund-and-present-participle.html#10-she-decided-to-go-to-jog-each-morning"><span class="nn_sliders-toggle-inner">10. She decided to go to jog each morning.</span></a></div><div class="accordion-body nn_sliders-body collapse" id="q10-she-decided-to-go-to-jog-each-morning" aria-hidden="true"><div class="accordion-inner panel-body"><h2 class="nn_sliders-title">10. She decided to go to jog each morning.</h2>
+                      <p>
+                        10. She decided to go
+                        <span class="undies">jogging</span>
+                        each morning.
+                      </p></div></div><div class="exercise-response-row exercise-response-row--long" data-item="q10-she-decided-to-go-to-jog-each-morning" data-answer-ui="textarea"><label class="exercise-response-field exercise-response-field--long"><span class="visually-hidden">Response for item q10-she-decided-to-go-to-jog-each-morning (answer_01)</span><textarea class="exercise-response-input exercise-response-input--textarea" rows="1" placeholder="Rewrite here" data-item="q10-she-decided-to-go-to-jog-each-morning" data-field="answer_01" data-autosize="true"></textarea></label></div></div></div></div><div class="exercise-submit-row" data-exercise-submit-row="" hidden>
+                    <button type="submit" class="exercise-submit-button" data-exercise-submit="" disabled>Submit answers</button>
                     <div id="exercise-status" class="status-warn" aria-live="polite" style="margin-top: 0.5rem"></div>
                   </div>
                 </form>
                 <!-- Page config: set recipients and where to POST -->
-                <script type="application/json" id="exercise-answer-key" data-exercise-answer-key>
-                  {
-                    "title": "1921-quantity-words",
-                    "version": "0.3.0",
-                    "publishDate": "2026-02-02T19:58:40.860Z",
-                    "description": "19.2.1 Quantity Words",
-                    "options": {
-                      "requireCorrectBeforeReveal": true,
-                      "defaultHashAlgorithm": "fnv1a-64"
-                    },
-                    "answerArrays": {
-                      "exerciseName": "1921-quantity-words",
-                      "totalQuestions": 10,
-                      "answerArray": {
-                        "question01": {
-                          "id": "q1a-a-book-_____-b-cardboard-_____-c-documents-_____-d-paper-_____-e-painting-______-f-stamp-_____",
-                          "answersAccepted": [
-                            ["fnv1a-64:0fdc71e823739850", "fnv1a-64:4d0af94928725c68", "fnv1a-64:823b87195ce20e23", "fnv1a-64:037e0c0deb9acbc0", "fnv1a-64:8011b8935e9f4f51", "fnv1a-64:8011b8935e9f4f51"],
-                            ["fnv1a-64:0fdc71e823739850", "fnv1a-64:4d0af94928725c68", "fnv1a-64:823b87195ce20e23", "fnv1a-64:037e0c0deb9acbc0", "fnv1a-64:823b87195ce20e23", "fnv1a-64:8011b8935e9f4f51"],
-                            ["fnv1a-64:0fdc71e823739850", "fnv1a-64:4d0af94928725c68", "fnv1a-64:823b87195ce20e23", "fnv1a-64:4d0af94928725c68", "fnv1a-64:8011b8935e9f4f51", "fnv1a-64:8011b8935e9f4f51"],
-                            ["fnv1a-64:0fdc71e823739850", "fnv1a-64:4d0af94928725c68", "fnv1a-64:823b87195ce20e23", "fnv1a-64:4d0af94928725c68", "fnv1a-64:823b87195ce20e23", "fnv1a-64:8011b8935e9f4f51"],
-                            ["fnv1a-64:0fdc71e823739850", "fnv1a-64:4d0af94928725c68", "fnv1a-64:823b87195ce20e23", "fnv1a-64:d68103fb62eae412", "fnv1a-64:8011b8935e9f4f51", "fnv1a-64:8011b8935e9f4f51"],
-                            ["fnv1a-64:0fdc71e823739850", "fnv1a-64:4d0af94928725c68", "fnv1a-64:823b87195ce20e23", "fnv1a-64:d68103fb62eae412", "fnv1a-64:823b87195ce20e23", "fnv1a-64:8011b8935e9f4f51"],
-                            ["fnv1a-64:0fdc71e823739850", "fnv1a-64:4d0af94928725c68", "fnv1a-64:823b87195ce20e23", "fnv1a-64:e7cbaa65fd33a345", "fnv1a-64:8011b8935e9f4f51", "fnv1a-64:8011b8935e9f4f51"],
-                            ["fnv1a-64:0fdc71e823739850", "fnv1a-64:4d0af94928725c68", "fnv1a-64:823b87195ce20e23", "fnv1a-64:e7cbaa65fd33a345", "fnv1a-64:823b87195ce20e23", "fnv1a-64:8011b8935e9f4f51"],
-                            ["fnv1a-64:0fdc71e823739850", "fnv1a-64:4d0af94928725c68", "fnv1a-64:aad01178f02a6a23", "fnv1a-64:037e0c0deb9acbc0", "fnv1a-64:8011b8935e9f4f51", "fnv1a-64:8011b8935e9f4f51"],
-                            ["fnv1a-64:0fdc71e823739850", "fnv1a-64:4d0af94928725c68", "fnv1a-64:aad01178f02a6a23", "fnv1a-64:037e0c0deb9acbc0", "fnv1a-64:823b87195ce20e23", "fnv1a-64:8011b8935e9f4f51"],
-                            ["fnv1a-64:0fdc71e823739850", "fnv1a-64:4d0af94928725c68", "fnv1a-64:aad01178f02a6a23", "fnv1a-64:4d0af94928725c68", "fnv1a-64:8011b8935e9f4f51", "fnv1a-64:8011b8935e9f4f51"],
-                            ["fnv1a-64:0fdc71e823739850", "fnv1a-64:4d0af94928725c68", "fnv1a-64:aad01178f02a6a23", "fnv1a-64:4d0af94928725c68", "fnv1a-64:823b87195ce20e23", "fnv1a-64:8011b8935e9f4f51"],
-                            ["fnv1a-64:0fdc71e823739850", "fnv1a-64:4d0af94928725c68", "fnv1a-64:aad01178f02a6a23", "fnv1a-64:d68103fb62eae412", "fnv1a-64:8011b8935e9f4f51", "fnv1a-64:8011b8935e9f4f51"],
-                            ["fnv1a-64:0fdc71e823739850", "fnv1a-64:4d0af94928725c68", "fnv1a-64:aad01178f02a6a23", "fnv1a-64:d68103fb62eae412", "fnv1a-64:823b87195ce20e23", "fnv1a-64:8011b8935e9f4f51"],
-                            ["fnv1a-64:0fdc71e823739850", "fnv1a-64:4d0af94928725c68", "fnv1a-64:aad01178f02a6a23", "fnv1a-64:e7cbaa65fd33a345", "fnv1a-64:8011b8935e9f4f51", "fnv1a-64:8011b8935e9f4f51"],
-                            ["fnv1a-64:0fdc71e823739850", "fnv1a-64:4d0af94928725c68", "fnv1a-64:aad01178f02a6a23", "fnv1a-64:e7cbaa65fd33a345", "fnv1a-64:823b87195ce20e23", "fnv1a-64:8011b8935e9f4f51"],
-                            ["fnv1a-64:0fdc71e823739850", "fnv1a-64:d68103fb62eae412", "fnv1a-64:823b87195ce20e23", "fnv1a-64:037e0c0deb9acbc0", "fnv1a-64:8011b8935e9f4f51", "fnv1a-64:8011b8935e9f4f51"],
-                            ["fnv1a-64:0fdc71e823739850", "fnv1a-64:d68103fb62eae412", "fnv1a-64:823b87195ce20e23", "fnv1a-64:037e0c0deb9acbc0", "fnv1a-64:823b87195ce20e23", "fnv1a-64:8011b8935e9f4f51"],
-                            ["fnv1a-64:0fdc71e823739850", "fnv1a-64:d68103fb62eae412", "fnv1a-64:823b87195ce20e23", "fnv1a-64:4d0af94928725c68", "fnv1a-64:8011b8935e9f4f51", "fnv1a-64:8011b8935e9f4f51"],
-                            ["fnv1a-64:0fdc71e823739850", "fnv1a-64:d68103fb62eae412", "fnv1a-64:823b87195ce20e23", "fnv1a-64:4d0af94928725c68", "fnv1a-64:823b87195ce20e23", "fnv1a-64:8011b8935e9f4f51"],
-                            ["fnv1a-64:0fdc71e823739850", "fnv1a-64:d68103fb62eae412", "fnv1a-64:823b87195ce20e23", "fnv1a-64:d68103fb62eae412", "fnv1a-64:8011b8935e9f4f51", "fnv1a-64:8011b8935e9f4f51"],
-                            ["fnv1a-64:0fdc71e823739850", "fnv1a-64:d68103fb62eae412", "fnv1a-64:823b87195ce20e23", "fnv1a-64:d68103fb62eae412", "fnv1a-64:823b87195ce20e23", "fnv1a-64:8011b8935e9f4f51"],
-                            ["fnv1a-64:0fdc71e823739850", "fnv1a-64:d68103fb62eae412", "fnv1a-64:823b87195ce20e23", "fnv1a-64:e7cbaa65fd33a345", "fnv1a-64:8011b8935e9f4f51", "fnv1a-64:8011b8935e9f4f51"],
-                            ["fnv1a-64:0fdc71e823739850", "fnv1a-64:d68103fb62eae412", "fnv1a-64:823b87195ce20e23", "fnv1a-64:e7cbaa65fd33a345", "fnv1a-64:823b87195ce20e23", "fnv1a-64:8011b8935e9f4f51"],
-                            ["fnv1a-64:0fdc71e823739850", "fnv1a-64:d68103fb62eae412", "fnv1a-64:aad01178f02a6a23", "fnv1a-64:037e0c0deb9acbc0", "fnv1a-64:8011b8935e9f4f51", "fnv1a-64:8011b8935e9f4f51"],
-                            ["fnv1a-64:0fdc71e823739850", "fnv1a-64:d68103fb62eae412", "fnv1a-64:aad01178f02a6a23", "fnv1a-64:037e0c0deb9acbc0", "fnv1a-64:823b87195ce20e23", "fnv1a-64:8011b8935e9f4f51"],
-                            ["fnv1a-64:0fdc71e823739850", "fnv1a-64:d68103fb62eae412", "fnv1a-64:aad01178f02a6a23", "fnv1a-64:4d0af94928725c68", "fnv1a-64:8011b8935e9f4f51", "fnv1a-64:8011b8935e9f4f51"],
-                            ["fnv1a-64:0fdc71e823739850", "fnv1a-64:d68103fb62eae412", "fnv1a-64:aad01178f02a6a23", "fnv1a-64:4d0af94928725c68", "fnv1a-64:823b87195ce20e23", "fnv1a-64:8011b8935e9f4f51"],
-                            ["fnv1a-64:0fdc71e823739850", "fnv1a-64:d68103fb62eae412", "fnv1a-64:aad01178f02a6a23", "fnv1a-64:d68103fb62eae412", "fnv1a-64:8011b8935e9f4f51", "fnv1a-64:8011b8935e9f4f51"],
-                            ["fnv1a-64:0fdc71e823739850", "fnv1a-64:d68103fb62eae412", "fnv1a-64:aad01178f02a6a23", "fnv1a-64:d68103fb62eae412", "fnv1a-64:823b87195ce20e23", "fnv1a-64:8011b8935e9f4f51"],
-                            ["fnv1a-64:0fdc71e823739850", "fnv1a-64:d68103fb62eae412", "fnv1a-64:aad01178f02a6a23", "fnv1a-64:e7cbaa65fd33a345", "fnv1a-64:8011b8935e9f4f51", "fnv1a-64:8011b8935e9f4f51"],
-                            ["fnv1a-64:0fdc71e823739850", "fnv1a-64:d68103fb62eae412", "fnv1a-64:aad01178f02a6a23", "fnv1a-64:e7cbaa65fd33a345", "fnv1a-64:823b87195ce20e23", "fnv1a-64:8011b8935e9f4f51"],
-                            ["fnv1a-64:0fdc71e823739850", "fnv1a-64:e7cbaa65fd33a345", "fnv1a-64:823b87195ce20e23", "fnv1a-64:037e0c0deb9acbc0", "fnv1a-64:8011b8935e9f4f51", "fnv1a-64:8011b8935e9f4f51"],
-                            ["fnv1a-64:0fdc71e823739850", "fnv1a-64:e7cbaa65fd33a345", "fnv1a-64:823b87195ce20e23", "fnv1a-64:037e0c0deb9acbc0", "fnv1a-64:823b87195ce20e23", "fnv1a-64:8011b8935e9f4f51"],
-                            ["fnv1a-64:0fdc71e823739850", "fnv1a-64:e7cbaa65fd33a345", "fnv1a-64:823b87195ce20e23", "fnv1a-64:4d0af94928725c68", "fnv1a-64:8011b8935e9f4f51", "fnv1a-64:8011b8935e9f4f51"],
-                            ["fnv1a-64:0fdc71e823739850", "fnv1a-64:e7cbaa65fd33a345", "fnv1a-64:823b87195ce20e23", "fnv1a-64:4d0af94928725c68", "fnv1a-64:823b87195ce20e23", "fnv1a-64:8011b8935e9f4f51"],
-                            ["fnv1a-64:0fdc71e823739850", "fnv1a-64:e7cbaa65fd33a345", "fnv1a-64:823b87195ce20e23", "fnv1a-64:d68103fb62eae412", "fnv1a-64:8011b8935e9f4f51", "fnv1a-64:8011b8935e9f4f51"],
-                            ["fnv1a-64:0fdc71e823739850", "fnv1a-64:e7cbaa65fd33a345", "fnv1a-64:823b87195ce20e23", "fnv1a-64:d68103fb62eae412", "fnv1a-64:823b87195ce20e23", "fnv1a-64:8011b8935e9f4f51"],
-                            ["fnv1a-64:0fdc71e823739850", "fnv1a-64:e7cbaa65fd33a345", "fnv1a-64:823b87195ce20e23", "fnv1a-64:e7cbaa65fd33a345", "fnv1a-64:8011b8935e9f4f51", "fnv1a-64:8011b8935e9f4f51"],
-                            ["fnv1a-64:0fdc71e823739850", "fnv1a-64:e7cbaa65fd33a345", "fnv1a-64:823b87195ce20e23", "fnv1a-64:e7cbaa65fd33a345", "fnv1a-64:823b87195ce20e23", "fnv1a-64:8011b8935e9f4f51"],
-                            ["fnv1a-64:0fdc71e823739850", "fnv1a-64:e7cbaa65fd33a345", "fnv1a-64:aad01178f02a6a23", "fnv1a-64:037e0c0deb9acbc0", "fnv1a-64:8011b8935e9f4f51", "fnv1a-64:8011b8935e9f4f51"],
-                            ["fnv1a-64:0fdc71e823739850", "fnv1a-64:e7cbaa65fd33a345", "fnv1a-64:aad01178f02a6a23", "fnv1a-64:037e0c0deb9acbc0", "fnv1a-64:823b87195ce20e23", "fnv1a-64:8011b8935e9f4f51"],
-                            ["fnv1a-64:0fdc71e823739850", "fnv1a-64:e7cbaa65fd33a345", "fnv1a-64:aad01178f02a6a23", "fnv1a-64:4d0af94928725c68", "fnv1a-64:8011b8935e9f4f51", "fnv1a-64:8011b8935e9f4f51"],
-                            ["fnv1a-64:0fdc71e823739850", "fnv1a-64:e7cbaa65fd33a345", "fnv1a-64:aad01178f02a6a23", "fnv1a-64:4d0af94928725c68", "fnv1a-64:823b87195ce20e23", "fnv1a-64:8011b8935e9f4f51"],
-                            ["fnv1a-64:0fdc71e823739850", "fnv1a-64:e7cbaa65fd33a345", "fnv1a-64:aad01178f02a6a23", "fnv1a-64:d68103fb62eae412", "fnv1a-64:8011b8935e9f4f51", "fnv1a-64:8011b8935e9f4f51"],
-                            ["fnv1a-64:0fdc71e823739850", "fnv1a-64:e7cbaa65fd33a345", "fnv1a-64:aad01178f02a6a23", "fnv1a-64:d68103fb62eae412", "fnv1a-64:823b87195ce20e23", "fnv1a-64:8011b8935e9f4f51"],
-                            ["fnv1a-64:0fdc71e823739850", "fnv1a-64:e7cbaa65fd33a345", "fnv1a-64:aad01178f02a6a23", "fnv1a-64:e7cbaa65fd33a345", "fnv1a-64:8011b8935e9f4f51", "fnv1a-64:8011b8935e9f4f51"],
-                            ["fnv1a-64:0fdc71e823739850", "fnv1a-64:e7cbaa65fd33a345", "fnv1a-64:aad01178f02a6a23", "fnv1a-64:e7cbaa65fd33a345", "fnv1a-64:823b87195ce20e23", "fnv1a-64:8011b8935e9f4f51"],
-                            ["fnv1a-64:bec12d15dda06886", "fnv1a-64:4d0af94928725c68", "fnv1a-64:823b87195ce20e23", "fnv1a-64:037e0c0deb9acbc0", "fnv1a-64:8011b8935e9f4f51", "fnv1a-64:8011b8935e9f4f51"],
-                            ["fnv1a-64:bec12d15dda06886", "fnv1a-64:4d0af94928725c68", "fnv1a-64:823b87195ce20e23", "fnv1a-64:037e0c0deb9acbc0", "fnv1a-64:823b87195ce20e23", "fnv1a-64:8011b8935e9f4f51"],
-                            ["fnv1a-64:bec12d15dda06886", "fnv1a-64:4d0af94928725c68", "fnv1a-64:823b87195ce20e23", "fnv1a-64:4d0af94928725c68", "fnv1a-64:8011b8935e9f4f51", "fnv1a-64:8011b8935e9f4f51"],
-                            ["fnv1a-64:bec12d15dda06886", "fnv1a-64:4d0af94928725c68", "fnv1a-64:823b87195ce20e23", "fnv1a-64:4d0af94928725c68", "fnv1a-64:823b87195ce20e23", "fnv1a-64:8011b8935e9f4f51"],
-                            ["fnv1a-64:bec12d15dda06886", "fnv1a-64:4d0af94928725c68", "fnv1a-64:823b87195ce20e23", "fnv1a-64:d68103fb62eae412", "fnv1a-64:8011b8935e9f4f51", "fnv1a-64:8011b8935e9f4f51"],
-                            ["fnv1a-64:bec12d15dda06886", "fnv1a-64:4d0af94928725c68", "fnv1a-64:823b87195ce20e23", "fnv1a-64:d68103fb62eae412", "fnv1a-64:823b87195ce20e23", "fnv1a-64:8011b8935e9f4f51"],
-                            ["fnv1a-64:bec12d15dda06886", "fnv1a-64:4d0af94928725c68", "fnv1a-64:823b87195ce20e23", "fnv1a-64:e7cbaa65fd33a345", "fnv1a-64:8011b8935e9f4f51", "fnv1a-64:8011b8935e9f4f51"],
-                            ["fnv1a-64:bec12d15dda06886", "fnv1a-64:4d0af94928725c68", "fnv1a-64:823b87195ce20e23", "fnv1a-64:e7cbaa65fd33a345", "fnv1a-64:823b87195ce20e23", "fnv1a-64:8011b8935e9f4f51"],
-                            ["fnv1a-64:bec12d15dda06886", "fnv1a-64:4d0af94928725c68", "fnv1a-64:aad01178f02a6a23", "fnv1a-64:037e0c0deb9acbc0", "fnv1a-64:8011b8935e9f4f51", "fnv1a-64:8011b8935e9f4f51"],
-                            ["fnv1a-64:bec12d15dda06886", "fnv1a-64:4d0af94928725c68", "fnv1a-64:aad01178f02a6a23", "fnv1a-64:037e0c0deb9acbc0", "fnv1a-64:823b87195ce20e23", "fnv1a-64:8011b8935e9f4f51"],
-                            ["fnv1a-64:bec12d15dda06886", "fnv1a-64:4d0af94928725c68", "fnv1a-64:aad01178f02a6a23", "fnv1a-64:4d0af94928725c68", "fnv1a-64:8011b8935e9f4f51", "fnv1a-64:8011b8935e9f4f51"],
-                            ["fnv1a-64:bec12d15dda06886", "fnv1a-64:4d0af94928725c68", "fnv1a-64:aad01178f02a6a23", "fnv1a-64:4d0af94928725c68", "fnv1a-64:823b87195ce20e23", "fnv1a-64:8011b8935e9f4f51"],
-                            ["fnv1a-64:bec12d15dda06886", "fnv1a-64:4d0af94928725c68", "fnv1a-64:aad01178f02a6a23", "fnv1a-64:d68103fb62eae412", "fnv1a-64:8011b8935e9f4f51", "fnv1a-64:8011b8935e9f4f51"],
-                            ["fnv1a-64:bec12d15dda06886", "fnv1a-64:4d0af94928725c68", "fnv1a-64:aad01178f02a6a23", "fnv1a-64:d68103fb62eae412", "fnv1a-64:823b87195ce20e23", "fnv1a-64:8011b8935e9f4f51"],
-                            ["fnv1a-64:bec12d15dda06886", "fnv1a-64:4d0af94928725c68", "fnv1a-64:aad01178f02a6a23", "fnv1a-64:e7cbaa65fd33a345", "fnv1a-64:8011b8935e9f4f51", "fnv1a-64:8011b8935e9f4f51"],
-                            ["fnv1a-64:bec12d15dda06886", "fnv1a-64:4d0af94928725c68", "fnv1a-64:aad01178f02a6a23", "fnv1a-64:e7cbaa65fd33a345", "fnv1a-64:823b87195ce20e23", "fnv1a-64:8011b8935e9f4f51"],
-                            ["fnv1a-64:bec12d15dda06886", "fnv1a-64:d68103fb62eae412", "fnv1a-64:823b87195ce20e23", "fnv1a-64:037e0c0deb9acbc0", "fnv1a-64:8011b8935e9f4f51", "fnv1a-64:8011b8935e9f4f51"],
-                            ["fnv1a-64:bec12d15dda06886", "fnv1a-64:d68103fb62eae412", "fnv1a-64:823b87195ce20e23", "fnv1a-64:037e0c0deb9acbc0", "fnv1a-64:823b87195ce20e23", "fnv1a-64:8011b8935e9f4f51"],
-                            ["fnv1a-64:bec12d15dda06886", "fnv1a-64:d68103fb62eae412", "fnv1a-64:823b87195ce20e23", "fnv1a-64:4d0af94928725c68", "fnv1a-64:8011b8935e9f4f51", "fnv1a-64:8011b8935e9f4f51"],
-                            ["fnv1a-64:bec12d15dda06886", "fnv1a-64:d68103fb62eae412", "fnv1a-64:823b87195ce20e23", "fnv1a-64:4d0af94928725c68", "fnv1a-64:823b87195ce20e23", "fnv1a-64:8011b8935e9f4f51"],
-                            ["fnv1a-64:bec12d15dda06886", "fnv1a-64:d68103fb62eae412", "fnv1a-64:823b87195ce20e23", "fnv1a-64:d68103fb62eae412", "fnv1a-64:8011b8935e9f4f51", "fnv1a-64:8011b8935e9f4f51"],
-                            ["fnv1a-64:bec12d15dda06886", "fnv1a-64:d68103fb62eae412", "fnv1a-64:823b87195ce20e23", "fnv1a-64:d68103fb62eae412", "fnv1a-64:823b87195ce20e23", "fnv1a-64:8011b8935e9f4f51"],
-                            ["fnv1a-64:bec12d15dda06886", "fnv1a-64:d68103fb62eae412", "fnv1a-64:823b87195ce20e23", "fnv1a-64:e7cbaa65fd33a345", "fnv1a-64:8011b8935e9f4f51", "fnv1a-64:8011b8935e9f4f51"],
-                            ["fnv1a-64:bec12d15dda06886", "fnv1a-64:d68103fb62eae412", "fnv1a-64:823b87195ce20e23", "fnv1a-64:e7cbaa65fd33a345", "fnv1a-64:823b87195ce20e23", "fnv1a-64:8011b8935e9f4f51"],
-                            ["fnv1a-64:bec12d15dda06886", "fnv1a-64:d68103fb62eae412", "fnv1a-64:aad01178f02a6a23", "fnv1a-64:037e0c0deb9acbc0", "fnv1a-64:8011b8935e9f4f51", "fnv1a-64:8011b8935e9f4f51"],
-                            ["fnv1a-64:bec12d15dda06886", "fnv1a-64:d68103fb62eae412", "fnv1a-64:aad01178f02a6a23", "fnv1a-64:037e0c0deb9acbc0", "fnv1a-64:823b87195ce20e23", "fnv1a-64:8011b8935e9f4f51"],
-                            ["fnv1a-64:bec12d15dda06886", "fnv1a-64:d68103fb62eae412", "fnv1a-64:aad01178f02a6a23", "fnv1a-64:4d0af94928725c68", "fnv1a-64:8011b8935e9f4f51", "fnv1a-64:8011b8935e9f4f51"],
-                            ["fnv1a-64:bec12d15dda06886", "fnv1a-64:d68103fb62eae412", "fnv1a-64:aad01178f02a6a23", "fnv1a-64:4d0af94928725c68", "fnv1a-64:823b87195ce20e23", "fnv1a-64:8011b8935e9f4f51"],
-                            ["fnv1a-64:bec12d15dda06886", "fnv1a-64:d68103fb62eae412", "fnv1a-64:aad01178f02a6a23", "fnv1a-64:d68103fb62eae412", "fnv1a-64:8011b8935e9f4f51", "fnv1a-64:8011b8935e9f4f51"],
-                            ["fnv1a-64:bec12d15dda06886", "fnv1a-64:d68103fb62eae412", "fnv1a-64:aad01178f02a6a23", "fnv1a-64:d68103fb62eae412", "fnv1a-64:823b87195ce20e23", "fnv1a-64:8011b8935e9f4f51"],
-                            ["fnv1a-64:bec12d15dda06886", "fnv1a-64:d68103fb62eae412", "fnv1a-64:aad01178f02a6a23", "fnv1a-64:e7cbaa65fd33a345", "fnv1a-64:8011b8935e9f4f51", "fnv1a-64:8011b8935e9f4f51"],
-                            ["fnv1a-64:bec12d15dda06886", "fnv1a-64:d68103fb62eae412", "fnv1a-64:aad01178f02a6a23", "fnv1a-64:e7cbaa65fd33a345", "fnv1a-64:823b87195ce20e23", "fnv1a-64:8011b8935e9f4f51"],
-                            ["fnv1a-64:bec12d15dda06886", "fnv1a-64:e7cbaa65fd33a345", "fnv1a-64:823b87195ce20e23", "fnv1a-64:037e0c0deb9acbc0", "fnv1a-64:8011b8935e9f4f51", "fnv1a-64:8011b8935e9f4f51"],
-                            ["fnv1a-64:bec12d15dda06886", "fnv1a-64:e7cbaa65fd33a345", "fnv1a-64:823b87195ce20e23", "fnv1a-64:037e0c0deb9acbc0", "fnv1a-64:823b87195ce20e23", "fnv1a-64:8011b8935e9f4f51"],
-                            ["fnv1a-64:bec12d15dda06886", "fnv1a-64:e7cbaa65fd33a345", "fnv1a-64:823b87195ce20e23", "fnv1a-64:4d0af94928725c68", "fnv1a-64:8011b8935e9f4f51", "fnv1a-64:8011b8935e9f4f51"],
-                            ["fnv1a-64:bec12d15dda06886", "fnv1a-64:e7cbaa65fd33a345", "fnv1a-64:823b87195ce20e23", "fnv1a-64:4d0af94928725c68", "fnv1a-64:823b87195ce20e23", "fnv1a-64:8011b8935e9f4f51"],
-                            ["fnv1a-64:bec12d15dda06886", "fnv1a-64:e7cbaa65fd33a345", "fnv1a-64:823b87195ce20e23", "fnv1a-64:d68103fb62eae412", "fnv1a-64:8011b8935e9f4f51", "fnv1a-64:8011b8935e9f4f51"],
-                            ["fnv1a-64:bec12d15dda06886", "fnv1a-64:e7cbaa65fd33a345", "fnv1a-64:823b87195ce20e23", "fnv1a-64:d68103fb62eae412", "fnv1a-64:823b87195ce20e23", "fnv1a-64:8011b8935e9f4f51"],
-                            ["fnv1a-64:bec12d15dda06886", "fnv1a-64:e7cbaa65fd33a345", "fnv1a-64:823b87195ce20e23", "fnv1a-64:e7cbaa65fd33a345", "fnv1a-64:8011b8935e9f4f51", "fnv1a-64:8011b8935e9f4f51"],
-                            ["fnv1a-64:bec12d15dda06886", "fnv1a-64:e7cbaa65fd33a345", "fnv1a-64:823b87195ce20e23", "fnv1a-64:e7cbaa65fd33a345", "fnv1a-64:823b87195ce20e23", "fnv1a-64:8011b8935e9f4f51"],
-                            ["fnv1a-64:bec12d15dda06886", "fnv1a-64:e7cbaa65fd33a345", "fnv1a-64:aad01178f02a6a23", "fnv1a-64:037e0c0deb9acbc0", "fnv1a-64:8011b8935e9f4f51", "fnv1a-64:8011b8935e9f4f51"],
-                            ["fnv1a-64:bec12d15dda06886", "fnv1a-64:e7cbaa65fd33a345", "fnv1a-64:aad01178f02a6a23", "fnv1a-64:037e0c0deb9acbc0", "fnv1a-64:823b87195ce20e23", "fnv1a-64:8011b8935e9f4f51"],
-                            ["fnv1a-64:bec12d15dda06886", "fnv1a-64:e7cbaa65fd33a345", "fnv1a-64:aad01178f02a6a23", "fnv1a-64:4d0af94928725c68", "fnv1a-64:8011b8935e9f4f51", "fnv1a-64:8011b8935e9f4f51"],
-                            ["fnv1a-64:bec12d15dda06886", "fnv1a-64:e7cbaa65fd33a345", "fnv1a-64:aad01178f02a6a23", "fnv1a-64:4d0af94928725c68", "fnv1a-64:823b87195ce20e23", "fnv1a-64:8011b8935e9f4f51"],
-                            ["fnv1a-64:bec12d15dda06886", "fnv1a-64:e7cbaa65fd33a345", "fnv1a-64:aad01178f02a6a23", "fnv1a-64:d68103fb62eae412", "fnv1a-64:8011b8935e9f4f51", "fnv1a-64:8011b8935e9f4f51"],
-                            ["fnv1a-64:bec12d15dda06886", "fnv1a-64:e7cbaa65fd33a345", "fnv1a-64:aad01178f02a6a23", "fnv1a-64:d68103fb62eae412", "fnv1a-64:823b87195ce20e23", "fnv1a-64:8011b8935e9f4f51"],
-                            ["fnv1a-64:bec12d15dda06886", "fnv1a-64:e7cbaa65fd33a345", "fnv1a-64:aad01178f02a6a23", "fnv1a-64:e7cbaa65fd33a345", "fnv1a-64:8011b8935e9f4f51", "fnv1a-64:8011b8935e9f4f51"],
-                            ["fnv1a-64:bec12d15dda06886", "fnv1a-64:e7cbaa65fd33a345", "fnv1a-64:aad01178f02a6a23", "fnv1a-64:e7cbaa65fd33a345", "fnv1a-64:823b87195ce20e23", "fnv1a-64:8011b8935e9f4f51"]
-                          ],
-                          "lengths": [6],
-                          "minLength": 6,
-                          "maxLength": 6,
-                          "manualCheckOk": false
-                        },
-                        "question02": {
-                          "id": "q1b-g-tickets-_____-h-tissue-paper-handkerchief-_____-i-writing-_____-j-newspaper-_____",
-                          "answersAccepted": [
-                            ["fnv1a-64:cd2fcd9bc6b008d8", "fnv1a-64:e7cbaa65fd33a345", "fnv1a-64:e7cbaa65fd33a345", "fnv1a-64:e04368a1e3ac3611"],
-                            ["fnv1a-64:cd2fcd9bc6b008d8", "fnv1a-64:037e0c0deb9acbc0", "fnv1a-64:e7cbaa65fd33a345", "fnv1a-64:e04368a1e3ac3611"],
-                            ["fnv1a-64:cd2fcd9bc6b008d8", "fnv1a-64:d68103fb62eae412", "fnv1a-64:e7cbaa65fd33a345", "fnv1a-64:e04368a1e3ac3611"]
-                          ],
-                          "lengths": [4],
-                          "minLength": 4,
-                          "maxLength": 4,
-                          "manualCheckOk": false
-                        },
-                        "question03": {
-                          "id": "q2a-a-soap-_____-b-sugar-_____-c-jam-_____-d-sauce-_____-e-salt-______-f-rice-_____",
-                          "answersAccepted": [
-                            ["fnv1a-64:003934191339461a", "fnv1a-64:4c5f6190acb3dc80", "fnv1a-64:c414205b5bf905cb", "fnv1a-64:cc5d03946465f887", "fnv1a-64:1321a06615c0fb47", "fnv1a-64:32cd742977e364cc"],
-                            ["fnv1a-64:003934191339461a", "fnv1a-64:4c5f6190acb3dc80", "fnv1a-64:c414205b5bf905cb", "fnv1a-64:27aca1ec852817f9", "fnv1a-64:1321a06615c0fb47", "fnv1a-64:32cd742977e364cc"],
-                            ["fnv1a-64:003934191339461a", "fnv1a-64:4c5f6190acb3dc80", "fnv1a-64:1f10435797d74a2c", "fnv1a-64:cc5d03946465f887", "fnv1a-64:1321a06615c0fb47", "fnv1a-64:32cd742977e364cc"],
-                            ["fnv1a-64:003934191339461a", "fnv1a-64:4c5f6190acb3dc80", "fnv1a-64:1f10435797d74a2c", "fnv1a-64:27aca1ec852817f9", "fnv1a-64:1321a06615c0fb47", "fnv1a-64:32cd742977e364cc"],
-                            ["fnv1a-64:b50c5190e8330a79", "fnv1a-64:4c5f6190acb3dc80", "fnv1a-64:c414205b5bf905cb", "fnv1a-64:cc5d03946465f887", "fnv1a-64:1321a06615c0fb47", "fnv1a-64:32cd742977e364cc"],
-                            ["fnv1a-64:b50c5190e8330a79", "fnv1a-64:4c5f6190acb3dc80", "fnv1a-64:c414205b5bf905cb", "fnv1a-64:27aca1ec852817f9", "fnv1a-64:1321a06615c0fb47", "fnv1a-64:32cd742977e364cc"],
-                            ["fnv1a-64:b50c5190e8330a79", "fnv1a-64:4c5f6190acb3dc80", "fnv1a-64:1f10435797d74a2c", "fnv1a-64:cc5d03946465f887", "fnv1a-64:1321a06615c0fb47", "fnv1a-64:32cd742977e364cc"],
-                            ["fnv1a-64:b50c5190e8330a79", "fnv1a-64:4c5f6190acb3dc80", "fnv1a-64:1f10435797d74a2c", "fnv1a-64:27aca1ec852817f9", "fnv1a-64:1321a06615c0fb47", "fnv1a-64:32cd742977e364cc"]
-                          ],
-                          "lengths": [6],
-                          "minLength": 6,
-                          "maxLength": 6,
-                          "manualCheckOk": false
-                        },
-                        "question04": {
-                          "id": "q2b-g-flour-_____-h-butter-_____-i-corn-_____-j-chocolate-_____",
-                          "answersAccepted": [["fnv1a-64:09903c18bfa6119f", "fnv1a-64:77ca70195676c8da", "fnv1a-64:c2c3ff18f02e0e53", "fnv1a-64:003934191339461a"]],
-                          "lengths": [4],
-                          "minLength": 4,
-                          "maxLength": 4,
-                          "manualCheckOk": false
-                        },
-                        "question05": {
-                          "id": "q3a-a-coal-_____-b-concrete-_____-c-dirt-_____-d-earth-_____-e-grass-______-f-hay-_____",
-                          "answersAccepted": [["fnv1a-64:b1c406adf2a0a03f", "fnv1a-64:6a8b1018f70ed0a9", "fnv1a-64:138225911d7862f1", "fnv1a-64:4b53d6abbc677791", "fnv1a-64:bf37f20dc53944ed", "fnv1a-64:9a13d19ba9fbbe3f"]],
-                          "lengths": [6],
-                          "minLength": 6,
-                          "maxLength": 6,
-                          "manualCheckOk": false
-                        },
-                        "question06": {
-                          "id": "q3b-g-rock-_____-h-rubbish-_____-i-sand-_____-j-wood-_____",
-                          "answersAccepted": [["fnv1a-64:ce0eecad70f271e9", "fnv1a-64:bf37f20dc53944ed", "fnv1a-64:36812176b764308d", "fnv1a-64:1edb5661a2e883b4", "fnv1a-64:0f838176873c8e22"]],
-                          "lengths": [5],
-                          "minLength": 5,
-                          "maxLength": 5,
-                          "manualCheckOk": false
-                        },
-                        "question07": {
-                          "id": "q4a-a-beer-_____-b-blood-_____-c-brandy-_____-d-coffee-_____-e-steam-______-f-paint-_____",
-                          "answersAccepted": [
-                            ["fnv1a-64:bf30cd0dc532e760", "fnv1a-64:f1a2a766dcd55bac", "fnv1a-64:e11aca4625d26fa9", "fnv1a-64:f5b9fb190cc189af", "fnv1a-64:9ebb5c9513bac4fe", "fnv1a-64:c573b39bc29148ca"],
-                            ["fnv1a-64:bf30cd0dc532e760", "fnv1a-64:f1a2a766dcd55bac", "fnv1a-64:824883195cec91b3", "fnv1a-64:f5b9fb190cc189af", "fnv1a-64:9ebb5c9513bac4fe", "fnv1a-64:c573b39bc29148ca"],
-                            ["fnv1a-64:bf30cd0dc532e760", "fnv1a-64:f1a2a766dcd55bac", "fnv1a-64:4c85187a7377e7a6", "fnv1a-64:f5b9fb190cc189af", "fnv1a-64:9ebb5c9513bac4fe", "fnv1a-64:c573b39bc29148ca"],
-                            ["fnv1a-64:e11aca4625d26fa9", "fnv1a-64:f1a2a766dcd55bac", "fnv1a-64:e11aca4625d26fa9", "fnv1a-64:f5b9fb190cc189af", "fnv1a-64:9ebb5c9513bac4fe", "fnv1a-64:c573b39bc29148ca"],
-                            ["fnv1a-64:e11aca4625d26fa9", "fnv1a-64:f1a2a766dcd55bac", "fnv1a-64:824883195cec91b3", "fnv1a-64:f5b9fb190cc189af", "fnv1a-64:9ebb5c9513bac4fe", "fnv1a-64:c573b39bc29148ca"],
-                            ["fnv1a-64:e11aca4625d26fa9", "fnv1a-64:f1a2a766dcd55bac", "fnv1a-64:4c85187a7377e7a6", "fnv1a-64:f5b9fb190cc189af", "fnv1a-64:9ebb5c9513bac4fe", "fnv1a-64:c573b39bc29148ca"],
-                            ["fnv1a-64:824883195cec91b3", "fnv1a-64:f1a2a766dcd55bac", "fnv1a-64:e11aca4625d26fa9", "fnv1a-64:f5b9fb190cc189af", "fnv1a-64:9ebb5c9513bac4fe", "fnv1a-64:c573b39bc29148ca"],
-                            ["fnv1a-64:824883195cec91b3", "fnv1a-64:f1a2a766dcd55bac", "fnv1a-64:824883195cec91b3", "fnv1a-64:f5b9fb190cc189af", "fnv1a-64:9ebb5c9513bac4fe", "fnv1a-64:c573b39bc29148ca"],
-                            ["fnv1a-64:824883195cec91b3", "fnv1a-64:f1a2a766dcd55bac", "fnv1a-64:4c85187a7377e7a6", "fnv1a-64:f5b9fb190cc189af", "fnv1a-64:9ebb5c9513bac4fe", "fnv1a-64:c573b39bc29148ca"]
-                          ],
-                          "lengths": [6],
-                          "minLength": 6,
-                          "maxLength": 6,
-                          "manualCheckOk": false
-                        },
-                        "question08": {
-                          "id": "q4b-g-perfume-_____-h-vapour-_____-i-water-_____-j-wine-_____",
-                          "answersAccepted": [
-                            ["fnv1a-64:f1a2a766dcd55bac", "fnv1a-64:9ebb5c9513bac4fe", "fnv1a-64:45846c193a782b92", "fnv1a-64:08c9a8152d557bc6", "fnv1a-64:75e7529b95102335", "fnv1a-64:8c22f10da88b1083"],
-                            ["fnv1a-64:f1a2a766dcd55bac", "fnv1a-64:6c38230e2724c65a", "fnv1a-64:45846c193a782b92", "fnv1a-64:08c9a8152d557bc6", "fnv1a-64:75e7529b95102335", "fnv1a-64:8c22f10da88b1083"]
-                          ],
-                          "lengths": [6],
-                          "minLength": 6,
-                          "maxLength": 6,
-                          "manualCheckOk": false
-                        },
-                        "question09": {
-                          "id": "q5a-a-card-_____-b-cigar-_____-c-cigarette-_____-d-cutlery-_____-e-dust-______-f-glass-_____",
-                          "answersAccepted": [["fnv1a-64:a5b51767424f5c08", "fnv1a-64:004d2e191349e4f2", "fnv1a-64:037e0c0deb9acbc0", "fnv1a-64:823b87195ce20e23", "fnv1a-64:227a788aa01a3f6f", "fnv1a-64:6e308f493acb8a0b"]],
-                          "lengths": [6],
-                          "minLength": 6,
-                          "maxLength": 6,
-                          "manualCheckOk": false
-                        },
-                        "question10": {
-                          "id": "q5b-g-ice-_____-h-oil-_____-i-potato-_____-j-sandal-_____",
-                          "answersAccepted": [["fnv1a-64:14e5faab9ce0e362", "fnv1a-64:8ece059ad360b651", "fnv1a-64:09903c18bfa6119f", "fnv1a-64:0369250deb889a31"]],
-                          "lengths": [4],
-                          "minLength": 4,
-                          "maxLength": 4,
-                          "manualCheckOk": false
-                        }
-                      }
-                    }
-                  }
+                <script type="application/json" id="exercise-answer-key" data-exercise-answer-key="">
+{
+  "title": "2121-gerund-and-present-participle",
+  "version": "0.3.0",
+  "publishDate": "2026-02-04T08:49:54.279Z",
+  "description": "21.2.1 Gerund and Present Participle",
+  "options": {
+    "requireCorrectBeforeReveal": true,
+    "defaultHashAlgorithm": "fnv1a-64"
+  },
+  "answerArrays": {
+    "exerciseName": "2121-gerund-and-present-participle",
+    "totalQuestions": 10,
+    "answerArray": {
+      "question01": {
+        "id": "q1-i-enjoy-a-walk-in-the-park",
+        "answersAccepted": [],
+        "lengths": [
+          1
+        ],
+        "minLength": 1,
+        "maxLength": 1,
+        "manualCheckOk": false
+      },
+      "question02": {
+        "id": "q2-bob-finished-his-study",
+        "answersAccepted": [],
+        "lengths": [
+          1
+        ],
+        "minLength": 1,
+        "maxLength": 1,
+        "manualCheckOk": false
+      },
+      "question03": {
+        "id": "q3-did-you-go-to-shop-yesterday",
+        "answersAccepted": [],
+        "lengths": [
+          1
+        ],
+        "minLength": 1,
+        "maxLength": 1,
+        "manualCheckOk": false
+      },
+      "question04": {
+        "id": "q4-don-t-let-me-catch-you-do-that-again",
+        "answersAccepted": [],
+        "lengths": [
+          1
+        ],
+        "minLength": 1,
+        "maxLength": 1,
+        "manualCheckOk": false
+      },
+      "question05": {
+        "id": "q5-i-appreciate-you-write-that-letter-for-me",
+        "answersAccepted": [],
+        "lengths": [
+          1
+        ],
+        "minLength": 1,
+        "maxLength": 1,
+        "manualCheckOk": false
+      },
+      "question06": {
+        "id": "q6-that-carpet-needs-to-vacuum",
+        "answersAccepted": [],
+        "lengths": [
+          1
+        ],
+        "minLength": 1,
+        "maxLength": 1,
+        "manualCheckOk": false
+      },
+      "question07": {
+        "id": "q7-i-began-to-revise-my-lessons-before-the-year-end",
+        "answersAccepted": [],
+        "lengths": [
+          1
+        ],
+        "minLength": 1,
+        "maxLength": 1,
+        "manualCheckOk": false
+      },
+      "question08": {
+        "id": "q8-she-learned-to-hairdress-by-practice-on-her-sister",
+        "answersAccepted": [],
+        "lengths": [
+          1
+        ],
+        "minLength": 1,
+        "maxLength": 1,
+        "manualCheckOk": false
+      },
+      "question09": {
+        "id": "q9-we-love-a-ride-along-the-country-lane",
+        "answersAccepted": [],
+        "lengths": [
+          1
+        ],
+        "minLength": 1,
+        "maxLength": 1,
+        "manualCheckOk": false
+      },
+      "question10": {
+        "id": "q10-she-decided-to-go-to-jog-each-morning",
+        "answersAccepted": [],
+        "lengths": [
+          1
+        ],
+        "minLength": 1,
+        "maxLength": 1,
+        "manualCheckOk": false
+      }
+    }
+  }
+}
                 </script>
-                <script type="application/json" id="exercise-config" data-exercise-config>
-                  {
-                    "title": "19.2.1 Quantity Words",
-                    "canonical": "1921-quantity-words.html",
-                    "totalQuestions": 10,
-                    "submitUrl": "",
-                    "recipients": [],
-                    "breadcrumbs": [
-                      {
-                        "name": "Home",
-                        "href": "../index-2.html",
-                        "position": 1
-                      },
-                      {
-                        "name": "Exercise 19 - Determiners and Quantifiers",
-                        "href": "../exercise-19-determiners-and-quantifiers.html",
-                        "position": 2
-                      },
-                      {
-                        "name": "19.2.1 Quantity Words",
-                        "href": "",
-                        "position": 3
-                      }
-                    ],
-                    "pager": {
-                      "previous": {
-                        "href": "1912-determiners-a-an-the-some.html",
-                        "label": "19.1.2 Determiners: a, an, the, some",
-                        "ariaLabel": "Next",
-                        "rel": "next",
-                        "html": "<span class=\"icon-chevron-left\"> </span> 19.1.2 Determiners: a, an, the, some",
-                        "icon": ""
-                      },
-                      "next": {
-                        "href": "../exercise-19-determiners-and-quantifiers.html",
-                        "label": "Exercise 19 - Determiners and Quantifiers",
-                        "ariaLabel": "Previous",
-                        "rel": "prev",
-                        "html": "Exercise 19 - Determiners and Quantifiers <span class=\"icon-chevron-right\"> </span>",
-                        "icon": ""
-                      }
-                    }
-                  }
+                <script type="application/json" id="exercise-config" data-exercise-config="">
+{
+  "title": "21.2.1 Gerund and Present Participle",
+  "canonical": "2121-gerund-and-present-participle.html",
+  "totalQuestions": 10,
+  "submitUrl": "",
+  "recipients": [],
+  "breadcrumbs": [
+    {
+      "name": "Home",
+      "href": "../index-2.html",
+      "position": 1
+    },
+    {
+      "name": "Exercise 21 - General",
+      "href": "../exercise-21-general.html",
+      "position": 2
+    },
+    {
+      "name": "21.2.1 Gerund and Present Participle",
+      "href": "",
+      "position": 3
+    }
+  ],
+  "pager": {
+    "previous": {
+      "href": "2113-part-of-speech-adverb.html",
+      "label": "21.1.3 Part of Speech: Adverb",
+      "ariaLabel": "Previous",
+      "rel": "prev",
+      "html": "\n                   <svg version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 18 48\" fill=\"currentColor\">\n                        <title>angle-left</title>\n                        <path d=\"M16.795 14.571c0 0.214-0.107 0.455-0.268 0.616l-10.527 10.527 10.527 10.527c0.161 0.161 0.268 0.402 0.268 0.616s-0.107 0.455-0.268 0.616l-1.339 1.339c-0.161 0.161-0.402 0.268-0.616 0.268s-0.455-0.107-0.616-0.268l-12.482-12.482c-0.161-0.161-0.268-0.402-0.268-0.616s0.107-0.455 0.268-0.616l12.482-12.482c0.161-0.161 0.402-0.268 0.616-0.268s0.455 0.107 0.616 0.268l1.339 1.339c0.161 0.161 0.268 0.375 0.268 0.616z\">\n                        </path>\n                      </svg>\n                    21.1.3 Part of Speech: Adverb\n                  ",
+      "icon": "<svg version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 18 48\" fill=\"currentColor\">\n                        <title>angle-left</title>\n                        <path d=\"M16.795 14.571c0 0.214-0.107 0.455-0.268 0.616l-10.527 10.527 10.527 10.527c0.161 0.161 0.268 0.402 0.268 0.616s-0.107 0.455-0.268 0.616l-1.339 1.339c-0.161 0.161-0.402 0.268-0.616 0.268s-0.455-0.107-0.616-0.268l-12.482-12.482c-0.161-0.161-0.268-0.402-0.268-0.616s0.107-0.455 0.268-0.616l12.482-12.482c0.161-0.161 0.402-0.268 0.616-0.268s0.455 0.107 0.616 0.268l1.339 1.339c0.161 0.161 0.268 0.375 0.268 0.616z\">\n                        </path>\n                      </svg>"
+    },
+    "next": {
+      "href": "../exercise-21-general.html",
+      "label": "Exercise 21 - Parts-of-Speech & Gerunds",
+      "ariaLabel": "Next",
+      "rel": "next",
+      "html": "\n                    Exercise 21 - Parts-of-Speech &amp; Gerunds\n                    <svg version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" height=\"24px\" viewBox=\"0 0 18 48\" fill=\"currentColor\">\n                        <title>angle-right</title>\n                        <path d=\"M15.938 25.714c0 0.214-0.107 0.455-0.268 0.616l-12.482 12.482c-0.161 0.161-0.402 0.268-0.616 0.268s-0.455-0.107-0.616-0.268l-1.339-1.339c-0.161-0.161-0.268-0.375-0.268-0.616 0-0.214 0.107-0.455 0.268-0.616l10.527-10.527-10.527-10.527c-0.161-0.161-0.268-0.402-0.268-0.616s0.107-0.455 0.268-0.616l1.339-1.339c0.161-0.161 0.402-0.268 0.616-0.268s0.455 0.107 0.616 0.268l12.482 12.482c0.161 0.161 0.268 0.402 0.268 0.616z\"></path>\n                      </svg>\n                  ",
+      "icon": "<svg version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" height=\"24px\" viewBox=\"0 0 18 48\" fill=\"currentColor\">\n                        <title>angle-right</title>\n                        <path d=\"M15.938 25.714c0 0.214-0.107 0.455-0.268 0.616l-12.482 12.482c-0.161 0.161-0.402 0.268-0.616 0.268s-0.455-0.107-0.616-0.268l-1.339-1.339c-0.161-0.161-0.268-0.375-0.268-0.616 0-0.214 0.107-0.455 0.268-0.616l10.527-10.527-10.527-10.527c-0.161-0.161-0.268-0.402-0.268-0.616s0.107-0.455 0.268-0.616l1.339-1.339c0.161-0.161 0.402-0.268 0.616-0.268s0.455 0.107 0.616 0.268l12.482 12.482c0.161 0.161 0.268 0.402 0.268 0.616z\"></path>\n                      </svg>"
+    }
+  }
+}
                 </script>
 
                 <!-- <script type="application/json" id="exercise-config" data-exercise-config>
@@ -2357,22 +1679,16 @@
 
                 <ul class="pager pagenav">
                   <li class="previous">
-                    <a href="1912-determiners-a-an-the-some.html" rel="next">
-                      <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 48" fill="currentColor">
+                    <a href="2113-part-of-speech-adverb.html" rel="prev"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 48" fill="currentColor">
                         <title>angle-left</title>
-                        <path d="M16.795 14.571c0 0.214-0.107 0.455-0.268 0.616l-10.527 10.527 10.527 10.527c0.161 0.161 0.268 0.402 0.268 0.616s-0.107 0.455-0.268 0.616l-1.339 1.339c-0.161 0.161-0.402 0.268-0.616 0.268s-0.455-0.107-0.616-0.268l-12.482-12.482c-0.161-0.161-0.268-0.402-0.268-0.616s0.107-0.455 0.268-0.616l12.482-12.482c0.161-0.161 0.402-0.268 0.616-0.268s0.455 0.107 0.616 0.268l1.339 1.339c0.161 0.161 0.268 0.375 0.268 0.616z"/>
-                      </svg>
-                      <span class="pager-label">19.1.2 Determiners: a, an, the, some</span>
-                    </a>
+                        <path d="M16.795 14.571c0 0.214-0.107 0.455-0.268 0.616l-10.527 10.527 10.527 10.527c0.161 0.161 0.268 0.402 0.268 0.616s-0.107 0.455-0.268 0.616l-1.339 1.339c-0.161 0.161-0.402 0.268-0.616 0.268s-0.455-0.107-0.616-0.268l-12.482-12.482c-0.161-0.161-0.268-0.402-0.268-0.616s0.107-0.455 0.268-0.616l12.482-12.482c0.161-0.161 0.402-0.268 0.616-0.268s0.455 0.107 0.616 0.268l1.339 1.339c0.161 0.161 0.268 0.375 0.268 0.616z"></path>
+                      </svg><span class="pager-label">21.1.3 Part of Speech: Adverb</span></a>
                   </li>
                   <li class="next">
-                    <a href="../exercise-19-determiners-and-quantifiers.html" rel="prev">
-                      <span class="pager-label">Exercise 19 - Determiners and Quantifiers</span>
-                      <svg version="1.1" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 18 48" fill="currentColor">
+                    <a href="../exercise-21-general.html" rel="next"><span class="pager-label">Exercise 21 - Parts-of-Speech &amp; Gerunds</span><svg version="1.1" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 18 48" fill="currentColor">
                         <title>angle-right</title>
-                        <path d="M15.938 25.714c0 0.214-0.107 0.455-0.268 0.616l-12.482 12.482c-0.161 0.161-0.402 0.268-0.616 0.268s-0.455-0.107-0.616-0.268l-1.339-1.339c-0.161-0.161-0.268-0.375-0.268-0.616 0-0.214 0.107-0.455 0.268-0.616l10.527-10.527-10.527-10.527c-0.161-0.161-0.268-0.402-0.268-0.616s0.107-0.455 0.268-0.616l1.339-1.339c0.161-0.161 0.402-0.268 0.616-0.268s0.455 0.107 0.616 0.268l12.482 12.482c0.161 0.161 0.268 0.402 0.268 0.616z"/>
-                      </svg>
-                    </a>
+                        <path d="M15.938 25.714c0 0.214-0.107 0.455-0.268 0.616l-12.482 12.482c-0.161 0.161-0.402 0.268-0.616 0.268s-0.455-0.107-0.616-0.268l-1.339-1.339c-0.161-0.161-0.268-0.375-0.268-0.616 0-0.214 0.107-0.455 0.268-0.616l10.527-10.527-10.527-10.527c-0.161-0.161-0.268-0.402-0.268-0.616s0.107-0.455 0.268-0.616l1.339-1.339c0.161-0.161 0.402-0.268 0.616-0.268s0.455 0.107 0.616 0.268l12.482 12.482c0.161 0.161 0.268 0.402 0.268 0.616z"></path>
+                      </svg></a>
                   </li>
                 </ul>
               </div>
@@ -2382,15 +1698,15 @@
           <div id="aside" class="span2">
             <!-- Begin Right Sidebar -->
             <div class="well hidden-phone">
-              <ul class="r-flyout-menu" id="flyout_menu_93" data-r-flyout data-flyout-origin="right">
-                <li class="current first" data-r-flyout-item>
+              <ul class="r-flyout-menu" id="flyout_menu_93" data-r-flyout="" data-flyout-origin="right">
+                <li class="current first" data-r-flyout-item="">
                   <div class="item-wrapper r-flyout__header">
                     <button class="r-flyout__toggle" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="r-flyout-panel-nouns" aria-label="Toggle submenu for Nouns">
                       <svg class="r-flyout__icon r-flyout__icon--plus" aria-hidden="true" focusable="false">
-                        <use href="#icon-plus"/>
+                        <use href="#icon-plus"></use>
                       </svg>
                       <svg class="r-flyout__icon r-flyout__icon--minus" aria-hidden="true" focusable="false">
-                        <use href="#icon-minus"/>
+                        <use href="#icon-minus"></use>
                       </svg>
                     </button>
                     <div class="menu-link r-flyout__link-wrap">
@@ -2465,14 +1781,14 @@
                     </ul>
                   </div>
                 </li>
-                <li data-r-flyout-item>
+                <li data-r-flyout-item="">
                   <div class="item-wrapper r-flyout__header">
                     <button class="r-flyout__toggle" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="r-flyout-panel-verbs" aria-label="Toggle submenu for Verbs">
                       <svg class="r-flyout__icon r-flyout__icon--plus" aria-hidden="true" focusable="false">
-                        <use href="#icon-plus"/>
+                        <use href="#icon-plus"></use>
                       </svg>
                       <svg class="r-flyout__icon r-flyout__icon--minus" aria-hidden="true" focusable="false">
-                        <use href="#icon-minus"/>
+                        <use href="#icon-minus"></use>
                       </svg>
                     </button>
                     <div class="menu-link r-flyout__link-wrap">
@@ -2519,14 +1835,14 @@
                     </ul>
                   </div>
                 </li>
-                <li data-r-flyout-item>
+                <li data-r-flyout-item="">
                   <div class="item-wrapper r-flyout__header">
                     <button class="r-flyout__toggle" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="r-flyout-panel-adjectives" aria-label="Toggle submenu for Adjectives">
                       <svg class="r-flyout__icon r-flyout__icon--plus" aria-hidden="true" focusable="false">
-                        <use href="#icon-plus"/>
+                        <use href="#icon-plus"></use>
                       </svg>
                       <svg class="r-flyout__icon r-flyout__icon--minus" aria-hidden="true" focusable="false">
-                        <use href="#icon-minus"/>
+                        <use href="#icon-minus"></use>
                       </svg>
                     </button>
                     <div class="menu-link r-flyout__link-wrap">
@@ -2594,14 +1910,14 @@
                     </ul>
                   </div>
                 </li>
-                <li data-r-flyout-item>
+                <li data-r-flyout-item="">
                   <div class="item-wrapper r-flyout__header">
                     <button class="r-flyout__toggle" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="r-flyout-panel-adverbs" aria-label="Toggle submenu for Adverbs">
                       <svg class="r-flyout__icon r-flyout__icon--plus" aria-hidden="true" focusable="false">
-                        <use href="#icon-plus"/>
+                        <use href="#icon-plus"></use>
                       </svg>
                       <svg class="r-flyout__icon r-flyout__icon--minus" aria-hidden="true" focusable="false">
-                        <use href="#icon-minus"/>
+                        <use href="#icon-minus"></use>
                       </svg>
                     </button>
                     <div class="menu-link r-flyout__link-wrap">
@@ -2676,14 +1992,14 @@
                     </ul>
                   </div>
                 </li>
-                <li data-r-flyout-item>
+                <li data-r-flyout-item="">
                   <div class="item-wrapper r-flyout__header">
                     <button class="r-flyout__toggle" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="r-flyout-panel-pronouns" aria-label="Toggle submenu for Pronouns">
                       <svg class="r-flyout__icon r-flyout__icon--plus" aria-hidden="true" focusable="false">
-                        <use href="#icon-plus"/>
+                        <use href="#icon-plus"></use>
                       </svg>
                       <svg class="r-flyout__icon r-flyout__icon--minus" aria-hidden="true" focusable="false">
-                        <use href="#icon-minus"/>
+                        <use href="#icon-minus"></use>
                       </svg>
                     </button>
                     <div class="menu-link r-flyout__link-wrap">
@@ -2828,14 +2144,14 @@
                     </ul>
                   </div>
                 </li>
-                <li data-r-flyout-item>
+                <li data-r-flyout-item="">
                   <div class="item-wrapper r-flyout__header">
                     <button class="r-flyout__toggle" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="r-flyout-panel-prepositions" aria-label="Toggle submenu for Prepositions">
                       <svg class="r-flyout__icon r-flyout__icon--plus" aria-hidden="true" focusable="false">
-                        <use href="#icon-plus"/>
+                        <use href="#icon-plus"></use>
                       </svg>
                       <svg class="r-flyout__icon r-flyout__icon--minus" aria-hidden="true" focusable="false">
-                        <use href="#icon-minus"/>
+                        <use href="#icon-minus"></use>
                       </svg>
                     </button>
                     <div class="menu-link r-flyout__link-wrap">
@@ -2917,14 +2233,14 @@
                     </ul>
                   </div>
                 </li>
-                <li data-r-flyout-item>
+                <li data-r-flyout-item="">
                   <div class="item-wrapper r-flyout__header">
                     <button class="r-flyout__toggle" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="r-flyout-panel-conjunctions" aria-label="Toggle submenu for Conjunctions">
                       <svg class="r-flyout__icon r-flyout__icon--plus" aria-hidden="true" focusable="false">
-                        <use href="#icon-plus"/>
+                        <use href="#icon-plus"></use>
                       </svg>
                       <svg class="r-flyout__icon r-flyout__icon--minus" aria-hidden="true" focusable="false">
-                        <use href="#icon-minus"/>
+                        <use href="#icon-minus"></use>
                       </svg>
                     </button>
                     <div class="menu-link r-flyout__link-wrap">
@@ -2985,14 +2301,14 @@
                     </ul>
                   </div>
                 </li>
-                <li data-r-flyout-item>
+                <li data-r-flyout-item="">
                   <div class="item-wrapper r-flyout__header">
                     <button class="r-flyout__toggle" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="r-flyout-panel-agreement" aria-label="Toggle submenu for S plus V Agreement">
                       <svg class="r-flyout__icon r-flyout__icon--plus" aria-hidden="true" focusable="false">
-                        <use href="#icon-plus"/>
+                        <use href="#icon-plus"></use>
                       </svg>
                       <svg class="r-flyout__icon r-flyout__icon--minus" aria-hidden="true" focusable="false">
-                        <use href="#icon-minus"/>
+                        <use href="#icon-minus"></use>
                       </svg>
                     </button>
                     <div class="menu-link r-flyout__link-wrap">
@@ -3025,14 +2341,14 @@
                     </ul>
                   </div>
                 </li>
-                <li data-r-flyout-item>
+                <li data-r-flyout-item="">
                   <div class="item-wrapper r-flyout__header">
                     <button class="r-flyout__toggle" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="r-flyout-panel-articles" aria-label="Toggle submenu for Articles">
                       <svg class="r-flyout__icon r-flyout__icon--plus" aria-hidden="true" focusable="false">
-                        <use href="#icon-plus"/>
+                        <use href="#icon-plus"></use>
                       </svg>
                       <svg class="r-flyout__icon r-flyout__icon--minus" aria-hidden="true" focusable="false">
-                        <use href="#icon-minus"/>
+                        <use href="#icon-minus"></use>
                       </svg>
                     </button>
                     <div class="menu-link r-flyout__link-wrap">
@@ -3065,14 +2381,14 @@
                     </ul>
                   </div>
                 </li>
-                <li data-r-flyout-item>
+                <li data-r-flyout-item="">
                   <div class="item-wrapper r-flyout__header">
                     <button class="r-flyout__toggle" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="r-flyout-panel-conditionals" aria-label="Toggle submenu for Conditionals">
                       <svg class="r-flyout__icon r-flyout__icon--plus" aria-hidden="true" focusable="false">
-                        <use href="#icon-plus"/>
+                        <use href="#icon-plus"></use>
                       </svg>
                       <svg class="r-flyout__icon r-flyout__icon--minus" aria-hidden="true" focusable="false">
-                        <use href="#icon-minus"/>
+                        <use href="#icon-minus"></use>
                       </svg>
                     </button>
                     <div class="menu-link r-flyout__link-wrap">
@@ -3105,14 +2421,14 @@
                     </ul>
                   </div>
                 </li>
-                <li data-r-flyout-item>
+                <li data-r-flyout-item="">
                   <div class="item-wrapper r-flyout__header">
                     <button class="r-flyout__toggle" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="r-flyout-panel-modifiers" aria-label="Toggle submenu for Modifiers">
                       <svg class="r-flyout__icon r-flyout__icon--plus" aria-hidden="true" focusable="false">
-                        <use href="#icon-plus"/>
+                        <use href="#icon-plus"></use>
                       </svg>
                       <svg class="r-flyout__icon r-flyout__icon--minus" aria-hidden="true" focusable="false">
-                        <use href="#icon-minus"/>
+                        <use href="#icon-minus"></use>
                       </svg>
                     </button>
                     <div class="menu-link r-flyout__link-wrap">
@@ -3159,14 +2475,14 @@
                     </ul>
                   </div>
                 </li>
-                <li data-r-flyout-item>
+                <li data-r-flyout-item="">
                   <div class="item-wrapper r-flyout__header">
                     <button class="r-flyout__toggle" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="r-flyout-panel-speech" aria-label="Toggle submenu for Speech Direction">
                       <svg class="r-flyout__icon r-flyout__icon--plus" aria-hidden="true" focusable="false">
-                        <use href="#icon-plus"/>
+                        <use href="#icon-plus"></use>
                       </svg>
                       <svg class="r-flyout__icon r-flyout__icon--minus" aria-hidden="true" focusable="false">
-                        <use href="#icon-minus"/>
+                        <use href="#icon-minus"></use>
                       </svg>
                     </button>
                     <div class="menu-link r-flyout__link-wrap">
@@ -3220,11 +2536,11 @@
                     </ul>
                   </div>
                 </li>
-                <li data-r-flyout-item>
+                <li data-r-flyout-item="">
                   <div class="item-wrapper r-flyout__header">
                     <button class="r-flyout__toggle" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="r-flyout-panel-passive" aria-label="Toggle submenu for Active-Passive">
                       <svg class="r-flyout__icon r-flyout__icon--plus" aria-hidden="true" focusable="false">
-                        <use href="#icon-plus"/>
+                        <use href="#icon-plus"></use>
                       </svg>
                     </button>
                     <div class="menu-link r-flyout__link-wrap">
@@ -3232,14 +2548,14 @@
                     </div>
                   </div>
                 </li>
-                <li data-r-flyout-item>
+                <li data-r-flyout-item="">
                   <div class="item-wrapper r-flyout__header">
                     <button class="r-flyout__toggle" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="r-flyout-panel-passive" aria-label="Toggle submenu for Active-Passive">
                       <svg class="r-flyout__icon r-flyout__icon--plus" aria-hidden="true" focusable="false">
-                        <use href="#icon-plus"/>
+                        <use href="#icon-plus"></use>
                       </svg>
                       <svg class="r-flyout__icon r-flyout__icon--minus" aria-hidden="true" focusable="false">
-                        <use href="#icon-minus"/>
+                        <use href="#icon-minus"></use>
                       </svg>
                     </button>
                     <div class="menu-link r-flyout__link-wrap">
@@ -3307,14 +2623,14 @@
                     </ul>
                   </div>
                 </li>
-                <li data-r-flyout-item>
+                <li data-r-flyout-item="">
                   <div class="item-wrapper r-flyout__header">
                     <button class="r-flyout__toggle" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="r-flyout-panel-clauses" aria-label="Toggle submenu for Clauses">
                       <svg class="r-flyout__icon r-flyout__icon--plus" aria-hidden="true" focusable="false">
-                        <use href="#icon-plus"/>
+                        <use href="#icon-plus"></use>
                       </svg>
                       <svg class="r-flyout__icon r-flyout__icon--minus" aria-hidden="true" focusable="false">
-                        <use href="#icon-minus"/>
+                        <use href="#icon-minus"></use>
                       </svg>
                     </button>
                     <div class="menu-link r-flyout__link-wrap">
@@ -3347,14 +2663,14 @@
                     </ul>
                   </div>
                 </li>
-                <li data-r-flyout-item>
+                <li data-r-flyout-item="">
                   <div class="item-wrapper r-flyout__header">
                     <button class="r-flyout__toggle" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="r-flyout-panel-verbing" aria-label="Toggle submenu for Verb-ing">
                       <svg class="r-flyout__icon r-flyout__icon--plus" aria-hidden="true" focusable="false">
-                        <use href="#icon-plus"/>
+                        <use href="#icon-plus"></use>
                       </svg>
                       <svg class="r-flyout__icon r-flyout__icon--minus" aria-hidden="true" focusable="false">
-                        <use href="#icon-minus"/>
+                        <use href="#icon-minus"></use>
                       </svg>
                     </button>
                     <div class="menu-link r-flyout__link-wrap">
@@ -3401,14 +2717,14 @@
                     </ul>
                   </div>
                 </li>
-                <li data-r-flyout-item>
+                <li data-r-flyout-item="">
                   <div class="item-wrapper r-flyout__header">
                     <button class="r-flyout__toggle" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="r-flyout-panel-determiners" aria-label="Toggle submenu for Determiners">
                       <svg class="r-flyout__icon r-flyout__icon--plus" aria-hidden="true" focusable="false">
-                        <use href="#icon-plus"/>
+                        <use href="#icon-plus"></use>
                       </svg>
                       <svg class="r-flyout__icon r-flyout__icon--minus" aria-hidden="true" focusable="false">
-                        <use href="#icon-minus"/>
+                        <use href="#icon-minus"></use>
                       </svg>
                     </button>
                     <div class="menu-link r-flyout__link-wrap">
@@ -3441,14 +2757,14 @@
                     </ul>
                   </div>
                 </li>
-                <li data-r-flyout-item>
+                <li data-r-flyout-item="">
                   <div class="item-wrapper r-flyout__header">
                     <button class="r-flyout__toggle" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="r-flyout-panel-pos" aria-label="Toggle submenu for Part of Speech">
                       <svg class="r-flyout__icon r-flyout__icon--plus" aria-hidden="true" focusable="false">
-                        <use href="#icon-plus"/>
+                        <use href="#icon-plus"></use>
                       </svg>
                       <svg class="r-flyout__icon r-flyout__icon--minus" aria-hidden="true" focusable="false">
-                        <use href="#icon-minus"/>
+                        <use href="#icon-minus"></use>
                       </svg>
                     </button>
                     <div class="menu-link r-flyout__link-wrap">
@@ -3488,14 +2804,14 @@
                     </ul>
                   </div>
                 </li>
-                <li class="last" data-r-flyout-item>
+                <li class="last" data-r-flyout-item="">
                   <div class="item-wrapper r-flyout__header">
                     <button class="r-flyout__toggle" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="r-flyout-panel-vocabulary" aria-label="Toggle submenu for Vocabulary">
                       <svg class="r-flyout__icon r-flyout__icon--plus" aria-hidden="true" focusable="false">
-                        <use href="#icon-plus"/>
+                        <use href="#icon-plus"></use>
                       </svg>
                       <svg class="r-flyout__icon r-flyout__icon--minus" aria-hidden="true" focusable="false">
-                        <use href="#icon-minus"/>
+                        <use href="#icon-minus"></use>
                       </svg>
                     </button>
                     <div class="menu-link r-flyout__link-wrap">
@@ -3536,7 +2852,7 @@
           </p>
           <p>
             ©
-            <span data-copyright-year></span>
+            <span data-copyright-year=""></span>
             All rights reserved.
           </p>
         </div>
@@ -4074,5 +3390,6 @@
     </script>
 
     <!-- Mobile navigation is handled globally via template asset -->
+
 
 </body></html>

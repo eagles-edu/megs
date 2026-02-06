@@ -197,7 +197,19 @@ _user input_:
 
 ---
 
-6. Run `encode-p-text.mjs` for obfuscation per user input (skip if scope is `none`):
+6. Run `normalize-exinstruct.mjs` unless normalize-exinstruct=skip:
+
+```bash
+node tools/normalize-exinstruct.mjs --target <target-path> --write
+```
+
+- replace `<target-path>` with the user input target path; keep command text unchanged.
+- if normalize-exinstruct mode is `dry-run`, use `--dry-run` instead of `--write`.
+- if normalize-exinstruct mode is `skip`, do not run this step.
+
+---
+
+7. Run `encode-p-text.mjs` for obfuscation per user input (skip if scope is `none`):
 --scope `<form|form-highlighted|highlighted|all>` (default form-highlighted):
 
    - **form-highlighted**: obfuscate only `<span>`, `<b>`, `<strong>` text inside `<p>` within `form.exercise-form`
@@ -264,3 +276,7 @@ _user input_:
   - **all**: obfuscate all `<p>` text nodes (omit HTML tags from encoding; leave tags intact, global)
 - obfuscation scope `none`: skip (do not run encode-p-text)
 - Alternates in answers: keep a single `<p>` per question block and separate multiple acceptable sentences with `<br>` tags; do not split a question’s answers across multiple `<p>` tags.
+
+## Daily Updates
+
+- 2026-02-06: Recorded system-doc maintenance requirement and scope exemption alignment with AGENTS.md.

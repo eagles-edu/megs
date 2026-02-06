@@ -11,8 +11,8 @@
  * 3) Run convert-legacy-gated with the chosen answer-field settings (diff preview on by default).
  * 4) Print Prompt4 and inject tools/hashes.txt into the answer key JSON.
  * 5) Run sync-answer-lengths to align lengths/min/max with answersAccepted.
- * 6) Run encode-p-text obfuscation unless obfuscation=none.
- * 7) Run normalize-exinstruct unless normalize-exinstruct=skip.
+ * 6) Run normalize-exinstruct unless normalize-exinstruct=skip.
+ * 7) Run encode-p-text obfuscation unless obfuscation=none.
  *
  * Usage examples:
  * - node tools/conversion-assistant.mjs --target exercise-4-adverbs/411-using-adverbs-part-1.html
@@ -1269,21 +1269,8 @@ async function main() {
   }
   runCommand(cmd4, "CMD4")
 
-  if (cmd5) {
-    console.log("\n6. Execute CMD5:")
-    console.log(commandToString(cmd5))
-    if (!(await pauseOrQuit(ask, PAUSE_COMMAND))) {
-      prompter?.close()
-      process.exit(0)
-    }
-    runCommand(cmd5, "CMD5")
-  } else {
-    console.log("\n6. Execute CMD5:")
-    console.log("Obfuscation skipped (scope=none).")
-  }
-
   if (cmd6) {
-    console.log("\n7. Execute CMD6:")
+    console.log("\n6. Execute CMD6:")
     console.log(commandToString(cmd6))
     if (!(await pauseOrQuit(ask, PAUSE_COMMAND))) {
       prompter?.close()
@@ -1291,8 +1278,21 @@ async function main() {
     }
     runCommand(cmd6, "CMD6")
   } else {
-    console.log("\n7. Execute CMD6:")
+    console.log("\n6. Execute CMD6:")
     console.log("Normalize exinstruct skipped (mode=skip).")
+  }
+
+  if (cmd5) {
+    console.log("\n7. Execute CMD5:")
+    console.log(commandToString(cmd5))
+    if (!(await pauseOrQuit(ask, PAUSE_COMMAND))) {
+      prompter?.close()
+      process.exit(0)
+    }
+    runCommand(cmd5, "CMD5")
+  } else {
+    console.log("\n7. Execute CMD5:")
+    console.log("Obfuscation skipped (scope=none).")
   }
 
   prompter?.close()
