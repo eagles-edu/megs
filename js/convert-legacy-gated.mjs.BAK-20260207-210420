@@ -44,11 +44,6 @@ const __dirname = path.dirname(__filename)
 
 // Keep aligned with tools/legacy-exercise-generator.mjs and tools/expand-questions.mjs
 const fieldNames = ["answer_01", "answer_02", "answer_03", "answer_04", "answer_05", "answer_06"]
-const MENU_STATE_TOKENS = [
-  "        --menu-state-bg: var(--white, #fff);",
-  "        --menu-state-border: var(--primary-color, #e0162b);",
-  "        --menu-state-text: var(--primary-color, #e0162b);",
-].join("\n")
 const LEAN_CRITICAL_INLINE = [
   "body {",
   "  margin: 0;",
@@ -620,42 +615,6 @@ function enforceLeanHeadShell($, telemetry) {
   )
 }
 
-function ensureMenuStateTokens($, telemetry) {
-  const themeVars = $("style#theme-vars-critical").first()
-  if (!themeVars.length) {
-    logEvent(telemetry, "warn", "menu-state-tokens", "theme-vars-critical style block not found")
-    return
-  }
-
-  const css = themeVars.html() || ""
-  if (
-    css.includes("--menu-state-bg:") &&
-    css.includes("--menu-state-border:") &&
-    css.includes("--menu-state-text:")
-  ) {
-    logEvent(telemetry, "ok", "menu-state-tokens", "menu state tokens already present")
-    return
-  }
-
-  let updated = css
-  if (updated.includes("--r-flyout-transition:")) {
-    updated = updated.replace(
-      /(--r-flyout-transition:[^\n]*\n)/,
-      (_, line) => `${line}${MENU_STATE_TOKENS}\n`
-    )
-  } else if (updated.includes("--menu-icon-pad-inline:")) {
-    updated = updated.replace(
-      /(--menu-icon-pad-inline:[^\n]*\n)/,
-      (_, line) => `${line}${MENU_STATE_TOKENS}\n`
-    )
-  } else {
-    updated = updated.replace(/(:root\s*{)/, `$1\n${MENU_STATE_TOKENS}`)
-  }
-
-  themeVars.html(updated)
-  logEvent(telemetry, "ok", "menu-state-tokens", "menu state tokens injected")
-}
-
 function injectTemplate(
   templateHtml,
   scraped,
@@ -670,7 +629,6 @@ function injectTemplate(
   const normalizedDefaultUi = (defaultAnswerUi || "").trim().toLowerCase()
 
   enforceLeanHeadShell($, telemetry)
-  ensureMenuStateTokens($, telemetry)
   logEvent(telemetry, "ok", "head-shell", "Using template head assets and scripts")
 
   $("title").first().text(scraped.title)

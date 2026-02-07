@@ -136,3 +136,6 @@ The gate checks each token in the combo; all must succeed for that combo to pass
 ## Daily Updates
 
 - 2026-02-06: Recorded system-doc maintenance requirement and scope exemption alignment with AGENTS.md.
+- 2026-02-06: Routine documentation maintenance (lesson conversion spacing normalization documented in docs/asscon.md).
+- 2026-02-07: Added lean head-shell guidance for conversion outputs (critical-inline only, shared CSS for layout, and removal of speculation/pager inline blocks in templates).
+- 2026-02-07: Applied prototype-aligned CLS hardening across `lesson-6-prepositions` lessons 1-4 (no speculationrules block; early `data-mobile-nav-bootstrap` on `<body>`).

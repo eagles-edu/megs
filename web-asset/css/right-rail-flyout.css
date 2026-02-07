@@ -43,7 +43,9 @@
 }
 
 .r-flyout-menu > [data-r-flyout-item].current > .r-flyout__header {
-  color: var(--primary-color, #e0162b);
+  color: var(--menu-state-text, var(--primary-color, #e0162b));
+  background-color: var(--menu-state-bg, var(--white, #fff));
+  border-color: var(--menu-state-border, var(--primary-color, #e0162b));
 }
 
 .r-flyout__link-wrap {
@@ -120,10 +122,10 @@
 [data-r-flyout-item].is-open > .r-flyout__header,
 [data-r-flyout-item]:hover > .r-flyout__header,
 [data-r-flyout-item]:focus-within > .r-flyout__header {
-  background: var(--r-flyout-bg, var(--surface-color, #fff));
-  border-color: var(--primary-color, #e0162b);
+  background: var(--menu-state-bg, var(--white, #fff));
+  border-color: var(--menu-state-border, var(--primary-color, #e0162b));
   box-shadow: none;
-  color: var(--primary-color, #e0162b);
+  color: var(--menu-state-text, var(--primary-color, #e0162b));
 }
 
 .r-flyout-menu
@@ -140,7 +142,7 @@
 [data-r-flyout-item].is-open > .r-flyout__header .r-flyout__toggle,
 [data-r-flyout-item]:hover > .r-flyout__header .r-flyout__toggle,
 [data-r-flyout-item]:focus-within > .r-flyout__header .r-flyout__toggle {
-  color: var(--primary-color, #e0162b);
+  color: var(--menu-state-text, var(--primary-color, #e0162b));
 }
 
 [data-r-flyout-item].is-open .r-flyout__icon--plus {
@@ -180,8 +182,14 @@
 }
 
 .r-flyout__sublist .item-wrapper {
-  border: 1px solid var(--border-color);
+  background-color: transparent;
+  border: 1px solid transparent;
+  border-radius: var(--radius, 3px);
   display: block;
+  transition:
+    background-color var(--r-flyout-transition),
+    border-color var(--r-flyout-transition),
+    color var(--r-flyout-transition);
 }
 
 .r-flyout__sublist .menu-link {
@@ -200,16 +208,61 @@
 
 .r-flyout__sublist a:hover,
 .r-flyout__sublist a:focus {
-  background-color: var(--white);
-  border: 1px solid var(--primary-color);
-  color: var(--primary-color, #e0162b);
+  color: var(--menu-state-text, var(--primary-color, #e0162b));
   outline: none;
+}
+
+.r-flyout__sublist li:hover > .item-wrapper,
+.r-flyout__sublist li:focus-within > .item-wrapper,
+.r-flyout__sublist li.current > .item-wrapper,
+.r-flyout__sublist li.active > .item-wrapper {
+  background-color: var(--menu-state-bg, var(--white, #fff));
+  border-color: var(--menu-state-border, var(--primary-color, #e0162b));
+}
+
+.r-flyout__sublist li:hover > .item-wrapper a,
+.r-flyout__sublist li:focus-within > .item-wrapper a {
+  color: var(--menu-state-text, var(--primary-color, #e0162b));
 }
 
 .r-flyout__sublist li.current > .item-wrapper a,
 .r-flyout__sublist li.active > .item-wrapper a {
-  color: var(--primary-color, #e0162b);
+  color: var(--menu-state-text, var(--primary-color, #e0162b));
   font-weight: 600;
+}
+
+/* Match/override legacy inline selectors present in converted exercise pages. */
+#aside .r-flyout-menu > [data-r-flyout-item].current > .r-flyout__header,
+#aside [data-r-flyout-item].is-open > .r-flyout__header,
+#aside [data-r-flyout-item]:hover > .r-flyout__header,
+#aside [data-r-flyout-item]:focus-within > .r-flyout__header {
+  background: var(--menu-state-bg, var(--white, #fff));
+  border-color: var(--menu-state-border, var(--primary-color, #e0162b));
+  color: var(--menu-state-text, var(--primary-color, #e0162b));
+}
+
+#aside [data-r-flyout-item].is-open > .r-flyout__header .r-flyout__toggle,
+#aside [data-r-flyout-item]:hover > .r-flyout__header .r-flyout__toggle,
+#aside [data-r-flyout-item]:focus-within > .r-flyout__header .r-flyout__toggle,
+#aside [data-r-flyout-item].is-open > .r-flyout__header .r-flyout__link,
+#aside [data-r-flyout-item]:hover > .r-flyout__header .r-flyout__link,
+#aside [data-r-flyout-item]:focus-within > .r-flyout__header .r-flyout__link {
+  color: var(--menu-state-text, var(--primary-color, #e0162b));
+}
+
+#aside .r-flyout__sublist li:hover > .item-wrapper,
+#aside .r-flyout__sublist li:focus-within > .item-wrapper,
+#aside .r-flyout__sublist li.current > .item-wrapper,
+#aside .r-flyout__sublist li.active > .item-wrapper {
+  background: var(--menu-state-bg, var(--white, #fff));
+  border-color: var(--menu-state-border, var(--primary-color, #e0162b));
+}
+
+#aside .r-flyout__sublist li:hover > .item-wrapper a,
+#aside .r-flyout__sublist li:focus-within > .item-wrapper a,
+#aside .r-flyout__sublist li.current > .item-wrapper a,
+#aside .r-flyout__sublist li.active > .item-wrapper a {
+  color: var(--menu-state-text, var(--primary-color, #e0162b));
 }
 
 @media (width <= 900px) {

@@ -215,6 +215,9 @@ _Critically, consistently, and before every coding attempt, ALWAYS reread agents
 - 2026-01-19: Restored conversion assistant diff-preview default and added auto Example detection plus sentence-mode artifact review to prevent input regressions.
 - 2026-01-19: Clarified sentence-mode prompts to require full sentences and added optional USA spelling/usage normalization (including quote punctuation fixes).
 - 2026-02-06: Codified system-doc maintenance exemption from scope limits and recorded daily update requirement.
+- 2026-02-06: Documented lesson conversion spacing normalization for replacement characters and `&nbsp;`.
+- 2026-02-07: Consolidated prototype head shell to lean critical-inline CSS/JS, moved structural layout rules to shared CSS, and removed deferred speculation/pager inline bloat.
+- 2026-02-07: Aligned `lesson-6-prepositions/1-4` to prototype CLS baseline by removing per-page speculation rules and ensuring early mobile-nav bootstrap on lesson bodies.
 
 ## Edit Instruction Standards
 

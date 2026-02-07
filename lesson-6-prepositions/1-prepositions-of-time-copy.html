@@ -39,6 +39,7 @@
         --pager-label-truncate: ellipsis;
         --pager-label-wrap: nowrap;
         --pager-link-shadow: inset 0 0 0 1px rgb(255 255 255 / 35%);
+        --pager-margin: 1rem 0 2rem;
         --pager-padding-block: 0.6rem;
         --pager-padding-inline: 0.95rem;
         --pager-text-color: var(--text-color, #212121);
@@ -113,111 +114,6 @@
     <noscript>
       <link rel="stylesheet" href="../web-asset/css/base.css">
     </noscript>
-    <style id="pager-style-overrides">
-      .pager {
-        align-items: stretch;
-        display: flex;
-        flex-wrap: var(--pager-flex-wrap, nowrap);
-        gap: var(--pager-gap-y) var(--pager-gap-x);
-        justify-content: space-between;
-        list-style: none;
-        margin: 1.5rem 0;
-        max-width: 100%;
-        padding: 0;
-        width: 100%;
-      }
-
-      .pager > li {
-        display: flex;
-        flex: 1 1 0;
-        min-width: 0;
-      }
-
-      .pager > li > a {
-        align-items: center;
-        background: var(--pager-background);
-        border: 1px solid var(--pager-border-color);
-        border-radius: var(--radius);
-        box-shadow: var(--pager-link-shadow);
-        color: var(--pager-text-color);
-        display: inline-flex;
-        font-size: var(--pager-font-size);
-        font-weight: var(--pager-font-weight);
-        gap: calc(var(--pager-gap-x) * 0.5);
-        justify-content: space-between;
-        min-height: calc(var(--pager-icon-size) + (var(--pager-padding-block) * 2));
-        overflow: hidden;
-        padding: var(--pager-padding-block) var(--pager-padding-inline);
-        text-decoration: none;
-        text-overflow: var(--pager-label-truncate);
-        transition:
-          color 0.2s ease,
-          background-color 0.2s ease,
-          border-color 0.2s ease,
-          box-shadow 0.2s ease;
-        white-space: var(--pager-label-wrap);
-        width: 100%;
-      }
-
-      .pager > li > a:focus,
-      .pager > li > a:hover {
-        border-color: var(--primary-color);
-        box-shadow: var(--pager-hover-shadow);
-        color: var(--primary-color);
-        outline: none;
-      }
-
-      .pager > li > a:focus-visible {
-        outline: none;
-      }
-
-      .pager > li > a:active {
-        box-shadow: inset 0 0 0 2px rgba(224, 22, 43, 0.15);
-      }
-
-      .pager .previous > a {
-        justify-content: flex-start;
-      }
-
-      .pager .next {
-        margin-left: auto;
-      }
-
-      .pager .next > a {
-        justify-content: flex-start;
-        text-align: left;
-      }
-      .pager .pager-label {
-        flex: 1 1 auto;
-        min-width: 0;
-        overflow: hidden;
-        text-overflow: var(--pager-label-truncate);
-        white-space: var(--pager-label-wrap);
-        text-align: left;
-      }
-
-      .pager > li > a svg,
-      .pager > li > a img {
-        flex: 0 0 auto;
-        height: var(--pager-icon-size);
-        width: var(--pager-icon-size);
-      }
-
-      .pager > li > a svg {
-        fill: currentColor;
-      }
-
-      @media (max-width: 599px) {
-        .pager {
-          flex-wrap: var(--pager-flex-wrap-mobile, wrap);
-        }
-
-        .pager > li {
-          flex-basis: var(--pager-mobile-item-width, 100%);
-        }
-      }
-    </style>
-
     <!-- Critical resource hints for better performance -->
     <style id="critical-inline">
       /* Critical CSS: reset + fast header paint + mobile toggle */
@@ -284,6 +180,16 @@
 
     <!-- Critical augment: stabilize grid/menu to reduce CLS -->
     <style id="critical-inline-augment">
+      /* 10) Breadcrumb */
+      .breadcrumb {
+        align-items: center;
+        color: var(--color-muted);
+        display: flex;
+        gap: 8px;
+        list-style: none;
+        margin: 1rem 0 1.42rem;
+        padding: 0;
+      }
       /* Grid layout (avoid block→flex shift when async CSS loads) */
       .container {
         margin: 0 auto;
@@ -531,15 +437,6 @@
 
       ul.accordion-menu li.opened > .ul-wrapper {
         display: block;
-      }
-
-      /* Pager arrows: reserve space */
-      .pager {
-        display: flex;
-        justify-content: space-between;
-        list-style: none;
-        margin: 1rem 0;
-        padding: 0;
       }
 
       /* Stabilize instruction blocks to avoid inline-block reflow */

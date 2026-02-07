@@ -1,0 +1,948 @@
+#!/usr/bin/env node
+/*
+Usage:
+  node js/convert-legacy-lesson.mjs <legacy-path> [options]
+
+Options:
+  --target, -f            Legacy lesson HTML path (required if not positional)
+  --prototype, -p         Prototype lesson template (default: lesson-6-prepositions/1-prepositions-of-time.html)
+  --uk-to-us              Normalize UK spellings/usage to US (optional)
+  --diff-preview          Show diff without writing (default)
+  --no-diff-preview       Write changes to the legacy file
+  --help, -h              Show help
+*/
+import fs from "node:fs"
+import os from "node:os"
+import path from "node:path"
+import process from "node:process"
+import { spawnSync } from "node:child_process"
+import { load } from "cheerio"
+
+const DEFAULT_PROTOTYPE = "lesson-6-prepositions/1-prepositions-of-time.html"
+const MENU_STATE_TOKENS = [
+  "        --menu-state-bg: var(--white, #fff);",
+  "        --menu-state-border: var(--primary-color, #e0162b);",
+  "        --menu-state-text: var(--primary-color, #e0162b);",
+].join("\n")
+const LEAN_CRITICAL_INLINE = [
+  "body {",
+  "  margin: 0;",
+  "}",
+  "",
+  "@media (max-width: 767px) {",
+  "  body.mobile-nav-enabled #sidebar {",
+  "    background: transparent;",
+  "    height: 100vh;",
+  "    left: -260px;",
+  "    overflow: auto;",
+  "    position: fixed;",
+  "    top: 0;",
+  "    width: 260px;",
+  "    z-index: 1201;",
+  "  }",
+  "}",
+].join("\n")
+
+const US_WORD_RULES = [
+  {
+    from: "colour",
+    to: "color",
+    suffixes: ["", "s", "ed", "ing", "ful", "fully", "fulness", "less", "lessly", "lessness"],
+  },
+  {
+    from: "favourit",
+    to: "favorit",
+    suffixes: ["e", "es", "ed", "ing", "ism", "isms"],
+  },
+  {
+    from: "centre",
+    to: "center",
+    suffixes: [
+      "",
+      "s",
+      { fromSuffix: "d", toSuffix: "ed" },
+      { fromSuffix: "ing", toSuffix: "ing", dropFromE: true },
+    ],
+  },
+  {
+    from: "metre",
+    to: "meter",
+    suffixes: [
+      "",
+      "s",
+      { fromSuffix: "d", toSuffix: "ed" },
+      { fromSuffix: "ing", toSuffix: "ing", dropFromE: true },
+    ],
+  },
+  { from: "kilometre", to: "kilometer", suffixes: ["", "s"] },
+  {
+    from: "litre",
+    to: "liter",
+    suffixes: [
+      "",
+      "s",
+      { fromSuffix: "d", toSuffix: "ed" },
+      { fromSuffix: "ing", toSuffix: "ing", dropFromE: true },
+    ],
+  },
+  { from: "theatre", to: "theater", suffixes: ["", "s"] },
+  {
+    from: "organis",
+    to: "organiz",
+    suffixes: [
+      "e",
+      "es",
+      "ed",
+      "ing",
+      "er",
+      "ers",
+      "ation",
+      "ations",
+      "ational",
+      "ationally",
+      "able",
+      "ably",
+      "ability",
+    ],
+  },
+  {
+    from: "realis",
+    to: "realiz",
+    suffixes: [
+      "e",
+      "es",
+      "ed",
+      "ing",
+      "er",
+      "ers",
+      "ation",
+      "ations",
+      "ational",
+      "ationally",
+      "able",
+      "ably",
+      "ability",
+    ],
+  },
+  {
+    from: "analys",
+    to: "analyz",
+    suffixes: ["e", "es", "ed", "ing", "er", "ers", "able", "ably", "ability"],
+  },
+  { from: "defenc", to: "defens", suffixes: ["e", "es", "eless", "elessly", "elessness"] },
+  { from: "offenc", to: "offens", suffixes: ["e", "es", "eless", "elessly", "elessness"] },
+  { from: "licenc", to: "licens", suffixes: ["e", "es", "ed", "ing", "er", "ers"] },
+  { from: "travell", to: "travel", suffixes: ["ed", "ing", "er", "ers"] },
+  { from: "cancell", to: "cancel", suffixes: ["ed", "ing"] },
+  { from: "jewell", to: "jewel", suffixes: ["ed", "ing", "er", "ers"] },
+  {
+    from: "neighbour",
+    to: "neighbor",
+    suffixes: ["", "s", "ed", "ing", "hood", "hoods", "ly", "liness", "linesses"],
+  },
+  { from: "grey", to: "gray", suffixes: ["", "s", "ed", "ing", "er", "est", "ish", "ness"] },
+]
+
+const US_WORD_EXACT = [
+  { from: "jewellery", to: "jewelry" },
+  { from: "programme", to: "program" },
+  { from: "programmes", to: "programs" },
+  { from: "learnt", to: "learned" },
+  { from: "towards", to: "toward" },
+  { from: "amongst", to: "among" },
+  { from: "whilst", to: "while" },
+  { from: "cheque", to: "check" },
+  { from: "cheques", to: "checks" },
+  { from: "lift", to: "elevator" },
+  { from: "pram", to: "stroller" },
+]
+
+const US_PHRASE_REPLACEMENTS = [
+  { from: "in hospital", to: "in the hospital" },
+]
+
+const US_WORD_REPLACEMENTS = buildUsWordReplacements(US_WORD_RULES, US_WORD_EXACT)
+
+function fail(message) {
+  console.error(message)
+  process.exit(1)
+}
+
+function printUsage() {
+  console.log(`Usage:
+  node js/convert-legacy-lesson.mjs <legacy-path> [options]
+
+Options:
+  --target, -f            Legacy lesson HTML path (required if not positional)
+  --prototype, -p         Prototype lesson template (default: ${DEFAULT_PROTOTYPE})
+  --uk-to-us              Normalize UK spellings/usage to US (optional)
+  --diff-preview          Show diff without writing (default)
+  --no-diff-preview       Write changes to the legacy file
+  --help, -h              Show help
+`)
+}
+
+function parseArgs(argv) {
+  const args = {
+    target: "",
+    prototype: DEFAULT_PROTOTYPE,
+    diffPreview: true,
+    ukToUs: false,
+  }
+
+  for (let i = 2; i < argv.length; i += 1) {
+    const arg = argv[i]
+    if (arg === "--help" || arg === "-h") {
+      printUsage()
+      process.exit(0)
+    } else if (arg === "--target" || arg === "-f") {
+      args.target = argv[++i] || ""
+    } else if (arg === "--prototype" || arg === "-p") {
+      args.prototype = argv[++i] || ""
+    } else if (arg === "--uk-to-us") {
+      args.ukToUs = true
+    } else if (arg === "--diff-preview") {
+      args.diffPreview = true
+    } else if (arg === "--no-diff-preview") {
+      args.diffPreview = false
+    } else if (!args.target && !arg.startsWith("-")) {
+      args.target = arg
+    } else {
+      fail(`Unknown argument: ${arg}`)
+    }
+  }
+
+  if (!args.target) fail("Missing legacy HTML path.")
+  if (!args.prototype) fail("Missing prototype path.")
+  return args
+}
+
+function resolvePathMaybe(relativePath) {
+  return path.isAbsolute(relativePath) ? relativePath : path.resolve(process.cwd(), relativePath)
+}
+
+function ensureFileExists(targetPath) {
+  if (!fs.existsSync(targetPath)) {
+    fail(`File not found: ${targetPath}`)
+  }
+}
+
+function loadHtml(targetPath) {
+  try {
+    return fs.readFileSync(targetPath, "utf8")
+  } catch (error) {
+    fail(`Unable to read ${targetPath}: ${error.message}`)
+  }
+}
+
+function trimTrailingWhitespace(text) {
+  return text.replace(/[ \t]+$/gm, "")
+}
+
+const REPLACEMENT_CHAR_REGEX = /\uFFFD/g
+const NBSP_CHAR_REGEX = /\u00A0/g
+const NBSP_ENTITY_REGEX = /&nbsp;/gi
+const MULTI_SPACE_REGEX = /[ \t]{2,}/g
+
+function normalizeSpacingText(text) {
+  let replacementChars = 0
+  let nbspCount = 0
+  let collapsedSpaces = 0
+  let out = text
+  out = out.replace(REPLACEMENT_CHAR_REGEX, () => {
+    replacementChars += 1
+    return " "
+  })
+  out = out.replace(NBSP_CHAR_REGEX, () => {
+    nbspCount += 1
+    return " "
+  })
+  out = out.replace(NBSP_ENTITY_REGEX, () => {
+    nbspCount += 1
+    return " "
+  })
+
+  const leading = out.match(/^\s*/)?.[0] ?? ""
+  const trailing = out.match(/\s*$/)?.[0] ?? ""
+  let core = out.slice(leading.length, out.length - trailing.length)
+  core = core.replace(MULTI_SPACE_REGEX, (match) => {
+    collapsedSpaces += match.length - 1
+    return " "
+  })
+
+  return {
+    text: `${leading}${core}${trailing}`,
+    replacementChars,
+    nbspCount,
+    collapsedSpaces,
+  }
+}
+
+function normalizeLessonSpacing(html) {
+  if (!html) {
+    return {
+      html: html || "",
+      stats: { replacementChars: 0, nbspCount: 0, collapsedSpaces: 0 },
+    }
+  }
+  const $ = load(`<div id="lesson-spacing-root">${html}</div>`, { decodeEntities: false })
+  const root = $("#lesson-spacing-root")
+  const stats = { replacementChars: 0, nbspCount: 0, collapsedSpaces: 0 }
+
+  root
+    .find("*")
+    .addBack()
+    .contents()
+    .each((_, node) => {
+      if (node.type !== "text") return
+      const original = node.data || ""
+      const normalized = normalizeSpacingText(original)
+      stats.replacementChars += normalized.replacementChars
+      stats.nbspCount += normalized.nbspCount
+      stats.collapsedSpaces += normalized.collapsedSpaces
+      if (normalized.text !== original) node.data = normalized.text
+    })
+
+  return { html: root.html() || "", stats }
+}
+
+function collapseBooleanAttributes(html) {
+  const booleanAttrs = ["hidden", "nomodule", "defer", "disabled", "required", "novalidate"]
+  const pattern = new RegExp(`(^|[^\\w-])(${booleanAttrs.join("|")})=""`, "gi")
+  return html.replace(pattern, (match, prefix, attr) => `${prefix}${attr.toLowerCase()}`)
+}
+
+function backupFile(targetPath) {
+  const stamp = new Date()
+    .toISOString()
+    .replace(/[:.]/g, "-")
+    .replace(/Z$/, "")
+  const backupName = `${path.basename(targetPath)}.BAK-${stamp}`
+  const backupPath = path.join(path.dirname(targetPath), backupName)
+  fs.copyFileSync(targetPath, backupPath)
+  return backupPath
+}
+
+function showDiff(original, updated) {
+  const tempDir = fs.mkdtempSync(path.join(os.tmpdir(), "legacy-lesson-"))
+  const beforePath = path.join(tempDir, "before.html")
+  const afterPath = path.join(tempDir, "after.html")
+  fs.writeFileSync(beforePath, original, "utf8")
+  fs.writeFileSync(afterPath, updated, "utf8")
+  const result = spawnSync(
+    "git",
+    ["--no-pager", "diff", "--no-index", "--color=always", beforePath, afterPath],
+    { encoding: "utf8" }
+  )
+  return result.stdout || result.stderr
+}
+
+function escapeRegExp(value) {
+  return value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")
+}
+
+function applyMatchCase(source, replacement) {
+  if (!source) return replacement
+  const upper = source.toUpperCase()
+  const lower = source.toLowerCase()
+  if (source === upper) return replacement.toUpperCase()
+  if (source[0] === source[0].toUpperCase() && source.slice(1) === lower.slice(1)) {
+    return replacement[0].toUpperCase() + replacement.slice(1)
+  }
+  return replacement
+}
+
+function buildUsWordReplacements(rules, exact) {
+  const map = new Map()
+  const add = (from, to, force = false) => {
+    if (!from || !to) return
+    const key = from.toLowerCase()
+    if (map.has(key) && !force) return
+    map.set(key, { from, to })
+  }
+
+  rules.forEach((rule) => {
+    const suffixes = Array.isArray(rule.suffixes) && rule.suffixes.length ? rule.suffixes : [""]
+    const fromDrop = new Set(rule.fromDropESuffixes || [])
+    const toDrop = new Set(rule.toDropESuffixes || [])
+    suffixes.forEach((suffix) => {
+      const entry =
+        typeof suffix === "string"
+          ? { fromSuffix: suffix, toSuffix: suffix }
+          : {
+              fromSuffix: suffix.fromSuffix,
+              toSuffix: suffix.toSuffix,
+              dropFromE: suffix.dropFromE,
+              dropToE: suffix.dropToE,
+            }
+      const fromSuffix = entry.fromSuffix ?? ""
+      const toSuffix = entry.toSuffix ?? fromSuffix
+      const dropFromE =
+        typeof entry.dropFromE === "boolean" ? entry.dropFromE : fromDrop.has(fromSuffix)
+      const dropToE =
+        typeof entry.dropToE === "boolean" ? entry.dropToE : toDrop.has(toSuffix)
+      const fromBase =
+        dropFromE && rule.from.endsWith("e") ? rule.from.slice(0, -1) : rule.from
+      const toBase = dropToE && rule.to.endsWith("e") ? rule.to.slice(0, -1) : rule.to
+      add(fromBase + fromSuffix, toBase + toSuffix)
+    })
+  })
+
+  exact.forEach((entry) => add(entry.from, entry.to, true))
+  return Array.from(map.values())
+}
+
+function applyUsPhraseReplacements(text) {
+  let out = text
+  for (const entry of US_PHRASE_REPLACEMENTS) {
+    const regex = new RegExp(`\\b${escapeRegExp(entry.from)}\\b`, "gi")
+    out = out.replace(regex, (match) => applyMatchCase(match, entry.to))
+  }
+  return out
+}
+
+function applyUsWordReplacements(text) {
+  let out = text
+  for (const entry of US_WORD_REPLACEMENTS) {
+    const regex = new RegExp(`\\b${escapeRegExp(entry.from)}\\b`, "gi")
+    out = out.replace(regex, (match) => applyMatchCase(match, entry.to))
+  }
+  return out
+}
+
+function normalizeUsageText(text) {
+  let out = applyUsPhraseReplacements(text)
+  out = applyUsWordReplacements(out)
+  return out
+}
+
+function normalizeLessonUsage(html) {
+  if (!html) return html
+  const $ = load(`<div id="lesson-usage-root">${html}</div>`, { decodeEntities: false })
+  const root = $("#lesson-usage-root")
+  root
+    .find("*")
+    .addBack()
+    .contents()
+    .each((_, node) => {
+      if (node.type === "text") {
+        const original = node.data || ""
+        const updated = normalizeUsageText(original)
+        if (updated !== original) node.data = updated
+      }
+    })
+  return root.html() || ""
+}
+
+function extractLinkLabelWithoutSvg(link) {
+  if (!link || !link.length) return ""
+  const clone = link.clone()
+  clone.find("svg, img").remove()
+  return clone
+    .text()
+    .replace(/\s+/g, " ")
+    .trim()
+}
+
+function scrapePager($) {
+  const pager = {}
+  const prev = $(".pager .previous a, .pagenav .previous a").first()
+  if (prev.length) {
+    pager.previous = {
+      href: prev.attr("href") || "",
+      label: extractLinkLabelWithoutSvg(prev) || prev.attr("aria-label") || "",
+      ariaLabel: prev.attr("aria-label") || "Previous",
+      rel: prev.attr("rel") || "prev",
+    }
+  }
+  const next = $(".pager .next a, .pagenav .next a").first()
+  if (next.length) {
+    pager.next = {
+      href: next.attr("href") || "",
+      label: extractLinkLabelWithoutSvg(next) || next.attr("aria-label") || "",
+      ariaLabel: next.attr("aria-label") || "Next",
+      rel: next.attr("rel") || "next",
+    }
+  }
+  return pager
+}
+
+function scrapeBreadcrumbs($) {
+  const crumbs = []
+  const list = $("ul.breadcrumb").first()
+  if (!list.length) return crumbs
+  list.find("li").each((_, li) => {
+    const node = $(li)
+    const anchor = node.find("a").first()
+    const name = (anchor.length ? anchor.text() : node.text()).replace(/\s+/g, " ").trim()
+    if (!name) return
+    const href = anchor.length ? anchor.attr("href") || "" : ""
+    crumbs.push({ name, href })
+  })
+  return crumbs
+}
+
+function extractHeadline($) {
+  const headline = $(".page-header h1, .page-header h2").first().text().trim()
+  const title = $("head > title").first().text().trim()
+  return {
+    headline: headline || title,
+    title: title || headline,
+  }
+}
+
+function extractLegacyBody($) {
+  const articleBody = $("div[itemprop='articleBody']").first()
+  if (!articleBody.length) return ""
+  const clone = articleBody.clone()
+  clone.find("nav.breadcrumb-wrap, ul.breadcrumb, ul.pager, ul.pagenav").remove()
+  clone.find("script, style").remove()
+  return clone.html() || ""
+}
+
+function collectCssSources($, protoPath) {
+  const baseDir = path.dirname(protoPath)
+  const cssPaths = new Set()
+  $("link[rel='stylesheet']").each((_, link) => {
+    const href = $(link).attr("href") || ""
+    if (!href || href.startsWith("http")) return
+    const clean = href.split(/[?#]/)[0]
+    if (!clean) return
+    const resolved = path.resolve(baseDir, clean)
+    if (fs.existsSync(resolved)) {
+      cssPaths.add(resolved)
+    }
+  })
+
+  const inlineStyles = []
+  $("style").each((_, style) => {
+    const text = $(style).html() || ""
+    if (text.trim()) inlineStyles.push(text)
+  })
+
+  return { cssPaths: Array.from(cssPaths), inlineStyles }
+}
+
+function collectCssClassNames(cssText) {
+  const classNames = new Set()
+  const regex = /\.(-?[_a-zA-Z]+[_a-zA-Z0-9-]*)/g
+  let match = null
+  while ((match = regex.exec(cssText))) {
+    classNames.add(match[1])
+  }
+  return classNames
+}
+
+function collectHtmlClasses($) {
+  const classNames = new Set()
+  $("[class]").each((_, el) => {
+    const raw = $(el).attr("class") || ""
+    raw
+      .split(/\s+/)
+      .filter(Boolean)
+      .forEach((name) => classNames.add(name))
+  })
+  return classNames
+}
+
+function buildAllowedClassSet($proto, protoPath) {
+  const allowed = new Set()
+  const sources = collectCssSources($proto, protoPath)
+  sources.cssPaths.forEach((cssPath) => {
+    const css = fs.readFileSync(cssPath, "utf8")
+    collectCssClassNames(css).forEach((name) => allowed.add(name))
+  })
+  sources.inlineStyles.forEach((css) => {
+    collectCssClassNames(css).forEach((name) => allowed.add(name))
+  })
+  collectHtmlClasses($proto).forEach((name) => allowed.add(name))
+  return allowed
+}
+
+function normalizeLessonBody(html, allowedClasses) {
+  const $ = load(`<div id="lesson-content">${html}</div>`, { decodeEntities: false })
+  let removedStyles = 0
+  let removedClassTokens = 0
+  const orphaned = new Set()
+
+  $("[style]").each((_, el) => {
+    $(el).removeAttr("style")
+    removedStyles += 1
+  })
+
+  $("[class]").each((_, el) => {
+    const raw = $(el).attr("class") || ""
+    const classes = raw.split(/\s+/).filter(Boolean)
+    const keep = []
+    classes.forEach((cls) => {
+      if (allowedClasses.has(cls)) {
+        keep.push(cls)
+      } else {
+        removedClassTokens += 1
+        orphaned.add(cls)
+      }
+    })
+    const unique = Array.from(new Set(keep))
+    if (unique.length) {
+      $(el).attr("class", unique.join(" "))
+    } else {
+      $(el).removeAttr("class")
+    }
+  })
+
+  return {
+    html: $("#lesson-content").html() || "",
+    removedStyles,
+    removedClassTokens,
+    orphaned: Array.from(orphaned).sort(),
+  }
+}
+
+function updateTitleAndHeadline($, title, headline) {
+  if (title) {
+    $("head > title").first().text(title)
+  }
+  if (headline) {
+    $(".page-header h1, .page-header h2").first().text(headline)
+  }
+}
+
+function updateBreadcrumbList($, list, crumbs) {
+  if (!list || !list.length || !crumbs.length) return
+
+  list.addClass("breadcrumb-truncate")
+  const linkedTemplate = list.find("li[itemprop='itemListElement']").not(".active").first()
+  const currentTemplate = list.find("li[itemprop='itemListElement'].active").first()
+
+  list.find("li[itemprop='itemListElement']").remove()
+
+  crumbs.forEach((crumb, index) => {
+    const isLast = index === crumbs.length - 1 || !crumb.href
+    const position = index + 1
+    const template = isLast ? currentTemplate : linkedTemplate
+    if (!template.length) return
+    const node = template.clone()
+    node.removeClass("breadcrumb-segment-truncate breadcrumb-segment-current")
+
+    if (isLast) {
+      node.addClass("active")
+      node.find("a").remove()
+      node.find("[itemprop='name']").text(crumb.name)
+    } else {
+      node.removeClass("active")
+      node.find("a[itemprop='item']").attr("href", crumb.href)
+      node.find("[itemprop='name']").text(crumb.name)
+    }
+    if (index === 1) {
+      node.addClass("breadcrumb-segment-truncate")
+    }
+    if (index === 2) {
+      node.addClass("breadcrumb-segment-current")
+    }
+    node.find("meta[itemprop='position']").attr("content", String(position))
+    list.append(node)
+  })
+}
+
+function highlightLessonsNav($) {
+  const lessonItem = $('a[href="../grammar-lessons.html"]').closest("li")
+  const exerciseItem = $('a[href="../grammar-exercises.html"]').closest("li")
+  if (lessonItem.length) {
+    lessonItem.addClass("current")
+  }
+  if (exerciseItem.length) {
+    exerciseItem.removeClass("current")
+  }
+}
+
+function replaceAnchorLabel($, anchor, label, position) {
+  if (!anchor.length) return
+  const normalizedLabel = (label || "").replace(/\s+/g, " ").trim()
+  anchor.find("span.pager-label").remove()
+  anchor
+    .contents()
+    .filter((_, node) => node.type === "text")
+    .remove()
+
+  if (!normalizedLabel) return
+
+  const labelNode = $("<span>").addClass("pager-label").text(normalizedLabel)
+  const iconNodes = anchor.children("svg, img")
+  if (position === "before" && iconNodes.length) {
+    iconNodes.first().before(labelNode)
+  } else if (position === "after" && iconNodes.length) {
+    iconNodes.first().after(labelNode)
+  } else if (position === "before") {
+    anchor.prepend(labelNode)
+  } else {
+    anchor.append(labelNode)
+  }
+}
+
+function updatePager($, pager, data) {
+  if (!pager || !pager.length) return
+  if (data.previous) {
+    const prev = pager.find("li.previous a").first()
+    if (prev.length) {
+      prev.attr("href", data.previous.href || "")
+      prev.attr("rel", data.previous.rel || "prev")
+      prev.attr("aria-label", data.previous.ariaLabel || "Previous")
+      replaceAnchorLabel($, prev, data.previous.label, "after")
+    }
+  }
+  if (data.next) {
+    const next = pager.find("li.next a").first()
+    if (next.length) {
+      next.attr("href", data.next.href || "")
+      next.attr("rel", data.next.rel || "next")
+      next.attr("aria-label", data.next.ariaLabel || "Next")
+      replaceAnchorLabel($, next, data.next.label, "before")
+    }
+  }
+}
+
+function replaceLessonBody($, contentHtml) {
+  const articleBody = $("div[itemprop='articleBody']").first()
+  if (!articleBody.length) return
+
+  const breadcrumb = articleBody.find("nav.breadcrumb-wrap").first()
+  const pagers = articleBody.find("ul.pager.pagenav")
+  const topPager = pagers.first()
+  const bottomPager = pagers.last()
+
+  const keep = new Set()
+  if (breadcrumb.length) keep.add(breadcrumb.get(0))
+  if (topPager.length) keep.add(topPager.get(0))
+  if (bottomPager.length) keep.add(bottomPager.get(0))
+
+  articleBody
+    .children()
+    .toArray()
+    .forEach((child) => {
+      if (!keep.has(child)) $(child).remove()
+    })
+
+  const trimmed = (contentHtml || "").trim()
+  if (trimmed) {
+    if (topPager.length && bottomPager.length && topPager.get(0) !== bottomPager.get(0)) {
+      topPager.after(`\n${trimmed}\n`)
+    } else if (breadcrumb.length) {
+      breadcrumb.after(`\n${trimmed}\n`)
+    } else {
+      articleBody.prepend(`\n${trimmed}\n`)
+    }
+  }
+
+  if (bottomPager.length && topPager.get(0) !== bottomPager.get(0)) {
+    const bottomHtml = bottomPager.toString()
+    bottomPager.remove()
+    articleBody.append(`\n`)
+    articleBody.append(bottomHtml)
+  }
+}
+
+function enforceLeanHeadShell($) {
+  const removed = {
+    inlineBlocks: 0,
+    speculationScripts: 0,
+  }
+
+  $("style#pager-style-overrides, style#critical-inline-augment").each((_, node) => {
+    $(node).remove()
+    removed.inlineBlocks += 1
+  })
+
+  $("script").each((_, node) => {
+    const text = ($(node).html() || "").trim()
+    if (!text) return
+    if (text.includes("speculationrules") && text.includes("injectSpeculation")) {
+      $(node).remove()
+      removed.speculationScripts += 1
+    }
+  })
+
+  const criticalInline = $("style#critical-inline").first()
+  if (criticalInline.length) {
+    criticalInline.text(`\n${LEAN_CRITICAL_INLINE}\n    `)
+  } else {
+    $("head").append(`\n    <style id="critical-inline">\n${LEAN_CRITICAL_INLINE}\n    </style>`)
+  }
+
+  const body = $("body").first()
+  if (body.length && !body.children("script[data-mobile-nav-bootstrap]").length) {
+    body.prepend(
+      '<script data-mobile-nav-bootstrap>\n      document.body.classList.add("mobile-nav-enabled")\n    </script>\n'
+    )
+  }
+
+  const sprite = $("body > svg[aria-hidden='true']").first()
+  if (sprite.length) {
+    sprite.addClass("icon-sprite")
+    if (sprite.attr("style")) sprite.removeAttr("style")
+  }
+
+  return removed
+}
+
+function ensureMenuStateTokens($) {
+  const themeVars = $("style#theme-vars-critical").first()
+  if (!themeVars.length) return false
+
+  const css = themeVars.html() || ""
+  if (
+    css.includes("--menu-state-bg:") &&
+    css.includes("--menu-state-border:") &&
+    css.includes("--menu-state-text:")
+  ) {
+    return false
+  }
+
+  let updated = css
+  if (updated.includes("--r-flyout-transition:")) {
+    updated = updated.replace(
+      /(--r-flyout-transition:[^\n]*\n)/,
+      (_, line) => `${line}${MENU_STATE_TOKENS}\n`
+    )
+  } else if (updated.includes("--menu-icon-pad-inline:")) {
+    updated = updated.replace(
+      /(--menu-icon-pad-inline:[^\n]*\n)/,
+      (_, line) => `${line}${MENU_STATE_TOKENS}\n`
+    )
+  } else {
+    updated = updated.replace(/(:root\s*{)/, `$1\n${MENU_STATE_TOKENS}`)
+  }
+
+  themeVars.html(updated)
+  return true
+}
+
+function normalizeLeadHeadingText(text) {
+  const raw = (text || "").replace(/\s+/g, " ").trim()
+  if (!raw) return ""
+  return raw.replace(/^\d+(?:\.\d+)*\s*[-:.]?\s*/, "").trim() || raw
+}
+
+function ensureLeadH3BeforeContent($, fallbackText) {
+  const articleBody = $("div[itemprop='articleBody']").first()
+  if (!articleBody.length) return false
+
+  const firstContentNode = articleBody
+    .children()
+    .filter((_, el) => {
+      const tag = String(el.tagName || "").toLowerCase()
+      return tag && tag !== "nav" && !(tag === "ul" && $(el).hasClass("pager"))
+    })
+    .first()
+
+  if (!firstContentNode.length) return false
+
+  const tag = String(firstContentNode.get(0)?.tagName || "").toLowerCase()
+  if (/^h[1-6]$/.test(tag)) {
+    if (tag === "h3") return false
+    const replacement = $("<h3>")
+    const attrs = firstContentNode.attr() || {}
+    Object.entries(attrs).forEach(([key, value]) => replacement.attr(key, value))
+    replacement.html(firstContentNode.html() || "")
+    firstContentNode.replaceWith(replacement)
+    return true
+  }
+
+  const headingText = normalizeLeadHeadingText(fallbackText) || "The Lesson"
+  firstContentNode.before($("<h3>").text(headingText))
+  return true
+}
+
+function logSummary(summary) {
+  console.log("Conversion summary:")
+  summary.forEach((line) => console.log(`  - ${line}`))
+}
+
+function main() {
+  const args = parseArgs(process.argv)
+  const targetPath = resolvePathMaybe(args.target)
+  const prototypePath = resolvePathMaybe(args.prototype)
+
+  ensureFileExists(targetPath)
+  ensureFileExists(prototypePath)
+
+  const legacyHtml = loadHtml(targetPath)
+  const protoHtml = loadHtml(prototypePath)
+
+  const $legacy = load(legacyHtml, { decodeEntities: false })
+  const $proto = load(protoHtml, { decodeEntities: false })
+
+  const { title, headline } = extractHeadline($legacy)
+  const breadcrumbs = scrapeBreadcrumbs($legacy)
+  const pager = scrapePager($legacy)
+  const legacyBody = extractLegacyBody($legacy)
+  const cleanedBody = normalizeLessonSpacing(legacyBody)
+  const normalizedUsageBody = args.ukToUs ? normalizeLessonUsage(cleanedBody.html) : cleanedBody.html
+
+  const allowedClasses = buildAllowedClassSet($proto, prototypePath)
+  const normalized = normalizeLessonBody(normalizedUsageBody, allowedClasses)
+
+  updateTitleAndHeadline($proto, title, headline)
+
+  const breadcrumbLists = $proto("nav.breadcrumb-wrap ul.breadcrumb")
+  if (breadcrumbLists.length) {
+    updateBreadcrumbList($proto, breadcrumbLists.first(), breadcrumbs)
+    updateBreadcrumbList($proto, breadcrumbLists.last(), breadcrumbs)
+  }
+
+  const pagerLists = $proto("ul.pager.pagenav")
+  if (pagerLists.length) {
+    updatePager($proto, pagerLists.first(), pager)
+    if (pagerLists.length > 1) updatePager($proto, pagerLists.last(), pager)
+  }
+
+  highlightLessonsNav($proto)
+  const shellChanges = enforceLeanHeadShell($proto)
+  const menuTokenAdded = ensureMenuStateTokens($proto)
+
+  replaceLessonBody($proto, normalized.html)
+  const insertedLeadH3 = ensureLeadH3BeforeContent($proto, headline)
+
+  let updated = $proto.html()
+  updated = collapseBooleanAttributes(updated)
+  updated = trimTrailingWhitespace(updated)
+
+  const summary = [
+    `headline: ${headline || "(none)"}`,
+    `breadcrumbs: ${breadcrumbs.length}`,
+    `pager: prev=${pager.previous ? "yes" : "no"}, next=${pager.next ? "yes" : "no"}`,
+    `normalized: removed ${normalized.removedStyles} inline style(s), dropped ${normalized.removedClassTokens} class token(s)`,
+    `head shell: removed ${shellChanges.inlineBlocks} inline block(s), ${shellChanges.speculationScripts} speculation script(s)`,
+    `menu tokens: ${menuTokenAdded ? "added" : "ok"}`,
+    `lead h3: ${insertedLeadH3 ? "normalized" : "ok"}`,
+    `usage normalization: ${args.ukToUs ? "uk->us" : "none"}`,
+  ]
+  if (cleanedBody.stats.replacementChars) {
+    summary.push(`replacement chars removed: ${cleanedBody.stats.replacementChars}`)
+  }
+  if (cleanedBody.stats.nbspCount) {
+    summary.push(`nbsp normalized: ${cleanedBody.stats.nbspCount}`)
+  }
+  if (cleanedBody.stats.collapsedSpaces) {
+    summary.push(`spaces collapsed: ${cleanedBody.stats.collapsedSpaces}`)
+  }
+  if (normalized.orphaned.length) {
+    summary.push(`orphaned classes removed: ${normalized.orphaned.slice(0, 10).join(", ")}${
+      normalized.orphaned.length > 10 ? "..." : ""
+    }`)
+  }
+
+  if (args.diffPreview) {
+    console.log(showDiff(legacyHtml, updated))
+    logSummary(summary)
+    console.log("Diff preview complete. Re-run with --no-diff-preview to write changes.")
+    return
+  }
+
+  const backupPath = backupFile(targetPath)
+  fs.writeFileSync(targetPath, updated, "utf8")
+  logSummary(summary)
+  console.log(`Wrote updated lesson to ${targetPath}`)
+  console.log(`Backup created at ${backupPath}`)
+}
+
+main()

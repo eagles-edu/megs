@@ -66,6 +66,9 @@
   --menu-text-hover: var(--primary-color);
   --menu-icon-pad-inline: 7px;
   --menu-link-bg: var(--surface-color);
+  --menu-state-bg: var(--white);
+  --menu-state-border: var(--primary-color);
+  --menu-state-text: var(--primary-color);
 
   /*  Left Menu  */
   --left-menu-font-size: clamp(0.86rem, calc(0.72rem + 0.45vw), 0.96rem);
@@ -345,6 +348,13 @@ pre {
   width: 1px;
 }
 
+.icon-sprite {
+  height: 0;
+  overflow: hidden;
+  position: absolute;
+  width: 0;
+}
+
 /* Legacy float utilities still used in markup */
 .pull-left {
   float: left;
@@ -362,16 +372,19 @@ pre {
   margin-right: -8px;
 }
 
-.row-fluid > [class*="span"] {
+.row-fluid > [class*="span"],
+.row-fluid > #aside {
   box-sizing: border-box;
   flex: 0 0 100%;
   max-width: 100%;
+  min-width: 0;
   padding-left: 8px;
   padding-right: 8px;
 }
 
 @media (width >= 768px) {
-  .row-fluid > .span2 {
+  .row-fluid > .span2,
+  .row-fluid > #aside {
     flex: 0 0 16.6667%;
     max-width: 16.6667%;
   }
@@ -397,6 +410,11 @@ pre {
   }
 }
 
+#sidebar {
+  --menu-icon-pad-inline-start: 0;
+  --menu-icon-pad-inline-end: 7px;
+}
+
 /* Content band: span the three-column region with a light surface */
 .grid-modern .row-fluid {
   background: var(--secondary-color);
@@ -418,81 +436,113 @@ pre {
 
 /* 9) Pager */
 .pager {
-  align-items: center;
+  align-items: var(--pager-align, stretch);
   display: flex;
-  justify-content: flex-start; /* keep buttons content-sized and aligned */
-  flex-wrap: wrap; /* allow wrap/stack on overflow */
-  gap: 8px 12px; /* row/column gap between buttons */
+  flex-wrap: var(--pager-flex-wrap, nowrap);
+  gap: var(--pager-gap-y, 8px) var(--pager-gap-x, 12px);
+  justify-content: var(--pager-justify, space-between);
   list-style: none;
-  margin: 1rem 0;
+  margin: var(--pager-margin, 1rem 0 2rem);
+  max-width: 100%;
   padding: 0;
-  width: 100%; /* allow pushing .next to the right edge */
+  width: 100%;
 }
 
-.pager li {
-  align-items: center;
-  display: inline-flex;
+.pager > li {
+  display: flex;
+  flex: 1 1 0;
+  min-width: 0;
 }
 
-.pager li > a {
+.pager > li > a {
   align-items: center;
+  background-color: var(--pager-background, var(--surface-color));
+  border: 1px solid var(--pager-border-color, var(--border-color));
+  border-radius: var(--pager-border-radius, var(--radius));
+  box-shadow: var(--pager-link-shadow, none);
   color: var(--pager-text-color, var(--link-color));
   display: inline-flex;
   text-decoration: none;
-
-  /* Button-like affordance (replaces template592f.css) */
-  background-color: var(--surface-color);
-  border: 1px solid var(--border-color);
-  border-radius: var(--radius);
-  padding: 4px 10px;
-  gap: 6px;
-
-  /* Allow labels to wrap when space is tight */
-  white-space: normal;
-  overflow: visible;
+  font-size: var(--pager-font-size, inherit);
+  font-weight: var(--pager-font-weight, 500);
+  gap: calc(var(--pager-gap-x, 12px) * 0.5);
+  justify-content: space-between;
+  min-height: calc(var(--pager-icon-size, 1.25rem) + (var(--pager-padding-block, 0.6rem) * 2));
+  overflow: hidden;
+  padding: var(--pager-padding-block, 0.6rem) var(--pager-padding-inline, 0.95rem);
+  text-overflow: var(--pager-label-truncate, ellipsis);
+  transition:
+    color 0.2s ease,
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+  white-space: var(--pager-label-wrap, nowrap);
+  width: 100%;
 }
 
-.pager li > a:hover {
-  color: var(--link-hover);
-  text-decoration: none;
-  background-color: var(--white);
+.pager > li > a:focus,
+.pager > li > a:hover {
+  border-color: var(--primary-color, var(--link-hover));
+  box-shadow: var(--pager-hover-shadow, 0 0 0 2px rgb(0 94 141 / 25%));
+  color: var(--primary-color, var(--link-hover));
+  outline: none;
 }
 
-/* Ensure inline SVG icons don't shrink and remain visible */
-.pager li > a .icon,
-.pager li > a svg {
-  flex: 0 0 auto;
+.pager > li > a:focus-visible {
+  outline: none;
 }
 
-/* Always push the next button to the right edge of the line */
+.pager > li > a:active {
+  box-shadow: inset 0 0 0 2px rgb(224 22 43 / 15%);
+}
+
+.pager .previous > a {
+  justify-content: flex-start;
+}
+
 .pager .next {
   margin-left: auto;
 }
 
-@media (width <= 479.98px) {
+.pager .next > a {
+  justify-content: flex-start;
+  text-align: left;
+}
+
+.pager .pager-label {
+  flex: 1 1 auto;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: var(--pager-label-truncate, ellipsis);
+  text-align: left;
+  white-space: var(--pager-label-wrap, nowrap);
+}
+
+.pager > li > a svg,
+.pager > li > a img {
+  flex: 0 0 auto;
+  height: var(--pager-icon-size, 12px);
+  width: var(--pager-icon-size, 12px);
+}
+
+.pager > li > a svg {
+  fill: currentcolor;
+}
+
+@media (width <= 599px) {
   .pager {
-    align-items: stretch;
-    flex-direction: column;
+    flex-wrap: var(--pager-flex-wrap-mobile, wrap);
   }
 
-  .pager li {
-    width: 100%;
-  }
-
-  .pager li > a {
-    justify-content: center;
-    width: 100%;
-  }
-
-  .pager .next {
-    margin-left: 0;
+  .pager > li {
+    flex-basis: var(--pager-mobile-item-width, 100%);
   }
 }
 
 /* Ensure pager icons reserve space and avoid layout shifts */
 .pager img {
-  width: 12px;
-  height: 12px;
+  height: var(--pager-icon-size, 12px);
+  width: var(--pager-icon-size, 12px);
 }
 
 /* 9b) Exercise form CLS guard (gated conversion) */
@@ -507,7 +557,7 @@ pre {
   display: flex;
   gap: 8px;
   list-style: none;
-  margin: 1rem 0;
+  margin: 1rem 0 1.42rem;
   padding: 0;
 }
 
@@ -551,19 +601,74 @@ pre {
   display: inline;
 }
 
+.breadcrumb.breadcrumb-truncate {
+  flex-wrap: nowrap;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.breadcrumb.breadcrumb-truncate > li {
+  align-items: center;
+  display: inline-flex;
+  flex: 0 0 auto;
+  min-width: 0;
+  white-space: nowrap;
+}
+
+.breadcrumb.breadcrumb-truncate > li.breadcrumb-segment-truncate {
+  flex: 0 1 clamp(8rem, 23vw, 15rem);
+  max-width: clamp(8rem, 23vw, 15rem);
+  overflow: hidden;
+}
+
+.breadcrumb.breadcrumb-truncate > li.breadcrumb-segment-current {
+  flex: 0 1 clamp(9rem, 28vw, 20rem);
+  max-width: clamp(9rem, 28vw, 20rem);
+  overflow: hidden;
+}
+
+.breadcrumb.breadcrumb-truncate > li > .pathway {
+  display: inline-flex;
+  max-width: 100%;
+  min-width: 0;
+}
+
+.breadcrumb.breadcrumb-truncate > li > .divider {
+  flex: 0 0 auto;
+  margin-inline: 0.35rem 0;
+}
+
+.breadcrumb.breadcrumb-truncate > li.breadcrumb-segment-truncate [itemprop="name"],
+.breadcrumb.breadcrumb-truncate > li.breadcrumb-segment-current [itemprop="name"] {
+  display: block;
+  max-width: 100%;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  vertical-align: bottom;
+  white-space: nowrap;
+}
+
+@media (max-width: 767px) {
+  .breadcrumb.breadcrumb-truncate > li.breadcrumb-segment-truncate {
+    max-width: clamp(6.5rem, 34vw, 9.5rem);
+  }
+
+  .breadcrumb.breadcrumb-truncate > li.breadcrumb-segment-current {
+    max-width: clamp(7rem, 40vw, 11rem);
+  }
+
+  .breadcrumb-wrap {
+    display: none;
+  }
+}
+
 /* 11) Mobile navigation (works with template592f.js) */
 
 .mobile-nav-enabled #sidebar,
 #sidebar {
   /* Reduce rendering cost and isolate layout; sidebar is offscreen on mobile */
   contain: layout paint;
-}
-
-@supports (content-visibility: auto) {
-  .mobile-nav-enabled #sidebar,
-  #sidebar {
-    content-visibility: auto;
-  }
 }
 
 .mobile-menu-toggle {
@@ -733,7 +838,6 @@ h4.box-head4 {
   background: var(--secondary-color);
   color: var(--primary-color);
   display: table;
-  line-height: 16px;
   margin: -10px 0 5px;
   padding: 0 20px;
 }
@@ -888,4 +992,10 @@ main#content .star-solid::before {
   font-size: 1.25rem;
   font-style: italic;
   font-weight: 500;
+}
+
+.bm-5 {
+  display: block;
+  margin-bottom: 1rem;
+
 }

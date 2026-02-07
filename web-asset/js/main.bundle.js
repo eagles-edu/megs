@@ -1,6 +1,6 @@
 /**
  * Main Bundle Loader (Modern Module) - Eagles Club
- * Defers nav/accordion bundle loading until after LCP to reduce render delay.
+ * Loads nav/accordion bundle early to avoid post-paint layout shifts.
  */
 
 const resolveNavBundleSrc = () => {
@@ -32,58 +32,21 @@ const loadNavBundle = () => {
   document.head.appendChild(script)
 }
 
-const afterLCP = (cb) => {
-  let done = false
-  const runOnce = () => {
-    if (done) return
-    done = true
-    cb()
-  }
-
-  const fallbackToLoad = () => {
-    if (document.readyState === "complete") runOnce()
-    else window.addEventListener("load", runOnce, { once: true })
-  }
-
-  if (!("PerformanceObserver" in window)) {
-    fallbackToLoad()
-    return
-  }
-
-  const supportsLCP =
-    Array.isArray(PerformanceObserver.supportedEntryTypes) &&
-    PerformanceObserver.supportedEntryTypes.indexOf("largest-contentful-paint") !== -1
-  if (!supportsLCP) {
-    fallbackToLoad()
-    return
-  }
-
-  let observer
-  try {
-    observer = new PerformanceObserver((list) => {
-      const entries = list.getEntries()
-      if (entries && entries.length) {
-        observer.disconnect()
-        runOnce()
-      }
-    })
-    observer.observe({ type: "largest-contentful-paint", buffered: true })
-  } catch (e) {
-    void e
-    fallbackToLoad()
-    return
-  }
-
-  const runIfLCP = () => {
-    if (done) return
-    if (!observer || typeof observer.takeRecords !== "function") return
-    const entries = observer.takeRecords()
-    if (entries && entries.length) {
-      observer.disconnect()
-      runOnce()
+const scheduleNavBundle = () => {
+  const run = () => {
+    if ("requestIdleCallback" in window) {
+      window.requestIdleCallback(loadNavBundle, { timeout: 250 })
+      return
     }
+    window.setTimeout(loadNavBundle, 0)
   }
-  window.addEventListener("load", runIfLCP, { once: true })
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", run, { once: true })
+    return
+  }
+
+  run()
 }
 
-afterLCP(loadNavBundle)
+scheduleNavBundle()

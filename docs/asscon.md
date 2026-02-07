@@ -56,12 +56,12 @@ Runtime rules for all prompts/commands: replace every placeholder (e.g., `<targe
 
 Prompts append the `Save my Tokens! [agents.md temp override]` line at the end; keep it intact in Prompt1 and Prompt4.
 
-   - replace `<target-path>`, `<undies/p/auto/sentence>` with user input flag text:
+- replace `<target-path>`, `<undies/p/auto/sentence>` with user input flag text:
 
-      1. **undies**: (default) extract from between `<span class="undies">`, `<b>`, and `<strong>` tags in question blocks
-      2. **p**: derive from AI reading p-tag directions, answering  each question (per p-tag directions), and writing these to file
-      3. **auto**: extract from between `<span class="undies">`, `<b>`, and `<strong>` tags in question blocks; if none, derive from AI reading p-tag directions, answering each question (per p-tag directions), and writing these to file
-      4. **sentence**: extract the full sentence text verbatim from each form-based question block (p-tag), sans HTML (include all non-blank words, not just the underlined answers), and copy to file; warn if linting/IDE wrapping or source text has introduced spacing/punctuation artifacts in this plain-text copy, and offer optional USA spelling/grammar/vernacular/usage-only normalization (including fixing \", -> ,\") with explicit approval
+    1. **undies**: (default) extract from between `<span class="undies">`, `<b>`, and `<strong>` tags in question blocks
+    2. **p**: derive from AI reading p-tag directions, answering  each question (per p-tag directions), and writing these to file
+    3. **auto**: extract from between `<span class="undies">`, `<b>`, and `<strong>` tags in question blocks; if none, derive from AI reading p-tag directions, answering each question (per p-tag directions), and writing these to file
+    4. **sentence**: extract the full sentence text verbatim from each form-based question block (p-tag), sans HTML (include all non-blank words, not just the underlined answers), and copy to file; warn if linting/IDE wrapping or source text has introduced spacing/punctuation artifacts in this plain-text copy, and offer optional USA spelling/grammar/vernacular/usage-only normalization (including fixing \", -> ,\") with explicit approval
 
 #### For example
 
@@ -280,3 +280,5 @@ _user input_:
 ## Daily Updates
 
 - 2026-02-06: Recorded system-doc maintenance requirement and scope exemption alignment with AGENTS.md.
+- 2026-02-07: Documented lean prototype head-shell baseline (critical-inline only, early mobile-nav bootstrap, and externalized layout/menu rules).
+- 2026-02-07: Rolled the prototype head-shell baseline to `lesson-6-prepositions/1-4` to remove speculation-driven 404 noise and reduce CLS drift.

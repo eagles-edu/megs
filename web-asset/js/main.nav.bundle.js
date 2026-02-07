@@ -45,6 +45,42 @@ const matches = (el, selector) => {
   return false
 }
 
+// Ensure pager labels truncate consistently, even on legacy pages without .pager-label markup.
+const normalizePagerLabels = () => {
+  const pagerLinks = document.querySelectorAll(".pager > li > a")
+  if (!pagerLinks || !pagerLinks.length) return
+
+  pagerLinks.forEach((link) => {
+    if (link.querySelector(".pager-label")) return
+
+    const labelSources = []
+    const removableNodes = []
+
+    Array.prototype.forEach.call(link.childNodes, (node) => {
+      if (node.nodeType === Node.TEXT_NODE) {
+        if (node.textContent && node.textContent.trim()) labelSources.push(node.textContent)
+        removableNodes.push(node)
+        return
+      }
+
+      if (node.nodeType !== Node.ELEMENT_NODE) return
+      const tag = node.tagName.toLowerCase()
+      if (tag === "svg" || tag === "img") return
+      labelSources.push(node.textContent || "")
+      removableNodes.push(node)
+    })
+
+    const labelText = labelSources.join(" ").replace(/\s+/g, " ").trim()
+    if (!labelText || !removableNodes.length) return
+
+    const label = document.createElement("span")
+    label.className = "pager-label"
+    label.textContent = labelText
+    link.insertBefore(label, removableNodes[0])
+    removableNodes.forEach((node) => node.remove())
+  })
+}
+
 // Left Menu Module
 const LeftMenu = {
   init() {
@@ -425,6 +461,7 @@ const jQueryCompatibility = () => {
 // Initialize everything
 const initApp = () => {
   try {
+    normalizePagerLabels()
     LeftMenu.init()
     FlyoutMenu.init()
     QAAccordion.init()

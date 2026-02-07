@@ -47,6 +47,44 @@
     return false
   }
 
+  // Ensure pager labels truncate consistently, even on legacy pages without .pager-label markup.
+  function normalizePagerLabels() {
+    var pagerLinks = document.querySelectorAll(".pager > li > a")
+    if (!pagerLinks || !pagerLinks.length) return
+
+    Array.prototype.forEach.call(pagerLinks, function (link) {
+      if (link.querySelector(".pager-label")) return
+
+      var labelSources = []
+      var removableNodes = []
+
+      Array.prototype.forEach.call(link.childNodes, function (node) {
+        if (node.nodeType === 3) {
+          if (node.textContent && node.textContent.trim()) labelSources.push(node.textContent)
+          removableNodes.push(node)
+          return
+        }
+
+        if (node.nodeType !== 1) return
+        var tag = (node.tagName || "").toLowerCase()
+        if (tag === "svg" || tag === "img") return
+        labelSources.push(node.textContent || "")
+        removableNodes.push(node)
+      })
+
+      var labelText = labelSources.join(" ").replace(/\s+/g, " ").trim()
+      if (!labelText || !removableNodes.length) return
+
+      var label = document.createElement("span")
+      label.className = "pager-label"
+      label.textContent = labelText
+      link.insertBefore(label, removableNodes[0])
+      Array.prototype.forEach.call(removableNodes, function (node) {
+        if (node && node.parentNode) node.parentNode.removeChild(node)
+      })
+    })
+  }
+
   // Left Menu Module
   function initLeftMenu() {
     var menu = document.getElementById("accordion_menu_90")
@@ -428,6 +466,7 @@
   // Initialize everything
   function initApp() {
     try {
+      normalizePagerLabels()
       initLeftMenu()
       initFlyoutMenu()
       initQAAccordion()

@@ -16,6 +16,13 @@
 
 /* left menu sizing tokens live on :root (base.css + critical inline) for lint compliance */
 
+#sidebar .sidebar-nav {
+  background: var(--surface-color, #fff);
+  border-radius: var(--radius, 3px);
+  box-shadow: var(--flyout-shadow-menu, 0 12px 26px rgb(24 39 75 / 8%));
+  padding: 4px;
+}
+
 ul.accordion-menu {
   border: 1px solid var(--border-color);
   border-radius: 6px;
@@ -46,8 +53,14 @@ ul.accordion-menu li {
 ul.accordion-menu .item-wrapper {
   display: flex;
   align-items: center;
+  border: 1px solid transparent;
+  border-radius: var(--radius, 3px);
   gap: var(--left-menu-icon-gap, var(--icon-gap));
   justify-content: flex-start;
+  transition:
+    background-color var(--r-flyout-transition, 160ms cubic-bezier(0.4, 0, 0.2, 1)),
+    border-color var(--r-flyout-transition, 160ms cubic-bezier(0.4, 0, 0.2, 1)),
+    color var(--r-flyout-transition, 160ms cubic-bezier(0.4, 0, 0.2, 1));
 }
 
 ul.accordion-menu .menu-button {
@@ -98,16 +111,49 @@ ul.accordion-menu a {
 }
 
 ul.accordion-menu li > .item-wrapper:hover a,
+ul.accordion-menu li > .item-wrapper:focus-within a,
 ul.accordion-menu li.current > .item-wrapper a,
+ul.accordion-menu li.active > .item-wrapper a,
 ul.accordion-menu li.opened > .item-wrapper a {
-  color: var(--primary-color);
+  color: var(--menu-state-text, var(--primary-color));
   text-decoration: none;
 }
 
-/* Subtle hover/open background to guide focus */
+/* Keep left menu state visuals aligned with right flyout states */
+ul.accordion-menu li.open > .item-wrapper,
+ul.accordion-menu li.opened > .item-wrapper,
+ul.accordion-menu li.current > .item-wrapper,
+ul.accordion-menu li.active > .item-wrapper,
+ul.accordion-menu li:hover > .item-wrapper,
+ul.accordion-menu li:focus-within > .item-wrapper {
+  background: var(--menu-state-bg, var(--white));
+  border-color: var(--menu-state-border, var(--primary-color));
+}
+
+/* Match/override legacy inline selectors present in converted exercise pages. */
+#sidebar ul.accordion-menu li.open > .item-wrapper,
+#sidebar ul.accordion-menu li.opened > .item-wrapper,
+#sidebar ul.accordion-menu li.current > .item-wrapper,
+#sidebar ul.accordion-menu li.active > .item-wrapper,
+#sidebar ul.accordion-menu li:hover > .item-wrapper,
+#sidebar ul.accordion-menu li:focus-within > .item-wrapper {
+  background: var(--menu-state-bg, var(--white));
+  border-color: var(--menu-state-border, var(--primary-color));
+}
+
+#sidebar ul.accordion-menu li.open > .item-wrapper a,
+#sidebar ul.accordion-menu li.opened > .item-wrapper a,
+#sidebar ul.accordion-menu li.current > .item-wrapper a,
+#sidebar ul.accordion-menu li.active > .item-wrapper a,
+#sidebar ul.accordion-menu li:hover > .item-wrapper a,
+#sidebar ul.accordion-menu li:focus-within > .item-wrapper a {
+  color: var(--menu-state-text, var(--primary-color));
+}
+
+/* Preserve legacy open/hover class hooks */
 ul.accordion-menu li.open,
 ul.accordion-menu li:hover {
-  background: var(--surface-warm);
+  background: none;
 }
 
 ul.accordion-menu.button-left li > .item-wrapper > .menu-button,
