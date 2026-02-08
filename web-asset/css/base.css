@@ -649,7 +649,7 @@ pre {
   white-space: nowrap;
 }
 
-@media (max-width: 767px) {
+@media (width <= 767px) {
   .breadcrumb.breadcrumb-truncate > li.breadcrumb-segment-truncate {
     max-width: clamp(6.5rem, 34vw, 9.5rem);
   }
