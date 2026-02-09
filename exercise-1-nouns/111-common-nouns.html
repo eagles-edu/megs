@@ -930,46 +930,7 @@
       }
     </style>
 
-    <!-- Optimized speculationrules with prerender for better UX -->
-    <script>
-      ;(function () {
-        function injectSpeculation() {
-          try {
-            var s = document.createElement("script")
-            s.type = "speculationrules"
-            s.text = JSON.stringify({
-              prefetch: [
-                {
-                  source: "list",
-                  urls: ["112-proper-nouns.html"],
-                },
-              ],
-              prerender: [
-                {
-                  source: "list",
-                  urls: ["112-proper-nouns.html"],
-                  eagerness: "moderate",
-                },
-              ],
-            })
-            document.head.appendChild(s)
-          } catch (e) {
-            /* no-op */
-          }
-        }
-        if (document.readyState === "complete") {
-          injectSpeculation()
-        } else {
-          window.addEventListener("load", function () {
-            if ("requestIdleCallback" in window)
-              requestIdleCallback(injectSpeculation, {
-                timeout: 2000,
-              })
-            else setTimeout(injectSpeculation, 500)
-          })
-        }
-      })()
-    </script>
+    <!-- speculationrules removed to match lesson baseline and avoid eager prefetch overhead -->
     <!-- Icon font not used on Codex variant; removed icomoon.css includes -->
 
     <!-- Layout styles for exercises + mobile nav (blocking for CLS stability) -->
@@ -1178,6 +1139,9 @@
   </head>
 
   <body class="base exercize" data-exercise-devtools="auto">
+    <script data-mobile-nav-bootstrap>
+      document.body.classList.add("mobile-nav-enabled")
+    </script>
     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" style="position: absolute; width: 0; height: 0; overflow: hidden">
       <defs>
         <symbol id="icon-plus" viewBox="0 0 24 24">
@@ -2737,7 +2701,7 @@
                       if (host === "127.0.0.1:5500" || host === "localhost:5500") {
                         cfg.submitUrl = "http://127.0.0.1:8787/api/exercise-submission" // dev: Node directly
                       } else {
-                        cfg.submitUrl = "https://thuvien.eagles.edu.vn/api/exercise-submission" // prod: via nginx
+                        cfg.submitUrl = location.origin + "/api/exercise-submission" // prod: same-origin route
                       }
                       cfgEl.textContent = JSON.stringify(cfg)
                     }
@@ -4190,7 +4154,7 @@
             if (h === "127.0.0.1:5500" || h === "localhost:5500") {
               submitUrl = "http://127.0.0.1:8787/api/exercise-submission"
             } else {
-              submitUrl = "https://thuvien.eagles.edu.vn/api/exercise-submission"
+              submitUrl = location.origin + "/api/exercise-submission"
             }
           }
 

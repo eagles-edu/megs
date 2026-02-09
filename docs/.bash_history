@@ -54,11 +54,11 @@ sudo thunar
 sudo netstat -tulnp | grep -E '80|443'
 sudo systemctl start nginx
 sudo systemctl status nginx
-sudo ln -s /etc/nginx/sites-available/anhngu.eagles.edu.vn /etc/nginx/sites-enabled/ && sudo ln -s /etc/nginx/sites-available/eagles.edu.vn /etc/nginx/sites-enabled/ && sudo ln -s /etc/nginx/sites-available/anhngu.eaglesvn.com /etc/nginx/sites-enabled/ && sudo ln -s /etc/nginx/sites-available/thuvien.eaglesvn.com /etc/nginx/sites-enabled/ && sudo ln -s /etc/nginx/sites-available/thuvien.eagles.edu.vn /etc/nginx/sites-enabled/ && sudo ln -s /etc/nginx/sites-available/eaglesvn.com /etc/nginx/sites-enabled/
+sudo ln -s /etc/nginx/sites-available/anhngu.eagles.edu.vn /etc/nginx/sites-enabled/ && sudo ln -s /etc/nginx/sites-available/eagles.edu.vn /etc/nginx/sites-enabled/ && sudo ln -s /etc/nginx/sites-available/anhngu.eaglesvn.com /etc/nginx/sites-enabled/ && sudo ln -s /etc/nginx/sites-available/ielts.eaglesvn.com /etc/nginx/sites-enabled/ && sudo ln -s /etc/nginx/sites-available/ielts.eagles.edu.vn /etc/nginx/sites-enabled/ && sudo ln -s /etc/nginx/sites-available/eaglesvn.com /etc/nginx/sites-enabled/
 sudo nginx -t
 nginx -V 2>&1 | grep -o with-http_v2_module
 sudo nginx -t
-sudo ln -s /etc/nginx/sites-available/thuvien.eaglesvn.com /etc/nginx/sites-enabled/
+sudo ln -s /etc/nginx/sites-available/ielts.eaglesvn.com /etc/nginx/sites-enabled/
 sudo nginx -t
 sudo nginx -T | grep -i listen
 sudo systemctl reload nginx
@@ -156,7 +156,7 @@ ls /home/
 sudo ls /home/
 sudo chown -R eagle9188:eagle9188 /home/eagles.edu.vn
 sudo chown -R anhng8849:anhng8849 /home/anhngu.eagles.edu.vn
-sudo chown -R thuvi9984:thuvi9984 /home/thuvien.eagles.edu.vn
+sudo chown -R thuvi9984:thuvi9984 /home/ielts.eagles.edu.vn
 sudo chown -R eagle4882:eagle4882 /home/eaglesvn.com
 sudo chown -R gptpa3747:gptpa3747 /home/gptpatient.com
 sudo chown -R obgyn1997:obgyn1997 /home/obgyn.gptpatient.com
@@ -166,15 +166,15 @@ sudo systemctl restart lsws
 sudo /usr/local/lsws/bin/lswsctrl restart
 sudo /usr/local/lsws/bin/lswsctrl status
 sudo tail -f /usr/local/lsws/logs/error.log
-for domain in eagles.edu.vn anhngu.eagles.edu.vn thuvien.eagles.edu.vn eaglesvn.com     gptpatient.com obgyn.gptpatient.com eagles.vn eaglesvn.online; do     ls -ld /home/$domain; done
-for domain in eagles.edu.vn anhngu.eagles.edu.vn thuvien.eagles.edu.vn eaglesvn.com     gptpatient.com obgyn.gptpatient.com eagles.vn eaglesvn.online; do     echo "Fixing $domain...";     sudo chmod 755 /home/$domain;     sudo chmod 755 /home/$domain/public_html;     sudo chown -R $(stat -c "%U:%G" /home/$domain) /home/$domain; done
-for domain in eagles.edu.vn anhngu.eagles.edu.vn thuvien.eagles.edu.vn eaglesvn.com     gptpatient.com obgyn.gptpatient.com eagles.vn eaglesvn.online; do     ls -ld /home/$domain; done
+for domain in eagles.edu.vn anhngu.eagles.edu.vn ielts.eagles.edu.vn eaglesvn.com     gptpatient.com obgyn.gptpatient.com eagles.vn eaglesvn.online; do     ls -ld /home/$domain; done
+for domain in eagles.edu.vn anhngu.eagles.edu.vn ielts.eagles.edu.vn eaglesvn.com     gptpatient.com obgyn.gptpatient.com eagles.vn eaglesvn.online; do     echo "Fixing $domain...";     sudo chmod 755 /home/$domain;     sudo chmod 755 /home/$domain/public_html;     sudo chown -R $(stat -c "%U:%G" /home/$domain) /home/$domain; done
+for domain in eagles.edu.vn anhngu.eagles.edu.vn ielts.eagles.edu.vn eaglesvn.com     gptpatient.com obgyn.gptpatient.com eagles.vn eaglesvn.online; do     ls -ld /home/$domain; done
 sudo systemctl restart lsws
-for domain in eagles.edu.vn anhngu.eagles.edu.vn thuvien.eagles.edu.vn eaglesvn.com     gptpatient.com obgyn.gptpatient.com eagles.vn eaglesvn.online; do     echo "Checking $domain...";     ls -ld /home/$domain;     ls -ld /home/$domain/public_html; done
-for domain in eagles.edu.vn anhngu.eagles.edu.vn thuvien.eagles.edu.vn eaglesvn.com     gptpatient.com obgyn.gptpatient.com eagles.vn eaglesvn.online; do     echo "Checking $domain...";     sudo ls -ld /home/$domain/public_html; done
-for domain in eagles.edu.vn anhngu.eagles.edu.vn thuvien.eagles.edu.vn eaglesvn.com     gptpatient.com obgyn.gptpatient.com eagles.vn eaglesvn.online; do     echo "Checking files inside /home/$domain/public_html ...";     sudo ls -lah /home/$domain/public_html; done
-for domain in eagles.edu.vn anhngu.eagles.edu.vn thuvien.eagles.edu.vn eaglesvn.com     gptpatient.com obgyn.gptpatient.com eagles.vn eaglesvn.online; do     echo "Checking $domain...";     sudo ls -ld /home/$domain/public_html; done
-for domain in eagles.edu.vn anhngu.eagles.edu.vn thuvien.eagles.edu.vn eaglesvn.com     gptpatient.com obgyn.gptpatient.com eagles.vn eaglesvn.online; do     echo "Fixing permissions for $domain...";     sudo chmod 755 /home/$domain;     sudo chmod 755 /home/$domain/public_html;     sudo chown -R $(stat -c "%U:%G" /home/$domain) /home/$domain/public_html; done
+for domain in eagles.edu.vn anhngu.eagles.edu.vn ielts.eagles.edu.vn eaglesvn.com     gptpatient.com obgyn.gptpatient.com eagles.vn eaglesvn.online; do     echo "Checking $domain...";     ls -ld /home/$domain;     ls -ld /home/$domain/public_html; done
+for domain in eagles.edu.vn anhngu.eagles.edu.vn ielts.eagles.edu.vn eaglesvn.com     gptpatient.com obgyn.gptpatient.com eagles.vn eaglesvn.online; do     echo "Checking $domain...";     sudo ls -ld /home/$domain/public_html; done
+for domain in eagles.edu.vn anhngu.eagles.edu.vn ielts.eagles.edu.vn eaglesvn.com     gptpatient.com obgyn.gptpatient.com eagles.vn eaglesvn.online; do     echo "Checking files inside /home/$domain/public_html ...";     sudo ls -lah /home/$domain/public_html; done
+for domain in eagles.edu.vn anhngu.eagles.edu.vn ielts.eagles.edu.vn eaglesvn.com     gptpatient.com obgyn.gptpatient.com eagles.vn eaglesvn.online; do     echo "Checking $domain...";     sudo ls -ld /home/$domain/public_html; done
+for domain in eagles.edu.vn anhngu.eagles.edu.vn ielts.eagles.edu.vn eaglesvn.com     gptpatient.com obgyn.gptpatient.com eagles.vn eaglesvn.online; do     echo "Fixing permissions for $domain...";     sudo chmod 755 /home/$domain;     sudo chmod 755 /home/$domain/public_html;     sudo chown -R $(stat -c "%U:%G" /home/$domain) /home/$domain/public_html; done
 sudo /usr/local/lsws/bin/lswsctrl restart
 sudo tail -f /usr/local/lsws/logs/error.log
 sudo nano /usr/local/lsws/conf/httpd_config.conf
@@ -186,12 +186,12 @@ sudo systemctl status nginx
 sudo systemctl restart nginx
 sudo systemctl status nginx
 sudo netstat -tulnp | grep -E "80|443"
-for domain in eagles.edu.vn anhngu.eagles.edu.vn thuvien.eagles.edu.vn eaglesvn.com     anhngu.eaglesvn.com thuvien.eaglesvn.com gptpatient.com obgyn.gptpatient.com     eagles.vn eaglesvn.online; do     echo "🔍 Checking $domain...";     sudo ls -ld /home/$domain /home/$domain/public_html;     echo "📂 Listing files in /home/$domain/public_html:";     sudo ls -lah /home/$domain/public_html;     echo "--------------------------------------------------"; done
+for domain in eagles.edu.vn anhngu.eagles.edu.vn ielts.eagles.edu.vn eaglesvn.com     anhngu.eaglesvn.com ielts.eaglesvn.com gptpatient.com obgyn.gptpatient.com     eagles.vn eaglesvn.online; do     echo "🔍 Checking $domain...";     sudo ls -ld /home/$domain /home/$domain/public_html;     echo "📂 Listing files in /home/$domain/public_html:";     sudo ls -lah /home/$domain/public_html;     echo "--------------------------------------------------"; done
 echo "🔍 Checking Users..."
-for domain in eagles.edu.vn anhngu.eagles.edu.vn thuvien.eagles.edu.vn eaglesvn.com     anhngu.eaglesvn.com thuvien.eaglesvn.com gptpatient.com obgyn.gptpatient.com     eagles.vn eaglesvn.online; do     user=$(stat -c "%U" /home/$domain);     group=$(stat -c "%G" /home/$domain);     echo "📌 $domain - User: $user, Group: $group";     id $user;     echo "----------------------------------------"; done
-for domain in eagles.edu.vn anhngu.eagles.edu.vn thuvien.eagles.edu.vn eaglesvn.com     anhngu.eaglesvn.com thuvien.eaglesvn.com gptpatient.com obgyn.gptpatient.com     eagles.vn eaglesvn.online; do     user=$(stat -c "%U" /home/$domain);     group=$(stat -c "%G" /home/$domain)         echo "🔧 Fixing permissions for $domain...";     sudo chown -R $user:$group /home/$domain/public_html;     sudo chmod -R 755 /home/$domain/public_html;     echo "✅ Fixed ownership & permissions for $domain";     echo "----------------------------------------"; done
+for domain in eagles.edu.vn anhngu.eagles.edu.vn ielts.eagles.edu.vn eaglesvn.com     anhngu.eaglesvn.com ielts.eaglesvn.com gptpatient.com obgyn.gptpatient.com     eagles.vn eaglesvn.online; do     user=$(stat -c "%U" /home/$domain);     group=$(stat -c "%G" /home/$domain);     echo "📌 $domain - User: $user, Group: $group";     id $user;     echo "----------------------------------------"; done
+for domain in eagles.edu.vn anhngu.eagles.edu.vn ielts.eagles.edu.vn eaglesvn.com     anhngu.eaglesvn.com ielts.eaglesvn.com gptpatient.com obgyn.gptpatient.com     eagles.vn eaglesvn.online; do     user=$(stat -c "%U" /home/$domain);     group=$(stat -c "%G" /home/$domain)         echo "🔧 Fixing permissions for $domain...";     sudo chown -R $user:$group /home/$domain/public_html;     sudo chmod -R 755 /home/$domain/public_html;     echo "✅ Fixed ownership & permissions for $domain";     echo "----------------------------------------"; done
 sudo tail -f /usr/local/lsws/logs/error.log
-for domain in eagles.edu.vn anhngu.eagles.edu.vn thuvien.eagles.edu.vn eaglesvn.com     anhngu.eaglesvn.com thuvien.eaglesvn.com gptpatient.com obgyn.gptpatient.com     eagles.vn eaglesvn.online; do     echo "🌐 Testing $domain...";     curl -I http://$domain;     echo "----------------------------------------"; done
+for domain in eagles.edu.vn anhngu.eagles.edu.vn ielts.eagles.edu.vn eaglesvn.com     anhngu.eaglesvn.com ielts.eaglesvn.com gptpatient.com obgyn.gptpatient.com     eagles.vn eaglesvn.online; do     echo "🌐 Testing $domain...";     curl -I http://$domain;     echo "----------------------------------------"; done
 sudo cat /usr/local/lsws/conf/httpd_config.conf | grep -i virtualHost
 sudo cat /usr/local/lsws/conf/httpd_config.conf | grep -i vhTemplate
 sudo cat /usr/local/lsws/conf/httpd_config.conf | grep -i template
@@ -220,29 +220,29 @@ drwxr-x---  2 lsadm nogroup   86 Feb 23 17:22 eaglesvn.online
 drwxr-x---  2 lsadm nogroup  121 Feb 20 22:23 Example
 drwxr-x---  2 lsadm nogroup   86 Feb 23 17:15 gptpatient.com
 drwxr-x---  2 lsadm nogroup   86 Feb 23 17:18 obgyn.gptpatient.com
-drwxr-x---  2 lsadm nogroup   86 Feb 23 16:58 thuvien.eagles.edu.vn
-drwxr-x---  2 lsadm nogroup   86 Feb 23 17:13 thuvien.eaglesvn.com
-for domain in anhngu.eaglesvn.com thuvien.eaglesvn.com; do     echo "Checking vhost.conf for $domain...";     sudo ls -lah /usr/local/lsws/conf/vhosts/$domain/; done
+drwxr-x---  2 lsadm nogroup   86 Feb 23 16:58 ielts.eagles.edu.vn
+drwxr-x---  2 lsadm nogroup   86 Feb 23 17:13 ielts.eaglesvn.com
+for domain in anhngu.eaglesvn.com ielts.eaglesvn.com; do     echo "Checking vhost.conf for $domain...";     sudo ls -lah /usr/local/lsws/conf/vhosts/$domain/; done
 sudo cat /usr/local/lsws/conf/httpd_config.conf | grep -i virtualhost
 sudo cat /usr/local/lsws/conf/httpd_config.conf | grep -i "map"
 sudo systemctl restart lsws
 sudo systemctl status lsws
 sudo cat /usr/local/lsws/conf/httpd_config.conf | grep -i virtualhost
 curl -I http://anhngu.eaglesvn.com
-curl -I http://thuvien.eaglesvn.com
+curl -I http://ielts.eaglesvn.com
 curl -I http://anhngu.eaglesvn.com
-curl -I http://thuvien.eaglesvn.com
+curl -I http://ielts.eaglesvn.com
 echo "🔍 Checking loaded virtual hosts in OpenLiteSpeed..."
 sudo cat /usr/local/lsws/conf/httpd_config.conf | grep -i virtualhost
 echo "🔍 Checking listener mappings..."
 sudo cat /usr/local/lsws/conf/httpd_config.conf | grep -i "map"
 echo "🔍 Checking vhost.conf files..."
-for domain in eagles.edu.vn anhngu.eagles.edu.vn thuvien.eagles.edu.vn eaglesvn.com     anhngu.eaglesvn.com thuvien.eaglesvn.com gptpatient.com obgyn.gptpatient.com     eagles.vn eaglesvn.online; do     echo "📌 Checking vhost.conf for $domain...";     sudo ls -lah /usr/local/lsws/conf/vhosts/$domain/vhost.conf; done
+for domain in eagles.edu.vn anhngu.eagles.edu.vn ielts.eagles.edu.vn eaglesvn.com     anhngu.eaglesvn.com ielts.eaglesvn.com gptpatient.com obgyn.gptpatient.com     eagles.vn eaglesvn.online; do     echo "📌 Checking vhost.conf for $domain...";     sudo ls -lah /usr/local/lsws/conf/vhosts/$domain/vhost.conf; done
 echo "🔍 Checking permissions for all vhosts..."
-for domain in eagles.edu.vn anhngu.eagles.edu.vn thuvien.eagles.edu.vn eaglesvn.com     anhngu.eaglesvn.com thuvien.eaglesvn.com gptpatient.com obgyn.gptpatient.com     eagles.vn eaglesvn.online; do     echo "📌 Checking /home/$domain...";     sudo ls -ld /home/$domain /home/$domain/public_html;     echo "📂 Listing contents of /home/$domain/public_html...";     sudo ls -lah /home/$domain/public_html;     echo "----------------------------------------"; done
-for domain in anhngu.eaglesvn.com thuvien.eaglesvn.com; do     echo "🔧 Fixing permissions for $domain...";     sudo chmod 755 /home/$domain;     sudo chmod 755 /home/$domain/public_html;     sudo chown -R $(stat -c "%U:%G" /home/$domain) /home/$domain;     echo "✅ Fixed $domain!"; done
-for domain in anhngu.eaglesvn.com thuvien.eaglesvn.com; do     echo "🔍 Checking /home/$domain...";     sudo ls -ld /home/$domain /home/$domain/public_html;     echo "📂 Listing files in /home/$domain/public_html:";     sudo ls -lah /home/$domain/public_html;     echo "----------------------------------------"; done
-$ for domain in anhngu.eaglesvn.com thuvien.eaglesvn.com; do
+for domain in eagles.edu.vn anhngu.eagles.edu.vn ielts.eagles.edu.vn eaglesvn.com     anhngu.eaglesvn.com ielts.eaglesvn.com gptpatient.com obgyn.gptpatient.com     eagles.vn eaglesvn.online; do     echo "📌 Checking /home/$domain...";     sudo ls -ld /home/$domain /home/$domain/public_html;     echo "📂 Listing contents of /home/$domain/public_html...";     sudo ls -lah /home/$domain/public_html;     echo "----------------------------------------"; done
+for domain in anhngu.eaglesvn.com ielts.eaglesvn.com; do     echo "🔧 Fixing permissions for $domain...";     sudo chmod 755 /home/$domain;     sudo chmod 755 /home/$domain/public_html;     sudo chown -R $(stat -c "%U:%G" /home/$domain) /home/$domain;     echo "✅ Fixed $domain!"; done
+for domain in anhngu.eaglesvn.com ielts.eaglesvn.com; do     echo "🔍 Checking /home/$domain...";     sudo ls -ld /home/$domain /home/$domain/public_html;     echo "📂 Listing files in /home/$domain/public_html:";     sudo ls -lah /home/$domain/public_html;     echo "----------------------------------------"; done
+$ for domain in anhngu.eaglesvn.com ielts.eaglesvn.com; do
 done
 🔍 Checking /home/anhngu.eaglesvn.com...
 drwxr-xr-x 4 anhng2322 anhng2322 37 Feb 23 17:10 /home/anhngu.eaglesvn.com
@@ -254,10 +254,10 @@ drwxr-xr-x 4 anhng2322 anhng2322  37 Feb 23 17:10 ..
 -rw-r--r-- 1 anhng2322 anhng2322 752 Feb 23 17:11 index.html
 drwxr-xr-x 3 anhng2322 anhng2322  28 Feb 23 22:03 .well-known
 ----------------------------------------
-🔍 Checking /home/thuvien.eaglesvn.com...
-drwxr-xr-x 4 thuvi4678 thuvi4678 37 Feb 23 17:12 /home/thuvien.eaglesvn.com
-drwxr-xr-x 3 thuvi4678 thuvi4678 43 Feb 23 22:15 /home/thuvien.eaglesvn.com/public_html
-📂 Listing files in /home/thuvien.eaglesvn.com/public_html:
+🔍 Checking /home/ielts.eaglesvn.com...
+drwxr-xr-x 4 thuvi4678 thuvi4678 37 Feb 23 17:12 /home/ielts.eaglesvn.com
+drwxr-xr-x 3 thuvi4678 thuvi4678 43 Feb 23 22:15 /home/ielts.eaglesvn.com/public_html
+📂 Listing files in /home/ielts.eaglesvn.com/public_html:
 total 4.0K
 drwxr-xr-x 3 thuvi4678 thuvi4678  43 Feb 23 22:15 .
 drwxr-xr-x 4 thuvi4678 thuvi4678  37 Feb 23 17:12 ..
@@ -269,9 +269,9 @@ echo "🔄 Restarting OpenLiteSpeed..."
 sudo systemctl restart lsws
 sudo systemctl status lsws
 echo "🚀 Testing HTTP responses..."
-for domain in anhngu.eaglesvn.com thuvien.eaglesvn.com; do     echo "🌐 Testing HTTP for $domain...";     curl -I http://$domain;     echo "🌐 Testing HTTPS for $domain...";     curl -I https://$domain;     echo "----------------------------------------"; done
+for domain in anhngu.eaglesvn.com ielts.eaglesvn.com; do     echo "🌐 Testing HTTP for $domain...";     curl -I http://$domain;     echo "🌐 Testing HTTPS for $domain...";     curl -I https://$domain;     echo "----------------------------------------"; done
 sudo echo "🚀 Testing HTTP responses..."
-for domain in anhngu.eaglesvn.com thuvien.eaglesvn.com; do     echo "🌐 Testing HTTP for $domain...";     curl -I http://$domain;     echo "🌐 Testing HTTPS for $domain...";     curl -I https://$domain;     echo "----------------------------------------"; done
+for domain in anhngu.eaglesvn.com ielts.eaglesvn.com; do     echo "🌐 Testing HTTP for $domain...";     curl -I http://$domain;     echo "🌐 Testing HTTPS for $domain...";     curl -I https://$domain;     echo "----------------------------------------"; done
 sudo ls -lah /etc/letsencrypt/live/
 /root/.acme.sh/
 sudo sudo ls -lah /root/.acme.sh/
@@ -283,10 +283,10 @@ sudo netstat -tulnp | grep -E "80|443"
 sudo nginx -t
 sudo openssl x509 -in /root/.acme.sh/eagles.edu.vn_ecc/fullchain.cer -noout -text | grep -E "Issuer|Not After"
 echo "🚀 Checking .well-known/acme-challenge existence..."
-for domain in eagles.edu.vn anhngu.eaglesvn.com thuvien.eaglesvn.com gptpatient.com obgyn.gptpatient.com     eaglesvn.com eaglesvn.online eagles.vn thuvien.eagles.edu.vn anhngu.eagles.edu.vn; do     echo "📌 Checking /home/$domain/public_html/.well-known/acme-challenge ...";     sudo ls -ld /home/$domain/public_html/.well-known/acme-challenge;     echo "----------------------------------------"; done
+for domain in eagles.edu.vn anhngu.eaglesvn.com ielts.eaglesvn.com gptpatient.com obgyn.gptpatient.com     eaglesvn.com eaglesvn.online eagles.vn ielts.eagles.edu.vn anhngu.eagles.edu.vn; do     echo "📌 Checking /home/$domain/public_html/.well-known/acme-challenge ...";     sudo ls -ld /home/$domain/public_html/.well-known/acme-challenge;     echo "----------------------------------------"; done
 echo "🚀 Rechecking .well-known/acme-challenge existence..."
 for domain in gptpatient.com; do     echo "📌 Checking /home/$domain/public_html/.well-known/acme-challenge ...";     sudo ls -ld /home/$domain/public_html/.well-known/acme-challenge;     echo "----------------------------------------"; done
-for domain in eagles.edu.vn anhngu.eaglesvn.com thuvien.eaglesvn.com gptpatient.com obgyn.gptpatient.com     eaglesvn.com eaglesvn.online eagles.vn thuvien.eagles.edu.vn anhngu.eagles.edu.vn; do     echo "📌 Checking /home/$domain/public_html/.well-known/acme-challenge ...";     sudo ls -ld /home/$domain/public_html/.well-known/acme-challenge;     echo "----------------------------------------"; done
+for domain in eagles.edu.vn anhngu.eaglesvn.com ielts.eaglesvn.com gptpatient.com obgyn.gptpatient.com     eaglesvn.com eaglesvn.online eagles.vn ielts.eagles.edu.vn anhngu.eagles.edu.vn; do     echo "📌 Checking /home/$domain/public_html/.well-known/acme-challenge ...";     sudo ls -ld /home/$domain/public_html/.well-known/acme-challenge;     echo "----------------------------------------"; done
 sudo ls -lah /root/.acme.sh/
 sudo /root/.acme.sh/acme.sh --issue -d anhngu.eagles.edu.vn -d www.anhngu.eagles.edu.vn   --server letsencrypt   --keylength ec-256   -w /home/anhngu.eagles.edu.vn/public_html --force --debug
 sudo nginx -t
@@ -294,8 +294,8 @@ sudo ln -s /etc/nginx/sites-available/anhngu.eagles.edu.vn /etc/nginx/sites-enab
 sudo nginx -t
 sudo systemctl restart nginx
 sudo systemctl status nginx
-sudo /root/.acme.sh/acme.sh --issue -d thuvien.eagles.edu.vn -d www.thuvien.eagles.edu.vn   --server letsencrypt   --keylength ec-256   -w /home/thuvien.eagles.edu.vn/public_html --force --debug
-sudo ln -s /etc/nginx/sites-available/thuvien.eagles.edu.vn /etc/nginx/sites-enabled/
+sudo /root/.acme.sh/acme.sh --issue -d ielts.eagles.edu.vn -d www.ielts.eagles.edu.vn   --server letsencrypt   --keylength ec-256   -w /home/ielts.eagles.edu.vn/public_html --force --debug
+sudo ln -s /etc/nginx/sites-available/ielts.eagles.edu.vn /etc/nginx/sites-enabled/
 sudo nginx -t
 sudo systemctl restart nginx
 sudo systemctl status nginx
@@ -337,7 +337,7 @@ curl -I http://eaglesvn.com/.well-known/acme-challenge/test-file
 sudo netstat -tulnp | grep ":80"
 echo "test" | sudo tee /home/eaglesvn.com/public_html/.well-known/acme-challenge/test-file2
 curl -I http://eaglesvn.com/.well-known/acme-challenge/test-file
-sudo ln -s /etc/nginx/sites-available/ssl_eaglesvn.com /etc/nginx/sites-enabled/  && sudo ln -s /etc/nginx/sites-available/anhngu.eagles.edu.vn /etc/nginx/sites-enabled/ && sudo ln -s /etc/nginx/sites-available/eagles.edu.vn /etc/nginx/sites-enabled/ && sudo ln -s /etc/nginx/sites-available/thuvien.eagles.edu.vn /etc/nginx/sites-enabled/
+sudo ln -s /etc/nginx/sites-available/ssl_eaglesvn.com /etc/nginx/sites-enabled/  && sudo ln -s /etc/nginx/sites-available/anhngu.eagles.edu.vn /etc/nginx/sites-enabled/ && sudo ln -s /etc/nginx/sites-available/eagles.edu.vn /etc/nginx/sites-enabled/ && sudo ln -s /etc/nginx/sites-available/ielts.eagles.edu.vn /etc/nginx/sites-enabled/
 sudo nginx -t
 sudo systemctl restart nginx
 sudo systemctl status nginx
@@ -368,8 +368,8 @@ sudo curl -I http://eaglesvn.com/.well-known/acme-challenge/test-file
 echo "test4" | sudo tee /home/eaglesvn.com/public_html/.well-known/acme-challenge/test-file4
 curl -I http://eaglesvn.com/.well-known/acme-challenge/test-file
 ls -lah /etc/nginx/sites-enabled/
-for domain in eagles.edu.vn www.eagles.edu.vn     anhngu.eagles.edu.vn www.anhngu.eagles.edu.vn     thuvien.eagles.edu.vn www.thuvien.eagles.edu.vn     eaglesvn.com www.eaglesvn.com     anhngu.eaglesvn.com www.anhngu.eaglesvn.com     thuvien.eaglesvn.com www.thuvien.eaglesvn.com; do          echo "📌 Checking /home/$domain/public_html...";     if [ -d "/home/$domain/public_html" ]; then         echo "✅ Exists: /home/$domain/public_html";     else         echo "❌ MISSING: /home/$domain/public_html";     fi;     echo "----------------------------------------"; done
-for domain in www.eagles.edu.vn www.anhngu.eagles.edu.vn www.thuvien.eagles.edu.vn     www.eaglesvn.com www.anhngu.eaglesvn.com www.thuvien.eaglesvn.com; do          echo "📌 Checking /home/$domain/public_html...";     if [ -d "/home/$domain/public_html" ]; then         echo "✅ Exists: /home/$domain/public_html";     else         echo "❌ MISSING: /home/$domain/public_html";     fi;     echo "----------------------------------------"; done
+for domain in eagles.edu.vn www.eagles.edu.vn     anhngu.eagles.edu.vn www.anhngu.eagles.edu.vn     ielts.eagles.edu.vn www.ielts.eagles.edu.vn     eaglesvn.com www.eaglesvn.com     anhngu.eaglesvn.com www.anhngu.eaglesvn.com     ielts.eaglesvn.com www.ielts.eaglesvn.com; do          echo "📌 Checking /home/$domain/public_html...";     if [ -d "/home/$domain/public_html" ]; then         echo "✅ Exists: /home/$domain/public_html";     else         echo "❌ MISSING: /home/$domain/public_html";     fi;     echo "----------------------------------------"; done
+for domain in www.eagles.edu.vn www.anhngu.eagles.edu.vn www.ielts.eagles.edu.vn     www.eaglesvn.com www.anhngu.eaglesvn.com www.ielts.eaglesvn.com; do          echo "📌 Checking /home/$domain/public_html...";     if [ -d "/home/$domain/public_html" ]; then         echo "✅ Exists: /home/$domain/public_html";     else         echo "❌ MISSING: /home/$domain/public_html";     fi;     echo "----------------------------------------"; done
 sudo nginx -t
 sudo systemctl restart nginx
 sudo systemctl status nginx
@@ -569,7 +569,7 @@ cd ~/Documents/utils && sudo ./cleanup.sh
 which ufw
 sudo passwd root
 su -
-for domain in eagles.edu.vn anhngu.eagles.edu.vn thuvien.eagles.edu.vn     eaglesvn.com anhngu.eaglesvn.com thuvien.eaglesvn.com     gptpatient.com obgyn.gptpatient.com     eaglesvn.online eagles.vn; do     echo "📌 Checking /home/$domain/public_html...";     if [ -d "/home/$domain/public_html" ]; then         echo "✅ Exists: /home/$domain/public_html";     else         echo "❌ MISSING: /home/$domain/public_html";     fi;     echo "----------------------------------------"; done
+for domain in eagles.edu.vn anhngu.eagles.edu.vn ielts.eagles.edu.vn     eaglesvn.com anhngu.eaglesvn.com ielts.eaglesvn.com     gptpatient.com obgyn.gptpatient.com     eaglesvn.online eagles.vn; do     echo "📌 Checking /home/$domain/public_html...";     if [ -d "/home/$domain/public_html" ]; then         echo "✅ Exists: /home/$domain/public_html";     else         echo "❌ MISSING: /home/$domain/public_html";     fi;     echo "----------------------------------------"; done
 sudo nginx -t && sudo systemctl restart nginx
 sudo nginx -t && sudo systemctl restart nginx && sudo systemctl status nginx
 cd dockerz
@@ -704,7 +704,7 @@ sudo nginx -t  # Test configuration
 sudo systemctl restart nginx
 sudo nginx -t  # Test configuration
 sudo systemctl restart nginx
-sudo ln -s /etc/nginx/sites-available/anhngu.eaglesvn.com /etc/nginx/sites-enabled/ && sudo ln -s /etc/nginx/sites-available/thuvien.eaglesvn.com /etc/nginx/sites-enabled/
+sudo ln -s /etc/nginx/sites-available/anhngu.eaglesvn.com /etc/nginx/sites-enabled/ && sudo ln -s /etc/nginx/sites-available/ielts.eaglesvn.com /etc/nginx/sites-enabled/
 curl -I -H "Accept-Encoding: gzip" https://eagles.edu.vn
 sudo nginx -t  # Test configuration
 sudo systemctl restart nginx
@@ -744,21 +744,21 @@ sudo openssl x509 -noout -modulus -in /root/.acme.sh/eagles.edu.vn_ecc/fullchain
 openssl rsa -noout -modulus -in /root/.acme.sh/eagles.edu.vn_ecc/eagles.edu.vn.key | openssl md5
 sudo [200~openssl rsa -noout -modulus -in /root/.acme.sh/eagles.edu.vn_ecc/eagles.edu.vn.key | openssl md5
 sudo openssl rsa -noout -modulus -in /root/.acme.sh/eagles.edu.vn_ecc/eagles.edu.vn.key | openssl md5
-sudo openssl rsa -noout -modulus -in /root/.acme.sh/thuvien.eagles.edu.vn_ecc/thuvien.eagles.edu.vn.key | openssl md5
-sudo openssl x509 -noout -modulus -in /root/.acme.sh/thuvien.eagles.edu.vn_ecc/fullchain.cer | openssl md5
-sudo openssl ec -noout -text -in /root/.acme.sh/thuvien.eagles.edu.vn_ecc/thuvien.eagles.edu.vn.key
-sudo openssl x509 -noout -modulus -in /root/.acme.sh/thuvien.eagles.edu.vn_ecc/fullchain.cer | openssl md5
-openssl ec -noout -modulus -in /root/.acme.sh/thuvien.eagles.edu.vn_ecc/thuvien.eagles.edu.vn.key | openssl md5
-sudo openssl ec -noout -modulus -in /root/.acme.sh/thuvien.eagles.edu.vn_ecc/thuvien.eagles.edu.vn.key | openssl md5
-sudo openssl ec -in /root/.acme.sh/thuvien.eagles.edu.vn_ecc/thuvien.eagles.edu.vn.key -noout -text
-sudo openssl x509 -in /root/.acme.sh/thuvien.eagles.edu.vn_ecc/fullchain.cer -pubkey -noout > /tmp/cert-public.key
-openssl ec -in /root/.acme.sh/thuvien.eagles.edu.vn_ecc/thuvien.eagles.edu.vn.key -pubout -out /tmp/key-public.key
-sudo openssl ec -in /root/.acme.sh/thuvien.eagles.edu.vn_ecc/thuvien.eagles.edu.vn.key -pubout -out /tmp/key-public.key
+sudo openssl rsa -noout -modulus -in /root/.acme.sh/ielts.eagles.edu.vn_ecc/ielts.eagles.edu.vn.key | openssl md5
+sudo openssl x509 -noout -modulus -in /root/.acme.sh/ielts.eagles.edu.vn_ecc/fullchain.cer | openssl md5
+sudo openssl ec -noout -text -in /root/.acme.sh/ielts.eagles.edu.vn_ecc/ielts.eagles.edu.vn.key
+sudo openssl x509 -noout -modulus -in /root/.acme.sh/ielts.eagles.edu.vn_ecc/fullchain.cer | openssl md5
+openssl ec -noout -modulus -in /root/.acme.sh/ielts.eagles.edu.vn_ecc/ielts.eagles.edu.vn.key | openssl md5
+sudo openssl ec -noout -modulus -in /root/.acme.sh/ielts.eagles.edu.vn_ecc/ielts.eagles.edu.vn.key | openssl md5
+sudo openssl ec -in /root/.acme.sh/ielts.eagles.edu.vn_ecc/ielts.eagles.edu.vn.key -noout -text
+sudo openssl x509 -in /root/.acme.sh/ielts.eagles.edu.vn_ecc/fullchain.cer -pubkey -noout > /tmp/cert-public.key
+openssl ec -in /root/.acme.sh/ielts.eagles.edu.vn_ecc/ielts.eagles.edu.vn.key -pubout -out /tmp/key-public.key
+sudo openssl ec -in /root/.acme.sh/ielts.eagles.edu.vn_ecc/ielts.eagles.edu.vn.key -pubout -out /tmp/key-public.key
 sudo diff /tmp/cert-public.key /tmp/key-public.key
 sudo nginx -t && sudo systemctl restart nginx
-sudo openssl x509 -in /root/.acme.sh/thuvien.eagles.edu.vn_ecc/fullchain.cer -noout -pubkey > /tmp/cert-public.key
-openssl ec -in /root/.acme.sh/thuvien.eagles.edu.vn_ecc/thuvien.eagles.edu.vn.key -pubout > /tmp/key-public.key
-sudo openssl ec -in /root/.acme.sh/thuvien.eagles.edu.vn_ecc/thuvien.eagles.edu.vn.key -pubout > /tmp/key-public.key
+sudo openssl x509 -in /root/.acme.sh/ielts.eagles.edu.vn_ecc/fullchain.cer -noout -pubkey > /tmp/cert-public.key
+openssl ec -in /root/.acme.sh/ielts.eagles.edu.vn_ecc/ielts.eagles.edu.vn.key -pubout > /tmp/key-public.key
+sudo openssl ec -in /root/.acme.sh/ielts.eagles.edu.vn_ecc/ielts.eagles.edu.vn.key -pubout > /tmp/key-public.key
 sudo -i
 sudo openssl x509 -in /root/.acme.sh/eagles.edu.vn_ecc/fullchain.cer -noout -pubkey > /tmp/cert-public.key
 sudo openssl ec -in /root/.acme.sh/eagles.edu.vn_ecc/eagles.edu.vn.key -pubout > /tmp/key-public.key
@@ -967,8 +967,8 @@ cat /etc/default/netfilter-persistent
 ls -l /usr/share/netfilter-persistent/plugins.d/
 ls -l /etc/iptables/rules.v4 /etc/iptables/rules.v6
 systemctl status netfilter-persistent
-curl -I --http1.1 https://thuvien.eagles.edu.vn/efast/esl/begin6/index.html
-sudo nginx -T   | sed -n '/server_name thuvien.eagles.edu.vn/,/}/p'
+curl -I --http1.1 https://ielts.eagles.edu.vn/efast/esl/begin6/index.html
+sudo nginx -T   | sed -n '/server_name ielts.eagles.edu.vn/,/}/p'
 sudo nginx -t
 sudo systemctl reload nginx && systemctl status nginx
 sudo rm -rf /var/cache/nginx/*

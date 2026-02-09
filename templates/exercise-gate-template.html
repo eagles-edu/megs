@@ -218,7 +218,7 @@
                         if (host === "127.0.0.1:5500" || host === "localhost:5500") {
                           cfg.submitUrl = "http://127.0.0.1:8787/api/exercise-submission"
                         } else {
-                          cfg.submitUrl = "https://thuvien.eagles.edu.vn/api/exercise-submission"
+                          cfg.submitUrl = location.origin + "/api/exercise-submission"
                         }
                         cfgEl.textContent = JSON.stringify(cfg)
                       }
