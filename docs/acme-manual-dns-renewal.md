@@ -2,6 +2,16 @@
 
 Manual DNS validation workflow for all eagles-related domains using `acme.sh`, ECC 256-bit keys, and nginx reload. The flow is two-step per domain: first get TXT values, then renew/install to `/etc/ssl/<domain>.*` with a reload.
 
+## Content Security Policy (CSP)
+
+Every eagles-related server block (or the shared `http` block that feeds those domains) should emit the following CSP header so browsers only load resources from the platforms we trust. Keep the string on a single line inside the `add_header` call, or continue it with a `\` escape if you break it for readability.
+
+```nginx
+add_header Content-Security-Policy "default-src 'self' https://*.eagles.edu.vn https://ielts.eagles.edu.vn https://eagles.edu.vn letsencrypt.org; script-src 'self' https://*.eagles.edu.vn https://ielts.eagles.edu.vn https://eagles.edu.vn https://www.googletagmanager.com https://translate.googleapis.com; style-src 'self' https://*.eagles.edu.vn https://ielts.eagles.edu.vn https://eagles.edu.vn; img-src 'self' data: https://*.eagles.edu.vn https://ielts.eagles.edu.vn https://eagles.edu.vn; font-src 'self' data:; connect-src 'self' https://*.eagles.edu.vn https://ielts.eagles.edu.vn https://eagles.edu.vn letsencrypt.org; media-src *; object-src *; worker-src 'self' blob:; frame-src 'self' https://*.eagles.edu.vn https://ielts.eagles.edu.vn https://eagles.edu.vn http://thuvien.eagles.edu.vn https://www.googletagmanager.com https://youtube.com https://*.youtube.vn https://www.google.com https://google.com; frame-ancestors 'self' https://*.eagles.edu.vn https://ielts.eagles.edu.vn https://eagles.edu.vn" always;
+```
+
+Reload nginx (`systemctl reload nginx`) after editing the block, then spot-check a domain with `curl -I https://<domain>` to verify the CSP header is present and includes the expected directives.
+
 ## One-time prep
 
 ```bash
