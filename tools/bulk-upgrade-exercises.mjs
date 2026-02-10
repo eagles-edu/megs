@@ -32,6 +32,7 @@ const REQUIRED_SHARED_CSS = [
   "web-asset/css/right-rail-flyout.css",
   "web-asset/css/left-menu.css",
 ]
+const QA_ACCORDION_CSS_TOKEN = "web-asset/css/qa-accordion.css"
 const IGNORED_RELATIVE_PATHS = new Set(["exercise-1-nouns/gender-neu.html"])
 
 const LEAN_CRITICAL_INLINE = [
@@ -257,7 +258,7 @@ function detectOffloadCoverage(html) {
   const missingSharedCss = REQUIRED_SHARED_CSS.filter((token) => !hasHrefForCss(html, token))
   const hasQaCoverage =
     /<style\b[^>]*id=(["'])qa-accordion-inline\1[^>]*>/i.test(html) ||
-    hasHrefForCss(html, "web-asset/css/qa-accordion.css")
+    hasHrefForCss(html, QA_ACCORDION_CSS_TOKEN)
 
   return {
     missingSharedCss,
@@ -318,6 +319,9 @@ function collectDrift(html, prototypeStandard) {
     if (!currentQaAccordion) drift.push("missing-qa-accordion-inline")
     else if (!blocksEquivalent(currentQaAccordion, expectedQaAccordion)) {
       drift.push("qa-accordion-inline-mismatch")
+    }
+    if (hasHrefForCss(html, QA_ACCORDION_CSS_TOKEN)) {
+      drift.push("qa-accordion-external-link-present")
     }
   }
 
@@ -424,6 +428,21 @@ function ensureQaAccordionInline(html, prototypeStandard) {
   ])
 }
 
+function removeQaAccordionStylesheetLink(html, prototypeStandard) {
+  const block = prototypeStandard?.qaAccordionInlineBlock || ""
+  if (!block) return { html, removedCount: 0 }
+
+  let removedCount = 0
+  const next = html.replace(
+    /[ \t]*<link\b[^>]*href=(["'])[^"']*web-asset\/css\/qa-accordion\.css(?:\?[^"']*)?\1[^>]*>\s*\n?/gi,
+    () => {
+      removedCount += 1
+      return ""
+    }
+  )
+  return { html: next, removedCount }
+}
+
 function ensureBodyBootstrap(html, prototypeStandard) {
   let changed = false
   let next = html
@@ -490,6 +509,7 @@ function applyPrototypeUpgrade(html, prototypeStandard) {
   const ops = {
     speculationRemoved: 0,
     deprecatedStylesRemoved: 0,
+    qaAccordionExternalLinksRemoved: 0,
     pagerStyleTouched: false,
     criticalInlineTouched: false,
     criticalInlineAugmentTouched: false,
@@ -523,6 +543,10 @@ function applyPrototypeUpgrade(html, prototypeStandard) {
   const qaAccordion = ensureQaAccordionInline(next, prototypeStandard)
   next = qaAccordion.html
   ops.qaAccordionTouched = qaAccordion.changed
+
+  const qaAccordionLink = removeQaAccordionStylesheetLink(next, prototypeStandard)
+  next = qaAccordionLink.html
+  ops.qaAccordionExternalLinksRemoved = qaAccordionLink.removedCount
 
   const bootstrap = ensureBodyBootstrap(next, prototypeStandard)
   next = bootstrap.html

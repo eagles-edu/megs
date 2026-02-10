@@ -219,6 +219,14 @@
         margin: 0;
       }
 
+      /* Mirror body padding/border early to avoid late layout shrink */
+      body.base,
+      body.site {
+        background-color: var(--background-color);
+        border-top: 15px solid var(--footer-background);
+        padding: 20px;
+      }
+
       .grid-modern .row-fluid {
         background: var(--secondary-color);
         border-radius: var(--radius);
@@ -264,6 +272,22 @@
     <!-- Critical augment: stabilize grid/menu to reduce CLS -->
     <style id="critical-inline-augment">
       /* Grid layout (avoid blockâ†’flex shift when async CSS loads) */
+      .container {
+        margin: 0 auto;
+        max-width: 1100px;
+        padding: 0 18px;
+      }
+
+      .container2 {
+        margin: 0 auto;
+        max-width: 1085px;
+        padding: 0 18px;
+      }
+
+      .padme1 {
+        padding-top: 3rem !important;
+      }
+
       .row-fluid {
         display: flex;
         flex-wrap: wrap;
@@ -275,6 +299,7 @@
         box-sizing: border-box;
         flex: 0 0 100%;
         max-width: 100%;
+        min-width: 0;
         padding-left: 8px;
         padding-right: 8px;
       }
@@ -288,6 +313,20 @@
         .row-fluid > .span8 {
           flex: 0 0 66.6667%;
           max-width: 66.6667%;
+        }
+
+        #sidebar {
+          min-width: 130px;
+        }
+
+        #aside {
+          min-width: 120px;
+        }
+
+        #content {
+          flex: 0 0 66.6667%;
+          max-width: 66.6667%;
+          min-width: 0;
         }
       }
 
@@ -401,8 +440,19 @@
 
       ul.accordion-menu li:hover > .item-wrapper > .menu-button,
       ul.accordion-menu li:focus-within > .item-wrapper > .menu-button,
-      ul.accordion-menu li.opened > .item-wrapper > .menu-button {
+      ul.accordion-menu li.opened > .item-wrapper > .menu-button,
+      ul.accordion-menu li.current > .item-wrapper > .menu-button {
         color: var(--primary-color);
+      }
+
+      ul.accordion-menu li.current {
+        background: var(--surface-warm, #fff);
+      }
+
+      ul.accordion-menu li.current > .item-wrapper > .menu-link > a,
+      ul.accordion-menu li.current > .item-wrapper > .menu-link > p {
+        color: var(--primary-color, #e0162b);
+        text-decoration: none;
       }
 
       ul.accordion-menu .menu-button > svg {
@@ -477,6 +527,36 @@
         padding: 0;
       }
 
+      .exercise-form__last-attempt {
+        align-items: center;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.35rem;
+        margin: 0 0 0.75rem;
+        min-height: 1.5rem;
+      }
+
+      /* Stabilize instruction blocks to avoid inline-block reflow */
+      #content .exinstruct,
+      #content .exinstruct .blockdiv {
+        display: block;
+      }
+
+      #content .exinstruct .blockdiv {
+        min-height: 1rem;
+      }
+
+      #content .exinstruct .blockwrap,
+      #content .exinstruct .blockwrap-txt {
+        display: block;
+        max-width: 100%;
+      }
+
+      /* Reserve student ID block to reduce first-paint shifts */
+      #content .exercise-form__student-id {
+        min-height: 3rem;
+      }
+
       #aside .r-flyout-menu > [data-r-flyout-item] {
         border-bottom: 1px solid var(--divider-color, #e1e7f0);
         position: relative;
@@ -508,12 +588,29 @@
       }
 
       #aside .r-flyout-menu > [data-r-flyout-item].current > .r-flyout__header {
+        background: var(--surface-warm, #fff);
         color: var(--primary-color, #e0162b);
       }
 
       #aside .r-flyout__link {
         color: currentColor;
         text-decoration: none;
+      }
+
+      #aside .r-flyout__sublist li.current > .item-wrapper {
+        background: var(--surface-warm, #fff);
+      }
+
+      #aside .r-flyout__sublist li.current > .item-wrapper a {
+        color: var(--primary-color, #e0162b);
+        text-decoration: none;
+      }
+
+      #aside .r-flyout__sublist a:hover,
+      #aside .r-flyout__sublist a:focus,
+      #aside .r-flyout__sublist li.current > .item-wrapper a,
+      #aside .r-flyout__sublist li.active > .item-wrapper a {
+        font-weight: 400;
       }
 
       #aside .r-flyout__link:hover,
@@ -826,47 +923,7 @@
       }
     </style>
 
-    <!-- Optimized speculationrules with prerender for better UX -->
-    <script>
-      ;(function () {
-        function injectSpeculation() {
-          try {
-            var s = document.createElement("script")
-            s.type = "speculationrules"
-            s.text = JSON.stringify({
-              prefetch: [
-                {
-                  source: "list",
-                  urls: ["112-proper-nouns.html"],
-                },
-              ],
-              prerender: [
-                {
-                  source: "list",
-                  urls: ["112-proper-nouns.html"],
-                  eagerness: "moderate",
-                },
-              ],
-            })
-            document.head.appendChild(s)
-          } catch (e) {
-            /* no-op */
-          }
-        }
-        if (document.readyState === "complete") {
-          injectSpeculation()
-        } else {
-          window.addEventListener("load", function () {
-            if ("requestIdleCallback" in window)
-              requestIdleCallback(injectSpeculation, {
-                timeout: 2000,
-              })
-            else setTimeout(injectSpeculation, 500)
-          })
-        }
-      })()
-    </script>
-    <!-- Icon font not used on Codex variant; removed icomoon.css includes -->
+<!-- Icon font not used on Codex variant; removed icomoon.css includes -->
 
     <!-- Minimal base for layout/mobile nav used by prototype (async) -->
     <link rel="preload" href="../web-asset/css/exercises.css" as="style">
@@ -911,6 +968,159 @@
     </noscript>
     <!-- Codex QA slider scoped overrides (synchronous to avoid flash) -->
     <link rel="stylesheet" href="../web-asset/css/qa-accordion.css">
+<style id="qa-accordion-inline">
+      /* Codex QA Sliders' CSS overrides: single source of truth for Q&A */
+
+      /* Scope: only affect codex QA pages */
+
+      /* Scope strictly to the content area */
+      #content .nn_sliders.accordion {
+        margin-bottom: 1.5rem;
+      }
+
+      /* Preserve themed top border (e.g., .green/.info) and control other borders */
+
+      /* border-bottom: 1px solid var(--border-color); */
+
+      /* border-left: 1px solid var(--border-color); */
+      #content .nn_sliders.accordion > .accordion-group {
+        background: transparent;
+        border-radius: var(--radius);
+        overflow: hidden;
+      }
+
+      #content .accordion-heading {
+        background-color: var(--surface-1);
+        transition: background-color 0.2s ease;
+      }
+
+      #content .accordion-heading > a.accordion-toggle {
+        cursor: pointer;
+        display: block;
+        padding: 0.75rem 1rem;
+        position: relative;
+        text-decoration: none;
+      }
+
+      /* Arrow indicator controlled via aria-expanded */
+      #content .accordion-heading > a.accordion-toggle::after {
+        border-bottom: 2px solid var(--color-muted);
+        border-right: 2px solid var(--color-muted);
+        content: "";
+        height: 10px;
+        position: absolute;
+        right: 1rem;
+        top: 50%;
+        transform: translateY(-50%) rotate(0deg);
+        transition: transform 0.25s ease;
+        width: 10px;
+      }
+
+      #content .accordion-heading > a.accordion-toggle[aria-expanded="true"]::after {
+        transform: translateY(-50%) rotate(45deg);
+      }
+
+      #content .accordion-heading > a.accordion-toggle[aria-expanded="false"]::after {
+        transform: translateY(-50%) rotate(-45deg);
+      }
+
+      /* Body: support both legacy .in and modern .show */
+      #content .accordion-body {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+      }
+
+      #content .accordion-body.in,
+      #content .accordion-body.show {
+        max-height: 1000px;
+      }
+
+      #content .accordion-inner {
+        border-top: 1px solid var(--divider-color);
+        padding: 1rem;
+      }
+
+      /* Answer highlight (green) */
+      .panel-body {
+        background-color: var(--answer-bgcolor);
+        border: 0.0625rem solid var(--answer-border);
+        margin-bottom: -1px;
+        padding: 7px;
+      }
+
+      div.accordion-inner > p {
+        color: var(--answer-txtcolor);
+        font-weight: n;
+      }
+
+      /* Hide duplicated legacy heading inside accordion body */
+      #content .nn_sliders-title {
+        display: none !important;
+      }
+
+      /* Harmonize with legacy .nn_sliders collapse rules to avoid dupe transitions */
+      #content .nn_sliders .collapse {
+        height: 0;
+        overflow: hidden;
+      }
+
+      #content .nn_sliders .collapse.in,
+      #content .nn_sliders .collapse.show {
+        height: auto;
+      }
+
+      div .accordion-inner > p {
+        margin: 0;
+      }
+
+      #exercise-status {
+        background-color: transparent;
+        border-radius: 0 0 var(--radius, 6px) var(--radius, 6px);
+        border-top: 0 solid transparent;
+        border-top-color: transparent;
+        font-weight: 600;
+        line-height: 1.5;
+        margin-top: 2em;
+        padding: 1rem 1.25rem;
+        text-align: center;
+        white-space: pre-line;
+      }
+
+      .status-ok {
+        color: var(--success-color);
+        background: var(--secondary-color);
+        border-top-color: var(--success-border);
+      }
+
+      #exercise-status.status-ok::before {
+        content: "";
+        display: inline-block;
+        width: 1.05em;
+        height: 1.05em;
+        margin-right: 0.4em;
+        vertical-align: -0.15em;
+        background-color: currentcolor;
+        mask: center / contain no-repeat url("../web-asset/icons/svg/checkmark.svg");
+      }
+
+      #exercise-status.status-ok {
+        color: #0f6d2a;
+      }
+
+      .status-warn {
+        color: var(--warning-color);
+        background: var(--warning-bg);
+        border-top-color: var(--warning-border);
+      }
+
+      .status-err {
+        color: var(--danger-color);
+        background: var(--danger-bg);
+        border-top-color: var(--danger-border);
+      }
+    </style>
+
     <!-- No-JS fallback: show all answers if scripting is disabled -->
     <noscript>
       <style>
@@ -932,7 +1142,10 @@
   </head>
 
   <body class="base exercize" data-exercise-devtools="auto">
-    <svg xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" aria-hidden="true" style="position: absolute; width: 0; height: 0; overflow: hidden">
+        <script data-mobile-nav-bootstrap>
+    document.body.classList.add("mobile-nav-enabled")
+    </script>
+    <svg xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" aria-hidden="true" class="icon-sprite">
       <defs>
         <symbol id="icon-plus" viewBox="0 0 24 24">
           <path fill="currentColor" d="M12 5a1 1 0 0 0-1 1v5H6a1 1 0 1 0 0 2h5v5a1 1 0 1 0 2 0v-5h5a1 1 0 1 0 0-2h-5V6a1 1 0 0 0-1-1z"/>
@@ -1123,7 +1336,7 @@
                         <span itemprop="name">Home</span>
                       </a>
                       <span class="divider">
-                        Â
+                        ï¿½
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8 13.02" width="9" height="9">
                           <polygon points="8 6.51 0 13.02 0 0 8 6.51" fill="#e0162b"/>
                         </svg>
@@ -1135,7 +1348,7 @@
                         <span itemprop="name">Exercise 3 - Adjectives</span>
                       </a>
                       <span class="divider">
-                        Â
+                        ï¿½
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8 13.02" width="9" height="9">
                           <polygon points="8 6.51 0 13.02 0 0 8 6.51" fill="#e0162b"/>
                         </svg>
