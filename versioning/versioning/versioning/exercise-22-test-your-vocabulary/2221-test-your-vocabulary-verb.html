@@ -930,7 +930,46 @@
       }
     </style>
 
-    <!-- speculationrules removed to match lesson baseline and avoid eager prefetch overhead -->
+    <!-- Optimized speculationrules with prerender for better UX -->
+    <script>
+      ;(function () {
+        function injectSpeculation() {
+          try {
+            var s = document.createElement("script")
+            s.type = "speculationrules"
+            s.text = JSON.stringify({
+              prefetch: [
+                {
+                  source: "list",
+                  urls: ["112-proper-nouns.html"],
+                },
+              ],
+              prerender: [
+                {
+                  source: "list",
+                  urls: ["112-proper-nouns.html"],
+                  eagerness: "moderate",
+                },
+              ],
+            })
+            document.head.appendChild(s)
+          } catch (e) {
+            /* no-op */
+          }
+        }
+        if (document.readyState === "complete") {
+          injectSpeculation()
+        } else {
+          window.addEventListener("load", function () {
+            if ("requestIdleCallback" in window)
+              requestIdleCallback(injectSpeculation, {
+                timeout: 2000,
+              })
+            else setTimeout(injectSpeculation, 500)
+          })
+        }
+      })()
+    </script>
     <!-- Icon font not used on Codex variant; removed icomoon.css includes -->
 
     <!-- Layout styles for exercises + mobile nav (blocking for CLS stability) -->
@@ -1932,7 +1971,7 @@
                       if (host === "127.0.0.1:5500" || host === "localhost:5500") {
                         cfg.submitUrl = "http://127.0.0.1:8787/api/exercise-submission" // dev: Node directly
                       } else {
-                        cfg.submitUrl = location.origin + "/api/exercise-submission" // prod: same-origin route
+                        cfg.submitUrl = "https://ielts.eagles.edu.vn/api/exercise-submission" // prod: via nginx
                       }
                       cfgEl.textContent = JSON.stringify(cfg)
                     }
@@ -3385,7 +3424,7 @@
             if (h === "127.0.0.1:5500" || h === "localhost:5500") {
               submitUrl = "http://127.0.0.1:8787/api/exercise-submission"
             } else {
-              submitUrl = location.origin + "/api/exercise-submission"
+              submitUrl = "https://ielts.eagles.edu.vn/api/exercise-submission"
             }
           }
 

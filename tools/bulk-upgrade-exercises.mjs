@@ -25,6 +25,15 @@ import process from "node:process"
 import { spawnSync } from "node:child_process"
 import readline from "node:readline"
 
+const DEFAULT_PROTOTYPE = "exercise-1-nouns/111-common-nouns.html"
+const REQUIRED_SHARED_CSS = [
+  "web-asset/css/base.css",
+  "web-asset/css/exercises.css",
+  "web-asset/css/right-rail-flyout.css",
+  "web-asset/css/left-menu.css",
+]
+const IGNORED_RELATIVE_PATHS = new Set(["exercise-1-nouns/gender-neu.html"])
+
 const LEAN_CRITICAL_INLINE = [
   "body {",
   "  margin: 0;",
@@ -52,6 +61,7 @@ function usage() {
   node tools/bulk-upgrade-exercises.mjs [options]
 
 Options:
+  --prototype <path>       Prototype source file (default: ${DEFAULT_PROTOTYPE})
   --write                  Apply updates in place (default: dry-run report only)
   --include-copy           Include *copy.html / *.copy.html files
   --verify-prototype       Run "npm run verify:prototype" after write pass
@@ -65,6 +75,7 @@ Options:
 
 function parseArgs(argv) {
   const args = {
+    prototype: DEFAULT_PROTOTYPE,
     write: false,
     includeCopy: false,
     verifyPrototype: false,
@@ -77,6 +88,7 @@ function parseArgs(argv) {
   for (let i = 2; i < argv.length; i += 1) {
     const arg = argv[i]
     if (arg === "--write") args.write = true
+    else if (arg === "--prototype") args.prototype = argv[++i] || ""
     else if (arg === "--include-copy") args.includeCopy = true
     else if (arg === "--verify-prototype") args.verifyPrototype = true
     else if (arg === "--no-pause") args.pausePerDirectory = false
@@ -92,6 +104,9 @@ function parseArgs(argv) {
   }
 
   args.root = path.isAbsolute(args.root) ? args.root : path.resolve(process.cwd(), args.root)
+  args.prototype = path.isAbsolute(args.prototype)
+    ? args.prototype
+    : path.resolve(args.root, args.prototype)
   if (args.only) {
     args.only = path.isAbsolute(args.only) ? args.only : path.resolve(args.root, args.only)
   }
@@ -122,6 +137,77 @@ function listSecondLevelExerciseFiles(root, includeCopy) {
     })
   })
   return files.sort((a, b) => a.localeCompare(b))
+}
+
+function isVersioningPath(root, filePath) {
+  const rel = path.relative(root, filePath).replace(/\\/g, "/")
+  return rel === "versioning" || rel.startsWith("versioning/")
+}
+
+function isIgnoredExercisePath(root, filePath) {
+  const rel = path.relative(root, filePath).replace(/\\/g, "/")
+  return IGNORED_RELATIVE_PATHS.has(rel)
+}
+
+function escapeRegExp(value) {
+  return String(value).replace(/[.*+?^${}()|[\]\\]/g, "\\$&")
+}
+
+function extractTaggedBlockById(html, tagName, id) {
+  const pattern = new RegExp(
+    `<${tagName}\\b[^>]*id=(["'])${escapeRegExp(id)}\\1[^>]*>[\\s\\S]*?<\\/${tagName}>`,
+    "i"
+  )
+  const match = html.match(pattern)
+  return match ? match[0] : ""
+}
+
+function extractTaggedBlockByAttribute(html, tagName, attributeName) {
+  const pattern = new RegExp(
+    `<${tagName}\\b[^>]*\\b${escapeRegExp(attributeName)}(?:=(["'])[^"']*\\1)?[^>]*>[\\s\\S]*?<\\/${tagName}>`,
+    "i"
+  )
+  const match = html.match(pattern)
+  return match ? match[0] : ""
+}
+
+function loadPrototypeStandard(root, prototypePath) {
+  if (!fs.existsSync(prototypePath)) {
+    throw new Error(`Prototype source not found: ${prototypePath}`)
+  }
+  const html = fs.readFileSync(prototypePath, "utf8")
+  const criticalInlineBlock = extractTaggedBlockById(html, "style", "critical-inline") || CRITICAL_INLINE_BLOCK
+  const mobileBootstrapBlock =
+    extractTaggedBlockByAttribute(html, "script", "data-mobile-nav-bootstrap") ||
+    MOBILE_BOOTSTRAP_BLOCK.trim()
+
+  return {
+    pathAbs: prototypePath,
+    pathRel: path.relative(root, prototypePath).replace(/\\/g, "/"),
+    criticalInlineBlock,
+    mobileBootstrapBlock,
+  }
+}
+
+function hasHrefForCss(html, cssPathToken) {
+  const pattern = new RegExp(
+    `href=(["'])[^"']*${escapeRegExp(cssPathToken)}(?:\\?[^"']*)?\\1`,
+    "i"
+  )
+  return pattern.test(html)
+}
+
+function detectOffloadCoverage(html) {
+  const missingSharedCss = REQUIRED_SHARED_CSS.filter((token) => !hasHrefForCss(html, token))
+  const hasQaCoverage =
+    /<style\b[^>]*id=(["'])qa-accordion-inline\1[^>]*>/i.test(html) ||
+    hasHrefForCss(html, "web-asset/css/qa-accordion.css")
+
+  return {
+    missingSharedCss,
+    hasQaCoverage,
+    safeToRemoveDeprecatedInline: missingSharedCss.length === 0 && hasQaCoverage,
+  }
 }
 
 function formatStamp(date = new Date()) {
@@ -216,29 +302,31 @@ function removeDeprecatedInlineStyleBlocks(html) {
   return { html: next, removedCount }
 }
 
-function ensureCriticalInline(html) {
+function ensureCriticalInline(html, prototypeStandard) {
   let changed = false
   let next = html
+  const block = prototypeStandard?.criticalInlineBlock || CRITICAL_INLINE_BLOCK
   const criticalRegex = /<style\b[^>]*id=(["'])critical-inline\1[^>]*>[\s\S]*?<\/style>/i
   if (criticalRegex.test(next)) {
-    next = next.replace(criticalRegex, CRITICAL_INLINE_BLOCK)
+    next = next.replace(criticalRegex, block)
     changed = true
   } else if (/<!--\s*Icon font not used on Codex variant; removed icomoon\.css includes\s*-->/i.test(next)) {
     next = next.replace(
       /<!--\s*Icon font not used on Codex variant; removed icomoon\.css includes\s*-->/i,
-      `${CRITICAL_INLINE_BLOCK}\n    <!-- Icon font not used on Codex variant; removed icomoon.css includes -->`
+      `${block}\n    <!-- Icon font not used on Codex variant; removed icomoon.css includes -->`
     )
     changed = true
   } else if (/<\/head>/i.test(next)) {
-    next = next.replace(/<\/head>/i, `${CRITICAL_INLINE_BLOCK}\n  </head>`)
+    next = next.replace(/<\/head>/i, `${block}\n  </head>`)
     changed = true
   }
   return { html: next, changed }
 }
 
-function ensureBodyBootstrap(html) {
+function ensureBodyBootstrap(html, prototypeStandard) {
   let changed = false
   let next = html
+  const block = `${(prototypeStandard?.mobileBootstrapBlock || MOBILE_BOOTSTRAP_BLOCK.trim()).trim()}\n`
 
   const bootstrapRegex = /<script\b[^>]*data-mobile-nav-bootstrap[^>]*>[\s\S]*?<\/script>\s*/gi
   if (bootstrapRegex.test(next)) {
@@ -248,7 +336,7 @@ function ensureBodyBootstrap(html) {
 
   next = next.replace(/(<body\b[^>]*>\s*)/i, (match, openTag) => {
     changed = true
-    return `${openTag}${MOBILE_BOOTSTRAP_BLOCK}`
+    return `${openTag}${block}`
   })
 
   return { html: next, changed }
@@ -290,7 +378,7 @@ function normalizeTrailingWhitespace(text) {
   return text.replace(/[ \t]+$/gm, "")
 }
 
-function applyPrototypeUpgrade(html) {
+function applyPrototypeUpgrade(html, prototypeStandard) {
   const ops = {
     speculationRemoved: 0,
     deprecatedStylesRemoved: 0,
@@ -309,11 +397,11 @@ function applyPrototypeUpgrade(html) {
   next = inlineStyles.html
   ops.deprecatedStylesRemoved = inlineStyles.removedCount
 
-  const criticalInline = ensureCriticalInline(next)
+  const criticalInline = ensureCriticalInline(next, prototypeStandard)
   next = criticalInline.html
   ops.criticalInlineTouched = criticalInline.changed
 
-  const bootstrap = ensureBodyBootstrap(next)
+  const bootstrap = ensureBodyBootstrap(next, prototypeStandard)
   next = bootstrap.html
   ops.bootstrapTouched = bootstrap.changed
 
@@ -512,14 +600,25 @@ async function main() {
   const args = parseArgs(process.argv)
   const root = args.root
   if (!fs.existsSync(root)) throw new Error(`Root path not found: ${root}`)
+  const prototypeStandard = loadPrototypeStandard(root, args.prototype)
 
   let files = []
   if (args.only) {
     if (!fs.existsSync(args.only)) throw new Error(`--only target not found: ${args.only}`)
+    if (isVersioningPath(root, args.only)) {
+      throw new Error(`--only target is under versioning/: ${toRel(root, args.only)}`)
+    }
+    if (isIgnoredExercisePath(root, args.only)) {
+      throw new Error(`--only target is ignored by policy: ${toRel(root, args.only)}`)
+    }
     files = [args.only]
   } else {
     files = listSecondLevelExerciseFiles(root, args.includeCopy)
   }
+
+  files = files.filter(
+    (filePath) => !isVersioningPath(root, filePath) && !isIgnoredExercisePath(root, filePath)
+  )
 
   if (!files.length) {
     console.log("No exercise files found for selection.")
@@ -532,6 +631,7 @@ async function main() {
     runStamp,
     root,
     mode: args.write ? "write" : "dry-run",
+    prototype: prototypeStandard.pathRel,
     includeCopy: args.includeCopy,
     pausePerDirectory: args.pausePerDirectory,
     filesTotal: files.length,
@@ -549,7 +649,7 @@ async function main() {
   }
 
   console.log(
-    `[bulk-upgrade] mode=${report.mode} files=${files.length} scope=exercise-*/*.html includeCopy=${String(args.includeCopy)}`
+    `[bulk-upgrade] mode=${report.mode} files=${files.length} scope=exercise-*/*.html includeCopy=${String(args.includeCopy)} prototype=${prototypeStandard.pathRel}`
   )
 
   let stopNow = false
@@ -586,6 +686,7 @@ async function main() {
       }
 
       const beforeDrift = collectDrift(original)
+      const offloadCoverage = detectOffloadCoverage(original)
       if (!beforeDrift.length) {
         report.upToDate += 1
         const entry = {
@@ -599,7 +700,33 @@ async function main() {
         continue
       }
 
-      const upgraded = applyPrototypeUpgrade(original)
+      if (beforeDrift.includes("deprecated-inline-style-block") && !offloadCoverage.safeToRemoveDeprecatedInline) {
+        report.skipped += 1
+        const entry = {
+          file: relPath,
+          directory: directoryRel,
+          status: "needs-manual-review",
+          drift: beforeDrift,
+          guard: "unsafe-inline-offload-coverage",
+          missingSharedCss: offloadCoverage.missingSharedCss,
+          hasQaCoverage: offloadCoverage.hasQaCoverage,
+        }
+        report.files.push(entry)
+        directoryEntries.push(entry)
+        const missingCssLabel = offloadCoverage.missingSharedCss.length
+          ? offloadCoverage.missingSharedCss.join(", ")
+          : "(none)"
+        console.log(
+          `[warn] ${relPath} (manual review: inline offload coverage incomplete; missingCss=${missingCssLabel}; qaCoverage=${String(offloadCoverage.hasQaCoverage)})`
+        )
+        if (args.failFast) {
+          stopNow = true
+          break
+        }
+        continue
+      }
+
+      const upgraded = applyPrototypeUpgrade(original, prototypeStandard)
       const changed = upgraded.html !== original
       if (!changed) {
         report.skipped += 1
@@ -626,6 +753,7 @@ async function main() {
           directory: directoryRel,
           status: "would-upgrade",
           drift: beforeDrift,
+          offloadCoverage,
           ops: upgraded.ops,
         }
         report.files.push(entry)
@@ -651,6 +779,7 @@ async function main() {
           directory: directoryRel,
           status: "upgraded",
           drift: beforeDrift,
+          offloadCoverage,
           ops: upgraded.ops,
           backup: toRel(root, backupPath),
         }
