@@ -17,6 +17,8 @@
  * Usage examples:
  * - node tools/conversion-assistant.mjs --target exercise-4-adverbs/411-using-adverbs-part-1.html
  * - node tools/conversion-assistant.mjs --target exercise-4-adverbs/411-using-adverbs-part-1.html --title 411-using-adverbs-part-1 --answer-fields 2 --answer-source undies --answers-mode alts --obfuscation highlighted
+ * - node tools/conversion-assistant.mjs --lesson --target lesson-6-prepositions/2-prepositions-of-place.html
+ * - node tools/conversion-assistant.mjs --list --bulk --root .
  *
  * Flags and inputs:
  * - Flags override prompts; missing values are collected interactively.
@@ -282,6 +284,8 @@ function printUsage() {
   node tools/conversion-assistant.mjs --target <target-path> [options]
 
 Options:
+  --lesson               delegate to tools/lesson-conversion-assistant.mjs
+  --list                 delegate to tools/list-conversion-assistant.mjs
   --target, -f            Target HTML path (relative preferred)
   --title, -t             Title/ID (defaults to filename slug)
   --answer-fields <1-7>   1-6 for inputs, 7 for textarea (sets --answer-ui textarea)
@@ -296,6 +300,38 @@ Options:
   --no-diff-preview       disable diff preview
   --help                  show help
 `)
+}
+
+function stripDelegationFlags(argv) {
+  const cleaned = []
+  for (const arg of argv) {
+    if (arg === "--lesson" || arg === "--list") continue
+    cleaned.push(arg)
+  }
+  return cleaned
+}
+
+function maybeRunDelegatedAssistant(argv) {
+  const wantsLesson = argv.includes("--lesson")
+  const wantsList = argv.includes("--list")
+  if (!wantsLesson && !wantsList) return false
+  if (wantsLesson && wantsList) {
+    fail("Use only one delegation flag: --lesson or --list.")
+  }
+
+  const script = wantsLesson
+    ? "tools/lesson-conversion-assistant.mjs"
+    : "tools/list-conversion-assistant.mjs"
+  const cmd = ["node", script, ...stripDelegationFlags(argv)]
+  const result = spawnSync(cmd[0], cmd.slice(1), {
+    cwd: repoRoot,
+    stdio: "inherit",
+  })
+
+  if (result.error) {
+    fail(`Delegation failed: ${result.error.message}`)
+  }
+  process.exit(result.status ?? 0)
 }
 
 function parseBoolean(input) {
@@ -1089,6 +1125,7 @@ function runCommand(cmd, label) {
 }
 
 async function main() {
+  maybeRunDelegatedAssistant(process.argv.slice(2))
   const { args, provided } = parseArgs(process.argv)
   const prompted = {
     target: false,

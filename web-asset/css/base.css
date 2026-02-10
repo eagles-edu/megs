@@ -302,6 +302,15 @@ ol {
   padding: 0;
 }
 
+ol .introlist {
+	display: block;
+	list-style-type: lower-alpha;
+  list-style-position: inside;
+	margin-block: 1rem;
+	padding-inline-start: 7px;
+	unicode-bidi: isolate;
+}
+
 table {
   border-collapse: collapse;
   width: 100%;
@@ -998,4 +1007,13 @@ main#content .star-solid::before {
   display: block;
   margin-bottom: 1rem;
 
+}
+
+.nobull ul {
+  list-style: none ;
+}
+
+.nobull ul li{
+  list-style: none;
+  margin-bottom: .2rem;
 }
