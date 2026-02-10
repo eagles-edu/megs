@@ -2,18 +2,13 @@
 /*
 Usage:
   node js/convert-legacy-lesson.mjs <legacy-path> [options]
-  node js/convert-legacy-lesson.mjs --bulk [options]
 
 Options:
-  --target, -f            Legacy lesson HTML path (required if not positional and --bulk is absent)
+  --target, -f            Legacy lesson HTML path (required if not positional)
   --prototype, -p         Prototype lesson template (default: lesson-6-prepositions/1-prepositions-of-time.html)
   --uk-to-us              Normalize UK spellings/usage to US (optional)
   --diff-preview          Show diff without writing (default)
   --no-diff-preview       Write changes to the legacy file
-  --bulk                  Scan lesson directories starting from the first unconverted entry
-  --root <path>           Root directory for lesson directories (default: current working directory)
-  --include-copy          Include *.copy.html and *-copy.html files while scanning
-  --no-pause              Skip the per-directory completion pause
   --help, -h              Show help
 */
 import fs from "node:fs"
@@ -21,7 +16,6 @@ import os from "node:os"
 import path from "node:path"
 import process from "node:process"
 import { spawnSync } from "node:child_process"
-import readline from "node:readline"
 import { load } from "cheerio"
 
 const DEFAULT_PROTOTYPE = "lesson-6-prepositions/1-prepositions-of-time.html"
@@ -48,10 +42,6 @@ const LEAN_CRITICAL_INLINE = [
   "  }",
   "}",
 ].join("\n")
-
-const DEFAULT_ROOT = process.cwd()
-const COPY_FILE_SUFFIXES = [".copy.html", "-copy.html"]
-const NATURAL_COLLATOR = new Intl.Collator(undefined, { numeric: true, sensitivity: "base" })
 
 const US_WORD_RULES = [
   {
@@ -172,7 +162,6 @@ const US_PHRASE_REPLACEMENTS = [
 ]
 
 const US_WORD_REPLACEMENTS = buildUsWordReplacements(US_WORD_RULES, US_WORD_EXACT)
-const LESSON_DIRECTORY_PREFIX = "lesson-"
 
 function fail(message) {
   console.error(message)
@@ -189,10 +178,6 @@ Options:
   --uk-to-us              Normalize UK spellings/usage to US (optional)
   --diff-preview          Show diff without writing (default)
   --no-diff-preview       Write changes to the legacy file
-  --bulk                  Scan lesson directories starting from the first unconverted entry
-  --root <path>           Root directory for lesson directories (default: current working directory)
-  --include-copy          Include *.copy.html / *-copy.html files while scanning
-  --no-pause              Skip the per-directory completion pause
   --help, -h              Show help
 `)
 }
@@ -203,10 +188,6 @@ function parseArgs(argv) {
     prototype: DEFAULT_PROTOTYPE,
     diffPreview: true,
     ukToUs: false,
-    bulk: false,
-    root: DEFAULT_ROOT,
-    includeCopy: false,
-    pausePerDirectory: true,
   }
 
   for (let i = 2; i < argv.length; i += 1) {
@@ -218,20 +199,12 @@ function parseArgs(argv) {
       args.target = argv[++i] || ""
     } else if (arg === "--prototype" || arg === "-p") {
       args.prototype = argv[++i] || ""
-    } else if (arg === "--bulk") {
-      args.bulk = true
-    } else if (arg === "--root") {
-      args.root = argv[++i] || args.root
     } else if (arg === "--uk-to-us") {
       args.ukToUs = true
     } else if (arg === "--diff-preview") {
       args.diffPreview = true
     } else if (arg === "--no-diff-preview") {
       args.diffPreview = false
-    } else if (arg === "--include-copy") {
-      args.includeCopy = true
-    } else if (arg === "--no-pause") {
-      args.pausePerDirectory = false
     } else if (!args.target && !arg.startsWith("-")) {
       args.target = arg
     } else {
@@ -239,7 +212,7 @@ function parseArgs(argv) {
     }
   }
 
-  if (!args.bulk && !args.target) fail("Missing legacy HTML path.")
+  if (!args.target) fail("Missing legacy HTML path.")
   if (!args.prototype) fail("Missing prototype path.")
   return args
 }
@@ -884,84 +857,11 @@ function logSummary(summary) {
   summary.forEach((line) => console.log(`  - ${line}`))
 }
 
-function naturalCompare(a, b) {
-  return NATURAL_COLLATOR.compare(a, b)
-}
+function main() {
+  const args = parseArgs(process.argv)
+  const targetPath = resolvePathMaybe(args.target)
+  const prototypePath = resolvePathMaybe(args.prototype)
 
-function listLessonDirectories(root) {
-  if (!fs.existsSync(root)) return []
-  return fs
-    .readdirSync(root, { withFileTypes: true })
-    .filter((entry) => entry.isDirectory() && entry.name.startsWith(LESSON_DIRECTORY_PREFIX))
-    .map((entry) => path.join(root, entry.name))
-    .sort((a, b) => naturalCompare(path.basename(a), path.basename(b)))
-}
-
-function listLessonFiles(dir, includeCopy) {
-  if (!fs.existsSync(dir)) return []
-  return fs
-    .readdirSync(dir, { withFileTypes: true })
-    .filter(
-      (entry) =>
-        entry.isFile() &&
-        entry.name.toLowerCase().endsWith(".html") &&
-        (includeCopy || !isCopyFile(entry.name))
-    )
-    .map((entry) => entry.name)
-    .sort(naturalCompare)
-}
-
-function isCopyFile(name) {
-  const lower = name.toLowerCase()
-  return COPY_FILE_SUFFIXES.some((suffix) => lower.endsWith(suffix))
-}
-
-const CONVERTED_CHECKS = [
-  /web-asset\/css\/base\.css/i,
-  /web-asset\/js\/main\.bundle\.js/i,
-  /<body[^>]*class=["'][^"']*base[^"']*lesson[^"']*["']/i,
-]
-
-function isLessonConverted(html) {
-  if (!html) return false
-  return CONVERTED_CHECKS.every((regex) => regex.test(html))
-}
-
-function createPrompter() {
-  if (!process.stdin.isTTY) return null
-  const rl = readline.createInterface({ input: process.stdin, output: process.stdout })
-  const ask = (question) =>
-    new Promise((resolve) => {
-      rl.question(question, (answer) => resolve(answer))
-    })
-  return { ask, close: () => rl.close() }
-}
-
-async function pauseForDirectory(ask, directoryRel, pauseEnabled) {
-  if (!pauseEnabled) return true
-  const prompt = `[pause] ${directoryRel}: press Enter to continue (Q to quit): `
-  if (!ask) {
-    console.log(`${prompt}non-interactive session; continuing automatically`)
-    return true
-  }
-  const input = (await ask(prompt)).trim().toLowerCase()
-  return input !== "q" && input !== "quit"
-}
-
-function printDirectorySummary(directoryRel, entries) {
-  console.log(`[dir-summary] ${directoryRel} touched=${entries.length}`)
-  if (!entries.length) {
-    console.log("  [PASS] none")
-    return
-  }
-  entries.forEach((entry) => {
-    const label = entry.status === "pass" ? "PASS" : "FAIL"
-    const suffix = entry.message ? ` :: ${entry.message}` : ""
-    console.log(`  [${label}] ${entry.file}${suffix}`)
-  })
-}
-
-function buildConversionResult(targetPath, prototypePath, args) {
   ensureFileExists(targetPath)
   ensureFileExists(prototypePath)
 
@@ -1031,132 +931,18 @@ function buildConversionResult(targetPath, prototypePath, args) {
     }`)
   }
 
-  return {
-    legacyHtml,
-    updated,
-    summary,
-  }
-}
-
-function runSingleConversion(args) {
-  const targetPath = resolvePathMaybe(args.target)
-  const prototypePath = resolvePathMaybe(args.prototype)
-  const conversion = buildConversionResult(targetPath, prototypePath, args)
-
   if (args.diffPreview) {
-    console.log(showDiff(conversion.legacyHtml, conversion.updated))
-    logSummary(conversion.summary)
+    console.log(showDiff(legacyHtml, updated))
+    logSummary(summary)
     console.log("Diff preview complete. Re-run with --no-diff-preview to write changes.")
     return
   }
 
   const backupPath = backupFile(targetPath)
-  fs.writeFileSync(targetPath, conversion.updated, "utf8")
-  logSummary(conversion.summary)
+  fs.writeFileSync(targetPath, updated, "utf8")
+  logSummary(summary)
   console.log(`Wrote updated lesson to ${targetPath}`)
   console.log(`Backup created at ${backupPath}`)
 }
 
-async function runBulkConversion(args) {
-  const root = path.isAbsolute(args.root) ? args.root : path.resolve(process.cwd(), args.root)
-  if (!fs.existsSync(root)) fail(`Root path not found: ${root}`)
-  const directories = listLessonDirectories(root)
-  if (!directories.length) {
-    console.log("No lesson directories found.")
-    return
-  }
-
-  const prototypePath = resolvePathMaybe(args.prototype)
-  ensureFileExists(prototypePath)
-
-  const prompter = createPrompter()
-  const ask = prompter?.ask ?? null
-  let conversionStarted = false
-  let aborted = false
-
-  try {
-    for (const directory of directories) {
-      const relativeDir = path.relative(root, directory)
-      const files = listLessonFiles(directory, args.includeCopy)
-      if (!files.length) {
-        if (conversionStarted) {
-          printDirectorySummary(relativeDir, [])
-          if (!(await pauseForDirectory(ask, relativeDir, args.pausePerDirectory))) {
-            aborted = true
-            break
-          }
-        }
-        continue
-      }
-
-      const touchedEntries = []
-      for (const fileName of files) {
-        const absoluteFile = path.join(directory, fileName)
-        const shortName = fileName
-        const relPath = path.relative(root, absoluteFile)
-        let fileHtml = ""
-        try {
-          fileHtml = fs.readFileSync(absoluteFile, "utf8")
-        } catch (error) {
-          touchedEntries.push({ file: shortName, status: "fail", message: error.message })
-          console.log(`[fail] ${relPath} :: ${error.message}`)
-          continue
-        }
-
-        const converted = isLessonConverted(fileHtml)
-        if (!conversionStarted) {
-          if (converted) continue
-          conversionStarted = true
-        }
-        if (!conversionStarted) continue
-        if (converted) continue
-
-        try {
-          const conversion = buildConversionResult(absoluteFile, prototypePath, args)
-          if (args.diffPreview) {
-            console.log(showDiff(conversion.legacyHtml, conversion.updated))
-            logSummary(conversion.summary)
-            console.log(`[bulk] Diff preview complete for ${relPath}`)
-          } else {
-            const backupPath = backupFile(absoluteFile)
-            fs.writeFileSync(absoluteFile, conversion.updated, "utf8")
-            logSummary(conversion.summary)
-            console.log(`[bulk] Wrote updated lesson to ${relPath}`)
-            console.log(`[bulk] Backup created at ${backupPath}`)
-          }
-          touchedEntries.push({ file: shortName, status: "pass" })
-        } catch (error) {
-          touchedEntries.push({ file: shortName, status: "fail", message: error.message })
-          console.log(`[fail] ${relPath} :: ${error.message}`)
-        }
-      }
-
-      if (!conversionStarted) continue
-      printDirectorySummary(relativeDir, touchedEntries)
-      if (!(await pauseForDirectory(ask, relativeDir, args.pausePerDirectory))) {
-        aborted = true
-        break
-      }
-    }
-  } finally {
-    prompter?.close()
-  }
-
-  if (!conversionStarted && !aborted) {
-    console.log("No unconverted lessons found inside the specified root.")
-  }
-}
-
-async function main() {
-  const args = parseArgs(process.argv)
-  if (args.bulk) {
-    await runBulkConversion(args)
-  } else {
-    runSingleConversion(args)
-  }
-}
-
-main().catch((error) => {
-  console.error(error?.message || error)
-  process.exit(1)
-})
+main()

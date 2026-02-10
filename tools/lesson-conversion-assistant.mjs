@@ -25,6 +25,10 @@ const DEFAULTS = {
   diffPreview: false,
   ukToUs: true,
   verifyShell: true,
+  bulk: false,
+  root: ".",
+  includeCopy: false,
+  pausePerDirectory: true,
 }
 
 const PAUSE_COMMAND =
@@ -47,6 +51,10 @@ Options:
   --no-verify-shell       Skip shell verification
   --diff-preview          Show diff without writing (default)
   --no-diff-preview       Write changes to the legacy file
+  --bulk                  Run js/convert-legacy-lesson.mjs in bulk scanning mode
+  --root <path>           Root directory for lesson scanning (default: ${DEFAULTS.root})
+  --include-copy          Include *.copy.html files when scanning
+  --no-pause              Skip the per-directory pause after each directory summary
   --help, -h              Show help
 `)
 }
@@ -58,6 +66,10 @@ function parseArgs(argv) {
     diffPreview: DEFAULTS.diffPreview,
     ukToUs: DEFAULTS.ukToUs,
     verifyShell: DEFAULTS.verifyShell,
+    bulk: DEFAULTS.bulk,
+    root: DEFAULTS.root,
+    includeCopy: DEFAULTS.includeCopy,
+    pausePerDirectory: DEFAULTS.pausePerDirectory,
   }
   const provided = {
     target: false,
@@ -65,6 +77,10 @@ function parseArgs(argv) {
     diffPreview: false,
     ukToUs: false,
     verifyShell: false,
+    bulk: false,
+    root: false,
+    includeCopy: false,
+    pausePerDirectory: false,
   }
 
   for (let i = 2; i < argv.length; i += 1) {
@@ -93,6 +109,18 @@ function parseArgs(argv) {
     } else if (arg === "--no-diff-preview") {
       args.diffPreview = false
       provided.diffPreview = true
+    } else if (arg === "--bulk") {
+      args.bulk = true
+      provided.bulk = true
+    } else if (arg === "--root") {
+      args.root = argv[++i] || args.root
+      provided.root = true
+    } else if (arg === "--include-copy") {
+      args.includeCopy = true
+      provided.includeCopy = true
+    } else if (arg === "--no-pause") {
+      args.pausePerDirectory = false
+      provided.pausePerDirectory = true
     } else if (!provided.target && !arg.startsWith("-")) {
       args.target = arg
       provided.target = true
@@ -169,6 +197,50 @@ async function promptVerifyShell(ask, defaultValue) {
   }
 }
 
+async function promptBulkMode(ask, defaultValue) {
+  const defaultLabel = defaultValue ? "y" : "n"
+  for (;;) {
+    const input = (await ask(`Run bulk conversion scan? [${defaultLabel}]: `))
+      .trim()
+      .toLowerCase()
+    if (!input) return defaultValue
+    if (["y", "yes"].includes(input)) return true
+    if (["n", "no"].includes(input)) return false
+    console.log("Enter y or n.")
+  }
+}
+
+async function promptRootPath(ask, defaultValue) {
+  const input = (await ask(`Lesson root directory [default ${defaultValue}]: `)).trim()
+  return input || defaultValue
+}
+
+async function promptIncludeCopy(ask, defaultValue) {
+  const defaultLabel = defaultValue ? "y" : "n"
+  for (;;) {
+    const input = (await ask(`Include copy.html files when scanning? [${defaultLabel}]: `))
+      .trim()
+      .toLowerCase()
+    if (!input) return defaultValue
+    if (["y", "yes"].includes(input)) return true
+    if (["n", "no"].includes(input)) return false
+    console.log("Enter y or n.")
+  }
+}
+
+async function promptPausePerDirectory(ask, defaultValue) {
+  const defaultLabel = defaultValue ? "y" : "n"
+  for (;;) {
+    const input = (await ask(`Pause after each directory summary? [${defaultLabel}]: `))
+      .trim()
+      .toLowerCase()
+    if (!input) return defaultValue
+    if (["y", "yes"].includes(input)) return true
+    if (["n", "no"].includes(input)) return false
+    console.log("Enter y or n.")
+  }
+}
+
 function resolveTarget(targetInput) {
   if (!targetInput) fail("No target provided. Use --target <path> or enter a path.")
   const absolute = path.isAbsolute(targetInput)
@@ -191,11 +263,28 @@ function resolvePrototype(protoInput) {
   return { absolute, display: protoInput }
 }
 
-function buildCmd(targetDisplay, protoDisplay, diffPreview, ukToUs) {
-  const cmd = ["node", "js/convert-legacy-lesson.mjs", targetDisplay, "--prototype", protoDisplay]
-  if (diffPreview) cmd.push("--diff-preview")
+function buildCmd(targetDisplay, protoDisplay, args) {
+  const cmd = ["node", "js/convert-legacy-lesson.mjs"]
+  if (args.bulk) {
+    cmd.push("--bulk")
+  } else if (targetDisplay) {
+    cmd.push(targetDisplay)
+  }
+  cmd.push("--prototype", protoDisplay)
+  if (args.diffPreview) cmd.push("--diff-preview")
   else cmd.push("--no-diff-preview")
-  if (ukToUs) cmd.push("--uk-to-us")
+  if (args.ukToUs) cmd.push("--uk-to-us")
+  if (args.bulk) {
+    if (args.root) {
+      cmd.push("--root", args.root)
+    }
+    if (args.includeCopy) {
+      cmd.push("--include-copy")
+    }
+    if (!args.pausePerDirectory) {
+      cmd.push("--no-pause")
+    }
+  }
   return cmd
 }
 
@@ -263,7 +352,25 @@ function resolveSettingSource(provided, key) {
 
 function printSettings(args, provided, targetDisplay, protoDisplay) {
   console.log("\nLesson conversion settings:")
-  console.log(formatSetting("target", targetDisplay, resolveSettingSource(provided, "target")))
+  console.log(formatSetting("bulk-mode", args.bulk, resolveSettingSource(provided, "bulk")))
+  if (!args.bulk) {
+    console.log(formatSetting("target", targetDisplay, resolveSettingSource(provided, "target")))
+  }
+  console.log(formatSetting("root", args.root, resolveSettingSource(provided, "root")))
+  console.log(
+    formatSetting(
+      "include-copy",
+      args.includeCopy,
+      resolveSettingSource(provided, "includeCopy")
+    )
+  )
+  console.log(
+    formatSetting(
+      "pause-per-directory",
+      args.pausePerDirectory,
+      resolveSettingSource(provided, "pausePerDirectory")
+    )
+  )
   console.log(
     formatSetting("prototype", protoDisplay, resolveSettingSource(provided, "prototype"))
   )
@@ -281,13 +388,32 @@ async function main() {
   const prompter = createPrompter()
   const ask = prompter ? prompter.ask : null
 
-  if (!args.target && !ask) {
-    fail("No target provided and no TTY available. Use --target <path>.")
+  if (!provided.bulk) {
+    args.bulk = ask ? await promptBulkMode(ask, DEFAULTS.bulk) : DEFAULTS.bulk
+  }
+  if (!provided.root) {
+    args.root = ask ? await promptRootPath(ask, DEFAULTS.root) : DEFAULTS.root
+  }
+  if (!provided.includeCopy) {
+    args.includeCopy = ask
+      ? await promptIncludeCopy(ask, DEFAULTS.includeCopy)
+      : DEFAULTS.includeCopy
+  }
+  if (!provided.pausePerDirectory) {
+    args.pausePerDirectory = ask
+      ? await promptPausePerDirectory(ask, DEFAULTS.pausePerDirectory)
+      : DEFAULTS.pausePerDirectory
   }
 
-  if (!provided.target) {
-    args.target = ask ? await promptTarget(ask) : args.target
+  if (!args.bulk) {
+    if (!args.target && !ask) {
+      fail("No target provided and no TTY available. Use --target <path>.")
+    }
+    if (!provided.target) {
+      args.target = ask ? await promptTarget(ask) : args.target
+    }
   }
+
   if (!provided.prototype) {
     args.prototype = ask ? await promptPrototype(ask, DEFAULTS.prototype) : DEFAULTS.prototype
   }
@@ -303,12 +429,14 @@ async function main() {
       : DEFAULTS.verifyShell
   }
 
-  const { absolute: targetAbsolute, display: targetDisplay } = resolveTarget(args.target)
+  const targetInfo = args.bulk ? null : resolveTarget(args.target)
+  const targetDisplay = targetInfo ? targetInfo.display : ""
+  const targetAbsolute = targetInfo ? targetInfo.absolute : ""
   const { display: protoDisplay } = resolvePrototype(args.prototype)
 
   printSettings(args, provided, targetDisplay, protoDisplay)
 
-  const cmd = buildCmd(targetDisplay, protoDisplay, args.diffPreview, args.ukToUs)
+  const cmd = buildCmd(targetDisplay, protoDisplay, args)
   console.log("\n1. Execute lesson conversion:")
   console.log(commandToString(cmd))
   if (!(await pauseOrQuit(ask, PAUSE_COMMAND))) {
@@ -317,10 +445,14 @@ async function main() {
   }
   runCommand(cmd, "Lesson conversion")
 
-  if (!args.diffPreview && args.verifyShell) {
-    verifyLessonShell(targetAbsolute)
-  } else if (args.diffPreview && args.verifyShell) {
-    console.log("[lesson-conversion-assistant] verify-shell skipped in diff-preview mode.")
+  if (!args.bulk) {
+    if (!args.diffPreview && args.verifyShell) {
+      verifyLessonShell(targetAbsolute)
+    } else if (args.diffPreview && args.verifyShell) {
+      console.log("[lesson-conversion-assistant] verify-shell skipped in diff-preview mode.")
+    }
+  } else if (args.verifyShell) {
+    console.log("[lesson-conversion-assistant] verify-shell skipped in bulk mode.")
   }
 
   prompter?.close()
