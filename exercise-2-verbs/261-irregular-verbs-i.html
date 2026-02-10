@@ -186,13 +186,6 @@
         justify-content: flex-start;
         text-align: left;
       }
-
-      @media (min-width: 768px) {
-        .pager .next {
-          min-inline-size: 12rem;
-        }
-      }
-
       .pager .pager-label {
         flex: 1 1 auto;
         min-width: 0;
@@ -457,6 +450,16 @@
         color: var(--primary-color);
       }
 
+      ul.accordion-menu li.current {
+        background: var(--surface-warm, #fff);
+      }
+
+      ul.accordion-menu li.current > .item-wrapper > .menu-link > a,
+      ul.accordion-menu li.current > .item-wrapper > .menu-link > p {
+        color: var(--primary-color, #e0162b);
+        text-decoration: none;
+      }
+
       ul.accordion-menu .menu-button > svg {
         block-size: var(--flyout-toggle-size);
         fill: currentColor;
@@ -469,16 +472,6 @@
 
       ul.accordion-menu li {
         border-top: 1px solid var(--divider-color);
-      }
-
-      ul.accordion-menu li.current {
-        background: var(--surface-warm, #fff);
-      }
-
-      ul.accordion-menu li.current > .item-wrapper > .menu-link > a,
-      ul.accordion-menu li.current > .item-wrapper > .menu-link > p {
-        color: var(--primary-color, #e0162b);
-        text-decoration: none;
       }
 
       ul.accordion-menu .menu-link {
@@ -548,6 +541,27 @@
         min-height: 1.5rem;
       }
 
+      /* Stabilize instruction blocks to avoid inline-block reflow */
+      #content .exinstruct,
+      #content .exinstruct .blockdiv {
+        display: block;
+      }
+
+      #content .exinstruct .blockdiv {
+        min-height: 1rem;
+      }
+
+      #content .exinstruct .blockwrap,
+      #content .exinstruct .blockwrap-txt {
+        display: block;
+        max-width: 100%;
+      }
+
+      /* Reserve student ID block to reduce first-paint shifts */
+      #content .exercise-form__student-id {
+        min-height: 3rem;
+      }
+
       #aside .r-flyout-menu > [data-r-flyout-item] {
         border-bottom: 1px solid var(--divider-color, #e1e7f0);
         position: relative;
@@ -588,18 +602,25 @@
         text-decoration: none;
       }
 
-      #aside .r-flyout__link:hover,
-      #aside .r-flyout__link:focus {
-        color: var(--primary-color);
-        text-decoration: none;
-      }
-
       #aside .r-flyout__sublist li.current > .item-wrapper {
         background: var(--surface-warm, #fff);
       }
 
       #aside .r-flyout__sublist li.current > .item-wrapper a {
         color: var(--primary-color, #e0162b);
+        text-decoration: none;
+      }
+
+      #aside .r-flyout__sublist a:hover,
+      #aside .r-flyout__sublist a:focus,
+      #aside .r-flyout__sublist li.current > .item-wrapper a,
+      #aside .r-flyout__sublist li.active > .item-wrapper a {
+        font-weight: 400;
+      }
+
+      #aside .r-flyout__link:hover,
+      #aside .r-flyout__link:focus {
+        color: var(--primary-color);
         text-decoration: none;
       }
 
@@ -793,7 +814,7 @@
       }
 
       .exercise-response-input {
-        background: linear-gradient(to bottom left, #9db7ff 27%, #fffaf0 45%);
+        background: linear-gradient(to bottom left, #e9e9e9 0%, #ffffff 35%);
         border: 1px solid var(--border-color, #ccd3e0);
         border-radius: var(--radius);
         color: var(--text-color, #212121);
@@ -834,27 +855,6 @@
       /* Preload footer height to prevent footer jump */
       .footer {
         min-height: 80px;
-      }
-
-      /* Stabilize instruction blocks to avoid inline-block reflow */
-      #content .exinstruct,
-      #content .exinstruct .blockdiv {
-        display: block;
-      }
-
-      #content .exinstruct .blockdiv {
-        min-height: 6rem;
-      }
-
-      #content .exinstruct .blockwrap,
-      #content .exinstruct .blockwrap-txt {
-        display: block;
-        max-width: 100%;
-      }
-
-      /* Reserve student ID block to reduce first-paint shifts */
-      #content .exercise-form__student-id {
-        min-height: 3rem;
       }
 
       /* Stabilize sidebar width on desktop to prevent reflow */
@@ -928,47 +928,7 @@
       }
     </style>
 
-    <!-- Optimized speculationrules with prerender for better UX -->
-    <script>
-      ;(function () {
-        function injectSpeculation() {
-          try {
-            var s = document.createElement("script")
-            s.type = "speculationrules"
-            s.text = JSON.stringify({
-              prefetch: [
-                {
-                  source: "list",
-                  urls: ["112-proper-nouns.html"],
-                },
-              ],
-              prerender: [
-                {
-                  source: "list",
-                  urls: ["112-proper-nouns.html"],
-                  eagerness: "moderate",
-                },
-              ],
-            })
-            document.head.appendChild(s)
-          } catch (e) {
-            /* no-op */
-          }
-        }
-        if (document.readyState === "complete") {
-          injectSpeculation()
-        } else {
-          window.addEventListener("load", function () {
-            if ("requestIdleCallback" in window)
-              requestIdleCallback(injectSpeculation, {
-                timeout: 2000,
-              })
-            else setTimeout(injectSpeculation, 500)
-          })
-        }
-      })()
-    </script>
-    <!-- Icon font not used on Codex variant; removed icomoon.css includes -->
+<!-- Icon font not used on Codex variant; removed icomoon.css includes -->
 
     <!-- Layout styles for exercises + mobile nav (blocking for CLS stability) -->
     <link rel="preload" href="../web-asset/css/exercises.css" as="style">
@@ -1175,7 +1135,10 @@
   </head>
 
   <body class="base exercize" data-exercise-devtools="auto">
-    <svg xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" aria-hidden="true" style="position: absolute; width: 0; height: 0; overflow: hidden">
+        <script data-mobile-nav-bootstrap>
+    document.body.classList.add("mobile-nav-enabled")
+    </script>
+    <svg xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" aria-hidden="true" class="icon-sprite">
       <defs>
         <symbol id="icon-plus" viewBox="0 0 24 24">
           <path fill="currentColor" d="M12 5a1 1 0 0 0-1 1v5H6a1 1 0 1 0 0 2h5v5a1 1 0 1 0 2 0v-5h5a1 1 0 1 0 0-2h-5V6a1 1 0 0 0-1-1z" />

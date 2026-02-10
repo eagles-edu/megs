@@ -810,7 +810,7 @@
 
       .exercise-response-field {
         flex: 1 1 140px;
-        max-width: var(--exercise-textarea-width-field, var(--exercise-textarea-width, 220px));
+        max-width: 220px;
         position: relative;
       }
 
@@ -842,7 +842,7 @@
         white-space: nowrap;
       }
 
-      @media (width <= 767px) {
+      @media (max-width: 600px) {
         .exercise-response-row {
           justify-content: center;
         }
@@ -929,47 +929,7 @@
       }
     </style>
 
-    <!-- Optimized speculationrules with prerender for better UX -->
-    <script>
-      ;(function () {
-        function injectSpeculation() {
-          try {
-            var s = document.createElement("script")
-            s.type = "speculationrules"
-            s.text = JSON.stringify({
-              prefetch: [
-                {
-                  source: "list",
-                  urls: ["112-proper-nouns.html"],
-                },
-              ],
-              prerender: [
-                {
-                  source: "list",
-                  urls: ["112-proper-nouns.html"],
-                  eagerness: "moderate",
-                },
-              ],
-            })
-            document.head.appendChild(s)
-          } catch (e) {
-            /* no-op */
-          }
-        }
-        if (document.readyState === "complete") {
-          injectSpeculation()
-        } else {
-          window.addEventListener("load", function () {
-            if ("requestIdleCallback" in window)
-              requestIdleCallback(injectSpeculation, {
-                timeout: 2000,
-              })
-            else setTimeout(injectSpeculation, 500)
-          })
-        }
-      })()
-    </script>
-    <!-- Icon font not used on Codex variant; removed icomoon.css includes -->
+<!-- Icon font not used on Codex variant; removed icomoon.css includes -->
 
     <!-- Layout styles for exercises + mobile nav (blocking for CLS stability) -->
     <link rel="preload" href="../web-asset/css/exercises.css" as="style">
@@ -1154,18 +1114,6 @@
         background: var(--danger-bg);
         border-top-color: var(--danger-border);
       }
-
-      /* Added: form-wide textarea width for tablet/desktop. */
-      :root {
-        --sizeformtextarea: 75%;
-      }
-
-      /* Added: mobile override to full width. */
-      @media screen and (max-width: 767px) {
-        :root {
-          --sizeformtextarea: 100%;
-        }
-      }
     </style>
     <!-- No-JS fallback: show all answers if scripting is disabled -->
     <noscript>
@@ -1189,7 +1137,10 @@
   </head>
 
   <body class="base exercize" data-exercise-devtools="auto">
-    <svg xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" aria-hidden="true" style="position: absolute; width: 0; height: 0; overflow: hidden">
+        <script data-mobile-nav-bootstrap>
+    document.body.classList.add("mobile-nav-enabled")
+    </script>
+    <svg xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" aria-hidden="true" class="icon-sprite">
       <defs>
         <symbol id="icon-plus" viewBox="0 0 24 24">
           <path fill="currentColor" d="M12 5a1 1 0 0 0-1 1v5H6a1 1 0 1 0 0 2h5v5a1 1 0 1 0 2 0v-5h5a1 1 0 1 0 0-2h-5V6a1 1 0 0 0-1-1z" />
