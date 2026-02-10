@@ -171,12 +171,65 @@ function extractTaggedBlockByAttribute(html, tagName, attributeName) {
   return match ? match[0] : ""
 }
 
+function normalizeBlockForCompare(block) {
+  return String(block || "")
+    .replace(/\s+/g, " ")
+    .trim()
+}
+
+function blocksEquivalent(a, b) {
+  return normalizeBlockForCompare(a) === normalizeBlockForCompare(b)
+}
+
+function ensureTaggedBlockById(html, tagName, id, block, anchors = []) {
+  if (!block) {
+    return { html, changed: false }
+  }
+
+  let changed = false
+  let next = html
+  const blockPattern = new RegExp(
+    `<${tagName}\\b[^>]*id=(["'])${escapeRegExp(id)}\\1[^>]*>[\\s\\S]*?<\\/${tagName}>`,
+    "i"
+  )
+
+  if (blockPattern.test(next)) {
+    next = next.replace(blockPattern, (currentBlock) => {
+      if (blocksEquivalent(currentBlock, block)) {
+        return currentBlock
+      }
+      changed = true
+      return block
+    })
+    return { html: next, changed }
+  }
+
+  for (const anchorPattern of anchors) {
+    const anchorMatch = next.match(anchorPattern)
+    if (!anchorMatch || anchorMatch.index == null) continue
+    const anchorLineStart = next.lastIndexOf("\n", anchorMatch.index - 1) + 1
+    next = `${next.slice(0, anchorLineStart)}${block}\n\n${next.slice(anchorLineStart)}`
+    changed = true
+    return { html: next, changed }
+  }
+
+  if (/<\/head>/i.test(next)) {
+    next = next.replace(/<\/head>/i, `${block}\n  </head>`)
+    changed = true
+  }
+
+  return { html: next, changed }
+}
+
 function loadPrototypeStandard(root, prototypePath) {
   if (!fs.existsSync(prototypePath)) {
     throw new Error(`Prototype source not found: ${prototypePath}`)
   }
   const html = fs.readFileSync(prototypePath, "utf8")
   const criticalInlineBlock = extractTaggedBlockById(html, "style", "critical-inline") || CRITICAL_INLINE_BLOCK
+  const pagerStyleOverridesBlock = extractTaggedBlockById(html, "style", "pager-style-overrides")
+  const criticalInlineAugmentBlock = extractTaggedBlockById(html, "style", "critical-inline-augment")
+  const qaAccordionInlineBlock = extractTaggedBlockById(html, "style", "qa-accordion-inline")
   const mobileBootstrapBlock =
     extractTaggedBlockByAttribute(html, "script", "data-mobile-nav-bootstrap") ||
     MOBILE_BOOTSTRAP_BLOCK.trim()
@@ -184,7 +237,10 @@ function loadPrototypeStandard(root, prototypePath) {
   return {
     pathAbs: prototypePath,
     pathRel: path.relative(root, prototypePath).replace(/\\/g, "/"),
+    pagerStyleOverridesBlock,
     criticalInlineBlock,
+    criticalInlineAugmentBlock,
+    qaAccordionInlineBlock,
     mobileBootstrapBlock,
   }
 }
@@ -223,29 +279,45 @@ function formatStamp(date = new Date()) {
   ].join("")
 }
 
-function collectDrift(html) {
+function collectDrift(html, prototypeStandard) {
   const drift = []
 
   if (/speculationrules/i.test(html) || /injectSpeculation/i.test(html)) {
     drift.push("speculation-script")
   }
 
-  if (
-    /<style\b[^>]*id=(["'])pager-style-overrides\1[^>]*>[\s\S]*?<\/style>/i.test(html) ||
-    /<style\b[^>]*id=(["'])critical-inline-augment\1[^>]*>[\s\S]*?<\/style>/i.test(html)
-  ) {
+  const expectedPager = prototypeStandard?.pagerStyleOverridesBlock || ""
+  const currentPager = extractTaggedBlockById(html, "style", "pager-style-overrides")
+  if (expectedPager) {
+    if (!currentPager) drift.push("missing-pager-style-overrides")
+    else if (!blocksEquivalent(currentPager, expectedPager)) drift.push("pager-style-overrides-mismatch")
+  } else if (currentPager) {
     drift.push("deprecated-inline-style-block")
   }
 
-  const criticalMatch = html.match(
-    /<style\b[^>]*id=(["'])critical-inline\1[^>]*>([\s\S]*?)<\/style>/i
-  )
-  if (!criticalMatch) {
+  const expectedCritical = prototypeStandard?.criticalInlineBlock || CRITICAL_INLINE_BLOCK
+  const currentCritical = extractTaggedBlockById(html, "style", "critical-inline")
+  if (!currentCritical) {
     drift.push("missing-critical-inline")
-  } else {
-    const text = criticalMatch[2] || ""
-    if (!text.includes("body.mobile-nav-enabled #sidebar")) {
-      drift.push("critical-inline-not-lean")
+  } else if (!blocksEquivalent(currentCritical, expectedCritical)) {
+    drift.push("critical-inline-mismatch")
+  }
+
+  const expectedAugment = prototypeStandard?.criticalInlineAugmentBlock || ""
+  const currentAugment = extractTaggedBlockById(html, "style", "critical-inline-augment")
+  if (expectedAugment) {
+    if (!currentAugment) drift.push("missing-critical-inline-augment")
+    else if (!blocksEquivalent(currentAugment, expectedAugment)) drift.push("critical-inline-augment-mismatch")
+  } else if (currentAugment) {
+    drift.push("deprecated-inline-style-block")
+  }
+
+  const expectedQaAccordion = prototypeStandard?.qaAccordionInlineBlock || ""
+  const currentQaAccordion = extractTaggedBlockById(html, "style", "qa-accordion-inline")
+  if (expectedQaAccordion) {
+    if (!currentQaAccordion) drift.push("missing-qa-accordion-inline")
+    else if (!blocksEquivalent(currentQaAccordion, expectedQaAccordion)) {
+      drift.push("qa-accordion-inline-mismatch")
     }
   }
 
@@ -290,43 +362,72 @@ function removeSpeculationScripts(html) {
   return { html: next, removedCount }
 }
 
-function removeDeprecatedInlineStyleBlocks(html) {
+function removeDeprecatedInlineStyleBlocks(html, prototypeStandard) {
   let removedCount = 0
-  const next = html.replace(
-    /<style\b[^>]*id=(["'])(pager-style-overrides|critical-inline-augment)\1[^>]*>[\s\S]*?<\/style>\s*/gi,
-    () => {
-      removedCount += 1
-      return ""
-    }
-  )
+  let next = html
+
+  if (!prototypeStandard?.pagerStyleOverridesBlock) {
+    next = next.replace(
+      /<style\b[^>]*id=(["'])pager-style-overrides\1[^>]*>[\s\S]*?<\/style>\s*/gi,
+      () => {
+        removedCount += 1
+        return ""
+      }
+    )
+  }
+
+  if (!prototypeStandard?.criticalInlineAugmentBlock) {
+    next = next.replace(
+      /<style\b[^>]*id=(["'])critical-inline-augment\1[^>]*>[\s\S]*?<\/style>\s*/gi,
+      () => {
+        removedCount += 1
+        return ""
+      }
+    )
+  }
+
   return { html: next, removedCount }
 }
 
+function ensurePagerStyleOverrides(html, prototypeStandard) {
+  const block = prototypeStandard?.pagerStyleOverridesBlock || ""
+  if (!block) return { html, changed: false }
+  return ensureTaggedBlockById(html, "style", "pager-style-overrides", block, [
+    /<!--\s*Critical resource hints for better performance\s*-->/i,
+    /<!--\s*Icon font not used on Codex variant; removed icomoon\.css includes\s*-->/i,
+  ])
+}
+
 function ensureCriticalInline(html, prototypeStandard) {
-  let changed = false
-  let next = html
   const block = prototypeStandard?.criticalInlineBlock || CRITICAL_INLINE_BLOCK
-  const criticalRegex = /<style\b[^>]*id=(["'])critical-inline\1[^>]*>[\s\S]*?<\/style>/i
-  if (criticalRegex.test(next)) {
-    next = next.replace(criticalRegex, block)
-    changed = true
-  } else if (/<!--\s*Icon font not used on Codex variant; removed icomoon\.css includes\s*-->/i.test(next)) {
-    next = next.replace(
-      /<!--\s*Icon font not used on Codex variant; removed icomoon\.css includes\s*-->/i,
-      `${block}\n    <!-- Icon font not used on Codex variant; removed icomoon.css includes -->`
-    )
-    changed = true
-  } else if (/<\/head>/i.test(next)) {
-    next = next.replace(/<\/head>/i, `${block}\n  </head>`)
-    changed = true
-  }
-  return { html: next, changed }
+  return ensureTaggedBlockById(html, "style", "critical-inline", block, [
+    /<!--\s*Icon font not used on Codex variant; removed icomoon\.css includes\s*-->/i,
+    /<!--\s*Critical resource hints for better performance\s*-->/i,
+  ])
+}
+
+function ensureCriticalInlineAugment(html, prototypeStandard) {
+  const block = prototypeStandard?.criticalInlineAugmentBlock || ""
+  if (!block) return { html, changed: false }
+  return ensureTaggedBlockById(html, "style", "critical-inline-augment", block, [
+    /<!--\s*Icon font not used on Codex variant; removed icomoon\.css includes\s*-->/i,
+    /<!--\s*Layout styles for exercises \+ mobile nav \(blocking for CLS stability\)\s*-->/i,
+  ])
+}
+
+function ensureQaAccordionInline(html, prototypeStandard) {
+  const block = prototypeStandard?.qaAccordionInlineBlock || ""
+  if (!block) return { html, changed: false }
+  return ensureTaggedBlockById(html, "style", "qa-accordion-inline", block, [
+    /<!--\s*No-JS fallback: show all answers if scripting is disabled\s*-->/i,
+    /<script\b[^>]*data-mobile-nav-bootstrap[^>]*>/i,
+  ])
 }
 
 function ensureBodyBootstrap(html, prototypeStandard) {
   let changed = false
   let next = html
-  const block = `${(prototypeStandard?.mobileBootstrapBlock || MOBILE_BOOTSTRAP_BLOCK.trim()).trim()}\n`
+  const blockSource = String(prototypeStandard?.mobileBootstrapBlock || MOBILE_BOOTSTRAP_BLOCK).trim()
 
   const bootstrapRegex = /<script\b[^>]*data-mobile-nav-bootstrap[^>]*>[\s\S]*?<\/script>\s*/gi
   if (bootstrapRegex.test(next)) {
@@ -334,9 +435,16 @@ function ensureBodyBootstrap(html, prototypeStandard) {
     changed = true
   }
 
-  next = next.replace(/(<body\b[^>]*>\s*)/i, (match, openTag) => {
+  next = next.replace(/(<body\b[^>]*>)(\s*)/i, (match, openTag, spacingAfterBody) => {
     changed = true
-    return `${openTag}${block}`
+    const spacing = spacingAfterBody || "\n"
+    const indentMatch = spacing.match(/\n([ \t]*)$/)
+    const indent = indentMatch ? indentMatch[1] : "    "
+    const indentedBlock = blockSource
+      .split("\n")
+      .map((line) => `${indent}${line.trimStart()}`)
+      .join("\n")
+    return `${openTag}${spacing}${indentedBlock}\n${indent}`
   })
 
   return { html: next, changed }
@@ -382,7 +490,10 @@ function applyPrototypeUpgrade(html, prototypeStandard) {
   const ops = {
     speculationRemoved: 0,
     deprecatedStylesRemoved: 0,
+    pagerStyleTouched: false,
     criticalInlineTouched: false,
+    criticalInlineAugmentTouched: false,
+    qaAccordionTouched: false,
     bootstrapTouched: false,
     iconSpriteTouched: false,
   }
@@ -393,13 +504,25 @@ function applyPrototypeUpgrade(html, prototypeStandard) {
   next = speculation.html
   ops.speculationRemoved = speculation.removedCount
 
-  const inlineStyles = removeDeprecatedInlineStyleBlocks(next)
+  const inlineStyles = removeDeprecatedInlineStyleBlocks(next, prototypeStandard)
   next = inlineStyles.html
   ops.deprecatedStylesRemoved = inlineStyles.removedCount
+
+  const pagerStyles = ensurePagerStyleOverrides(next, prototypeStandard)
+  next = pagerStyles.html
+  ops.pagerStyleTouched = pagerStyles.changed
 
   const criticalInline = ensureCriticalInline(next, prototypeStandard)
   next = criticalInline.html
   ops.criticalInlineTouched = criticalInline.changed
+
+  const criticalInlineAugment = ensureCriticalInlineAugment(next, prototypeStandard)
+  next = criticalInlineAugment.html
+  ops.criticalInlineAugmentTouched = criticalInlineAugment.changed
+
+  const qaAccordion = ensureQaAccordionInline(next, prototypeStandard)
+  next = qaAccordion.html
+  ops.qaAccordionTouched = qaAccordion.changed
 
   const bootstrap = ensureBodyBootstrap(next, prototypeStandard)
   next = bootstrap.html
@@ -685,7 +808,7 @@ async function main() {
         continue
       }
 
-      const beforeDrift = collectDrift(original)
+      const beforeDrift = collectDrift(original, prototypeStandard)
       const offloadCoverage = detectOffloadCoverage(original)
       if (!beforeDrift.length) {
         report.upToDate += 1
@@ -767,7 +890,7 @@ async function main() {
         backupPath = makeBackup(filePath, runStamp)
         fs.writeFileSync(filePath, upgraded.html, "utf8")
         const reloaded = fs.readFileSync(filePath, "utf8")
-        const afterDrift = collectDrift(reloaded)
+        const afterDrift = collectDrift(reloaded, prototypeStandard)
         if (afterDrift.length) {
           fs.copyFileSync(backupPath, filePath)
           throw new Error(`post-write verification failed: ${afterDrift.join(", ")}`)
