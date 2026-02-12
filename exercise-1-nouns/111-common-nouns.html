@@ -2702,7 +2702,7 @@
                       if (host === "127.0.0.1:5500" || host === "localhost:5500") {
                         cfg.submitUrl = "http://127.0.0.1:8787/api/exercise-submission" // dev: Node directly
                       } else {
-                        cfg.submitUrl = location.origin + "/api/exercise-submission" // prod: same-origin route
+                        cfg.submitUrl = "https://ielts.eagles.edu.vn/api/exercise-submission" // prod: via nginx
                       }
                       cfgEl.textContent = JSON.stringify(cfg)
                     }
@@ -3991,6 +3991,443 @@
       })()
     </script>
 
+    <!-- Client script: collector + autosave + POST -->
+    <script>
+      ;(function () {
+        "use strict"
+
+        // ---------- tiny helpers ----------
+        const $ = (sel, root = document) => root.querySelector(sel)
+        const $$ = (sel, root = document) => Array.from(root.querySelectorAll(sel))
+        const esc = (s) => (window.CSS && CSS.escape ? CSS.escape(String(s)) : String(s).replace(/[^\w-]/g, "\\$&"))
+
+        // ---------- basic validators ----------
+        const STUDENT_ID_PATTERN = /^[a-z]+\d{3}$/ // e.g., tina001
+
+        // Elements (declared once)
+        const form = document.querySelector("[data-exercise-form]")
+        if (!form) {
+          console.warn("exercise form not found: [data-exercise-form]")
+          return
+        }
+        const submitRow = form.querySelector("[data-exercise-submit-row]")
+        const submitBtn = form.querySelector("[data-exercise-submit]")
+        const emailInput = form.querySelector("[data-exercise-email]")
+        const studentIdInput = form.querySelector("[data-exercise-student-id]")
+
+        function isEmailValid() {
+          const v = (emailInput?.value || "").trim()
+          return !!v && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)
+        }
+        function isStudentIdValid() {
+          const v = (studentIdInput?.value || "").trim()
+          return !!v && STUDENT_ID_PATTERN.test(v)
+        }
+        function refreshStatus() {
+          updateProgress(form)
+        }
+
+        // ---------- config ----------
+        function decodeUtf8Bytes(bytes) {
+          if (!Array.isArray(bytes) || !bytes.length) return ""
+          let output = ""
+          for (let i = 0; i < bytes.length; i++) {
+            const byte1 = Number(bytes[i])
+            if (!Number.isFinite(byte1)) continue
+            if (byte1 < 0x80) {
+              output += String.fromCharCode(byte1)
+            } else if (byte1 >= 0xc0 && byte1 < 0xe0 && i + 1 < bytes.length) {
+              const byte2 = Number(bytes[++i])
+              if (!Number.isFinite(byte2)) break
+              output += String.fromCharCode(((byte1 & 0x1f) << 6) | (byte2 & 0x3f))
+            } else if (byte1 >= 0xe0 && byte1 < 0xf0 && i + 2 < bytes.length) {
+              const byte2 = Number(bytes[i + 1])
+              const byte3 = Number(bytes[i + 2])
+              if (!Number.isFinite(byte2) || !Number.isFinite(byte3)) break
+              i += 2
+              output += String.fromCharCode(((byte1 & 0x0f) << 12) | ((byte2 & 0x3f) << 6) | (byte3 & 0x3f))
+            } else if (byte1 >= 0xf0 && byte1 < 0xf8 && i + 3 < bytes.length) {
+              const byte2 = Number(bytes[i + 1])
+              const byte3 = Number(bytes[i + 2])
+              const byte4 = Number(bytes[i + 3])
+              if (!Number.isFinite(byte2) || !Number.isFinite(byte3) || !Number.isFinite(byte4)) break
+              i += 3
+              let codePoint = ((byte1 & 0x07) << 18) | ((byte2 & 0x3f) << 12) | ((byte3 & 0x3f) << 6) | (byte4 & 0x3f)
+              codePoint -= 0x10000
+              output += String.fromCharCode(0xd800 + ((codePoint >> 10) & 0x3ff))
+              output += String.fromCharCode(0xdc00 + (codePoint & 0x3ff))
+            } else {
+              output += String.fromCharCode(byte1)
+            }
+          }
+          return output
+        }
+
+        function decodeHexUtf8(value) {
+          if (typeof value !== "string") return ""
+          let normalized = value.trim()
+          if (!normalized) return ""
+          normalized = normalized.replace(/[^0-9a-f]/gi, "")
+          if (!normalized) return ""
+          if (normalized.length % 2 === 1) normalized = "0" + normalized
+          const bytes = []
+          for (let i = 0; i < normalized.length; i += 2) {
+            const pair = normalized.slice(i, i + 2)
+            const parsed = parseInt(pair, 16)
+            if (!Number.isNaN(parsed)) bytes.push(parsed)
+          }
+          if (!bytes.length) return ""
+          return decodeUtf8Bytes(bytes)
+        }
+
+        function decodeCodePointList(list) {
+          if (!Array.isArray(list) || !list.length) return ""
+          let output = ""
+          for (const entry of list) {
+            const code = Number(entry)
+            if (!Number.isFinite(code)) continue
+            if (code <= 0xffff) {
+              output += String.fromCharCode(code)
+            } else {
+              const adjusted = code - 0x10000
+              output += String.fromCharCode(0xd800 + ((adjusted >> 10) & 0x3ff))
+              output += String.fromCharCode(0xdc00 + (adjusted & 0x3ff))
+            }
+          }
+          return output
+        }
+
+        function decodeRecipientToken(token) {
+          if (token == null) return ""
+          if (typeof token === "string") return token.trim()
+          if (typeof token === "number" && Number.isFinite(token)) {
+            return String.fromCharCode(token)
+          }
+          if (Array.isArray(token)) {
+            return token
+              .map((item) => decodeRecipientToken(item))
+              .join("")
+              .trim()
+          }
+          if (typeof token === "object") {
+            if (token.email) return decodeRecipientToken(token.email)
+            if (token.value) return decodeRecipientToken(token.value)
+            if (token.recipients) return decodeRecipientToken(token.recipients)
+            if (token.codepoints) return decodeCodePointList(token.codepoints)
+            if (token.codePoints) return decodeCodePointList(token.codePoints)
+            if (token.points) return decodeCodePointList(token.points)
+            if (token.codes) return decodeCodePointList(token.codes)
+            if (Array.isArray(token.bytes)) return decodeUtf8Bytes(token.bytes)
+            if (typeof token.bytes === "string") return decodeHexUtf8(token.bytes)
+            if (token.utf8) return decodeHexUtf8(token.utf8)
+            if (token.hex) return decodeHexUtf8(token.hex)
+          }
+          return ""
+        }
+
+        function normalizeRecipientList(entries) {
+          if (!Array.isArray(entries)) return []
+          const normalized = []
+          for (const entry of entries) {
+            const decoded = decodeRecipientToken(entry)
+            if (!decoded) continue
+            const trimmed = decoded.trim()
+            if (trimmed) normalized.push(trimmed)
+          }
+          return normalized
+        }
+
+        function readConfig() {
+          const el = $("#exercise-config[data-exercise-config]")
+          if (!el) throw new Error("Missing #exercise-config block")
+
+          const raw = el.textContent || "{}"
+          /** @type {{recipients?: string[], submitUrl?: string}} */
+          const cfg = JSON.parse(raw)
+
+          const recipients = normalizeRecipientList(cfg.recipients)
+
+          let submitUrl = typeof cfg.submitUrl === "string" ? cfg.submitUrl.trim() : ""
+
+          // auto-derive submitUrl when empty
+          if (!submitUrl) {
+            const h = location.host
+            if (h === "127.0.0.1:5500" || h === "localhost:5500") {
+              submitUrl = "http://127.0.0.1:8787/api/exercise-submission"
+            } else {
+              submitUrl = "https://ielts.eagles.edu.vn/api/exercise-submission"
+            }
+          }
+
+          return { recipients, submitUrl }
+        }
+
+        // ---------- collect answers ----------
+        // For each [data-exercise-question="<id>"], collect inputs with [data-item="<id>"][data-field]
+        function collectAnswers(theForm) {
+          const blocks = $$("[data-exercise-question]", theForm)
+          const results = []
+
+          for (const block of blocks) {
+            const id = String(block.getAttribute("data-exercise-question") || "").trim()
+            if (!id) continue
+
+            const fields = $$(`[data-item="${esc(id)}"][data-field]`, block)
+            if (!fields.length) {
+              results.push({ id, answers: [] })
+              continue
+            }
+
+            // Keep a stable field order, then append unexpected fields
+            const order = ["response", "notes", "confidence", "extension"]
+            const found = new Map()
+            for (const el of fields) {
+              const key = String(el.getAttribute("data-field") || "")
+                .trim()
+                .toLowerCase()
+              const val = (el.value ?? "").toString().trim()
+              if (key) found.set(key, val)
+            }
+
+            const values = []
+            for (const k of order) {
+              const v = found.get(k)
+              if (typeof v === "string" && v.length) values.push(v)
+            }
+            for (const [k, v] of found.entries()) {
+              if (!order.includes(k) && v) values.push(v)
+            }
+
+            results.push({ id, answers: values })
+          }
+
+          // remove questions that have no answers at all
+          return results.filter((q) => q.answers.some(Boolean))
+        }
+
+        // ---------- progress ----------
+        function updateProgress(theForm) {
+          const blocks = $$("[data-exercise-question]", theForm)
+          const total = blocks.length
+          let answered = 0
+
+          for (const b of blocks) {
+            const id = b.getAttribute("data-exercise-question")
+            const inputs = $$(`[data-item="${esc(id)}"][data-field]`, b)
+            if (inputs.some((i) => (i.value ?? "").trim().length > 0)) answered++
+          }
+
+          const label = $("[data-exercise-progress]", theForm)
+          if (label) label.textContent = `${answered} of ${total} questions completed.`
+          return { answered, total }
+        }
+
+        // ---------- autosave (localStorage) ----------
+        function getStorageKey(theForm) {
+          return theForm?.getAttribute("data-storage-key") || ""
+        }
+
+        function loadSaved(theForm) {
+          const key = getStorageKey(theForm)
+          if (!key) return null
+          try {
+            const raw = localStorage.getItem(key)
+            if (!raw) return null
+            const data = JSON.parse(raw)
+
+            // restore email
+            if (data.email && emailInput) emailInput.value = data.email
+            // restore student id
+            if (data.studentId && studentIdInput) studentIdInput.value = data.studentId
+
+            // restore answers
+            if (Array.isArray(data.answers)) {
+              for (const q of data.answers) {
+                const id = q.id
+                if (!id || !Array.isArray(q.answers)) continue
+                const fields = $$(`[data-item="${esc(String(id))}"][data-field]`, theForm)
+                const order = ["response", "notes", "confidence", "extension"]
+                const map = new Map()
+                for (let i = 0; i < q.answers.length; i++) {
+                  const k = order[i] || `extra${i - order.length + 1}`
+                  map.set(k, q.answers[i])
+                }
+                for (const el of fields) {
+                  const keyName = String(el.getAttribute("data-field") || "").toLowerCase()
+                  if (map.has(keyName)) el.value = map.get(keyName)
+                }
+              }
+            }
+
+            // announce last attempt
+            const last = $("[data-exercise-last-attempt]", theForm)
+            if (last && data.savedAt) {
+              last.hidden = false
+              last.textContent = `Restored previous attempt from ${new Date(data.savedAt).toLocaleString()}.`
+            }
+            return data
+          } catch {
+            return null
+          }
+        }
+
+        function saveNow(theForm) {
+          const key = getStorageKey(theForm)
+          if (!key) return
+          try {
+            const email = (emailInput?.value || "").trim()
+            const studentId = (studentIdInput?.value || "").trim()
+            const answers = collectAnswers(theForm)
+            const payload = { email, studentId, answers, savedAt: new Date().toISOString() }
+            localStorage.setItem(key, JSON.stringify(payload))
+          } catch {
+            /* no-op */
+          }
+        }
+
+        function debounce(fn, ms = 300) {
+          let t
+          return (...args) => {
+            clearTimeout(t)
+            t = setTimeout(() => fn(...args), ms)
+          }
+        }
+
+        // ---------- UX helpers ----------
+        function setSubmitting(state) {
+          if (state) submitBtn?.setAttribute("disabled", "disabled")
+          else submitBtn?.removeAttribute("disabled")
+          submitRow?.removeAttribute("hidden")
+        }
+
+        function showStatus(type, message) {
+          const box = $("#exercise-status")
+          if (!box) return
+          box.className = type === "ok" ? "status-ok" : type === "warn" ? "status-warn" : "status-err"
+          box.textContent = message
+        }
+
+        async function postJSON(url, data) {
+          const res = await fetch(url, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(data),
+            credentials: "omit",
+          })
+          return res // caller inspects res.status
+        }
+
+        // ---------- enable submit UI on load ----------
+        submitRow?.removeAttribute("hidden")
+        submitBtn?.removeAttribute("disabled")
+
+        // ---------- load config ----------
+        let recipients = []
+        let submitUrl = ""
+        try {
+          const cfg = readConfig()
+          recipients = cfg.recipients
+          submitUrl = cfg.submitUrl
+        } catch (e) {
+          showStatus("err", e.message)
+          return
+        }
+
+        // ---------- restore saved, init progress ----------
+        loadSaved(form)
+        refreshStatus()
+        updateProgress(form)
+
+        // ---------- input listeners: progress + autosave ----------
+        const onChanged = debounce(() => {
+          updateProgress(form)
+          saveNow(form)
+        }, 250)
+        form.addEventListener("input", onChanged)
+        form.addEventListener("change", onChanged)
+
+        // optional email / id validation UI
+        emailInput?.addEventListener("input", () => {
+          if (isEmailValid()) emailInput.classList.remove("exercise-form__email-input--invalid")
+          refreshStatus()
+        })
+        emailInput?.addEventListener("blur", () => {
+          if (!isEmailValid()) emailInput.classList.add("exercise-form__email-input--invalid")
+          else emailInput.classList.remove("exercise-form__email-input--invalid")
+        })
+
+        studentIdInput?.addEventListener("input", () => {
+          if (isStudentIdValid()) studentIdInput.classList.remove("exercise-form__email-input--invalid")
+          refreshStatus()
+        })
+        studentIdInput?.addEventListener("blur", () => {
+          if (!isStudentIdValid()) studentIdInput.classList.add("exercise-form__email-input--invalid")
+          else studentIdInput.classList.remove("exercise-form__email-input--invalid")
+        })
+
+        // ---------- submit handler ----------
+        form.addEventListener(
+          "submit",
+          async (ev) => {
+            ev.preventDefault()
+            try {
+              setSubmitting(true)
+              showStatus("warn", "Submitting…")
+
+              if (!isEmailValid()) {
+                showStatus("err", "Enter your valid email (used for Reply-To).")
+                emailInput?.classList.add("exercise-form__email-input--invalid")
+                emailInput?.focus()
+                setSubmitting(false)
+                return
+              }
+
+              if (!isStudentIdValid()) {
+                showStatus("err", "Enter an Eagles Club user ID like tina001 (lowercase letters + three digits).")
+                studentIdInput?.classList.add("exercise-form__email-input--invalid")
+                studentIdInput?.focus()
+                setSubmitting(false)
+                return
+              }
+
+              const email = (emailInput?.value || "").trim()
+              const studentId = (studentIdInput?.value || "").trim()
+              const answers = collectAnswers(form)
+
+              if (!answers.length) {
+                showStatus("err", "No answers detected. Please fill one or more response per question.")
+                setSubmitting(false)
+                return
+              }
+
+              const payload = {
+                email,
+                studentId,
+                pageTitle: document.title || "",
+                completedAt: new Date().toISOString(),
+                recipients, // server falls back to env if empty
+                answers,
+              }
+
+              const res = await postJSON(submitUrl, payload)
+
+              if (res.status === 204) {
+                showStatus("ok", "Submitted! Check your inbox.\nAll answers submitted successfully.\nAnswers have been cleared for your next attempt.")
+                saveNow(form) // capture final state/time
+              } else {
+                const data = await res.json().catch(() => ({}))
+                showStatus("err", `❌ Submit failed: ${data.error || `HTTP ${res.status}`}`)
+              }
+            } catch (err) {
+              showStatus("err", `❌ Submit failed: ${err?.message || err}`)
+            } finally {
+              setSubmitting(false)
+            }
+          },
+          { passive: false }
+        )
+      })()
+    </script>
     <!-- Mobile navigation is handled globally via template asset -->
   </body>
 </html>
