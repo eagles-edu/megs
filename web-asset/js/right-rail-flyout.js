@@ -122,7 +122,7 @@
           panel.id = panelId
         }
         toggle.setAttribute("aria-controls", panelId)
-        toggle.setAttribute("aria-haspopup", "true")
+        toggle.setAttribute("aria-haspopup", "menu")
 
         var shouldStartOpen =
           panel.getAttribute("aria-hidden") === "false" ||

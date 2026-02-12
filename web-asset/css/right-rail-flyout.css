@@ -100,13 +100,24 @@
   block-size: var(--flyout-toggle-size);
   height: var(--flyout-toggle-size);
   inline-size: var(--flyout-toggle-size);
+  pointer-events: none;
   width: var(--flyout-toggle-size);
   transition: opacity var(--r-flyout-transition);
+}
+
+.r-flyout__icon use {
+  transform-box: fill-box;
+  transform-origin: center;
 }
 
 .r-flyout__icon--minus {
   color: var(--primary-color);
   opacity: 0;
+}
+
+.r-flyout__icon--minus use {
+  /* Keep the minus bar visually consistent with lesson/exercise references. */
+  transform: scaleX(var(--flyout-minus-scale, 1.95));
 }
 
 [data-r-flyout-item] > .r-flyout__header {
@@ -145,12 +156,17 @@
   color: var(--menu-state-text, var(--primary-color, #e0162b));
 }
 
-[data-r-flyout-item].is-open .r-flyout__icon--plus {
+[data-r-flyout-item].is-open > .r-flyout__header .r-flyout__icon--plus,
+[data-r-flyout-item]:hover > .r-flyout__header .r-flyout__icon--plus,
+[data-r-flyout-item]:focus-within > .r-flyout__header .r-flyout__icon--plus {
   opacity: 0;
 }
 
-[data-r-flyout-item].is-open .r-flyout__icon--minus {
+[data-r-flyout-item].is-open > .r-flyout__header .r-flyout__icon--minus,
+[data-r-flyout-item]:hover > .r-flyout__header .r-flyout__icon--minus,
+[data-r-flyout-item]:focus-within > .r-flyout__header .r-flyout__icon--minus {
   opacity: 1;
+  visibility: visible;
 }
 
 .r-flyout__panel {
@@ -179,6 +195,14 @@
   list-style: none;
   margin: 0;
   padding: 4px 0;
+}
+
+.r-flyout__sublist > li {
+  border-bottom: 1px solid var(--r-flyout-divider);
+}
+
+.r-flyout__sublist > li:last-child {
+  border-bottom: none;
 }
 
 .r-flyout__sublist .item-wrapper {

@@ -863,53 +863,11 @@ function syncFlyoutCurrentState($, targetPath, headline) {
   return { matched: false, strategy: "none" }
 }
 
-function normalizeRailHref(href) {
-  return String(href || "")
-    .split("#")[0]
-    .split("?")[0]
-    .replace(/\\/g, "/")
-    .replace(/\/+/g, "/")
-    .trim()
-    .toLowerCase()
-}
-
-function collectRailTopLevelHrefSequence($, menu) {
-  if (!menu?.length) return []
-  const isLegacy = menu.hasClass("flyout-menu")
-  const hrefs = []
-  menu.children("li").each((_, itemNode) => {
-    const item = $(itemNode)
-    const anchor = isLegacy
-      ? item.find("> .item-wrapper > .menu-link > a").first()
-      : item.find("> .r-flyout__header .r-flyout__link, > .item-wrapper .r-flyout__link").first()
-    if (!anchor.length) return
-    const normalizedHref = normalizeRailHref(anchor.attr("href") || "")
-    if (normalizedHref) hrefs.push(normalizedHref)
-  })
-  return hrefs
-}
-
-function shouldSeedRightRailFromLegacy($proto, $legacy) {
-  const protoMenu = $proto("#aside").find("ul.r-flyout-menu, ul[data-r-flyout], ul.flyout-menu").first()
-  const legacyMenu = $legacy("#aside").find("ul.r-flyout-menu, ul[data-r-flyout], ul.flyout-menu").first()
-  if (!protoMenu.length || !legacyMenu.length) return false
-
-  const protoHrefs = collectRailTopLevelHrefSequence($proto, protoMenu)
-  const legacyHrefs = collectRailTopLevelHrefSequence($legacy, legacyMenu)
-  if (!protoHrefs.length || !legacyHrefs.length) return false
-  if (protoHrefs.length !== legacyHrefs.length) return false
-  for (let index = 0; index < protoHrefs.length; index += 1) {
-    if (protoHrefs[index] !== legacyHrefs[index]) return false
-  }
-  return true
-}
-
 function seedRightRailFromLegacy($proto, $legacy) {
   const legacyMenu = $legacy("#aside")
     .find("ul.r-flyout-menu, ul[data-r-flyout], ul.flyout-menu")
     .first()
   if (!legacyMenu.length) return false
-  if (!shouldSeedRightRailFromLegacy($proto, $legacy)) return false
 
   const protoAside = $proto("#aside").first()
   if (!protoAside.length) return false
@@ -1806,142 +1764,18 @@ const SHELL_VERIFY_FORBIDDEN_CHECKS = [
   },
 ]
 
-const RIGHT_RAIL_CSS_VERIFY_CHECKS = [
-  {
-    name: "minus glyph scaling",
-    pattern: /\.r-flyout__icon--minus\s+use\s*\{[\s\S]*?scaleX\(var\(--flyout-minus-scale,\s*1\.95\)\)/i,
-  },
-  {
-    name: "hover/focus icon swap",
-    pattern:
-      /:hover\s*>\s*\.r-flyout__header\s+\.r-flyout__icon--minus[\s\S]*?:focus-within\s*>\s*\.r-flyout__header\s+\.r-flyout__icon--minus/i,
-  },
-  {
-    name: "sublist divider rule",
-    pattern:
-      /\.r-flyout__sublist\s*>\s*li\s*\{[\s\S]*?border-bottom:\s*1px\s+solid\s+var\(--r-flyout-divider\)/i,
-  },
-]
-
-function resolveAssetPathForVerify(targetPath, href) {
-  if (!targetPath || !href) return null
-  const cleanHref = String(href).split("#")[0].split("?")[0]
-  if (!cleanHref || /^(?:[a-z]+:)?\/\//i.test(cleanHref) || cleanHref.startsWith("data:")) return null
-  const baseDir = path.dirname(path.resolve(targetPath))
-  return path.resolve(baseDir, cleanHref)
-}
-
-function verifyRightRailCssFeatures(html, targetPath) {
-  const issues = []
-  const $ = load(html, { decodeEntities: false })
-  const href =
-    $('link[rel="stylesheet"][href*="right-rail-flyout.css"]').first().attr("href") || RIGHT_RAIL_CSS
-  const cssPath = resolveAssetPathForVerify(targetPath, href)
-  if (!cssPath || !fs.existsSync(cssPath)) {
-    issues.push("right-rail css file missing")
-    return issues
-  }
-  const cssText = fs.readFileSync(cssPath, "utf8")
-  for (const check of RIGHT_RAIL_CSS_VERIFY_CHECKS) {
-    if (!check.pattern.test(cssText)) issues.push(`right-rail css missing: ${check.name}`)
-  }
-  return issues
-}
-
-function verifyRightRailMenuStructure(html) {
-  const issues = []
-  const $ = load(html, { decodeEntities: false })
-  const menu = $('ul.r-flyout-menu[data-r-flyout]').first()
-  if (!menu.length) return issues
-
-  if (menu.find("[data-r-flyout-item].is-open").length) {
-    issues.push("right-rail should not start with is-open items")
-  }
-
-  const panelById = new Map()
-  menu.find(".r-flyout__panel[id]").each((_, panel) => {
-    panelById.set($(panel).attr("id"), $(panel))
-  })
-
-  menu.find(".r-flyout__toggle").each((_, toggle) => {
-    const controls = ($(toggle).attr("aria-controls") || "").trim()
-    if (!controls) {
-      issues.push("right-rail toggle missing aria-controls")
-      return
-    }
-    if (!panelById.has(controls)) {
-      issues.push(`right-rail toggle aria-controls has no panel: ${controls}`)
-      return
-    }
-    const expanded = (($(toggle).attr("aria-expanded") || "").trim() || "false").toLowerCase()
-    if (expanded !== "false") {
-      issues.push(`right-rail toggle should start collapsed: ${controls}`)
-    }
-  })
-
-  panelById.forEach((panel, panelId) => {
-    if (panel.attr("hidden") === undefined) {
-      issues.push(`right-rail panel missing hidden attr: ${panelId}`)
-    }
-    const ariaHidden = (panel.attr("aria-hidden") || "").trim().toLowerCase()
-    if (ariaHidden !== "true") {
-      issues.push(`right-rail panel must start aria-hidden=true: ${panelId}`)
-    }
-  })
-
-  menu.find("[data-r-flyout-item]").each((_, item) => {
-    const hasPanel = $(item).find("> .r-flyout__panel").length > 0
-    const hasToggle = $(item).find("> .r-flyout__header .r-flyout__toggle").length > 0
-    if (hasPanel && !hasToggle) {
-      issues.push("right-rail item with panel is missing toggle")
-    } else if (!hasPanel && hasToggle) {
-      issues.push("right-rail item has toggle but no panel")
-    }
-  })
-
-  const listIndexOwners = new Map()
-  menu
-    .children("[data-r-flyout-item]")
-    .find("> .r-flyout__header .r-flyout__link, > .item-wrapper .r-flyout__link")
-    .each((_, anchorNode) => {
-      const anchor = $(anchorNode)
-      const href = normalizeRailHref(anchor.attr("href") || "")
-      const match = href.match(/(?:^|\/)list-(\d+)-/i)
-      if (!match) return
-      const listIndex = match[1]
-      const label = normalizeMenuLabel(anchor.text()) || href
-      if (!listIndexOwners.has(listIndex)) {
-        listIndexOwners.set(listIndex, label)
-        return
-      }
-      const previous = listIndexOwners.get(listIndex)
-      issues.push(`right-rail duplicate top-level list index ${listIndex}: "${previous}" and "${label}"`)
-    })
-
-  return issues
-}
-
-function verifyListShellContent(html, targetPath) {
+function verifyListShellContent(html) {
   const missing = SHELL_VERIFY_CHECKS.filter((check) => !check.pattern.test(html)).map(
     (check) => check.name
   )
   const forbidden = SHELL_VERIFY_FORBIDDEN_CHECKS.filter((check) => check.pattern.test(html)).map(
     (check) => check.name
   )
-  const structuralIssues = verifyRightRailMenuStructure(html)
-  const cssIssues = verifyRightRailCssFeatures(html, targetPath)
-  const issues = [
-    ...missing,
-    ...forbidden.map((name) => `forbidden:${name}`),
-    ...structuralIssues,
-    ...cssIssues,
-  ]
+  const issues = [...missing, ...forbidden.map((name) => `forbidden:${name}`)]
   return {
     ok: issues.length === 0,
     missing,
     forbidden,
-    structuralIssues,
-    cssIssues,
     issues,
   }
 }
@@ -2118,7 +1952,7 @@ function runSingleConversion(args) {
     return
   }
 
-  const verification = verifyListShellContent(conversion.updated, targetPath)
+  const verification = verifyListShellContent(conversion.updated)
   if (!verification.ok) {
     console.log(`[verify] FAIL :: ${verification.issues.join(", ")}`)
     process.exitCode = 1
@@ -2209,7 +2043,7 @@ async function runBulkConversion(args) {
                 verifyMessage: "--no-verify-shell",
               })
             } else {
-              const verification = verifyListShellContent(conversion.updated, absoluteFile)
+              const verification = verifyListShellContent(conversion.updated)
               if (!verification.ok) {
                 verifyFailures += 1
                 const verifyMessage = verification.issues.join(", ")

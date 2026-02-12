@@ -1,6 +1,6 @@
 /**
  * Main Bundle Loader (Modern Module) - Eagles Club
- * Loads nav/accordion bundle early to avoid post-paint layout shifts.
+ * Schedules nav/accordion bundle after load/idle or first interaction.
  */
 
 const resolveNavBundleSrc = () => {
@@ -23,8 +23,11 @@ const loadNavBundle = () => {
   const script = document.createElement("script")
   script.type = "module"
   script.src = src
+  script.async = true
+  if ("fetchPriority" in script) script.fetchPriority = "low"
   script.onload = () => {
     window.__navBundleLoaded = true
+    window.__navBundleLoading = false
   }
   script.onerror = () => {
     window.__navBundleLoading = false
@@ -32,21 +35,48 @@ const loadNavBundle = () => {
   document.head.appendChild(script)
 }
 
-const scheduleNavBundle = () => {
-  const run = () => {
-    if ("requestIdleCallback" in window) {
-      window.requestIdleCallback(loadNavBundle, { timeout: 250 })
-      return
-    }
-    window.setTimeout(loadNavBundle, 0)
-  }
-
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", run, { once: true })
+const runWhenIdle = (fn, timeoutMs) => {
+  if ("requestIdleCallback" in window) {
+    window.requestIdleCallback(fn, { timeout: timeoutMs })
     return
   }
+  window.setTimeout(fn, 450)
+}
 
-  run()
+const scheduleNavBundle = () => {
+  if (window.__navBundleScheduled) return
+  window.__navBundleScheduled = true
+
+  const interactionEvents = ["pointerdown", "keydown", "touchstart"]
+  const interactionOptions = { once: true, passive: true }
+  let triggered = false
+
+  const onInteraction = () => {
+    if (triggered) return
+    triggered = true
+    for (let i = 0; i < interactionEvents.length; i++) {
+      window.removeEventListener(interactionEvents[i], onInteraction, interactionOptions)
+    }
+    loadNavBundle()
+  }
+
+  for (let i = 0; i < interactionEvents.length; i++) {
+    window.addEventListener(interactionEvents[i], onInteraction, interactionOptions)
+  }
+
+  const scheduleAfterLoad = () => {
+    window.setTimeout(() => {
+      if (triggered) return
+      triggered = true
+      runWhenIdle(loadNavBundle, 2000)
+    }, 900)
+  }
+
+  if (document.readyState === "complete") {
+    scheduleAfterLoad()
+    return
+  }
+  window.addEventListener("load", scheduleAfterLoad, { once: true })
 }
 
 scheduleNavBundle()
