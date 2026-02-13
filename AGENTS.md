@@ -11,7 +11,7 @@ _Critically, consistently, and before every coding attempt, ALWAYS reread agents
 **Startup checklist (every session)**:
 
 1. Reread AGENTS.md instructions.
-2. Reread `docs/exercise-system.md` and `docs/asscon.md`.
+2. Reread `docs/exercise-system.md`, `docs/asscon.md`, and `docs/page-parity-checklist.md`.
 3. Determine context: **#1 online codex**, **#2 local codex**, or **#3 temp override**.
 4. If **#1 online**, rescan the repo and identify changed files.
 5. Flush working memory, refresh canonical state, and verify alignment.
@@ -70,7 +70,7 @@ _Critically, consistently, and before every coding attempt, ALWAYS reread agents
 
 ### CRITICAL RESOURCES
 
-**Always rescan** `docs/exercise-system.md` and `docs/asscon.md` on startup.
+**Always rescan** `docs/exercise-system.md`, `docs/asscon.md`, and `docs/page-parity-checklist.md` on startup.
 **Always update documentation** maintain critical systems information documents current with regular updates (at least daily). include
 
     1. AGENTS.md
@@ -197,6 +197,8 @@ _Critically, consistently, and before every coding attempt, ALWAYS reread agents
 
 - Exercise conversions: when cloning legacy accordion pages, always source the full gate scaffold (form, config JSON, and auto submitUrl helper script) from `exercise-1-nouns/111-common-nouns.html`; ensure the generated markup preserves the boolean `data-exercise-*` attributes without empty values.
 
+- For any page modernization (lesson/exercise/list), use `docs/page-parity-checklist.md` as the canonical parity SOP before editing and before final verification.
+
 **KISS**: simplest, best practices,solution or tweak that aligns with current instructions, stay focused, on-task, passes tests, meets requirements, ensures future-proof choices, and respects existing arch.
 
 ### Obfuscation SOP
@@ -218,6 +220,7 @@ _Critically, consistently, and before every coding attempt, ALWAYS reread agents
 - 2026-02-06: Documented lesson conversion spacing normalization for replacement characters and `&nbsp;`.
 - 2026-02-07: Consolidated prototype head shell to lean critical-inline CSS/JS, moved structural layout rules to shared CSS, and removed deferred speculation/pager inline bloat.
 - 2026-02-07: Aligned `lesson-6-prepositions/1-4` to prototype CLS baseline by removing per-page speculation rules and ensuring early mobile-nav bootstrap on lesson bodies.
+- 2026-02-13: Added `docs/page-parity-checklist.md` and linked it in startup/front-end SOP so page upgrades follow a single profile-driven parity checklist (exercise vs lesson/list/static) without re-specifying requirements.
 
 ## Edit Instruction Standards
 

@@ -1,3 +1,4 @@
 # Backups should never be formatted.
 **/*.bak-*.html
 **/*.bak-*.htm
+versioning/**
