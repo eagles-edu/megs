@@ -8,7 +8,7 @@
       name="keywords"
       content="ESL, TOESL, TOEFL, courses, english, english courses, education, english degree, degree, english education, exercises, english exercises, grammar, verb, english grammar, noun, adverb, adjective, english adverb, english noun, english adjective">
     <meta name="description" content="A comprehensive site for free English courses and exercises.">
-    <meta name="generator" content="English Grammar - intermediate levels A2 and above">
+    <meta name="generator" content="English Grammar - IELTS intermediate levels A2 and above">
     <link href="561-relative-pronoun-who.html" rel="non-canonical">
     <title>5.6.1 Relative Pronoun (who)</title>
     <link href="../favicon.ico" rel="shortcut icon" type="image/vnd.microsoft.icon">
@@ -53,6 +53,8 @@
         --r-flyout-shadow-menu: var(--flyout-shadow-menu, 0 12px 26px rgb(24 39 75 / 8%));
         --r-flyout-shadow-panel: var(--flyout-shadow-panel, 0 18px 32px rgb(24 39 75 / 12%));
         --r-flyout-transition: 160ms cubic-bezier(0.4, 0, 0.2, 1);
+        --sizetextarea: "inherit";
+        --sizeformtextarea: "inherit";
         /* pager variables  */
         /* Brand core */
         /* locked */
@@ -69,10 +71,14 @@
       body.base,
       body.site {
         border-top: 15px solid var(--footer-background);
-        padding: 20px;
         background-color: var(--background-color);
+        color: var(--text-color);
+        font-family: var(--font-base);
+        line-height: 1.5;
+        padding: 20px;
       }
 
+      /* Preload critical image dimensions to prevent CLS */
       img[src*="../favicon.png"] {
         height: 24px;
         max-height: 28px;
@@ -101,16 +107,9 @@
         max-height: 28px;
       }
     </style>
-    <!-- Base CSS (SSOT) async with print-swap to improve FCP/LCP -->
-    <link
-      rel="preload"
-      href="../web-asset/css/base.css"
-      as="style"
-      onload="
-        this.onload = null
-        this.rel = 'stylesheet'
-      ">
-    <link rel="stylesheet" href="../web-asset/css/base.css" media="print" onload="this.media = 'all'">
+    <!-- Base CSS (SSOT) blocking to stabilize layout -->
+    <link rel="preload" href="../web-asset/css/base.css" as="style">
+    <link rel="stylesheet" href="../web-asset/css/base.css">
     <noscript>
       <link rel="stylesheet" href="../web-asset/css/base.css">
     </noscript>
@@ -930,41 +929,42 @@
       }
     </style>
 
-<!-- Icon font not used on Codex variant; removed icomoon.css includes -->
+    <!-- prerender rules removed to match lesson baseline and avoid eager prefetch overhead -->
+    <!-- Icon font not used on Codex variant; removed icomoon.css includes -->
 
-    <!-- Minimal base for layout/mobile nav used by prototype (async) -->
+    <!-- Layout styles for exercises + mobile nav (blocking for CLS stability) -->
     <link rel="preload" href="../web-asset/css/exercises.css" as="style">
-    <link rel="stylesheet" href="../web-asset/css/exercises.css" media="print" onload="this.media = 'all'">
+    <link rel="stylesheet" href="../web-asset/css/exercises.css">
     <noscript>
       <link rel="stylesheet" href="../web-asset/css/exercises.css">
     </noscript>
     <!-- Use system default fonts (no webfont preloads) -->
 
-    <!-- Defer non-critical CSS with preload+print media swap -->
+    <!-- Flyout + menu layout styles (blocking for CLS stability) -->
     <link rel="preload" href="../web-asset/css/right-rail-flyout.css" as="style">
-    <link rel="stylesheet" href="../web-asset/css/right-rail-flyout.css" media="print" onload="this.media = 'all'">
+    <link rel="stylesheet" href="../web-asset/css/right-rail-flyout.css">
     <noscript>
       <link rel="stylesheet" href="../web-asset/css/right-rail-flyout.css">
     </noscript>
-    <!-- Left-menu.css async; critical inline reserves layout to avoid flash -->
+    <!-- Left-menu.css blocking; critical inline reserves layout -->
     <link rel="preload" href="../web-asset/css/left-menu.css" as="style">
-    <link rel="stylesheet" href="../web-asset/css/left-menu.css" media="print" onload="this.media = 'all'">
+    <link rel="stylesheet" href="../web-asset/css/left-menu.css">
     <noscript>
       <link rel="stylesheet" href="../web-asset/css/left-menu.css">
     </noscript>
     <link rel="preload" href="../web-asset/css/page-classes.css" as="style">
-    <link rel="stylesheet" href="../web-asset/css/page-classes.css" media="print" onload="this.media = 'all'">
+    <link rel="stylesheet" href="../web-asset/css/page-classes.css">
     <noscript>
       <link rel="stylesheet" href="../web-asset/css/page-classes.css">
     </noscript>
     <!-- Removed jQuery/Bootstrap/nn_sliders/template scripts on codex variant to keep console clean -->
     <link rel="preload" href="../web-asset/css/exercise-1-nouns_new.css" as="style">
-    <link rel="stylesheet" href="../web-asset/css/exercise-1-nouns_new.css" media="print" onload="this.media = 'all'">
+    <link rel="stylesheet" href="../web-asset/css/exercise-1-nouns_new.css">
     <noscript>
       <link rel="stylesheet" href="../web-asset/css/exercise-1-nouns_new.css">
     </noscript>
-    <!-- Codex QA slider scoped overrides (synchronous to avoid flash) -->
-<style id="qa-accordion-inline">
+    <!-- Codex QA slider scoped overrides (inlined to remove render-blocking request) -->
+    <style id="qa-accordion-inline">
       /* Codex QA Sliders' CSS overrides: single source of truth for Q&A */
 
       /* Scope: only affect codex QA pages */
@@ -1129,8 +1129,10 @@
     </noscript>
     <!-- Mobile navigation styles provided globally by base CSS -->
     <!-- No inline @font-face; system stacks are used (see base.css variables) -->
-    <!-- Bundled JavaScript: Modern module bundle (4 requests → 1) -->
+    <!-- Bundled JavaScript: Modern module + legacy fallback (4 requests → 1) -->
+    <link rel="modulepreload" href="../web-asset/js/main.bundle.js">
     <script type="module" src="../web-asset/js/main.bundle.js"></script>
+    <script nomodule src="../web-asset/js/main.legacy.js" defer></script>
 
     <script src="../web-asset/js/right-rail-flyout.js" defer></script>
     <script src="../web-asset/js/exercise-gate.js" defer></script>
@@ -1138,10 +1140,10 @@
   </head>
 
   <body class="base exercize" data-exercise-devtools="auto">
-                <script data-mobile-nav-bootstrap>
-        document.body.classList.add("mobile-nav-enabled")
-        </script>
-        <svg xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" aria-hidden="true" class="icon-sprite">
+    <script data-mobile-nav-bootstrap>
+      document.body.classList.add("mobile-nav-enabled")
+    </script>
+    <svg xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" aria-hidden="true" class="icon-sprite">
       <defs>
         <symbol id="icon-plus" viewBox="0 0 24 24">
           <path fill="currentColor" d="M12 5a1 1 0 0 0-1 1v5H6a1 1 0 1 0 0 2h5v5a1 1 0 1 0 2 0v-5h5a1 1 0 1 0 0-2h-5V6a1 1 0 0 0-1-1z" />

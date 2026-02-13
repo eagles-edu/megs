@@ -54,6 +54,8 @@
         --r-flyout-shadow-menu: var(--flyout-shadow-menu, 0 12px 26px rgb(24 39 75 / 8%));
         --r-flyout-shadow-panel: var(--flyout-shadow-panel, 0 18px 32px rgb(24 39 75 / 12%));
         --r-flyout-transition: 160ms cubic-bezier(0.4, 0, 0.2, 1);
+        --sizetextarea: "inherit";
+        --sizeformtextarea: "inherit";
         /* pager variables  */
         /* Brand core */
         /* locked */
@@ -928,7 +930,8 @@
       }
     </style>
 
-<!-- Icon font not used on Codex variant; removed icomoon.css includes -->
+    <!-- prerender rules removed to match lesson baseline and avoid eager prefetch overhead -->
+    <!-- Icon font not used on Codex variant; removed icomoon.css includes -->
 
     <!-- Layout styles for exercises + mobile nav (blocking for CLS stability) -->
     <link rel="preload" href="../web-asset/css/exercises.css" as="style">
@@ -1126,7 +1129,8 @@
     </noscript>
     <!-- Mobile navigation styles provided globally by base CSS -->
     <!-- No inline @font-face; system stacks are used (see base.css variables) -->
-    <!-- Bundled JavaScript: Modern module + legacy fallback (4 requests → 1) -->
+        <!-- Bundled JavaScript: Modern module + legacy fallback (4 requests → 1) -->
+    <link rel="modulepreload" href="../web-asset/js/main.bundle.js">
     <script type="module" src="../web-asset/js/main.bundle.js"></script>
     <script nomodule src="../web-asset/js/main.legacy.js" defer></script>
 
@@ -1136,8 +1140,8 @@
   </head>
 
   <body class="base exercize" data-exercise-devtools="auto">
-        <script data-mobile-nav-bootstrap>
-    document.body.classList.add("mobile-nav-enabled")
+    <script data-mobile-nav-bootstrap>
+      document.body.classList.add("mobile-nav-enabled")
     </script>
     <svg xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" aria-hidden="true" class="icon-sprite">
       <defs>
@@ -1328,7 +1332,7 @@
                     <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
                       <a itemprop="item" href="../index-2.html" class="pathway" aria-label="Home"><span itemprop="name">Home</span></a>
                       <span class="divider">
-                        �
+                        &nbsp;
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8 13.02" width="9" height="9"><polygon points="8 6.51 0 13.02 0 0 8 6.51" fill="#e0162b" /></svg>
                       </span>
                       <meta itemprop="position" content="1">
@@ -1336,7 +1340,7 @@
                     <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
                       <a itemprop="item" href="../exercise-9-articles.html" class="pathway" aria-label="Exercise 9 - Articles"><span itemprop="name">Exercise 9 - Articles</span></a>
                       <span class="divider">
-                        �
+                        &nbsp;
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8 13.02" width="9" height="9"><polygon points="8 6.51 0 13.02 0 0 8 6.51" fill="#e0162b" /></svg>
                       </span>
                       <meta itemprop="position" content="2">

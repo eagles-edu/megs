@@ -925,7 +925,8 @@
       }
     </style>
 
-<!-- Icon font not used on Codex variant; removed icomoon.css includes -->
+    <!-- prerender rules removed to match lesson baseline and avoid eager prefetch overhead -->
+    <!-- Icon font not used on Codex variant; removed icomoon.css includes -->
 
     <!-- Layout styles for exercises + mobile nav (blocking for CLS stability) -->
     <link rel="preload" href="../web-asset/css/exercises.css" as="style">
@@ -1123,7 +1124,8 @@
     </noscript>
     <!-- Mobile navigation styles provided globally by base CSS -->
     <!-- No inline @font-face; system stacks are used (see base.css variables) -->
-    <!-- Bundled JavaScript: Modern module + legacy fallback (4 requests → 1) -->
+        <!-- Bundled JavaScript: Modern module + legacy fallback (4 requests → 1) -->
+    <link rel="modulepreload" href="../web-asset/js/main.bundle.js">
     <script type="module" src="../web-asset/js/main.bundle.js"></script>
     <script nomodule src="../web-asset/js/main.legacy.js" defer></script>
 
@@ -1133,8 +1135,8 @@
   </head>
 
   <body class="base exercize" data-exercise-devtools="auto">
-        <script data-mobile-nav-bootstrap>
-    document.body.classList.add("mobile-nav-enabled")
+    <script data-mobile-nav-bootstrap>
+      document.body.classList.add("mobile-nav-enabled")
     </script>
     <svg xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" aria-hidden="true" class="icon-sprite">
       <defs>
@@ -1374,18 +1376,6 @@
                       <div class="exercise-form__feedback" data-exercise-feedback aria-live="polite"></div>
                     </div>
                   </fieldset>
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -3530,6 +3520,5 @@
     </script>
 
     <!-- Mobile navigation is handled globally via template asset -->
-
 
 </body></html>
