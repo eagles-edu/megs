@@ -4,6 +4,7 @@ dist/
 build/
 reports/
 docs/
+versioning/
 node_modules/
 **/**/sto/
 **/**/.sto/

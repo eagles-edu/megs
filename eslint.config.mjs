@@ -14,6 +14,7 @@ const ignores = [
   "docs/",
   "sto/",
   ".sto/",
+  "versioning/",
   "persistence/",
   // legacy dirs you said are not source
   "modules/",

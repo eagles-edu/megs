@@ -31,7 +31,8 @@ Apply these in order:
 2. **Theme tokens block**
    - Keep `theme-vars-critical` structure.
    - Keep sidebar/flyout tokens (`--left-menu-*`, `--r-flyout-*`).
-   - Keep textarea sizing tokens: `--sizetextarea`, `--sizeformtextarea`.
+   - Lesson/List/Static profile: keep menu state tokens (`--menu-state-bg`, `--menu-state-border`, `--menu-state-text`).
+   - Exercise profile: keep textarea sizing tokens (`--sizetextarea`, `--sizeformtextarea`).
 3. **Core CSS loading**
    - `base.css`: preload + blocking stylesheet + noscript fallback.
    - Keep `pager-style-overrides` and `critical-inline` (and `critical-inline-augment` when present in target architecture).
@@ -53,7 +54,7 @@ Apply these in order:
 
 1. `<body>` starts with early mobile bootstrap script:
    - `<script data-mobile-nav-bootstrap>document.body.classList.add("mobile-nav-enabled")</script>`
-2. Then inline SVG sprite block (with `xmlns` + `xmlns:xlink`).
+2. Then inline SVG sprite block (require `xmlns`; allow `xmlns:xlink` but do not require it).
 3. Then body shell container/grid (`.body.grid-modern`, `.container`, `.row-fluid`, sidebar/content/aside order).
 4. Sidebar menu template/markup must remain structurally aligned with the current shell pattern.
 
@@ -91,7 +92,7 @@ Apply these in order:
 Run these against a target file before/after edits:
 
 ```bash
-rg -n "theme-color|generator|modulepreload|main\\.legacy|data-mobile-nav-bootstrap|xmlns:xlink" <target-file>
+rg -n "theme-color|generator|modulepreload|main\\.legacy|data-mobile-nav-bootstrap|icon-sprite|xmlns=" <target-file>
 rg -n "exercise-gate|exercise-devtools|data-exercise|exercise-answer-key|exercise-config" <target-file>
 rg -n "media=\"print\"|speculationrules|template592f|jquery\\.min592f|bootstrap\\.min592f" <target-file>
 ```

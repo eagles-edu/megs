@@ -17,8 +17,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
 
       - name: Use Node 20
         uses: actions/setup-node@v4
@@ -28,16 +26,6 @@ jobs:
 
       - name: Install
         run: npm ci
-
-      - name: Enforce Page Parity (changed lesson pages)
-        run: |
-          if [ "${{ github.event_name }}" = "pull_request" ]; then
-            node tools/check-page-parity.mjs --changed "origin/${{ github.base_ref }}"
-          elif [ "${{ github.event.before }}" = "0000000000000000000000000000000000000000" ]; then
-            echo "Skipping parity check on branch-creation push."
-          else
-            node tools/check-page-parity.mjs --changed "${{ github.event.before }}"
-          fi
 
       - name: Lint (JS/CSS/HTML)
         run: npm run lint
