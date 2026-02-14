@@ -1,0 +1,667 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>EASY-STACK - Responsive customizable stackable columns</title>
+<meta name="description" content="IELTS Writing Task 2 lesson grid with strategies, essay types, and scoring guidance.">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- <link href="web-asset/css/joomla-2024.css" rel="stylesheet" type="text/css">
+<link href="web-asset/css/essay-grid-2.css" rel="stylesheet" type="text/css">-->
+<style>
+    /* Head structure scope */
+    .eg2-boxhead {
+    display: grid;
+    gap: 0.75rem;
+    margin: 0 auto 1.5rem;
+    max-width: 100%;
+    text-align: left;
+    width: 96%;
+    }
+
+    .eg2-boxhead > .eg2-cell {
+    min-width: 0;
+    }
+
+    .eg2-boxhead-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .eg2-boxhead-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .eg2-boxhead-4 {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .eg2-boxhead-5 {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    }
+
+    /* List structure scope */
+    .eg2-boxlist {
+    display: grid;
+    gap: 0.75rem;
+    margin: 0 auto 1.5rem;
+    max-width: 100%;
+    text-align: left;
+    width: 90%;
+    }
+
+    .eg2-boxlist > .eg2-cell {
+    min-width: 0;
+    }
+
+    .eg2-boxlist-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .eg2-boxlist-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .eg2-boxlist-4 {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .eg2-boxlist-5 {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    }
+
+    /* Generic cosmetics */
+    .eg2-opt-radius {
+    border-radius: 3px;
+    }
+
+    .eg2-opt-shadow {
+    box-shadow: 1px 1px 2px #b3b3b3;
+    }
+
+    .eg2-opt-pad {
+    padding: 1em !important;
+    }
+
+    .eg2-opt-bg-gold {
+    background-color: rgb(255 187 61 / 8%);
+    }
+
+    .eg2-opt-bg-tan {
+    background-color: rgb(210 180 140 / 15%);
+    }
+
+    .eg2-opt-bg-red-soft {
+    background-color: rgb(224 22 43 / 9%);
+    }
+
+    .eg2-opt-bg-blue-soft {
+    background-color: rgb(0 39 134 / 9%);
+    }
+
+    .eg2-opt-bg-green-soft {
+    background-color: rgb(0 134 53 / 9%);
+    }
+
+    .eg2-opt-bg-neutral {
+    background-color: rgb(241 246 255 / 100%);
+    }
+
+    .eg2-opt-bg-snow {
+    background-color: snow;
+    }
+
+.eg2-opt-bg-transparent {
+	background-color: transparent;
+}
+
+.eg2-opt-clean {
+	background: transparent;
+	border: 0;
+	box-shadow: none;
+	padding: 0 !important;
+}
+
+.eg2-opt-border-neutral {
+	border: 1px solid rgb(0 0 0 / 14%);
+}
+
+    .eg2-opt-border-red-blue {
+    border-left: 2px solid #e0162b;
+    border-right: 5px solid #002786;
+    }
+
+    .eg2-opt-border-blue {
+    border-left: 2px solid #002786;
+    border-right: 5px solid #002786;
+    }
+
+    .eg2-opt-border-red {
+    border-left: 2px solid #e0162b;
+    border-right: 5px solid #e0162b;
+    }
+
+    .eg2-opt-border-green {
+    border-left: 2px solid #008635;
+    border-right: 5px solid #008635;
+    }
+
+    .eg2-opt-border-gold {
+    border-left: 2px solid #ffcb65;
+    border-right: 5px solid #ffcb65;
+    }
+
+.eg2-opt-border-tan {
+	border-left: 2px solid #886535;
+	border-right: 5px solid #886535;
+}
+
+/* Head flow scope: text + inline images that flow across columns */
+.eg2-boxhead-flow-2,
+.eg2-boxhead-flow-3,
+.eg2-boxhead-flow-4 {
+	column-gap: 1rem;
+}
+
+.eg2-boxhead-flow-2 {
+	column-count: 2;
+}
+
+.eg2-boxhead-flow-3 {
+	column-count: 3;
+}
+
+.eg2-boxhead-flow-4 {
+	column-count: 4;
+}
+
+/* List flow scope: text + inline images that flow across columns */
+.eg2-boxlist-flow-2,
+.eg2-boxlist-flow-3,
+.eg2-boxlist-flow-4 {
+	column-gap: 1rem;
+}
+
+.eg2-boxlist-flow-2 {
+	column-count: 2;
+}
+
+.eg2-boxlist-flow-3 {
+	column-count: 3;
+}
+
+.eg2-boxlist-flow-4 {
+	column-count: 4;
+}
+
+/* default behavior: wrap and flow between columns */
+.eg2-boxhead-flow-2,
+.eg2-boxhead-flow-3,
+.eg2-boxhead-flow-4,
+.eg2-boxlist-flow-2,
+.eg2-boxlist-flow-3,
+.eg2-boxlist-flow-4 {
+	column-fill: balance;
+}
+
+.eg2-boxhead-flow-2 > *,
+.eg2-boxhead-flow-3 > *,
+.eg2-boxhead-flow-4 > *,
+.eg2-boxlist-flow-2 > *,
+.eg2-boxlist-flow-3 > *,
+.eg2-boxlist-flow-4 > * {
+	overflow-wrap: anywhere;
+	white-space: normal;
+}
+
+/* Generic cosmetics for flowing content */
+.eg2-opt-col-rule {
+	column-rule: 1px solid rgb(0 0 0 / 16%);
+}
+
+.eg2-flow-inline {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.3em;
+	vertical-align: baseline;
+}
+
+.eg2-flow-inline-img {
+	block-size: 1em;
+	inline-size: 1.4em;
+	border-radius: 2px;
+}
+
+/* no-more-wrap at inline phrase level */
+.eg2-opt-nowrap-inline .eg2-flow-inline,
+.eg2-opt-nowrap-inline .eg2-flow-inline *,
+.eg2-nomore-wrap-inline .eg2-flow-inline,
+.eg2-nomore-wrap-inline .eg2-flow-inline * {
+	overflow-wrap: normal;
+	white-space: nowrap;
+}
+
+/* no-more-wrap at full column item level */
+.eg2-opt-nowrap-col > *,
+.eg2-nomore-wrap-col > * {
+	display: block;
+	overflow-wrap: normal;
+	overflow-x: auto;
+	overflow-y: hidden;
+	white-space: nowrap;
+}
+
+/* no-more-wrap at line/element level */
+.eg2-opt-nowrap-self,
+.eg2-nomore-wrap-line {
+	display: block;
+	overflow-wrap: normal;
+	overflow-x: auto;
+	overflow-y: hidden;
+	white-space: nowrap;
+}
+
+.eg2-overflow {
+	--eg2-max-height: 13rem;
+	--eg2-max-height-mobile: 9.5rem;
+	max-height: var(--eg2-max-height);
+	overflow: hidden;
+	position: relative;
+}
+
+.eg2-overflow::after {
+	content: "";
+	position: absolute;
+	inset: auto 0 0;
+	height: 2.1rem;
+	background: linear-gradient(to bottom, rgb(255 255 255 / 0%), rgb(255 255 255 / 96%));
+	pointer-events: none;
+}
+
+.eg2-overflow.eg2-is-expanded {
+	max-height: none;
+}
+
+.eg2-overflow.eg2-is-expanded::after {
+	display: none;
+}
+
+.eg2-opt-maxh-sm {
+	--eg2-max-height: 10rem;
+	--eg2-max-height-mobile: 7.5rem;
+}
+
+.eg2-opt-maxh-md {
+	--eg2-max-height: 13rem;
+	--eg2-max-height-mobile: 9rem;
+}
+
+.eg2-opt-maxh-lg {
+	--eg2-max-height: 17rem;
+	--eg2-max-height-mobile: 11rem;
+}
+
+.eg2-overflow-toggle {
+	background: transparent;
+	border: 1px solid rgb(0 0 0 / 18%);
+	border-radius: 999px;
+	cursor: pointer;
+	font: inherit;
+	line-height: 1.2;
+	margin: 0.3rem 0 1rem;
+	padding: 0.3rem 0.8rem;
+}
+
+.eg2-overflow-toggle:hover,
+.eg2-overflow-toggle:focus-visible {
+	background: rgb(0 0 0 / 5%);
+}
+
+.eg2-overflow-toggle[hidden] {
+	display: none;
+}
+
+@media (width <= 900px) {
+	.eg2-boxhead {
+		width: 96%;
+    }
+
+    .eg2-boxlist {
+        width: 96%;
+    }
+    }
+
+	@media (width <= 980px) {
+		.eg2-flow-4-responsive {
+			column-count: 2;
+		}
+	}
+
+    @media (width <= 640px) {
+    .eg2-boxhead-2,
+    .eg2-boxhead-3,
+    .eg2-boxhead-4,
+    .eg2-boxhead-5 {
+        grid-template-columns: 1fr;
+    }
+
+	.eg2-boxlist-2,
+	.eg2-boxlist-3,
+	.eg2-boxlist-4,
+	.eg2-boxlist-5 {
+		grid-template-columns: 1fr;
+	}
+
+	.eg2-boxhead-flow-2,
+	.eg2-boxhead-flow-3,
+	.eg2-boxhead-flow-4,
+	.eg2-boxlist-flow-2,
+	.eg2-boxlist-flow-3,
+	.eg2-boxlist-flow-4 {
+		column-count: 1;
+	}
+
+	.eg2-overflow:not(.eg2-is-expanded) {
+		max-height: var(--eg2-max-height-mobile);
+	}
+}
+
+.eg2-leadp {
+    margin-top: 0;
+}
+</style>
+</head>
+<body>
+<main class="eg2-page">
+    <header class="eg2-header">
+    <h2>EASY-STACK</h2>
+    <h3>Responsive customizable stackable columns</h3>
+    <p class="tabstytit1">
+        These&nbsp;
+        <strong>EASY-STACK&nbsp;</strong>
+        demos offers examples of a lightweight, customizable solution for responsive control of on-page html content - no js needed.
+    </p>
+    <p class="palone">
+        Esse mollit enim nisi dolore ad eiusmod. Ipsum ea ad aliqua qui. Eu occaecat officia ad culpa pariatur in irure sunt dolor enim ex ad. Aliqua id elit sunt nulla consectetur exercitation occaecat exercitation. Pariatur labore excepteur magna exercitation exercitation culpa et cillum.
+    </p>
+    </header>
+
+    <!--  Boxhead Structural Variants (2/3/4/5 columns)  -->
+    <section class="eg2-boxhead eg2-boxhead-2 eg2-opt-pad eg2-opt-radius eg2-opt-shadow eg2-opt-bg-gold eg2-opt-border-gold">
+    <div class="eg2-cell">
+        <ul class="nomarall">
+        <li><strong>boxhead-2</strong></li>
+        <li>2-column structural shell</li>
+        <li>Optional visual classes</li>
+        </ul>
+    </div>
+    <div class="eg2-cell">
+        <ul class="nomarall">
+        <li>Independent content block</li>
+        <li>No hard-coded color/border</li>
+        <li>Skin classes are composable</li>
+        </ul>
+    </div>
+    </section>
+
+    <section class="eg2-boxhead eg2-boxhead-3 eg2-opt-pad eg2-opt-radius eg2-opt-shadow eg2-opt-bg-tan eg2-opt-border-tan">
+    <div class="eg2-cell">
+        <ul class="nomarall">
+        <li><strong>boxhead-3</strong></li>
+        <li>Three columns</li>
+        <li>Structure only</li>
+        </ul>
+    </div>
+    <div class="eg2-cell">
+        <ul class="nomarall">
+        <li>Cell B</li>
+        <li>Shared shell</li>
+        <li>Scoped styling</li>
+        </ul>
+    </div>
+    <div class="eg2-cell">
+        <ul class="nomarall">
+        <li>Cell C</li>
+        <li>Responsive collapse</li>
+        <li>Mobile-safe</li>
+        </ul>
+    </div>
+    </section>
+
+    <section class="eg2-boxhead eg2-boxhead-4 eg2-opt-pad eg2-opt-radius eg2-opt-shadow eg2-opt-bg-neutral eg2-opt-border-red-blue">
+    <div class="eg2-cell">
+        <ul class="nomarall">
+        <li><strong>boxhead-4</strong></li>
+        <li>Column 1</li>
+        <li>Style via opt classes</li>
+        </ul>
+    </div>
+    <div class="eg2-cell">
+        <ul class="nomarall">
+        <li>Column 2</li>
+        <li>Reusable shell</li>
+        <li>No legacy coupling</li>
+        </ul>
+    </div>
+    <div class="eg2-cell">
+        <ul class="nomarall">
+        <li>Column 3</li>
+        <li>Tokenized visual layer</li>
+        <li>Border + bg split</li>
+        </ul>
+    </div>
+    <div class="eg2-cell">
+        <ul class="nomarall">
+        <li>Column 4</li>
+        <li>Consistent spacing</li>
+        <li>Flexible composition</li>
+        </ul>
+    </div>
+    </section>
+
+    <section class="eg2-boxhead eg2-boxhead-5 eg2-opt-pad eg2-opt-radius eg2-opt-shadow eg2-opt-bg-snow eg2-opt-border-blue">
+    <div class="eg2-cell">
+        <ul class="nomarall">
+        <li><strong>boxhead-5</strong></li>
+        <li>Col 1</li>
+        <li>5-column variant</li>
+        </ul>
+    </div>
+    <div class="eg2-cell">
+        <ul class="nomarall">
+        <li>Col 2</li>
+        <li>Base structure</li>
+        <li>No baked skin</li>
+        </ul>
+    </div>
+    <div class="eg2-cell">
+        <ul class="nomarall">
+        <li>Col 3</li>
+        <li>Optional skin</li>
+        <li>Composable</li>
+        </ul>
+    </div>
+    <div class="eg2-cell">
+        <ul class="nomarall">
+        <li>Col 4</li>
+        <li>Grid-based</li>
+        <li>Scoped to page</li>
+        </ul>
+    </div>
+    <div class="eg2-cell">
+        <ul class="nomarall">
+        <li>Col 5</li>
+        <li>Responsive</li>
+        <li>Single-column mobile</li>
+        </ul>
+    </div>
+    </section>
+
+    <!--  Boxlist Structural Variants (2/3/4/5 columns)  -->
+    <section class="eg2-boxlist eg2-boxlist-2 eg2-opt-pad eg2-opt-radius eg2-opt-shadow eg2-opt-bg-red-soft eg2-opt-border-red">
+    <div class="eg2-cell">
+        <ul class="nomarall">
+        <li><strong>boxlist-2</strong></li>
+        <li>Two columns</li>
+        <li>Structure + optional skin</li>
+        </ul>
+    </div>
+    <div class="eg2-cell">
+        <ul class="nomarall">
+        <li>Cell B</li>
+        <li>Independent content</li>
+        <li>Color/border decoupled</li>
+        </ul>
+    </div>
+    </section>
+
+    <section class="eg2-boxlist eg2-boxlist-3 eg2-opt-pad eg2-opt-radius eg2-opt-shadow eg2-opt-bg-blue-soft eg2-opt-border-neutral">
+    <div class="eg2-cell">
+        <ul class="nomarall">
+        <li><strong>boxlist-3</strong></li>
+        <li>Column 1</li>
+        <li>Reusable structural class</li>
+        </ul>
+    </div>
+    <div class="eg2-cell">
+        <ul class="nomarall">
+        <li>Column 2</li>
+        <li>Visual optionality</li>
+        <li>Scoped and portable</li>
+        </ul>
+    </div>
+    <div class="eg2-cell">
+        <ul class="nomarall">
+        <li>Column 3</li>
+        <li>Modernized layout</li>
+        <li>No inline style</li>
+        </ul>
+    </div>
+    </section>
+
+    <section class="eg2-boxlist eg2-boxlist-4 eg2-opt-pad eg2-opt-radius eg2-opt-shadow eg2-opt-bg-green-soft eg2-opt-border-green">
+    <div class="eg2-cell">
+        <ul class="nomarall">
+        <li><strong>boxlist-4</strong></li>
+        <li>Col 1</li>
+        <li>Four-column shell</li>
+        </ul>
+    </div>
+    <div class="eg2-cell">
+        <ul class="nomarall">
+        <li>Col 2</li>
+        <li>Optional border token</li>
+        <li>Optional background token</li>
+        </ul>
+    </div>
+    <div class="eg2-cell">
+        <ul class="nomarall">
+        <li>Col 3</li>
+        <li>Shared spacing token</li>
+        <li>Shared radius token</li>
+        </ul>
+    </div>
+    <div class="eg2-cell">
+        <ul class="nomarall">
+        <li>Col 4</li>
+        <li>Shadow utility</li>
+        <li>Minimal coupling</li>
+        </ul>
+    </div>
+    </section>
+
+<section class="eg2-boxlist eg2-boxlist-5 eg2-opt-pad eg2-opt-radius eg2-opt-shadow eg2-opt-bg-transparent eg2-opt-border-neutral">
+    <div class="eg2-cell">
+        <ul class="nomarall">
+        <li><strong>boxlist-5</strong></li>
+        <li>Col 1</li>
+        <li>Five-column shell</li>
+        </ul>
+    </div>
+    <div class="eg2-cell">
+        <ul class="nomarall">
+        <li>Col 2</li>
+        <li>Structure only base</li>
+        <li>Visuals are additive</li>
+        </ul>
+    </div>
+    <div class="eg2-cell">
+        <ul class="nomarall">
+        <li>Col 3</li>
+        <li>Atomic class model</li>
+        <li>Easy recomposition</li>
+        </ul>
+    </div>
+    <div class="eg2-cell">
+        <ul class="nomarall">
+        <li>Col 4</li>
+        <li>Scoped to this page</li>
+        <li>Does not affect global pages</li>
+        </ul>
+    </div>
+    <div class="eg2-cell">
+        <ul class="nomarall">
+        <li>Col 5</li>
+        <li>Responsive fallback</li>
+        <li>1 column on mobile</li>
+        </ul>
+    </div>
+</section>
+
+<!--  Flowing content variants: head/list 2,3,4 columns + generic cosmetics  -->
+
+<section class="eg2-boxhead eg2-opt-pad">
+	<div class="eg2-cell">
+		<p><strong>4-column responsive flow test (4 to 2 to 1)</strong></p>
+		<div class="eg2-boxhead-flow-4 eg2-flow-4-responsive eg2-opt-col-rule">
+			<p class="eg2-leadp">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>
+			<p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Maecenas faucibus mollis interdum. Donec sed odio dui.</p>
+			<p>Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Integer posuere erat a ante venenatis dapibus posuere velit aliquet.</p>
+			<p>Curabitur blandit tempus porttitor. Vestibulum id ligula porta felis euismod semper. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+			<p>Etiam porta sem malesuada magna mollis euismod. Sed posuere consectetur est at lobortis. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
+			<p>Donec ullamcorper nulla non metus auctor fringilla. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.</p><p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Maecenas faucibus mollis interdum. Donec sed odio dui.</p>
+			<p>Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Integer posuere erat a ante venenatis dapibus posuere velit aliquet.</p>
+			<p>Curabitur blandit tempus porttitor. Vestibulum id ligula porta felis euismod semper. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+			<p>Etiam porta sem malesuada magna mollis euismod. Sed posuere consectetur est at lobortis. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
+			<p>Donec ullamcorper nulla non metus auctor fringilla. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.</p>
+		</div>
+		</div>
+	</div>
+</section>
+<br>
+<br>
+<br>
+<br>
+</main>
+<script>
+(() => {
+	const flowBoxes = document.querySelectorAll(".eg2-overflow[data-eg2-overflow]");
+	for (const box of flowBoxes) {
+		if (!box.id) {
+			box.id = `eg2-overflow-${Math.random().toString(36).slice(2, 9)}`;
+		}
+
+		const button = document.createElement("button");
+		button.type = "button";
+		button.className = "eg2-overflow-toggle";
+		button.setAttribute("aria-controls", box.id);
+
+		const sync = () => {
+			const expanded = box.classList.contains("eg2-is-expanded");
+			const hasOverflow = box.scrollHeight > box.clientHeight + 1 || box.scrollWidth > box.clientWidth + 1;
+			button.hidden = !expanded && !hasOverflow;
+			button.textContent = expanded ? "Read less" : "Read more...";
+			button.setAttribute("aria-expanded", String(expanded));
+		};
+
+		button.addEventListener("click", () => {
+			box.classList.toggle("eg2-is-expanded");
+			sync();
+		});
+
+		box.insertAdjacentElement("afterend", button);
+		sync();
+		window.addEventListener("resize", sync, { passive: true });
+	}
+})();
+</script>
+</body>
+</html>

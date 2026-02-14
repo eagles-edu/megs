@@ -1,0 +1,99 @@
+@charset "utf-8";
+
+.eg2-page {
+	box-sizing: border-box;
+	margin: 0 auto;
+	max-width: 1200px;
+	padding: 1rem;
+}
+
+.eg2-header {
+	margin-bottom: 1.25rem;
+}
+
+.eg2-page .rowflex {
+	margin: 0 0 1.5rem;
+}
+
+.eg2-page .tabstytit1,
+.eg2-page .palone {
+	line-height: 1.75;
+	max-width: 72ch;
+}
+
+.eg2-page .wi {
+	color: #fff;
+}
+
+.eg2-page .sty1,
+.eg2-page .sty2 {
+	font-weight: 600;
+	text-decoration: underline;
+	text-underline-offset: 0.15em;
+}
+
+.eg2-page .cen,
+.eg2-page .imgcen {
+	text-align: center;
+}
+
+.eg2-page .eg2-border-none {
+	border: none !important;
+}
+
+.eg2-page .eg2-bg-alice {
+	background-color: #f0f8ff;
+}
+
+.eg2-page .eg2-bg-red {
+	background-color: #e0162b;
+}
+
+.eg2-page .eg2-bg-soft-red {
+	background-color: #fce9e9;
+}
+
+.eg2-page .eg2-bg-snow {
+	background-color: snow;
+}
+
+.eg2-page .eg2-bg-gray {
+	background-color: #838487;
+}
+
+.eg2-page .eg2-bg-blue {
+	background-color: #002786;
+}
+
+.eg2-page .eg2-txt-brand {
+	color: #e0162b;
+}
+
+/* Existing lesson card helpers */
+.eg2-page .columnf25,
+.eg2-page .columnf33,
+.eg2-page .columnf50nob {
+	padding: 0 !important;
+}
+
+.eg2-page .columnf25 {
+	flex: 25%;
+}
+
+.eg2-page .columnf33 {
+	flex: 33.333%;
+}
+
+.eg2-page .columnf50nob {
+	border: none !important;
+	flex: 50%;
+}
+
+@media (width <= 640px) {
+	.eg2-page .columnf25,
+	.eg2-page .columnf33,
+	.eg2-page .columnf50nob {
+		flex: 96%;
+		padding: 0 0.33em !important;
+	}
+}
