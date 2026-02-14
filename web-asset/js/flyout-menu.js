@@ -11,7 +11,7 @@
   }
 
   function bindFlyouts() {
-    var menus = document.querySelectorAll("ul.flyout-menu")
+    var menus = document.querySelectorAll("ul.flyout-menu, ul.r-flyout-menu")
     if (!menus || !menus.length) return
 
     menus.forEach(function (menu) {
