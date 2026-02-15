@@ -41,6 +41,7 @@
   --link-visited: #630094;
   --link-active: var(--primary-color) /* Semantic states */;
   --pager-text-color: var(--text-color);
+  --pager-hover-background: #fff;
   --success-color: #0f6d2a;
   --success-bg: #e6f7ee;
   --success-border: #2f7d51;
@@ -387,8 +388,25 @@ pre {
   flex: 0 0 100%;
   max-width: 100%;
   min-width: 0;
-  padding-left: 8px;
-  padding-right: 8px;
+  padding-left: 12px;
+  padding-right: 12px;
+}
+
+@media (width <= 480px) {
+  .row-fluid {
+    margin-left: -30px;
+    margin-right: -30px;
+  }
+
+  .padme1 {
+    padding-top: 1.6em !important;
+  }
+
+  .row-fluid > [class*="span"],
+  .row-fluid > #aside {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
 }
 
 @media (width >= 768px) {
@@ -491,6 +509,7 @@ pre {
 
 .pager > li > a:focus,
 .pager > li > a:hover {
+  background-color: var(--pager-hover-background, #fff);
   border-color: var(--primary-color, var(--link-hover));
   box-shadow: var(--pager-hover-shadow, 0 0 0 2px rgb(0 94 141 / 25%));
   color: var(--primary-color, var(--link-hover));

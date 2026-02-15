@@ -54,9 +54,19 @@ const LEAN_CRITICAL_INLINE = [
 const DEFAULT_ROOT = process.cwd()
 const COPY_FILE_SUFFIXES = [".copy.html", "-copy.html"]
 const NATURAL_COLLATOR = new Intl.Collator(undefined, { numeric: true, sensitivity: "base" })
+const BASE_CSS = "../web-asset/css/base.css"
+const LEFT_MENU_CSS = "../web-asset/css/left-menu.css"
+const PAGE_CLASSES_CSS = "../web-asset/css/page-classes.css"
 const RIGHT_RAIL_CSS = "../web-asset/css/right-rail-flyout.css"
+const MAIN_BUNDLE_JS = "../web-asset/js/main.bundle.js"
 const RIGHT_RAIL_JS = "../web-asset/js/right-rail-flyout.js"
 const MAIN_LEGACY_JS = "../web-asset/js/main.legacy.js"
+const EXPECTED_THEME_COLOR = "#e0162b"
+const EXPECTED_GENERATOR = "English Grammar - IELTS intermediate levels A2 and above"
+const DEFAULT_META_KEYWORDS =
+  "ESL, TOESL, TOEFL, courses, english, english courses, education, english degree, degree, english education, exercises, english exercises, grammar, verb, english grammar, noun, adverb, adjective, english adverb, english noun, english adjective"
+const DEFAULT_META_DESCRIPTION = "A comprehensive site for free English courses and exercises."
+const META_CANONICAL_ORDER = ["charset", "viewport", "theme-color", "keywords", "description", "generator"]
 const COPYRIGHT_YEAR_SCRIPT_MARKER = "[data-copyright-year]"
 const ICON_PLUS_SYMBOL_HTML =
   '<symbol id="icon-plus" viewBox="0 0 24 24"><path fill="currentColor" d="M12 5a1 1 0 0 0-1 1v5H6a1 1 0 1 0 0 2h5v5a1 1 0 1 0 2 0v-5h5a1 1 0 1 0 0-2h-5V6a1 1 0 0 0-1-1z"></path></symbol>'
@@ -528,8 +538,8 @@ function scrapePager($) {
     pager.previous = {
       href: prev.attr("href") || "",
       label: extractLinkLabelWithoutSvg(prev) || prev.attr("aria-label") || "",
-      ariaLabel: prev.attr("aria-label") || "Previous",
-      rel: prev.attr("rel") || "prev",
+      ariaLabel: "Previous",
+      rel: "prev",
     }
   }
   const next = $(".pager .next a, .pagenav .next a").first()
@@ -537,8 +547,8 @@ function scrapePager($) {
     pager.next = {
       href: next.attr("href") || "",
       label: extractLinkLabelWithoutSvg(next) || next.attr("aria-label") || "",
-      ariaLabel: next.attr("aria-label") || "Next",
-      rel: next.attr("rel") || "next",
+      ariaLabel: "Next",
+      rel: "next",
     }
   }
   return pager
@@ -1054,8 +1064,153 @@ function migrateFlyoutMenuToRightRail($) {
   return true
 }
 
+function cleanAssetRef(ref) {
+  return String(ref || "")
+    .split("#")[0]
+    .split("?")[0]
+    .trim()
+}
+
+function isAssetRef(href, assetPath) {
+  const cleanHref = cleanAssetRef(href)
+  if (!cleanHref) return false
+  const normalizedAsset = String(assetPath || "").trim()
+  const suffix = normalizedAsset.replace(/^\.\.\//, "")
+  return (
+    cleanHref === normalizedAsset ||
+    cleanHref === suffix ||
+    cleanHref.endsWith(`/${suffix}`) ||
+    cleanHref.endsWith(suffix)
+  )
+}
+
+function removeEmptyHeadNoscript($) {
+  let removed = 0
+  $("head noscript").each((_, node) => {
+    const noscript = $(node)
+    if (noscript.find("link").length) return
+    const text = (noscript.text() || "").trim()
+    if (!text) {
+      noscript.remove()
+      removed += 1
+    }
+  })
+  return removed
+}
+
+function removeHeadCssAssetBlocks($, assetPath) {
+  let removed = 0
+  $("head link[href]").each((_, link) => {
+    if (!isAssetRef($(link).attr("href") || "", assetPath)) return
+    $(link).remove()
+    removed += 1
+  })
+  $("head noscript").each((_, node) => {
+    const noscript = $(node)
+    noscript.find("link[href]").each((__, link) => {
+      if (!isAssetRef($(link).attr("href") || "", assetPath)) return
+      $(link).remove()
+      removed += 1
+    })
+  })
+  removed += removeEmptyHeadNoscript($)
+  return removed
+}
+
+function removeHeadScriptAsset($, assetPath, { requireNomodule = false, requireModule = false } = {}) {
+  let removed = 0
+  $("head script[src]").each((_, script) => {
+    const node = $(script)
+    if (!isAssetRef(node.attr("src") || "", assetPath)) return
+    if (requireNomodule && node.attr("nomodule") === undefined) return
+    if (requireModule && String(node.attr("type") || "").toLowerCase() !== "module") return
+    node.remove()
+    removed += 1
+  })
+  return removed
+}
+
+function removeHeadModulePreloadAsset($, assetPath) {
+  let removed = 0
+  $("head link[rel='modulepreload'][href]").each((_, link) => {
+    const node = $(link)
+    if (!isAssetRef(node.attr("href") || "", assetPath)) return
+    node.remove()
+    removed += 1
+  })
+  return removed
+}
+
+function buildCssAssetBlock(assetPath) {
+  return [
+    `<link rel="preload" href="${assetPath}" as="style">`,
+    `<link rel="stylesheet" href="${assetPath}">`,
+    "<noscript>",
+    `  <link rel="stylesheet" href="${assetPath}">`,
+    "</noscript>",
+  ].join("\n")
+}
+
+function insertHeadBlockBeforeScripts($, block) {
+  const head = $("head").first()
+  if (!head.length) return
+  const firstScript = head.children("script").first()
+  if (firstScript.length) {
+    firstScript.before(`\n    ${block}\n`)
+  } else {
+    head.append(`\n    ${block}\n`)
+  }
+}
+
+function escapeHtmlAttribute(value) {
+  return String(value || "")
+    .replace(/&/g, "&amp;")
+    .replace(/"/g, "&quot;")
+}
+
+function normalizeHeadMetaTags($) {
+  const head = $("head").first()
+  if (!head.length) return false
+
+  const getMetaContent = (name) => {
+    const meta = head
+      .children("meta[name]")
+      .filter((_, node) => String($(node).attr("name") || "").trim().toLowerCase() === name)
+      .first()
+    return String(meta.attr("content") || "").trim()
+  }
+
+  const keywords = getMetaContent("keywords") || DEFAULT_META_KEYWORDS
+  const description = getMetaContent("description") || DEFAULT_META_DESCRIPTION
+
+  head.children("meta").each((_, node) => {
+    const meta = $(node)
+    const name = String(meta.attr("name") || "").trim().toLowerCase()
+    if (meta.attr("charset") !== undefined || META_CANONICAL_ORDER.includes(name)) {
+      meta.remove()
+    }
+  })
+
+  head.prepend(
+    [
+      "",
+      '    <meta charset="utf-8">',
+      '    <meta name="viewport" content="width=device-width, initial-scale=1.0">',
+      `    <meta name="theme-color" content="${EXPECTED_THEME_COLOR}">`,
+      `    <meta name="keywords" content="${escapeHtmlAttribute(keywords)}">`,
+      `    <meta name="description" content="${escapeHtmlAttribute(description)}">`,
+      `    <meta name="generator" content="${escapeHtmlAttribute(EXPECTED_GENERATOR)}">`,
+      "",
+    ].join("\n")
+  )
+
+  return true
+}
+
 function ensureRightRailAssets($) {
   let changed = 0
+  changed += normalizeHeadMetaTags($) ? 1 : 0
+
   const flyoutCssPattern = /web-asset\/css\/flyout(?:-menu)?\.css/i
   $("head link[href], head noscript link[href]").each((_, link) => {
     const href = ($(link).attr("href") || "").trim()
@@ -1063,47 +1218,34 @@ function ensureRightRailAssets($) {
     $(link).remove()
     changed += 1
   })
+  changed += removeEmptyHeadNoscript($)
 
-  $("head noscript").each((_, node) => {
-    if ($(node).find("link").length) return
-    const text = ($(node).text() || "").trim()
-    if (!text) {
-      $(node).remove()
-      changed += 1
-    }
+  const cssAssets = [BASE_CSS, RIGHT_RAIL_CSS, LEFT_MENU_CSS, PAGE_CLASSES_CSS]
+  cssAssets.forEach((assetPath) => {
+    changed += removeHeadCssAssetBlocks($, assetPath)
   })
 
-  if (!$("head link[href*='web-asset/css/right-rail-flyout.css']").length) {
-    const rightRailCssBlock = [
-      `<link rel="preload" href="${RIGHT_RAIL_CSS}" as="style">`,
-      `<link rel="stylesheet" href="${RIGHT_RAIL_CSS}">`,
-      "<noscript>",
-      `  <link rel="stylesheet" href="${RIGHT_RAIL_CSS}">`,
-      "</noscript>",
+  removeHeadModulePreloadAsset($, MAIN_BUNDLE_JS)
+  removeHeadScriptAsset($, MAIN_BUNDLE_JS, { requireModule: true })
+  removeHeadScriptAsset($, MAIN_BUNDLE_JS)
+  removeHeadScriptAsset($, MAIN_LEGACY_JS)
+  removeHeadScriptAsset($, RIGHT_RAIL_JS)
+
+  cssAssets.forEach((assetPath) => {
+    insertHeadBlockBeforeScripts($, buildCssAssetBlock(assetPath))
+    changed += 1
+  })
+
+  insertHeadBlockBeforeScripts(
+    $,
+    [
+      `<link rel="modulepreload" href="${MAIN_BUNDLE_JS}">`,
+      `<script type="module" src="${MAIN_BUNDLE_JS}"></script>`,
+      `<script nomodule src="${MAIN_LEGACY_JS}" defer></script>`,
+      `<script src="${RIGHT_RAIL_JS}" defer></script>`,
     ].join("\n")
-    const leftMenuPreload = $("head link[href*='web-asset/css/left-menu.css']").first()
-    if (leftMenuPreload.length) {
-      leftMenuPreload.before(`\n    ${rightRailCssBlock}\n`)
-    } else {
-      $("head").append(`\n    ${rightRailCssBlock}\n`)
-    }
-    changed += 1
-  }
-
-  if (!$("head script[src*='web-asset/js/right-rail-flyout.js']").length) {
-    $("head").append(`\n    <script src="${RIGHT_RAIL_JS}" defer></script>\n`)
-    changed += 1
-  }
-
-  if (!$("head script[nomodule][src*='web-asset/js/main.legacy.js']").length) {
-    const moduleScript = $("head script[type='module'][src*='web-asset/js/main.bundle.js']").first()
-    if (moduleScript.length) {
-      moduleScript.after(`\n    <script nomodule src="${MAIN_LEGACY_JS}" defer></script>`)
-    } else {
-      $("head").append(`\n    <script nomodule src="${MAIN_LEGACY_JS}" defer></script>\n`)
-    }
-    changed += 1
-  }
+  )
+  changed += 1
 
   return changed
 }
@@ -1514,18 +1656,18 @@ function updatePager($, pager, data) {
     const prev = pager.find("li.previous a").first()
     if (prev.length) {
       prev.attr("href", data.previous.href || "")
-      prev.attr("rel", data.previous.rel || "prev")
-      prev.attr("aria-label", data.previous.ariaLabel || "Previous")
-      replaceAnchorLabel($, prev, data.previous.label, "after")
+      prev.attr("rel", "prev")
+      prev.attr("aria-label", "Previous")
+      replaceAnchorLabel($, prev, data.previous.label || "Previous", "after")
     }
   }
   if (data.next) {
     const next = pager.find("li.next a").first()
     if (next.length) {
       next.attr("href", data.next.href || "")
-      next.attr("rel", data.next.rel || "next")
-      next.attr("aria-label", data.next.ariaLabel || "Next")
-      replaceAnchorLabel($, next, data.next.label, "before")
+      next.attr("rel", "next")
+      next.attr("aria-label", "Next")
+      replaceAnchorLabel($, next, data.next.label || "Next", "before")
     }
   }
 }
@@ -1574,11 +1716,22 @@ function enforceLeanHeadShell($) {
   const removed = {
     inlineBlocks: 0,
     speculationScripts: 0,
+    printCssSwaps: 0,
   }
 
-  $("style#pager-style-overrides, style#critical-inline-augment").each((_, node) => {
-    $(node).remove()
+  $("head style").each((_, node) => {
+    const styleNode = $(node)
+    const styleId = String(styleNode.attr("id") || "").trim()
+    if (styleId === "theme-vars-critical" || styleId === "critical-inline") return
+    styleNode.remove()
     removed.inlineBlocks += 1
+  })
+
+  $("head link[media]").each((_, node) => {
+    const linkNode = $(node)
+    if (String(linkNode.attr("media") || "").trim().toLowerCase() !== "print") return
+    linkNode.remove()
+    removed.printCssSwaps += 1
   })
 
   $("script").each((_, node) => {
@@ -1598,16 +1751,26 @@ function enforceLeanHeadShell($) {
   }
 
   const body = $("body").first()
-  if (body.length && !body.children("script[data-mobile-nav-bootstrap]").length) {
-    body.prepend(
-      '<script data-mobile-nav-bootstrap>\n      document.body.classList.add("mobile-nav-enabled")\n    </script>\n'
-    )
-  }
+  if (body.length) {
+    let bootstrapScript = body.children("script[data-mobile-nav-bootstrap]").first()
+    if (!bootstrapScript.length) {
+      body.prepend(
+        '<script data-mobile-nav-bootstrap>\n      document.body.classList.add("mobile-nav-enabled")\n    </script>\n'
+      )
+      bootstrapScript = body.children("script[data-mobile-nav-bootstrap]").first()
+    }
+    if (bootstrapScript.length && body.children().first().get(0) !== bootstrapScript.get(0)) {
+      body.prepend(bootstrapScript)
+    }
 
-  const sprite = $("body > svg[aria-hidden='true']").first()
-  if (sprite.length) {
-    sprite.addClass("icon-sprite")
-    if (sprite.attr("style")) sprite.removeAttr("style")
+    const sprite = body.children("svg[aria-hidden='true']").first()
+    if (sprite.length) {
+      sprite.addClass("icon-sprite")
+      if (sprite.attr("style")) sprite.removeAttr("style")
+      if (bootstrapScript.length && sprite.prev().get(0) !== bootstrapScript.get(0)) {
+        bootstrapScript.after(sprite)
+      }
+    }
   }
 
   return removed
@@ -1746,6 +1909,14 @@ function isListConverted(html) {
 }
 
 const SHELL_VERIFY_CHECKS = [
+  { name: "theme-color meta", pattern: /<meta[^>]+name=["']theme-color["'][^>]+content=["']#e0162b["'][^>]*>/i },
+  {
+    name: "generator meta",
+    pattern: new RegExp(
+      `<meta[^>]+name=["']generator["'][^>]+content=["']${escapeRegExp(EXPECTED_GENERATOR)}["'][^>]*>`,
+      "i"
+    ),
+  },
   { name: "base css", pattern: /href=["'][^"']*web-asset\/css\/base\.css(?:[?#][^"']*)?["']/i },
   { name: "left-menu css", pattern: /href=["'][^"']*web-asset\/css\/left-menu\.css(?:[?#][^"']*)?["']/i },
   {
@@ -1764,6 +1935,11 @@ const SHELL_VERIFY_CHECKS = [
   {
     name: "main bundle js",
     pattern: /src=["'][^"']*web-asset\/js\/main\.bundle\.js(?:[?#][^"']*)?["']/i,
+  },
+  {
+    name: "main bundle modulepreload",
+    pattern:
+      /<link[^>]*rel=["']modulepreload["'][^>]*href=["'][^"']*web-asset\/js\/main\.bundle\.js(?:[?#][^"']*)?["'][^>]*>/i,
   },
   {
     name: "main legacy js",
@@ -1787,6 +1963,11 @@ const SHELL_VERIFY_FORBIDDEN_CHECKS = [
   {
     name: "legacy flyout css",
     pattern: /href=["'][^"']*web-asset\/css\/flyout(?:-menu)?\.css(?:[?#][^"']*)?["']/i,
+  },
+  {
+    name: "list-2 numbered href",
+    pattern:
+      /href=["'][^"']*list-2-uncountable-nouns-made-countable\/(?:1\.activity-cynicism|2\.danger-fruit|3\.l|4\.marble-rum|5\.sadness-sunlight|6\.tea-yogurt)\.html(?:[#?][^"']*)?["']/i,
   },
   {
     name: "legacy flyout menu markup",
@@ -1823,10 +2004,58 @@ const RIGHT_RAIL_CSS_VERIFY_CHECKS = [
   },
 ]
 
+const BASE_CSS_PAGER_VERIFY_CHECKS = [
+  {
+    name: "pager hover background",
+    pattern:
+      /\.pager\s*>\s*li\s*>\s*a:focus\s*,\s*\.pager\s*>\s*li\s*>\s*a:hover\s*\{[\s\S]*?background-color:\s*var\(--pager-hover-background,\s*#fff\)/i,
+  },
+  {
+    name: "pager anchor overflow hidden",
+    pattern: /\.pager\s*>\s*li\s*>\s*a\s*\{[\s\S]*?overflow:\s*hidden/i,
+  },
+  {
+    name: "pager label min-width",
+    pattern: /\.pager\s+\.pager-label\s*\{[\s\S]*?min-width:\s*0/i,
+  },
+  {
+    name: "pager label overflow hidden",
+    pattern: /\.pager\s+\.pager-label\s*\{[\s\S]*?overflow:\s*hidden/i,
+  },
+  {
+    name: "pager label ellipsis",
+    pattern: /\.pager\s+\.pager-label\s*\{[\s\S]*?text-overflow:\s*var\(--pager-label-truncate,\s*ellipsis\)/i,
+  },
+  {
+    name: "pager label nowrap",
+    pattern: /\.pager\s+\.pager-label\s*\{[\s\S]*?white-space:\s*var\(--pager-label-wrap,\s*nowrap\)/i,
+  },
+]
+
+const PAGER_LINK_VERIFY_SPECS = [
+  {
+    key: "previous",
+    selector: "li.previous > a",
+    rel: "prev",
+    ariaLabel: "Previous",
+    iconToken: "angle-left",
+    labelPosition: "after",
+  },
+  {
+    key: "next",
+    selector: "li.next > a",
+    rel: "next",
+    ariaLabel: "Next",
+    iconToken: "angle-right",
+    labelPosition: "before",
+  },
+]
+
 function resolveAssetPathForVerify(targetPath, href) {
   if (!targetPath || !href) return null
   const cleanHref = String(href).split("#")[0].split("?")[0]
   if (!cleanHref || /^(?:[a-z]+:)?\/\//i.test(cleanHref) || cleanHref.startsWith("data:")) return null
+  if (cleanHref.startsWith("/")) return path.resolve(process.cwd(), `.${cleanHref}`)
   const baseDir = path.dirname(path.resolve(targetPath))
   return path.resolve(baseDir, cleanHref)
 }
@@ -1845,6 +2074,112 @@ function verifyRightRailCssFeatures(html, targetPath) {
   for (const check of RIGHT_RAIL_CSS_VERIFY_CHECKS) {
     if (!check.pattern.test(cssText)) issues.push(`right-rail css missing: ${check.name}`)
   }
+  return issues
+}
+
+function verifyBaseCssPagerFeatures(html, targetPath) {
+  const issues = []
+  const $ = load(html, { decodeEntities: false })
+  const href = $('link[rel="stylesheet"][href*="base.css"]').first().attr("href") || BASE_CSS
+  const cssPath = resolveAssetPathForVerify(targetPath, href)
+  if (!cssPath || !fs.existsSync(cssPath)) {
+    issues.push("base css file missing")
+    return issues
+  }
+  const cssText = fs.readFileSync(cssPath, "utf8")
+  for (const check of BASE_CSS_PAGER_VERIFY_CHECKS) {
+    if (!check.pattern.test(cssText)) issues.push(`base css missing: ${check.name}`)
+  }
+  return issues
+}
+
+function normalizeVerifyText(value) {
+  return String(value || "")
+    .replace(/\s+/g, " ")
+    .trim()
+}
+
+function pagerIconMatchesDirection(iconNode, iconToken) {
+  if (!iconNode || !iconNode.length) return false
+  const normalizedToken = String(iconToken || "").toLowerCase()
+  const tagName = String(iconNode.prop("tagName") || "").toLowerCase()
+  if (tagName === "svg") {
+    const titleText = normalizeVerifyText(iconNode.find("title").first().text()).toLowerCase()
+    if (titleText) return titleText.includes(normalizedToken)
+    const useNode = iconNode.find("use").first()
+    const useHref = normalizeVerifyText(useNode.attr("href") || useNode.attr("xlink:href")).toLowerCase()
+    return useHref.includes(normalizedToken)
+  }
+  if (tagName === "img") {
+    const src = normalizeVerifyText(iconNode.attr("src")).toLowerCase()
+    return src.includes(normalizedToken)
+  }
+  return false
+}
+
+function verifyPagerLinkStructure(anchor, spec, pagerContext, issues) {
+  if (!anchor.length) {
+    issues.push(`${pagerContext} missing ${spec.key} link`)
+    return
+  }
+
+  const relValue = normalizeVerifyText(anchor.attr("rel")).toLowerCase()
+  if (relValue !== spec.rel) {
+    issues.push(`${pagerContext} ${spec.key} rel should be ${spec.rel}`)
+  }
+
+  const ariaLabel = normalizeVerifyText(anchor.attr("aria-label")).toLowerCase()
+  if (ariaLabel !== spec.ariaLabel.toLowerCase()) {
+    issues.push(`${pagerContext} ${spec.key} aria-label should be ${spec.ariaLabel}`)
+  }
+
+  const labelNode = anchor.children("span.pager-label").first()
+  if (!labelNode.length) {
+    issues.push(`${pagerContext} ${spec.key} missing pager-label span`)
+  } else if (!normalizeVerifyText(labelNode.text())) {
+    issues.push(`${pagerContext} ${spec.key} pager-label is empty`)
+  }
+
+  const iconNode = anchor.children("svg, img").first()
+  if (!iconNode.length) {
+    issues.push(`${pagerContext} ${spec.key} missing icon`)
+  }
+
+  if (labelNode.length && iconNode.length) {
+    const children = anchor.children().toArray()
+    const iconIndex = children.findIndex((node) => node === iconNode.get(0))
+    const labelIndex = children.findIndex((node) => node === labelNode.get(0))
+    if (spec.labelPosition === "after" && !(iconIndex >= 0 && labelIndex > iconIndex)) {
+      issues.push(`${pagerContext} ${spec.key} label/icon order should be icon then label`)
+    }
+    if (spec.labelPosition === "before" && !(labelIndex >= 0 && iconIndex > labelIndex)) {
+      issues.push(`${pagerContext} ${spec.key} label/icon order should be label then icon`)
+    }
+  }
+
+  if (iconNode.length && !pagerIconMatchesDirection(iconNode, spec.iconToken)) {
+    issues.push(`${pagerContext} ${spec.key} icon should match ${spec.iconToken}`)
+  }
+}
+
+function verifyPagerMarkup(html) {
+  const issues = []
+  const $ = load(html, { decodeEntities: false })
+  const pagers = $("ul.pager.pagenav")
+  if (!pagers.length) {
+    issues.push("pager markup missing: ul.pager.pagenav")
+    return issues
+  }
+
+  pagers.each((index, pagerNode) => {
+    const pager = $(pagerNode)
+    const pagerContext = `pager#${index + 1}`
+    for (const spec of PAGER_LINK_VERIFY_SPECS) {
+      const anchor = pager.find(spec.selector).first()
+      verifyPagerLinkStructure(anchor, spec, pagerContext, issues)
+    }
+  })
+
   return issues
 }
 
@@ -1921,6 +2256,30 @@ function verifyRightRailMenuStructure(html) {
   return issues
 }
 
+function verifyMetaOrder(html) {
+  const checks = [
+    /<meta\s+charset=/i,
+    /<meta\s+name=["']viewport["']/i,
+    /<meta\s+name=["']theme-color["']/i,
+    /<meta\s+name=["']keywords["']/i,
+    /<meta\s+name=["']description["']/i,
+    /<meta\s+name=["']generator["']/i,
+  ]
+  const positions = checks.map((pattern) => {
+    const match = html.match(pattern)
+    return match ? (match.index ?? -1) : -1
+  })
+  const missing = positions.some((position) => position < 0)
+  if (missing) return []
+
+  for (let index = 0; index < positions.length - 1; index += 1) {
+    if (positions[index] > positions[index + 1]) {
+      return ["meta order"]
+    }
+  }
+  return []
+}
+
 function verifyListShellContent(html, targetPath) {
   const missing = SHELL_VERIFY_CHECKS.filter((check) => !check.pattern.test(html)).map(
     (check) => check.name
@@ -1928,20 +2287,31 @@ function verifyListShellContent(html, targetPath) {
   const forbidden = SHELL_VERIFY_FORBIDDEN_CHECKS.filter((check) => check.pattern.test(html)).map(
     (check) => check.name
   )
+  const metaOrderIssues = verifyMetaOrder(html)
   const structuralIssues = verifyRightRailMenuStructure(html)
   const cssIssues = verifyRightRailCssFeatures(html, targetPath)
-  const issues = [
-    ...missing,
-    ...forbidden.map((name) => `forbidden:${name}`),
-    ...structuralIssues,
-    ...cssIssues,
-  ]
+  const pagerIssues = verifyPagerMarkup(html)
+  const pagerCssIssues = verifyBaseCssPagerFeatures(html, targetPath)
+  const issues = Array.from(
+    new Set([
+      ...missing,
+      ...forbidden.map((name) => `forbidden:${name}`),
+      ...metaOrderIssues,
+      ...structuralIssues,
+      ...cssIssues,
+      ...pagerIssues,
+      ...pagerCssIssues,
+    ])
+  )
   return {
     ok: issues.length === 0,
     missing,
     forbidden,
+    metaOrderIssues,
     structuralIssues,
     cssIssues,
+    pagerIssues,
+    pagerCssIssues,
     issues,
   }
 }
@@ -2026,9 +2396,9 @@ function buildConversionResult(targetPath, prototypePath, args) {
   const rightRailSchemaNormalized = normalizeRightRailSchema($proto)
   const flyoutCurrent = syncFlyoutCurrentState($proto, targetPath, headline)
   const bodyClassNormalized = normalizeBodyPageClass($proto, "list")
+  const shellChanges = enforceLeanHeadShell($proto)
   const rightRailAssetsUpdated = ensureRightRailAssets($proto)
   const footerNormalized = normalizeFooterShell($proto)
-  const shellChanges = enforceLeanHeadShell($proto)
   const iconSpriteUpdated = ensureIconSpriteSymbols($proto)
   const menuTokenAdded = ensureMenuStateTokens($proto)
   const yearScriptEnsured = ensureCopyrightYearScript($proto)
@@ -2056,7 +2426,7 @@ function buildConversionResult(targetPath, prototypePath, args) {
     `body class: ${bodyClassNormalized ? "normalized to base list" : "ok"}`,
     `shell assets: ${rightRailAssetsUpdated ? "updated" : "ok"}`,
     `footer shell: ${footerNormalized ? "normalized" : "ok"}`,
-    `head shell: removed ${shellChanges.inlineBlocks} inline block(s), ${shellChanges.speculationScripts} speculation script(s)`,
+    `head shell: removed ${shellChanges.inlineBlocks} inline block(s), ${shellChanges.printCssSwaps} print-swap css link(s), ${shellChanges.speculationScripts} speculation script(s)`,
     `icon sprite: ${iconSpriteUpdated ? "updated" : "ok"}`,
     `menu tokens: ${menuTokenAdded ? "added" : "ok"}`,
     `footer year script: ${yearScriptEnsured ? "added" : "ok"}`,

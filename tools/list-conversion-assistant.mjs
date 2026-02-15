@@ -25,6 +25,7 @@ const DEFAULTS = {
   diffPreview: false,
   ukToUs: true,
   verifyShell: true,
+  verifyParity: true,
   bulk: false,
   root: ".",
   includeCopy: false,
@@ -49,6 +50,8 @@ Options:
   --uk-to-us              Normalize UK spellings/usage to US (optional)
   --verify-shell          Run standalone shell verification (default)
   --no-verify-shell       Skip standalone shell verification
+  --verify-parity         Run page parity verification after write (default)
+  --no-verify-parity      Skip page parity verification after write
   --diff-preview          Show diff without writing
   --no-diff-preview       Write changes to the legacy file (default)
   --bulk                  Run js/convert-legacy-list.mjs in bulk 2nd-level scan mode
@@ -66,6 +69,7 @@ function parseArgs(argv) {
     diffPreview: DEFAULTS.diffPreview,
     ukToUs: DEFAULTS.ukToUs,
     verifyShell: DEFAULTS.verifyShell,
+    verifyParity: DEFAULTS.verifyParity,
     bulk: DEFAULTS.bulk,
     root: DEFAULTS.root,
     includeCopy: DEFAULTS.includeCopy,
@@ -77,6 +81,7 @@ function parseArgs(argv) {
     diffPreview: false,
     ukToUs: false,
     verifyShell: false,
+    verifyParity: false,
     bulk: false,
     root: false,
     includeCopy: false,
@@ -103,6 +108,12 @@ function parseArgs(argv) {
     } else if (arg === "--no-verify-shell") {
       args.verifyShell = false
       provided.verifyShell = true
+    } else if (arg === "--verify-parity") {
+      args.verifyParity = true
+      provided.verifyParity = true
+    } else if (arg === "--no-verify-parity") {
+      args.verifyParity = false
+      provided.verifyParity = true
     } else if (arg === "--diff-preview") {
       args.diffPreview = true
       provided.diffPreview = true
@@ -188,6 +199,19 @@ async function promptVerifyShell(ask, defaultValue) {
   const defaultLabel = defaultValue ? "y" : "n"
   for (;;) {
     const input = (await ask(`Verify nav/responsive/perf shell after write? [${defaultLabel}]: `))
+      .trim()
+      .toLowerCase()
+    if (!input) return defaultValue
+    if (["y", "yes"].includes(input)) return true
+    if (["n", "no"].includes(input)) return false
+    console.log("Enter y or n.")
+  }
+}
+
+async function promptVerifyParity(ask, defaultValue) {
+  const defaultLabel = defaultValue ? "y" : "n"
+  for (;;) {
+    const input = (await ask(`Run page parity check after write? [${defaultLabel}]: `))
       .trim()
       .toLowerCase()
     if (!input) return defaultValue
@@ -290,6 +314,16 @@ function buildCmd(targetDisplay, protoDisplay, args) {
   return cmd
 }
 
+function buildParityCmd(targetDisplay, args) {
+  const cmd = ["node", "tools/check-page-parity.mjs"]
+  if (args.bulk) {
+    cmd.push("--all-lists")
+  } else if (targetDisplay) {
+    cmd.push(targetDisplay)
+  }
+  return cmd
+}
+
 function commandToString(cmd) {
   return cmd.join(" ")
 }
@@ -323,24 +357,26 @@ function resolveSettingSource(provided, key) {
 function printSettings(args, provided, targetDisplay, protoDisplay) {
   console.log("\nList conversion settings:")
   console.log(formatSetting("bulk-mode", args.bulk, resolveSettingSource(provided, "bulk")))
+  if (args.bulk) {
+    console.log(formatSetting("root", args.root, resolveSettingSource(provided, "root")))
+    console.log(
+      formatSetting(
+        "include-copy",
+        args.includeCopy,
+        resolveSettingSource(provided, "includeCopy")
+      )
+    )
+    console.log(
+      formatSetting(
+        "pause-per-directory",
+        args.pausePerDirectory,
+        resolveSettingSource(provided, "pausePerDirectory")
+      )
+    )
+  }
   if (!args.bulk) {
     console.log(formatSetting("target", targetDisplay, resolveSettingSource(provided, "target")))
   }
-  console.log(formatSetting("root", args.root, resolveSettingSource(provided, "root")))
-  console.log(
-    formatSetting(
-      "include-copy",
-      args.includeCopy,
-      resolveSettingSource(provided, "includeCopy")
-    )
-  )
-  console.log(
-    formatSetting(
-      "pause-per-directory",
-      args.pausePerDirectory,
-      resolveSettingSource(provided, "pausePerDirectory")
-    )
-  )
   console.log(
     formatSetting("prototype", protoDisplay, resolveSettingSource(provided, "prototype"))
   )
@@ -350,6 +386,13 @@ function printSettings(args, provided, targetDisplay, protoDisplay) {
   console.log(formatSetting("uk-to-us", args.ukToUs, resolveSettingSource(provided, "ukToUs")))
   console.log(
     formatSetting("verify-shell", args.verifyShell, resolveSettingSource(provided, "verifyShell"))
+  )
+  console.log(
+    formatSetting(
+      "verify-parity",
+      args.verifyParity,
+      resolveSettingSource(provided, "verifyParity")
+    )
   )
 }
 
@@ -361,18 +404,20 @@ async function main() {
   if (!provided.bulk) {
     args.bulk = ask ? await promptBulkMode(ask, DEFAULTS.bulk) : DEFAULTS.bulk
   }
-  if (!provided.root) {
-    args.root = ask ? await promptRootPath(ask, DEFAULTS.root) : DEFAULTS.root
-  }
-  if (!provided.includeCopy) {
-    args.includeCopy = ask
-      ? await promptIncludeCopy(ask, DEFAULTS.includeCopy)
-      : DEFAULTS.includeCopy
-  }
-  if (!provided.pausePerDirectory) {
-    args.pausePerDirectory = ask
-      ? await promptPausePerDirectory(ask, DEFAULTS.pausePerDirectory)
-      : DEFAULTS.pausePerDirectory
+  if (args.bulk) {
+    if (!provided.root) {
+      args.root = ask ? await promptRootPath(ask, DEFAULTS.root) : DEFAULTS.root
+    }
+    if (!provided.includeCopy) {
+      args.includeCopy = ask
+        ? await promptIncludeCopy(ask, DEFAULTS.includeCopy)
+        : DEFAULTS.includeCopy
+    }
+    if (!provided.pausePerDirectory) {
+      args.pausePerDirectory = ask
+        ? await promptPausePerDirectory(ask, DEFAULTS.pausePerDirectory)
+        : DEFAULTS.pausePerDirectory
+    }
   }
 
   if (!args.bulk) {
@@ -398,6 +443,11 @@ async function main() {
       ? await promptVerifyShell(ask, DEFAULTS.verifyShell)
       : DEFAULTS.verifyShell
   }
+  if (!provided.verifyParity) {
+    args.verifyParity = ask
+      ? await promptVerifyParity(ask, DEFAULTS.verifyParity)
+      : DEFAULTS.verifyParity
+  }
 
   const targetInfo = args.bulk ? null : resolveTarget(args.target)
   const targetDisplay = targetInfo ? targetInfo.display : ""
@@ -413,6 +463,26 @@ async function main() {
     process.exit(0)
   }
   runCommand(cmd, "List conversion")
+
+  if (!args.verifyParity) {
+    console.log("[parity] SKIP --no-verify-parity")
+    prompter?.close()
+    return
+  }
+  if (args.diffPreview) {
+    console.log("[parity] SKIP diff preview mode")
+    prompter?.close()
+    return
+  }
+
+  const parityCmd = buildParityCmd(targetDisplay, args)
+  console.log("\n2. Verify page parity:")
+  console.log(commandToString(parityCmd))
+  if (!(await pauseOrQuit(ask, PAUSE_COMMAND))) {
+    prompter?.close()
+    process.exit(0)
+  }
+  runCommand(parityCmd, "Page parity check")
 
   prompter?.close()
 }
