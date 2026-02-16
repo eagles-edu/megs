@@ -81,6 +81,92 @@ const normalizePagerLabels = () => {
   })
 }
 
+const normalizePathname = (value) => {
+  if (!value) return "/"
+  let normalized = String(value)
+  try {
+    normalized = decodeURIComponent(normalized)
+  } catch {
+    // Keep the original value when decode fails.
+  }
+  normalized = normalized.replace(/\\/g, "/").replace(/\/{2,}/g, "/").toLowerCase()
+  if (normalized.length > 1 && normalized.endsWith("/")) normalized = normalized.slice(0, -1)
+  return normalized || "/"
+}
+
+const resolveHrefPathname = (hrefValue) => {
+  if (!hrefValue) return null
+  const href = String(hrefValue).trim()
+  if (!href || href.startsWith("#")) return null
+  if (/^(mailto:|tel:|javascript:|data:)/i.test(href)) return null
+  try {
+    return normalizePathname(new URL(href, window.location.href).pathname)
+  } catch {
+    return null
+  }
+}
+
+const buildCurrentPathAliases = () => {
+  const current = normalizePathname(window.location.pathname || "/")
+  const aliases = new Set([current])
+
+  const basename = current.split("/").pop() || ""
+  if (basename) aliases.add(`/${basename}`)
+
+  const sectionMatch = current.match(/(?:^|\/)((exercise|lesson|list)-\d+-[^/]+)(?:\/|\.html$)/i)
+  if (sectionMatch) {
+    const sectionSlug = sectionMatch[1].toLowerCase()
+    const sectionType = sectionMatch[2].toLowerCase()
+    aliases.add(`/${sectionSlug}.html`)
+    if (sectionType === "exercise") aliases.add("/grammar-exercises.html")
+    if (sectionType === "lesson") aliases.add("/grammar-lessons.html")
+    if (sectionType === "list") aliases.add("/lists.html")
+  }
+
+  if (/(?:^|\/)lists2(?:\/|$)/i.test(current)) aliases.add("/lists.html")
+  return aliases
+}
+
+const pathMatchesCurrentAliases = (targetPath, aliases) => {
+  if (!targetPath || !aliases || !aliases.size) return false
+  for (const alias of aliases) {
+    if (!alias) continue
+    if (targetPath === alias || targetPath.endsWith(alias)) return true
+  }
+  return false
+}
+
+const markCurrentFromAnchor = (anchor) => {
+  if (!anchor) return
+  anchor.setAttribute("aria-current", "page")
+  let listItem = closest(anchor, "li")
+  while (listItem) {
+    listItem.classList.add("current")
+    listItem.classList.add("active")
+    listItem = closest(listItem.parentElement, "li")
+  }
+}
+
+const applyGlobalCurrentMenuState = () => {
+  const aliases = buildCurrentPathAliases()
+  if (!aliases.size) return
+
+  const selectors = [
+    "#sidebar .accordion-menu a[href]",
+    "#sidebar-menu-mount .accordion-menu a[href]",
+    ".r-flyout-menu a[href]",
+  ]
+  const links = document.querySelectorAll(selectors.join(","))
+  if (!links || !links.length) return
+
+  links.forEach((link) => {
+    const targetPath = resolveHrefPathname(link.getAttribute("href"))
+    if (!targetPath) return
+    if (!pathMatchesCurrentAliases(targetPath, aliases)) return
+    markCurrentFromAnchor(link)
+  })
+}
+
 // Left Menu Module
 const LeftMenu = {
   init() {
@@ -419,6 +505,7 @@ class MobileNavigation {
           })
         })
       }
+      applyGlobalCurrentMenuState()
     } catch (err) {
       void err
     }
@@ -466,6 +553,7 @@ const initApp = () => {
     FlyoutMenu.init()
     QAAccordion.init()
     new MobileNavigation()
+    applyGlobalCurrentMenuState()
     jQueryCompatibility()
     window._qaAccordionBound = true
   } catch (e) {

@@ -85,6 +85,93 @@
     })
   }
 
+  function normalizePathname(value) {
+    if (!value) return "/"
+    var normalized = String(value)
+    try {
+      normalized = decodeURIComponent(normalized)
+      // eslint-disable-next-line no-empty
+    } catch (_) {}
+    normalized = normalized.replace(/\\/g, "/").replace(/\/{2,}/g, "/").toLowerCase()
+    if (normalized.length > 1 && normalized.charAt(normalized.length - 1) === "/") {
+      normalized = normalized.slice(0, -1)
+    }
+    return normalized || "/"
+  }
+
+  function resolveHrefPathname(hrefValue) {
+    if (!hrefValue) return null
+    var href = String(hrefValue).trim()
+    if (!href || href.charAt(0) === "#") return null
+    if (/^(mailto:|tel:|javascript:|data:)/i.test(href)) return null
+    try {
+      return normalizePathname(new URL(href, window.location.href).pathname)
+      // eslint-disable-next-line no-empty
+    } catch (_) {}
+    return null
+  }
+
+  function buildCurrentPathAliases() {
+    var current = normalizePathname(window.location.pathname || "/")
+    var aliases = {}
+    aliases[current] = true
+
+    var parts = current.split("/")
+    var basename = parts.length ? parts[parts.length - 1] : ""
+    if (basename) aliases["/" + basename] = true
+
+    var sectionMatch = current.match(/(?:^|\/)((exercise|lesson|list)-\d+-[^/]+)(?:\/|\.html$)/i)
+    if (sectionMatch) {
+      var sectionSlug = String(sectionMatch[1] || "").toLowerCase()
+      var sectionType = String(sectionMatch[2] || "").toLowerCase()
+      aliases["/" + sectionSlug + ".html"] = true
+      if (sectionType === "exercise") aliases["/grammar-exercises.html"] = true
+      if (sectionType === "lesson") aliases["/grammar-lessons.html"] = true
+      if (sectionType === "list") aliases["/lists.html"] = true
+    }
+
+    if (/(?:^|\/)lists2(?:\/|$)/i.test(current)) aliases["/lists.html"] = true
+    return aliases
+  }
+
+  function pathMatchesCurrentAliases(targetPath, aliases) {
+    if (!targetPath || !aliases) return false
+    for (var alias in aliases) {
+      if (!Object.prototype.hasOwnProperty.call(aliases, alias) || !aliases[alias]) continue
+      if (targetPath === alias || targetPath.slice(-alias.length) === alias) return true
+    }
+    return false
+  }
+
+  function markCurrentFromAnchor(anchor) {
+    if (!anchor) return
+    anchor.setAttribute("aria-current", "page")
+    var listItem = closest(anchor, "li")
+    while (listItem) {
+      listItem.classList.add("current")
+      listItem.classList.add("active")
+      listItem = closest(listItem.parentElement, "li")
+    }
+  }
+
+  function applyGlobalCurrentMenuState() {
+    var aliases = buildCurrentPathAliases()
+    var selectors = [
+      "#sidebar .accordion-menu a[href]",
+      "#sidebar-menu-mount .accordion-menu a[href]",
+      ".r-flyout-menu a[href]",
+    ]
+    var links = document.querySelectorAll(selectors.join(","))
+    if (!links || !links.length) return
+
+    Array.prototype.forEach.call(links, function (link) {
+      var targetPath = resolveHrefPathname(link.getAttribute("href"))
+      if (!targetPath) return
+      if (!pathMatchesCurrentAliases(targetPath, aliases)) return
+      markCurrentFromAnchor(link)
+    })
+  }
+
   // Left Menu Module
   function initLeftMenu() {
     var menu = document.getElementById("accordion_menu_90")
@@ -424,6 +511,7 @@
           })
         })
       }
+      applyGlobalCurrentMenuState()
       // eslint-disable-next-line no-unused-vars
     } catch (e) {
       // no-op
@@ -471,6 +559,7 @@
       initFlyoutMenu()
       initQAAccordion()
       new MobileNavigation()
+      applyGlobalCurrentMenuState()
       initJQueryCompat()
       window._qaAccordionBound = true
     } catch (e) {
