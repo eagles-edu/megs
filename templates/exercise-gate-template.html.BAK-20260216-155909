@@ -7,7 +7,7 @@
     <meta name="theme-color" content="#e0162b">
     <meta name="keywords" content="{{KEYWORDS}}">
     <meta name="description" content="{{DESCRIPTION}}">
-    <meta name="generator" content="English Grammar - IELTS intermediate levels A2 and above">
+    <meta name="generator" content="English Grammar - intermediate levels A2 and above">
     <link href="{{CANONICAL}}" rel="non-canonical">
     <title>{{PAGE_TITLE}}</title>
     <!-- Asset paths intentionally use ../ from exercise directories; keep in sync with generator outputs -->
@@ -93,33 +93,37 @@
     <link
       rel="preload"
       href="../web-asset/css/base.css"
-      as="style">
-    <link rel="stylesheet" href="../web-asset/css/base.css">
+      as="style"
+      onload="
+        this.onload = null
+        this.rel = 'stylesheet'
+      ">
+    <link rel="stylesheet" href="../web-asset/css/base.css" media="print" onload="this.media = 'all'">
     <noscript>
       <link rel="stylesheet" href="../web-asset/css/base.css">
     </noscript>
     <link rel="preload" href="../web-asset/css/exercises.css" as="style">
-    <link rel="stylesheet" href="../web-asset/css/exercises.css">
+    <link rel="stylesheet" href="../web-asset/css/exercises.css" media="print" onload="this.media = 'all'">
     <noscript>
       <link rel="stylesheet" href="../web-asset/css/exercises.css">
     </noscript>
     <link rel="preload" href="../web-asset/css/right-rail-flyout.css" as="style">
-    <link rel="stylesheet" href="../web-asset/css/right-rail-flyout.css">
+    <link rel="stylesheet" href="../web-asset/css/right-rail-flyout.css" media="print" onload="this.media = 'all'">
     <noscript>
       <link rel="stylesheet" href="../web-asset/css/right-rail-flyout.css">
     </noscript>
     <link rel="preload" href="../web-asset/css/left-menu.css" as="style">
-    <link rel="stylesheet" href="../web-asset/css/left-menu.css">
+    <link rel="stylesheet" href="../web-asset/css/left-menu.css" media="print" onload="this.media = 'all'">
     <noscript>
       <link rel="stylesheet" href="../web-asset/css/left-menu.css">
     </noscript>
     <link rel="preload" href="../web-asset/css/page-classes.css" as="style">
-    <link rel="stylesheet" href="../web-asset/css/page-classes.css">
+    <link rel="stylesheet" href="../web-asset/css/page-classes.css" media="print" onload="this.media = 'all'">
     <noscript>
       <link rel="stylesheet" href="../web-asset/css/page-classes.css">
     </noscript>
     <link rel="preload" href="../web-asset/css/exercise-1-nouns_new.css" as="style">
-    <link rel="stylesheet" href="../web-asset/css/exercise-1-nouns_new.css">
+    <link rel="stylesheet" href="../web-asset/css/exercise-1-nouns_new.css" media="print" onload="this.media = 'all'">
     <noscript>
       <link rel="stylesheet" href="../web-asset/css/exercise-1-nouns_new.css">
     </noscript>
@@ -133,18 +137,13 @@
         }
       </style>
     </noscript>
-    <link rel="modulepreload" href="../web-asset/js/main.bundle.js">
-  <script type="module" src="../web-asset/js/main.bundle.js"></script>
-  <script nomodule src="../web-asset/js/main.legacy.js" defer></script>
+    <script type="module" src="../web-asset/js/main.bundle.js"></script>
 
     <script src="../web-asset/js/right-rail-flyout.js" defer></script>
     <script src="../web-asset/js/exercise-gate.js" defer></script>
   </head>
 
   <body class="base exercize">
-  <script data-mobile-nav-bootstrap>
-    document.body.classList.add("mobile-nav-enabled")
-  </script>
     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" style="position: absolute; width: 0; height: 0; overflow: hidden">
       <defs>
         <symbol id="icon-plus" viewBox="0 0 24 24">

@@ -43,6 +43,107 @@ const runWhenIdle = (fn, timeoutMs) => {
   window.setTimeout(fn, 450)
 }
 
+const normalizeLabelText = (value) =>
+  String(value || "")
+    .replace(/\s+/g, " ")
+    .trim()
+
+const isListSectionPage = () => {
+  const body = document.body
+  if (body && body.classList && body.classList.contains("list")) return true
+  const path = String((window.location && window.location.pathname) || "").toLowerCase()
+  return /(?:^|\/)(list-\d+|list-\d+-|lists2\/|lists\.html$)/.test(path)
+}
+
+const expandRowCells = (row) => {
+  if (!row || !row.cells) return []
+  const expanded = []
+  for (let i = 0; i < row.cells.length; i++) {
+    const cell = row.cells[i]
+    const span = Math.max(parseInt(cell.getAttribute("colspan") || "1", 10) || 1, 1)
+    for (let step = 0; step < span; step++) expanded.push(cell)
+  }
+  return expanded
+}
+
+const getTableColumnCount = (table) => {
+  if (!table || !table.rows) return 0
+  let maxColumns = 0
+  for (let i = 0; i < table.rows.length; i++) {
+    const row = table.rows[i]
+    let columns = 0
+    for (let j = 0; j < row.cells.length; j++) {
+      const span = Math.max(parseInt(row.cells[j].getAttribute("colspan") || "1", 10) || 1, 1)
+      columns += span
+    }
+    if (columns > maxColumns) maxColumns = columns
+  }
+  return maxColumns
+}
+
+const getColumnLabels = (table, columnCount) => {
+  const headRows = table && table.tHead ? Array.from(table.tHead.rows || []) : []
+  for (let i = headRows.length - 1; i >= 0; i--) {
+    const expanded = expandRowCells(headRows[i])
+    if (!expanded.length) continue
+    const labels = []
+    for (let col = 0; col < columnCount; col++) {
+      const raw = expanded[col] ? normalizeLabelText(expanded[col].textContent) : ""
+      labels.push(raw || `Column ${col + 1}`)
+    }
+    return labels
+  }
+  const fallback = []
+  for (let col = 0; col < columnCount; col++) fallback.push(`Column ${col + 1}`)
+  return fallback
+}
+
+const applyStackLabels = (table, labels) => {
+  const rowGroups =
+    table.tBodies && table.tBodies.length
+      ? Array.from(table.tBodies)
+      : [table]
+
+  for (let i = 0; i < rowGroups.length; i++) {
+    const rows = rowGroups[i].rows || []
+    for (let r = 0; r < rows.length; r++) {
+      const row = rows[r]
+      let columnIndex = 0
+      for (let c = 0; c < row.cells.length; c++) {
+        const cell = row.cells[c]
+        const span = Math.max(parseInt(cell.getAttribute("colspan") || "1", 10) || 1, 1)
+        const labelParts = labels.slice(columnIndex, columnIndex + span).filter(Boolean)
+        const label = labelParts.length
+          ? labelParts.join(" / ")
+          : labels[columnIndex] || `Column ${columnIndex + 1}`
+        cell.setAttribute("data-stack-label", label)
+        columnIndex += span
+      }
+    }
+  }
+}
+
+const initListTableStack = () => {
+  if (!isListSectionPage()) return
+  const scope = document.querySelector("main#content, #content") || document
+  const tables = scope.querySelectorAll("table")
+  if (!tables.length) return
+
+  for (let i = 0; i < tables.length; i++) {
+    const table = tables[i]
+    if (!table || table.dataset.stackReady === "true") continue
+    if (table.getAttribute("data-stack") === "off") continue
+
+    const columnCount = getTableColumnCount(table)
+    if (columnCount < 3) continue
+
+    const labels = getColumnLabels(table, columnCount)
+    applyStackLabels(table, labels)
+    table.classList.add("table-stack-ready")
+    table.dataset.stackReady = "true"
+  }
+}
+
 const scheduleNavBundle = () => {
   if (window.__navBundleScheduled) return
   window.__navBundleScheduled = true
@@ -77,6 +178,12 @@ const scheduleNavBundle = () => {
     return
   }
   window.addEventListener("load", scheduleAfterLoad, { once: true })
+}
+
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", initListTableStack, { once: true })
+} else {
+  initListTableStack()
 }
 
 scheduleNavBundle()

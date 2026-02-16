@@ -844,6 +844,80 @@ body.mobile-nav-enabled #sidebar.mobile-nav-open {
   text-align: center !important;
 }
 
+/* Mobile stack mode for list-section tables with 3+ columns.
+   JS marks eligible tables with .table-stack-ready and per-cell labels. */
+@media (width <= 767px) {
+  body.list table.table-stack-ready {
+    border: 0;
+    display: block;
+    width: 100% !important;
+  }
+
+  body.list table.table-stack-ready caption {
+    display: block;
+    text-align: left;
+  }
+
+  body.list table.table-stack-ready thead {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+  }
+
+  body.list table.table-stack-ready tbody,
+  body.list table.table-stack-ready tr,
+  body.list table.table-stack-ready td,
+  body.list table.table-stack-ready th {
+    display: block;
+    width: 100%;
+  }
+
+  body.list table.table-stack-ready tr {
+    background: var(--surface-color, #fff);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius);
+    margin-bottom: 0.8rem;
+    overflow: hidden;
+  }
+
+  body.list table.table-stack-ready td,
+  body.list table.table-stack-ready th {
+    border: 0 !important;
+    border-bottom: 1px dashed var(--divider-color, #d0d6e4) !important;
+    line-height: 1.4;
+    min-height: 2.2rem;
+    padding: 0.55rem 0.65rem !important;
+    text-align: left !important;
+  }
+
+  body.list table.table-stack-ready tr > :last-child {
+    border-bottom: 0 !important;
+  }
+
+  body.list table.table-stack-ready td[data-stack-label]::before,
+  body.list table.table-stack-ready th[data-stack-label]::before {
+    color: var(--tertiary-color, #002786);
+    content: attr(data-stack-label);
+    display: block;
+    font-size: 0.74rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    margin-bottom: 0.2rem;
+    text-transform: uppercase;
+  }
+
+  body.list table.table-stack-ready td:empty::after,
+  body.list table.table-stack-ready th:empty::after {
+    content: "-";
+    opacity: 0.55;
+  }
+}
+
 .primary-color {
   color: var(--primary-color);
 }

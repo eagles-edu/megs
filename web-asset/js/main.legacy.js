@@ -85,6 +85,119 @@
     })
   }
 
+  function normalizeLabelText(value) {
+    return String(value || "")
+      .replace(/\s+/g, " ")
+      .replace(/^\s+|\s+$/g, "")
+  }
+
+  function isListSectionPage() {
+    var body = document.body
+    if (body && body.classList && body.classList.contains("list")) return true
+    var path = String((window.location && window.location.pathname) || "").toLowerCase()
+    return /(?:^|\/)(list-\d+|list-\d+-|lists2\/|lists\.html$)/.test(path)
+  }
+
+  function expandRowCells(row) {
+    if (!row || !row.cells) return []
+    var expanded = []
+    for (var i = 0; i < row.cells.length; i++) {
+      var cell = row.cells[i]
+      var span = parseInt(cell.getAttribute("colspan") || "1", 10)
+      if (!span || span < 1) span = 1
+      for (var step = 0; step < span; step++) expanded.push(cell)
+    }
+    return expanded
+  }
+
+  function getTableColumnCount(table) {
+    if (!table || !table.rows) return 0
+    var maxColumns = 0
+    for (var i = 0; i < table.rows.length; i++) {
+      var row = table.rows[i]
+      var columns = 0
+      for (var j = 0; j < row.cells.length; j++) {
+        var span = parseInt(row.cells[j].getAttribute("colspan") || "1", 10)
+        if (!span || span < 1) span = 1
+        columns += span
+      }
+      if (columns > maxColumns) maxColumns = columns
+    }
+    return maxColumns
+  }
+
+  function getColumnLabels(table, columnCount) {
+    var labels = []
+    var headRows = table && table.tHead ? table.tHead.rows : null
+    if (headRows && headRows.length) {
+      for (var i = headRows.length - 1; i >= 0; i--) {
+        var expanded = expandRowCells(headRows[i])
+        if (!expanded.length) continue
+        for (var col = 0; col < columnCount; col++) {
+          var raw = expanded[col] ? normalizeLabelText(expanded[col].textContent) : ""
+          labels.push(raw || "Column " + (col + 1))
+        }
+        return labels
+      }
+    }
+    for (var fallback = 0; fallback < columnCount; fallback++) {
+      labels.push("Column " + (fallback + 1))
+    }
+    return labels
+  }
+
+  function applyStackLabels(table, labels) {
+    var rowGroups = []
+    if (table.tBodies && table.tBodies.length) {
+      for (var i = 0; i < table.tBodies.length; i++) rowGroups.push(table.tBodies[i])
+    } else {
+      rowGroups.push(table)
+    }
+
+    for (var g = 0; g < rowGroups.length; g++) {
+      var rows = rowGroups[g].rows || []
+      for (var r = 0; r < rows.length; r++) {
+        var row = rows[r]
+        var columnIndex = 0
+        for (var c = 0; c < row.cells.length; c++) {
+          var cell = row.cells[c]
+          var span = parseInt(cell.getAttribute("colspan") || "1", 10)
+          if (!span || span < 1) span = 1
+          var parts = labels.slice(columnIndex, columnIndex + span)
+          var filtered = []
+          for (var p = 0; p < parts.length; p++) {
+            if (parts[p]) filtered.push(parts[p])
+          }
+          var label = filtered.length
+            ? filtered.join(" / ")
+            : labels[columnIndex] || "Column " + (columnIndex + 1)
+          cell.setAttribute("data-stack-label", label)
+          columnIndex += span
+        }
+      }
+    }
+  }
+
+  function initListTableStack() {
+    if (!isListSectionPage()) return
+    var scope = document.querySelector("main#content, #content") || document
+    var tables = scope.querySelectorAll("table")
+    if (!tables || !tables.length) return
+
+    forEachNodeList(tables, function (table) {
+      if (!table || table.getAttribute("data-stack-ready") === "true") return
+      if (table.getAttribute("data-stack") === "off") return
+
+      var columnCount = getTableColumnCount(table)
+      if (columnCount < 3) return
+
+      var labels = getColumnLabels(table, columnCount)
+      applyStackLabels(table, labels)
+      table.classList.add("table-stack-ready")
+      table.setAttribute("data-stack-ready", "true")
+    })
+  }
+
   function normalizePathname(value) {
     if (!value) return "/"
     var normalized = String(value)
@@ -555,6 +668,7 @@
   function initApp() {
     try {
       normalizePagerLabels()
+      initListTableStack()
       initLeftMenu()
       initFlyoutMenu()
       initQAAccordion()

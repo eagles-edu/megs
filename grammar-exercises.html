@@ -6,12 +6,13 @@
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
+    <meta name="theme-color" content="#e0162b">
 
     <meta
       name="keywords"
       content="ESL, TOESL, TOEFL, courses, english, english courses, education, english degree, degree, english education, exercises, english exercises, grammar, verb, english grammar, noun, adverb, adjective, english adverb, english noun, english adjective">
     <meta name="description" content="A comprehensive site for free English courses and exercises.">
-    <meta name="generator" content="English Grammar - intermediate levels A2 and above">
+    <meta name="generator" content="English Grammar - IELTS intermediate levels A2 and above">
     <title>Grammar Exercises</title>
     <link href="web-asset/icons/favicon.ico" rel="shortcut icon" type="image/vnd.microsoft.icon">
     <!-- theme-vars.css eliminated; variables live in base.css -->
@@ -107,12 +108,8 @@
     <link
       rel="preload"
       href="../web-asset/css/base.css"
-      as="style"
-      onload="
-        this.onload = null
-        this.rel = 'stylesheet'
-      ">
-    <link rel="stylesheet" href="../web-asset/css/base.css" media="print" onload="this.media = 'all'">
+      as="style">
+    <link rel="stylesheet" href="../web-asset/css/base.css">
     <noscript>
       <link rel="stylesheet" href="../web-asset/css/base.css">
     </noscript>
@@ -838,52 +835,12 @@
         margin-bottom: 1.5em;
       }
     </style>
-
-    <!-- Optimized speculationrules with prerender for better UX -->
-    <script>
-      ;(function () {
-        function injectSpeculation() {
-          try {
-            var s = document.createElement("script")
-            s.type = "speculationrules"
-            s.text = JSON.stringify({
-              prefetch: [
-                {
-                  source: "list",
-                  urls: ["112-proper-nouns.html"],
-                },
-              ],
-              prerender: [
-                {
-                  source: "list",
-                  urls: ["112-proper-nouns.html"],
-                  eagerness: "moderate",
-                },
-              ],
-            })
-            document.head.appendChild(s)
-          } catch (e) {
-            /* no-op */
-          }
-        }
-        if (document.readyState === "complete") {
-          injectSpeculation()
-        } else {
-          window.addEventListener("load", function () {
-            if ("requestIdleCallback" in window)
-              requestIdleCallback(injectSpeculation, {
-                timeout: 2000,
-              })
-            else setTimeout(injectSpeculation, 500)
-          })
-        }
-      })()
-    </script>
-    <!-- Icon font not used on Codex variant; removed icomoon.css includes -->
+    <!-- Prerender/prefetch speculation removed to match prototype parity baseline -->
+<!-- Icon font not used on Codex variant; removed icomoon.css includes -->
 
     <!-- Minimal base for layout/mobile nav used by prototype (async) -->
     <link rel="preload" href="../web-asset/css/exercises.css" as="style">
-    <link rel="stylesheet" href="../web-asset/css/exercises.css" media="print" onload="this.media = 'all'">
+    <link rel="stylesheet" href="../web-asset/css/exercises.css">
     <noscript>
       <link rel="stylesheet" href="../web-asset/css/exercises.css">
     </noscript>
@@ -891,50 +848,38 @@
 
     <!-- Defer non-critical CSS with preload+print media swap -->
     <link rel="preload" href="../web-asset/css/right-rail-flyout.css" as="style">
-    <link rel="stylesheet" href="../web-asset/css/right-rail-flyout.css" media="print" onload="this.media = 'all'">
+    <link rel="stylesheet" href="../web-asset/css/right-rail-flyout.css">
     <noscript>
       <link rel="stylesheet" href="../web-asset/css/right-rail-flyout.css">
     </noscript>
     <!-- Left-menu.css async; critical inline reserves layout to avoid flash -->
     <link rel="preload" href="../web-asset/css/left-menu.css" as="style">
-    <link rel="stylesheet" href="../web-asset/css/left-menu.css" media="print" onload="this.media = 'all'">
+    <link rel="stylesheet" href="../web-asset/css/left-menu.css">
     <noscript>
       <link rel="stylesheet" href="../web-asset/css/left-menu.css">
     </noscript>
     <link rel="preload" href="../web-asset/css/page-classes.css" as="style">
-    <link rel="stylesheet" href="../web-asset/css/page-classes.css" media="print" onload="this.media = 'all'">
+    <link rel="stylesheet" href="../web-asset/css/page-classes.css">
     <noscript>
       <link rel="stylesheet" href="../web-asset/css/page-classes.css">
     </noscript>
     <!-- Removed jQuery/Bootstrap/nn_sliders/template scripts on codex variant to keep console clean -->
-    <link rel="preload" href="../web-asset/css/exercise-1-nouns_new.css" as="style">
-    <link rel="stylesheet" href="../web-asset/css/exercise-1-nouns_new.css" media="print" onload="this.media = 'all'">
-    <noscript>
-      <link rel="stylesheet" href="../web-asset/css/exercise-1-nouns_new.css">
-    </noscript>
     <!-- Codex QA slider scoped overrides (synchronous to avoid flash) -->
-    <link rel="stylesheet" href="../web-asset/css/qa-accordion.css">
     <!-- No-JS fallback: show all answers if scripting is disabled -->
-    <noscript>
-      <style>
-        #content .accordion-body {
-          height: auto !important;
-          max-height: none !important;
-          overflow: visible !important;
-        }
-      </style>
-    </noscript>
     <!-- Mobile navigation styles provided globally by base CSS -->
     <!-- No inline @font-face; system stacks are used (see base.css variables) -->
     <!-- Bundled JavaScript: Modern module bundle (4 requests → 1) -->
+    <link rel="modulepreload" href="../web-asset/js/main.bundle.js">
     <script type="module" src="../web-asset/js/main.bundle.js"></script>
+    <script nomodule src="../web-asset/js/main.legacy.js" defer></script>
 
     <script src="../web-asset/js/right-rail-flyout.js" defer></script>
-    <script src="../web-asset/js/exercise-gate.js" defer></script>
-    <script src="../web-asset/js/exercise-devtools.js" defer></script>
   </head>
 
-  <body class="base exercize" data-exercise-devtools="auto">
+  <body class="base">
+    <script data-mobile-nav-bootstrap>
+      document.body.classList.add("mobile-nav-enabled")
+    </script>
     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" style="position: absolute; width: 0; height: 0; overflow: hidden">
       <defs>
         <symbol id="icon-plus" viewBox="0 0 24 24">
@@ -1113,9 +1058,23 @@
           <main id="content" class="span8">
             <!-- Begin Content -->
 
-            <div id="system-message-container"></div>
-
             <h1>Grammar Exercises</h1>
+            <ul itemscope itemtype="https://schema.org/BreadcrumbList" class="breadcrumb">
+              <li class="active"></li>
+              <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                <a itemprop="item" href="index-2.html" class="pathway" aria-label="Home">
+                  <span itemprop="name">Home</span>
+                </a>
+                <span class="divider">
+                  <img src="images/arrow.svg" alt="">
+                </span>
+                <meta itemprop="position" content="1">
+              </li>
+              <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem" class="active">
+                <span itemprop="name">Grammar Exercises</span>
+                <meta itemprop="position" content="2">
+              </li>
+            </ul>
             <ul class="pager pagenav">
               <li class="previous">
                 <a href="index-2.html" rel="prev" aria-label="Previous">
@@ -1138,6 +1097,7 @@
                 </a>
               </li>
             </ul>
+            <div id="system-message-container"></div>
             <p>
               Links to each of the
               <strong>Grammar Exercises</strong>
@@ -1253,6 +1213,7 @@
                 </tr>
               </tbody>
             </table>
+            <div class="clearfix"></div>
             <ul class="pager pagenav">
               <li class="previous">
                 <a href="index-2.html" rel="prev" aria-label="Previous">
@@ -1275,7 +1236,6 @@
                 </a>
               </li>
             </ul>
-            <div class="clearfix"></div>
             <ul itemscope itemtype="https://schema.org/BreadcrumbList" class="breadcrumb">
               <li class="active"></li>
               <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">

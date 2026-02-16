@@ -64,6 +64,7 @@ Apply these in order:
 - Keep desktop single-line sidebar labels unless a documented exception is required.
 - Keep mobile menu bootstrap path and class toggling behavior stable.
 - Do not reintroduce legacy jQuery-driven menu handlers on converted shell pages.
+- Keep shared `<=480px` shell spacing parity from shared CSS (`.container/.container2` zero side padding, `.row-fluid` `-30px` gutters, span/aside columns `15px` inner padding) and avoid page-level overrides.
 
 ## Profile Exclusions (to prevent drift)
 
@@ -86,6 +87,8 @@ Apply these in order:
 - Pager links preserve semantic labels and icon ordering.
 - Heading hierarchy remains semantically correct after migration.
 - Relative paths are correct for nested directories (`../` depth).
+- Main content flow in the center column is ordered as: `title` -> `breadcrumbs` -> `top pager` -> `content` -> `bottom pager` -> `breadcrumbs`.
+- List-table stack mode applies to 3+ column tables by default; add `data-stack="off"` on a specific `<table>` to opt out without code changes.
 
 ## Quick Audit Commands
 
