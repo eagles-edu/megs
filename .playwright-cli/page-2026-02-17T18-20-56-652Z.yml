@@ -1,0 +1,637 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e4]:
+    - main [ref=e7]:
+      - generic [ref=e8]:
+        - heading "List of Proper Adjectives" [level=2] [ref=e10]
+        - generic [ref=e11]:
+          - navigation "breadcrumbs-top" [ref=e12]:
+            - list [ref=e13]:
+              - listitem
+              - listitem [ref=e14]:
+                - link "Home" [ref=e15] [cursor=pointer]:
+                  - /url: ../index-2.html
+                  - generic [ref=e16]: Home
+                - img [ref=e18]
+              - listitem [ref=e20]:
+                - link "List 6 - Adjectives" [ref=e21] [cursor=pointer]:
+                  - /url: ../list-6-adjectives.html
+                  - generic [ref=e22]: List 6 - Adjectives
+                - img [ref=e24]
+              - listitem [ref=e26]:
+                - generic [ref=e27]: List of Proper Adjectives
+          - list [ref=e28]:
+            - listitem [ref=e29]:
+              - link "Previous" [ref=e30] [cursor=pointer]:
+                - /url: list-of-nominal-adjectives.html
+                - img "angle-left" [ref=e31]
+                - generic [ref=e33]: List of Nominal Adjectives
+            - listitem [ref=e34]:
+              - link "Next" [ref=e35] [cursor=pointer]:
+                - /url: ../list-6-adjectives.html
+                - generic [ref=e36]: List 6 - Adjectives
+                - img "angle-right" [ref=e37]
+          - heading "Proper Adjectives from Place Names (countries, continents, regions, cities)" [level=3] [ref=e39]
+          - paragraph [ref=e40]:
+            - strong [ref=e41]: Your country
+            - text: is a proper noun and it has a capitalized
+            - strong [ref=e42]: proper adjective
+            - text: . Here are a few examples of proper adjectives based on place names, and you can find a much longer
+            - link "list of proper adjectives based on place names here" [ref=e43] [cursor=pointer]:
+              - /url: https://en.wikipedia.org/wiki/List_of_adjectival_and_demonymic_forms_of_place_names
+            - text: ":"
+          - table [ref=e44]:
+            - rowgroup [ref=e45]:
+              - row "(place) proper noun proper adjective example sentence" [ref=e46]:
+                - columnheader "(place) proper noun" [ref=e47]
+                - columnheader "proper adjective" [ref=e48]
+                - columnheader "example sentence" [ref=e49]
+            - rowgroup [ref=e50]:
+              - row "Africa African Jumbo was a famous African elephant." [ref=e51]:
+                - cell "Africa" [ref=e52]
+                - cell "African" [ref=e53]:
+                  - generic [ref=e54]:
+                    - strong [ref=e55]: A
+                    - text: frican
+                - cell "Jumbo was a famous African elephant." [ref=e56]
+              - row "Alaska Alaskan I just love to eat Alaskan salmon." [ref=e57]:
+                - cell "Alaska" [ref=e58]
+                - cell "Alaskan" [ref=e59]:
+                  - generic [ref=e60]:
+                    - strong [ref=e61]: A
+                    - text: laskan
+                - cell "I just love to eat Alaskan salmon." [ref=e62]
+              - row "Alps Alpine We need an Alpine guide, please." [ref=e63]:
+                - cell "Alps" [ref=e64]
+                - cell "Alpine" [ref=e65]:
+                  - generic [ref=e66]:
+                    - strong [ref=e67]: A
+                    - text: lpine
+                - cell "We need an Alpine guide, please." [ref=e68]
+              - row "Amazon Amazonian They cut their way through the Amazonian rainforest." [ref=e69]:
+                - cell "Amazon" [ref=e70]
+                - cell "Amazonian" [ref=e71]:
+                  - generic [ref=e72]:
+                    - strong [ref=e73]: A
+                    - text: mazonian
+                - cell "They cut their way through the Amazonian rainforest." [ref=e74]
+              - row "Antarctica Antarctic Nothing could prepare them for the ferocity of the Antarctic winds." [ref=e75]:
+                - cell "Antarctica" [ref=e76]
+                - cell "Antarctic" [ref=e77]:
+                  - generic [ref=e78]:
+                    - strong [ref=e79]: A
+                    - text: ntarctic
+                - cell "Nothing could prepare them for the ferocity of the Antarctic winds." [ref=e80]
+              - row "Asia Asian How many Asian countries have you visited?" [ref=e81]:
+                - cell "Asia" [ref=e82]
+                - cell "Asian" [ref=e83]:
+                  - generic [ref=e84]:
+                    - strong [ref=e85]: A
+                    - text: sian
+                - cell "How many Asian countries have you visited?" [ref=e86]
+              - row "Atlantis (fictional) Atlantean He built an Atlantean castle for himself." [ref=e87]:
+                - cell "Atlantis (fictional)" [ref=e88]
+                - cell "Atlantean" [ref=e89]:
+                  - generic [ref=e90]:
+                    - strong [ref=e91]: A
+                    - text: tlantean
+                - cell "He built an Atlantean castle for himself." [ref=e92]
+              - row "Bali Balinese They scanned the Balinese skyline." [ref=e93]:
+                - cell "Bali" [ref=e94]
+                - cell "Balinese" [ref=e95]:
+                  - generic [ref=e96]:
+                    - strong [ref=e97]: B
+                    - text: alinese
+                - cell "They scanned the Balinese skyline." [ref=e98]
+              - row "Barcelona Barcelonian This is one of many Barcelonian traditions." [ref=e99]:
+                - cell "Barcelona" [ref=e100]
+                - cell "Barcelonian" [ref=e101]:
+                  - generic [ref=e102]:
+                    - strong [ref=e103]: B
+                    - text: arcelonian
+                - cell "This is one of many Barcelonian traditions." [ref=e104]
+              - row "Brazil Brazilian I have a Brazilian boss." [ref=e105]:
+                - cell "Brazil" [ref=e106]
+                - cell "Brazilian" [ref=e107]:
+                  - generic [ref=e108]:
+                    - strong [ref=e109]: B
+                    - text: razilian
+                - cell "I have a Brazilian boss." [ref=e110]
+              - row "Britain British My teacher is British." [ref=e111]:
+                - cell "Britain" [ref=e112]
+                - cell "British" [ref=e113]:
+                  - generic [ref=e114]:
+                    - strong [ref=e115]: B
+                    - text: ritish
+                - cell "My teacher is British." [ref=e116]
+              - row "China Chinese Let's go to a Chinese restaurant." [ref=e117]:
+                - cell "China" [ref=e118]
+                - cell "Chinese" [ref=e119]:
+                  - generic [ref=e120]:
+                    - strong [ref=e121]: C
+                    - text: hinese
+                - cell "Let's go to a Chinese restaurant." [ref=e122]
+              - row "Costa Rica Costa Rican What are the Costa Rican beaches like?" [ref=e123]:
+                - cell "Costa Rica" [ref=e124]
+                - cell "Costa Rican" [ref=e125]:
+                  - generic [ref=e126]:
+                    - strong [ref=e127]: C
+                    - text: osta Rican
+                - cell "What are the Costa Rican beaches like?" [ref=e128]
+              - row "Himalayas Himalayan Have you ever experienced a Himalayan winter?" [ref=e129]:
+                - cell "Himalayas" [ref=e130]
+                - cell "Himalayan" [ref=e131]:
+                  - generic [ref=e132]:
+                    - strong [ref=e133]: H
+                    - text: imalayan
+                - cell "Have you ever experienced a Himalayan winter?" [ref=e134]
+              - row "Iran Iranian We haven't crossed the Iranian border yet." [ref=e135]:
+                - cell "Iran" [ref=e136]
+                - cell "Iranian" [ref=e137]:
+                  - generic [ref=e138]:
+                    - strong [ref=e139]: I
+                    - text: ranian
+                - cell "We haven't crossed the Iranian border yet." [ref=e140]
+              - row "Laos Laotian Is there a Laotian consulate here?" [ref=e141]:
+                - cell "Laos" [ref=e142]
+                - cell "Laotian" [ref=e143]:
+                  - generic [ref=e144]:
+                    - strong [ref=e145]: L
+                    - text: aotian
+                - cell "Is there a Laotian consulate here?" [ref=e146]
+              - row "Lilliput (fictional) Lilliputian The only way this Lilliputian economy can grow is by exporting." [ref=e147]:
+                - cell "Lilliput (fictional)" [ref=e148]
+                - cell "Lilliputian" [ref=e149]:
+                  - generic [ref=e150]:
+                    - strong [ref=e151]: L
+                    - text: illiputian
+                - cell "The only way this Lilliputian economy can grow is by exporting." [ref=e152]
+              - row "Madagasacar Madagascan, Malagasy His wife is Malagasy." [ref=e153]:
+                - cell "Madagasacar" [ref=e154]
+                - cell "Madagascan, Malagasy" [ref=e155]:
+                  - generic [ref=e156]:
+                    - strong [ref=e157]: M
+                    - text: adagascan,
+                    - strong [ref=e158]: M
+                    - text: alagasy
+                - cell "His wife is Malagasy." [ref=e159]
+              - row "Mexico Mexican Do you like Mexican food?" [ref=e160]:
+                - cell "Mexico" [ref=e161]
+                - cell "Mexican" [ref=e162]:
+                  - generic [ref=e163]:
+                    - strong [ref=e164]: M
+                    - text: exican
+                - cell "Do you like Mexican food?" [ref=e165]
+              - row "Middle East Middle Eastern There has been a massive growth in Middle Eastern airlines." [ref=e166]:
+                - cell "Middle East" [ref=e167]
+                - cell "Middle Eastern" [ref=e168]:
+                  - generic [ref=e169]:
+                    - strong [ref=e170]: M
+                    - text: iddle
+                    - strong [ref=e171]: E
+                    - text: astern
+                - cell "There has been a massive growth in Middle Eastern airlines." [ref=e172]
+              - row "Moscow Muscovite He was accompanied by two Muscovite women." [ref=e173]:
+                - cell "Moscow" [ref=e174]
+                - cell "Muscovite" [ref=e175]:
+                  - generic [ref=e176]:
+                    - strong [ref=e177]: M
+                    - text: uscovite
+                - cell "He was accompanied by two Muscovite women." [ref=e178]
+              - row "Paris Parisian Many Parisian streets are lined with trees." [ref=e179]:
+                - cell "Paris" [ref=e180]
+                - cell "Parisian" [ref=e181]:
+                  - generic [ref=e182]:
+                    - strong [ref=e183]: P
+                    - text: arisian
+                - cell "Many Parisian streets are lined with trees." [ref=e184]
+              - row "Polynesia Polynesian It is one of the most endearing Polynesian traditions." [ref=e185]:
+                - cell "Polynesia" [ref=e186]
+                - cell "Polynesian" [ref=e187]:
+                  - generic [ref=e188]:
+                    - strong [ref=e189]: P
+                    - text: olynesian
+                - cell "It is one of the most endearing Polynesian traditions." [ref=e190]
+              - row "South America South American Cape Horn is the southern tip of the South American landmass." [ref=e191]:
+                - cell "South America" [ref=e192]
+                - cell "South American" [ref=e193]:
+                  - generic [ref=e194]:
+                    - strong [ref=e195]: S
+                    - text: outh
+                    - strong [ref=e196]: A
+                    - text: merican
+                - cell "Cape Horn is the southern tip of the South American landmass." [ref=e197]
+              - row "the Philippines Philippine Can you change some Philippine pesos?" [ref=e198]:
+                - cell "the Philippines" [ref=e199]
+                - cell "Philippine" [ref=e200]:
+                  - generic [ref=e201]:
+                    - strong [ref=e202]: P
+                    - text: hilippine
+                - cell "Can you change some Philippine pesos?" [ref=e203]
+              - row "Tibet Tibetan He photographed the stunning Tibetan landscapes." [ref=e204]:
+                - cell "Tibet" [ref=e205]
+                - cell "Tibetan" [ref=e206]:
+                  - generic [ref=e207]:
+                    - strong [ref=e208]: T
+                    - text: ibetan
+                - cell "He photographed the stunning Tibetan landscapes." [ref=e209]
+              - row "Toronto Torontonian We inched our way through the Torontonian traffic." [ref=e210]:
+                - cell "Toronto" [ref=e211]
+                - cell "Torontonian" [ref=e212]:
+                  - generic [ref=e213]:
+                    - strong [ref=e214]: T
+                    - text: orontonian
+                - cell "We inched our way through the Torontonian traffic." [ref=e215]
+              - row "Uzbekistan Uzbek The Uzbek border is five miles from here." [ref=e216]:
+                - cell "Uzbekistan" [ref=e217]
+                - cell "Uzbek" [ref=e218]:
+                  - generic [ref=e219]:
+                    - strong [ref=e220]: U
+                    - text: zbek
+                - cell "The Uzbek border is five miles from here." [ref=e221]
+              - row "Vienna Viennese Though I was born in London, my father was Viennese." [ref=e222]:
+                - cell "Vienna" [ref=e223]
+                - cell "Viennese" [ref=e224]:
+                  - generic [ref=e225]:
+                    - strong [ref=e226]: V
+                    - text: iennese
+                - cell "Though I was born in London, my father was Viennese." [ref=e227]
+          - heading "Proper Adjectives from People's Names (eponymous )" [level=3] [ref=e228]
+          - paragraph [ref=e229]:
+            - strong [ref=e230]: Your name
+            - text: is a proper noun and if you were super-famous it might have a capitalized proper adjective. Nouns and adjectives derived from people's names—both real and fictional—are called "
+            - link "Menu Link" [ref=e231] [cursor=pointer]:
+              - /url: https://www.englishclub.com/ref/List_of_Eponyms/
+              - text: eponymous
+            - text: "\". Eponymous adjectives are by definition proper adjectives. Here are a few examples, and you can find a much longer"
+            - link "list of eponymous adjectives here" [ref=e232] [cursor=pointer]:
+              - /url: https://en.wikipedia.org/wiki/List_of_eponymous_adjectives_in_English
+            - text: ":"
+          - table [ref=e233]:
+            - rowgroup [ref=e234]:
+              - row "(person's name) proper noun proper adjective example sentence" [ref=e235]:
+                - columnheader "(person's name) proper noun" [ref=e236]:
+                  - text: (person's name)
+                  - text: proper noun
+                - columnheader "proper adjective" [ref=e237]
+                - columnheader "example sentence" [ref=e238]
+            - rowgroup [ref=e239]:
+              - row "Gautama Buddha Buddhist This is the most famous of the Buddhist temples here." [ref=e240]:
+                - cell "Gautama Buddha" [ref=e241]
+                - cell "Buddhist" [ref=e242]:
+                  - generic [ref=e243]:
+                    - strong [ref=e244]: B
+                    - text: uddhist
+                - cell "This is the most famous of the Buddhist temples here." [ref=e245]
+              - row "Confucius Confucian He was a famous Confucian scholar." [ref=e246]:
+                - cell "Confucius" [ref=e247]
+                - cell "Confucian" [ref=e248]:
+                  - generic [ref=e249]:
+                    - strong [ref=e250]: C
+                    - text: onfucian
+                - cell "He was a famous Confucian scholar." [ref=e251]:
+                  - generic [ref=e252]:
+                    - text: He was a famous
+                    - emphasis [ref=e253]: Confucian
+                    - text: scholar.
+              - row "Charles Darwin Darwinian Some people challenge the concept of Darwinian evolution." [ref=e254]:
+                - cell "Charles Darwin" [ref=e255]
+                - cell "Darwinian" [ref=e256]:
+                  - generic [ref=e257]:
+                    - strong [ref=e258]: D
+                    - text: arwinian
+                - cell "Some people challenge the concept of Darwinian evolution." [ref=e259]
+              - row "Jesus Christ Christian These traditions are inherently Christian." [ref=e260]:
+                - cell "Jesus Christ" [ref=e261]
+                - cell "Christian" [ref=e262]:
+                  - generic [ref=e263]:
+                    - strong [ref=e264]: C
+                    - text: hristian
+                - cell "These traditions are inherently Christian." [ref=e265]
+              - row "Queen Elizabeth Elizabethan Part of this building is Elizabethan." [ref=e266]:
+                - cell "Queen Elizabeth" [ref=e267]
+                - cell "Elizabethan" [ref=e268]:
+                  - generic [ref=e269]:
+                    - strong [ref=e270]: E
+                    - text: lizabethan
+                - cell "Part of this building is Elizabethan." [ref=e271]
+              - row "Adolf Hitler Hitlerian The Hitlerian moustache originated in the need to trim moustaches to fit under gas-masks, worn in response to British mustard gas attacks." [ref=e272]:
+                - cell "Adolf Hitler" [ref=e273]
+                - cell "Hitlerian" [ref=e274]:
+                  - generic [ref=e275]:
+                    - strong [ref=e276]: H
+                    - text: itlerian
+                - cell "The Hitlerian moustache originated in the need to trim moustaches to fit under gas-masks, worn in response to British mustard gas attacks." [ref=e277]
+              - row "Niccolò Machiavelli Machiavellian The tactics he encountered were almost Machiavellian." [ref=e278]:
+                - cell "Niccolò Machiavelli" [ref=e279]
+                - cell "Machiavellian" [ref=e280]:
+                  - generic [ref=e281]:
+                    - strong [ref=e282]: M
+                    - text: achiavellian
+                - cell "The tactics he encountered were almost Machiavellian." [ref=e283]
+              - row "Karl Marx Marxist We discussed the finer points of Marxist theory." [ref=e284]:
+                - cell "Karl Marx" [ref=e285]
+                - cell "Marxist" [ref=e286]:
+                  - generic [ref=e287]:
+                    - strong [ref=e288]: M
+                    - text: arxist
+                - cell "We discussed the finer points of Marxist theory." [ref=e289]:
+                  - generic [ref=e290]:
+                    - text: We discussed the finer points of
+                    - emphasis [ref=e291]: Marxist
+                    - text: theory.
+              - row "George Orwell Orwellian The vision he described was of a truly Orwellian future." [ref=e292]:
+                - cell "George Orwell" [ref=e293]
+                - cell "Orwellian" [ref=e294]:
+                  - generic [ref=e295]:
+                    - strong [ref=e296]: O
+                    - text: rwellian
+                - cell "The vision he described was of a truly Orwellian future." [ref=e297]
+              - row "Vladimir Putin Putinist Many believe that the Putinist doctrine is no more than old-fashioned nationalism." [ref=e298]:
+                - cell "Vladimir Putin" [ref=e299]
+                - cell "Putinist" [ref=e300]:
+                  - generic [ref=e301]:
+                    - strong [ref=e302]: P
+                    - text: utinist
+                - cell "Many believe that the Putinist doctrine is no more than old-fashioned nationalism." [ref=e303]
+              - row "William Shakespeare Shakespearean How many Shakespearean plays have been made into films?" [ref=e304]:
+                - cell "William Shakespeare" [ref=e305]
+                - cell "Shakespearean" [ref=e306]:
+                  - generic [ref=e307]:
+                    - strong [ref=e308]: S
+                    - text: hakespearean
+                - cell "How many Shakespearean plays have been made into films?" [ref=e309]
+              - row "Margaret Thatcher Thatcherite He was at best a devoted Thatcherite editor." [ref=e310]:
+                - cell "Margaret Thatcher" [ref=e311]
+                - cell "Thatcherite" [ref=e312]:
+                  - generic [ref=e313]:
+                    - strong [ref=e314]: T
+                    - text: hatcherite
+                - cell "He was at best a devoted Thatcherite editor." [ref=e315]
+          - heading "Prefixes with Proper Adjectives" [level=3] [ref=e316]
+          - paragraph [ref=e317]:
+            - strong [ref=e318]: Normally, a prefix attached to a proper adjective should not be capitalized
+            - text: ". Look at these examples:"
+          - generic [ref=e319]:
+            - heading "Examples:" [level=4] [ref=e320]
+            - list [ref=e321]:
+              - listitem [ref=e322]:
+                - text: ★
+                - emphasis [ref=e323]: pre-Christian
+                - text: Paganism was one of many pre-Christian religions.
+              - listitem [ref=e324]:
+                - text: ★
+                - emphasis [ref=e325]: pan-European
+                - text: The search for a pan-European identity started well before 1900.
+              - listitem [ref=e326]:
+                - text: ★
+                - emphasis [ref=e327]: post-Thatcherite
+                - text: Did wages go up in post-Thatcherite Britain?
+          - paragraph [ref=e328]: "Note that the prefix should not be capitalized, unless it starts the sentence:"
+          - generic [ref=e329]:
+            - heading "Examples:" [level=4] [ref=e330]
+            - list [ref=e331]:
+              - listitem [ref=e332]:
+                - text: ★
+                - emphasis [ref=e333]: anti-Western
+              - listitem [ref=e334]: ★ Anti-Western sentiment was an inevitable consequence.
+          - paragraph [ref=e335]:
+            - strong [ref=e336]: If the prefix itself is formed from a proper noun,
+            - emphasis [ref=e337]: then the prefix should of course by capitalized.
+            - text: In the following example,
+            - emphasis [ref=e338]: Austro-
+            - text: comes from the proper noun Austria and
+            - emphasis [ref=e339]: Hungarian
+            - text: comes from the proper noun Hungary.
+          - generic [ref=e340]:
+            - heading "Examples:" [level=4] [ref=e341]
+            - list [ref=e342]:
+              - listitem [ref=e343]:
+                - text: ★
+                - emphasis [ref=e344]: Austro-Hungarian
+                - text: The assassination of the heir to the Austro-Hungarian throne led directly to the First World War.
+          - paragraph [ref=e345]:
+            - text: In the next example, the prefix
+            - emphasis [ref=e346]: Afro-
+            - text: comes from the proper noun Africa, and
+            - emphasis [ref=e347]: Caribbean
+            - text: "is the proper adjective from the proper noun Caribbean:"
+          - generic [ref=e348]:
+            - heading "Examples:" [level=4] [ref=e349]
+            - list [ref=e350]:
+              - listitem [ref=e351]:
+                - text: ★
+                - emphasis [ref=e352]: Afro-Caribbean
+                - text: He loves Afro-Caribbean music.
+          - heading "Hyphenation with Proper Adjectives" [level=3] [ref=e353]
+          - paragraph [ref=e354]:
+            - strong [ref=e355]: The same logic applies with suffixes and other hyphenated forms—capitalize
+            - emphasis [ref=e356]: only the word or words derived from a proper noun
+            - text: ":"
+          - generic [ref=e357]:
+            - heading "Examples:" [level=4] [ref=e358]
+            - list [ref=e359]:
+              - listitem [ref=e360]:
+                - text: ★
+                - emphasis [ref=e361]: English-speaking
+                - text: She asked for an English-speaking guide to show her around.
+          - heading "When Proper Adjectives Lose their Connection" [level=3] [ref=e362]
+          - paragraph [ref=e363]:
+            - strong [ref=e364]: Sometimes proper adjectives lose their connection with the proper noun
+            - emphasis [ref=e365]: "that gave them the right to be capitalized, for example:"
+          - generic [ref=e366]:
+            - heading "Examples:" [level=4] [ref=e367]
+            - list [ref=e368]:
+              - listitem [ref=e369]:
+                - text: ★
+                - emphasis [ref=e370]: gargantuan, titanic, caesarian, draconian, herculean, spartan
+          - list [ref=e371]:
+            - listitem [ref=e372]:
+              - link "Previous" [ref=e373] [cursor=pointer]:
+                - /url: list-of-nominal-adjectives.html
+                - img "angle-left" [ref=e374]
+                - generic [ref=e376]: List of Nominal Adjectives
+            - listitem [ref=e377]:
+              - link "Next" [ref=e378] [cursor=pointer]:
+                - /url: ../list-6-adjectives.html
+                - generic [ref=e379]: List 6 - Adjectives
+                - img "angle-right" [ref=e380]
+      - navigation "breadcrumbs-bottom" [ref=e382]:
+        - list [ref=e383]:
+          - listitem
+          - listitem [ref=e384]:
+            - link "Home" [ref=e385] [cursor=pointer]:
+              - /url: ../index-2.html
+              - generic [ref=e386]: Home
+            - img [ref=e388]
+          - listitem [ref=e390]:
+            - link "List 6 - Adjectives" [ref=e391] [cursor=pointer]:
+              - /url: ../list-6-adjectives.html
+              - generic [ref=e392]: List 6 - Adjectives
+            - img [ref=e394]
+          - listitem [ref=e396]:
+            - generic [ref=e397]: List of Proper Adjectives
+    - complementary [ref=e398]:
+      - navigation "Lists" [ref=e399]:
+        - list [ref=e400]:
+          - listitem [ref=e401]:
+            - generic [ref=e402]:
+              - button "Toggle submenu for Singular-Plural" [ref=e403] [cursor=pointer]:
+                - img
+                - img
+              - link "Menu Link" [ref=e405] [cursor=pointer]:
+                - /url: ../list-1-singular-and-plural-nouns.html
+                - text: Singular-Plural
+          - listitem [ref=e406]:
+            - generic [ref=e407]:
+              - button "Toggle submenu for Counting Nouns" [ref=e408] [cursor=pointer]:
+                - img
+                - img
+              - link "Menu Link" [ref=e410] [cursor=pointer]:
+                - /url: ../list-2-uncountable-nouns-made-countable.html
+                - text: Counting Nouns
+          - listitem [ref=e411]:
+            - generic [ref=e412]:
+              - button "Toggle submenu for Collective Nouns" [ref=e413] [cursor=pointer]:
+                - img
+                - img
+              - link "Menu Link" [ref=e415] [cursor=pointer]:
+                - /url: ../list-3-collective-nouns.html
+                - text: Collective Nouns
+          - listitem [ref=e416]:
+            - generic [ref=e417]:
+              - button "Toggle submenu for Verbs" [ref=e418] [cursor=pointer]:
+                - img
+                - img
+              - link "Menu Link" [ref=e420] [cursor=pointer]:
+                - /url: ../list-4-verbs.html
+                - text: Verbs
+          - listitem [ref=e421]:
+            - generic [ref=e422]:
+              - button "Toggle submenu for Irregular Verbs" [ref=e423] [cursor=pointer]:
+                - img
+                - img
+              - link "Menu Link" [ref=e425] [cursor=pointer]:
+                - /url: ../list-5-irregular-verbs.html
+                - text: Irregular Verbs
+          - listitem [ref=e426]:
+            - generic [ref=e427]:
+              - button "Toggle submenu for Adjectives" [ref=e428] [cursor=pointer]:
+                - img
+                - img
+              - link "Menu Link" [ref=e430] [cursor=pointer]:
+                - /url: ../list-6-adjectives.html
+                - text: Adjectives
+          - listitem [ref=e431]:
+            - generic [ref=e432]:
+              - button "Toggle submenu for Comparison" [ref=e433] [cursor=pointer]:
+                - img
+                - img
+              - link "Menu Link" [ref=e435] [cursor=pointer]:
+                - /url: ../list-7-comparison-of-adjectives.html
+                - text: Comparison
+          - listitem [ref=e436]:
+            - generic [ref=e437]:
+              - button "Toggle submenu for Adverbs" [ref=e438] [cursor=pointer]:
+                - img
+                - img
+              - link "Menu Link" [ref=e440] [cursor=pointer]:
+                - /url: ../list-8-adverbs.html
+                - text: Adverbs
+          - listitem [ref=e441]:
+            - generic [ref=e442]:
+              - button "Toggle submenu for Adv. = Adj." [ref=e443] [cursor=pointer]:
+                - img
+                - img
+              - link "Menu Link" [ref=e445] [cursor=pointer]:
+                - /url: ../list-9-adverbs-sharing-same-words-as-adjectives.html
+                - text: Adv. = Adj.
+          - listitem [ref=e446]:
+            - link "Menu Link" [ref=e449] [cursor=pointer]:
+              - /url: ../list-10-pronouns.html
+              - text: Pronouns
+          - listitem [ref=e450]:
+            - generic [ref=e451]:
+              - button "Toggle submenu for Prepositions" [ref=e452] [cursor=pointer]:
+                - img
+                - img
+              - link "Menu Link" [ref=e454] [cursor=pointer]:
+                - /url: ../list-11-prepositions.html
+                - text: Prepositions
+          - listitem [ref=e455]:
+            - link "Menu Link" [ref=e458] [cursor=pointer]:
+              - /url: ../list-12-conjunctions.html
+              - text: Conjunctions
+          - listitem [ref=e459]:
+            - link "Menu Link" [ref=e462] [cursor=pointer]:
+              - /url: ../list-13-forming-abstract-nouns.html
+              - text: Abstract Nouns
+          - listitem [ref=e463]:
+            - generic [ref=e464]:
+              - button "Toggle submenu for Phrasal Verbs" [ref=e465] [cursor=pointer]:
+                - img
+                - img
+              - link "Menu Link" [ref=e467] [cursor=pointer]:
+                - /url: ../list-14-phrasal-verbs.html
+                - text: Phrasal Verbs
+          - listitem [ref=e468]:
+            - link "Menu Link" [ref=e471] [cursor=pointer]:
+              - /url: ../list-15-idioms.html
+              - text: Common Idioms
+          - listitem [ref=e472]:
+            - generic [ref=e473]:
+              - button "Toggle submenu for 1000 Idioms" [ref=e474] [cursor=pointer]:
+                - img
+                - img
+              - link "Menu Link" [ref=e476] [cursor=pointer]:
+                - /url: ../list-16-phrases-and-idioms.html
+                - text: 1000 Idioms
+          - listitem [ref=e477]:
+            - generic [ref=e478]:
+              - button "Toggle submenu for Proverbs" [ref=e479] [cursor=pointer]:
+                - img
+                - img
+              - link "Menu Link" [ref=e481] [cursor=pointer]:
+                - /url: ../list-17-proverbs-and-sayings.html
+                - text: Proverbs
+          - listitem [ref=e482]:
+            - link "Menu Link" [ref=e485] [cursor=pointer]:
+              - /url: ../list-18-foreign-phrases-commonly-used-in-english.html
+              - text: Foreign Phrases
+          - listitem [ref=e486]:
+            - link "Menu Link" [ref=e489] [cursor=pointer]:
+              - /url: ../list-19-parents-and-young.html
+              - text: Parents/Youth
+          - listitem [ref=e490]:
+            - generic [ref=e491]:
+              - button "Toggle submenu for Gender" [ref=e492] [cursor=pointer]:
+                - img
+                - img
+              - link "Menu Link" [ref=e494] [cursor=pointer]:
+                - /url: ../list-20-gender.html
+                - text: Gender
+          - listitem [ref=e495]:
+            - link "Menu Link" [ref=e498] [cursor=pointer]:
+              - /url: ../list-21-homes-of-people-and-creatures.html
+              - text: Home Types
+          - listitem [ref=e499]:
+            - link "Menu Link" [ref=e502] [cursor=pointer]:
+              - /url: ../list-22-objects-animals-and-sounds.html
+              - text: Objects/Sounds
+          - listitem [ref=e503]:
+            - link "Menu Link" [ref=e506] [cursor=pointer]:
+              - /url: ../list-23-antonyms.html
+              - text: Antonyms
+          - listitem [ref=e507]:
+            - link "Menu Link" [ref=e510] [cursor=pointer]:
+              - /url: ../list-24-synonyms.html
+              - text: Synonyms
+          - listitem [ref=e511]:
+            - link "Menu Link" [ref=e514] [cursor=pointer]:
+              - /url: ../list-25-homonyms.html
+              - text: Homonyms
+  - contentinfo [ref=e515]:
+    - generic [ref=e516]:
+      - paragraph [ref=e517]:
+        - link "Back to Top" [ref=e518] [cursor=pointer]:
+          - /url: "#top"
+      - paragraph [ref=e519]: © 2026 All rights reserved.

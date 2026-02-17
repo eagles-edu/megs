@@ -1,0 +1,254 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e4]:
+    - main [ref=e7]:
+      - generic [ref=e8]:
+        - heading "List 6 - Adjectives" [level=2] [ref=e10]
+        - generic [ref=e11]:
+          - navigation "breadcrumbs-top" [ref=e12]:
+            - list [ref=e13]:
+              - listitem
+              - listitem [ref=e14]:
+                - link "List 6 - Adjectives" [ref=e15] [cursor=pointer]:
+                  - /url: index-2.html
+                  - generic [ref=e16]: List 6 - Adjectives
+                - img [ref=e18]
+              - listitem [ref=e20]:
+                - link "List 6 - Adjectives" [ref=e21] [cursor=pointer]:
+                  - /url: list-6-adjectives.html
+                  - generic [ref=e22]: List 6 - Adjectives
+                - img [ref=e24]
+              - listitem [ref=e26]:
+                - generic [ref=e27]: List 6 - Adjectives
+          - list [ref=e28]:
+            - listitem [ref=e29]:
+              - link "Previous" [ref=e30] [cursor=pointer]:
+                - /url: list-5-irregular-verbs.html
+                - img "angle-left" [ref=e31]
+                - generic [ref=e33]: List 5 - Irregular Verbs
+            - listitem [ref=e34]:
+              - link "Next" [ref=e35] [cursor=pointer]:
+                - /url: list-7-comparison-of-adjectives.html
+                - generic [ref=e36]: List 7 - Comparison of Adjectives
+                - img "angle-right" [ref=e37]
+          - heading "List 6 - Adjectives" [level=3] [ref=e39]
+          - table [ref=e40]:
+            - rowgroup [ref=e41]:
+              - row "List 6 - Adjectives (5)" [ref=e42]:
+                - columnheader "List 6 - Adjectives (5)" [ref=e43]
+            - rowgroup [ref=e44]:
+              - row "Menu Link" [ref=e45]:
+                - cell "Menu Link" [ref=e46]:
+                  - link "Menu Link" [ref=e47] [cursor=pointer]:
+                    - /url: list-6-adjectives/list-of-absolute-adjectives.html
+                    - text: List of Absolute Adjectives
+              - row "Menu Link" [ref=e48]:
+                - cell "Menu Link" [ref=e49]:
+                  - link "Menu Link" [ref=e50] [cursor=pointer]:
+                    - /url: list-6-adjectives/different-adjective-types.html
+                    - text: Different Adjective Types
+              - row "Menu Link" [ref=e51]:
+                - cell "Menu Link" [ref=e52]:
+                  - link "Menu Link" [ref=e53] [cursor=pointer]:
+                    - /url: list-6-adjectives/forming-adjectives.html
+                    - text: Forming Adjectives
+              - row "Menu Link" [ref=e54]:
+                - cell "Menu Link" [ref=e55]:
+                  - link "Menu Link" [ref=e56] [cursor=pointer]:
+                    - /url: list-6-adjectives/adjectives-ending-in-ly.html
+                    - text: Adjectives ending in –ly
+              - row "Menu Link" [ref=e57]:
+                - cell "Menu Link" [ref=e58]:
+                  - link "Menu Link" [ref=e59] [cursor=pointer]:
+                    - /url: ..list-6-adjectives/collective-adjectives-describing-group-of-people.html
+                    - text: Collective Adjectives - Groups of People
+          - list [ref=e60]:
+            - listitem [ref=e61]:
+              - link "Previous" [ref=e62] [cursor=pointer]:
+                - /url: list-5-irregular-verbs.html
+                - img "angle-left" [ref=e63]
+                - generic [ref=e65]: List 5 - Irregular Verbs
+            - listitem [ref=e66]:
+              - link "Next" [ref=e67] [cursor=pointer]:
+                - /url: list-7-comparison-of-adjectives.html
+                - generic [ref=e68]: List 7 - Comparison of Adjectives
+                - img "angle-right" [ref=e69]
+      - navigation "breadcrumbs-bottom" [ref=e71]:
+        - list [ref=e72]:
+          - listitem
+          - listitem [ref=e73]:
+            - link "List 6 - Adjectives" [ref=e74] [cursor=pointer]:
+              - /url: index-2.html
+              - generic [ref=e75]: List 6 - Adjectives
+            - img [ref=e77]
+          - listitem [ref=e79]:
+            - link "List 6 - Adjectives" [ref=e80] [cursor=pointer]:
+              - /url: list-6-adjectives.html
+              - generic [ref=e81]: List 6 - Adjectives
+            - img [ref=e83]
+          - listitem [ref=e85]:
+            - generic [ref=e86]: List 6 - Adjectives
+    - complementary [ref=e87]:
+      - navigation "Lists" [ref=e88]:
+        - list [ref=e89]:
+          - listitem [ref=e90]:
+            - generic [ref=e91]:
+              - button "Toggle submenu for Singular-Plural" [ref=e92] [cursor=pointer]:
+                - img
+                - img
+              - link "Menu Link" [ref=e94] [cursor=pointer]:
+                - /url: list-1-singular-and-plural-nouns.html
+                - text: Singular-Plural
+          - listitem [ref=e95]:
+            - generic [ref=e96]:
+              - button "Toggle submenu for Counting Nouns" [ref=e97] [cursor=pointer]:
+                - img
+                - img
+              - link "Menu Link" [ref=e99] [cursor=pointer]:
+                - /url: list-2-uncountable-nouns-made-countable.html
+                - text: Counting Nouns
+          - listitem [ref=e100]:
+            - generic [ref=e101]:
+              - button "Toggle submenu for Collective Nouns" [ref=e102] [cursor=pointer]:
+                - img
+                - img
+              - link "Menu Link" [ref=e104] [cursor=pointer]:
+                - /url: list-3-collective-nouns.html
+                - text: Collective Nouns
+          - listitem [ref=e105]:
+            - generic [ref=e106]:
+              - button "Toggle submenu for Verbs" [ref=e107] [cursor=pointer]:
+                - img
+                - img
+              - link "Menu Link" [ref=e109] [cursor=pointer]:
+                - /url: list-4-verbs.html
+                - text: Verbs
+          - listitem [ref=e110]:
+            - generic [ref=e111]:
+              - button "Toggle submenu for Irregular Verbs" [ref=e112] [cursor=pointer]:
+                - img
+                - img
+              - link "Menu Link" [ref=e114] [cursor=pointer]:
+                - /url: list-5-irregular-verbs.html
+                - text: Irregular Verbs
+          - listitem [ref=e115]:
+            - generic [ref=e116]:
+              - button "Toggle submenu for Adjectives" [ref=e117] [cursor=pointer]:
+                - img
+                - img
+              - link "Menu Link" [ref=e119] [cursor=pointer]:
+                - /url: list-6-adjectives.html
+                - text: Adjectives
+          - listitem [ref=e120]:
+            - generic [ref=e121]:
+              - button "Toggle submenu for Comparison" [ref=e122] [cursor=pointer]:
+                - img
+                - img
+              - link "Menu Link" [ref=e124] [cursor=pointer]:
+                - /url: list-7-comparison-of-adjectives.html
+                - text: Comparison
+          - listitem [ref=e125]:
+            - generic [ref=e126]:
+              - button "Toggle submenu for Adverbs" [ref=e127] [cursor=pointer]:
+                - img
+                - img
+              - link "Menu Link" [ref=e129] [cursor=pointer]:
+                - /url: list-8-adverbs.html
+                - text: Adverbs
+          - listitem [ref=e130]:
+            - generic [ref=e131]:
+              - button "Toggle submenu for Adv. = Adj." [ref=e132] [cursor=pointer]:
+                - img
+                - img
+              - link "Menu Link" [ref=e134] [cursor=pointer]:
+                - /url: list-9-adverbs-sharing-same-words-as-adjectives.html
+                - text: Adv. = Adj.
+          - listitem [ref=e135]:
+            - link "Menu Link" [ref=e138] [cursor=pointer]:
+              - /url: list-10-pronouns.html
+              - text: Pronouns
+          - listitem [ref=e139]:
+            - generic [ref=e140]:
+              - button "Toggle submenu for Prepositions" [ref=e141] [cursor=pointer]:
+                - img
+                - img
+              - link "Menu Link" [ref=e143] [cursor=pointer]:
+                - /url: list-11-prepositions.html
+                - text: Prepositions
+          - listitem [ref=e144]:
+            - link "Menu Link" [ref=e147] [cursor=pointer]:
+              - /url: list-12-conjunctions.html
+              - text: Conjunctions
+          - listitem [ref=e148]:
+            - link "Menu Link" [ref=e151] [cursor=pointer]:
+              - /url: list-13-forming-abstract-nouns.html
+              - text: Abstract Nouns
+          - listitem [ref=e152]:
+            - generic [ref=e153]:
+              - button "Toggle submenu for Phrasal Verbs" [ref=e154] [cursor=pointer]:
+                - img
+                - img
+              - link "Menu Link" [ref=e156] [cursor=pointer]:
+                - /url: list-14-phrasal-verbs.html
+                - text: Phrasal Verbs
+          - listitem [ref=e157]:
+            - link "Menu Link" [ref=e160] [cursor=pointer]:
+              - /url: list-15-idioms.html
+              - text: Common Idioms
+          - listitem [ref=e161]:
+            - generic [ref=e162]:
+              - button "Toggle submenu for 1000 Idioms" [ref=e163] [cursor=pointer]:
+                - img
+                - img
+              - link "Menu Link" [ref=e165] [cursor=pointer]:
+                - /url: list-16-phrases-and-idioms.html
+                - text: 1000 Idioms
+          - listitem [ref=e166]:
+            - generic [ref=e167]:
+              - button "Toggle submenu for Proverbs" [ref=e168] [cursor=pointer]:
+                - img
+                - img
+              - link "Menu Link" [ref=e170] [cursor=pointer]:
+                - /url: list-17-proverbs-and-sayings.html
+                - text: Proverbs
+          - listitem [ref=e171]:
+            - link "Menu Link" [ref=e174] [cursor=pointer]:
+              - /url: list-18-foreign-phrases-commonly-used-in-english.html
+              - text: Foreign Phrases
+          - listitem [ref=e175]:
+            - link "Menu Link" [ref=e178] [cursor=pointer]:
+              - /url: list-19-parents-and-young.html
+              - text: Parents/Youth
+          - listitem [ref=e179]:
+            - generic [ref=e180]:
+              - button "Toggle submenu for Gender" [ref=e181] [cursor=pointer]:
+                - img
+                - img
+              - link "Menu Link" [ref=e183] [cursor=pointer]:
+                - /url: list-20-gender.html
+                - text: Gender
+          - listitem [ref=e184]:
+            - link "Menu Link" [ref=e187] [cursor=pointer]:
+              - /url: list-21-homes-of-people-and-creatures.html
+              - text: Home Types
+          - listitem [ref=e188]:
+            - link "Menu Link" [ref=e191] [cursor=pointer]:
+              - /url: list-22-objects-animals-and-sounds.html
+              - text: Objects/Sounds
+          - listitem [ref=e192]:
+            - link "Menu Link" [ref=e195] [cursor=pointer]:
+              - /url: list-23-antonyms.html
+              - text: Antonyms
+          - listitem [ref=e196]:
+            - link "Menu Link" [ref=e199] [cursor=pointer]:
+              - /url: list-24-synonyms.html
+              - text: Synonyms
+          - listitem [ref=e200]:
+            - link "Menu Link" [ref=e203] [cursor=pointer]:
+              - /url: list-25-homonyms.html
+              - text: Homonyms
+  - contentinfo [ref=e204]:
+    - generic [ref=e205]:
+      - paragraph [ref=e206]:
+        - link "Back to Top" [ref=e207] [cursor=pointer]:
+          - /url: "#top"
+      - paragraph [ref=e208]: © 2026 All rights reserved.

@@ -87,6 +87,7 @@
 
   function normalizeLabelText(value) {
     return String(value || "")
+      .replace(/\u00a0/g, " ")
       .replace(/\s+/g, " ")
       .replace(/^\s+|\s+$/g, "")
   }
@@ -131,6 +132,19 @@
     var headRows = table && table.tHead ? table.tHead.rows : null
     if (headRows && headRows.length) {
       for (var i = headRows.length - 1; i >= 0; i--) {
+        var rowCells = headRows[i].cells || []
+        if (rowCells.length === 1) {
+          var span = parseInt(rowCells[0].getAttribute("colspan") || "1", 10)
+          if (!span || span < 1) span = 1
+          if (span >= columnCount) {
+            if (headRows.length === 1) {
+              for (var empty = 0; empty < columnCount; empty++) labels.push("Column " + (empty + 1))
+              return labels
+            }
+            continue
+          }
+        }
+
         var expanded = expandRowCells(headRows[i])
         if (!expanded.length) continue
         for (var col = 0; col < columnCount; col++) {
@@ -146,7 +160,229 @@
     return labels
   }
 
+  function hasRepeatedPairHeaders(table) {
+    if (!table || !table.tHead || !table.tHead.rows || !table.tHead.rows.length) return false
+    for (var i = table.tHead.rows.length - 1; i >= 0; i--) {
+      var expanded = expandRowCells(table.tHead.rows[i])
+      if (expanded.length < 4) continue
+      if (
+        expanded[0] === expanded[1] ||
+        expanded[0] === expanded[2] ||
+        expanded[0] === expanded[3] ||
+        expanded[1] === expanded[2] ||
+        expanded[1] === expanded[3] ||
+        expanded[2] === expanded[3]
+      ) {
+        return false
+      }
+      var leftA = normalizeLabelText(expanded[0] ? expanded[0].textContent : "").toLowerCase()
+      var leftB = normalizeLabelText(expanded[1] ? expanded[1].textContent : "").toLowerCase()
+      var rightA = normalizeLabelText(expanded[2] ? expanded[2].textContent : "").toLowerCase()
+      var rightB = normalizeLabelText(expanded[3] ? expanded[3].textContent : "").toLowerCase()
+      return Boolean(leftA && leftB && leftA === rightA && leftB === rightB)
+    }
+    return false
+  }
+
+  function isPairLayoutTable(table, columnCount, explicitMode) {
+    if (explicitMode === "pairs") return true
+    if (columnCount !== 4 && columnCount !== 5) return false
+    if (columnCount === 4 && !hasRepeatedPairHeaders(table)) return false
+
+    var rowGroups = []
+    if (table.tBodies && table.tBodies.length) {
+      for (var i = 0; i < table.tBodies.length; i++) rowGroups.push(table.tBodies[i])
+    } else {
+      rowGroups.push(table)
+    }
+
+    var sampleRows = 0
+    var spacerRows = 0
+    for (var g = 0; g < rowGroups.length; g++) {
+      var rows = rowGroups[g].rows || []
+      for (var r = 0; r < rows.length; r++) {
+        var row = rows[r]
+        if (row.querySelector && row.querySelector("th")) continue
+        var expanded = expandRowCells(row)
+        if (expanded.length < columnCount) continue
+        sampleRows += 1
+        if (columnCount === 5) {
+          var spacer = normalizeLabelText(expanded[2] ? expanded[2].textContent : "")
+          if (!spacer) spacerRows += 1
+        } else {
+          spacerRows += 1
+        }
+      }
+    }
+    return sampleRows > 0 && spacerRows === sampleRows
+  }
+
+  function hasTitleOnlyHeader(table, columnCount) {
+    var headRows = table && table.tHead ? table.tHead.rows : null
+    if (!headRows || headRows.length !== 1) return false
+    var cells = headRows[0].cells || []
+    if (cells.length !== 1) return false
+    var span = parseInt(cells[0].getAttribute("colspan") || "1", 10)
+    if (!span || span < 1) span = 1
+    return span >= columnCount
+  }
+
+  function isDatumListTable(table, columnCount, explicitMode) {
+    if (explicitMode === "list") return true
+    if (columnCount < 2 || columnCount > 6) return false
+    if (!hasTitleOnlyHeader(table, columnCount)) return false
+
+    var rowGroups = []
+    if (table.tBodies && table.tBodies.length) {
+      for (var i = 0; i < table.tBodies.length; i++) rowGroups.push(table.tBodies[i])
+    }
+
+    var filledCells = 0
+    for (var g = 0; g < rowGroups.length; g++) {
+      var rows = rowGroups[g].rows || []
+      for (var r = 0; r < rows.length; r++) {
+        var cells = rows[r].cells || []
+        for (var c = 0; c < cells.length; c++) {
+          if (normalizeLabelText(cells[c].textContent)) filledCells += 1
+        }
+      }
+    }
+    return filledCells > 0
+  }
+
+  function isSimpleTable(columnCount, explicitMode) {
+    if (explicitMode === "simple") return true
+    return columnCount >= 1 && columnCount <= 2
+  }
+
+  function createPairRow(keyCell, valueCell) {
+    var keyText = normalizeLabelText(keyCell ? keyCell.textContent : "")
+    var valueText = normalizeLabelText(valueCell ? valueCell.textContent : "")
+    if (!keyText && !valueText) return null
+
+    var row = document.createElement("tr")
+    row.className = "table-pairs-mobile-row"
+
+    var key = document.createElement("td")
+    key.className = "table-pairs-key"
+    key.innerHTML = keyCell ? keyCell.innerHTML : ""
+
+    var value = document.createElement("td")
+    value.className = "table-pairs-value"
+    value.innerHTML = valueCell ? valueCell.innerHTML : ""
+
+    row.appendChild(key)
+    row.appendChild(value)
+    return row
+  }
+
+  function rebuildPairRowsForMobile(table, columnCount) {
+    if (!table || columnCount < 4) return
+    if (table.querySelector("tbody.table-pairs-mobile-body")) {
+      table.classList.add("table-pairs-rebuilt")
+      return
+    }
+
+    var sourceBodies = []
+    if (table.tBodies && table.tBodies.length) {
+      for (var i = 0; i < table.tBodies.length; i++) sourceBodies.push(table.tBodies[i])
+    }
+    if (!sourceBodies.length) return
+
+    var leftRows = []
+    var rightRows = []
+    for (var g = 0; g < sourceBodies.length; g++) {
+      var body = sourceBodies[g]
+      var rows = body.rows || []
+      body.classList.add("table-pairs-source-body")
+      for (var r = 0; r < rows.length; r++) {
+        var row = rows[r]
+        if (row.querySelector && row.querySelector("th")) continue
+        var expanded = expandRowCells(row)
+        if (expanded.length < columnCount) continue
+
+        var leftRow = createPairRow(expanded[0], expanded[1])
+        if (leftRow) leftRows.push(leftRow)
+
+        var rightStart = columnCount - 2
+        var rightRow = createPairRow(expanded[rightStart], expanded[rightStart + 1])
+        if (rightRow) rightRows.push(rightRow)
+      }
+    }
+
+    if (!leftRows.length && !rightRows.length) return
+
+    var mobileBody = document.createElement("tbody")
+    mobileBody.className = "table-pairs-mobile-body"
+    for (var l = 0; l < leftRows.length; l++) mobileBody.appendChild(leftRows[l])
+    for (var t = 0; t < rightRows.length; t++) mobileBody.appendChild(rightRows[t])
+
+    table.appendChild(mobileBody)
+    table.classList.add("table-pairs-rebuilt")
+  }
+
+  function rebuildDatumListForMobile(table) {
+    if (!table) return
+    if (table.querySelector("tbody.table-list-mobile-body")) {
+      table.classList.add("table-list-rebuilt")
+      return
+    }
+
+    var sourceBodies = []
+    if (table.tBodies && table.tBodies.length) {
+      for (var i = 0; i < table.tBodies.length; i++) sourceBodies.push(table.tBodies[i])
+    }
+    if (!sourceBodies.length) return
+
+    var items = []
+    for (var g = 0; g < sourceBodies.length; g++) {
+      var body = sourceBodies[g]
+      body.classList.add("table-list-source-body")
+      var rows = body.rows || []
+      for (var r = 0; r < rows.length; r++) {
+        var cells = rows[r].cells || []
+        for (var c = 0; c < cells.length; c++) {
+          if (!normalizeLabelText(cells[c].textContent)) continue
+          items.push(cells[c])
+        }
+      }
+    }
+
+    if (!items.length) return
+
+    var mobileBody = document.createElement("tbody")
+    mobileBody.className = "table-list-mobile-body"
+
+    for (var idx = 0; idx < items.length; idx++) {
+      var row = document.createElement("tr")
+      row.className = "table-list-mobile-row"
+
+      var item = document.createElement("td")
+      item.className = "table-list-item"
+      item.innerHTML = items[idx] ? items[idx].innerHTML : ""
+      row.appendChild(item)
+
+      mobileBody.appendChild(row)
+    }
+
+    table.appendChild(mobileBody)
+    table.classList.add("table-list-rebuilt")
+  }
+
   function applyStackLabels(table, labels) {
+    function ensureStackValueWrapper(cell) {
+      if (!cell) return
+      var children = cell.children || []
+      for (var i = 0; i < children.length; i++) {
+        if (children[i] && children[i].classList && children[i].classList.contains("stack-cell-value")) return
+      }
+
+      var wrapper = document.createElement("span")
+      wrapper.className = "stack-cell-value"
+      while (cell.firstChild) wrapper.appendChild(cell.firstChild)
+      cell.appendChild(wrapper)
+    }
+
     var rowGroups = []
     if (table.tBodies && table.tBodies.length) {
       for (var i = 0; i < table.tBodies.length; i++) rowGroups.push(table.tBodies[i])
@@ -172,6 +408,7 @@
             ? filtered.join(" / ")
             : labels[columnIndex] || "Column " + (columnIndex + 1)
           cell.setAttribute("data-stack-label", label)
+          ensureStackValueWrapper(cell)
           columnIndex += span
         }
       }
@@ -186,13 +423,53 @@
 
     forEachNodeList(tables, function (table) {
       if (!table || table.getAttribute("data-stack-ready") === "true") return
-      if (table.getAttribute("data-stack") === "off") return
+      var mode = normalizeLabelText(table.getAttribute("data-stack")).toLowerCase()
+      if (mode === "off") return
 
       var columnCount = getTableColumnCount(table)
-      if (columnCount < 3) return
+      if (isPairLayoutTable(table, columnCount, mode)) {
+        table.classList.add("table-pairs-ready")
+        rebuildPairRowsForMobile(table, columnCount)
+        table.setAttribute("data-stack-ready", "true")
+        return
+      }
+
+      if (isDatumListTable(table, columnCount, mode)) {
+        table.classList.add("table-list-ready")
+        rebuildDatumListForMobile(table)
+        table.setAttribute("data-stack-ready", "true")
+        return
+      }
+
+      if (isSimpleTable(columnCount, mode)) {
+        table.classList.add("table-simple-ready")
+        table.classList.add(columnCount === 1 ? "table-simple-1col" : "table-simple-2col")
+        if (columnCount === 2) {
+          var simpleLabels = getColumnLabels(table, columnCount)
+          var hasSimpleLabels = false
+          for (var simpleIdx = 0; simpleIdx < simpleLabels.length; simpleIdx++) {
+            if (simpleLabels[simpleIdx]) {
+              hasSimpleLabels = true
+              break
+            }
+          }
+          if (hasSimpleLabels) applyStackLabels(table, simpleLabels)
+        }
+        table.setAttribute("data-stack-ready", "true")
+        return
+      }
+
+      if (columnCount < 3 || columnCount > 6) return
 
       var labels = getColumnLabels(table, columnCount)
-      applyStackLabels(table, labels)
+      var hasUsableLabels = false
+      for (var idx = 0; idx < labels.length; idx++) {
+        if (labels[idx]) {
+          hasUsableLabels = true
+          break
+        }
+      }
+      if (hasUsableLabels) applyStackLabels(table, labels)
       table.classList.add("table-stack-ready")
       table.setAttribute("data-stack-ready", "true")
     })
@@ -283,6 +560,294 @@
       if (!pathMatchesCurrentAliases(targetPath, aliases)) return
       markCurrentFromAnchor(link)
     })
+  }
+
+  function normalizeLinkLabelText(value) {
+    return String(value || "")
+      .replace(/\u00a0/g, " ")
+      .replace(/\s+/g, " ")
+      .replace(/^\s+|\s+$/g, "")
+  }
+
+  function isSectionRootPath(pathname) {
+    return Boolean(pathname && /^\/(?:exercise|lesson|list)-\d+[^/]*\.html$/i.test(pathname))
+  }
+
+  function getSectionSlugFromRootPath(rootPath) {
+    var match = String(rootPath || "").match(/^\/((?:exercise|lesson|list)-\d+[^/]*)\.html$/i)
+    return match && match[1] ? String(match[1]).toLowerCase() : null
+  }
+
+  function getSectionTypeFromSlug(sectionSlug) {
+    var match = String(sectionSlug || "").match(/^(exercise|lesson|list)-/i)
+    return match && match[1] ? String(match[1]).toLowerCase() : ""
+  }
+
+  function isPathInSection(targetPath, sectionSlug) {
+    if (!targetPath || !sectionSlug) return false
+    return targetPath === "/" + sectionSlug + ".html" || targetPath.indexOf("/" + sectionSlug + "/") === 0
+  }
+
+  function toRelativeHref(targetPath) {
+    var target = normalizePathname(targetPath)
+    var current = normalizePathname(window.location.pathname || "/")
+    var fromParts = current.split("/")
+    var toParts = target.split("/")
+    fromParts = fromParts.filter(Boolean)
+    toParts = toParts.filter(Boolean)
+    if (fromParts.length) fromParts.pop()
+    var shared = 0
+    while (
+      shared < fromParts.length &&
+      shared < toParts.length &&
+      fromParts[shared] === toParts[shared]
+    ) {
+      shared += 1
+    }
+    var parts = []
+    for (var up = shared; up < fromParts.length; up++) parts.push("..")
+    for (var idx = shared; idx < toParts.length; idx++) parts.push(toParts[idx])
+    return parts.join("/") || "./"
+  }
+
+  function collectSectionGroupsFromFlyout() {
+    var groups = []
+    var items = document.querySelectorAll(".r-flyout-menu > li[data-r-flyout-item]")
+    if (!items || !items.length) return groups
+
+    Array.prototype.forEach.call(items, function (item) {
+      var header = null
+      var children = item.children || []
+      for (var i = 0; i < children.length; i++) {
+        if (children[i].classList && children[i].classList.contains("item-wrapper")) {
+          header = children[i]
+          break
+        }
+      }
+      if (!header) header = item.querySelector(".item-wrapper")
+      if (!header) return
+
+      var rootAnchor = header.querySelector(".r-flyout__link-wrap > a[href], .menu-link > a[href], a[href]")
+      if (!rootAnchor) return
+      var rootPath = resolveHrefPathname(rootAnchor.getAttribute("href"))
+      if (!isSectionRootPath(rootPath)) return
+
+      var sectionSlug = getSectionSlugFromRootPath(rootPath)
+      var subPages = []
+      var subAnchors = item.querySelectorAll(".r-flyout__sublist a[href], .ul-wrapper a[href]")
+      Array.prototype.forEach.call(subAnchors, function (anchor) {
+        var pagePath = resolveHrefPathname(anchor.getAttribute("href"))
+        if (!pagePath || pagePath === rootPath || isSectionRootPath(pagePath)) return
+        subPages.push({
+          path: pagePath,
+          label: normalizeLinkLabelText(anchor.textContent),
+        })
+      })
+
+      groups.push({
+        rootPath: rootPath,
+        rootLabel: normalizeLinkLabelText(rootAnchor.textContent),
+        sectionSlug: sectionSlug,
+        sectionType: getSectionTypeFromSlug(sectionSlug),
+        subPages: subPages,
+      })
+    })
+
+    return groups
+  }
+
+  function collectSectionGroupsFromSidebar() {
+    var groups = []
+    var items = document.querySelectorAll(
+      "#sidebar .accordion-menu > li, #sidebar-menu-mount .accordion-menu > li"
+    )
+    if (!items || !items.length) return groups
+
+    Array.prototype.forEach.call(items, function (item) {
+      var header = null
+      var children = item.children || []
+      for (var i = 0; i < children.length; i++) {
+        if (children[i].classList && children[i].classList.contains("item-wrapper")) {
+          header = children[i]
+          break
+        }
+      }
+      if (!header) header = item.querySelector(".item-wrapper")
+      if (!header) return
+
+      var rootAnchor = header.querySelector(".menu-link > a[href], a[href]")
+      if (!rootAnchor) return
+      var rootPath = resolveHrefPathname(rootAnchor.getAttribute("href"))
+      if (!isSectionRootPath(rootPath)) return
+
+      var sectionSlug = getSectionSlugFromRootPath(rootPath)
+      var subPages = []
+      var subAnchors = item.querySelectorAll(".ul-wrapper a[href]")
+      Array.prototype.forEach.call(subAnchors, function (anchor) {
+        var pagePath = resolveHrefPathname(anchor.getAttribute("href"))
+        if (!pagePath || pagePath === rootPath || isSectionRootPath(pagePath)) return
+        subPages.push({
+          path: pagePath,
+          label: normalizeLinkLabelText(anchor.textContent),
+        })
+      })
+
+      groups.push({
+        rootPath: rootPath,
+        rootLabel: normalizeLinkLabelText(rootAnchor.textContent),
+        sectionSlug: sectionSlug,
+        sectionType: getSectionTypeFromSlug(sectionSlug),
+        subPages: subPages,
+      })
+    })
+
+    return groups
+  }
+
+  function dedupeSectionGroups(groups) {
+    var deduped = []
+    var seenRoots = {}
+    Array.prototype.forEach.call(groups || [], function (group) {
+      if (!group || !group.rootPath || seenRoots[group.rootPath]) return
+      seenRoots[group.rootPath] = true
+      var seenSubPaths = {}
+      var subPages = []
+      Array.prototype.forEach.call(group.subPages || [], function (page) {
+        if (!page || !page.path || seenSubPaths[page.path]) return
+        seenSubPaths[page.path] = true
+        subPages.push(page)
+      })
+      deduped.push({
+        rootPath: group.rootPath,
+        rootLabel: group.rootLabel || "",
+        sectionSlug: group.sectionSlug || getSectionSlugFromRootPath(group.rootPath),
+        sectionType: group.sectionType || getSectionTypeFromSlug(group.sectionSlug || group.rootPath || ""),
+        subPages: subPages,
+      })
+    })
+    return deduped
+  }
+
+  function collectSectionGroups() {
+    var fromFlyout = dedupeSectionGroups(collectSectionGroupsFromFlyout())
+    if (fromFlyout.length) return fromFlyout
+    return dedupeSectionGroups(collectSectionGroupsFromSidebar())
+  }
+
+  function updatePagerLinksByRel(rel, targetPath, targetLabel, replaceLabel) {
+    if (!targetPath) return
+    var href = toRelativeHref(targetPath)
+    var links = document.querySelectorAll('.pager a[rel="' + rel + '"]')
+    if (!links || !links.length) return
+    Array.prototype.forEach.call(links, function (link) {
+      link.setAttribute("href", href)
+      if (!replaceLabel || !targetLabel) return
+      var labelNode = link.querySelector(".pager-label")
+      if (labelNode) labelNode.textContent = targetLabel
+    })
+  }
+
+  function normalizeSectionPagerNavigation() {
+    var currentPath = normalizePathname(window.location.pathname || "/")
+    if (!/(?:^|\/)(exercise|lesson|list)-\d+/i.test(currentPath)) return
+
+    var groups = collectSectionGroups()
+    if (!groups.length) return
+
+    var pathLabels = {}
+    Array.prototype.forEach.call(groups, function (group) {
+      if (group.rootPath && group.rootLabel) pathLabels[group.rootPath] = group.rootLabel
+      Array.prototype.forEach.call(group.subPages || [], function (page) {
+        if (page.path && page.label) pathLabels[page.path] = page.label
+      })
+    })
+
+    var match = null
+    var prefixFallback = null
+    for (var groupIndex = 0; groupIndex < groups.length; groupIndex++) {
+      var group = groups[groupIndex]
+      if (!group || !group.rootPath) continue
+      if (group.rootPath === currentPath) {
+        match = { group: group, groupIndex: groupIndex, isRoot: true, subIndex: -1 }
+        break
+      }
+      for (var subIndex = 0; subIndex < group.subPages.length; subIndex++) {
+        if (group.subPages[subIndex].path !== currentPath) continue
+        match = { group: group, groupIndex: groupIndex, isRoot: false, subIndex: subIndex }
+        break
+      }
+      if (match) break
+      if (!prefixFallback && isPathInSection(currentPath, group.sectionSlug)) {
+        prefixFallback = {
+          group: group,
+          groupIndex: groupIndex,
+          isRoot: false,
+          subIndex: -1,
+          byPrefixOnly: true,
+        }
+      }
+    }
+
+    if (!match) match = prefixFallback
+    if (!match || !match.group) return
+
+    var prevPath = null
+    var nextPath = null
+    var forcePrevLabel = false
+    var forceNextLabel = false
+    if (match.isRoot) {
+      var prevGroup = match.groupIndex > 0 ? groups[match.groupIndex - 1] : null
+      var nextGroup = match.groupIndex + 1 < groups.length ? groups[match.groupIndex + 1] : null
+      if (prevGroup && prevGroup.rootPath) prevPath = prevGroup.rootPath
+      if (nextGroup && nextGroup.rootPath) nextPath = nextGroup.rootPath
+    } else if (match.byPrefixOnly) {
+      var prevLink = document.querySelector('.pager a[rel="prev"]')
+      var nextLink = document.querySelector('.pager a[rel="next"]')
+      var prevCurrent = prevLink ? resolveHrefPathname(prevLink.getAttribute("href")) : null
+      var nextCurrent = nextLink ? resolveHrefPathname(nextLink.getAttribute("href")) : null
+      var knownPaths = {}
+      knownPaths[match.group.rootPath] = true
+      Array.prototype.forEach.call(match.group.subPages || [], function (page) {
+        if (page && page.path) knownPaths[page.path] = true
+      })
+      if (prevCurrent && !isPathInSection(prevCurrent, match.group.sectionSlug)) {
+        prevPath = match.group.rootPath
+        forcePrevLabel = true
+      }
+      if (nextCurrent && !isPathInSection(nextCurrent, match.group.sectionSlug)) {
+        nextPath = match.group.rootPath
+        forceNextLabel = true
+      }
+      var strictUnknownTargets = match.group.sectionType && match.group.sectionType !== "list"
+      if (
+        strictUnknownTargets &&
+        prevCurrent &&
+        isPathInSection(prevCurrent, match.group.sectionSlug) &&
+        prevCurrent !== match.group.rootPath &&
+        !knownPaths[prevCurrent]
+      ) {
+        prevPath = match.group.rootPath
+        forcePrevLabel = true
+      }
+      if (
+        strictUnknownTargets &&
+        nextCurrent &&
+        isPathInSection(nextCurrent, match.group.sectionSlug) &&
+        nextCurrent !== match.group.rootPath &&
+        !knownPaths[nextCurrent]
+      ) {
+        nextPath = match.group.rootPath
+        forceNextLabel = true
+      }
+    } else {
+      var pages = match.group.subPages
+      if (!pages || !pages.length) return
+      prevPath = match.subIndex > 0 ? pages[match.subIndex - 1].path : match.group.rootPath
+      nextPath = match.subIndex + 1 < pages.length ? pages[match.subIndex + 1].path : match.group.rootPath
+    }
+
+    if (prevPath) updatePagerLinksByRel("prev", prevPath, pathLabels[prevPath] || "", forcePrevLabel)
+    if (nextPath) updatePagerLinksByRel("next", nextPath, pathLabels[nextPath] || "", forceNextLabel)
   }
 
   // Left Menu Module
@@ -668,6 +1233,7 @@
   function initApp() {
     try {
       normalizePagerLabels()
+      normalizeSectionPagerNavigation()
       initListTableStack()
       initLeftMenu()
       initFlyoutMenu()

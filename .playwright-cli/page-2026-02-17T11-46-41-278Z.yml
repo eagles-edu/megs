@@ -1,0 +1,311 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e4]:
+    - main [ref=e7]:
+      - generic [ref=e8]:
+        - heading "Singular and plural forms of compound nouns" [level=2] [ref=e10]
+        - generic [ref=e11]:
+          - navigation "breadcrumbs-top" [ref=e12]:
+            - list [ref=e13]:
+              - listitem
+              - listitem [ref=e14]:
+                - link "Home" [ref=e15] [cursor=pointer]:
+                  - /url: ../index-2.html
+                  - generic [ref=e16]: Home
+                - img [ref=e18]
+              - listitem [ref=e20]:
+                - link "List 1 - Singular and Plural Nouns" [ref=e21] [cursor=pointer]:
+                  - /url: ../list-1-singular-and-plural-nouns.html
+                  - generic [ref=e22]: List 1 - Singular and Plural Nouns
+                - img [ref=e24]
+              - listitem [ref=e26]:
+                - generic [ref=e27]: Singular and plural forms of compound nouns
+          - list [ref=e28]:
+            - listitem [ref=e29]:
+              - link "Previous" [ref=e30] [cursor=pointer]:
+                - /url: ../list-1-singular-and-plural-nouns.html
+                - img "angle-left" [ref=e31]
+                - generic [ref=e33]: List 1 - Nouns
+            - listitem [ref=e34]:
+              - link "Next" [ref=e35] [cursor=pointer]:
+                - /url: some-nouns-have-same-singular-and-plural-forms-or-have-plural-ending-s.html
+                - generic [ref=e36]: Nouns with same singular and plural forms or plural ending (-s).
+                - img "angle-right" [ref=e37]
+          - heading "Singular and plural forms of compound nouns" [level=3] [ref=e39]
+          - table [ref=e40]:
+            - rowgroup [ref=e41]:
+              - row "Singular Plural" [ref=e42]:
+                - columnheader "Singular" [ref=e43]
+                - columnheader "Plural" [ref=e44]
+            - rowgroup [ref=e45]:
+              - row "attorney-general attorneys-general" [ref=e46]:
+                - cell "attorney-general" [ref=e47]
+                - cell "attorneys-general" [ref=e48]
+              - row "brother-in-law brothers-in-law" [ref=e49]:
+                - cell "brother-in-law" [ref=e50]
+                - cell "brothers-in-law" [ref=e51]
+              - row "bystander bystanders" [ref=e52]:
+                - cell "bystander" [ref=e53]
+                - cell "bystanders" [ref=e54]
+              - row "commander-in-chief commanders-in-chief" [ref=e55]:
+                - cell "commander-in-chief" [ref=e56]
+                - cell "commanders-in-chief" [ref=e57]
+              - row "court martial courts martial" [ref=e58]:
+                - cell "court martial" [ref=e59]
+                - cell "courts martial" [ref=e60]
+              - row "cupful cupfuls" [ref=e61]:
+                - cell "cupful" [ref=e62]
+                - cell "cupfuls" [ref=e63]
+              - row "father-in-law fathers-in-law" [ref=e64]:
+                - cell "father-in-law" [ref=e65]
+                - cell "fathers-in-law" [ref=e66]
+              - row "general staff general staff" [ref=e67]:
+                - cell "general staff" [ref=e68]
+                - cell "general staff" [ref=e69]
+              - row "go-between go-betweens" [ref=e70]:
+                - cell "go-between" [ref=e71]
+                - cell "go-betweens" [ref=e72]
+              - row "governor-general governors-general" [ref=e73]:
+                - cell "governor-general" [ref=e74]
+                - cell "governors-general" [ref=e75]
+              - row "handful handfuls" [ref=e76]:
+                - cell "handful" [ref=e77]
+                - cell "handfuls" [ref=e78]
+              - row "heir apparent heirs apparent" [ref=e79]:
+                - cell "heir apparent" [ref=e80]
+                - cell "heirs apparent" [ref=e81]
+              - row "maidservant maidservants" [ref=e82]:
+                - cell "maidservant" [ref=e83]
+                - cell "maidservants" [ref=e84]
+              - row "man-of-war men-of-war" [ref=e85]:
+                - cell "man-of-war" [ref=e86]
+                - cell "men-of-war" [ref=e87]
+              - row "mix-up mix-ups" [ref=e88]:
+                - cell "mix-up" [ref=e89]
+                - cell "mix-ups" [ref=e90]
+              - row "mother-in-law mothers-in-law" [ref=e91]:
+                - cell "mother-in-law" [ref=e92]
+                - cell "mothers-in-law" [ref=e93]
+              - row "mouthful mouthfuls" [ref=e94]:
+                - cell "mouthful" [ref=e95]
+                - cell "mouthfuls" [ref=e96]
+              - row "notary public notaries public" [ref=e97]:
+                - cell "notary public" [ref=e98]
+                - cell "notaries public" [ref=e99]
+              - row "passer-by passers-by" [ref=e100]:
+                - cell "passer-by" [ref=e101]
+                - cell "passers-by" [ref=e102]
+              - row "sergeant major sergeants major" [ref=e103]:
+                - cell "sergeant major" [ref=e104]
+                - cell "sergeants major" [ref=e105]
+              - row "sister-in-law sisters-in-law" [ref=e106]:
+                - cell "sister-in-law" [ref=e107]
+                - cell "sisters-in-law" [ref=e108]
+              - row "son-in-law sons-in-law" [ref=e109]:
+                - cell "son-in-law" [ref=e110]
+                - cell "sons-in-law" [ref=e111]
+              - row "step-parent step-parents" [ref=e112]:
+                - cell "step-parent" [ref=e113]
+                - cell "step-parents" [ref=e114]
+              - row "step-daughter step-daughters" [ref=e115]:
+                - cell "step-daughter" [ref=e116]
+                - cell "step-daughters" [ref=e117]
+              - row "step-mother step-mothers" [ref=e118]:
+                - cell "step-mother" [ref=e119]
+                - cell "step-mothers" [ref=e120]
+              - row "tablespoonful tablespoonfuls" [ref=e121]:
+                - cell "tablespoonful" [ref=e122]
+                - cell "tablespoonfuls" [ref=e123]
+              - row "takeoff takeoffs" [ref=e124]:
+                - cell "takeoff" [ref=e125]
+                - cell "takeoffs" [ref=e126]
+          - list [ref=e127]:
+            - listitem [ref=e128]:
+              - link "Previous" [ref=e129] [cursor=pointer]:
+                - /url: ../list-1-singular-and-plural-nouns.html
+                - img "angle-left" [ref=e130]
+                - generic [ref=e132]: List 1 - Nouns
+            - listitem [ref=e133]:
+              - link "Next" [ref=e134] [cursor=pointer]:
+                - /url: some-nouns-have-same-singular-and-plural-forms-or-have-plural-ending-s.html
+                - generic [ref=e135]: Nouns with same singular and plural forms or plural ending (-s).
+                - img "angle-right" [ref=e136]
+      - navigation "breadcrumbs-bottom" [ref=e138]:
+        - list [ref=e139]:
+          - listitem
+          - listitem [ref=e140]:
+            - link "Home" [ref=e141] [cursor=pointer]:
+              - /url: ../index-2.html
+              - generic [ref=e142]: Home
+            - img [ref=e144]
+          - listitem [ref=e146]:
+            - link "List 1 - Singular and Plural Nouns" [ref=e147] [cursor=pointer]:
+              - /url: ../list-1-singular-and-plural-nouns.html
+              - generic [ref=e148]: List 1 - Singular and Plural Nouns
+            - img [ref=e150]
+          - listitem [ref=e152]:
+            - generic [ref=e153]: Singular and plural forms of compound nouns
+    - complementary [ref=e154]:
+      - navigation "Lists" [ref=e155]:
+        - list [ref=e156]:
+          - listitem [ref=e157]:
+            - generic [ref=e158]:
+              - button "Toggle submenu for Singular-Plural" [ref=e159] [cursor=pointer]:
+                - img
+                - img
+              - link "Menu Link" [ref=e161] [cursor=pointer]:
+                - /url: ../list-1-singular-and-plural-nouns.html
+                - text: Singular-Plural
+          - listitem [ref=e162]:
+            - generic [ref=e163]:
+              - button "Toggle submenu for Counting Nouns" [ref=e164] [cursor=pointer]:
+                - img
+                - img
+              - link "Menu Link" [ref=e166] [cursor=pointer]:
+                - /url: ../list-2-uncountable-nouns-made-countable.html
+                - text: Counting Nouns
+          - listitem [ref=e167]:
+            - generic [ref=e168]:
+              - button "Toggle submenu for Collective Nouns" [ref=e169] [cursor=pointer]:
+                - img
+                - img
+              - link "Menu Link" [ref=e171] [cursor=pointer]:
+                - /url: ../list-3-collective-nouns.html
+                - text: Collective Nouns
+          - listitem [ref=e172]:
+            - generic [ref=e173]:
+              - button "Toggle submenu for Verbs" [ref=e174] [cursor=pointer]:
+                - img
+                - img
+              - link "Menu Link" [ref=e176] [cursor=pointer]:
+                - /url: ../list-4-verbs.html
+                - text: Verbs
+          - listitem [ref=e177]:
+            - generic [ref=e178]:
+              - button "Toggle submenu for Irregular Verbs" [ref=e179] [cursor=pointer]:
+                - img
+                - img
+              - link "Menu Link" [ref=e181] [cursor=pointer]:
+                - /url: ../list-5-irregular-verbs.html
+                - text: Irregular Verbs
+          - listitem [ref=e182]:
+            - generic [ref=e183]:
+              - button "Toggle submenu for Adjectives" [ref=e184] [cursor=pointer]:
+                - img
+                - img
+              - link "Menu Link" [ref=e186] [cursor=pointer]:
+                - /url: ../list-6-adjectives.html
+                - text: Adjectives
+          - listitem [ref=e187]:
+            - generic [ref=e188]:
+              - button "Toggle submenu for Comparison" [ref=e189] [cursor=pointer]:
+                - img
+                - img
+              - link "Menu Link" [ref=e191] [cursor=pointer]:
+                - /url: ../list-7-comparison-of-adjectives.html
+                - text: Comparison
+          - listitem [ref=e192]:
+            - generic [ref=e193]:
+              - button "Toggle submenu for Adverbs" [ref=e194] [cursor=pointer]:
+                - img
+                - img
+              - link "Menu Link" [ref=e196] [cursor=pointer]:
+                - /url: ../list-8-adverbs.html
+                - text: Adverbs
+          - listitem [ref=e197]:
+            - generic [ref=e198]:
+              - button "Toggle submenu for Adv. = Adj." [ref=e199] [cursor=pointer]:
+                - img
+                - img
+              - link "Menu Link" [ref=e201] [cursor=pointer]:
+                - /url: ../list-9-adverbs-sharing-same-words-as-adjectives.html
+                - text: Adv. = Adj.
+          - listitem [ref=e202]:
+            - link "Menu Link" [ref=e205] [cursor=pointer]:
+              - /url: ../list-10-pronouns.html
+              - text: Pronouns
+          - listitem [ref=e206]:
+            - generic [ref=e207]:
+              - button "Toggle submenu for Prepositions" [ref=e208] [cursor=pointer]:
+                - img
+                - img
+              - link "Menu Link" [ref=e210] [cursor=pointer]:
+                - /url: ../list-11-prepositions.html
+                - text: Prepositions
+          - listitem [ref=e211]:
+            - link "Menu Link" [ref=e214] [cursor=pointer]:
+              - /url: ../list-12-conjunctions.html
+              - text: Conjunctions
+          - listitem [ref=e215]:
+            - link "Menu Link" [ref=e218] [cursor=pointer]:
+              - /url: ../list-13-forming-abstract-nouns.html
+              - text: Abstract Nouns
+          - listitem [ref=e219]:
+            - generic [ref=e220]:
+              - button "Toggle submenu for Phrasal Verbs" [ref=e221] [cursor=pointer]:
+                - img
+                - img
+              - link "Menu Link" [ref=e223] [cursor=pointer]:
+                - /url: ../list-14-phrasal-verbs.html
+                - text: Phrasal Verbs
+          - listitem [ref=e224]:
+            - link "Menu Link" [ref=e227] [cursor=pointer]:
+              - /url: ../list-15-idioms.html
+              - text: Common Idioms
+          - listitem [ref=e228]:
+            - generic [ref=e229]:
+              - button "Toggle submenu for 1000 Idioms" [ref=e230] [cursor=pointer]:
+                - img
+                - img
+              - link "Menu Link" [ref=e232] [cursor=pointer]:
+                - /url: ../list-16-phrases-and-idioms.html
+                - text: 1000 Idioms
+          - listitem [ref=e233]:
+            - generic [ref=e234]:
+              - button "Toggle submenu for Proverbs" [ref=e235] [cursor=pointer]:
+                - img
+                - img
+              - link "Menu Link" [ref=e237] [cursor=pointer]:
+                - /url: ../list-17-proverbs-and-sayings.html
+                - text: Proverbs
+          - listitem [ref=e238]:
+            - link "Menu Link" [ref=e241] [cursor=pointer]:
+              - /url: ../list-18-foreign-phrases-commonly-used-in-english.html
+              - text: Foreign Phrases
+          - listitem [ref=e242]:
+            - link "Menu Link" [ref=e245] [cursor=pointer]:
+              - /url: ../list-19-parents-and-young.html
+              - text: Parents/Youth
+          - listitem [ref=e246]:
+            - generic [ref=e247]:
+              - button "Toggle submenu for Gender" [ref=e248] [cursor=pointer]:
+                - img
+                - img
+              - link "Menu Link" [ref=e250] [cursor=pointer]:
+                - /url: ../list-20-gender.html
+                - text: Gender
+          - listitem [ref=e251]:
+            - link "Menu Link" [ref=e254] [cursor=pointer]:
+              - /url: ../list-21-homes-of-people-and-creatures.html
+              - text: Home Types
+          - listitem [ref=e255]:
+            - link "Menu Link" [ref=e258] [cursor=pointer]:
+              - /url: ../list-22-objects-animals-and-sounds.html
+              - text: Objects/Sounds
+          - listitem [ref=e259]:
+            - link "Menu Link" [ref=e262] [cursor=pointer]:
+              - /url: ../list-23-antonyms.html
+              - text: Antonyms
+          - listitem [ref=e263]:
+            - link "Menu Link" [ref=e266] [cursor=pointer]:
+              - /url: ../list-24-synonyms.html
+              - text: Synonyms
+          - listitem [ref=e267]:
+            - link "Menu Link" [ref=e270] [cursor=pointer]:
+              - /url: ../list-25-homonyms.html
+              - text: Homonyms
+  - contentinfo [ref=e271]:
+    - generic [ref=e272]:
+      - paragraph [ref=e273]:
+        - link "Back to Top" [ref=e274] [cursor=pointer]:
+          - /url: "#top"
+      - paragraph [ref=e275]: © 2026 All rights reserved.

@@ -203,9 +203,11 @@ body {
 
 .footer .inner-footer {
   background-color: var(--footer-background);
-  border-radius: var(--radius);
+  border-radius: 6px;
   color: var(--secondary-color);
   min-height: inherit;
+  padding-left: 18px;
+  padding-right: 18px;
 }
 
 .footer .inner-footer a,
@@ -394,7 +396,7 @@ pre {
 
 @media (width <= 480px) {
   .row-fluid {
-    margin-left: -30px;
+    margin-left: -24px;
     margin-right: -30px;
   }
 
@@ -404,6 +406,17 @@ pre {
 
   .row-fluid > [class*="span"],
   .row-fluid > #aside {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  .footer.mar10 {
+    margin-left: -6px;
+    margin-right: -12px;
+  }
+
+  .footer .inner-footer {
+    border-radius: 6px;
     padding-left: 15px;
     padding-right: 15px;
   }
@@ -844,21 +857,28 @@ body.mobile-nav-enabled #sidebar.mobile-nav-open {
   text-align: center !important;
 }
 
-/* Mobile stack mode for list-section tables with 3+ columns.
-   JS marks eligible tables with .table-stack-ready and per-cell labels. */
-@media (width <= 767px) {
-  body.list table.table-stack-ready {
-    border: 0;
-    display: block;
+/* List table responsive system
+   - .table-pairs-ready: side-by-side 2-col pairs that wrap under 510px
+   - .table-list-ready: raw datum lists that stack one item per row on mobile
+   - .table-simple-ready: generic 1-2 column tables that render as labeled cards
+   - .table-stack-ready: true 3-6 column tables with compact stack labels */
+body.list table.table-pairs-ready.table-pairs-rebuilt tbody.table-pairs-mobile-body {
+  display: none;
+}
+
+body.list table.table-list-ready.table-list-rebuilt tbody.table-list-mobile-body {
+  display: none;
+}
+
+@media (width <= 510px) {
+  body.list table.table-pairs-ready {
+    border-collapse: collapse !important;
+    max-width: 100%;
+    table-layout: fixed;
     width: 100% !important;
   }
 
-  body.list table.table-stack-ready caption {
-    display: block;
-    text-align: left;
-  }
-
-  body.list table.table-stack-ready thead {
+  body.list table.table-pairs-ready thead {
     border: 0;
     clip: rect(0 0 0 0);
     height: 1px;
@@ -869,50 +889,311 @@ body.mobile-nav-enabled #sidebar.mobile-nav-open {
     width: 1px;
   }
 
-  body.list table.table-stack-ready tbody,
-  body.list table.table-stack-ready tr,
-  body.list table.table-stack-ready td,
-  body.list table.table-stack-ready th {
+  body.list table.table-pairs-ready.table-pairs-rebuilt tbody.table-pairs-source-body {
+    display: none;
+  }
+
+  body.list table.table-pairs-ready.table-pairs-rebuilt tbody.table-pairs-mobile-body {
+    display: table-row-group;
+  }
+
+  body.list table.table-pairs-ready.table-pairs-rebuilt tbody.table-pairs-mobile-body tr {
+    background: var(--surface-color, #fff);
+  }
+
+  body.list table.table-pairs-ready.table-pairs-rebuilt tbody.table-pairs-mobile-body td {
+    box-sizing: border-box;
+    line-height: 1.25;
+    min-height: 1.9rem;
+    overflow-wrap: anywhere;
+    padding: 0.38rem 0.5rem !important;
+    text-align: left !important;
+    vertical-align: top;
+  }
+
+  body.list table.table-pairs-ready.table-pairs-rebuilt td.table-pairs-key {
+    font-weight: 600;
+    max-width: 42%;
+    width: 42%;
+  }
+
+  body.list table.table-pairs-ready.table-pairs-rebuilt td.table-pairs-value {
+    max-width: 58%;
+    width: 58%;
+  }
+
+  body.list table.table-list-ready {
+    border-collapse: collapse !important;
+    display: block;
+    table-layout: fixed;
+    width: 100% !important;
+  }
+
+  body.list table.table-list-ready thead {
     display: block;
     width: 100%;
   }
 
-  body.list table.table-stack-ready tr {
+  body.list table.table-list-ready thead tr {
+    display: flex;
+    width: 100%;
+  }
+
+  body.list table.table-list-ready thead th {
+    display: block;
+    flex: 1 1 0;
+    min-width: 0;
+  }
+
+  body.list table.table-list-ready.table-list-rebuilt tbody.table-list-source-body {
+    display: none;
+  }
+
+  body.list table.table-list-ready.table-list-rebuilt tbody.table-list-mobile-body {
+    display: block;
+    width: 100%;
+  }
+
+  body.list table.table-list-ready.table-list-rebuilt tbody.table-list-mobile-body tr {
+    box-sizing: border-box;
+    border-bottom: 1px solid var(--border-color);
+    display: block;
+    max-width: 100%;
+    width: 100%;
+  }
+
+  body.list table.table-list-ready.table-list-rebuilt tbody.table-list-mobile-body tr:nth-child(odd) {
     background: var(--surface-color, #fff);
-    border: 1px solid var(--border-color);
-    border-radius: var(--radius);
-    margin-bottom: 0.8rem;
-    overflow: hidden;
   }
 
-  body.list table.table-stack-ready td,
-  body.list table.table-stack-ready th {
+  body.list table.table-list-ready.table-list-rebuilt tbody.table-list-mobile-body tr:nth-child(even) {
+    background: var(--button-background, #f4f5f6);
+  }
+
+  body.list table.table-list-ready.table-list-rebuilt td.table-list-item {
     border: 0 !important;
-    border-bottom: 1px dashed var(--divider-color, #d0d6e4) !important;
-    line-height: 1.4;
-    min-height: 2.2rem;
-    padding: 0.55rem 0.65rem !important;
+    box-sizing: border-box;
+    display: block;
+    font-weight: 400 !important;
+    line-height: 1.2;
+    padding: 0.24rem 0.45rem !important;
     text-align: left !important;
+    vertical-align: top;
+    width: 100%;
   }
 
-  body.list table.table-stack-ready tr > :last-child {
+  body.list table.table-list-ready.table-list-rebuilt td.table-list-item strong,
+  body.list table.table-list-ready.table-list-rebuilt td.table-list-item b {
+    font-weight: 400 !important;
+  }
+
+  body.list table.table-list-ready.table-list-rebuilt tbody.table-list-mobile-body tr > :last-child {
     border-bottom: 0 !important;
   }
 
-  body.list table.table-stack-ready td[data-stack-label]::before,
-  body.list table.table-stack-ready th[data-stack-label]::before {
+  body.list table.table-simple-ready {
+    border-collapse: collapse !important;
+    display: block;
+    table-layout: fixed;
+    width: 100% !important;
+  }
+
+  body.list table.table-simple-ready thead {
+    display: block;
+    width: 100%;
+  }
+
+  body.list table.table-simple-ready thead tr {
+    display: flex;
+    width: 100%;
+  }
+
+  body.list table.table-simple-ready thead th {
+    display: block;
+    flex: 1 1 0;
+    min-width: 0;
+  }
+
+  body.list table.table-simple-ready tbody {
+    display: block;
+    width: 100%;
+  }
+
+  body.list table.table-simple-ready tbody tr {
+    background: var(--surface-color, #fff);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius);
+    display: block;
+    margin-bottom: 0.55rem;
+    overflow: hidden;
+    width: 100%;
+  }
+
+  body.list table.table-simple-ready tbody td,
+  body.list table.table-simple-ready tbody th {
+    border: 0 !important;
+    border-bottom: 1px dashed var(--divider-color, #d0d6e4) !important;
+    box-sizing: border-box;
+    display: block;
+    font-weight: 400 !important;
+    line-height: 1.25;
+    min-height: 1.9rem;
+    padding: 0.38rem 0.5rem !important;
+    text-align: left !important;
+    vertical-align: top;
+    width: 100%;
+  }
+
+  body.list table.table-simple-ready tbody tr > :last-child {
+    border-bottom: 0 !important;
+  }
+
+  body.list table.table-simple-ready.table-simple-1col tbody td,
+  body.list table.table-simple-ready.table-simple-1col tbody th {
+    border-bottom: 0 !important;
+  }
+
+  body.list table.table-simple-ready.table-simple-2col tbody td[data-stack-label],
+  body.list table.table-simple-ready.table-simple-2col tbody th[data-stack-label] {
+    align-items: start;
+    column-gap: 0.55rem;
+    display: grid;
+    grid-template-columns: minmax(0, 7.5rem) minmax(0, 1fr);
+  }
+
+  body.list table.table-simple-ready.table-simple-2col tbody td[data-stack-label] > .stack-cell-value,
+  body.list table.table-simple-ready.table-simple-2col tbody th[data-stack-label] > .stack-cell-value {
+    display: block;
+    min-width: 0;
+  }
+
+  body.list table.table-simple-ready.table-simple-2col tbody td[data-stack-label]::before,
+  body.list table.table-simple-ready.table-simple-2col tbody th[data-stack-label]::before {
     color: var(--tertiary-color, #002786);
     content: attr(data-stack-label);
-    display: block;
-    font-size: 0.74rem;
+    font-size: 0.72rem;
     font-weight: 700;
     letter-spacing: 0.02em;
-    margin-bottom: 0.2rem;
+    line-height: 1.2;
+    margin: 0;
+    text-transform: uppercase;
+  }
+}
+
+@media (width >= 511px) and (width <= 572px) {
+  body.list table.table-pairs-ready {
+    border-collapse: collapse !important;
+    max-width: 100%;
+    table-layout: fixed;
+    width: 100% !important;
+  }
+
+  body.list table.table-pairs-ready td,
+  body.list table.table-pairs-ready th {
+    overflow-wrap: anywhere;
+    word-break: normal;
+  }
+}
+
+@media (width <= 510px) {
+  body.list table.table-stack-ready {
+    border: 0;
+    border-collapse: collapse !important;
+    display: block;
+    width: 100% !important;
+  }
+
+  body.list table.table-stack-ready caption {
+    display: block;
+    text-align: left;
+  }
+
+  body.list table.table-stack-ready thead {
+    display: block;
+    height: auto;
+    margin: 0;
+    overflow: visible;
+    position: static;
+    width: 100%;
+  }
+
+  body.list table.table-stack-ready thead tr {
+    display: flex;
+    width: 100%;
+  }
+
+  body.list table.table-stack-ready thead th {
+    color: transparent !important;
+    display: block;
+    flex: 1 1 0;
+    min-width: 0;
+    text-align: center !important;
+  }
+
+  body.list table.table-stack-ready tbody,
+  body.list table.table-stack-ready tbody tr,
+  body.list table.table-stack-ready tbody td,
+  body.list table.table-stack-ready tbody th {
+    display: block;
+    width: 100%;
+  }
+
+  body.list table.table-stack-ready tbody {
+    max-width: 100%;
+  }
+
+  body.list table.table-stack-ready tbody tr {
+    background: var(--surface-color, #fff);
+    box-sizing: border-box;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius);
+    margin-bottom: 0.6rem;
+    overflow: hidden;
+  }
+
+  body.list table.table-stack-ready tbody td,
+  body.list table.table-stack-ready tbody th {
+    border: 0 !important;
+    border-bottom: 1px dashed var(--divider-color, #d0d6e4) !important;
+    box-sizing: border-box;
+    line-height: 1.25;
+    min-height: 2rem;
+    padding: 0.4rem 0.55rem !important;
+    text-align: left !important;
+  }
+
+  body.list table.table-stack-ready tbody tr > :last-child {
+    border-bottom: 0 !important;
+  }
+
+  body.list table.table-stack-ready tbody td[data-stack-label],
+  body.list table.table-stack-ready tbody th[data-stack-label] {
+    align-items: start;
+    column-gap: 0.55rem;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  }
+
+  body.list table.table-stack-ready tbody td[data-stack-label] > .stack-cell-value,
+  body.list table.table-stack-ready tbody th[data-stack-label] > .stack-cell-value {
+    display: block;
+    min-width: 0;
+  }
+
+  body.list table.table-stack-ready tbody td[data-stack-label]::before,
+  body.list table.table-stack-ready tbody th[data-stack-label]::before {
+    color: var(--tertiary-color, #002786);
+    content: attr(data-stack-label);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    line-height: 1.2;
+    margin: 0;
     text-transform: uppercase;
   }
 
-  body.list table.table-stack-ready td:empty::after,
-  body.list table.table-stack-ready th:empty::after {
+  body.list table.table-stack-ready tbody td:empty::after,
+  body.list table.table-stack-ready tbody th:empty::after {
     content: "-";
     opacity: 0.55;
   }

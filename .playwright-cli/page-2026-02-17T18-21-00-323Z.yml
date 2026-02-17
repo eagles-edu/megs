@@ -1,0 +1,221 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e4]:
+    - main [ref=e7]:
+      - generic [ref=e8]:
+        - heading "10. Conjugation of verbs page 2" [level=2] [ref=e10]
+        - generic [ref=e11]:
+          - navigation "breadcrumbs-top" [ref=e12]:
+            - list [ref=e13]:
+              - listitem
+              - listitem [ref=e14]:
+                - link "Home" [ref=e15] [cursor=pointer]:
+                  - /url: ../index-2.html
+                  - generic [ref=e16]: Home
+                - img [ref=e18]
+              - listitem [ref=e20]:
+                - link "Lesson 6 - Prepositions" [ref=e21] [cursor=pointer]:
+                  - /url: ../lesson-6-prepositions.html
+                  - generic [ref=e22]: Lesson 6 - Prepositions
+                - img [ref=e24]
+              - listitem [ref=e26]:
+                - generic [ref=e27]: 1. Prepositions of Time
+          - list [ref=e28]:
+            - listitem [ref=e29]:
+              - link "Previous" [ref=e30] [cursor=pointer]:
+                - /url: ../lesson-6-prepositions.html
+                - img "angle-left" [ref=e31]
+                - generic [ref=e33]: Lesson 6 - Prepositions
+            - listitem [ref=e34]:
+              - link "Next" [ref=e35] [cursor=pointer]:
+                - /url: 2-prepositions-of-place.html
+                - generic [ref=e36]: 2. Prepositions of Place
+                - img "angle-right" [ref=e37]
+          - list [ref=e39]:
+            - listitem [ref=e40]:
+              - link "Previous" [ref=e41] [cursor=pointer]:
+                - /url: ../lesson-6-prepositions.html
+                - img "angle-left" [ref=e42]
+                - generic [ref=e44]: Lesson 6 - Prepositions
+            - listitem [ref=e45]:
+              - link "Next" [ref=e46] [cursor=pointer]:
+                - /url: 2-prepositions-of-place.html
+                - generic [ref=e47]: 2. Prepositions of Place
+                - img "angle-right" [ref=e48]
+      - navigation "breadcrumbs-bottom" [ref=e50]:
+        - list [ref=e51]:
+          - listitem
+          - listitem [ref=e52]:
+            - link "Home" [ref=e53] [cursor=pointer]:
+              - /url: ../index-2.html
+              - generic [ref=e54]: Home
+            - img [ref=e56]
+          - listitem [ref=e58]:
+            - link "Lesson 6 - Prepositions" [ref=e59] [cursor=pointer]:
+              - /url: ../lesson-6-prepositions.html
+              - generic [ref=e60]: Lesson 6 - Prepositions
+            - img [ref=e62]
+          - listitem [ref=e64]:
+            - generic [ref=e65]: 1. Prepositions of Time
+    - complementary [ref=e66]:
+      - navigation "Lessons" [ref=e67]:
+        - list [ref=e68]:
+          - listitem [ref=e69]:
+            - generic [ref=e70]:
+              - button "Toggle submenu for Nouns" [ref=e71] [cursor=pointer]:
+                - img
+                - img
+              - link "Nouns" [ref=e73] [cursor=pointer]:
+                - /url: ../lesson-1-nouns.html
+          - listitem [ref=e74]:
+            - generic [ref=e75]:
+              - button "Toggle submenu for Verbs" [ref=e76] [cursor=pointer]:
+                - img
+                - img
+              - link "Verbs" [ref=e78] [cursor=pointer]:
+                - /url: ../lesson-2-verbs.html
+          - listitem [ref=e79]:
+            - generic [ref=e80]:
+              - button "Toggle submenu for Adjectives" [ref=e81] [cursor=pointer]:
+                - img
+                - img
+              - link "Adjectives" [ref=e83] [cursor=pointer]:
+                - /url: ../lesson-3-adjectives.html
+          - listitem [ref=e84]:
+            - generic [ref=e85]:
+              - button "Toggle submenu for Adverbs" [ref=e86] [cursor=pointer]:
+                - img
+                - img
+              - link "Adverbs" [ref=e88] [cursor=pointer]:
+                - /url: ../lesson-4-adverbs.html
+          - listitem [ref=e89]:
+            - generic [ref=e90]:
+              - button "Toggle submenu for Pronouns" [ref=e91] [cursor=pointer]:
+                - img
+                - img
+              - link "Pronouns" [ref=e93] [cursor=pointer]:
+                - /url: ../lesson-5-pronouns.html
+          - listitem [ref=e94]:
+            - generic [ref=e95]:
+              - button "Toggle submenu for Prepositions" [ref=e96] [cursor=pointer]:
+                - img
+                - img
+              - link "Prepositions" [ref=e98] [cursor=pointer]:
+                - /url: ../lesson-6-prepositions.html
+          - listitem [ref=e99]:
+            - generic [ref=e100]:
+              - button "Toggle submenu for Conjunctions" [ref=e101] [cursor=pointer]:
+                - img
+                - img
+              - link "Conjunctions" [ref=e103] [cursor=pointer]:
+                - /url: ../lesson-7-conjunctions.html
+          - listitem [ref=e104]:
+            - generic [ref=e105]:
+              - button "Toggle submenu for S+V Agreement" [ref=e106] [cursor=pointer]:
+                - img
+                - img
+              - link "S+V Agreement" [ref=e108] [cursor=pointer]:
+                - /url: ../lesson-8-subject-verb-agreement.html
+          - listitem [ref=e109]:
+            - generic [ref=e110]:
+              - button "Toggle submenu for Articles" [ref=e111] [cursor=pointer]:
+                - img
+                - img
+              - link "Articles" [ref=e113] [cursor=pointer]:
+                - /url: ../lesson-9-articles.html
+          - listitem [ref=e114]:
+            - generic [ref=e115]:
+              - button "Toggle submenu for Modal Verb" [ref=e116] [cursor=pointer]:
+                - img
+                - img
+              - link "Modal Verb" [ref=e118] [cursor=pointer]:
+                - /url: ../lesson-10-modal-verb.html
+          - listitem [ref=e119]:
+            - generic [ref=e120]:
+              - button "Toggle submenu for Conditionals" [ref=e121] [cursor=pointer]:
+                - img
+                - img
+              - link "Conditionals" [ref=e123] [cursor=pointer]:
+                - /url: ../lesson-11-conditionals.html
+          - listitem [ref=e124]:
+            - generic [ref=e125]:
+              - button "Toggle submenu for Modifiers" [ref=e126] [cursor=pointer]:
+                - img
+                - img
+              - link "Modifiers" [ref=e128] [cursor=pointer]:
+                - /url: ../lesson-12-modifiers.html
+          - listitem [ref=e129]:
+            - generic [ref=e130]:
+              - button "Toggle submenu for Speech Direction" [ref=e131] [cursor=pointer]:
+                - img
+                - img
+              - link "Speech Direction" [ref=e133] [cursor=pointer]:
+                - /url: ../lesson-13-indirect-speech.html
+          - listitem [ref=e134]:
+            - generic [ref=e135]:
+              - button "Toggle submenu for Either-Neither" [ref=e136] [cursor=pointer]:
+                - img
+                - img
+              - link "Either-Neither" [ref=e138] [cursor=pointer]:
+                - /url: ../lesson-14-either-neither.html
+          - listitem [ref=e139]:
+            - generic [ref=e140]:
+              - button "Toggle submenu for Active-Passive" [ref=e141] [cursor=pointer]:
+                - img
+                - img
+              - link "Active-Passive" [ref=e143] [cursor=pointer]:
+                - /url: ../lesson-15-active-and-passive-voice.html
+          - listitem [ref=e144]:
+            - generic [ref=e145]:
+              - button "Toggle submenu for Punctuation" [ref=e146] [cursor=pointer]:
+                - img
+                - img
+              - link "Punctuation" [ref=e148] [cursor=pointer]:
+                - /url: ../lesson-16-punctuation.html
+          - listitem [ref=e149]:
+            - generic [ref=e150]:
+              - button "Toggle submenu for Clauses" [ref=e151] [cursor=pointer]:
+                - img
+                - img
+              - link "Clauses" [ref=e153] [cursor=pointer]:
+                - /url: ../lesson-17-clauses.html
+          - listitem [ref=e154]:
+            - generic [ref=e155]:
+              - button "Toggle submenu for Verb-ing" [ref=e156] [cursor=pointer]:
+                - img
+                - img
+              - link "Verb-ing" [ref=e158] [cursor=pointer]:
+                - /url: ../lesson-18-verb-ing.html
+          - listitem [ref=e159]:
+            - generic [ref=e160]:
+              - button "Toggle submenu for Determiners" [ref=e161] [cursor=pointer]:
+                - img
+                - img
+              - link "Determiners" [ref=e163] [cursor=pointer]:
+                - /url: ../lesson-19-determiners-and-quantifiers.html
+          - listitem [ref=e164]:
+            - generic [ref=e165]:
+              - button "Toggle submenu for Phrasal Verbs" [ref=e166] [cursor=pointer]:
+                - img
+                - img
+              - link "Phrasal Verbs" [ref=e168] [cursor=pointer]:
+                - /url: ../lesson-20-phrasal-verbs.html
+          - listitem [ref=e169]:
+            - generic [ref=e170]:
+              - button "Toggle submenu for Phrases" [ref=e171] [cursor=pointer]:
+                - img
+                - img
+              - link "Phrases" [ref=e173] [cursor=pointer]:
+                - /url: ../lesson-21-phrases.html
+          - listitem [ref=e174]:
+            - generic [ref=e175]:
+              - button "Toggle submenu for Participles" [ref=e176] [cursor=pointer]:
+                - img
+                - img
+              - link "Participles" [ref=e178] [cursor=pointer]:
+                - /url: ../lesson-22-participles.html
+  - contentinfo [ref=e179]:
+    - generic [ref=e180]:
+      - paragraph [ref=e181]:
+        - link "Back to Top" [ref=e182] [cursor=pointer]:
+          - /url: "#top"
+      - paragraph [ref=e183]: © 2026 All rights reserved.

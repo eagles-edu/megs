@@ -1,0 +1,289 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e4]:
+    - main [ref=e7]:
+      - generic [ref=e8]:
+        - heading "Linking Verbs" [level=2] [ref=e10]
+        - generic [ref=e11]:
+          - navigation "breadcrumbs-top" [ref=e12]:
+            - list [ref=e13]:
+              - listitem
+              - listitem [ref=e14]:
+                - link "Home" [ref=e15] [cursor=pointer]:
+                  - /url: ../../index-2.html
+                  - generic [ref=e16]: Home
+                - img [ref=e18]
+              - listitem [ref=e20]:
+                - link "List 4 - Verbs" [ref=e21] [cursor=pointer]:
+                  - /url: ../../list-4-verbs.html
+                  - generic [ref=e22]: List 4 - Verbs
+                - img [ref=e24]
+              - listitem [ref=e26]:
+                - link "Different Verb Types" [ref=e27] [cursor=pointer]:
+                  - /url: ../different-verb-types.html
+                  - generic [ref=e28]: Different Verb Types
+                - img [ref=e30]
+              - listitem [ref=e32]:
+                - generic [ref=e33]: Linking Verbs
+          - list [ref=e34]:
+            - listitem [ref=e35]:
+              - link "Previous" [ref=e36] [cursor=pointer]:
+                - /url: auxiliary-verb.html
+                - img "angle-left" [ref=e37]
+                - generic [ref=e39]: Auxiliary Verbs
+            - listitem [ref=e40]:
+              - link "Next" [ref=e41] [cursor=pointer]:
+                - /url: stative-verbs.html
+                - generic [ref=e42]: Stative Verbs
+                - img "angle-right" [ref=e43]
+          - heading "Linking Verbs" [level=3] [ref=e45]
+          - paragraph [ref=e46]:
+            - strong [ref=e47]: Linking verbs are not used to show actions. They act as a link between the subject and the complement, which describes the subject .
+            - emphasis [ref=e48]: The complement is mostly an adjective or an adjective phrase
+            - text: although it can be a noun phrase or an adverbial. The complement gives more information about the subject.
+          - paragraph [ref=e49]:
+            - strong [ref=e50]: "Verbs that are always linking verbs:"
+          - table [ref=e51]:
+            - rowgroup [ref=e52]:
+              - row "Dedicated Linking Verbs" [ref=e53]:
+                - columnheader "Dedicated Linking Verbs" [ref=e54]
+            - rowgroup [ref=e55]:
+              - row "be* become seem" [ref=e56]:
+                - cell "be*" [ref=e57]
+                - cell "become" [ref=e58]
+                - cell "seem" [ref=e59]
+          - paragraph [ref=e60]:
+            - emphasis [ref=e61]: "* and any form of the verb be ."
+          - paragraph [ref=e62]:
+            - strong [ref=e63]: "Linking verbs that are any forms of the verb 'to be' are also helping verbs :"
+          - table [ref=e64]:
+            - rowgroup [ref=e65]:
+              - row "All eight forms of 'to be' are also helping verbs" [ref=e66]:
+                - columnheader "All eight forms of 'to be' are also helping verbs" [ref=e67]
+            - rowgroup [ref=e68]:
+              - row "is was been" [ref=e69]:
+                - cell "is" [ref=e70]
+                - cell "was" [ref=e71]
+                - cell "been" [ref=e72]
+              - row "am were being" [ref=e73]:
+                - cell "am" [ref=e74]
+                - cell "were" [ref=e75]
+                - cell "being" [ref=e76]
+              - row "are be" [ref=e77]:
+                - cell "are" [ref=e78]
+                - cell "be" [ref=e79]
+                - cell [ref=e80]
+          - paragraph [ref=e81]:
+            - text: The
+            - strong [ref=e82]: linking verbs are boldfaced
+            - text: in the following examples.
+          - generic [ref=e83]:
+            - heading "Examples:" [level=4] [ref=e84]
+            - list [ref=e85]:
+              - listitem [ref=e86]:
+                - text: ★ Sitting on a garden bench and watching people jogging past is my new hobby.
+                - paragraph [ref=e87]: "(Complement = noun phrase: my new hobby)"
+              - listitem [ref=e88]:
+                - text: ★ Those trees are where owls roost and hoot at night.
+                - paragraph [ref=e89]: "(Complement = adverbial phrase: where owls roost and hoot at night.)"
+              - listitem [ref=e90]:
+                - text: ★ This morning our boss was grumpy.
+                - paragraph [ref=e91]: "(Complement = adjective: grumpy)"
+              - listitem [ref=e92]:
+                - text: ★ The graves of their parents were marked by simple headstones.
+                - paragraph [ref=e93]: "(Complement = adjective phrase: marked by simple headstones.)"
+          - list [ref=e94]:
+            - listitem [ref=e95]:
+              - link "Previous" [ref=e96] [cursor=pointer]:
+                - /url: auxiliary-verb.html
+                - img "angle-left" [ref=e97]
+                - generic [ref=e99]: Auxiliary Verbs
+            - listitem [ref=e100]:
+              - link "Next" [ref=e101] [cursor=pointer]:
+                - /url: stative-verbs.html
+                - generic [ref=e102]: Stative Verbs
+                - img "angle-right" [ref=e103]
+      - navigation "breadcrumbs-bottom" [ref=e105]:
+        - list [ref=e106]:
+          - listitem
+          - listitem [ref=e107]:
+            - link "Home" [ref=e108] [cursor=pointer]:
+              - /url: ../../index-2.html
+              - generic [ref=e109]: Home
+            - img [ref=e111]
+          - listitem [ref=e113]:
+            - link "List 4 - Verbs" [ref=e114] [cursor=pointer]:
+              - /url: ../../list-4-verbs.html
+              - generic [ref=e115]: List 4 - Verbs
+            - img [ref=e117]
+          - listitem [ref=e119]:
+            - link "Different Verb Types" [ref=e120] [cursor=pointer]:
+              - /url: ../different-verb-types.html
+              - generic [ref=e121]: Different Verb Types
+            - img [ref=e123]
+          - listitem [ref=e125]:
+            - generic [ref=e126]: Linking Verbs
+    - complementary [ref=e127]:
+      - navigation "Lists" [ref=e128]:
+        - list [ref=e129]:
+          - listitem [ref=e130]:
+            - generic [ref=e131]:
+              - button "Toggle submenu for Singular-Plural" [ref=e132] [cursor=pointer]:
+                - img
+                - img
+              - link "Menu Link" [ref=e134] [cursor=pointer]:
+                - /url: ../../list-1-singular-and-plural-nouns.html
+                - text: Singular-Plural
+          - listitem [ref=e135]:
+            - generic [ref=e136]:
+              - button "Toggle submenu for Counting Nouns" [ref=e137] [cursor=pointer]:
+                - img
+                - img
+              - link "Menu Link" [ref=e139] [cursor=pointer]:
+                - /url: ../../list-2-uncountable-nouns-made-countable.html
+                - text: Counting Nouns
+          - listitem [ref=e140]:
+            - generic [ref=e141]:
+              - button "Toggle submenu for Collective Nouns" [ref=e142] [cursor=pointer]:
+                - img
+                - img
+              - link "Menu Link" [ref=e144] [cursor=pointer]:
+                - /url: ../../list-3-collective-nouns.html
+                - text: Collective Nouns
+          - listitem [ref=e145]:
+            - generic [ref=e146]:
+              - button "Toggle submenu for Verbs" [ref=e147] [cursor=pointer]:
+                - img
+                - img
+              - link "Menu Link" [ref=e149] [cursor=pointer]:
+                - /url: ../../list-4-verbs.html
+                - text: Verbs
+          - listitem [ref=e150]:
+            - generic [ref=e151]:
+              - button "Toggle submenu for Irregular Verbs" [ref=e152] [cursor=pointer]:
+                - img
+                - img
+              - link "Menu Link" [ref=e154] [cursor=pointer]:
+                - /url: ../../list-5-irregular-verbs.html
+                - text: Irregular Verbs
+          - listitem [ref=e155]:
+            - generic [ref=e156]:
+              - button "Toggle submenu for Adjectives" [ref=e157] [cursor=pointer]:
+                - img
+                - img
+              - link "Menu Link" [ref=e159] [cursor=pointer]:
+                - /url: ../../list-6-adjectives.html
+                - text: Adjectives
+          - listitem [ref=e160]:
+            - generic [ref=e161]:
+              - button "Toggle submenu for Comparison" [ref=e162] [cursor=pointer]:
+                - img
+                - img
+              - link "Menu Link" [ref=e164] [cursor=pointer]:
+                - /url: ../../list-7-comparison-of-adjectives.html
+                - text: Comparison
+          - listitem [ref=e165]:
+            - generic [ref=e166]:
+              - button "Toggle submenu for Adverbs" [ref=e167] [cursor=pointer]:
+                - img
+                - img
+              - link "Menu Link" [ref=e169] [cursor=pointer]:
+                - /url: ../../list-8-adverbs.html
+                - text: Adverbs
+          - listitem [ref=e170]:
+            - generic [ref=e171]:
+              - button "Toggle submenu for Adv. = Adj." [ref=e172] [cursor=pointer]:
+                - img
+                - img
+              - link "Menu Link" [ref=e174] [cursor=pointer]:
+                - /url: ../../list-9-adverbs-sharing-same-words-as-adjectives.html
+                - text: Adv. = Adj.
+          - listitem [ref=e175]:
+            - link "Menu Link" [ref=e178] [cursor=pointer]:
+              - /url: ../../list-10-pronouns.html
+              - text: Pronouns
+          - listitem [ref=e179]:
+            - generic [ref=e180]:
+              - button "Toggle submenu for Prepositions" [ref=e181] [cursor=pointer]:
+                - img
+                - img
+              - link "Menu Link" [ref=e183] [cursor=pointer]:
+                - /url: ../../list-11-prepositions.html
+                - text: Prepositions
+          - listitem [ref=e184]:
+            - link "Menu Link" [ref=e187] [cursor=pointer]:
+              - /url: ../../list-12-conjunctions.html
+              - text: Conjunctions
+          - listitem [ref=e188]:
+            - link "Menu Link" [ref=e191] [cursor=pointer]:
+              - /url: ../../list-13-forming-abstract-nouns.html
+              - text: Abstract Nouns
+          - listitem [ref=e192]:
+            - generic [ref=e193]:
+              - button "Toggle submenu for Phrasal Verbs" [ref=e194] [cursor=pointer]:
+                - img
+                - img
+              - link "Menu Link" [ref=e196] [cursor=pointer]:
+                - /url: ../../list-14-phrasal-verbs.html
+                - text: Phrasal Verbs
+          - listitem [ref=e197]:
+            - link "Menu Link" [ref=e200] [cursor=pointer]:
+              - /url: ../../list-15-idioms.html
+              - text: Common Idioms
+          - listitem [ref=e201]:
+            - generic [ref=e202]:
+              - button "Toggle submenu for 1000 Idioms" [ref=e203] [cursor=pointer]:
+                - img
+                - img
+              - link "Menu Link" [ref=e205] [cursor=pointer]:
+                - /url: ../../list-16-phrases-and-idioms.html
+                - text: 1000 Idioms
+          - listitem [ref=e206]:
+            - generic [ref=e207]:
+              - button "Toggle submenu for Proverbs" [ref=e208] [cursor=pointer]:
+                - img
+                - img
+              - link "Menu Link" [ref=e210] [cursor=pointer]:
+                - /url: ../../list-17-proverbs-and-sayings.html
+                - text: Proverbs
+          - listitem [ref=e211]:
+            - link "Menu Link" [ref=e214] [cursor=pointer]:
+              - /url: ../../list-18-foreign-phrases-commonly-used-in-english.html
+              - text: Foreign Phrases
+          - listitem [ref=e215]:
+            - link "Menu Link" [ref=e218] [cursor=pointer]:
+              - /url: ../../list-19-parents-and-young.html
+              - text: Parents/Youth
+          - listitem [ref=e219]:
+            - generic [ref=e220]:
+              - button "Toggle submenu for Gender" [ref=e221] [cursor=pointer]:
+                - img
+                - img
+              - link "Menu Link" [ref=e223] [cursor=pointer]:
+                - /url: ../../list-20-gender.html
+                - text: Gender
+          - listitem [ref=e224]:
+            - link "Menu Link" [ref=e227] [cursor=pointer]:
+              - /url: ../../list-21-homes-of-people-and-creatures.html
+              - text: Home Types
+          - listitem [ref=e228]:
+            - link "Menu Link" [ref=e231] [cursor=pointer]:
+              - /url: ../../list-22-objects-animals-and-sounds.html
+              - text: Objects/Sounds
+          - listitem [ref=e232]:
+            - link "Menu Link" [ref=e235] [cursor=pointer]:
+              - /url: ../../list-23-antonyms.html
+              - text: Antonyms
+          - listitem [ref=e236]:
+            - link "Menu Link" [ref=e239] [cursor=pointer]:
+              - /url: ../../list-24-synonyms.html
+              - text: Synonyms
+          - listitem [ref=e240]:
+            - link "Menu Link" [ref=e243] [cursor=pointer]:
+              - /url: ../../list-25-homonyms.html
+              - text: Homonyms
+  - contentinfo [ref=e244]:
+    - generic [ref=e245]:
+      - paragraph [ref=e246]:
+        - link "Back to Top" [ref=e247] [cursor=pointer]:
+          - /url: "#top"
+      - paragraph [ref=e248]: © 2026 All rights reserved.

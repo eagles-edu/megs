@@ -1,0 +1,433 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - generic [ref=e4]:
+      - main [ref=e7]:
+        - generic [ref=e8]:
+          - generic [ref=e9]:
+            - heading "3.3.1 Forming Adjectives" [level=2] [ref=e10]
+            - navigation "Breadcrumb" [ref=e11]:
+              - list [ref=e12]:
+                - listitem
+                - listitem [ref=e13]:
+                  - link "Home" [ref=e14] [cursor=pointer]:
+                    - /url: ../index-2.html
+                  - img [ref=e16]
+                - listitem [ref=e18]:
+                  - link "Exercise 3 - Adjectives" [ref=e19] [cursor=pointer]:
+                    - /url: ../exercise-3-adjectives.html
+                  - img [ref=e21]
+                - listitem [ref=e23]:
+                  - generic [ref=e24]: 3.3.1 Forming Adjectives
+          - generic [ref=e25]:
+            - list [ref=e26]:
+              - listitem [ref=e27]:
+                - link "Previous" [ref=e28] [cursor=pointer]:
+                  - /url: 321-comparing-adjectives.html
+                  - img "angle-left" [ref=e29]
+                  - generic [ref=e31]: 3.2.1 Comparison of Adjectives
+              - listitem [ref=e32]:
+                - link "Next" [ref=e33] [cursor=pointer]:
+                  - /url: 341-using-adjectives-i.html
+                  - generic [ref=e34]: 3.4.1 Using Adjectives I
+                  - img "angle-right" [ref=e35]
+            - paragraph [ref=e37]: Use an appropriate appropriate in the bracket to complete the sentence. Click to check your answer.
+            - generic [ref=e38]:
+              - group "Exercise setup" [ref=e39]:
+                - generic [ref=e40]: Exercise setup
+                - generic [ref=e41]:
+                  - generic [ref=e42]:
+                    - textbox "name@example.com" [ref=e44]
+                    - textbox "Eagles user ID - e.g., tammy001" [ref=e46]
+                  - paragraph [ref=e47]: 0 of 25 questions completed.
+              - generic [ref=e52]:
+                - link "Answer" [ref=e54] [cursor=pointer]:
+                  - /url: 331-forming-adjectives.html#331-forming-adjectives.html#1-the-supporters-were-disappointing-disappointed-in-the-way-the-team-played
+                  - text: 1. The supporters were (disappointing/disappointed) in the way the team played.
+                - paragraph [ref=e56]: 1. The supporters were disappointed in the way the team played.
+                - generic [ref=e58]:
+                  - generic [ref=e59]: Response for item q1-the-supporters-were-disappointing-disappointed-in-the-way-the-team-played (answer_01)
+                  - textbox "Response for item q1-the-supporters-were-disappointing-disappointed-in-the-way-the-team-played (answer_01)" [ref=e60]:
+                    - /placeholder: Answer
+              - generic [ref=e63]:
+                - link "Answer" [ref=e65] [cursor=pointer]:
+                  - /url: 331-forming-adjectives.html#331-forming-adjectives.html#2-when-did-you-get-interesting-interested-in-politics
+                  - text: 2. When did you get (interesting/interested) in politics?
+                - paragraph [ref=e67]: 2. When did you get interested in politics?
+                - generic [ref=e69]:
+                  - generic [ref=e70]: Response for item q2-when-did-you-get-interesting-interested-in-politics (answer_01)
+                  - textbox "Response for item q2-when-did-you-get-interesting-interested-in-politics (answer_01)" [ref=e71]:
+                    - /placeholder: Answer
+              - generic [ref=e74]:
+                - link "Answer" [ref=e76] [cursor=pointer]:
+                  - /url: 331-forming-adjectives.html#331-forming-adjectives.html#3-what-attracting-attracted-me-most-to-the-job-was-the-chance-to-travel
+                  - text: 3. What (attracting/attracted) me most to the job was the chance to travel.
+                - paragraph [ref=e78]: 3. What attracted me most to the job was the chance to travel.
+                - generic [ref=e80]:
+                  - generic [ref=e81]: Response for item q3-what-attracting-attracted-me-most-to-the-job-was-the-chance-to-travel (answer_01)
+                  - textbox "Response for item q3-what-attracting-attracted-me-most-to-the-job-was-the-chance-to-travel (answer_01)" [ref=e82]:
+                    - /placeholder: Answer
+              - generic [ref=e85]:
+                - link "Answer" [ref=e87] [cursor=pointer]:
+                  - /url: 331-forming-adjectives.html#331-forming-adjectives.html#4-the-tennis-match-was-quite-exciting-excited-we-enjoyed-it
+                  - text: 4. The tennis match was quite (exciting/excited). We enjoyed it.
+                - paragraph [ref=e89]: 4. The tennis match was quite exciting . We enjoyed it.
+                - generic [ref=e91]:
+                  - generic [ref=e92]: Response for item q4-the-tennis-match-was-quite-exciting-excited-we-enjoyed-it (answer_01)
+                  - textbox "Response for item q4-the-tennis-match-was-quite-exciting-excited-we-enjoyed-it (answer_01)" [ref=e93]:
+                    - /placeholder: Answer
+              - generic [ref=e96]:
+                - link "Answer" [ref=e98] [cursor=pointer]:
+                  - /url: 331-forming-adjectives.html#331-forming-adjectives.html#5-it-s-sometimes-embarrassing-embarrassed-when-you-have-to-ask-people-for-money
+                  - text: 5. It's sometimes (embarrassing/embarrassed) when you have to ask people for money.
+                - paragraph [ref=e100]: 5. It's sometimes embarrassing when you have to ask people for money.
+                - generic [ref=e102]:
+                  - generic [ref=e103]: Response for item q5-it-s-sometimes-embarrassing-embarrassed-when-you-have-to-ask-people-for-money (answer_01)
+                  - textbox "Response for item q5-it-s-sometimes-embarrassing-embarrassed-when-you-have-to-ask-people-for-money (answer_01)" [ref=e104]:
+                    - /placeholder: Answer
+              - generic [ref=e107]:
+                - link "Answer" [ref=e109] [cursor=pointer]:
+                  - /url: 331-forming-adjectives.html#331-forming-adjectives.html#6-do-you-easily-get-embarrassing-embarrassed
+                  - text: 6. Do you easily get (embarrassing/embarrassed)?
+                - paragraph [ref=e111]: 6. Do you easily get embarrassed ?
+                - generic [ref=e113]:
+                  - generic [ref=e114]: Response for item q6-do-you-easily-get-embarrassing-embarrassed (answer_01)
+                  - textbox "Response for item q6-do-you-easily-get-embarrassing-embarrassed (answer_01)" [ref=e115]:
+                    - /placeholder: Answer
+              - generic [ref=e118]:
+                - link "Answer" [ref=e120] [cursor=pointer]:
+                  - /url: 331-forming-adjectives.html#331-forming-adjectives.html#7-i-had-never-expected-to-get-the-job-i-was-really-amazing-amazed-when-i-was-offered-it
+                  - text: 7. I had never expected to get the job. I was really (amazing/amazed) when I was offered it.
+                - paragraph [ref=e122]: 7. I had never expected to get the job. I was really amazed when I was offered it.
+                - generic [ref=e124]:
+                  - generic [ref=e125]: Response for item q7-i-had-never-expected-to-get-the-job-i-was-really-amazing-amazed-when-i-was-offered-it (answer_01)
+                  - textbox "Response for item q7-i-had-never-expected-to-get-the-job-i-was-really-amazing-amazed-when-i-was-offered-it (answer_01)" [ref=e126]:
+                    - /placeholder: Answer
+              - generic [ref=e129]:
+                - link "Answer" [ref=e131] [cursor=pointer]:
+                  - /url: 331-forming-adjectives.html#331-forming-adjectives.html#8-she-is-learning-very-fast-she-has-made-astonishing-astonished-progress
+                  - text: 8. She is learning very fast. She has made (astonishing/astonished) progress.
+                - paragraph [ref=e133]: 8. She is learning very fast. She has made astonishing progress.
+                - generic [ref=e135]:
+                  - generic [ref=e136]: Response for item q8-she-is-learning-very-fast-she-has-made-astonishing-astonished-progress (answer_01)
+                  - textbox "Response for item q8-she-is-learning-very-fast-she-has-made-astonishing-astonished-progress (answer_01)" [ref=e137]:
+                    - /placeholder: Answer
+              - generic [ref=e140]:
+                - link "Answer" [ref=e142] [cursor=pointer]:
+                  - /url: 331-forming-adjectives.html#331-forming-adjectives.html#9-i-didn-t-find-the-situation-funny-i-was-not-amusing-amused
+                  - text: 9. I didn't find the situation funny. I was not (amusing/amused).
+                - paragraph [ref=e144]: 9. I didn't find the situation funny. I was not amused .
+                - generic [ref=e146]:
+                  - generic [ref=e147]: Response for item q9-i-didn-t-find-the-situation-funny-i-was-not-amusing-amused (answer_01)
+                  - textbox "Response for item q9-i-didn-t-find-the-situation-funny-i-was-not-amusing-amused (answer_01)" [ref=e148]:
+                    - /placeholder: Answer
+              - generic [ref=e151]:
+                - link "Answer" [ref=e153] [cursor=pointer]:
+                  - /url: 331-forming-adjectives.html#331-forming-adjectives.html#10-it-was-a-really-terrifying-terrified-experience-and-afterwards-everybody-was-very-shocking-shocked
+                  - text: 10. It was a really (terrifying/terrified) experience, and afterwards everybody was very (shocking/shocked).
+                - paragraph [ref=e155]: 10. It was a really terrifying experience, and afterwards everybody was very shocked .
+                - generic [ref=e157]:
+                  - generic [ref=e158]: Response for item q10-it-was-a-really-terrifying-terrified-experience-and-afterwards-everybody-was-very-shocking-shocked (answer_01)
+                  - textbox "Response for item q10-it-was-a-really-terrifying-terrified-experience-and-afterwards-everybody-was-very-shocking-shocked (answer_01)" [ref=e159]:
+                    - /placeholder: Answer
+              - generic [ref=e162]:
+                - link "Answer" [ref=e164] [cursor=pointer]:
+                  - /url: 331-forming-adjectives.html#331-forming-adjectives.html#11-why-do-you-always-look-so-boring-bored-is-your-life-really-so-boring-bored
+                  - text: 11. Why do you always look so (boring/bored)? Is your life really so (boring/bored)?
+                - paragraph [ref=e166]: 11. Why do you always look so bored ? Is your life really so boring ?
+                - generic [ref=e168]:
+                  - generic [ref=e169]: Response for item q11-why-do-you-always-look-so-boring-bored-is-your-life-really-so-boring-bored (answer_01)
+                  - textbox "Response for item q11-why-do-you-always-look-so-boring-bored-is-your-life-really-so-boring-bored (answer_01)" [ref=e170]:
+                    - /placeholder: Answer
+              - generic [ref=e173]:
+                - link "Answer" [ref=e175] [cursor=pointer]:
+                  - /url: 331-forming-adjectives.html#331-forming-adjectives.html#12-he-s-one-of-the-most-boring-bored-people-i-ve-ever-met-he-never-stops-talking-and-he-never-says-anything-interesting-interested
+                  - text: 12. He's one of the most (boring/bored) people I've ever met. He never stops talking and he never says anything (interesting/interested).
+                - paragraph [ref=e177]: 12. He's one of the most boring people I've ever met. He never stops talking and he never says anything interesting .
+                - generic [ref=e179]:
+                  - generic [ref=e180]: Response for item q12-he-s-one-of-the-most-boring-bored-people-i-ve-ever-met-he-never-stops-talking-and-he-never-says-anything-interesting-interested (answer_01)
+                  - textbox "Response for item q12-he-s-one-of-the-most-boring-bored-people-i-ve-ever-met-he-never-stops-talking-and-he-never-says-anything-interesting-interested (answer_01)" [ref=e181]:
+                    - /placeholder: Answer
+              - generic [ref=e184]:
+                - link "Answer" [ref=e186] [cursor=pointer]:
+                  - /url: 331-forming-adjectives.html#331-forming-adjectives.html#13-he-works-very-hard-it-s-not-_____-that-he-s-always-tired
+                  - text: 13. He works very hard. It's not _____ that he's always tired.
+                - paragraph [ref=e188]: 13. He works very hard. It's not surprising that he's always tired.
+                - generic [ref=e190]:
+                  - generic [ref=e191]: Response for item q13-he-works-very-hard-it-s-not-_____-that-he-s-always-tired (answer_01)
+                  - textbox "Response for item q13-he-works-very-hard-it-s-not-_____-that-he-s-always-tired (answer_01)" [ref=e192]:
+                    - /placeholder: Answer
+              - generic [ref=e195]:
+                - link "Answer" [ref=e197] [cursor=pointer]:
+                  - /url: 331-forming-adjectives.html#331-forming-adjectives.html#14-i-have-nothing-to-do-i-m-_____
+                  - text: 14. I have nothing to do. I'm _____.
+                - paragraph [ref=e199]: 14. I have nothing to do. I'm bored .
+                - generic [ref=e201]:
+                  - generic [ref=e202]: Response for item q14-i-have-nothing-to-do-i-m-_____ (answer_01)
+                  - textbox "Response for item q14-i-have-nothing-to-do-i-m-_____ (answer_01)" [ref=e203]:
+                    - /placeholder: Answer
+              - generic [ref=e206]:
+                - link "Answer" [ref=e208] [cursor=pointer]:
+                  - /url: 331-forming-adjectives.html#331-forming-adjectives.html#15-the-teacher-s-explanation-was-_____-most-of-the-students-didn-t-understand-it
+                  - text: 15. The teacher's explanation was _____. Most of the students didn't understand it.
+                - paragraph [ref=e210]: 15. The teacher's explanation was confusing . Most of the students didn't understand it.
+                - generic [ref=e212]:
+                  - generic [ref=e213]: Response for item q15-the-teacher-s-explanation-was-_____-most-of-the-students-didn-t-understand-it (answer_01)
+                  - textbox "Response for item q15-the-teacher-s-explanation-was-_____-most-of-the-students-didn-t-understand-it (answer_01)" [ref=e214]:
+                    - /placeholder: Answer
+              - generic [ref=e217]:
+                - link "Answer" [ref=e219] [cursor=pointer]:
+                  - /url: 331-forming-adjectives.html#331-forming-adjectives.html#16-the-kitchen-hadn-t-been-cleaned-for-ages-it-was-really-_____
+                  - text: 16. The kitchen hadn't been cleaned for ages. It was really _____.
+                - paragraph [ref=e221]: 16. The kitchen hadn't been cleaned for ages. It was really disgusting .
+                - generic [ref=e223]:
+                  - generic [ref=e224]: Response for item q16-the-kitchen-hadn-t-been-cleaned-for-ages-it-was-really-_____ (answer_01)
+                  - textbox "Response for item q16-the-kitchen-hadn-t-been-cleaned-for-ages-it-was-really-_____ (answer_01)" [ref=e225]:
+                    - /placeholder: Answer
+              - generic [ref=e228]:
+                - link "Answer" [ref=e230] [cursor=pointer]:
+                  - /url: 331-forming-adjectives.html#331-forming-adjectives.html#17-i-seldom-visit-art-galleries-i-m-not-particularly-_____-in-art
+                  - text: 17. I seldom visit art galleries. I'm not particularly _____ in art.
+                - paragraph [ref=e232]: 17. I seldom visit art galleries. I'm not particularly interested in art.
+                - generic [ref=e234]:
+                  - generic [ref=e235]: Response for item q17-i-seldom-visit-art-galleries-i-m-not-particularly-_____-in-art (answer_01)
+                  - textbox "Response for item q17-i-seldom-visit-art-galleries-i-m-not-particularly-_____-in-art (answer_01)" [ref=e236]:
+                    - /placeholder: Answer
+              - generic [ref=e239]:
+                - link "Answer" [ref=e241] [cursor=pointer]:
+                  - /url: 331-forming-adjectives.html#331-forming-adjectives.html#18-there-s-no-need-to-get-_____-just-because-i-m-a-few-minutes-late
+                  - text: 18. There's no need to get _____ just because I'm a few minutes late.
+                - paragraph [ref=e243]: 18. There's no need to get annoyed just because I'm a few minutes late.
+                - generic [ref=e245]:
+                  - generic [ref=e246]: Response for item q18-there-s-no-need-to-get-_____-just-because-i-m-a-few-minutes-late (answer_01)
+                  - textbox "Response for item q18-there-s-no-need-to-get-_____-just-because-i-m-a-few-minutes-late (answer_01)" [ref=e247]:
+                    - /placeholder: Answer
+              - generic [ref=e250]:
+                - link "Answer" [ref=e252] [cursor=pointer]:
+                  - /url: 331-forming-adjectives.html#331-forming-adjectives.html#19-the-lecture-was-_____-i-fell-asleep
+                  - text: 19. The lecture was _____. I fell asleep.
+                - paragraph [ref=e254]: 19. The lecture was boring . I fell asleep.
+                - generic [ref=e256]:
+                  - generic [ref=e257]: Response for item q19-the-lecture-was-_____-i-fell-asleep (answer_01)
+                  - textbox "Response for item q19-the-lecture-was-_____-i-fell-asleep (answer_01)" [ref=e258]:
+                    - /placeholder: Answer
+              - generic [ref=e261]:
+                - link "Answer" [ref=e263] [cursor=pointer]:
+                  - /url: 331-forming-adjectives.html#331-forming-adjectives.html#20-i-asked-emily-if-she-wanted-to-come-out-with-us-but-she-wasn-t-_____
+                  - text: 20. I asked Emily if she wanted to come out with us but she wasn't _____.
+                - paragraph [ref=e265]: 20. I asked Emily if she wanted to come out with us but she wasn't interested .
+                - generic [ref=e267]:
+                  - generic [ref=e268]: Response for item q20-i-asked-emily-if-she-wanted-to-come-out-with-us-but-she-wasn-t-_____ (answer_01)
+                  - textbox "Response for item q20-i-asked-emily-if-she-wanted-to-come-out-with-us-but-she-wasn-t-_____ (answer_01)" [ref=e269]:
+                    - /placeholder: Answer
+              - generic [ref=e272]:
+                - link "Answer" [ref=e274] [cursor=pointer]:
+                  - /url: 331-forming-adjectives.html#331-forming-adjectives.html#21-i-ve-been-working-very-hard-all-day-and-now-i-m-_____
+                  - text: 21. I've been working very hard all day and now I'm _____.
+                - paragraph [ref=e276]: 21. I've been working very hard all day and now I'm exhausted .
+                - generic [ref=e278]:
+                  - generic [ref=e279]: Response for item q21-i-ve-been-working-very-hard-all-day-and-now-i-m-_____ (answer_01)
+                  - textbox "Response for item q21-i-ve-been-working-very-hard-all-day-and-now-i-m-_____ (answer_01)" [ref=e280]:
+                    - /placeholder: Answer
+              - generic [ref=e283]:
+                - link "Answer" [ref=e285] [cursor=pointer]:
+                  - /url: 331-forming-adjectives.html#331-forming-adjectives.html#22-he-s-starting-a-new-job-next-week-he-s-quite-_____-about-it
+                  - text: 22. He's starting a new job next week. He's quite _____ about it.
+                - paragraph [ref=e287]: 22. He's starting a new job next week. He's quite excited about it.
+                - generic [ref=e289]:
+                  - generic [ref=e290]: Response for item q22-he-s-starting-a-new-job-next-week-he-s-quite-_____-about-it (answer_01)
+                  - textbox "Response for item q22-he-s-starting-a-new-job-next-week-he-s-quite-_____-about-it (answer_01)" [ref=e291]:
+                    - /placeholder: Answer
+              - generic [ref=e294]:
+                - link "Answer" [ref=e296] [cursor=pointer]:
+                  - /url: 331-forming-adjectives.html#331-forming-adjectives.html#23-tom-is-very-good-at-telling-funny-stories-he-can-be-very-_____
+                  - text: 23. Tom is very good at telling funny stories. He can be very _____.
+                - paragraph [ref=e298]: 23. Tom is very good at telling funny stories. He can be very amusing .
+                - generic [ref=e300]:
+                  - generic [ref=e301]: Response for item q23-tom-is-very-good-at-telling-funny-stories-he-can-be-very-_____ (answer_01)
+                  - textbox "Response for item q23-tom-is-very-good-at-telling-funny-stories-he-can-be-very-_____ (answer_01)" [ref=e302]:
+                    - /placeholder: Answer
+              - generic [ref=e305]:
+                - link "Answer" [ref=e307] [cursor=pointer]:
+                  - /url: 331-forming-adjectives.html#331-forming-adjectives.html#24-liz-is-a-very-_____-person-she-knows-a-lot-she-s-traveled-a-lot-and-she-s-done-lots-of-different-things
+                  - text: 24. Liz is a very _____ person. She knows a lot, she's traveled a lot, and she's done lots of different things.
+                - paragraph [ref=e309]: 24. Liz is a very interesting person. She knows a lot, she's traveled a lot, and she's done lots of different things.
+                - generic [ref=e311]:
+                  - generic [ref=e312]: Response for item q24-liz-is-a-very-_____-person-she-knows-a-lot-she-s-traveled-a-lot-and-she-s-done-lots-of-different-things (answer_01)
+                  - textbox "Response for item q24-liz-is-a-very-_____-person-she-knows-a-lot-she-s-traveled-a-lot-and-she-s-done-lots-of-different-things (answer_01)" [ref=e313]:
+                    - /placeholder: Answer
+              - generic [ref=e316]:
+                - link "Answer" [ref=e318] [cursor=pointer]:
+                  - /url: 331-forming-adjectives.html#331-forming-adjectives.html#25-i-can-get-quite-_____-sometimes-and-don-t-even-know-what-day-it-is
+                  - text: 25. I can get quite _____ sometimes, and don't even know what day it is.
+                - paragraph [ref=e320]: 25. I can get quite confused sometimes, and don't even know what day it is.
+                - generic [ref=e322]:
+                  - generic [ref=e323]: Response for item q25-i-can-get-quite-_____-sometimes-and-don-t-even-know-what-day-it-is (answer_01)
+                  - textbox "Response for item q25-i-can-get-quite-_____-sometimes-and-don-t-even-know-what-day-it-is (answer_01)" [ref=e324]:
+                    - /placeholder: Answer
+              - button "Submit answers" [disabled] [ref=e326]
+            - list [ref=e328]:
+              - listitem [ref=e329]:
+                - link "Previous" [ref=e330] [cursor=pointer]:
+                  - /url: 321-comparing-adjectives.html
+                  - img "angle-left" [ref=e331]
+                  - generic [ref=e333]: 3.2.1 Comparison of Adjectives
+              - listitem [ref=e334]:
+                - link "Next" [ref=e335] [cursor=pointer]:
+                  - /url: 341-using-adjectives-i.html
+                  - generic [ref=e336]: 3.4.1 Using Adjectives I
+                  - img "angle-right" [ref=e337]
+      - list [ref=e341]:
+        - listitem [ref=e342]:
+          - generic [ref=e343]:
+            - button "Toggle submenu for Nouns" [ref=e344] [cursor=pointer]:
+              - img
+              - img
+            - link "Nouns" [ref=e346] [cursor=pointer]:
+              - /url: ../exercise-1-nouns.html
+        - listitem [ref=e347]:
+          - generic [ref=e348]:
+            - button "Toggle submenu for Verbs" [ref=e349] [cursor=pointer]:
+              - img
+              - img
+            - link "Verbs" [ref=e351] [cursor=pointer]:
+              - /url: ../exercise-2-verbs.html
+        - listitem [ref=e352]:
+          - generic [ref=e353]:
+            - button "Toggle submenu for Adjectives" [ref=e354] [cursor=pointer]:
+              - img
+              - img
+            - link "Adjectives" [ref=e356] [cursor=pointer]:
+              - /url: ../exercise-3-adjectives.html
+        - listitem [ref=e357]:
+          - generic [ref=e358]:
+            - button "Toggle submenu for Adverbs" [ref=e359] [cursor=pointer]:
+              - img
+              - img
+            - link "Menu Link" [ref=e361] [cursor=pointer]:
+              - /url: ../exercise-4-adverbs.html
+              - text: Adverbs
+        - listitem [ref=e362]:
+          - generic [ref=e363]:
+            - button "Toggle submenu for Pronouns" [ref=e364] [cursor=pointer]:
+              - img
+              - img
+            - link "Menu Link" [ref=e366] [cursor=pointer]:
+              - /url: ../exercise-5-pronouns.html
+              - text: Pronouns
+        - listitem [ref=e367]:
+          - generic [ref=e368]:
+            - button "Toggle submenu for Prepositions" [ref=e369] [cursor=pointer]:
+              - img
+              - img
+            - link "Menu Link" [ref=e371] [cursor=pointer]:
+              - /url: ../exercise-6-prepositions.html
+              - text: Prepositions
+        - listitem [ref=e372]:
+          - generic [ref=e373]:
+            - button "Toggle submenu for Conjunctions" [ref=e374] [cursor=pointer]:
+              - img
+              - img
+            - link "Menu Link" [ref=e376] [cursor=pointer]:
+              - /url: ../exercise-7-conjunctions.html
+              - text: Conjunctions
+        - listitem [ref=e377]:
+          - generic [ref=e378]:
+            - button "Toggle submenu for S plus V Agreement" [ref=e379] [cursor=pointer]:
+              - img
+              - img
+            - link "Menu Link" [ref=e381] [cursor=pointer]:
+              - /url: ../exercise-8-agreement.html
+              - text: S+V Agreement
+        - listitem [ref=e382]:
+          - generic [ref=e383]:
+            - button "Toggle submenu for Articles" [ref=e384] [cursor=pointer]:
+              - img
+              - img
+            - link "Menu Link" [ref=e386] [cursor=pointer]:
+              - /url: ../exercise-9-articles.html
+              - text: Articles
+        - listitem [ref=e387]:
+          - generic [ref=e388]:
+            - button "Toggle submenu for Conditionals" [ref=e389] [cursor=pointer]:
+              - img
+              - img
+            - link "Menu Link" [ref=e391] [cursor=pointer]:
+              - /url: ../exercise-11-conditionals.html
+              - text: Conditionals
+        - listitem [ref=e392]:
+          - generic [ref=e393]:
+            - button "Toggle submenu for Modifiers" [ref=e394] [cursor=pointer]:
+              - img
+              - img
+            - link "Menu Link" [ref=e396] [cursor=pointer]:
+              - /url: ../exercise-12-modifiers.html
+              - text: Modifiers
+        - listitem [ref=e397]:
+          - generic [ref=e398]:
+            - button "Toggle submenu for Speech Direction" [ref=e399] [cursor=pointer]:
+              - img
+              - img
+            - link "Menu Link" [ref=e401] [cursor=pointer]:
+              - /url: ../exercise-13-indirect-speech.html
+              - text: Speech Direction
+        - listitem [ref=e402]:
+          - generic [ref=e403]:
+            - button "Toggle submenu for Active-Passive" [ref=e404] [cursor=pointer]:
+              - img
+            - link "Menu Link" [ref=e406] [cursor=pointer]:
+              - /url: ../exercise-14-either-neither.html
+              - text: Either-Neither
+        - listitem [ref=e407]:
+          - generic [ref=e408]:
+            - button "Toggle submenu for Active-Passive" [ref=e409] [cursor=pointer]:
+              - img
+              - img
+            - link "Menu Link" [ref=e411] [cursor=pointer]:
+              - /url: ../exercise-15-passive-voice.html
+              - text: Active-Passive
+        - listitem [ref=e412]:
+          - generic [ref=e413]:
+            - button "Toggle submenu for Clauses" [ref=e414] [cursor=pointer]:
+              - img
+              - img
+            - link "Menu Link" [ref=e416] [cursor=pointer]:
+              - /url: ../exercise-17-clauses.html
+              - text: Clauses
+        - listitem [ref=e417]:
+          - generic [ref=e418]:
+            - button "Toggle submenu for Verb-ing" [ref=e419] [cursor=pointer]:
+              - img
+              - img
+            - link "Menu Link" [ref=e421] [cursor=pointer]:
+              - /url: ../exercise-18-verb-ing-gerunds-and-particles.html
+              - text: Verb-ing
+        - listitem [ref=e422]:
+          - generic [ref=e423]:
+            - button "Toggle submenu for Determiners" [ref=e424] [cursor=pointer]:
+              - img
+              - img
+            - link "Menu Link" [ref=e426] [cursor=pointer]:
+              - /url: ../exercise-19-determiners-and-quantifiers.html
+              - text: Determiners
+        - listitem [ref=e427]:
+          - generic [ref=e428]:
+            - button "Toggle submenu for Part of Speech" [ref=e429] [cursor=pointer]:
+              - img
+              - img
+            - link "Menu Link" [ref=e431] [cursor=pointer]:
+              - /url: ../exercise-21-general.html
+              - text: Part-of-Speech
+        - listitem [ref=e432]:
+          - generic [ref=e433]:
+            - button "Toggle submenu for Vocabulary" [ref=e434] [cursor=pointer]:
+              - img
+              - img
+            - link "Vocabulary" [ref=e436] [cursor=pointer]:
+              - /url: ../exercise-22-test-your-vocabulary.html
+    - contentinfo [ref=e437]:
+      - generic [ref=e438]:
+        - paragraph [ref=e439]:
+          - link "Back to Top" [ref=e440] [cursor=pointer]:
+            - /url: "#top"
+        - paragraph [ref=e441]: © 2026 All rights reserved.
+  - button "Auto-fill answers" [ref=e442] [cursor=pointer]

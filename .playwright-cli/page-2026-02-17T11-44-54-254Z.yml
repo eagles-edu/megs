@@ -1,0 +1,450 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e4]:
+    - main [ref=e7]:
+      - generic [ref=e8]:
+        - heading "Unchanged Singular & Plural nouns" [level=2] [ref=e10]
+        - generic [ref=e11]:
+          - navigation "breadcrumbs-top" [ref=e12]:
+            - list [ref=e13]:
+              - listitem
+              - listitem [ref=e14]:
+                - link "Home" [ref=e15] [cursor=pointer]:
+                  - /url: ../index-2.html
+                  - generic [ref=e16]: Home
+                - img [ref=e18]
+              - listitem [ref=e20]:
+                - link "List 1 - Singular and Plural Nouns" [ref=e21] [cursor=pointer]:
+                  - /url: ../list-1-singular-and-plural-nouns.html
+                  - generic [ref=e22]: List 1 - Singular and Plural Nouns
+                - img [ref=e24]
+              - listitem [ref=e26]:
+                - generic [ref=e27]: Some nouns have same singular and plural forms or have plural ending (-s)
+          - list [ref=e28]:
+            - listitem [ref=e29]:
+              - link "Previous" [ref=e30] [cursor=pointer]:
+                - /url: singular-and-plural-forms-of-compound-nouns.html
+                - img "angle-left" [ref=e31]
+                - generic [ref=e33]: Singular and plural forms of compound nouns
+            - listitem [ref=e34]:
+              - link "Next" [ref=e35] [cursor=pointer]:
+                - /url: the-singular-and-plural-forms-of-some-nouns-are-the-same.html
+                - generic [ref=e36]: Singular & plural noun forms are the same
+                - img "angle-right" [ref=e37]
+          - heading "Nouns with same singular and plural forms and also takes a plural ending (-s)." [level=3] [ref=e39]
+          - paragraph [ref=e40]: "A small group of English nouns keep the same spelling whether you are talking about one item or many. ESL learners can match these nouns with numerals, determiners, or verb forms-the words around the noun tell the number even when the noun itself does not change. Examples: \"a series of lectures,\" \"two series of lectures,\" \"the police are,\" and \"a police officer is.\" Counting words or context clues will always guide you when the noun does not wear an extra \"s.\""
+          - paragraph [ref=e41]: The table below is sorted alphabetically using U.S. usage and notes when an alternate "-s" plural is acceptable. Read the plural column to see if you can add an "-s" (for example, "shrimp / shrimps") or if the base form stays the same. Each meaning helps you choose the right context so the vocabulary stays clear during conversation and writing.
+          - table [ref=e42]:
+            - rowgroup [ref=e43]:
+              - row "Singular Plural Meaning" [ref=e44]:
+                - columnheader "Singular" [ref=e45]
+                - columnheader "Plural" [ref=e46]
+                - columnheader "Meaning" [ref=e47]
+            - rowgroup [ref=e48]:
+              - row "Aircraft Aircraft Flying vehicle" [ref=e49]:
+                - cell "Aircraft" [ref=e50]
+                - cell "Aircraft" [ref=e51]
+                - cell "Flying vehicle" [ref=e52]
+              - row "Alms Alms Charitable gifts for the poor" [ref=e53]:
+                - cell "Alms" [ref=e54]
+                - cell "Alms" [ref=e55]
+                - cell "Charitable gifts for the poor" [ref=e56]
+              - row "Barracks Barracks Buildings for housing soldiers" [ref=e57]:
+                - cell "Barracks" [ref=e58]
+                - cell "Barracks" [ref=e59]
+                - cell "Buildings for housing soldiers" [ref=e60]
+              - row "Bison Bison North American grazing mammal" [ref=e61]:
+                - cell "Bison" [ref=e62]
+                - cell "Bison" [ref=e63]
+                - cell "North American grazing mammal" [ref=e64]
+              - row "Boar Boar / Boars Wild male pig" [ref=e65]:
+                - cell "Boar" [ref=e66]
+                - cell "Boar / Boars" [ref=e67]
+                - cell "Wild male pig" [ref=e68]
+              - row "Buck (animal) Buck / Bucks Male deer" [ref=e69]:
+                - cell "Buck (animal)" [ref=e70]
+                - cell "Buck / Bucks" [ref=e71]
+                - cell "Male deer" [ref=e72]
+              - row "Cattle Cattle Domestic bovines raised for meat or dairy" [ref=e73]:
+                - cell "Cattle" [ref=e74]
+                - cell "Cattle" [ref=e75]
+                - cell "Domestic bovines raised for meat or dairy" [ref=e76]
+              - row "Chassis Chassis Vehicle's frame" [ref=e77]:
+                - cell "Chassis" [ref=e78]
+                - cell "Chassis" [ref=e79]
+                - cell "Vehicle's frame" [ref=e80]
+              - row "Cod Cod White fish used for food" [ref=e81]:
+                - cell "Cod" [ref=e82]
+                - cell "Cod" [ref=e83]
+                - cell "White fish used for food" [ref=e84]
+              - row "Confetti Confetti Small paper pieces used in celebrations" [ref=e85]:
+                - cell "Confetti" [ref=e86]
+                - cell "Confetti" [ref=e87]
+                - cell "Small paper pieces used in celebrations" [ref=e88]
+              - row "Corps Corps Organized military or professional unit" [ref=e89]:
+                - cell "Corps" [ref=e90]
+                - cell "Corps" [ref=e91]
+                - cell "Organized military or professional unit" [ref=e92]
+              - row "Deer Deer Forest mammal with antlers" [ref=e93]:
+                - cell "Deer" [ref=e94]
+                - cell "Deer" [ref=e95]
+                - cell "Forest mammal with antlers" [ref=e96]
+              - row "Dice Dice Numbered cubes used in games" [ref=e97]:
+                - cell "Dice" [ref=e98]
+                - cell "Dice" [ref=e99]
+                - cell "Numbered cubes used in games" [ref=e100]
+              - row "Elk Elk Large North American deer species" [ref=e101]:
+                - cell "Elk" [ref=e102]
+                - cell "Elk" [ref=e103]
+                - cell "Large North American deer species" [ref=e104]
+              - row "Eskimo Eskimo / Eskimos Indigenous Arctic peoples (term considered outdated in some contexts)" [ref=e105]:
+                - cell "Eskimo" [ref=e106]
+                - cell "Eskimo / Eskimos" [ref=e107]
+                - cell "Indigenous Arctic peoples (term considered outdated in some contexts)" [ref=e108]
+              - row "Flounder Flounder Flatfish often served as food" [ref=e109]:
+                - cell "Flounder" [ref=e110]
+                - cell "Flounder" [ref=e111]
+                - cell "Flatfish often served as food" [ref=e112]
+              - row "Fish Fish Aquatic creature" [ref=e113]:
+                - cell "Fish" [ref=e114]
+                - cell "Fish" [ref=e115]
+                - cell "Aquatic creature" [ref=e116]
+              - row "Grouse Grouse Ground-dwelling game bird" [ref=e117]:
+                - cell "Grouse" [ref=e118]
+                - cell "Grouse" [ref=e119]
+                - cell "Ground-dwelling game bird" [ref=e120]
+              - row "Headquarters Headquarters Main office or command center" [ref=e121]:
+                - cell "Headquarters" [ref=e122]
+                - cell "Headquarters" [ref=e123]
+                - cell "Main office or command center" [ref=e124]
+              - row "Hovercraft Hovercraft Vehicle that glides above water or land on a cushion of air" [ref=e125]:
+                - cell "Hovercraft" [ref=e126]
+                - cell "Hovercraft" [ref=e127]
+                - cell "Vehicle that glides above water or land on a cushion of air" [ref=e128]
+              - row "Jeans Jeans Denim trousers" [ref=e129]:
+                - cell "Jeans" [ref=e130]
+                - cell "Jeans" [ref=e131]
+                - cell "Denim trousers" [ref=e132]
+              - row "Karen Karen / Karens Common female given name" [ref=e133]:
+                - cell "Karen" [ref=e134]
+                - cell "Karen / Karens" [ref=e135]
+                - cell "Common female given name" [ref=e136]
+              - row "Luggage Luggage Travel bags" [ref=e137]:
+                - cell "Luggage" [ref=e138]
+                - cell "Luggage" [ref=e139]
+                - cell "Travel bags" [ref=e140]
+              - row "Mackerel Mackerel / Mackerels Oily sea fish" [ref=e141]:
+                - cell "Mackerel" [ref=e142]
+                - cell "Mackerel / Mackerels" [ref=e143]
+                - cell "Oily sea fish" [ref=e144]
+              - row "Mathematics Mathematics Study of numbers and shapes" [ref=e145]:
+                - cell "Mathematics" [ref=e146]
+                - cell "Mathematics" [ref=e147]
+                - cell "Study of numbers and shapes" [ref=e148]
+              - row "Means Means Method or way" [ref=e149]:
+                - cell "Means" [ref=e150]
+                - cell "Means" [ref=e151]
+                - cell "Method or way" [ref=e152]
+              - row "Moose Moose Large antlered mammal" [ref=e153]:
+                - cell "Moose" [ref=e154]
+                - cell "Moose" [ref=e155]
+                - cell "Large antlered mammal" [ref=e156]
+              - row "Oats Oats Breakfast cereal grain" [ref=e157]:
+                - cell "Oats" [ref=e158]
+                - cell "Oats" [ref=e159]
+                - cell "Breakfast cereal grain" [ref=e160]
+              - row "Offspring Offspring Children or young animals" [ref=e161]:
+                - cell "Offspring" [ref=e162]
+                - cell "Offspring" [ref=e163]
+                - cell "Children or young animals" [ref=e164]
+              - row "People People Group of humans" [ref=e165]:
+                - cell "People" [ref=e166]
+                - cell "People" [ref=e167]
+                - cell "Group of humans" [ref=e168]
+              - row "Plankton Plankton Microscopic aquatic organisms" [ref=e169]:
+                - cell "Plankton" [ref=e170]
+                - cell "Plankton" [ref=e171]
+                - cell "Microscopic aquatic organisms" [ref=e172]
+              - row "Pliers Pliers Tool used for gripping or bending" [ref=e173]:
+                - cell "Pliers" [ref=e174]
+                - cell "Pliers" [ref=e175]
+                - cell "Tool used for gripping or bending" [ref=e176]
+              - row "Police Police Law enforcement officers or agency" [ref=e177]:
+                - cell "Police" [ref=e178]
+                - cell "Police" [ref=e179]
+                - cell "Law enforcement officers or agency" [ref=e180]
+              - row "Precis Precis Brief summary" [ref=e181]:
+                - cell "Precis" [ref=e182]
+                - cell "Precis" [ref=e183]
+                - cell "Brief summary" [ref=e184]
+              - row "Quail Quail / Quails Small game bird" [ref=e185]:
+                - cell "Quail" [ref=e186]
+                - cell "Quail / Quails" [ref=e187]
+                - cell "Small game bird" [ref=e188]
+              - row "Reindeer Reindeer / Reindeers Arctic deer species" [ref=e189]:
+                - cell "Reindeer" [ref=e190]
+                - cell "Reindeer / Reindeers" [ref=e191]
+                - cell "Arctic deer species" [ref=e192]
+              - row "Rice Rice Staple grain used in many cuisines" [ref=e193]:
+                - cell "Rice" [ref=e194]
+                - cell "Rice" [ref=e195]
+                - cell "Staple grain used in many cuisines" [ref=e196]
+              - row "Roe Roe / Roes Fish eggs used in cooking" [ref=e197]:
+                - cell "Roe" [ref=e198]
+                - cell "Roe / Roes" [ref=e199]
+                - cell "Fish eggs used in cooking" [ref=e200]
+              - row "Salmon Salmon Anadromous fish" [ref=e201]:
+                - cell "Salmon" [ref=e202]
+                - cell "Salmon" [ref=e203]
+                - cell "Anadromous fish" [ref=e204]
+              - row "Series Series Sequence of related items or events" [ref=e205]:
+                - cell "Series" [ref=e206]
+                - cell "Series" [ref=e207]
+                - cell "Sequence of related items or events" [ref=e208]
+              - row "Sheep Sheep Woolly farm animal" [ref=e209]:
+                - cell "Sheep" [ref=e210]
+                - cell "Sheep" [ref=e211]
+                - cell "Woolly farm animal" [ref=e212]
+              - row "Sherpa Sherpa / Sherpas Himalayan guide or ethnic group" [ref=e213]:
+                - cell "Sherpa" [ref=e214]
+                - cell "Sherpa / Sherpas" [ref=e215]
+                - cell "Himalayan guide or ethnic group" [ref=e216]
+              - row "Shorts Shorts Short trousers" [ref=e217]:
+                - cell "Shorts" [ref=e218]
+                - cell "Shorts" [ref=e219]
+                - cell "Short trousers" [ref=e220]
+              - row "Shrimp Shrimp / Shrimps Small seafood crustacean" [ref=e221]:
+                - cell "Shrimp" [ref=e222]
+                - cell "Shrimp / Shrimps" [ref=e223]
+                - cell "Small seafood crustacean" [ref=e224]
+              - row "Spacecraft Spacecraft Vehicle designed for space travel" [ref=e225]:
+                - cell "Spacecraft" [ref=e226]
+                - cell "Spacecraft" [ref=e227]
+                - cell "Vehicle designed for space travel" [ref=e228]
+              - row "Squid Squid Marine cephalopod" [ref=e229]:
+                - cell "Squid" [ref=e230]
+                - cell "Squid" [ref=e231]
+                - cell "Marine cephalopod" [ref=e232]
+              - row "Species Species Biological classification" [ref=e233]:
+                - cell "Species" [ref=e234]
+                - cell "Species" [ref=e235]
+                - cell "Biological classification" [ref=e236]
+              - row "Swine Swine Group name for pigs" [ref=e237]:
+                - cell "Swine" [ref=e238]
+                - cell "Swine" [ref=e239]
+                - cell "Group name for pigs" [ref=e240]
+              - row "Tuna Tuna Large ocean fish" [ref=e241]:
+                - cell "Tuna" [ref=e242]
+                - cell "Tuna" [ref=e243]
+                - cell "Large ocean fish" [ref=e244]
+              - row "Trout Trout / Trouts Freshwater fish" [ref=e245]:
+                - cell "Trout" [ref=e246]
+                - cell "Trout / Trouts" [ref=e247]
+                - cell "Freshwater fish" [ref=e248]
+              - row "Watercraft Watercraft Boats and ships" [ref=e249]:
+                - cell "Watercraft" [ref=e250]
+                - cell "Watercraft" [ref=e251]
+                - cell "Boats and ships" [ref=e252]
+              - row "Whale Whale / Whales Large marine mammal" [ref=e253]:
+                - cell "Whale" [ref=e254]
+                - cell "Whale / Whales" [ref=e255]
+                - cell "Large marine mammal" [ref=e256]
+              - row "Wheat Wheat Cereal plant that produces grain" [ref=e257]:
+                - cell "Wheat" [ref=e258]
+                - cell "Wheat" [ref=e259]
+                - cell "Cereal plant that produces grain" [ref=e260]
+              - row "Whiting Whiting Small sea fish" [ref=e261]:
+                - cell "Whiting" [ref=e262]
+                - cell "Whiting" [ref=e263]
+                - cell "Small sea fish" [ref=e264]
+          - paragraph [ref=e265]: Practice these nouns by adding numbers or quantifiers and matching the verb form so you feel the plurality in English even when the noun stays unchanged. Keep this table handy while you read or write; it shows when you can count with the base form, when you can add "-s," and which nouns behave like mass expressions.
+          - list [ref=e266]:
+            - listitem [ref=e267]:
+              - link "Previous" [ref=e268] [cursor=pointer]:
+                - /url: singular-and-plural-forms-of-compound-nouns.html
+                - img "angle-left" [ref=e269]
+                - generic [ref=e271]: Singular and plural forms of compound nouns
+            - listitem [ref=e272]:
+              - link "Next" [ref=e273] [cursor=pointer]:
+                - /url: the-singular-and-plural-forms-of-some-nouns-are-the-same.html
+                - generic [ref=e274]: Singular & plural noun forms are the same
+                - img "angle-right" [ref=e275]
+      - navigation "breadcrumbs-bottom" [ref=e277]:
+        - list [ref=e278]:
+          - listitem
+          - listitem [ref=e279]:
+            - link "Home" [ref=e280] [cursor=pointer]:
+              - /url: ../index-2.html
+              - generic [ref=e281]: Home
+            - img [ref=e283]
+          - listitem [ref=e285]:
+            - link "List 1 - Singular and Plural Nouns" [ref=e286] [cursor=pointer]:
+              - /url: ../list-1-singular-and-plural-nouns.html
+              - generic [ref=e287]: List 1 - Singular and Plural Nouns
+            - img [ref=e289]
+          - listitem [ref=e291]:
+            - generic [ref=e292]: Some nouns have same singular and plural forms or have plural ending (-s)
+    - complementary [ref=e293]:
+      - navigation "Lists" [ref=e294]:
+        - list [ref=e295]:
+          - listitem [ref=e296]:
+            - generic [ref=e297]:
+              - button "Toggle submenu for Singular-Plural" [ref=e298] [cursor=pointer]:
+                - img
+                - img
+              - link "Menu Link" [ref=e300] [cursor=pointer]:
+                - /url: ../list-1-singular-and-plural-nouns.html
+                - text: Singular-Plural
+          - listitem [ref=e301]:
+            - generic [ref=e302]:
+              - button "Toggle submenu for Counting Nouns" [ref=e303] [cursor=pointer]:
+                - img
+                - img
+              - link "Menu Link" [ref=e305] [cursor=pointer]:
+                - /url: ../list-2-uncountable-nouns-made-countable.html
+                - text: Counting Nouns
+          - listitem [ref=e306]:
+            - generic [ref=e307]:
+              - button "Toggle submenu for Collective Nouns" [ref=e308] [cursor=pointer]:
+                - img
+                - img
+              - link "Menu Link" [ref=e310] [cursor=pointer]:
+                - /url: ../list-3-collective-nouns.html
+                - text: Collective Nouns
+          - listitem [ref=e311]:
+            - generic [ref=e312]:
+              - button "Toggle submenu for Verbs" [ref=e313] [cursor=pointer]:
+                - img
+                - img
+              - link "Menu Link" [ref=e315] [cursor=pointer]:
+                - /url: ../list-4-verbs.html
+                - text: Verbs
+          - listitem [ref=e316]:
+            - generic [ref=e317]:
+              - button "Toggle submenu for Irregular Verbs" [ref=e318] [cursor=pointer]:
+                - img
+                - img
+              - link "Menu Link" [ref=e320] [cursor=pointer]:
+                - /url: ../list-5-irregular-verbs.html
+                - text: Irregular Verbs
+          - listitem [ref=e321]:
+            - generic [ref=e322]:
+              - button "Toggle submenu for Adjectives" [ref=e323] [cursor=pointer]:
+                - img
+                - img
+              - link "Menu Link" [ref=e325] [cursor=pointer]:
+                - /url: ../list-6-adjectives.html
+                - text: Adjectives
+          - listitem [ref=e326]:
+            - generic [ref=e327]:
+              - button "Toggle submenu for Comparison" [ref=e328] [cursor=pointer]:
+                - img
+                - img
+              - link "Menu Link" [ref=e330] [cursor=pointer]:
+                - /url: ../list-7-comparison-of-adjectives.html
+                - text: Comparison
+          - listitem [ref=e331]:
+            - generic [ref=e332]:
+              - button "Toggle submenu for Adverbs" [ref=e333] [cursor=pointer]:
+                - img
+                - img
+              - link "Menu Link" [ref=e335] [cursor=pointer]:
+                - /url: ../list-8-adverbs.html
+                - text: Adverbs
+          - listitem [ref=e336]:
+            - generic [ref=e337]:
+              - button "Toggle submenu for Adv. = Adj." [ref=e338] [cursor=pointer]:
+                - img
+                - img
+              - link "Menu Link" [ref=e340] [cursor=pointer]:
+                - /url: ../list-9-adverbs-sharing-same-words-as-adjectives.html
+                - text: Adv. = Adj.
+          - listitem [ref=e341]:
+            - link "Menu Link" [ref=e344] [cursor=pointer]:
+              - /url: ../list-10-pronouns.html
+              - text: Pronouns
+          - listitem [ref=e345]:
+            - generic [ref=e346]:
+              - button "Toggle submenu for Prepositions" [ref=e347] [cursor=pointer]:
+                - img
+                - img
+              - link "Menu Link" [ref=e349] [cursor=pointer]:
+                - /url: ../list-11-prepositions.html
+                - text: Prepositions
+          - listitem [ref=e350]:
+            - link "Menu Link" [ref=e353] [cursor=pointer]:
+              - /url: ../list-12-conjunctions.html
+              - text: Conjunctions
+          - listitem [ref=e354]:
+            - link "Menu Link" [ref=e357] [cursor=pointer]:
+              - /url: ../list-13-forming-abstract-nouns.html
+              - text: Abstract Nouns
+          - listitem [ref=e358]:
+            - generic [ref=e359]:
+              - button "Toggle submenu for Phrasal Verbs" [ref=e360] [cursor=pointer]:
+                - img
+                - img
+              - link "Menu Link" [ref=e362] [cursor=pointer]:
+                - /url: ../list-14-phrasal-verbs.html
+                - text: Phrasal Verbs
+          - listitem [ref=e363]:
+            - link "Menu Link" [ref=e366] [cursor=pointer]:
+              - /url: ../list-15-idioms.html
+              - text: Common Idioms
+          - listitem [ref=e367]:
+            - generic [ref=e368]:
+              - button "Toggle submenu for 1000 Idioms" [ref=e369] [cursor=pointer]:
+                - img
+                - img
+              - link "Menu Link" [ref=e371] [cursor=pointer]:
+                - /url: ../list-16-phrases-and-idioms.html
+                - text: 1000 Idioms
+          - listitem [ref=e372]:
+            - generic [ref=e373]:
+              - button "Toggle submenu for Proverbs" [ref=e374] [cursor=pointer]:
+                - img
+                - img
+              - link "Menu Link" [ref=e376] [cursor=pointer]:
+                - /url: ../list-17-proverbs-and-sayings.html
+                - text: Proverbs
+          - listitem [ref=e377]:
+            - link "Menu Link" [ref=e380] [cursor=pointer]:
+              - /url: ../list-18-foreign-phrases-commonly-used-in-english.html
+              - text: Foreign Phrases
+          - listitem [ref=e381]:
+            - link "Menu Link" [ref=e384] [cursor=pointer]:
+              - /url: ../list-19-parents-and-young.html
+              - text: Parents/Youth
+          - listitem [ref=e385]:
+            - generic [ref=e386]:
+              - button "Toggle submenu for Gender" [ref=e387] [cursor=pointer]:
+                - img
+                - img
+              - link "Menu Link" [ref=e389] [cursor=pointer]:
+                - /url: ../list-20-gender.html
+                - text: Gender
+          - listitem [ref=e390]:
+            - link "Menu Link" [ref=e393] [cursor=pointer]:
+              - /url: ../list-21-homes-of-people-and-creatures.html
+              - text: Home Types
+          - listitem [ref=e394]:
+            - link "Menu Link" [ref=e397] [cursor=pointer]:
+              - /url: ../list-22-objects-animals-and-sounds.html
+              - text: Objects/Sounds
+          - listitem [ref=e398]:
+            - link "Menu Link" [ref=e401] [cursor=pointer]:
+              - /url: ../list-23-antonyms.html
+              - text: Antonyms
+          - listitem [ref=e402]:
+            - link "Menu Link" [ref=e405] [cursor=pointer]:
+              - /url: ../list-24-synonyms.html
+              - text: Synonyms
+          - listitem [ref=e406]:
+            - link "Menu Link" [ref=e409] [cursor=pointer]:
+              - /url: ../list-25-homonyms.html
+              - text: Homonyms
+  - contentinfo [ref=e410]:
+    - generic [ref=e411]:
+      - paragraph [ref=e412]:
+        - link "Back to Top" [ref=e413] [cursor=pointer]:
+          - /url: "#top"
+      - paragraph [ref=e414]: © 2026 All rights reserved.
