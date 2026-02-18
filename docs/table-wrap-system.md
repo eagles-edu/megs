@@ -143,5 +143,7 @@ Root and category homes should keep:
    - `node tools/check-page-parity.mjs --all-lessons --all-lists`
 2. Prototype behavior regression:
    - `npm run verify:prototype`
-3. Internal link audit (sitewide relative links):
+3. Internal link audit (lesson/list scope):
+   - `node tools/check-internal-links.mjs --no-default-patterns --pattern 'lesson-*/*.html' --pattern 'list-*/*.html'`
+4. Internal link debt audit (sitewide, includes legacy exercise targets):
    - `node tools/check-internal-links.mjs`

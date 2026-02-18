@@ -18,8 +18,9 @@ const DEFAULT_MAX_FAILURES = 200
 
 const parseArgs = (argv) => {
   const options = {
+    includeDefaultPatterns: true,
     maxFailures: DEFAULT_MAX_FAILURES,
-    patterns: DEFAULT_PATTERNS.slice(),
+    patterns: [],
     verbose: false,
   }
 
@@ -42,6 +43,10 @@ const parseArgs = (argv) => {
       idx += 1
       continue
     }
+    if (arg === "--no-default-patterns") {
+      options.includeDefaultPatterns = false
+      continue
+    }
     if (arg === "--verbose") {
       options.verbose = true
       continue
@@ -62,6 +67,7 @@ const printHelp = () => {
 Options:
   --max-failures <n>      Max failing entries to print (default: ${DEFAULT_MAX_FAILURES})
   --pattern <glob>        Additional glob pattern for HTML pages (repeatable)
+  --no-default-patterns   Use only --pattern values (skip built-in page patterns)
   --verbose               Print all failures
   -h, --help              Show this help
 `)
@@ -171,7 +177,14 @@ const main = () => {
       return
     }
 
-    const files = collectHtmlFiles(options.patterns)
+    const activePatterns = options.includeDefaultPatterns
+      ? DEFAULT_PATTERNS.concat(options.patterns)
+      : options.patterns.slice()
+    if (!activePatterns.length) {
+      throw new Error("No patterns selected. Provide --pattern or remove --no-default-patterns.")
+    }
+
+    const files = collectHtmlFiles(activePatterns)
     if (!files.length) {
       console.log("Internal link check: no HTML files matched.")
       return
