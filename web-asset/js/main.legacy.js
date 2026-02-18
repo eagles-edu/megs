@@ -85,396 +85,89 @@
     })
   }
 
-  function normalizeLabelText(value) {
-    return String(value || "")
-      .replace(/\u00a0/g, " ")
-      .replace(/\s+/g, " ")
-      .replace(/^\s+|\s+$/g, "")
+  function resolveTableWrapLegacySrc() {
+    var scripts = document.getElementsByTagName("script")
+    for (var i = scripts.length - 1; i >= 0; i--) {
+      var srcAttr = scripts[i].getAttribute("src") || ""
+      if (!srcAttr) continue
+      if (srcAttr.indexOf("main.legacy.js") === -1) continue
+      var absolute = scripts[i].src || srcAttr
+      return absolute.replace(/main\.legacy\.js(?:\?.*)?$/, "tablewrap.legacy.js")
+    }
+    return ""
   }
 
-  function isListSectionPage() {
-    var body = document.body
-    if (body && body.classList && body.classList.contains("list")) return true
-    var path = String((window.location && window.location.pathname) || "").toLowerCase()
-    return /(?:^|\/)(list-\d+|list-\d+-|lists2\/|lists\.html$)/.test(path)
+  function resolveTableWrapCssSrc() {
+    var legacySrc = resolveTableWrapLegacySrc()
+    if (!legacySrc) return ""
+    return legacySrc.replace(/\/js\/tablewrap\.legacy\.js(?:\?.*)?$/, "/css/tablewrap.css")
   }
 
-  function expandRowCells(row) {
-    if (!row || !row.cells) return []
-    var expanded = []
-    for (var i = 0; i < row.cells.length; i++) {
-      var cell = row.cells[i]
-      var span = parseInt(cell.getAttribute("colspan") || "1", 10)
-      if (!span || span < 1) span = 1
-      for (var step = 0; step < span; step++) expanded.push(cell)
-    }
-    return expanded
-  }
-
-  function getTableColumnCount(table) {
-    if (!table || !table.rows) return 0
-    var maxColumns = 0
-    for (var i = 0; i < table.rows.length; i++) {
-      var row = table.rows[i]
-      var columns = 0
-      for (var j = 0; j < row.cells.length; j++) {
-        var span = parseInt(row.cells[j].getAttribute("colspan") || "1", 10)
-        if (!span || span < 1) span = 1
-        columns += span
-      }
-      if (columns > maxColumns) maxColumns = columns
-    }
-    return maxColumns
-  }
-
-  function getColumnLabels(table, columnCount) {
-    var labels = []
-    var headRows = table && table.tHead ? table.tHead.rows : null
-    if (headRows && headRows.length) {
-      for (var i = headRows.length - 1; i >= 0; i--) {
-        var rowCells = headRows[i].cells || []
-        if (rowCells.length === 1) {
-          var span = parseInt(rowCells[0].getAttribute("colspan") || "1", 10)
-          if (!span || span < 1) span = 1
-          if (span >= columnCount) {
-            if (headRows.length === 1) {
-              for (var empty = 0; empty < columnCount; empty++) labels.push("Column " + (empty + 1))
-              return labels
-            }
-            continue
-          }
-        }
-
-        var expanded = expandRowCells(headRows[i])
-        if (!expanded.length) continue
-        for (var col = 0; col < columnCount; col++) {
-          var raw = expanded[col] ? normalizeLabelText(expanded[col].textContent) : ""
-          labels.push(raw || "Column " + (col + 1))
-        }
-        return labels
-      }
-    }
-    for (var fallback = 0; fallback < columnCount; fallback++) {
-      labels.push("Column " + (fallback + 1))
-    }
-    return labels
-  }
-
-  function hasRepeatedPairHeaders(table) {
-    if (!table || !table.tHead || !table.tHead.rows || !table.tHead.rows.length) return false
-    for (var i = table.tHead.rows.length - 1; i >= 0; i--) {
-      var expanded = expandRowCells(table.tHead.rows[i])
-      if (expanded.length < 4) continue
-      if (
-        expanded[0] === expanded[1] ||
-        expanded[0] === expanded[2] ||
-        expanded[0] === expanded[3] ||
-        expanded[1] === expanded[2] ||
-        expanded[1] === expanded[3] ||
-        expanded[2] === expanded[3]
-      ) {
-        return false
-      }
-      var leftA = normalizeLabelText(expanded[0] ? expanded[0].textContent : "").toLowerCase()
-      var leftB = normalizeLabelText(expanded[1] ? expanded[1].textContent : "").toLowerCase()
-      var rightA = normalizeLabelText(expanded[2] ? expanded[2].textContent : "").toLowerCase()
-      var rightB = normalizeLabelText(expanded[3] ? expanded[3].textContent : "").toLowerCase()
-      return Boolean(leftA && leftB && leftA === rightA && leftB === rightB)
-    }
-    return false
-  }
-
-  function isPairLayoutTable(table, columnCount, explicitMode) {
-    if (explicitMode === "pairs") return true
-    if (columnCount !== 4 && columnCount !== 5) return false
-    if (columnCount === 4 && !hasRepeatedPairHeaders(table)) return false
-
-    var rowGroups = []
-    if (table.tBodies && table.tBodies.length) {
-      for (var i = 0; i < table.tBodies.length; i++) rowGroups.push(table.tBodies[i])
-    } else {
-      rowGroups.push(table)
-    }
-
-    var sampleRows = 0
-    var spacerRows = 0
-    for (var g = 0; g < rowGroups.length; g++) {
-      var rows = rowGroups[g].rows || []
-      for (var r = 0; r < rows.length; r++) {
-        var row = rows[r]
-        if (row.querySelector && row.querySelector("th")) continue
-        var expanded = expandRowCells(row)
-        if (expanded.length < columnCount) continue
-        sampleRows += 1
-        if (columnCount === 5) {
-          var spacer = normalizeLabelText(expanded[2] ? expanded[2].textContent : "")
-          if (!spacer) spacerRows += 1
-        } else {
-          spacerRows += 1
-        }
-      }
-    }
-    return sampleRows > 0 && spacerRows === sampleRows
-  }
-
-  function hasTitleOnlyHeader(table, columnCount) {
-    var headRows = table && table.tHead ? table.tHead.rows : null
-    if (!headRows || headRows.length !== 1) return false
-    var cells = headRows[0].cells || []
-    if (cells.length !== 1) return false
-    var span = parseInt(cells[0].getAttribute("colspan") || "1", 10)
-    if (!span || span < 1) span = 1
-    return span >= columnCount
-  }
-
-  function isDatumListTable(table, columnCount, explicitMode) {
-    if (explicitMode === "list") return true
-    if (columnCount < 2 || columnCount > 6) return false
-    if (!hasTitleOnlyHeader(table, columnCount)) return false
-
-    var rowGroups = []
-    if (table.tBodies && table.tBodies.length) {
-      for (var i = 0; i < table.tBodies.length; i++) rowGroups.push(table.tBodies[i])
-    }
-
-    var filledCells = 0
-    for (var g = 0; g < rowGroups.length; g++) {
-      var rows = rowGroups[g].rows || []
-      for (var r = 0; r < rows.length; r++) {
-        var cells = rows[r].cells || []
-        for (var c = 0; c < cells.length; c++) {
-          if (normalizeLabelText(cells[c].textContent)) filledCells += 1
-        }
-      }
-    }
-    return filledCells > 0
-  }
-
-  function isSimpleTable(columnCount, explicitMode) {
-    if (explicitMode === "simple") return true
-    return columnCount >= 1 && columnCount <= 2
-  }
-
-  function createPairRow(keyCell, valueCell) {
-    var keyText = normalizeLabelText(keyCell ? keyCell.textContent : "")
-    var valueText = normalizeLabelText(valueCell ? valueCell.textContent : "")
-    if (!keyText && !valueText) return null
-
-    var row = document.createElement("tr")
-    row.className = "table-pairs-mobile-row"
-
-    var key = document.createElement("td")
-    key.className = "table-pairs-key"
-    key.innerHTML = keyCell ? keyCell.innerHTML : ""
-
-    var value = document.createElement("td")
-    value.className = "table-pairs-value"
-    value.innerHTML = valueCell ? valueCell.innerHTML : ""
-
-    row.appendChild(key)
-    row.appendChild(value)
-    return row
-  }
-
-  function rebuildPairRowsForMobile(table, columnCount) {
-    if (!table || columnCount < 4) return
-    if (table.querySelector("tbody.table-pairs-mobile-body")) {
-      table.classList.add("table-pairs-rebuilt")
-      return
-    }
-
-    var sourceBodies = []
-    if (table.tBodies && table.tBodies.length) {
-      for (var i = 0; i < table.tBodies.length; i++) sourceBodies.push(table.tBodies[i])
-    }
-    if (!sourceBodies.length) return
-
-    var leftRows = []
-    var rightRows = []
-    for (var g = 0; g < sourceBodies.length; g++) {
-      var body = sourceBodies[g]
-      var rows = body.rows || []
-      body.classList.add("table-pairs-source-body")
-      for (var r = 0; r < rows.length; r++) {
-        var row = rows[r]
-        if (row.querySelector && row.querySelector("th")) continue
-        var expanded = expandRowCells(row)
-        if (expanded.length < columnCount) continue
-
-        var leftRow = createPairRow(expanded[0], expanded[1])
-        if (leftRow) leftRows.push(leftRow)
-
-        var rightStart = columnCount - 2
-        var rightRow = createPairRow(expanded[rightStart], expanded[rightStart + 1])
-        if (rightRow) rightRows.push(rightRow)
-      }
-    }
-
-    if (!leftRows.length && !rightRows.length) return
-
-    var mobileBody = document.createElement("tbody")
-    mobileBody.className = "table-pairs-mobile-body"
-    for (var l = 0; l < leftRows.length; l++) mobileBody.appendChild(leftRows[l])
-    for (var t = 0; t < rightRows.length; t++) mobileBody.appendChild(rightRows[t])
-
-    table.appendChild(mobileBody)
-    table.classList.add("table-pairs-rebuilt")
-  }
-
-  function rebuildDatumListForMobile(table) {
-    if (!table) return
-    if (table.querySelector("tbody.table-list-mobile-body")) {
-      table.classList.add("table-list-rebuilt")
-      return
-    }
-
-    var sourceBodies = []
-    if (table.tBodies && table.tBodies.length) {
-      for (var i = 0; i < table.tBodies.length; i++) sourceBodies.push(table.tBodies[i])
-    }
-    if (!sourceBodies.length) return
-
-    var items = []
-    for (var g = 0; g < sourceBodies.length; g++) {
-      var body = sourceBodies[g]
-      body.classList.add("table-list-source-body")
-      var rows = body.rows || []
-      for (var r = 0; r < rows.length; r++) {
-        var cells = rows[r].cells || []
-        for (var c = 0; c < cells.length; c++) {
-          if (!normalizeLabelText(cells[c].textContent)) continue
-          items.push(cells[c])
-        }
-      }
-    }
-
-    if (!items.length) return
-
-    var mobileBody = document.createElement("tbody")
-    mobileBody.className = "table-list-mobile-body"
-
-    for (var idx = 0; idx < items.length; idx++) {
-      var row = document.createElement("tr")
-      row.className = "table-list-mobile-row"
-
-      var item = document.createElement("td")
-      item.className = "table-list-item"
-      item.innerHTML = items[idx] ? items[idx].innerHTML : ""
-      row.appendChild(item)
-
-      mobileBody.appendChild(row)
-    }
-
-    table.appendChild(mobileBody)
-    table.classList.add("table-list-rebuilt")
-  }
-
-  function applyStackLabels(table, labels) {
-    function ensureStackValueWrapper(cell) {
-      if (!cell) return
-      var children = cell.children || []
-      for (var i = 0; i < children.length; i++) {
-        if (children[i] && children[i].classList && children[i].classList.contains("stack-cell-value")) return
-      }
-
-      var wrapper = document.createElement("span")
-      wrapper.className = "stack-cell-value"
-      while (cell.firstChild) wrapper.appendChild(cell.firstChild)
-      cell.appendChild(wrapper)
-    }
-
-    var rowGroups = []
-    if (table.tBodies && table.tBodies.length) {
-      for (var i = 0; i < table.tBodies.length; i++) rowGroups.push(table.tBodies[i])
-    } else {
-      rowGroups.push(table)
-    }
-
-    for (var g = 0; g < rowGroups.length; g++) {
-      var rows = rowGroups[g].rows || []
-      for (var r = 0; r < rows.length; r++) {
-        var row = rows[r]
-        var columnIndex = 0
-        for (var c = 0; c < row.cells.length; c++) {
-          var cell = row.cells[c]
-          var span = parseInt(cell.getAttribute("colspan") || "1", 10)
-          if (!span || span < 1) span = 1
-          var parts = labels.slice(columnIndex, columnIndex + span)
-          var filtered = []
-          for (var p = 0; p < parts.length; p++) {
-            if (parts[p]) filtered.push(parts[p])
-          }
-          var label = filtered.length
-            ? filtered.join(" / ")
-            : labels[columnIndex] || "Column " + (columnIndex + 1)
-          cell.setAttribute("data-stack-label", label)
-          ensureStackValueWrapper(cell)
-          columnIndex += span
-        }
-      }
-    }
-  }
-
-  function initListTableStack() {
-    if (!isListSectionPage()) return
+  function hasTableWrapCandidates() {
     var scope = document.querySelector("main#content, #content") || document
     var tables = scope.querySelectorAll("table")
-    if (!tables || !tables.length) return
+    return Boolean(tables && tables.length)
+  }
 
-    forEachNodeList(tables, function (table) {
-      if (!table || table.getAttribute("data-stack-ready") === "true") return
-      var mode = normalizeLabelText(table.getAttribute("data-stack")).toLowerCase()
-      if (mode === "off") return
+  function ensureTableWrapStylesheet(done) {
+    var callback = typeof done === "function" ? done : function () {}
+    var href = resolveTableWrapCssSrc()
+    if (!href) {
+      callback()
+      return
+    }
 
-      var columnCount = getTableColumnCount(table)
-      if (isPairLayoutTable(table, columnCount, mode)) {
-        table.classList.add("table-pairs-ready")
-        rebuildPairRowsForMobile(table, columnCount)
-        table.setAttribute("data-stack-ready", "true")
-        return
+    if (window.__tableWrapStylesLoaded) {
+      callback()
+      return
+    }
+
+    var existing = document.querySelector('link[data-tablewrap-styles="true"]')
+    if (existing) {
+      callback()
+      return
+    }
+
+    var link = document.createElement("link")
+    link.rel = "stylesheet"
+    link.href = href
+    link.setAttribute("data-tablewrap-styles", "true")
+    link.onload = function () {
+      window.__tableWrapStylesLoaded = true
+      callback()
+    }
+    link.onerror = function () {
+      callback()
+    }
+    document.head.appendChild(link)
+  }
+
+  function loadTableWrapLegacy() {
+    if (window.__tableWrapLegacyLoading || window.__tableWrapLegacyLoaded) return
+    var src = resolveTableWrapLegacySrc()
+    if (!src) return
+
+    window.__tableWrapLegacyLoading = true
+    ensureTableWrapStylesheet(function () {
+      var script = document.createElement("script")
+      script.src = src
+      script.async = true
+      script.defer = true
+      script.onload = function () {
+        window.__tableWrapLegacyLoaded = true
+        window.__tableWrapLegacyLoading = false
       }
-
-      if (isDatumListTable(table, columnCount, mode)) {
-        table.classList.add("table-list-ready")
-        rebuildDatumListForMobile(table)
-        table.setAttribute("data-stack-ready", "true")
-        return
+      script.onerror = function () {
+        window.__tableWrapLegacyLoading = false
       }
-
-      if (isSimpleTable(columnCount, mode)) {
-        table.classList.add("table-simple-ready")
-        table.classList.add(columnCount === 1 ? "table-simple-1col" : "table-simple-2col")
-        if (columnCount === 2) {
-          var simpleLabels = getColumnLabels(table, columnCount)
-          var hasSimpleLabels = false
-          for (var simpleIdx = 0; simpleIdx < simpleLabels.length; simpleIdx++) {
-            if (simpleLabels[simpleIdx]) {
-              hasSimpleLabels = true
-              break
-            }
-          }
-          if (hasSimpleLabels) applyStackLabels(table, simpleLabels)
-        }
-        table.setAttribute("data-stack-ready", "true")
-        return
-      }
-
-      if (columnCount < 3 || columnCount > 6) return
-
-      var labels = getColumnLabels(table, columnCount)
-      var hasUsableLabels = false
-      for (var idx = 0; idx < labels.length; idx++) {
-        if (labels[idx]) {
-          hasUsableLabels = true
-          break
-        }
-      }
-      if (hasUsableLabels) applyStackLabels(table, labels)
-      table.classList.add("table-stack-ready")
-      table.setAttribute("data-stack-ready", "true")
+      document.head.appendChild(script)
     })
   }
 
+  function scheduleTableWrapLegacy() {
+    if (!hasTableWrapCandidates()) return
+    loadTableWrapLegacy()
+  }
   function normalizePathname(value) {
     if (!value) return "/"
     var normalized = String(value)
@@ -1234,7 +927,7 @@
     try {
       normalizePagerLabels()
       normalizeSectionPagerNavigation()
-      initListTableStack()
+      scheduleTableWrapLegacy()
       initLeftMenu()
       initFlyoutMenu()
       initQAAccordion()

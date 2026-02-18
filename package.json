@@ -50,6 +50,7 @@
     "mcp:seq-think": "npx --no-update-notifier -y @modelcontextprotocol/sequential-thinking-mcp",
     "check:page-parity": "node tools/check-page-parity.mjs --all-lessons",
     "check:page-parity:staged": "node tools/check-page-parity.mjs --staged",
+    "check:internal-links": "node tools/check-internal-links.mjs",
     "hooks:install": "bash -lc 'git rev-parse --is-inside-work-tree >/dev/null 2>&1 && git config core.hooksPath .githooks || true'",
     "prepare": "npm run hooks:install",
     "verify:prototype:strict": "VERIFY_STRICT=1 node js/verify-prototype.mjs",
