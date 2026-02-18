@@ -1,0 +1,493 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e4]:
+    - main [ref=e7]:
+      - generic [ref=e8]:
+        - heading "List 12 - Conjunctions" [level=2] [ref=e10]
+        - generic [ref=e11]:
+          - navigation "breadcrumbs-top" [ref=e12]:
+            - list [ref=e13]:
+              - listitem
+              - listitem [ref=e14]:
+                - link "Home" [ref=e15] [cursor=pointer]:
+                  - /url: index-2.html
+                  - generic [ref=e16]: Home
+                - img [ref=e18]
+              - listitem [ref=e20]:
+                - generic [ref=e21]: List 12 - Conjunctions
+          - list [ref=e22]:
+            - listitem [ref=e23]:
+              - link "Previous" [ref=e24] [cursor=pointer]:
+                - /url: list-11-prepositions.html
+                - img "angle-left" [ref=e25]
+                - generic [ref=e27]: Prepositions
+            - listitem [ref=e28]:
+              - link "Next" [ref=e29] [cursor=pointer]:
+                - /url: list-13-forming-abstract-nouns.html
+                - generic [ref=e30]: Abstract Nouns
+                - img "angle-right" [ref=e31]
+          - heading "List 12 - Conjunctions" [level=3] [ref=e33]
+          - table [ref=e34]:
+            - rowgroup [ref=e35]:
+              - row "Conjunctions" [ref=e36]:
+                - columnheader "Conjunctions" [ref=e37]
+              - row "Coordinating conjunctions Meaning Use" [ref=e38]:
+                - columnheader "Coordinating conjunctions" [ref=e39]
+                - columnheader "Meaning" [ref=e40]
+                - columnheader "Use" [ref=e41]
+            - rowgroup [ref=e42]:
+              - row "and also to introduce something to another thing that is already mentioned." [ref=e43]:
+                - cell "and" [ref=e44]
+                - cell "also" [ref=e45]
+                - cell "to introduce something to another thing that is already mentioned." [ref=e46]
+              - row "but however to introduce something contrasting with what has been mentioned" [ref=e47]:
+                - cell "but" [ref=e48]
+                - cell "however" [ref=e49]
+                - cell "to introduce something contrasting with what has been mentioned" [ref=e50]
+              - row "or alternative to show choices" [ref=e51]:
+                - cell "or" [ref=e52]
+                - cell "alternative" [ref=e53]
+                - cell "to show choices" [ref=e54]
+              - row "for because, since to show the reason for something" [ref=e55]:
+                - cell "for" [ref=e56]
+                - cell "because, since" [ref=e57]
+                - cell "to show the reason for something" [ref=e58]
+              - row "nor not either to show not one or the other" [ref=e59]:
+                - cell "nor" [ref=e60]
+                - cell "not either" [ref=e61]
+                - cell "to show not one or the other" [ref=e62]
+              - row "so therefore to link possibilities" [ref=e63]:
+                - cell "so" [ref=e64]
+                - cell "therefore" [ref=e65]
+                - cell "to link possibilities" [ref=e66]
+              - row "yet in spite of that to add something that is contrasting or unexpected" [ref=e67]:
+                - cell "yet" [ref=e68]
+                - cell "in spite of that" [ref=e69]
+                - cell "to add something that is contrasting or unexpected" [ref=e70]
+          - heading "Different types of subordinating conjunctions." [level=3] [ref=e71]
+          - table [ref=e72]:
+            - rowgroup [ref=e73]:
+              - row "Time Place Reason Purpose Contrast Comparison" [ref=e74]:
+                - columnheader "Time" [ref=e75]
+                - columnheader "Place" [ref=e76]
+                - columnheader "Reason" [ref=e77]
+                - columnheader "Purpose" [ref=e78]
+                - columnheader "Contrast" [ref=e79]
+                - columnheader "Comparison" [ref=e80]
+            - rowgroup [ref=e81]:
+              - row "after where as so although as" [ref=e82]:
+                - cell "after" [ref=e83]
+                - cell "where" [ref=e84]
+                - cell "as" [ref=e85]
+                - cell "so" [ref=e86]
+                - cell "although" [ref=e87]
+                - cell "as" [ref=e88]
+              - row "as wherever because therefore though like" [ref=e89]:
+                - cell "as" [ref=e90]
+                - cell "wherever" [ref=e91]
+                - cell "because" [ref=e92]
+                - cell "therefore" [ref=e93]
+                - cell "though" [ref=e94]
+                - cell "like" [ref=e95]
+              - row "before for as a result whereas than" [ref=e96]:
+                - cell "before" [ref=e97]
+                - cell [ref=e98]
+                - cell "for" [ref=e99]
+                - cell "as a result" [ref=e100]
+                - cell "whereas" [ref=e101]
+                - cell "than" [ref=e102]
+              - row "ever since since consequently while though" [ref=e103]:
+                - cell "ever since" [ref=e104]
+                - cell [ref=e105]
+                - cell "since" [ref=e106]
+                - cell "consequently" [ref=e107]
+                - cell "while" [ref=e108]
+                - cell "though" [ref=e109]
+              - row "since yet" [ref=e110]:
+                - cell "since" [ref=e111]
+                - cell [ref=e112]
+                - cell [ref=e113]
+                - cell [ref=e114]
+                - cell "yet" [ref=e115]
+                - cell [ref=e116]
+              - row "once" [ref=e117]:
+                - cell "once" [ref=e118]
+                - cell [ref=e119]
+                - cell [ref=e120]
+                - cell [ref=e121]
+                - cell [ref=e122]
+                - cell [ref=e123]
+              - row "since" [ref=e124]:
+                - cell "since" [ref=e125]
+                - cell [ref=e126]
+                - cell [ref=e127]
+                - cell [ref=e128]
+                - cell [ref=e129]
+                - cell [ref=e130]
+              - row "till" [ref=e131]:
+                - cell "till" [ref=e132]
+                - cell [ref=e133]
+                - cell [ref=e134]
+                - cell [ref=e135]
+                - cell [ref=e136]
+                - cell [ref=e137]
+              - row "until" [ref=e138]:
+                - cell "until" [ref=e139]
+                - cell [ref=e140]
+                - cell [ref=e141]
+                - cell [ref=e142]
+                - cell [ref=e143]
+                - cell [ref=e144]
+              - row "when" [ref=e145]:
+                - cell "when" [ref=e146]
+                - cell [ref=e147]
+                - cell [ref=e148]
+                - cell [ref=e149]
+                - cell [ref=e150]
+                - cell [ref=e151]
+              - row "whenever" [ref=e152]:
+                - cell "whenever" [ref=e153]
+                - cell [ref=e154]
+                - cell [ref=e155]
+                - cell [ref=e156]
+                - cell [ref=e157]
+                - cell [ref=e158]
+              - row "whereupon" [ref=e159]:
+                - cell "whereupon" [ref=e160]
+                - cell [ref=e161]
+                - cell [ref=e162]
+                - cell [ref=e163]
+                - cell [ref=e164]
+                - cell [ref=e165]
+              - row "while" [ref=e166]:
+                - cell "while" [ref=e167]
+                - cell [ref=e168]
+                - cell [ref=e169]
+                - cell [ref=e170]
+                - cell [ref=e171]
+                - cell [ref=e172]
+              - row "as soon as" [ref=e173]:
+                - cell "as soon as" [ref=e174]
+                - cell [ref=e175]
+                - cell [ref=e176]
+                - cell [ref=e177]
+                - cell [ref=e178]
+                - cell [ref=e179]
+              - row "now that" [ref=e180]:
+                - cell "now that" [ref=e181]
+                - cell [ref=e182]
+                - cell [ref=e183]
+                - cell [ref=e184]
+                - cell [ref=e185]
+                - cell [ref=e186]
+            - text: ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★
+          - heading "Different types of subordinating conjunctions." [level=3] [ref=e187]
+          - table [ref=e188]:
+            - rowgroup [ref=e189]:
+              - row "Condition Choice Exception Degree Preference consequence Indirect question" [ref=e190]:
+                - columnheader "Condition" [ref=e191]
+                - columnheader "Choice" [ref=e192]
+                - columnheader "Exception" [ref=e193]
+                - columnheader "Degree" [ref=e194]
+                - columnheader "Preference" [ref=e195]
+                - columnheader "consequence" [ref=e196]
+                - columnheader "Indirect question" [ref=e197]
+            - rowgroup [ref=e198]:
+              - row "if except so whether" [ref=e199]:
+                - cell "if" [ref=e200]
+                - cell [ref=e201]
+                - cell "except" [ref=e202]
+                - cell [ref=e203]
+                - cell [ref=e204]
+                - cell "so" [ref=e205]
+                - cell "whether" [ref=e206]
+              - row "providing than but that if" [ref=e207]:
+                - cell "providing" [ref=e208]
+                - cell "than" [ref=e209]
+                - cell "but" [ref=e210]
+                - cell [ref=e211]
+                - cell [ref=e212]
+                - cell "that" [ref=e213]
+                - cell "if" [ref=e214]
+              - row "unless whether" [ref=e215]:
+                - cell "unless" [ref=e216]
+                - cell "whether" [ref=e217]
+                - cell [ref=e218]
+                - cell [ref=e219]
+                - cell [ref=e220]
+                - cell [ref=e221]
+                - cell [ref=e222]
+              - row [ref=e223]:
+                - cell [ref=e224]
+                - cell [ref=e225]
+                - cell [ref=e226]
+                - cell [ref=e227]
+                - cell [ref=e228]
+                - cell [ref=e229]
+                - cell [ref=e230]
+              - row "provided that rather than as far as rather than so that" [ref=e231]:
+                - cell "provided that" [ref=e232]
+                - cell "rather than" [ref=e233]
+                - cell [ref=e234]
+                - cell "as far as" [ref=e235]
+                - cell "rather than" [ref=e236]
+                - cell "so that" [ref=e237]
+                - cell [ref=e238]
+              - row "seeing that sooner than such that" [ref=e239]:
+                - cell "seeing that" [ref=e240]
+                - cell [ref=e241]
+                - cell [ref=e242]
+                - cell [ref=e243]
+                - cell "sooner than" [ref=e244]
+                - cell "such that" [ref=e245]
+                - cell [ref=e246]
+              - row [ref=e247]:
+                - cell [ref=e248]
+                - cell [ref=e249]
+                - cell [ref=e250]
+                - cell [ref=e251]
+                - cell [ref=e252]
+                - cell [ref=e253]
+                - cell [ref=e254]
+              - row "as long as in order that" [ref=e255]:
+                - cell "as long as" [ref=e256]
+                - cell [ref=e257]
+                - cell [ref=e258]
+                - cell [ref=e259]
+                - cell [ref=e260]
+                - cell "in order that" [ref=e261]
+                - cell [ref=e262]
+              - row "so long as" [ref=e263]:
+                - cell "so long as" [ref=e264]
+                - cell [ref=e265]
+                - cell [ref=e266]
+                - cell [ref=e267]
+                - cell [ref=e268]
+                - cell [ref=e269]
+                - cell [ref=e270]
+              - row "even if" [ref=e271]:
+                - cell "even if" [ref=e272]
+                - cell [ref=e273]
+                - cell [ref=e274]
+                - cell [ref=e275]
+                - cell [ref=e276]
+                - cell [ref=e277]
+                - cell [ref=e278]
+            - text: ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★
+          - heading "Correlative conjunctions" [level=3] [ref=e279]
+          - table [ref=e280]:
+            - rowgroup [ref=e281]:
+              - row "Prepositions after Adjectives - additional" [ref=e282]:
+                - columnheader "Prepositions after Adjectives - additional" [ref=e283]
+            - rowgroup [ref=e284]:
+              - row "Correlative conjunctions Meaning" [ref=e285]:
+                - columnheader "Correlative conjunctions" [ref=e286]
+                - columnheader "Meaning" [ref=e287]
+              - row "either .. or One or more things that are available as another possibility" [ref=e288]:
+                - cell "either .. or" [ref=e289]
+                - cell "One or more things that are available as another possibility" [ref=e290]
+              - row "neither .. nor Putting two negative ideas together" [ref=e291]:
+                - cell "neither .. nor" [ref=e292]
+                - cell "Putting two negative ideas together" [ref=e293]
+              - row "both . . And Add something to another thing" [ref=e294]:
+                - cell "both . . And" [ref=e295]
+                - cell "Add something to another thing" [ref=e296]
+              - row "not .. but Replacing something with something else" [ref=e297]:
+                - cell "not .. but" [ref=e298]
+                - cell "Replacing something with something else" [ref=e299]
+              - row "not only . . (but) also Adding something to another thing" [ref=e300]:
+                - cell "not only . . (but) also" [ref=e301]
+                - cell "Adding something to another thing" [ref=e302]
+              - row "If .. then Showing a result that is dependent on something else" [ref=e303]:
+                - cell "If .. then" [ref=e304]
+                - cell "Showing a result that is dependent on something else" [ref=e305]
+              - row "Whether .. or Expressing a choice between alternatives" [ref=e306]:
+                - cell "Whether .. or" [ref=e307]
+                - cell "Expressing a choice between alternatives" [ref=e308]
+          - heading "Other correlative conjunctions:" [level=3] [ref=e309]
+          - text: as … so as … as the … the although … yet so … that
+          - list [ref=e310]:
+            - listitem [ref=e311]:
+              - link "Previous" [ref=e312] [cursor=pointer]:
+                - /url: list-11-prepositions.html
+                - img "angle-left" [ref=e313]
+                - generic [ref=e315]: Prepositions
+            - listitem [ref=e316]:
+              - link "Next" [ref=e317] [cursor=pointer]:
+                - /url: list-13-forming-abstract-nouns.html
+                - generic [ref=e318]: Abstract Nouns
+                - img "angle-right" [ref=e319]
+      - navigation "breadcrumbs-bottom" [ref=e321]:
+        - list [ref=e322]:
+          - listitem
+          - listitem [ref=e323]:
+            - link "Home" [ref=e324] [cursor=pointer]:
+              - /url: index-2.html
+              - generic [ref=e325]: Home
+            - img [ref=e327]
+          - listitem [ref=e329]:
+            - generic [ref=e330]: List 12 - Conjunctions
+    - complementary [ref=e331]:
+      - navigation "Lists" [ref=e332]:
+        - list [ref=e333]:
+          - listitem [ref=e334]:
+            - generic [ref=e335]:
+              - button "Toggle submenu for Singular-Plural" [ref=e336] [cursor=pointer]:
+                - img
+                - img
+              - link "Menu Link" [ref=e338] [cursor=pointer]:
+                - /url: list-1-singular-and-plural-nouns.html
+                - text: Singular-Plural
+          - listitem [ref=e339]:
+            - generic [ref=e340]:
+              - button "Toggle submenu for Counting Nouns" [ref=e341] [cursor=pointer]:
+                - img
+                - img
+              - link "Menu Link" [ref=e343] [cursor=pointer]:
+                - /url: list-2-uncountable-nouns-made-countable.html
+                - text: Counting Nouns
+          - listitem [ref=e344]:
+            - generic [ref=e345]:
+              - button "Toggle submenu for Collective Nouns" [ref=e346] [cursor=pointer]:
+                - img
+                - img
+              - link "Menu Link" [ref=e348] [cursor=pointer]:
+                - /url: list-3-collective-nouns.html
+                - text: Collective Nouns
+          - listitem [ref=e349]:
+            - generic [ref=e350]:
+              - button "Toggle submenu for Verbs" [ref=e351] [cursor=pointer]:
+                - img
+                - img
+              - link "Menu Link" [ref=e353] [cursor=pointer]:
+                - /url: list-4-verbs.html
+                - text: Verbs
+          - listitem [ref=e354]:
+            - generic [ref=e355]:
+              - button "Toggle submenu for Irregular Verbs" [ref=e356] [cursor=pointer]:
+                - img
+                - img
+              - link "Menu Link" [ref=e358] [cursor=pointer]:
+                - /url: list-5-irregular-verbs.html
+                - text: Irregular Verbs
+          - listitem [ref=e359]:
+            - generic [ref=e360]:
+              - button "Toggle submenu for Adjectives" [ref=e361] [cursor=pointer]:
+                - img
+                - img
+              - link "Menu Link" [ref=e363] [cursor=pointer]:
+                - /url: list-6-adjectives.html
+                - text: Adjectives
+          - listitem [ref=e364]:
+            - generic [ref=e365]:
+              - button "Toggle submenu for Comparison" [ref=e366] [cursor=pointer]:
+                - img
+                - img
+              - link "Menu Link" [ref=e368] [cursor=pointer]:
+                - /url: list-7-comparison-of-adjectives.html
+                - text: Comparison
+          - listitem [ref=e369]:
+            - generic [ref=e370]:
+              - button "Toggle submenu for Adverbs" [ref=e371] [cursor=pointer]:
+                - img
+                - img
+              - link "Menu Link" [ref=e373] [cursor=pointer]:
+                - /url: list-8-adverbs.html
+                - text: Adverbs
+          - listitem [ref=e374]:
+            - generic [ref=e375]:
+              - button "Toggle submenu for Adv. = Adj." [ref=e376] [cursor=pointer]:
+                - img
+                - img
+              - link "Menu Link" [ref=e378] [cursor=pointer]:
+                - /url: list-9-adverbs-sharing-same-words-as-adjectives.html
+                - text: Adv. = Adj.
+          - listitem [ref=e379]:
+            - link "Menu Link" [ref=e382] [cursor=pointer]:
+              - /url: list-10-pronouns.html
+              - text: Pronouns
+          - listitem [ref=e383]:
+            - generic [ref=e384]:
+              - button "Toggle submenu for Prepositions" [ref=e385] [cursor=pointer]:
+                - img
+                - img
+              - link "Menu Link" [ref=e387] [cursor=pointer]:
+                - /url: list-11-prepositions.html
+                - text: Prepositions
+          - listitem [ref=e388]:
+            - link "Menu Link" [ref=e391] [cursor=pointer]:
+              - /url: list-12-conjunctions.html
+              - text: Conjunctions
+          - listitem [ref=e392]:
+            - link "Menu Link" [ref=e395] [cursor=pointer]:
+              - /url: list-13-forming-abstract-nouns.html
+              - text: Abstract Nouns
+          - listitem [ref=e396]:
+            - generic [ref=e397]:
+              - button "Toggle submenu for Phrasal Verbs" [ref=e398] [cursor=pointer]:
+                - img
+                - img
+              - link "Menu Link" [ref=e400] [cursor=pointer]:
+                - /url: list-14-phrasal-verbs.html
+                - text: Phrasal Verbs
+          - listitem [ref=e401]:
+            - link "Menu Link" [ref=e404] [cursor=pointer]:
+              - /url: list-15-idioms.html
+              - text: Common Idioms
+          - listitem [ref=e405]:
+            - generic [ref=e406]:
+              - button "Toggle submenu for 1000 Idioms" [ref=e407] [cursor=pointer]:
+                - img
+                - img
+              - link "Menu Link" [ref=e409] [cursor=pointer]:
+                - /url: list-16-phrases-and-idioms.html
+                - text: 1000 Idioms
+          - listitem [ref=e410]:
+            - generic [ref=e411]:
+              - button "Toggle submenu for Proverbs" [ref=e412] [cursor=pointer]:
+                - img
+                - img
+              - link "Menu Link" [ref=e414] [cursor=pointer]:
+                - /url: list-17-proverbs-and-sayings.html
+                - text: Proverbs
+          - listitem [ref=e415]:
+            - link "Menu Link" [ref=e418] [cursor=pointer]:
+              - /url: list-18-foreign-phrases-commonly-used-in-english.html
+              - text: Foreign Phrases
+          - listitem [ref=e419]:
+            - link "Menu Link" [ref=e422] [cursor=pointer]:
+              - /url: list-19-parents-and-young.html
+              - text: Parents/Youth
+          - listitem [ref=e423]:
+            - generic [ref=e424]:
+              - button "Toggle submenu for Gender" [ref=e425] [cursor=pointer]:
+                - img
+                - img
+              - link "Menu Link" [ref=e427] [cursor=pointer]:
+                - /url: list-20-gender.html
+                - text: Gender
+          - listitem [ref=e428]:
+            - link "Menu Link" [ref=e431] [cursor=pointer]:
+              - /url: list-21-homes-of-people-and-creatures.html
+              - text: Home Types
+          - listitem [ref=e432]:
+            - link "Menu Link" [ref=e435] [cursor=pointer]:
+              - /url: list-22-objects-animals-and-sounds.html
+              - text: Objects/Sounds
+          - listitem [ref=e436]:
+            - link "Menu Link" [ref=e439] [cursor=pointer]:
+              - /url: list-23-antonyms.html
+              - text: Antonyms
+          - listitem [ref=e440]:
+            - link "Menu Link" [ref=e443] [cursor=pointer]:
+              - /url: list-24-synonyms.html
+              - text: Synonyms
+          - listitem [ref=e444]:
+            - link "Menu Link" [ref=e447] [cursor=pointer]:
+              - /url: list-25-homonyms.html
+              - text: Homonyms
+  - contentinfo [ref=e448]:
+    - generic [ref=e449]:
+      - paragraph [ref=e450]:
+        - link "Back to Top" [ref=e451] [cursor=pointer]:
+          - /url: "#top"
+      - paragraph [ref=e452]: © 2026 All rights reserved.

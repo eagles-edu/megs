@@ -1,0 +1,297 @@
+- generic [active] [ref=e1]:
+  - main [ref=e7]:
+    - generic [ref=e8]:
+      - heading "List 12 - Conjunctions" [level=2] [ref=e10]
+      - generic [ref=e11]:
+        - list [ref=e12]:
+          - listitem [ref=e13]:
+            - link "Previous" [ref=e14] [cursor=pointer]:
+              - /url: list-11-prepositions.html
+              - img "angle-left" [ref=e15]
+              - generic [ref=e17]: Prepositions
+          - listitem [ref=e18]:
+            - link "Next" [ref=e19] [cursor=pointer]:
+              - /url: list-13-forming-abstract-nouns.html
+              - generic [ref=e20]: Abstract Nouns
+              - img "angle-right" [ref=e21]
+        - heading "List 12 - Conjunctions" [level=3] [ref=e23]
+        - table [ref=e24]:
+          - rowgroup [ref=e25]:
+            - row [ref=e26]:
+              - columnheader [ref=e27]
+          - rowgroup [ref=e28]:
+            - row "Conjunctions" [ref=e29]:
+              - columnheader "Conjunctions" [ref=e30]
+            - row "Coordinating conjunctions Meaning Use" [ref=e31]:
+              - columnheader "Coordinating conjunctions" [ref=e32]
+              - columnheader "Meaning" [ref=e33]
+              - columnheader "Use" [ref=e34]
+          - rowgroup [ref=e35]:
+            - row "Coordinating conjunctions and Meaning also Use to introduce something to another thing that is already mentioned." [ref=e36]:
+              - cell "Coordinating conjunctions and" [ref=e37]:
+                - text: Coordinating conjunctions
+                - generic [ref=e38]: and
+              - cell "Meaning also" [ref=e39]:
+                - text: Meaning
+                - generic [ref=e40]: also
+              - cell "Use to introduce something to another thing that is already mentioned." [ref=e41]:
+                - text: Use
+                - generic [ref=e42]: to introduce something to another thing that is already mentioned.
+            - row "Coordinating conjunctions but Meaning however Use to introduce something contrasting with what has been mentioned" [ref=e43]:
+              - cell "Coordinating conjunctions but" [ref=e44]:
+                - text: Coordinating conjunctions
+                - generic [ref=e45]: but
+              - cell "Meaning however" [ref=e46]:
+                - text: Meaning
+                - generic [ref=e47]: however
+              - cell "Use to introduce something contrasting with what has been mentioned" [ref=e48]:
+                - text: Use
+                - generic [ref=e49]: to introduce something contrasting with what has been mentioned
+            - row "Coordinating conjunctions or Meaning alternative Use to show choices" [ref=e50]:
+              - cell "Coordinating conjunctions or" [ref=e51]:
+                - text: Coordinating conjunctions
+                - generic [ref=e52]: or
+              - cell "Meaning alternative" [ref=e53]:
+                - text: Meaning
+                - generic [ref=e54]: alternative
+              - cell "Use to show choices" [ref=e55]:
+                - text: Use
+                - generic [ref=e56]: to show choices
+            - row "Coordinating conjunctions for Meaning because, since Use to show the reason for something" [ref=e57]:
+              - cell "Coordinating conjunctions for" [ref=e58]:
+                - text: Coordinating conjunctions
+                - generic [ref=e59]: for
+              - cell "Meaning because, since" [ref=e60]:
+                - text: Meaning
+                - generic [ref=e61]: because, since
+              - cell "Use to show the reason for something" [ref=e62]:
+                - text: Use
+                - generic [ref=e63]: to show the reason for something
+            - row "Coordinating conjunctions nor Meaning not either Use to show not one or the other" [ref=e64]:
+              - cell "Coordinating conjunctions nor" [ref=e65]:
+                - text: Coordinating conjunctions
+                - generic [ref=e66]: nor
+              - cell "Meaning not either" [ref=e67]:
+                - text: Meaning
+                - generic [ref=e68]: not either
+              - cell "Use to show not one or the other" [ref=e69]:
+                - text: Use
+                - generic [ref=e70]: to show not one or the other
+            - row "Coordinating conjunctions so Meaning therefore Use to link possibilities" [ref=e71]:
+              - cell "Coordinating conjunctions so" [ref=e72]:
+                - text: Coordinating conjunctions
+                - generic [ref=e73]: so
+              - cell "Meaning therefore" [ref=e74]:
+                - text: Meaning
+                - generic [ref=e75]: therefore
+              - cell "Use to link possibilities" [ref=e76]:
+                - text: Use
+                - generic [ref=e77]: to link possibilities
+            - row "Coordinating conjunctions yet Meaning in spite of that Use to add something that is contrasting or unexpected" [ref=e78]:
+              - cell "Coordinating conjunctions yet" [ref=e79]:
+                - text: Coordinating conjunctions
+                - generic [ref=e80]: yet
+              - cell "Meaning in spite of that" [ref=e81]:
+                - text: Meaning
+                - generic [ref=e82]: in spite of that
+              - cell "Use to add something that is contrasting or unexpected" [ref=e83]:
+                - text: Use
+                - generic [ref=e84]: to add something that is contrasting or unexpected
+        - heading "Different types of subordinating conjunctions." [level=3] [ref=e85]
+        - table [ref=e86]:
+          - rowgroup [ref=e87]:
+            - row [ref=e88]:
+              - columnheader [ref=e89]
+          - rowgroup [ref=e90]:
+            - row "Time Place Reason Purpose Contrast Comparison" [ref=e91]:
+              - columnheader "Time" [ref=e92]
+              - columnheader "Place" [ref=e93]
+              - columnheader "Reason" [ref=e94]
+              - columnheader "Purpose" [ref=e95]
+              - columnheader "Contrast" [ref=e96]
+              - columnheader "Comparison" [ref=e97]
+          - rowgroup [ref=e98]:
+            - row "Time ★ after ★ as ★ before ★ ever since ★ since ★ once ★ since ★ till ★ until ★ when ★ whenever ★ whereupon ★ while ★ as soon as ★ now that" [ref=e99]:
+              - cell "Time ★ after ★ as ★ before ★ ever since ★ since ★ once ★ since ★ till ★ until ★ when ★ whenever ★ whereupon ★ while ★ as soon as ★ now that" [ref=e100]:
+                - generic [ref=e101]: Time
+                - list [ref=e102]:
+                  - listitem [ref=e103]: ★ after
+                  - listitem [ref=e104]: ★ as
+                  - listitem [ref=e105]: ★ before
+                  - listitem [ref=e106]: ★ ever since
+                  - listitem [ref=e107]: ★ since
+                  - listitem [ref=e108]: ★ once
+                  - listitem [ref=e109]: ★ since
+                  - listitem [ref=e110]: ★ till
+                  - listitem [ref=e111]: ★ until
+                  - listitem [ref=e112]: ★ when
+                  - listitem [ref=e113]: ★ whenever
+                  - listitem [ref=e114]: ★ whereupon
+                  - listitem [ref=e115]: ★ while
+                  - listitem [ref=e116]: ★ as soon as
+                  - listitem [ref=e117]: ★ now that
+            - row "Place ★ where ★ wherever" [ref=e118]:
+              - cell "Place ★ where ★ wherever" [ref=e119]:
+                - generic [ref=e120]: Place
+                - list [ref=e121]:
+                  - listitem [ref=e122]: ★ where
+                  - listitem [ref=e123]: ★ wherever
+            - row "Reason ★ as ★ because ★ for ★ since" [ref=e124]:
+              - cell "Reason ★ as ★ because ★ for ★ since" [ref=e125]:
+                - generic [ref=e126]: Reason
+                - list [ref=e127]:
+                  - listitem [ref=e128]: ★ as
+                  - listitem [ref=e129]: ★ because
+                  - listitem [ref=e130]: ★ for
+                  - listitem [ref=e131]: ★ since
+            - row "Purpose ★ so ★ therefore ★ as a result ★ consequently" [ref=e132]:
+              - cell "Purpose ★ so ★ therefore ★ as a result ★ consequently" [ref=e133]:
+                - generic [ref=e134]: Purpose
+                - list [ref=e135]:
+                  - listitem [ref=e136]: ★ so
+                  - listitem [ref=e137]: ★ therefore
+                  - listitem [ref=e138]: ★ as a result
+                  - listitem [ref=e139]: ★ consequently
+            - row "Contrast ★ although ★ though ★ whereas ★ while ★ yet" [ref=e140]:
+              - cell "Contrast ★ although ★ though ★ whereas ★ while ★ yet" [ref=e141]:
+                - generic [ref=e142]: Contrast
+                - list [ref=e143]:
+                  - listitem [ref=e144]: ★ although
+                  - listitem [ref=e145]: ★ though
+                  - listitem [ref=e146]: ★ whereas
+                  - listitem [ref=e147]: ★ while
+                  - listitem [ref=e148]: ★ yet
+            - row "Comparison ★ as ★ like ★ than ★ though" [ref=e149]:
+              - cell "Comparison ★ as ★ like ★ than ★ though" [ref=e150]:
+                - generic [ref=e151]: Comparison
+                - list [ref=e152]:
+                  - listitem [ref=e153]: ★ as
+                  - listitem [ref=e154]: ★ like
+                  - listitem [ref=e155]: ★ than
+                  - listitem [ref=e156]: ★ though
+        - heading "Different types of subordinating conjunctions." [level=3] [ref=e157]
+        - table [ref=e158]:
+          - rowgroup [ref=e159]:
+            - row [ref=e160]:
+              - columnheader [ref=e161]
+          - rowgroup [ref=e162]:
+            - row "Condition Choice Exception Degree Preference consequence Indirect question" [ref=e163]:
+              - columnheader "Condition" [ref=e164]
+              - columnheader "Choice" [ref=e165]
+              - columnheader "Exception" [ref=e166]
+              - columnheader "Degree" [ref=e167]
+              - columnheader "Preference" [ref=e168]
+              - columnheader "consequence" [ref=e169]
+              - columnheader "Indirect question" [ref=e170]
+          - rowgroup [ref=e171]:
+            - row "Condition ★ if ★ providing ★ unless ★ provided that ★ seeing that ★ as long as ★ so long as ★ even if" [ref=e172]:
+              - cell "Condition ★ if ★ providing ★ unless ★ provided that ★ seeing that ★ as long as ★ so long as ★ even if" [ref=e173]:
+                - generic [ref=e174]: Condition
+                - list [ref=e175]:
+                  - listitem [ref=e176]: ★ if
+                  - listitem [ref=e177]: ★ providing
+                  - listitem [ref=e178]: ★ unless
+                  - listitem [ref=e179]: ★ provided that
+                  - listitem [ref=e180]: ★ seeing that
+                  - listitem [ref=e181]: ★ as long as
+                  - listitem [ref=e182]: ★ so long as
+                  - listitem [ref=e183]: ★ even if
+            - row "Choice ★ than ★ whether ★ rather than" [ref=e184]:
+              - cell "Choice ★ than ★ whether ★ rather than" [ref=e185]:
+                - generic [ref=e186]: Choice
+                - list [ref=e187]:
+                  - listitem [ref=e188]: ★ than
+                  - listitem [ref=e189]: ★ whether
+                  - listitem [ref=e190]: ★ rather than
+            - row "Exception ★ except ★ but" [ref=e191]:
+              - cell "Exception ★ except ★ but" [ref=e192]:
+                - generic [ref=e193]: Exception
+                - list [ref=e194]:
+                  - listitem [ref=e195]: ★ except
+                  - listitem [ref=e196]: ★ but
+            - row "Degree ★ as far as" [ref=e197]:
+              - cell "Degree ★ as far as" [ref=e198]:
+                - generic [ref=e199]: Degree
+                - list [ref=e200]:
+                  - listitem [ref=e201]: ★ as far as
+            - row "Preference ★ rather than ★ sooner than" [ref=e202]:
+              - cell "Preference ★ rather than ★ sooner than" [ref=e203]:
+                - generic [ref=e204]: Preference
+                - list [ref=e205]:
+                  - listitem [ref=e206]: ★ rather than
+                  - listitem [ref=e207]: ★ sooner than
+            - row "consequence ★ so ★ that ★ so that ★ such that ★ in order that" [ref=e208]:
+              - cell "consequence ★ so ★ that ★ so that ★ such that ★ in order that" [ref=e209]:
+                - generic [ref=e210]: consequence
+                - list [ref=e211]:
+                  - listitem [ref=e212]: ★ so
+                  - listitem [ref=e213]: ★ that
+                  - listitem [ref=e214]: ★ so that
+                  - listitem [ref=e215]: ★ such that
+                  - listitem [ref=e216]: ★ in order that
+            - row "Indirect question ★ whether ★ if" [ref=e217]:
+              - cell "Indirect question ★ whether ★ if" [ref=e218]:
+                - generic [ref=e219]: Indirect question
+                - list [ref=e220]:
+                  - listitem [ref=e221]: ★ whether
+                  - listitem [ref=e222]: ★ if
+        - heading "Correlative conjunctions" [level=3] [ref=e223]
+        - table [ref=e224]:
+          - rowgroup [ref=e225]:
+            - row [ref=e226]:
+              - columnheader [ref=e227]: Prepositions after Adjectives - additional
+          - rowgroup [ref=e228]:
+            - row "Prepositions after Adjectives - additional" [ref=e229]:
+              - columnheader "Prepositions after Adjectives - additional" [ref=e230]
+          - rowgroup [ref=e231]:
+            - row "Correlative conjunctions" [ref=e232]:
+              - cell "Correlative conjunctions" [ref=e233]
+            - row "Meaning" [ref=e234]:
+              - cell "Meaning" [ref=e235]
+            - row "either .. or" [ref=e236]:
+              - cell "either .. or" [ref=e237]
+            - row "One or more things that are available as another possibility" [ref=e238]:
+              - cell "One or more things that are available as another possibility" [ref=e239]
+            - row "neither .. nor" [ref=e240]:
+              - cell "neither .. nor" [ref=e241]
+            - row "Putting two negative ideas together" [ref=e242]:
+              - cell "Putting two negative ideas together" [ref=e243]
+            - row "both . . And" [ref=e244]:
+              - cell "both . . And" [ref=e245]
+            - row "Add something to another thing" [ref=e246]:
+              - cell "Add something to another thing" [ref=e247]
+            - row "not .. but" [ref=e248]:
+              - cell "not .. but" [ref=e249]
+            - row "Replacing something with something else" [ref=e250]:
+              - cell "Replacing something with something else" [ref=e251]
+            - row "not only . . (but) also" [ref=e252]:
+              - cell "not only . . (but) also" [ref=e253]
+            - row "Adding something to another thing" [ref=e254]:
+              - cell "Adding something to another thing" [ref=e255]
+            - row "If .. then" [ref=e256]:
+              - cell "If .. then" [ref=e257]
+            - row "Showing a result that is dependent on something else" [ref=e258]:
+              - cell "Showing a result that is dependent on something else" [ref=e259]
+            - row "Whether .. or" [ref=e260]:
+              - cell "Whether .. or" [ref=e261]
+            - row "Expressing a choice between alternatives" [ref=e262]:
+              - cell "Expressing a choice between alternatives" [ref=e263]
+        - heading "Other correlative conjunctions:" [level=3] [ref=e264]
+        - text: as … so as … as the … the although … yet so … that
+        - list [ref=e265]:
+          - listitem [ref=e266]:
+            - link "Previous" [ref=e267] [cursor=pointer]:
+              - /url: list-11-prepositions.html
+              - img "angle-left" [ref=e268]
+              - generic [ref=e270]: Prepositions
+          - listitem [ref=e271]:
+            - link "Next" [ref=e272] [cursor=pointer]:
+              - /url: list-13-forming-abstract-nouns.html
+              - generic [ref=e273]: Abstract Nouns
+              - img "angle-right" [ref=e274]
+  - contentinfo [ref=e276]:
+    - generic [ref=e277]:
+      - paragraph [ref=e278]:
+        - link "Back to Top" [ref=e279] [cursor=pointer]:
+          - /url: "#top"
+      - paragraph [ref=e280]: © 2026 All rights reserved.

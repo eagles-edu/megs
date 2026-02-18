@@ -1,0 +1,270 @@
+- generic [active] [ref=e1]:
+  - main [ref=e7]:
+    - generic [ref=e8]:
+      - heading "List of Absolute Adjectives" [level=2] [ref=e10]
+      - generic [ref=e11]:
+        - list [ref=e12]:
+          - listitem [ref=e13]:
+            - link "Previous" [ref=e14] [cursor=pointer]:
+              - /url: ../list-6-adjectives.html
+              - img "angle-left" [ref=e15]
+              - generic [ref=e17]: Adjectives
+          - listitem [ref=e18]:
+            - link "Next" [ref=e19] [cursor=pointer]:
+              - /url: ../list-6-adjectives.html
+              - generic [ref=e20]: Adjectives
+              - img "angle-right" [ref=e21]
+        - heading "List of Absolute Adjectives" [level=3] [ref=e23]
+        - paragraph [ref=e24]:
+          - strong [ref=e25]: Some adjectives express ideas that cannot be graded
+          - text: . For example, a person can’t be
+          - strong [ref=e26]: more or less dead
+          - text: . In the same way, a sphere can’t be
+          - strong [ref=e27]: more or less round
+          - text: . In grammars these adjectives are
+          - strong [ref=e28]: called non-gradable
+          - text: or
+          - strong [ref=e29]: absolute adjectives.
+        - paragraph [ref=e30]:
+          - strong [ref=e31]: Non-gradable adjectives do not have comparative or superlative forms
+          - text: .
+          - emphasis [ref=e32]: There are very few non-gradable adjectives
+          - text: ", so you can learn them by heart if you really want. Here is a list of common non-gradable adjectives in English. Note that this is not a comprehensive list."
+        - generic [ref=e33]:
+          - heading "Examples:" [level=4] [ref=e34]
+          - paragraph [ref=e35]:
+            - emphasis [ref=e36]: Absolute, impossible, principal, adequate, inevitable, sufficient, complete, main, unanimous, unavoidable, entire, minor, fatal, unique, final, universal, ideal, whole, preferable, dead etc.
+        - heading "Exceptions" [level=3] [ref=e37]
+        - paragraph [ref=e38]:
+          - text: Although the adjectives given above are not normally used in comparative and superlative forms, you might still hear expressions like
+          - strong [ref=e39]: more complete
+          - text: or
+          - strong [ref=e40]: most perfect
+          - text: . Though incorrect, these expressions are quite common in speech and they have become sort of acceptable, too. However, if you are a careful user of the language, you must avoid them especially in writing.
+        - paragraph [ref=e41]:
+          - text: Also be careful, not to use
+          - strong [ref=e42]: more
+          - text: along with a comparative adjective ending in
+          - strong [ref=e43]: –er
+          - text: and
+          - strong [ref=e44]: most
+          - text: with a superlative adjective ending in
+          - strong [ref=e45]: "-est"
+          - text: . Do not write
+          - strong [ref=e46]: more taller
+          - text: or
+          - strong [ref=e47]: most smartest.
+          - text: These are examples of double comparatives and superlatives. They are always wrong and must be avoided.
+        - generic [ref=e48]:
+          - heading "Examples:" [level=4] [ref=e49]
+          - list [ref=e50]:
+            - listitem [ref=e51]:
+              - text: ★ She is
+              - strong [ref=e52]: prettier than
+              - text: her sister. (NOT She is
+              - strong [ref=e53]: more prettier than
+              - text: her sister.)
+        - paragraph [ref=e54]: Some compound adjectives have two possible comparatives and superlatives.
+        - generic [ref=e55]:
+          - heading "Examples:" [level=4] [ref=e56]
+          - list [ref=e57]:
+            - listitem [ref=e58]:
+              - text: "★ Positive: g"
+              - emphasis [ref=e59]: ood-looking
+            - listitem [ref=e60]:
+              - text: "★ Comparative: b"
+              - emphasis [ref=e61]: etter-looking
+              - text: or
+              - emphasis [ref=e62]: more good-looking
+            - listitem [ref=e63]:
+              - text: "★ Superlative: b"
+              - emphasis [ref=e64]: est-looking
+              - text: or
+              - emphasis [ref=e65]: most good-looking
+            - listitem [ref=e66]:
+              - text: "★ Positive: w"
+              - emphasis [ref=e67]: ell-known
+            - listitem [ref=e68]:
+              - text: "★ Comparative: b"
+              - emphasis [ref=e69]: etter-known
+              - text: or
+              - emphasis [ref=e70]: more well-known
+            - listitem [ref=e71]:
+              - text: "★ Superlative:"
+              - emphasis [ref=e72]: best-known
+              - text: or
+              - emphasis [ref=e73]: most well-known
+        - paragraph [ref=e74]:
+          - text: In this case, you can decide which form you want to use, but don’t write
+          - strong [ref=e75]: most best-known
+          - text: or
+          - strong [ref=e76]: more better-looking.
+        - table [ref=e77]:
+          - rowgroup [ref=e78]:
+            - row [ref=e79]:
+              - columnheader [ref=e80]: List of Absolute Adjectives
+          - rowgroup [ref=e81]:
+            - row "List of Absolute Adjectives" [ref=e82]:
+              - columnheader "List of Absolute Adjectives" [ref=e83]
+          - rowgroup [ref=e84]:
+            - row "absolute" [ref=e85]:
+              - cell "absolute" [ref=e86]
+            - row "exhausted" [ref=e87]:
+              - cell "exhausted" [ref=e88]
+            - row "principal" [ref=e89]:
+              - cell "principal" [ref=e90]
+            - row "accurate" [ref=e91]:
+              - cell "accurate" [ref=e92]
+            - row "extinct" [ref=e93]:
+              - cell "extinct" [ref=e94]
+            - row "pure" [ref=e95]:
+              - cell "pure" [ref=e96]
+            - row "adequate" [ref=e97]:
+              - cell "adequate" [ref=e98]
+            - row "false" [ref=e99]:
+              - cell "false" [ref=e100]
+            - row "red" [ref=e101]:
+              - cell "red" [ref=e102]
+            - row "alive" [ref=e103]:
+              - cell "alive" [ref=e104]
+            - row "fantastic" [ref=e105]:
+              - cell "fantastic" [ref=e106]
+            - row "ridiculous" [ref=e107]:
+              - cell "ridiculous" [ref=e108]
+            - row "ancient" [ref=e109]:
+              - cell "ancient" [ref=e110]
+            - row "fatal" [ref=e111]:
+              - cell "fatal" [ref=e112]
+            - row "round" [ref=e113]:
+              - cell "round" [ref=e114]
+            - row "alive" [ref=e115]:
+              - cell "alive" [ref=e116]
+            - row "final" [ref=e117]:
+              - cell "final" [ref=e118]
+            - row "single" [ref=e119]:
+              - cell "single" [ref=e120]
+            - row "ancient" [ref=e121]:
+              - cell "ancient" [ref=e122]
+            - row "freezing" [ref=e123]:
+              - cell "freezing" [ref=e124]
+            - row "square" [ref=e125]:
+              - cell "square" [ref=e126]
+            - row "awful" [ref=e127]:
+              - cell "awful" [ref=e128]
+            - row "full" [ref=e129]:
+              - cell "full" [ref=e130]
+            - row "starving" [ref=e131]:
+              - cell "starving" [ref=e132]
+            - row "basic" [ref=e133]:
+              - cell "basic" [ref=e134]
+            - row "furious" [ref=e135]:
+              - cell "furious" [ref=e136]
+            - row "straight" [ref=e137]:
+              - cell "straight" [ref=e138]
+            - row "brilliant" [ref=e139]:
+              - cell "brilliant" [ref=e140]
+            - row "gorgeous" [ref=e141]:
+              - cell "gorgeous" [ref=e142]
+            - row "superior" [ref=e143]:
+              - cell "superior" [ref=e144]
+            - row "certain" [ref=e145]:
+              - cell "certain" [ref=e146]
+            - row "hilarious" [ref=e147]:
+              - cell "hilarious" [ref=e148]
+            - row "supreme" [ref=e149]:
+              - cell "supreme" [ref=e150]
+            - row "complete" [ref=e151]:
+              - cell "complete" [ref=e152]
+            - row "horrible" [ref=e153]:
+              - cell "horrible" [ref=e154]
+            - row "terrible" [ref=e155]:
+              - cell "terrible" [ref=e156]
+            - row "correct" [ref=e157]:
+              - cell "correct" [ref=e158]
+            - row "huge" [ref=e159]:
+              - cell "huge" [ref=e160]
+            - row "terrified" [ref=e161]:
+              - cell "terrified" [ref=e162]
+            - row "dead" [ref=e163]:
+              - cell "dead" [ref=e164]
+            - row "ideal" [ref=e165]:
+              - cell "ideal" [ref=e166]
+            - row "tiny" [ref=e167]:
+              - cell "tiny" [ref=e168]
+            - row "devoid" [ref=e169]:
+              - cell "devoid" [ref=e170]
+            - row "inferior" [ref=e171]:
+              - cell "inferior" [ref=e172]
+            - row "total" [ref=e173]:
+              - cell "total" [ref=e174]
+            - row "different" [ref=e175]:
+              - cell "different" [ref=e176]
+            - row "impossible" [ref=e177]:
+              - cell "impossible" [ref=e178]
+            - row "true" [ref=e179]:
+              - cell "true" [ref=e180]
+            - row "double" [ref=e181]:
+              - cell "double" [ref=e182]
+            - row "incredible" [ref=e183]:
+              - cell "incredible" [ref=e184]
+            - row "ultimate" [ref=e185]:
+              - cell "ultimate" [ref=e186]
+            - row "empty" [ref=e187]:
+              - cell "empty" [ref=e188]
+            - row "inevitable" [ref=e189]:
+              - cell "inevitable" [ref=e190]
+            - row "unanimous" [ref=e191]:
+              - cell "unanimous" [ref=e192]
+            - row "enormous" [ref=e193]:
+              - cell "enormous" [ref=e194]
+            - row "infinite" [ref=e195]:
+              - cell "infinite" [ref=e196]
+            - row "unavoidable" [ref=e197]:
+              - cell "unavoidable" [ref=e198]
+            - row "enough" [ref=e199]:
+              - cell "enough" [ref=e200]
+            - row "main" [ref=e201]:
+              - cell "main" [ref=e202]
+            - row "unique" [ref=e203]:
+              - cell "unique" [ref=e204]
+            - row "entire" [ref=e205]:
+              - cell "entire" [ref=e206]
+            - row "minor" [ref=e207]:
+              - cell "minor" [ref=e208]
+            - row "universal" [ref=e209]:
+              - cell "universal" [ref=e210]
+            - row "equal" [ref=e211]:
+              - cell "equal" [ref=e212]
+            - row "perfect" [ref=e213]:
+              - cell "perfect" [ref=e214]
+            - row "unknown" [ref=e215]:
+              - cell "unknown" [ref=e216]
+            - row "essential" [ref=e217]:
+              - cell "essential" [ref=e218]
+            - row "possible" [ref=e219]:
+              - cell "possible" [ref=e220]
+            - row "whole" [ref=e221]:
+              - cell "whole" [ref=e222]
+            - row "eternal" [ref=e223]:
+              - cell "eternal" [ref=e224]
+            - row "preferable" [ref=e225]:
+              - cell "preferable" [ref=e226]
+            - row "wonderful" [ref=e227]:
+              - cell "wonderful" [ref=e228]
+        - list [ref=e229]:
+          - listitem [ref=e230]:
+            - link "Previous" [ref=e231] [cursor=pointer]:
+              - /url: ../list-6-adjectives.html
+              - img "angle-left" [ref=e232]
+              - generic [ref=e234]: Adjectives
+          - listitem [ref=e235]:
+            - link "Next" [ref=e236] [cursor=pointer]:
+              - /url: ../list-6-adjectives.html
+              - generic [ref=e237]: Adjectives
+              - img "angle-right" [ref=e238]
+  - contentinfo [ref=e240]:
+    - generic [ref=e241]:
+      - paragraph [ref=e242]:
+        - link "Back to Top" [ref=e243] [cursor=pointer]:
+          - /url: "#top"
+      - paragraph [ref=e244]: © 2026 All rights reserved.

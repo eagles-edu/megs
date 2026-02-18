@@ -1,0 +1,1360 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e4]:
+    - main [ref=e7]:
+      - generic [ref=e8]:
+        - heading "List 23 - Antonyms" [level=2] [ref=e10]
+        - generic [ref=e11]:
+          - navigation "breadcrumbs-top" [ref=e12]:
+            - list [ref=e13]:
+              - listitem
+              - listitem [ref=e14]:
+                - link "Home" [ref=e15] [cursor=pointer]:
+                  - /url: index-2.html
+                  - generic [ref=e16]: Home
+                - img [ref=e18]
+              - listitem [ref=e20]:
+                - generic [ref=e21]: List 23 - Antonyms
+          - list [ref=e22]:
+            - listitem [ref=e23]:
+              - link "Previous" [ref=e24] [cursor=pointer]:
+                - /url: list-22-objects-animals-and-sounds.html
+                - img "angle-left" [ref=e25]
+                - generic [ref=e27]: Objects/Sounds
+            - listitem [ref=e28]:
+              - link "Next" [ref=e29] [cursor=pointer]:
+                - /url: list-24-synonyms.html
+                - generic [ref=e30]: Synonyms
+                - img "angle-right" [ref=e31]
+          - heading "List 23 - Antonyms" [level=3] [ref=e33]
+          - paragraph [ref=e34]:
+            - strong [ref=e35]: Antonym
+            - text: refers to a word that means the opposite of another word.
+          - table [ref=e36]:
+            - rowgroup [ref=e37]:
+              - row "Antonym Pairs Antonym Pairs" [ref=e38]:
+                - columnheader "Antonym Pairs" [ref=e39]
+                - columnheader [ref=e40]
+                - columnheader "Antonym Pairs" [ref=e41]
+            - rowgroup [ref=e42]:
+              - row "above below hill valley" [ref=e43]:
+                - cell "above" [ref=e44]
+                - cell "below" [ref=e45]
+                - cell [ref=e46]
+                - cell "hill" [ref=e47]
+                - cell "valley" [ref=e48]
+              - row "abroad home humble proud" [ref=e49]:
+                - cell "abroad" [ref=e50]
+                - cell "home" [ref=e51]
+                - cell [ref=e52]
+                - cell "humble" [ref=e53]
+                - cell "proud" [ref=e54]
+              - row "absent present husband wife" [ref=e55]:
+                - cell "absent" [ref=e56]
+                - cell "present" [ref=e57]
+                - cell [ref=e58]
+                - cell "husband" [ref=e59]
+                - cell "wife" [ref=e60]
+              - row "absent present in out" [ref=e61]:
+                - cell "absent" [ref=e62]
+                - cell "present" [ref=e63]
+                - cell [ref=e64]
+                - cell "in" [ref=e65]
+                - cell "out" [ref=e66]
+              - row "accept refuse include exclude" [ref=e67]:
+                - cell "accept" [ref=e68]
+                - cell "refuse" [ref=e69]
+                - cell [ref=e70]
+                - cell "include" [ref=e71]
+                - cell "exclude" [ref=e72]
+              - row "active passive increase decrease" [ref=e73]:
+                - cell "active" [ref=e74]
+                - cell "passive" [ref=e75]
+                - cell [ref=e76]
+                - cell "increase" [ref=e77]
+                - cell "decrease" [ref=e78]
+              - row "add subtract increase decrease" [ref=e79]:
+                - cell "add" [ref=e80]
+                - cell "subtract" [ref=e81]
+                - cell [ref=e82]
+                - cell "increase" [ref=e83]
+                - cell "decrease" [ref=e84]
+              - row "admit deny indifferent interested" [ref=e85]:
+                - cell "admit" [ref=e86]
+                - cell "deny" [ref=e87]
+                - cell [ref=e88]
+                - cell "indifferent" [ref=e89]
+                - cell "interested" [ref=e90]
+              - row "adult child inner outer" [ref=e91]:
+                - cell "adult" [ref=e92]
+                - cell "child" [ref=e93]
+                - cell [ref=e94]
+                - cell "inner" [ref=e95]
+                - cell "outer" [ref=e96]
+              - row "alive dead inside outside" [ref=e97]:
+                - cell "alive" [ref=e98]
+                - cell "dead" [ref=e99]
+                - cell [ref=e100]
+                - cell "inside" [ref=e101]
+                - cell "outside" [ref=e102]
+              - row "all none insult praise" [ref=e103]:
+                - cell "all" [ref=e104]
+                - cell "none" [ref=e105]
+                - cell [ref=e106]
+                - cell "insult" [ref=e107]
+                - cell "praise" [ref=e108]
+              - row "allow refuse interested bored" [ref=e109]:
+                - cell "allow" [ref=e110]
+                - cell "refuse" [ref=e111]
+                - cell [ref=e112]
+                - cell "interested" [ref=e113]
+                - cell "bored" [ref=e114]
+              - row "always never interesting dull" [ref=e115]:
+                - cell "always" [ref=e116]
+                - cell "never" [ref=e117]
+                - cell [ref=e118]
+                - cell "interesting" [ref=e119]
+                - cell "dull" [ref=e120]
+              - row "arrive depart joy sorrow" [ref=e121]:
+                - cell "arrive" [ref=e122]
+                - cell "depart" [ref=e123]
+                - cell [ref=e124]
+                - cell "joy" [ref=e125]
+                - cell "sorrow" [ref=e126]
+              - row "asleep awake junior senior" [ref=e127]:
+                - cell "asleep" [ref=e128]
+                - cell "awake" [ref=e129]
+                - cell [ref=e130]
+                - cell "junior" [ref=e131]
+                - cell "senior" [ref=e132]
+              - row "back front kind cruel" [ref=e133]:
+                - cell "back" [ref=e134]
+                - cell "front" [ref=e135]
+                - cell [ref=e136]
+                - cell "kind" [ref=e137]
+                - cell "cruel" [ref=e138]
+              - row "backwards forward kind cruel" [ref=e139]:
+                - cell "backwards" [ref=e140]
+                - cell "forward" [ref=e141]
+                - cell [ref=e142]
+                - cell "kind" [ref=e143]
+                - cell "cruel" [ref=e144]
+              - row "bad good knowledge ignorance" [ref=e145]:
+                - cell "bad" [ref=e146]
+                - cell "good" [ref=e147]
+                - cell [ref=e148]
+                - cell "knowledge" [ref=e149]
+                - cell "ignorance" [ref=e150]
+              - row "barren fertile lazy industrious" [ref=e151]:
+                - cell "barren" [ref=e152]
+                - cell "fertile" [ref=e153]
+                - cell [ref=e154]
+                - cell "lazy" [ref=e155]
+                - cell "industrious" [ref=e156]
+              - row "beautiful ugly lead follow" [ref=e157]:
+                - cell "beautiful" [ref=e158]
+                - cell "ugly" [ref=e159]
+                - cell [ref=e160]
+                - cell "lead" [ref=e161]
+                - cell "follow" [ref=e162]
+              - row "before after least greatest" [ref=e163]:
+                - cell "before" [ref=e164]
+                - cell "after" [ref=e165]
+                - cell [ref=e166]
+                - cell "least" [ref=e167]
+                - cell "greatest" [ref=e168]
+              - row "begin end leave arrive" [ref=e169]:
+                - cell "begin" [ref=e170]
+                - cell "end" [ref=e171]
+                - cell [ref=e172]
+                - cell "leave" [ref=e173]
+                - cell "arrive" [ref=e174]
+              - row "bent straight lend borrow" [ref=e175]:
+                - cell "bent" [ref=e176]
+                - cell "straight" [ref=e177]
+                - cell [ref=e178]
+                - cell "lend" [ref=e179]
+                - cell "borrow" [ref=e180]
+              - row "best worst level steep" [ref=e181]:
+                - cell "best" [ref=e182]
+                - cell "worst" [ref=e183]
+                - cell [ref=e184]
+                - cell "level" [ref=e185]
+                - cell "steep" [ref=e186]
+              - row "better worse life death" [ref=e187]:
+                - cell "better" [ref=e188]
+                - cell "worse" [ref=e189]
+                - cell [ref=e190]
+                - cell "life" [ref=e191]
+                - cell "death" [ref=e192]
+              - row "big small liquid solid" [ref=e193]:
+                - cell "big" [ref=e194]
+                - cell "small" [ref=e195]
+                - cell [ref=e196]
+                - cell "liquid" [ref=e197]
+                - cell "solid" [ref=e198]
+              - row "black white long short" [ref=e199]:
+                - cell "black" [ref=e200]
+                - cell "white" [ref=e201]
+                - cell [ref=e202]
+                - cell "long" [ref=e203]
+                - cell "short" [ref=e204]
+              - row "blameless guilty loss gain" [ref=e205]:
+                - cell "blameless" [ref=e206]
+                - cell "guilty" [ref=e207]
+                - cell [ref=e208]
+                - cell "loss" [ref=e209]
+                - cell "gain" [ref=e210]
+              - row "bless curse loud soft" [ref=e211]:
+                - cell "bless" [ref=e212]
+                - cell "curse" [ref=e213]
+                - cell [ref=e214]
+                - cell "loud" [ref=e215]
+                - cell "soft" [ref=e216]
+              - row "blunt sharp love hate" [ref=e217]:
+                - cell "blunt" [ref=e218]
+                - cell "sharp" [ref=e219]
+                - cell [ref=e220]
+                - cell "love" [ref=e221]
+                - cell "hate" [ref=e222]
+              - row "bold timid majority minority" [ref=e223]:
+                - cell "bold" [ref=e224]
+                - cell "timid" [ref=e225]
+                - cell [ref=e226]
+                - cell "majority" [ref=e227]
+                - cell "minority" [ref=e228]
+              - row "bold timid many few" [ref=e229]:
+                - cell "bold" [ref=e230]
+                - cell "timid" [ref=e231]
+                - cell [ref=e232]
+                - cell "many" [ref=e233]
+                - cell "few" [ref=e234]
+              - row "boss employee masculine feminine" [ref=e235]:
+                - cell "boss" [ref=e236]
+                - cell "employee" [ref=e237]
+                - cell [ref=e238]
+                - cell "masculine" [ref=e239]
+                - cell "feminine" [ref=e240]
+              - row "bravery cowardice master servant" [ref=e241]:
+                - cell "bravery" [ref=e242]
+                - cell "cowardice" [ref=e243]
+                - cell [ref=e244]
+                - cell "master" [ref=e245]
+                - cell "servant" [ref=e246]
+              - row "break repair mean kind" [ref=e247]:
+                - cell "break" [ref=e248]
+                - cell "repair" [ref=e249]
+                - cell [ref=e250]
+                - cell "mean" [ref=e251]
+                - cell "kind" [ref=e252]
+              - row "bridge tunnel miser spendthrift" [ref=e253]:
+                - cell "bridge" [ref=e254]
+                - cell "tunnel" [ref=e255]
+                - cell [ref=e256]
+                - cell "miser" [ref=e257]
+                - cell "spendthrift" [ref=e258]
+              - row "bright dull modern ancient" [ref=e259]:
+                - cell "bright" [ref=e260]
+                - cell "dull" [ref=e261]
+                - cell [ref=e262]
+                - cell "modern" [ref=e263]
+                - cell "ancient" [ref=e264]
+              - row "broad narrow most least" [ref=e265]:
+                - cell "broad" [ref=e266]
+                - cell "narrow" [ref=e267]
+                - cell [ref=e268]
+                - cell "most" [ref=e269]
+                - cell "least" [ref=e270]
+              - row "busy idle motorist pedestrian" [ref=e271]:
+                - cell "busy" [ref=e272]
+                - cell "idle" [ref=e273]
+                - cell [ref=e274]
+                - cell "motorist" [ref=e275]
+                - cell "pedestrian" [ref=e276]
+              - row "buy sell mountain valley" [ref=e277]:
+                - cell "buy" [ref=e278]
+                - cell "sell" [ref=e279]
+                - cell [ref=e280]
+                - cell "mountain" [ref=e281]
+                - cell "valley" [ref=e282]
+              - row "capture release natural artificial" [ref=e283]:
+                - cell "capture" [ref=e284]
+                - cell "release" [ref=e285]
+                - cell [ref=e286]
+                - cell "natural" [ref=e287]
+                - cell "artificial" [ref=e288]
+              - row "catch throw near far" [ref=e289]:
+                - cell "catch" [ref=e290]
+                - cell "throw" [ref=e291]
+                - cell [ref=e292]
+                - cell "near" [ref=e293]
+                - cell "far" [ref=e294]
+              - row "cheap dear never always" [ref=e295]:
+                - cell "cheap" [ref=e296]
+                - cell "dear" [ref=e297]
+                - cell [ref=e298]
+                - cell "never" [ref=e299]
+                - cell "always" [ref=e300]
+              - row "city country niece nephew" [ref=e301]:
+                - cell "city" [ref=e302]
+                - cell "country" [ref=e303]
+                - cell [ref=e304]
+                - cell "niece" [ref=e305]
+                - cell "nephew" [ref=e306]
+              - row "clean dirty noise silence" [ref=e307]:
+                - cell "clean" [ref=e308]
+                - cell "dirty" [ref=e309]
+                - cell [ref=e310]
+                - cell "noise" [ref=e311]
+                - cell "silence" [ref=e312]
+              - row "clever foolish noisy quiet" [ref=e313]:
+                - cell "clever" [ref=e314]
+                - cell "foolish" [ref=e315]
+                - cell [ref=e316]
+                - cell "noisy" [ref=e317]
+                - cell "quiet" [ref=e318]
+              - row "cloudy clear normal abnormal" [ref=e319]:
+                - cell "cloudy" [ref=e320]
+                - cell "clear" [ref=e321]
+                - cell [ref=e322]
+                - cell "normal" [ref=e323]
+                - cell "abnormal" [ref=e324]
+              - row "clumsy graceful north south" [ref=e325]:
+                - cell "clumsy" [ref=e326]
+                - cell "graceful" [ref=e327]
+                - cell [ref=e328]
+                - cell "north" [ref=e329]
+                - cell "south" [ref=e330]
+              - row "coarse fine notice ignore" [ref=e331]:
+                - cell "coarse" [ref=e332]
+                - cell "fine" [ref=e333]
+                - cell [ref=e334]
+                - cell "notice" [ref=e335]
+                - cell "ignore" [ref=e336]
+              - row "cold hot obey command" [ref=e337]:
+                - cell "cold" [ref=e338]
+                - cell "hot" [ref=e339]
+                - cell [ref=e340]
+                - cell "obey" [ref=e341]
+                - cell "command" [ref=e342]
+              - row "come go obtain give" [ref=e343]:
+                - cell "come" [ref=e344]
+                - cell "go" [ref=e345]
+                - cell [ref=e346]
+                - cell "obtain" [ref=e347]
+                - cell "give" [ref=e348]
+              - row "comedy tragedy often seldom" [ref=e349]:
+                - cell "comedy" [ref=e350]
+                - cell "tragedy" [ref=e351]
+                - cell [ref=e352]
+                - cell "often" [ref=e353]
+                - cell "seldom" [ref=e354]
+              - row "comfort disturb old new" [ref=e355]:
+                - cell "comfort" [ref=e356]
+                - cell "disturb" [ref=e357]
+                - cell [ref=e358]
+                - cell "old" [ref=e359]
+                - cell "new" [ref=e360]
+              - row "common rare omit include" [ref=e361]:
+                - cell "common" [ref=e362]
+                - cell "rare" [ref=e363]
+                - cell [ref=e364]
+                - cell "omit" [ref=e365]
+                - cell "include" [ref=e366]
+              - row "common unusual open shut/close" [ref=e367]:
+                - cell "common" [ref=e368]
+                - cell "unusual" [ref=e369]
+                - cell [ref=e370]
+                - cell "open" [ref=e371]
+                - cell "shut/close" [ref=e372]
+              - row "contract expand order chaos" [ref=e373]:
+                - cell "contract" [ref=e374]
+                - cell "expand" [ref=e375]
+                - cell [ref=e376]
+                - cell "order" [ref=e377]
+                - cell "chaos" [ref=e378]
+              - row "cool warm overlook notice" [ref=e379]:
+                - cell "cool" [ref=e380]
+                - cell "warm" [ref=e381]
+                - cell [ref=e382]
+                - cell "overlook" [ref=e383]
+                - cell "notice" [ref=e384]
+              - row "coward hero pardon punish" [ref=e385]:
+                - cell "coward" [ref=e386]
+                - cell "hero" [ref=e387]
+                - cell [ref=e388]
+                - cell "pardon" [ref=e389]
+                - cell "punish" [ref=e390]
+              - row "cowardly bold part whole" [ref=e391]:
+                - cell "cowardly" [ref=e392]
+                - cell "bold" [ref=e393]
+                - cell [ref=e394]
+                - cell "part" [ref=e395]
+                - cell "whole" [ref=e396]
+              - row "create destroy past future" [ref=e397]:
+                - cell "create" [ref=e398]
+                - cell "destroy" [ref=e399]
+                - cell [ref=e400]
+                - cell "past" [ref=e401]
+                - cell "future" [ref=e402]
+              - row "cry laugh peace war" [ref=e403]:
+                - cell "cry" [ref=e404]
+                - cell "laugh" [ref=e405]
+                - cell [ref=e406]
+                - cell "peace" [ref=e407]
+                - cell "war" [ref=e408]
+              - row "daily nightly plural singular" [ref=e409]:
+                - cell "daily" [ref=e410]
+                - cell "nightly" [ref=e411]
+                - cell [ref=e412]
+                - cell "plural" [ref=e413]
+                - cell "singular" [ref=e414]
+              - row "danger safety polite rude" [ref=e415]:
+                - cell "danger" [ref=e416]
+                - cell "safety" [ref=e417]
+                - cell [ref=e418]
+                - cell "polite" [ref=e419]
+                - cell "rude" [ref=e420]
+              - row "dark bright polite rude" [ref=e421]:
+                - cell "dark" [ref=e422]
+                - cell "bright" [ref=e423]
+                - cell [ref=e424]
+                - cell "polite" [ref=e425]
+                - cell "rude" [ref=e426]
+              - row "dawn dusk poor rich" [ref=e427]:
+                - cell "dawn" [ref=e428]
+                - cell "dusk" [ref=e429]
+                - cell [ref=e430]
+                - cell "poor" [ref=e431]
+                - cell "rich" [ref=e432]
+              - row "day night powerful weak" [ref=e433]:
+                - cell "day" [ref=e434]
+                - cell "night" [ref=e435]
+                - cell [ref=e436]
+                - cell "powerful" [ref=e437]
+                - cell "weak" [ref=e438]
+              - row "deep shallow praise blame" [ref=e439]:
+                - cell "deep" [ref=e440]
+                - cell "shallow" [ref=e441]
+                - cell [ref=e442]
+                - cell "praise" [ref=e443]
+                - cell "blame" [ref=e444]
+              - row "depth height public private" [ref=e445]:
+                - cell "depth" [ref=e446]
+                - cell "height" [ref=e447]
+                - cell [ref=e448]
+                - cell "public" [ref=e449]
+                - cell "private" [ref=e450]
+              - row "die live public private" [ref=e451]:
+                - cell "die" [ref=e452]
+                - cell "live" [ref=e453]
+                - cell [ref=e454]
+                - cell "public" [ref=e455]
+                - cell "private" [ref=e456]
+              - row "difficult easy punish reward" [ref=e457]:
+                - cell "difficult" [ref=e458]
+                - cell "easy" [ref=e459]
+                - cell [ref=e460]
+                - cell "punish" [ref=e461]
+                - cell "reward" [ref=e462]
+              - row "dim bright pupil teacher" [ref=e463]:
+                - cell "dim" [ref=e464]
+                - cell "bright" [ref=e465]
+                - cell [ref=e466]
+                - cell "pupil" [ref=e467]
+                - cell "teacher" [ref=e468]
+              - row "discourteous polite purchase sell" [ref=e469]:
+                - cell "discourteous" [ref=e470]
+                - cell "polite" [ref=e471]
+                - cell [ref=e472]
+                - cell "purchase" [ref=e473]
+                - cell "sell" [ref=e474]
+              - row "divide multiply push pull" [ref=e475]:
+                - cell "divide" [ref=e476]
+                - cell "multiply" [ref=e477]
+                - cell [ref=e478]
+                - cell "push" [ref=e479]
+                - cell "pull" [ref=e480]
+              - row "doctor patient question answer" [ref=e481]:
+                - cell "doctor" [ref=e482]
+                - cell "patient" [ref=e483]
+                - cell [ref=e484]
+                - cell "question" [ref=e485]
+                - cell "answer" [ref=e486]
+              - row "drunk sober quick slow" [ref=e487]:
+                - cell "drunk" [ref=e488]
+                - cell "sober" [ref=e489]
+                - cell [ref=e490]
+                - cell "quick" [ref=e491]
+                - cell "slow" [ref=e492]
+              - row "dry wet raw cooked" [ref=e493]:
+                - cell "dry" [ref=e494]
+                - cell "wet" [ref=e495]
+                - cell [ref=e496]
+                - cell "raw" [ref=e497]
+                - cell "cooked" [ref=e498]
+              - row "dwarf giant raw cooked" [ref=e499]:
+                - cell "dwarf" [ref=e500]
+                - cell "giant" [ref=e501]
+                - cell [ref=e502]
+                - cell "raw" [ref=e503]
+                - cell "cooked" [ref=e504]
+              - row "early late real imaginary" [ref=e505]:
+                - cell "early" [ref=e506]
+                - cell "late" [ref=e507]
+                - cell [ref=e508]
+                - cell "real" [ref=e509]
+                - cell "imaginary" [ref=e510]
+              - row "east west right left" [ref=e511]:
+                - cell "east" [ref=e512]
+                - cell "west" [ref=e513]
+                - cell [ref=e514]
+                - cell "right" [ref=e515]
+                - cell "left" [ref=e516]
+              - row "easy difficult rise fall" [ref=e517]:
+                - cell "easy" [ref=e518]
+                - cell "difficult" [ref=e519]
+                - cell [ref=e520]
+                - cell "rise" [ref=e521]
+                - cell "fall" [ref=e522]
+              - row "ebb flow rough smooth" [ref=e523]:
+                - cell "ebb" [ref=e524]
+                - cell "flow" [ref=e525]
+                - cell [ref=e526]
+                - cell "rough" [ref=e527]
+                - cell "smooth" [ref=e528]
+              - row "empty full sad cheerful" [ref=e529]:
+                - cell "empty" [ref=e530]
+                - cell "full" [ref=e531]
+                - cell [ref=e532]
+                - cell "sad" [ref=e533]
+                - cell "cheerful" [ref=e534]
+              - row "enemy friend safe dangerous" [ref=e535]:
+                - cell "enemy" [ref=e536]
+                - cell "friend" [ref=e537]
+                - cell [ref=e538]
+                - cell "safe" [ref=e539]
+                - cell "dangerous" [ref=e540]
+              - row "enjoy dislike safe dangerous" [ref=e541]:
+                - cell "enjoy" [ref=e542]
+                - cell "dislike" [ref=e543]
+                - cell [ref=e544]
+                - cell "safe" [ref=e545]
+                - cell "dangerous" [ref=e546]
+              - row "entrance exit same different" [ref=e547]:
+                - cell "entrance" [ref=e548]
+                - cell "exit" [ref=e549]
+                - cell [ref=e550]
+                - cell "same" [ref=e551]
+                - cell "different" [ref=e552]
+              - row "evening morning separate join" [ref=e553]:
+                - cell "evening" [ref=e554]
+                - cell "morning" [ref=e555]
+                - cell [ref=e556]
+                - cell "separate" [ref=e557]
+                - cell "join" [ref=e558]
+              - row "ever never several few" [ref=e559]:
+                - cell "ever" [ref=e560]
+                - cell "never" [ref=e561]
+                - cell [ref=e562]
+                - cell "several" [ref=e563]
+                - cell "few" [ref=e564]
+              - row "everybody nobody silly serious" [ref=e565]:
+                - cell "everybody" [ref=e566]
+                - cell "nobody" [ref=e567]
+                - cell [ref=e568]
+                - cell "silly" [ref=e569]
+                - cell "serious" [ref=e570]
+              - row "everywhere nowhere similar different" [ref=e571]:
+                - cell "everywhere" [ref=e572]
+                - cell "nowhere" [ref=e573]
+                - cell [ref=e574]
+                - cell "similar" [ref=e575]
+                - cell "different" [ref=e576]
+              - row "exit entrance slim fat" [ref=e577]:
+                - cell "exit" [ref=e578]
+                - cell "entrance" [ref=e579]
+                - cell [ref=e580]
+                - cell "slim" [ref=e581]
+                - cell "fat" [ref=e582]
+              - row "fact fiction smile frown" [ref=e583]:
+                - cell "fact" [ref=e584]
+                - cell "fiction" [ref=e585]
+                - cell [ref=e586]
+                - cell "smile" [ref=e587]
+                - cell "frown" [ref=e588]
+              - row "failure success smile frown" [ref=e589]:
+                - cell "failure" [ref=e590]
+                - cell "success" [ref=e591]
+                - cell [ref=e592]
+                - cell "smile" [ref=e593]
+                - cell "frown" [ref=e594]
+              - row "fair dark straight crooked" [ref=e595]:
+                - cell "fair" [ref=e596]
+                - cell "dark" [ref=e597]
+                - cell [ref=e598]
+                - cell "straight" [ref=e599]
+                - cell "crooked" [ref=e600]
+              - row "famous unknown straight crooked" [ref=e601]:
+                - cell "famous" [ref=e602]
+                - cell "unknown" [ref=e603]
+                - cell [ref=e604]
+                - cell "straight" [ref=e605]
+                - cell "crooked" [ref=e606]
+              - row "fancy plain strange familiar" [ref=e607]:
+                - cell "fancy" [ref=e608]
+                - cell "plain" [ref=e609]
+                - cell [ref=e610]
+                - cell "strange" [ref=e611]
+                - cell "familiar" [ref=e612]
+              - row "far near strong weak" [ref=e613]:
+                - cell "far" [ref=e614]
+                - cell "near" [ref=e615]
+                - cell [ref=e616]
+                - cell "strong" [ref=e617]
+                - cell "weak" [ref=e618]
+              - row "fat thin summer winter" [ref=e619]:
+                - cell "fat" [ref=e620]
+                - cell "thin" [ref=e621]
+                - cell [ref=e622]
+                - cell "summer" [ref=e623]
+                - cell "winter" [ref=e624]
+              - row "fat skinny sweet sour" [ref=e625]:
+                - cell "fat" [ref=e626]
+                - cell "skinny" [ref=e627]
+                - cell [ref=e628]
+                - cell "sweet" [ref=e629]
+                - cell "sour" [ref=e630]
+              - row "few many sweet sour" [ref=e631]:
+                - cell "few" [ref=e632]
+                - cell "many" [ref=e633]
+                - cell [ref=e634]
+                - cell "sweet" [ref=e635]
+                - cell "sour" [ref=e636]
+              - row "find lose talk listen" [ref=e637]:
+                - cell "find" [ref=e638]
+                - cell "lose" [ref=e639]
+                - cell [ref=e640]
+                - cell "talk" [ref=e641]
+                - cell "listen" [ref=e642]
+              - row "finish start tall short" [ref=e643]:
+                - cell "finish" [ref=e644]
+                - cell "start" [ref=e645]
+                - cell [ref=e646]
+                - cell "tall" [ref=e647]
+                - cell "short" [ref=e648]
+              - row "first last tame wild" [ref=e649]:
+                - cell "first" [ref=e650]
+                - cell "last" [ref=e651]
+                - cell [ref=e652]
+                - cell "tame" [ref=e653]
+                - cell "wild" [ref=e654]
+              - row "flatter insult teach learn" [ref=e655]:
+                - cell "flatter" [ref=e656]
+                - cell "insult" [ref=e657]
+                - cell [ref=e658]
+                - cell "teach" [ref=e659]
+                - cell "learn" [ref=e660]
+              - row "foe friend teacher student" [ref=e661]:
+                - cell "foe" [ref=e662]
+                - cell "friend" [ref=e663]
+                - cell [ref=e664]
+                - cell "teacher" [ref=e665]
+                - cell "student" [ref=e666]
+              - row "foolish wise these those" [ref=e667]:
+                - cell "foolish" [ref=e668]
+                - cell "wise" [ref=e669]
+                - cell [ref=e670]
+                - cell "these" [ref=e671]
+                - cell "those" [ref=e672]
+              - row "foreign local thick thin" [ref=e673]:
+                - cell "foreign" [ref=e674]
+                - cell "local" [ref=e675]
+                - cell [ref=e676]
+                - cell "thick" [ref=e677]
+                - cell "thin" [ref=e678]
+              - row "forget remember this that" [ref=e679]:
+                - cell "forget" [ref=e680]
+                - cell "remember" [ref=e681]
+                - cell [ref=e682]
+                - cell "this" [ref=e683]
+                - cell "that" [ref=e684]
+              - row "found lost tight loose" [ref=e685]:
+                - cell "found" [ref=e686]
+                - cell "lost" [ref=e687]
+                - cell [ref=e688]
+                - cell "tight" [ref=e689]
+                - cell "loose" [ref=e690]
+              - row "freeze thaw tiny huge" [ref=e691]:
+                - cell "freeze" [ref=e692]
+                - cell "thaw" [ref=e693]
+                - cell [ref=e694]
+                - cell "tiny" [ref=e695]
+                - cell "huge" [ref=e696]
+              - row "fresh stale top bottom" [ref=e697]:
+                - cell "fresh" [ref=e698]
+                - cell "stale" [ref=e699]
+                - cell [ref=e700]
+                - cell "top" [ref=e701]
+                - cell "bottom" [ref=e702]
+              - row "fresh stale trainer trainee" [ref=e703]:
+                - cell "fresh" [ref=e704]
+                - cell "stale" [ref=e705]
+                - cell [ref=e706]
+                - cell "trainer" [ref=e707]
+                - cell "trainee" [ref=e708]
+              - row "friend enemy trust doubt" [ref=e709]:
+                - cell "friend" [ref=e710]
+                - cell "enemy" [ref=e711]
+                - cell [ref=e712]
+                - cell "trust" [ref=e713]
+                - cell "doubt" [ref=e714]
+              - row "full vacant truth lie" [ref=e715]:
+                - cell "full" [ref=e716]
+                - cell "vacant" [ref=e717]
+                - cell [ref=e718]
+                - cell "truth" [ref=e719]
+                - cell "lie" [ref=e720]
+              - row "future past under over" [ref=e721]:
+                - cell "future" [ref=e722]
+                - cell "past" [ref=e723]
+                - cell [ref=e724]
+                - cell "under" [ref=e725]
+                - cell "over" [ref=e726]
+              - row "generous selfish unusual ordinary" [ref=e727]:
+                - cell "generous" [ref=e728]
+                - cell "selfish" [ref=e729]
+                - cell [ref=e730]
+                - cell "unusual" [ref=e731]
+                - cell "ordinary" [ref=e732]
+              - row "give receive up down" [ref=e733]:
+                - cell "give" [ref=e734]
+                - cell "receive" [ref=e735]
+                - cell [ref=e736]
+                - cell "up" [ref=e737]
+                - cell "down" [ref=e738]
+              - row "give take upset comfort" [ref=e739]:
+                - cell "give" [ref=e740]
+                - cell "take" [ref=e741]
+                - cell [ref=e742]
+                - cell "upset" [ref=e743]
+                - cell "comfort" [ref=e744]
+              - row "graceful awkward vacant occupied" [ref=e745]:
+                - cell "graceful" [ref=e746]
+                - cell "awkward" [ref=e747]
+                - cell [ref=e748]
+                - cell "vacant" [ref=e749]
+                - cell "occupied" [ref=e750]
+              - row "guilty innocent vacant occupied" [ref=e751]:
+                - cell "guilty" [ref=e752]
+                - cell "innocent" [ref=e753]
+                - cell [ref=e754]
+                - cell "vacant" [ref=e755]
+                - cell "occupied" [ref=e756]
+              - row "guilty innocent valuable worthless" [ref=e757]:
+                - cell "guilty" [ref=e758]
+                - cell "innocent" [ref=e759]
+                - cell [ref=e760]
+                - cell "valuable" [ref=e761]
+                - cell "worthless" [ref=e762]
+              - row "happy sad victory defeat" [ref=e763]:
+                - cell "happy" [ref=e764]
+                - cell "sad" [ref=e765]
+                - cell [ref=e766]
+                - cell "victory" [ref=e767]
+                - cell "defeat" [ref=e768]
+              - row "happy sad villain hero" [ref=e769]:
+                - cell "happy" [ref=e770]
+                - cell "sad" [ref=e771]
+                - cell [ref=e772]
+                - cell "villain" [ref=e773]
+                - cell "hero" [ref=e774]
+              - row "hard easy war peace" [ref=e775]:
+                - cell "hard" [ref=e776]
+                - cell "easy" [ref=e777]
+                - cell [ref=e778]
+                - cell "war" [ref=e779]
+                - cell "peace" [ref=e780]
+              - row "hard soft wide narrow" [ref=e781]:
+                - cell "hard" [ref=e782]
+                - cell "soft" [ref=e783]
+                - cell [ref=e784]
+                - cell "wide" [ref=e785]
+                - cell "narrow" [ref=e786]
+              - row "head tail win lose" [ref=e787]:
+                - cell "head" [ref=e788]
+                - cell "tail" [ref=e789]
+                - cell [ref=e790]
+                - cell "win" [ref=e791]
+                - cell "lose" [ref=e792]
+              - row "heavy light wise foolish" [ref=e793]:
+                - cell "heavy" [ref=e794]
+                - cell "light" [ref=e795]
+                - cell [ref=e796]
+                - cell "wise" [ref=e797]
+                - cell "foolish" [ref=e798]
+              - row "hell heaven within without" [ref=e799]:
+                - cell "hell" [ref=e800]
+                - cell "heaven" [ref=e801]
+                - cell [ref=e802]
+                - cell "within" [ref=e803]
+                - cell "without" [ref=e804]
+              - row "help hinder work rest" [ref=e805]:
+                - cell "help" [ref=e806]
+                - cell "hinder" [ref=e807]
+                - cell [ref=e808]
+                - cell "work" [ref=e809]
+                - cell "rest" [ref=e810]
+              - row "here there wrong right" [ref=e811]:
+                - cell "here" [ref=e812]
+                - cell "there" [ref=e813]
+                - cell [ref=e814]
+                - cell "wrong" [ref=e815]
+                - cell "right" [ref=e816]
+              - row "hide show yes no" [ref=e817]:
+                - cell "hide" [ref=e818]
+                - cell "show" [ref=e819]
+                - cell [ref=e820]
+                - cell "yes" [ref=e821]
+                - cell "no" [ref=e822]
+              - row "high low young old" [ref=e823]:
+                - cell "high" [ref=e824]
+                - cell "low" [ref=e825]
+                - cell [ref=e826]
+                - cell "young" [ref=e827]
+                - cell "old" [ref=e828]
+          - heading "Antonyms (un-)" [level=3] [ref=e829]
+          - table [ref=e830]:
+            - rowgroup [ref=e831]:
+              - row "Antonym Pairs Antonym Pairs" [ref=e832]:
+                - columnheader "Antonym Pairs" [ref=e833]
+                - columnheader [ref=e834]
+                - columnheader "Antonym Pairs" [ref=e835]
+            - rowgroup [ref=e836]:
+              - row "attractive unattractive justifiable unjustifiable" [ref=e837]:
+                - cell "attractive" [ref=e838]
+                - cell "unattractive" [ref=e839]
+                - cell [ref=e840]
+                - cell "justifiable" [ref=e841]
+                - cell "unjustifiable" [ref=e842]
+              - row "able unable known unknown" [ref=e843]:
+                - cell "able" [ref=e844]
+                - cell "unable" [ref=e845]
+                - cell [ref=e846]
+                - cell "known" [ref=e847]
+                - cell "unknown" [ref=e848]
+              - row "acceptable unacceptable lawful unlawful" [ref=e849]:
+                - cell "acceptable" [ref=e850]
+                - cell "unacceptable" [ref=e851]
+                - cell [ref=e852]
+                - cell "lawful" [ref=e853]
+                - cell "unlawful" [ref=e854]
+              - row "accompanied unaccompanied licensed unlicensed" [ref=e855]:
+                - cell "accompanied" [ref=e856]
+                - cell "unaccompanied" [ref=e857]
+                - cell [ref=e858]
+                - cell "licensed" [ref=e859]
+                - cell "unlicensed" [ref=e860]
+              - row "arm unarm like unlike" [ref=e861]:
+                - cell "arm" [ref=e862]
+                - cell "unarm" [ref=e863]
+                - cell [ref=e864]
+                - cell "like" [ref=e865]
+                - cell "unlike" [ref=e866]
+              - row "certain uncertain lock unlock" [ref=e867]:
+                - cell "certain" [ref=e868]
+                - cell "uncertain" [ref=e869]
+                - cell [ref=e870]
+                - cell "lock" [ref=e871]
+                - cell "unlock" [ref=e872]
+              - row "comfortable uncomfortable necessary unnecessary" [ref=e873]:
+                - cell "comfortable" [ref=e874]
+                - cell "uncomfortable" [ref=e875]
+                - cell [ref=e876]
+                - cell "necessary" [ref=e877]
+                - cell "unnecessary" [ref=e878]
+              - row "common uncommon patriotic unpatriotic" [ref=e879]:
+                - cell "common" [ref=e880]
+                - cell "uncommon" [ref=e881]
+                - cell [ref=e882]
+                - cell "patriotic" [ref=e883]
+                - cell "unpatriotic" [ref=e884]
+              - row "conscious unconscious popular unpopular" [ref=e885]:
+                - cell "conscious" [ref=e886]
+                - cell "unconscious" [ref=e887]
+                - cell [ref=e888]
+                - cell "popular" [ref=e889]
+                - cell "unpopular" [ref=e890]
+              - row "dress undress prepared unprepared" [ref=e891]:
+                - cell "dress" [ref=e892]
+                - cell "undress" [ref=e893]
+                - cell [ref=e894]
+                - cell "prepared" [ref=e895]
+                - cell "unprepared" [ref=e896]
+              - row "equal unequal safe unsafe" [ref=e897]:
+                - cell "equal" [ref=e898]
+                - cell "unequal" [ref=e899]
+                - cell [ref=e900]
+                - cell "safe" [ref=e901]
+                - cell "unsafe" [ref=e902]
+              - row "ethical unethical screw unscrew" [ref=e903]:
+                - cell "ethical" [ref=e904]
+                - cell "unethical" [ref=e905]
+                - cell [ref=e906]
+                - cell "screw" [ref=e907]
+                - cell "unscrew" [ref=e908]
+              - row "even uneven seen unseen" [ref=e909]:
+                - cell "even" [ref=e910]
+                - cell "uneven" [ref=e911]
+                - cell [ref=e912]
+                - cell "seen" [ref=e913]
+                - cell "unseen" [ref=e914]
+              - row "fair unfair selfish unselfish" [ref=e915]:
+                - cell "fair" [ref=e916]
+                - cell "unfair" [ref=e917]
+                - cell [ref=e918]
+                - cell "selfish" [ref=e919]
+                - cell "unselfish" [ref=e920]
+              - row "fold unfold steady unsteady" [ref=e921]:
+                - cell "fold" [ref=e922]
+                - cell "unfold" [ref=e923]
+                - cell [ref=e924]
+                - cell "steady" [ref=e925]
+                - cell "unsteady" [ref=e926]
+              - row "friendly unfriendly suitable unsuitable" [ref=e927]:
+                - cell "friendly" [ref=e928]
+                - cell "unfriendly" [ref=e929]
+                - cell [ref=e930]
+                - cell "suitable" [ref=e931]
+                - cell "unsuitable" [ref=e932]
+              - row "happy unhappy tidy untidy" [ref=e933]:
+                - cell "happy" [ref=e934]
+                - cell "unhappy" [ref=e935]
+                - cell [ref=e936]
+                - cell "tidy" [ref=e937]
+                - cell "untidy" [ref=e938]
+              - row "healthy unhealthy tie untie" [ref=e939]:
+                - cell "healthy" [ref=e940]
+                - cell "unhealthy" [ref=e941]
+                - cell [ref=e942]
+                - cell "tie" [ref=e943]
+                - cell "untie" [ref=e944]
+              - row "just unjust used unused" [ref=e945]:
+                - cell "just" [ref=e946]
+                - cell "unjust" [ref=e947]
+                - cell [ref=e948]
+                - cell "used" [ref=e949]
+                - cell "unused" [ref=e950]
+              - row "kind unkind willing unwilling" [ref=e951]:
+                - cell "kind" [ref=e952]
+                - cell "unkind" [ref=e953]
+                - cell [ref=e954]
+                - cell "willing" [ref=e955]
+                - cell "unwilling" [ref=e956]
+              - row "known unknown wise unwise" [ref=e957]:
+                - cell "known" [ref=e958]
+                - cell "unknown" [ref=e959]
+                - cell [ref=e960]
+                - cell "wise" [ref=e961]
+                - cell "unwise" [ref=e962]
+          - heading "Antonyms (dis-)" [level=3] [ref=e963]
+          - table [ref=e964]:
+            - rowgroup [ref=e965]:
+              - row "Antonym Pairs Antonym Pairs" [ref=e966]:
+                - columnheader "Antonym Pairs" [ref=e967]
+                - columnheader [ref=e968]
+                - columnheader "Antonym Pairs" [ref=e969]
+            - rowgroup [ref=e970]:
+              - row "advantage disadvantage enfranchise disenfranchise" [ref=e971]:
+                - cell "advantage" [ref=e972]
+                - cell "disadvantage" [ref=e973]
+                - cell [ref=e974]
+                - cell "enfranchise" [ref=e975]
+                - cell "disenfranchise" [ref=e976]
+              - row "agree disagree honest dishonest" [ref=e977]:
+                - cell "agree" [ref=e978]
+                - cell "disagree" [ref=e979]
+                - cell [ref=e980]
+                - cell "honest" [ref=e981]
+                - cell "dishonest" [ref=e982]
+              - row "allow disallow incentive disincentive" [ref=e983]:
+                - cell "allow" [ref=e984]
+                - cell "disallow" [ref=e985]
+                - cell [ref=e986]
+                - cell "incentive" [ref=e987]
+                - cell "disincentive" [ref=e988]
+              - row "appear disappear indispensable dispensable" [ref=e989]:
+                - cell "appear" [ref=e990]
+                - cell "disappear" [ref=e991]
+                - cell [ref=e992]
+                - cell "indispensable" [ref=e993]
+                - cell "dispensable" [ref=e994]
+              - row "arm disarm like dislike" [ref=e995]:
+                - cell "arm" [ref=e996]
+                - cell "disarm" [ref=e997]
+                - cell [ref=e998]
+                - cell "like" [ref=e999]
+                - cell "dislike" [ref=e1000]
+              - row "arrange disarrange loyal disloyal" [ref=e1001]:
+                - cell "arrange" [ref=e1002]
+                - cell "disarrange" [ref=e1003]
+                - cell [ref=e1004]
+                - cell "loyal" [ref=e1005]
+                - cell "disloyal" [ref=e1006]
+              - row "associate disassociate obey disobey" [ref=e1007]:
+                - cell "associate" [ref=e1008]
+                - cell "disassociate" [ref=e1009]
+                - cell [ref=e1010]
+                - cell "obey" [ref=e1011]
+                - cell "disobey" [ref=e1012]
+              - row "believe disbelieve proportionate disproportionate" [ref=e1013]:
+                - cell "believe" [ref=e1014]
+                - cell "disbelieve" [ref=e1015]
+                - cell [ref=e1016]
+                - cell "proportionate" [ref=e1017]
+                - cell "disproportionate" [ref=e1018]
+              - row "connect disconnect order disorder" [ref=e1019]:
+                - cell "connect" [ref=e1020]
+                - cell "disconnect" [ref=e1021]
+                - cell [ref=e1022]
+                - cell "order" [ref=e1023]
+                - cell "disorder" [ref=e1024]
+              - row "continue discontinue own disown" [ref=e1025]:
+                - cell "continue" [ref=e1026]
+                - cell "discontinue" [ref=e1027]
+                - cell [ref=e1028]
+                - cell "own" [ref=e1029]
+                - cell "disown" [ref=e1030]
+              - row "embark disembark satisfied dissatisfied" [ref=e1031]:
+                - cell "embark" [ref=e1032]
+                - cell "disembark" [ref=e1033]
+                - cell [ref=e1034]
+                - cell "satisfied" [ref=e1035]
+                - cell "dissatisfied" [ref=e1036]
+              - row "encourage discourage trust distrust" [ref=e1037]:
+                - cell "encourage" [ref=e1038]
+                - cell "discourage" [ref=e1039]
+                - cell [ref=e1040]
+                - cell "trust" [ref=e1041]
+                - cell "distrust" [ref=e1042]
+          - heading "Antonyms (in-)" [level=3] [ref=e1043]
+          - table [ref=e1044]:
+            - rowgroup [ref=e1045]:
+              - row "Antonym Pairs Antonym Pairs" [ref=e1046]:
+                - columnheader "Antonym Pairs" [ref=e1047]
+                - columnheader [ref=e1048]
+                - columnheader "Antonym Pairs" [ref=e1049]
+            - rowgroup [ref=e1050]:
+              - row "accurate inaccurate active inactive" [ref=e1051]:
+                - cell "accurate" [ref=e1052]
+                - cell "inaccurate" [ref=e1053]
+                - cell [ref=e1054]
+                - cell "active" [ref=e1055]
+                - cell "inactive" [ref=e1056]
+              - row "adequate inadequate admissible inadmissible" [ref=e1057]:
+                - cell "adequate" [ref=e1058]
+                - cell "inadequate" [ref=e1059]
+                - cell [ref=e1060]
+                - cell "admissible" [ref=e1061]
+                - cell "inadmissible" [ref=e1062]
+              - row "attentive inattentive correct incorrect" [ref=e1063]:
+                - cell "attentive" [ref=e1064]
+                - cell "inattentive" [ref=e1065]
+                - cell [ref=e1066]
+                - cell "correct" [ref=e1067]
+                - cell "incorrect" [ref=e1068]
+          - heading "Antonyms (im-)" [level=3] [ref=e1069]
+          - table [ref=e1070]:
+            - rowgroup [ref=e1071]:
+              - row "Antonym Pairs Antonym Pairs" [ref=e1072]:
+                - columnheader "Antonym Pairs" [ref=e1073]
+                - columnheader [ref=e1074]
+                - columnheader "Antonym Pairs" [ref=e1075]
+            - rowgroup [ref=e1076]:
+              - row "mature immature mobile immobile" [ref=e1077]:
+                - cell "mature" [ref=e1078]
+                - cell "immature" [ref=e1079]
+                - cell [ref=e1080]
+                - cell "mobile" [ref=e1081]
+                - cell "immobile" [ref=e1082]
+              - row "moral immoral mortal immortal" [ref=e1083]:
+                - cell "moral" [ref=e1084]
+                - cell "immoral" [ref=e1085]
+                - cell [ref=e1086]
+                - cell "mortal" [ref=e1087]
+                - cell "immortal" [ref=e1088]
+              - row "movable immovable patient impatient" [ref=e1089]:
+                - cell "movable" [ref=e1090]
+                - cell "immovable" [ref=e1091]
+                - cell [ref=e1092]
+                - cell "patient" [ref=e1093]
+                - cell "impatient" [ref=e1094]
+              - row "perfect imperfect polite impolite" [ref=e1095]:
+                - cell "perfect" [ref=e1096]
+                - cell "imperfect" [ref=e1097]
+                - cell [ref=e1098]
+                - cell "polite" [ref=e1099]
+                - cell "impolite" [ref=e1100]
+              - row "possible impossible probable improbable" [ref=e1101]:
+                - cell "possible" [ref=e1102]
+                - cell "impossible" [ref=e1103]
+                - cell [ref=e1104]
+                - cell "probable" [ref=e1105]
+                - cell "improbable" [ref=e1106]
+              - row "proper improper pure impure" [ref=e1107]:
+                - cell "proper" [ref=e1108]
+                - cell "improper" [ref=e1109]
+                - cell [ref=e1110]
+                - cell "pure" [ref=e1111]
+                - cell "impure" [ref=e1112]
+          - paragraph [ref=e1113]:
+            - generic [ref=e1114]: Antonyms (mis-)
+          - table [ref=e1115]:
+            - rowgroup [ref=e1116]:
+              - row "Antonym Pairs Antonym Pairs" [ref=e1117]:
+                - columnheader "Antonym Pairs" [ref=e1118]
+                - columnheader [ref=e1119]
+                - columnheader "Antonym Pairs" [ref=e1120]
+            - rowgroup [ref=e1121]:
+              - row "handle mishandle judge misjudge" [ref=e1122]:
+                - cell "handle" [ref=e1123]
+                - cell "mishandle" [ref=e1124]
+                - cell [ref=e1125]
+                - cell "judge" [ref=e1126]
+                - cell "misjudge" [ref=e1127]
+              - row "spell misspell understand misunderstand" [ref=e1128]:
+                - cell "spell" [ref=e1129]
+                - cell "misspell" [ref=e1130]
+                - cell [ref=e1131]
+                - cell "understand" [ref=e1132]
+                - cell "misunderstand" [ref=e1133]
+              - row "use misuse" [ref=e1134]:
+                - cell "use" [ref=e1135]
+                - cell "misuse" [ref=e1136]
+                - cell [ref=e1137]
+                - cell [ref=e1138]
+                - cell [ref=e1139]
+          - paragraph [ref=e1140]:
+            - generic [ref=e1141]: Antonyms (-less)
+          - table [ref=e1142]:
+            - rowgroup [ref=e1143]:
+              - row "Antonym Pairs Antonym Pairs" [ref=e1144]:
+                - columnheader "Antonym Pairs" [ref=e1145]
+                - columnheader [ref=e1146]
+                - columnheader "Antonym Pairs" [ref=e1147]
+            - rowgroup [ref=e1148]:
+              - row "careful careless harmful harmless" [ref=e1149]:
+                - cell "careful" [ref=e1150]
+                - cell "careless" [ref=e1151]
+                - cell [ref=e1152]
+                - cell "harmful" [ref=e1153]
+                - cell "harmless" [ref=e1154]
+              - row "helpful helpless hopeful hopeless" [ref=e1155]:
+                - cell "helpful" [ref=e1156]
+                - cell "helpless" [ref=e1157]
+                - cell [ref=e1158]
+                - cell "hopeful" [ref=e1159]
+                - cell "hopeless" [ref=e1160]
+              - row "painful painless pitiful pitiless" [ref=e1161]:
+                - cell "painful" [ref=e1162]
+                - cell "painless" [ref=e1163]
+                - cell [ref=e1164]
+                - cell "pitiful" [ref=e1165]
+                - cell "pitiless" [ref=e1166]
+              - row "powerful powerless shameful shameless" [ref=e1167]:
+                - cell "powerful" [ref=e1168]
+                - cell "powerless" [ref=e1169]
+                - cell [ref=e1170]
+                - cell "shameful" [ref=e1171]
+                - cell "shameless" [ref=e1172]
+              - row "useful useless" [ref=e1173]:
+                - cell "useful" [ref=e1174]
+                - cell "useless" [ref=e1175]
+                - cell [ref=e1176]
+                - cell [ref=e1177]
+                - cell [ref=e1178]
+          - list [ref=e1179]:
+            - listitem [ref=e1180]:
+              - link "Previous" [ref=e1181] [cursor=pointer]:
+                - /url: list-22-objects-animals-and-sounds.html
+                - img "angle-left" [ref=e1182]
+                - generic [ref=e1184]: Objects/Sounds
+            - listitem [ref=e1185]:
+              - link "Next" [ref=e1186] [cursor=pointer]:
+                - /url: list-24-synonyms.html
+                - generic [ref=e1187]: Synonyms
+                - img "angle-right" [ref=e1188]
+      - navigation "breadcrumbs-bottom" [ref=e1190]:
+        - list [ref=e1191]:
+          - listitem
+          - listitem [ref=e1192]:
+            - link "Home" [ref=e1193] [cursor=pointer]:
+              - /url: index-2.html
+              - generic [ref=e1194]: Home
+            - img [ref=e1196]
+          - listitem [ref=e1198]:
+            - generic [ref=e1199]: List 23 - Antonyms
+    - complementary [ref=e1200]:
+      - navigation "Lists" [ref=e1201]:
+        - list [ref=e1202]:
+          - listitem [ref=e1203]:
+            - generic [ref=e1204]:
+              - button "Toggle submenu for Singular-Plural" [ref=e1205] [cursor=pointer]:
+                - img
+                - img
+              - link "Menu Link" [ref=e1207] [cursor=pointer]:
+                - /url: list-1-singular-and-plural-nouns.html
+                - text: Singular-Plural
+          - listitem [ref=e1208]:
+            - generic [ref=e1209]:
+              - button "Toggle submenu for Counting Nouns" [ref=e1210] [cursor=pointer]:
+                - img
+                - img
+              - link "Menu Link" [ref=e1212] [cursor=pointer]:
+                - /url: list-2-uncountable-nouns-made-countable.html
+                - text: Counting Nouns
+          - listitem [ref=e1213]:
+            - generic [ref=e1214]:
+              - button "Toggle submenu for Collective Nouns" [ref=e1215] [cursor=pointer]:
+                - img
+                - img
+              - link "Menu Link" [ref=e1217] [cursor=pointer]:
+                - /url: list-3-collective-nouns.html
+                - text: Collective Nouns
+          - listitem [ref=e1218]:
+            - generic [ref=e1219]:
+              - button "Toggle submenu for Verbs" [ref=e1220] [cursor=pointer]:
+                - img
+                - img
+              - link "Menu Link" [ref=e1222] [cursor=pointer]:
+                - /url: list-4-verbs.html
+                - text: Verbs
+          - listitem [ref=e1223]:
+            - generic [ref=e1224]:
+              - button "Toggle submenu for Irregular Verbs" [ref=e1225] [cursor=pointer]:
+                - img
+                - img
+              - link "Menu Link" [ref=e1227] [cursor=pointer]:
+                - /url: list-5-irregular-verbs.html
+                - text: Irregular Verbs
+          - listitem [ref=e1228]:
+            - generic [ref=e1229]:
+              - button "Toggle submenu for Adjectives" [ref=e1230] [cursor=pointer]:
+                - img
+                - img
+              - link "Menu Link" [ref=e1232] [cursor=pointer]:
+                - /url: list-6-adjectives.html
+                - text: Adjectives
+          - listitem [ref=e1233]:
+            - generic [ref=e1234]:
+              - button "Toggle submenu for Comparison" [ref=e1235] [cursor=pointer]:
+                - img
+                - img
+              - link "Menu Link" [ref=e1237] [cursor=pointer]:
+                - /url: list-7-comparison-of-adjectives.html
+                - text: Comparison
+          - listitem [ref=e1238]:
+            - generic [ref=e1239]:
+              - button "Toggle submenu for Adverbs" [ref=e1240] [cursor=pointer]:
+                - img
+                - img
+              - link "Menu Link" [ref=e1242] [cursor=pointer]:
+                - /url: list-8-adverbs.html
+                - text: Adverbs
+          - listitem [ref=e1243]:
+            - generic [ref=e1244]:
+              - button "Toggle submenu for Adv. = Adj." [ref=e1245] [cursor=pointer]:
+                - img
+                - img
+              - link "Menu Link" [ref=e1247] [cursor=pointer]:
+                - /url: list-9-adverbs-sharing-same-words-as-adjectives.html
+                - text: Adv. = Adj.
+          - listitem [ref=e1248]:
+            - link "Menu Link" [ref=e1251] [cursor=pointer]:
+              - /url: list-10-pronouns.html
+              - text: Pronouns
+          - listitem [ref=e1252]:
+            - generic [ref=e1253]:
+              - button "Toggle submenu for Prepositions" [ref=e1254] [cursor=pointer]:
+                - img
+                - img
+              - link "Menu Link" [ref=e1256] [cursor=pointer]:
+                - /url: list-11-prepositions.html
+                - text: Prepositions
+          - listitem [ref=e1257]:
+            - link "Menu Link" [ref=e1260] [cursor=pointer]:
+              - /url: list-12-conjunctions.html
+              - text: Conjunctions
+          - listitem [ref=e1261]:
+            - link "Menu Link" [ref=e1264] [cursor=pointer]:
+              - /url: list-13-forming-abstract-nouns.html
+              - text: Abstract Nouns
+          - listitem [ref=e1265]:
+            - generic [ref=e1266]:
+              - button "Toggle submenu for Phrasal Verbs" [ref=e1267] [cursor=pointer]:
+                - img
+                - img
+              - link "Menu Link" [ref=e1269] [cursor=pointer]:
+                - /url: list-14-phrasal-verbs.html
+                - text: Phrasal Verbs
+          - listitem [ref=e1270]:
+            - link "Menu Link" [ref=e1273] [cursor=pointer]:
+              - /url: list-15-idioms.html
+              - text: Common Idioms
+          - listitem [ref=e1274]:
+            - generic [ref=e1275]:
+              - button "Toggle submenu for 1000 Idioms" [ref=e1276] [cursor=pointer]:
+                - img
+                - img
+              - link "Menu Link" [ref=e1278] [cursor=pointer]:
+                - /url: list-16-phrases-and-idioms.html
+                - text: 1000 Idioms
+          - listitem [ref=e1279]:
+            - generic [ref=e1280]:
+              - button "Toggle submenu for Proverbs" [ref=e1281] [cursor=pointer]:
+                - img
+                - img
+              - link "Menu Link" [ref=e1283] [cursor=pointer]:
+                - /url: list-17-proverbs-and-sayings.html
+                - text: Proverbs
+          - listitem [ref=e1284]:
+            - link "Menu Link" [ref=e1287] [cursor=pointer]:
+              - /url: list-18-foreign-phrases-commonly-used-in-english.html
+              - text: Foreign Phrases
+          - listitem [ref=e1288]:
+            - link "Menu Link" [ref=e1291] [cursor=pointer]:
+              - /url: list-19-parents-and-young.html
+              - text: Parents/Youth
+          - listitem [ref=e1292]:
+            - generic [ref=e1293]:
+              - button "Toggle submenu for Gender" [ref=e1294] [cursor=pointer]:
+                - img
+                - img
+              - link "Menu Link" [ref=e1296] [cursor=pointer]:
+                - /url: list-20-gender.html
+                - text: Gender
+          - listitem [ref=e1297]:
+            - link "Menu Link" [ref=e1300] [cursor=pointer]:
+              - /url: list-21-homes-of-people-and-creatures.html
+              - text: Home Types
+          - listitem [ref=e1301]:
+            - link "Menu Link" [ref=e1304] [cursor=pointer]:
+              - /url: list-22-objects-animals-and-sounds.html
+              - text: Objects/Sounds
+          - listitem [ref=e1305]:
+            - link "Menu Link" [ref=e1308] [cursor=pointer]:
+              - /url: list-23-antonyms.html
+              - text: Antonyms
+          - listitem [ref=e1309]:
+            - link "Menu Link" [ref=e1312] [cursor=pointer]:
+              - /url: list-24-synonyms.html
+              - text: Synonyms
+          - listitem [ref=e1313]:
+            - link "Menu Link" [ref=e1316] [cursor=pointer]:
+              - /url: list-25-homonyms.html
+              - text: Homonyms
+  - contentinfo [ref=e1317]:
+    - generic [ref=e1318]:
+      - paragraph [ref=e1319]:
+        - link "Back to Top" [ref=e1320] [cursor=pointer]:
+          - /url: "#top"
+      - paragraph [ref=e1321]: © 2026 All rights reserved.
