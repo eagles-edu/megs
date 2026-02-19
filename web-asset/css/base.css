@@ -36,7 +36,7 @@
   --surface-2: #fffaf0; /* very light gray surface */
 
   /* Links */
-  --link-color: #205fff; /* derived from brand blue */
+  --link-color: #00f; /* derived from brand blue */
   --link-hover: var(--primary-color);
   --link-visited: #630094;
   --link-active: var(--primary-color) /* Semantic states */;
@@ -306,12 +306,12 @@ ol {
 }
 
 ol .introlist {
-	display: block;
-	list-style-type: lower-alpha;
+  display: block;
+  list-style-type: lower-alpha;
   list-style-position: inside;
-	margin-block: 1rem;
-	padding-inline-start: 7px;
-	unicode-bidi: isolate;
+  margin-block: 1rem;
+  padding-inline-start: 7px;
+  unicode-bidi: isolate;
 }
 
 table {
@@ -830,7 +830,7 @@ body.mobile-nav-enabled #sidebar.mobile-nav-open {
 }
 
 .tablesty1 tr:nth-child(even) {
-  background-color: var(--surface-warm) !important;
+  background-color: #f5f5f5 !important;
 }
 
 .tablesty1 tr:hover {
@@ -858,26 +858,25 @@ body.mobile-nav-enabled #sidebar.mobile-nav-open {
   text-align: center !important;
 }
 
-
 .tabstytit2 {
-    background-color:var(--color-muted) !important;
-    color: var(--text-color) !important;
-    font-size: calc(15px + (24 - 18) * ((100vw - 300px) / (1600 - 300)));
-    font-weight: 600;
-    line-height: 2em;
-    padding-bottom: 12px;
-    padding-top: 12px;
-    text-align: center;
+  background-color: var(--color-muted) !important;
+  color: var(--text-color) !important;
+  font-size: calc(15px + (24 - 18) * ((100vw - 300px) / (1600 - 300)));
+  font-weight: 600;
+  line-height: 2em;
+  padding-bottom: 12px;
+  padding-top: 12px;
+  text-align: center;
 }
 
 .tablesty3sub th {
-    background-color: rgb(255 245 214 / 65%);
-    border: 1px solid var(--border-subtle);
-    color: var(--text-color) !important;
-    font-size: calc(11px + (24 - 18) * ((100vw - 300px) / (1600 - 300)));
-    font-weight: 500;
-    padding: 7px 7px 7px 0.5em;
-    text-align: center;
+  background-color: rgb(255 245 214 / 65%);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-color) !important;
+  font-size: calc(11px + (24 - 18) * ((100vw - 300px) / (1600 - 300)));
+  font-weight: 500;
+  padding: 7px 7px 7px 0.5em;
+  text-align: center;
 }
 
 /* Responsive table-wrap system extracted to web-asset/css/tablewrap.css and loaded conditionally by main bundles. */
@@ -1063,71 +1062,124 @@ main#content .star-solid::before {
 .bm-5 {
   display: block;
   margin-bottom: 1rem;
-
 }
 
 .nobull ul {
-  list-style: none ;
+  list-style: none;
 }
 
-.nobull ul li{
+.nobull ul li {
   list-style: none;
-  margin-bottom: .2rem;
+  margin-bottom: 0.2rem;
 }
 
 .fw100 {
-font-weight: 100;
+  font-weight: 100;
 }
 
 .fw200 {
-font-weight: 200;
+  font-weight: 200;
 }
 
 .fw300 {
-font-weight: 300;
+  font-weight: 300;
 }
 
 .fw400 {
-font-weight: 400;
+  font-weight: 400;
 }
 
 .fw500 {
-font-weight: 500;
+  font-weight: 500;
 }
 
 .fw600 {
-font-weight: 600;
+  font-weight: 600;
 }
 
 .fw700 {
-font-weight: 700;
+  font-weight: 700;
 }
 
 .fw800 {
-font-weight: 800;
+  font-weight: 800;
 }
 
 .fw900 {
-font-weight: 900;
+  font-weight: 900;
 }
 
 .nomar {
-margin: 0 inherit;
+  margin: 0 inherit;
 }
 
 .halfmar {
-margin: .5rem inherit;
+  margin: 0.5rem inherit;
 }
 
 .onemar {
-margin: 1rem inherit;
+  margin: 1rem inherit;
 }
 
 .one-halfmar {
-margin: 1.5rem inherit;
+  margin: 1.5rem inherit;
 }
 
-
 .twomar {
-margin: 2rem inherit;
+  margin: 2rem inherit;
+}
+
+.bocks-shadow {
+  box-shadow: 1px 1px 2px #b3b3b3;
+}
+
+.one-em-pad {
+  padding: 1em !important;
+}
+
+.bg-gold {
+  background-color: rgb(255 187 61 / 8%);
+}
+
+.bg-tan {
+  background-color: rgb(210 180 140 / 15%);
+}
+
+.bg-red-soft {
+  background-color: rgb(224 22 43 / 9%) !important;
+}
+
+.bg-purple-soft {
+  background-color: rgb(19 20 236 /19%) !important;
+}
+
+.bg-blue-soft {
+  background-color: rgb(0 39 134 / 9%);
+}
+
+.bg-green-soft {
+  background-color: rgb(0 134 53 / 9%) !important;
+}
+
+.bg-neutral {
+  background-color: rgb(241 246 255 / 100%);
+}
+
+.bg-snow {
+  background-color: snow;
+}
+
+.bg-transparent {
+  background-color: transparent;
+}
+
+.clean {
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+  padding: 0 !important;
+}
+
+.border-neutral {
+  border: 1px solid rgb(0 0 0 / 14%);
 }

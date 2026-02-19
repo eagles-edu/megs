@@ -84,7 +84,7 @@
     }
 
     .eg2-opt-bg-red-soft {
-    background-color: rgb(224 22 43 / 9%);
+    background-color: rgb(224 22 43 / 9%) !important;
     }
 
     .eg2-opt-bg-blue-soft {
