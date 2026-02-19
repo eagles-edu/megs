@@ -113,6 +113,7 @@ ul.accordion-menu a {
 ul.accordion-menu li > .item-wrapper:hover a,
 ul.accordion-menu li > .item-wrapper:focus-within a,
 ul.accordion-menu li.current > .item-wrapper a,
+ul.accordion-menu li.current-page > .item-wrapper a,
 ul.accordion-menu li.active > .item-wrapper a,
 ul.accordion-menu li.opened > .item-wrapper a {
   color: var(--menu-state-text, var(--primary-color));
@@ -123,6 +124,7 @@ ul.accordion-menu li.opened > .item-wrapper a {
 ul.accordion-menu li.open > .item-wrapper,
 ul.accordion-menu li.opened > .item-wrapper,
 ul.accordion-menu li.current > .item-wrapper,
+ul.accordion-menu li.current-page > .item-wrapper,
 ul.accordion-menu li.active > .item-wrapper,
 ul.accordion-menu li:hover > .item-wrapper,
 ul.accordion-menu li:focus-within > .item-wrapper {
@@ -134,6 +136,7 @@ ul.accordion-menu li:focus-within > .item-wrapper {
 #sidebar ul.accordion-menu li.open > .item-wrapper,
 #sidebar ul.accordion-menu li.opened > .item-wrapper,
 #sidebar ul.accordion-menu li.current > .item-wrapper,
+#sidebar ul.accordion-menu li.current-page > .item-wrapper,
 #sidebar ul.accordion-menu li.active > .item-wrapper,
 #sidebar ul.accordion-menu li:hover > .item-wrapper,
 #sidebar ul.accordion-menu li:focus-within > .item-wrapper {
@@ -144,10 +147,27 @@ ul.accordion-menu li:focus-within > .item-wrapper {
 #sidebar ul.accordion-menu li.open > .item-wrapper a,
 #sidebar ul.accordion-menu li.opened > .item-wrapper a,
 #sidebar ul.accordion-menu li.current > .item-wrapper a,
+#sidebar ul.accordion-menu li.current-page > .item-wrapper a,
 #sidebar ul.accordion-menu li.active > .item-wrapper a,
 #sidebar ul.accordion-menu li:hover > .item-wrapper a,
 #sidebar ul.accordion-menu li:focus-within > .item-wrapper a {
   color: var(--menu-state-text, var(--primary-color));
+}
+
+/* Active trail: keep parent section visible, but reserve strongest emphasis for current-page. */
+ul.accordion-menu li.active-trail > .item-wrapper,
+#sidebar ul.accordion-menu li.active-trail > .item-wrapper {
+  background: var(--surface-color, #fff);
+  border-color: var(--menu-state-border, var(--primary-color));
+}
+
+ul.accordion-menu li.active-trail > .item-wrapper a,
+#sidebar ul.accordion-menu li.active-trail > .item-wrapper a {
+  color: var(--menu-state-text, var(--primary-color));
+}
+
+ul.accordion-menu li.active-trail > .ul-wrapper {
+  display: block;
 }
 
 /* Preserve legacy open/hover class hooks */

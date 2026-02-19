@@ -32,23 +32,6 @@ const MENU_STATE_TOKENS = [
   "        --menu-state-border: var(--primary-color, #e0162b);",
   "        --menu-state-text: var(--primary-color, #e0162b);",
 ].join("\n")
-const THEME_VARS_CRITICAL_DEFAULT = [
-  "      :root {",
-  "        --left-menu-font-size: clamp(0.86rem, calc(0.72rem + 0.45vw), 0.96rem);",
-  "        --left-menu-icon-size: clamp(1.25rem, calc(var(--left-menu-font-size) * 1.2), 1.45rem);",
-  "        --left-menu-icon-gap: calc(var(--left-menu-font-size) * 0.6);",
-  "        --r-flyout-bg: var(--menu-link-bg, var(--surface-color, #fff));",
-  "        --r-flyout-border: var(--border-color, #d0d6e4);",
-  "        --r-flyout-divider: var(--divider-color, #d0d6e4);",
-  "        --r-flyout-highlight: var(--surface-warm, #fff);",
-  "        --r-flyout-shadow-menu: var(--flyout-shadow-menu, 0 12px 26px rgb(24 39 75 / 8%));",
-  "        --r-flyout-shadow-panel: var(--flyout-shadow-panel, 0 18px 32px rgb(24 39 75 / 12%));",
-  "        --r-flyout-transition: 160ms cubic-bezier(0.4, 0, 0.2, 1);",
-  "        --menu-state-bg: var(--white, #fff);",
-  "        --menu-state-border: var(--primary-color, #e0162b);",
-  "        --menu-state-text: var(--primary-color, #e0162b);",
-  "      }",
-].join("\n")
 const LEAN_CRITICAL_INLINE = [
   "body {",
   "  margin: 0;",
@@ -71,13 +54,13 @@ const LEAN_CRITICAL_INLINE = [
 const DEFAULT_ROOT = process.cwd()
 const COPY_FILE_SUFFIXES = [".copy.html", "-copy.html"]
 const NATURAL_COLLATOR = new Intl.Collator(undefined, { numeric: true, sensitivity: "base" })
-const BASE_CSS = "web-asset/css/base.css"
-const LEFT_MENU_CSS = "web-asset/css/left-menu.css"
-const PAGE_CLASSES_CSS = "web-asset/css/page-classes.css"
-const RIGHT_RAIL_CSS = "web-asset/css/right-rail-flyout.css"
-const MAIN_BUNDLE_JS = "web-asset/js/main.bundle.js"
-const RIGHT_RAIL_JS = "web-asset/js/right-rail-flyout.js"
-const MAIN_LEGACY_JS = "web-asset/js/main.legacy.js"
+const BASE_CSS = "../web-asset/css/base.css"
+const LEFT_MENU_CSS = "../web-asset/css/left-menu.css"
+const PAGE_CLASSES_CSS = "../web-asset/css/page-classes.css"
+const RIGHT_RAIL_CSS = "../web-asset/css/right-rail-flyout.css"
+const MAIN_BUNDLE_JS = "../web-asset/js/main.bundle.js"
+const RIGHT_RAIL_JS = "../web-asset/js/right-rail-flyout.js"
+const MAIN_LEGACY_JS = "../web-asset/js/main.legacy.js"
 const EXPECTED_THEME_COLOR = "#e0162b"
 const EXPECTED_GENERATOR = "English Grammar - IELTS intermediate levels A2 and above"
 const DEFAULT_META_KEYWORDS =
@@ -400,53 +383,6 @@ function rewriteDocumentPathComments(html, targetPath) {
     /<!--\s*\/[^,]+,\s*updated:\s*([^>]+?)-->/gi,
     (_, updatedAt) => `<!-- /${relativePath}, updated: ${String(updatedAt).trim()} -->`
   )
-}
-
-function normalizeShellAssetReferencePaths(html, targetPath) {
-  if (!html) return ""
-  const assets = buildShellAssetPaths(targetPath)
-  const refs = [
-    { attr: "href", suffix: BASE_CSS, canonical: assets.baseCss },
-    { attr: "href", suffix: RIGHT_RAIL_CSS, canonical: assets.rightRailCss },
-    { attr: "href", suffix: LEFT_MENU_CSS, canonical: assets.leftMenuCss },
-    { attr: "href", suffix: PAGE_CLASSES_CSS, canonical: assets.pageClassesCss },
-    { attr: "href", suffix: MAIN_BUNDLE_JS, canonical: assets.mainBundleJs },
-    { attr: "src", suffix: MAIN_BUNDLE_JS, canonical: assets.mainBundleJs },
-    { attr: "src", suffix: MAIN_LEGACY_JS, canonical: assets.mainLegacyJs },
-    { attr: "src", suffix: RIGHT_RAIL_JS, canonical: assets.rightRailJs },
-  ]
-
-  let out = html
-  refs.forEach((ref) => {
-    const pattern = new RegExp(
-      `(${ref.attr}=["'])[^"']*${escapeRegExp(ref.suffix)}(?:[?#][^"']*)?(["'])`,
-      "gi"
-    )
-    out = out.replace(pattern, `$1${ref.canonical}$2`)
-  })
-  return out
-}
-
-function dedupeHeadNoscriptStylesheetFallbacks(html, targetPath) {
-  if (!html) return ""
-  const assets = buildShellAssetPaths(targetPath)
-  const cssPaths = [assets.baseCss, assets.rightRailCss, assets.leftMenuCss, assets.pageClassesCss]
-  let out = html
-
-  cssPaths.forEach((assetPath) => {
-    const pattern = new RegExp(
-      `\\s*<noscript>\\s*<link[^>]*href=["']${escapeRegExp(assetPath)}(?:[?#][^"']*)?["'][^>]*>\\s*<\\/noscript>\\s*`,
-      "gi"
-    )
-    let seen = false
-    out = out.replace(pattern, (match) => {
-      if (seen) return "\n"
-      seen = true
-      return `\n${match.trim()}\n`
-    })
-  })
-
-  return out
 }
 
 function stripLegacyFlyoutAssets(html) {
@@ -829,87 +765,6 @@ function normalizeMenuLabel(text) {
   return (text || "").replace(/\s+/g, " ").trim()
 }
 
-function shouldRebaseRelativeUrl(pathname) {
-  if (!pathname) return false
-  const trimmed = String(pathname).trim()
-  if (!trimmed) return false
-  if (trimmed.startsWith("/") || trimmed.startsWith("#")) return false
-  if (trimmed.startsWith("?")) return false
-  if (/^(?:[a-z][a-z0-9+.-]*:)?\/\//i.test(trimmed)) return false
-  if (/^(?:mailto|tel|javascript|data|blob):/i.test(trimmed)) return false
-  return true
-}
-
-function splitPathAndSuffix(reference) {
-  const value = String(reference || "")
-  const queryIndex = value.indexOf("?")
-  const hashIndex = value.indexOf("#")
-  let splitIndex = value.length
-  if (queryIndex >= 0 && queryIndex < splitIndex) splitIndex = queryIndex
-  if (hashIndex >= 0 && hashIndex < splitIndex) splitIndex = hashIndex
-  return {
-    pathname: value.slice(0, splitIndex),
-    suffix: value.slice(splitIndex),
-  }
-}
-
-function rebaseRelativeUrl(reference, fromDir, toDir) {
-  const { pathname, suffix } = splitPathAndSuffix(reference)
-  if (!shouldRebaseRelativeUrl(pathname)) return reference
-  const resolvedPath = path.resolve(fromDir, pathname)
-  let rebasedPath = path.relative(toDir, resolvedPath).replace(/\\/g, "/")
-  if (!rebasedPath) {
-    rebasedPath = path.basename(resolvedPath)
-  }
-  if (pathname.endsWith("/") && !rebasedPath.endsWith("/")) {
-    rebasedPath = `${rebasedPath}/`
-  }
-  return `${rebasedPath}${suffix}`
-}
-
-function rebasePrototypeRelativeUrls($, prototypePath, targetPath) {
-  if (!prototypePath || !targetPath) return 0
-  const prototypeDir = path.dirname(path.resolve(prototypePath))
-  const targetDir = path.dirname(path.resolve(targetPath))
-  if (path.normalize(prototypeDir) === path.normalize(targetDir)) return 0
-
-  let changed = 0
-  const attrs = ["href", "src", "action", "poster"]
-  attrs.forEach((attr) => {
-    $(`[${attr}]`).each((_, node) => {
-      const element = $(node)
-      const current = element.attr(attr)
-      if (!current) return
-      const rebased = rebaseRelativeUrl(current, prototypeDir, targetDir)
-      if (rebased !== current) {
-        element.attr(attr, rebased)
-        changed += 1
-      }
-    })
-  })
-  return changed
-}
-
-function resolveTargetAssetPath(targetPath, assetPath) {
-  if (!targetPath || !assetPath) return String(assetPath || "")
-  const assetAbsolutePath = path.resolve(process.cwd(), assetPath)
-  const targetDir = path.dirname(path.resolve(targetPath))
-  const relativePath = path.relative(targetDir, assetAbsolutePath).replace(/\\/g, "/")
-  return relativePath || path.basename(assetAbsolutePath)
-}
-
-function buildShellAssetPaths(targetPath) {
-  return {
-    baseCss: resolveTargetAssetPath(targetPath, BASE_CSS),
-    rightRailCss: resolveTargetAssetPath(targetPath, RIGHT_RAIL_CSS),
-    leftMenuCss: resolveTargetAssetPath(targetPath, LEFT_MENU_CSS),
-    pageClassesCss: resolveTargetAssetPath(targetPath, PAGE_CLASSES_CSS),
-    mainBundleJs: resolveTargetAssetPath(targetPath, MAIN_BUNDLE_JS),
-    mainLegacyJs: resolveTargetAssetPath(targetPath, MAIN_LEGACY_JS),
-    rightRailJs: resolveTargetAssetPath(targetPath, RIGHT_RAIL_JS),
-  }
-}
-
 function syncLegacyFlyoutCurrentState($, menu, targetPath, headline) {
   menu.find("li.current").removeClass("current")
   menu.find("li.opened").removeClass("opened")
@@ -1064,9 +919,7 @@ function seedRightRailFromLegacy($proto, $legacy) {
     .find("ul.r-flyout-menu, ul[data-r-flyout], ul.flyout-menu")
     .first()
   if (!legacyMenu.length) return false
-  if (!legacyMenu.hasClass("flyout-menu") && !shouldSeedRightRailFromLegacy($proto, $legacy)) {
-    return false
-  }
+  if (!shouldSeedRightRailFromLegacy($proto, $legacy)) return false
 
   const protoAside = $proto("#aside").first()
   if (!protoAside.length) return false
@@ -1354,7 +1207,7 @@ function normalizeHeadMetaTags($) {
   return true
 }
 
-function ensureRightRailAssets($, targetPath) {
+function ensureRightRailAssets($) {
   let changed = 0
   changed += normalizeHeadMetaTags($) ? 1 : 0
 
@@ -1367,22 +1220,16 @@ function ensureRightRailAssets($, targetPath) {
   })
   changed += removeEmptyHeadNoscript($)
 
-  const assetPaths = buildShellAssetPaths(targetPath)
-  const cssAssets = [
-    assetPaths.baseCss,
-    assetPaths.rightRailCss,
-    assetPaths.leftMenuCss,
-    assetPaths.pageClassesCss,
-  ]
+  const cssAssets = [BASE_CSS, RIGHT_RAIL_CSS, LEFT_MENU_CSS, PAGE_CLASSES_CSS]
   cssAssets.forEach((assetPath) => {
     changed += removeHeadCssAssetBlocks($, assetPath)
   })
 
-  removeHeadModulePreloadAsset($, assetPaths.mainBundleJs)
-  removeHeadScriptAsset($, assetPaths.mainBundleJs, { requireModule: true })
-  removeHeadScriptAsset($, assetPaths.mainBundleJs)
-  removeHeadScriptAsset($, assetPaths.mainLegacyJs)
-  removeHeadScriptAsset($, assetPaths.rightRailJs)
+  removeHeadModulePreloadAsset($, MAIN_BUNDLE_JS)
+  removeHeadScriptAsset($, MAIN_BUNDLE_JS, { requireModule: true })
+  removeHeadScriptAsset($, MAIN_BUNDLE_JS)
+  removeHeadScriptAsset($, MAIN_LEGACY_JS)
+  removeHeadScriptAsset($, RIGHT_RAIL_JS)
 
   cssAssets.forEach((assetPath) => {
     insertHeadBlockBeforeScripts($, buildCssAssetBlock(assetPath))
@@ -1392,10 +1239,10 @@ function ensureRightRailAssets($, targetPath) {
   insertHeadBlockBeforeScripts(
     $,
     [
-      `<link rel="modulepreload" href="${assetPaths.mainBundleJs}">`,
-      `<script type="module" src="${assetPaths.mainBundleJs}"></script>`,
-      `<script nomodule src="${assetPaths.mainLegacyJs}" defer></script>`,
-      `<script src="${assetPaths.rightRailJs}" defer></script>`,
+      `<link rel="modulepreload" href="${MAIN_BUNDLE_JS}">`,
+      `<script type="module" src="${MAIN_BUNDLE_JS}"></script>`,
+      `<script nomodule src="${MAIN_LEGACY_JS}" defer></script>`,
+      `<script src="${RIGHT_RAIL_JS}" defer></script>`,
     ].join("\n")
   )
   changed += 1
@@ -1497,21 +1344,6 @@ function ensureIconSpriteSymbols($) {
   return changed
 }
 
-function ensureThemeVarsCriticalStyle($) {
-  const head = $("head").first()
-  if (!head.length) return false
-  if (head.children("style#theme-vars-critical").length) return false
-
-  const styleNode = `<style id="theme-vars-critical">\n${THEME_VARS_CRITICAL_DEFAULT}\n    </style>`
-  const criticalInline = head.children("style#critical-inline").first()
-  if (criticalInline.length) {
-    criticalInline.before(`\n    ${styleNode}\n`)
-  } else {
-    head.append(`\n    ${styleNode}\n`)
-  }
-  return true
-}
-
 function normalizeCompactMarkup(value) {
   return String(value || "")
     .replace(/\s+/g, " ")
@@ -1546,7 +1378,7 @@ function normalizeRightRailContainer($, fallbackAriaLabel = "Lists") {
 
   const existingNav = asideNode.find("nav.r-flyout-nav").first()
   const existingLabel = normalizeMenuLabel(existingNav.attr("aria-label") || "")
-  const ariaLabel = existingLabel || normalizeMenuLabel(fallbackAriaLabel || "") || "Navigation"
+  const ariaLabel = normalizeMenuLabel(fallbackAriaLabel || "") || existingLabel || "Navigation"
 
   if (!menu.hasClass("r-flyout-menu")) menu.addClass("r-flyout-menu")
   if (!menu.attr("data-r-flyout")) menu.attr("data-r-flyout", "")
@@ -2232,8 +2064,7 @@ function verifyRightRailCssFeatures(html, targetPath) {
   const issues = []
   const $ = load(html, { decodeEntities: false })
   const href =
-    $('link[rel="stylesheet"][href*="right-rail-flyout.css"]').first().attr("href") ||
-    resolveTargetAssetPath(targetPath, RIGHT_RAIL_CSS)
+    $('link[rel="stylesheet"][href*="right-rail-flyout.css"]').first().attr("href") || RIGHT_RAIL_CSS
   const cssPath = resolveAssetPathForVerify(targetPath, href)
   if (!cssPath || !fs.existsSync(cssPath)) {
     issues.push("right-rail css file missing")
@@ -2249,9 +2080,7 @@ function verifyRightRailCssFeatures(html, targetPath) {
 function verifyBaseCssPagerFeatures(html, targetPath) {
   const issues = []
   const $ = load(html, { decodeEntities: false })
-  const href =
-    $('link[rel="stylesheet"][href*="base.css"]').first().attr("href") ||
-    resolveTargetAssetPath(targetPath, BASE_CSS)
+  const href = $('link[rel="stylesheet"][href*="base.css"]').first().attr("href") || BASE_CSS
   const cssPath = resolveAssetPathForVerify(targetPath, href)
   if (!cssPath || !fs.existsSync(cssPath)) {
     issues.push("base css file missing")
@@ -2543,7 +2372,6 @@ function buildConversionResult(targetPath, prototypePath, args) {
   const normalizedUsageBody = args.ukToUs ? normalizeListUsage(cleanedBody.html) : cleanedBody.html
 
   const allowedClasses = buildAllowedClassSet($proto, prototypePath)
-  const prototypeLinksRebased = rebasePrototypeRelativeUrls($proto, prototypePath, targetPath)
   const normalized = normalizeListBody(normalizedUsageBody, allowedClasses)
 
   updateTitleAndHeadline($proto, title, headline, targetPath)
@@ -2569,10 +2397,9 @@ function buildConversionResult(targetPath, prototypePath, args) {
   const flyoutCurrent = syncFlyoutCurrentState($proto, targetPath, headline)
   const bodyClassNormalized = normalizeBodyPageClass($proto, "list")
   const shellChanges = enforceLeanHeadShell($proto)
-  const rightRailAssetsUpdated = ensureRightRailAssets($proto, targetPath)
+  const rightRailAssetsUpdated = ensureRightRailAssets($proto)
   const footerNormalized = normalizeFooterShell($proto)
   const iconSpriteUpdated = ensureIconSpriteSymbols($proto)
-  const themeVarsEnsured = ensureThemeVarsCriticalStyle($proto)
   const menuTokenAdded = ensureMenuStateTokens($proto)
   const yearScriptEnsured = ensureCopyrightYearScript($proto)
 
@@ -2581,8 +2408,6 @@ function buildConversionResult(targetPath, prototypePath, args) {
 
   let updated = $proto.html()
   updated = stripLegacyFlyoutAssets(updated)
-  updated = normalizeShellAssetReferencePaths(updated, targetPath)
-  updated = dedupeHeadNoscriptStylesheetFallbacks(updated, targetPath)
   updated = updated.replace(/\bviewbox=/g, "viewBox=")
   updated = collapseBooleanAttributes(updated)
   updated = rewriteDocumentPathComments(updated, targetPath)
@@ -2594,7 +2419,6 @@ function buildConversionResult(targetPath, prototypePath, args) {
     `pager: prev=${pager.previous ? "yes" : "no"}, next=${pager.next ? "yes" : "no"}`,
     `normalized: removed ${normalized.removedStyles} inline style(s), dropped ${normalized.removedClassTokens} class token(s)`,
     `left menu icons: moved ${leftIconsMoved}`,
-    `prototype links rebased: ${prototypeLinksRebased}`,
     `right rail source: ${rightRailSeededFromLegacy ? "seeded from legacy" : "prototype"}`,
     `right rail: ${rightRailMigrated ? "migrated to r-flyout" : "already modern"}`,
     `right rail shell: ${rightRailContainerNormalized ? "normalized" : "ok"}`,
@@ -2604,7 +2428,6 @@ function buildConversionResult(targetPath, prototypePath, args) {
     `footer shell: ${footerNormalized ? "normalized" : "ok"}`,
     `head shell: removed ${shellChanges.inlineBlocks} inline block(s), ${shellChanges.printCssSwaps} print-swap css link(s), ${shellChanges.speculationScripts} speculation script(s)`,
     `icon sprite: ${iconSpriteUpdated ? "updated" : "ok"}`,
-    `theme vars style: ${themeVarsEnsured ? "added" : "ok"}`,
     `menu tokens: ${menuTokenAdded ? "added" : "ok"}`,
     `footer year script: ${yearScriptEnsured ? "added" : "ok"}`,
     `right menu current: ${

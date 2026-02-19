@@ -1,1039 +1,1529 @@
 <!-- prettier-ignore -->
 <!doctype html>
 <html lang="en">
-<!-- /writing/10-writing-paragraph.html, updated:  January 2026 13:13:31 GMT -->
+  <!-- /writing/10-writing-paragraph2.html, updated: January 2026 12:34:42 GMT -->
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#e0162b">
+    <meta
+      name="keywords"
+      content="ESL, TOESL, TOEFL, courses, english, english courses, education, english degree, degree, english education, exercises, english exercises, grammar, verb, english grammar, noun, adverb, adjective, english adverb, english noun, english adjective">
+    <meta name="description" content="A comprehensive site for free English courses and exercises.">
+    <meta name="generator" content="English Grammar - IELTS intermediate levels A2 and above">
 
-<head>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta charset="utf-8">
-  <meta name="keywords"
-    content="ESL, TOESL, TOEFL, courses, english, english courses, education, english degree, degree, english education, exercises, english exercises, grammar, verb, english grammar, noun, adverb, adjective, english adverb, english noun, english adjective">
-  <meta name="description" content="A comprehensive site for free English courses and exercises.">
-  <meta name="generator" content="English Grammar - intermediate levels A2 and above">
-  <title>Writing Paragraph</title>
-  <link href="../writing/10-writing-paragraph.html" rel="non-canonical">
-  <link href="../web-asset/icons/favicon.ico" rel="shortcut icon" type="image/vnd.microsoft.icon">
-  <link href="../web-asset/css/template592f.css" rel="stylesheet">
-  <link href="../cssd2d5.css?family=Open+Sans" rel="stylesheet">
-  <link href="../web-asset/css/flyout.css" rel="stylesheet">
-  <link href="../web-asset/css/accordion.css" rel="stylesheet">
-  <style>
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6,
-    .site-title {
-      font-family: "Roboto Condensed", sans-serif;
-    }
+    <title>Writing Paragraph</title>
+    <link href="10-writing-paragraph2.html" rel="non-canonical">
+    <link href="../web-asset/icons/favicon.ico" rel="shortcut icon" type="image/vnd.microsoft.icon">
+    <!-- theme-vars.css eliminated; variables live in base.css -->
 
-    body.site {
-      border-top: 3px solid #004c75;
-      background-color: #f4f6f7;
-    }
+    <!-- Minimal theme tokens inline to avoid var() FOUC when base.css loads async -->
+    <style id="theme-vars-critical">
+      :root {
+        --primary-color: #e0162b;
+        --secondary-color: #f5f8ff;
+        --tertiary-color: #002786;
+        --text-color: #212121;
+        --background-color: #798ea4;
+        --footer-background: #3e4b5b;
+        --icon-color-on-dk: #f5f8ff;
+        --icon-color-on-lt: #8a94a8;
+        --pager-background: var(--surface-color, #fff);
+        --pager-border-color: var(--border-color, #d0d6e4);
+        --pager-border-radius: 3px;
+        --pager-font-size: clamp(0.9rem, 0.85rem + 0.2vw, 1.05rem);
+        --pager-font-weight: 500;
+        --pager-gap-x: 14px;
+        --pager-gap-y: 10px;
+        --pager-hover-shadow: 0 0 0 3px rgb(224 22 43 / 15%);
+        --pager-icon-size: 1.25rem;
+        --pager-label-truncate: ellipsis;
+        --pager-label-wrap: nowrap;
+        --pager-link-shadow: inset 0 0 0 1px rgb(255 255 255 / 35%);
+        --pager-margin: 1rem 0 2rem;
+        --pager-padding-block: 0.6rem;
+        --pager-padding-inline: 0.95rem;
+        --pager-text-color: var(--text-color, #212121);
+        --menu-icon-pad-inline: 6px;
+        --left-menu-font-size: clamp(0.86rem, calc(0.72rem + 0.45vw), 0.96rem);
+        --left-menu-icon-size: clamp(1.25rem, calc(var(--left-menu-font-size) * 1.2), 1.45rem);
+        --left-menu-icon-slot: calc(var(--left-menu-icon-size) * 1.32);
+        --left-menu-icon-gap: calc(var(--left-menu-font-size) * 0.6);
+        --flyout-toggle-size: max(var(--left-menu-icon-size), 24px);
+        --r-flyout-bg: var(--menu-link-bg, var(--surface-color, #fff));
+        --r-flyout-border: var(--border-color, #d0d6e4);
+        --r-flyout-divider: var(--divider-color, #d0d6e4);
+        --r-flyout-highlight: var(--surface-warm, #fff);
+        --r-flyout-shadow-menu: var(--flyout-shadow-menu, 0 12px 26px rgb(24 39 75 / 8%));
+        --r-flyout-shadow-panel: var(--flyout-shadow-panel, 0 18px 32px rgb(24 39 75 / 12%));
+        --r-flyout-transition: 160ms cubic-bezier(0.4, 0, 0.2, 1);
+        --menu-state-bg: var(--white, #fff);
+        --menu-state-border: var(--primary-color, #e0162b);
+        --menu-state-text: var(--primary-color, #e0162b);
+        /* pager variables  */
+        /* Brand core */
+        /* locked */
+        /* white */
+        /* locked */
+        /* locked */
+        /* locked */
+        /* locked */
+        /* Layout surfaces */
+        /* page background behind light content */
+      }
 
-    a {
-      color: #004c75;
-    }
+      /* Base shell (padding, top border, background) */
+      body.base,
+      body.site {
+        border-top: 15px solid var(--footer-background);
+        background-color: var(--background-color);
+        color: var(--text-color);
+        font-family: var(--font-base);
+        line-height: 1.5;
+        padding: 20px;
+      }
 
-    .nav-list>.active>a,
-    .nav-list>.active>a:hover,
-    .dropdown-menu li>a:hover,
-    .dropdown-menu .active>a,
-    .dropdown-menu .active>a:hover,
-    .nav-pills>.active>a,
-    .nav-pills>.active>a:hover,
-    .btn-primary {
-      background: #004c75;
-    }
+      /* Preload critical image dimensions to prevent CLS */
+      img[src*="favicon.png"] {
+        height: 24px;
+        max-height: 28px;
+        width: 24px;
+      }
 
-    #flyout_menu_95 {
-      background: #fff;
-    }
+      img[src*="web-asset/icons/svg/sized/plus3.svg"],
+      img[src*="web-asset/icons/svg/sized/minus5.svg"] {
+        height: var(--flyout-toggle-size);
+        max-height: var(--flyout-toggle-size);
+        width: var(--flyout-toggle-size);
+      }
 
-    #flyout_menu_95 ul {
-      background: #fff;
-    }
+      img[src*="web-asset/icons/svg/sized/angle-left.svg"] {
+        height: 24px;
+        max-height: 28px;
+      }
 
-    #flyout_menu_95 a {
-      color: #28432a;
-    }
+      img[src*="web-asset/icons/svg/sized/angle-right.svg"] {
+        height: 24px;
+        max-height: 28px;
+      }
+    </style>
+    <!-- Base CSS (SSOT) blocking to stabilize layout -->
+    <link rel="preload" href="../web-asset/css/base.css" as="style">
+    <link rel="stylesheet" href="../web-asset/css/base.css">
+    <noscript>
+      <link rel="stylesheet" href="../web-asset/css/base.css">
+    </noscript>
+    <!-- Critical resource hints for better performance -->
+    <style id="critical-inline">
+      /* Critical CSS: reset + fast header paint + mobile toggle */
+      body {
+        margin: 0;
+      }
 
-    #flyout_menu_95 .item-wrapper:hover a,
-    #flyout_menu_95 li.current>.item-wrapper a,
-    #flyout_menu_95 li.opened>.item-wrapper a {
-      color: #05c712;
-    }
+      /* Mirror body padding/border early to avoid late layout shrink */
+      body.base,
+      body.site {
+        background-color: var(--background-color);
+        border-top: 15px solid var(--footer-background);
+        padding: 20px;
+      }
 
-    #flyout_menu_95 li.open,
-    #flyout_menu_95 li:hover {
-      background: #2d8633;
-    }
+      .icon-sprite {
+        height: 0;
+        overflow: hidden;
+        position: absolute;
+        width: 0;
+      }
 
-    @media screen and (max-width: 767px) {
+      .grid-modern .row-fluid {
+        background: var(--secondary-color);
+        border-radius: var(--radius);
+        margin-block: 12px;
+        padding-block: 8px;
+      }
 
-      #flyout_menu_95 .ul-wrapper,
-      #flyout_menu_95 ul {
+      .header {
+        margin-bottom: 1rem;
+      }
+
+      @media (max-width: 767px) {
+        .mobile-menu-toggle {
+          background: var(--primary-color);
+          border: 1px solid var(--primary-color);
+          border-radius: var(--radius);
+          display: block;
+          height: 40px;
+          position: fixed;
+          right: 12px;
+          top: 12px;
+          width: 40px;
+          z-index: 1200;
+        }
+
+        .mobile-menu-toggle::before {
+          content: "\00E289A1";
+        }
+
+        .mobile-menu-toggle::before {
+          color: var(--white);
+          content: "\2261";
+          display: block;
+          font-size: 22px;
+          line-height: 40px;
+          text-align: center;
+        }
+
+        /* Fallback for browsers not decoding \00E289A1: use explicit ≡ */
+      }
+    </style>
+
+    <!-- Critical augment: stabilize grid/menu to reduce CLS -->
+    <style id="critical-inline-augment">
+      /* 10) Breadcrumb */
+      .breadcrumb {
+        align-items: center;
+        color: var(--color-muted);
+        display: flex;
+        gap: 8px;
+        list-style: none;
+        margin: 1rem 0 2rem;
+        padding: 0;
+      }
+
+      /* Grid layout (avoid block→flex shift when async CSS loads) */
+      .container {
+        margin: 0 auto;
+        max-width: 1100px;
+        padding: 0 18px;
+      }
+
+      .container2 {
+        margin: 0 auto;
+        max-width: 1085px;
+        padding: 0 18px;
+      }
+
+      .padme1 {
+        padding-top: 3rem !important;
+      }
+
+      .row-fluid {
+        display: flex;
+        flex-wrap: wrap;
+        margin-left: -8px;
+        margin-right: -8px;
+      }
+
+      .row-fluid > [class*="span"],
+      .row-fluid > #aside {
+        box-sizing: border-box;
+        flex: 0 0 100%;
+        max-width: 100%;
+        min-width: 0;
+        padding-left: 8px;
+        padding-right: 8px;
+      }
+
+      @media (min-width: 768px) {
+        .row-fluid > .span2,
+        .row-fluid > #aside {
+          flex: 0 0 16.6667%;
+          max-width: 16.6667%;
+        }
+
+        .row-fluid > .span8 {
+          flex: 0 0 66.6667%;
+          max-width: 66.6667%;
+        }
+
+        #sidebar {
+          min-width: 130px;
+        }
+
+        #aside {
+          min-width: 120px;
+        }
+
+        #content {
+          flex: 0 0 66.6667%;
+          max-width: 66.6667%;
+          min-width: 0;
+        }
+      }
+
+      /* Left accordion menu: reserve icon/text layout early */
+      #sidebar {
+        --menu-icon-pad-inline-start: 0;
+        --menu-icon-pad-inline-end: 7px;
+      }
+
+      /* Left accordion menu: reserve icon/text layout early */
+      #sidebar .sidebar-nav {
+        background: var(--surface-color, #fff);
+        border-radius: var(--radius);
+        box-shadow: var(--flyout-shadow-menu, 0 12px 26px rgb(24 39 75 / 8%));
+        padding: 4px;
+      }
+
+      ul.accordion-menu {
+        border: 1px solid var(--border-color);
+        border-radius: var(--radius);
+        background: var(--surface-color, #fff);
+        box-shadow: var(--flyout-shadow-menu, 0 12px 26px rgb(24 39 75 / 8%));
+        font-size: var(--left-menu-font-size, 1rem);
+        list-style: none;
+        margin: 0;
+        max-width: 100%;
+        overflow: hidden;
+        padding: 0;
+      }
+
+      ul.accordion-menu .item-wrapper {
+        align-items: center;
+        display: flex;
+        gap: var(--left-menu-icon-gap, var(--icon-gap));
+        justify-content: flex-start;
+      }
+
+      ul.accordion-menu .menu-button {
+        align-items: center;
+        display: flex;
+        flex: 0 0 var(--left-menu-icon-slot, var(--icon-slot));
+        justify-content: center;
+        margin-inline-start: auto;
+        min-block-size: var(--flyout-toggle-size);
+        min-inline-size: var(--flyout-toggle-size);
+        order: 2;
+        padding: 0;
+        padding-inline-start: var(--menu-icon-pad-inline-start, 0);
+        padding-inline-end: var(--menu-icon-pad-inline-end, 0);
+        position: relative;
+      }
+
+      ul.accordion-menu .menu-button:empty {
+        display: none;
+      }
+
+      ul.accordion-menu .menu-button .menu-toggle-icon {
+        block-size: var(--flyout-toggle-size);
+        grid-area: 1 / 1;
+        inline-size: var(--flyout-toggle-size);
+        transition: opacity 0.2s ease;
+      }
+
+      ul.accordion-menu .menu-button .menu-toggle-icon use {
+        transform-box: fill-box;
+        transform-origin: center;
+      }
+
+      ul.accordion-menu .menu-button .menu-toggle-icon--minus use {
+        transform: scaleX(var(--menu-minus-scale, 1.35));
+      }
+
+      ul.accordion-menu .menu-button .menu-toggle-icon--minus {
+        color: var(--primary-color);
+        opacity: 0;
+      }
+
+      ul.accordion-menu li.opened > .item-wrapper > .menu-button .menu-toggle-icon--plus {
+        opacity: 0;
+      }
+
+      ul.accordion-menu li.opened > .item-wrapper > .menu-button .menu-toggle-icon--minus {
+        opacity: 1;
+      }
+
+      /* Match left/right toggle padding with linked CSS defaults */
+      #sidebar ul.accordion-menu.button-left li > .item-wrapper > .menu-button,
+      #sidebar ul.accordion-menu.button-right li > .item-wrapper > .menu-button {
+        line-height: 1;
+        padding: 0;
+      }
+
+      #sidebar ul.accordion-menu.button-right li > .item-wrapper > .menu-button {
+        justify-content: flex-end;
+        padding-inline-start: var(--menu-icon-pad-inline-start, 0);
+        padding-inline-end: var(--menu-icon-pad-inline-end, 7px);
+      }
+
+      #lists-menu-item > .item-wrapper > .menu-button {
+        color: var(--menu-toggle-icon-color, var(--icon-color-on-lt));
+        min-block-size: var(--lists-icon-size);
+        padding-block: var(--lists-icon-pad-block, 12px);
+        transition: color 0.2s ease;
+      }
+
+      #lists-menu-item:hover > .item-wrapper > .menu-button,
+      #lists-menu-item:focus-within > .item-wrapper > .menu-button,
+      #lists-menu-item.opened > .item-wrapper > .menu-button {
+        color: var(--primary-color);
+      }
+
+      ul.accordion-menu li:hover > .item-wrapper > .menu-button,
+      ul.accordion-menu li:focus-within > .item-wrapper > .menu-button,
+      ul.accordion-menu li.opened > .item-wrapper > .menu-button,
+      ul.accordion-menu li.current > .item-wrapper > .menu-button {
+        color: var(--primary-color);
+      }
+
+      ul.accordion-menu li.current {
+        background: var(--surface-warm, #fff);
+      }
+
+      ul.accordion-menu li.current > .item-wrapper > .menu-link > a,
+      ul.accordion-menu li.current > .item-wrapper > .menu-link > p {
+        color: var(--primary-color, #e0162b);
+        text-decoration: none;
+      }
+
+      ul.accordion-menu .menu-button > svg {
+        block-size: var(--flyout-toggle-size);
+        fill: currentColor;
+        inline-size: var(--flyout-toggle-size);
+      }
+
+      ul.accordion-menu.button-right li > .item-wrapper > .menu-button > img {
+        padding-right: 10px;
+      }
+
+      ul.accordion-menu li {
+        border-top: 1px solid var(--divider-color);
+      }
+
+      ul.accordion-menu .menu-link {
+        flex: 1 1 auto;
+        min-height: 35px;
+        min-width: 0;
+        overflow: hidden;
+      }
+
+      ul.accordion-menu .menu-link > a,
+      ul.accordion-menu .menu-link > p {
+        align-items: center;
+        background: none;
+        display: flex;
+        gap: var(--left-menu-icon-gap, var(--icon-gap));
+        padding: 10px 10px 9px 7px;
+        text-decoration: none;
+        white-space: nowrap;
         width: auto;
       }
 
-      #flyout_menu_95.horizontal ul .menu-link {
+      ul.accordion-menu .menu-link > a > img,
+      ul.accordion-menu .menu-link > p > img {
+        aspect-ratio: 1 / 1;
+        border: 0;
+        height: var(--left-menu-icon-size, var(--icon-size));
+        max-width: 100%;
+        object-fit: contain;
+        padding: 0 5px 0 0;
+        vertical-align: middle;
         width: auto;
       }
-    }
 
-    @media screen and (min-width: 768px) {
-
-      #flyout_menu_95 .ul-wrapper,
-      #flyout_menu_95 ul {
-        width: 200px;
+      ul.accordion-menu .menu-link > a > svg,
+      ul.accordion-menu .menu-link > p > svg {
+        flex: 0 0 auto;
+        height: var(--left-menu-icon-size, var(--icon-size));
+        padding: 0 5px 0 0;
+        max-width: 100%;
+        width: var(--left-menu-icon-size, var(--icon-size));
       }
-    }
 
-    #accordion_menu_90 {
-      background: #fff;
-    }
+      ul.accordion-menu > li > .item-wrapper > .menu-link > a,
+      ul.accordion-menu > li > .item-wrapper > .menu-link > p {
+        font-weight: var(--left-menu-font-weight, 500);
+      }
 
-    #accordion_menu_90 a {
-      color: #000000;
-    }
+      ul.accordion-menu li.opened > .ul-wrapper {
+        display: block;
+      }
 
-    #accordion_menu_90 .item-wrapper:hover a,
-    #accordion_menu_90 li.current>.item-wrapper a {
-      color: #000d4d;
-    }
+      /* Stabilize instruction blocks to avoid inline-block reflow */
+      #content .exinstruct,
+      #content .exinstruct .blockdiv {
+        display: block;
+      }
 
-    #accordion_menu_90 li.open,
-    #accordion_menu_90 li:hover {
-      background: #6e92ff;
-    }
-  </style>
-  <script src="../media/jui/js/jquery.min592f.js" defer></script>
-  <script src="../media/jui/js/jquery-noconflict592f.js" defer></script>
-  <script src="../media/jui/js/jquery-migrate.min592f.js" defer></script>
-  <script src="../media/system/js/caption592f.js" defer></script>
-  <script src="../media/jui/js/bootstrap.min592f.js" defer></script>
-  <script src="../web-asset/js/template592f.js" defer></script>
+      #content .exinstruct .blockdiv {
+        min-height: 3rem;
+      }
 
-  <script>
-    jQuery( window ).on( "load", function () {
-      new JCaption( "img.caption" )
-    } )
-  </script>
-  <link href="../web-asset/css/meg-2.css" rel="stylesheet">
-</head>
+      #content .exinstruct .blockwrap,
+      #content .exinstruct .blockwrap-txt #content .lessinstruct,
+      #content .lessinstruct .blockdiv {
+        display: block;
+        max-width: 100%;
+      }
 
-<body class="site com_content view-article no-layout no-task itemid-6083">
-  <!-- Body -->
-  <div class="body" id="top">
-    <div class="container">
-      <!-- Header -->
-      <div class="row-fluid">
-        <!-- Begin Sidebar -->
-        <div id="sidebar" class="span2">
-          <div class="sidebar-nav">
-            <div class="moduletable lowmargin">
-              <script>
-                var onProcess = false
-                jQuery( document ).ready( function ( $ ) {
-                  var acMenu = $( "#accordion_menu_90" )
-                  acMenu.find( "a" ).click( function () {
-                    if ( $( this ).attr( "target" ) == "_blank" )
-                    {
-                      window.open( $( this ).attr( "href" ) )
-                    } else
-                    {
-                      location = $( this ).attr( "href" )
-                    }
-                    return false
-                  } )
+      #aside .r-flyout-menu > [data-r-flyout-item] {
+        border-bottom: 1px solid var(--divider-color, #e1e7f0);
+        position: relative;
+        transition: border-color 160ms cubic-bezier(0.4, 0, 0.2, 1);
+      }
 
-                  try
-                  {
-                    var current = $( "#accordion_menu_90 li.opened" )
-                    var root = current.parents( ".accordion-menu" ),
-                      lis = current.parents( "li" )
-                    $( "li", root ).filter( lis ).addClass( "opened" )
-                  } catch ( e )
-                  {
-                    console.log( e.message )
-                  }
-                  $( "#accordion_menu_90 li.opened > .ul-wrapper" ).css( "display", "block" )
-                  $( "#accordion_menu_90 li.opened > .item-wrapper .menu-button img" ).attr( "src", "../web-asset/icons/svg/minus5.svg" )
+      #aside .r-flyout-menu > [data-r-flyout-item]:last-child {
+        border-bottom: none;
+      }
 
-                  acMenu
-                    .find( "li" )
-                    .mouseenter( function () {
-                      if ( onProcess ) return true
-                      var ul = $( this ).children( ".ul-wrapper" )
-                      if ( ul.length )
-                      {
-                        onProcess = true
-                        $( this ).addClass( "opened" )
-                        $( this )
-                          .children( ".item-wrapper" )
-                          .children( ".menu-button" )
-                          .children( "img" )
-                          .attr( "src", "../web-asset/icons/svg/minus5.svg" )
-                        ul.slideDown( 300, function () {
-                          onProcess = false
-                        } )
-                      }
-                    } )
-                    .mouseleave( function () {
-                      if ( onProcess ) return true
-                      if ( $( this ).children( ".ul-wrapper" ).length )
-                      {
-                        onProcess = true
-                        $( this )
-                          .children( ".item-wrapper" )
-                          .children( ".menu-button" )
-                          .children( "img" )
-                          .attr( "src", "../web-asset/icons/svg/plus3.svg" )
-                        $( this )
-                          .children( ".ul-wrapper" )
-                          .slideUp( 300, function () {
-                            onProcess = false
-                          } )
-                      }
-                      onProcess = false
-                      $( this ).removeClass( "opened" )
-                    } )
-                } )
-              </script>
-              <ul class="accordion-menu text-left button-right" id="accordion_menu_90">
-                <li class="first">
-                  <div class="item-wrapper">
-                    <div class="menu-button"></div>
-                    <div class="menu-link">
-                      <a href="../index-2.html" aria-label="Home">
-                        <img src="../images/menuico/main.png" alt="menu icon">
-                        Home
-                      </a>
-                    </div>
-                  </div>
-                </li>
-                <li>
-                  <div class="item-wrapper">
-                    <div class="menu-button"></div>
-                    <div class="menu-link">
-                      <a href="../grammar-lessons.html" aria-label="Lessons">
-                        <img src="../images/menuico/lessons.png" alt="menu icon">
-                        Lessons
-                      </a>
-                    </div>
-                  </div>
-                </li>
-                <li>
-                  <div class="item-wrapper">
-                    <div class="menu-button"></div>
-                    <div class="menu-link">
-                      <a href="../grammar-exercises.html" aria-label="Exercises">
-                        <img src="../images/menuico/exercises.png" alt="menu icon">
-                        Exercises
-                      </a>
-                    </div>
-                  </div>
-                </li>
-                <li>
-                  <div class="item-wrapper">
-                    <div class="menu-button"></div>
-                    <div class="menu-link">
-                      <a href="../introduction-to-tenses.html" aria-label="Tenses">
-                        <img src="../images/menuico/tenses.png" alt="menu icon">
-                        Tenses
-                      </a>
-                    </div>
-                  </div>
-                </li>
-                <li>
-                  <div class="item-wrapper">
-                    <div class="menu-button"></div>
-                    <div class="menu-link">
-                      <a href="../writing.html" aria-label="Writing">
-                        <img src="../images/menuico/writing.png" alt="menu icon">
-                        Writing
-                      </a>
-                    </div>
-                  </div>
-                </li>
-                <li>
-                  <div class="item-wrapper">
-                    <div class="menu-button"></div>
-                    <div class="menu-link">
-                      <a href="../vocabulary.html" aria-label="Vocabulary">
-                        <img src="../images/menuico/vocab.png" alt="menu icon">
-                        Vocabulary
-                      </a>
-                    </div>
-                  </div>
-                </li>
-                <li>
-                  <div class="item-wrapper">
-                    <div class="menu-button">
-                      <img class="menuicon" alt="" src="../web-asset/icons/svg/plus3.svg">
-                    </div>
-                    <div class="menu-link">
-                      <a href="../lists.html" aria-label="Lists">
-                        <img src="../images/menuico/lists.png" alt="menu icon">
-                        Lists
-                      </a>
-                    </div>
-                  </div>
-                  <div class="ul-wrapper">
-                    <ul>
-                      <li class="first">
-                        <div class="item-wrapper">
-                          <div class="menu-button"></div>
-                          <div class="menu-link">
-                            <a href="../lists.html" aria-label="Lists">
-                              Lists
-                            </a>
-                          </div>
-                        </div>
-                      </li>
-                      <li>
-                        <div class="item-wrapper">
-                          <div class="menu-button"></div>
-                          <div class="menu-link">
-                            <a href="../prepositions.html" aria-label="Prepositions">
-                              Prepositions
-                            </a>
-                          </div>
-                        </div>
-                      </li>
-                      <li class="last">
-                        <div class="item-wrapper">
-                          <div class="menu-button"></div>
-                          <div class="menu-link">
-                            <a href="../lists2/words-from-a-z.html" aria-label="Sentences (v+prep)">
-                              Sentences (v+prep)
-                            </a>
-                          </div>
-                        </div>
-                      </li>
-                    </ul>
-                  </div>
-                </li>
-                <li class="last">
-                  <div class="item-wrapper">
-                    <div class="menu-button"></div>
-                    <div class="menu-link">
-                      <a href="../glossary.html" aria-label="Glossary">
-                        <img src="../images/menuico/glossary.png" alt="menu icon">
-                        Glossary
-                      </a>
-                    </div>
-                  </div>
-                </li>
-              </ul>
-            </div>
-            <div class="moduletable"></div>
-          </div>
-        </div>
-        <!-- End Sidebar -->
-        <main id="content" class="span8">
-          <!-- Begin Content -->
-          <div id="system-message-container"></div>
-          <div class="item-page" itemscope itemtype="https://schema.org/Article">
-            <meta itemprop="inLanguage" content="">
-            <div class="page-header">
-              <h2 itemprop="headline">10.2 Writing Academic Paragraphs</h2>
-            </div>
-            <div itemprop="articleBody">
-              <ul class="pager pagenav">
-                <li class="previous">
-                  <a href="10-writing-paragraph.html" rel="prev" aria-label="Previous">
-                   <svg
-                        version="1.1"
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 18 48"
-                        fill="currentColor">
-                        <title>angle-left</title>
-                        <path
-                          d="M16.795 14.571c0 0.214-0.107 0.455-0.268 0.616l-10.527 10.527 10.527 10.527c0.161 0.161 0.268 0.402 0.268 0.616s-0.107 0.455-0.268 0.616l-1.339 1.339c-0.161 0.161-0.402 0.268-0.616 0.268s-0.455-0.107-0.616-0.268l-12.482-12.482c-0.161-0.161-0.268-0.402-0.268-0.616s0.107-0.455 0.268-0.616l12.482-12.482c0.161-0.161 0.402-0.268 0.616-0.268s0.455 0.107 0.616 0.268l1.339 1.339c0.161 0.161 0.268 0.375 0.268 0.616z">
-                        </path>
-                      </svg>
-                    &nbsp;10.1 Writing Paragraphs: introduction
-                  </a>
-                </li>
-                <li class="next">
-                  <a href="10-writing-paragraph-sentence-connecters.html" rel="next" aria-label="Next">
-                    10.3 Paragraphs: sentence connecters&nbsp;
-                    <svg
-                        version="1.1"
-                        xmlns="http://www.w3.org/2000/svg"
-                        height="24px"
-                        viewBox="0 0 18 48"
-                        fill="currentColor">
-                        <title>angle-right</title>
-                        <path
-                          d="M15.938 25.714c0 0.214-0.107 0.455-0.268 0.616l-12.482 12.482c-0.161 0.161-0.402 0.268-0.616 0.268s-0.455-0.107-0.616-0.268l-1.339-1.339c-0.161-0.161-0.268-0.375-0.268-0.616 0-0.214 0.107-0.455 0.268-0.616l10.527-10.527-10.527-10.527c-0.161-0.161-0.268-0.402-0.268-0.616s0.107-0.455 0.268-0.616l1.339-1.339c0.161-0.161 0.402-0.268 0.616-0.268s0.455 0.107 0.616 0.268l12.482 12.482c0.161 0.161 0.268 0.402 0.268 0.616z"></path>
-                      </svg>
-                  </a>
-                </li>
-              </ul>
-              <h3>What is a paragraph?</h3>
-              <p>
-                <strong>A paragraph is a collection of related sentences dealing with a single topic.</strong>
-                Learning to write paragraphs well will help you, as a writer, stay on track during your drafting and
-                revision stages.
-                <em>Good paragraphing also greatly assists your readers in following a piece of writing</em>
-                . You can have fantastic ideas, but if those ideas aren't presented in an organized fashion, you will
-                lose your readers
-                (and fail to achieve your goals in writing).
-              </p>
-              <h3>
-                The Basic Rule:
-                <span style="color: #e0162b">Keep one idea to one paragraph</span>
-              </h3>
-              <p>
-                <strong>The basic rule of thumb with paragraphing is to keep one idea to one paragraph.</strong>
-                <em>If you begin to transition into a new idea, it belongs in a new paragraph.</em>
-                There are some simple ways to tell if you are on the same topic or a new one. You can have one idea and
-                several bits of
-                supporting evidence within a single paragraph. You can also have several points in a single paragraph as
-                long as they
-                relate to the overall topic of the paragraph. If the single points start to get long, then perhaps
-                elaborating on each of
-                them and placing them in their own paragraphs is the route to go.
-              </p>
-              <h3>Elements of a paragraph</h3>
-              <p>
-                To be as effective as possible,
-                <strong>a paragraph should contain each of the following:</strong>
-                �
-                <em>Unity, Coherence, A Topic Sentence, and Adequate Development</em>
-                . As you will see, all of these traits overlap. Using and adapting them to your individual purposes will
-                help you
-                construct effective paragraphs.
-              </p>
-              <h4>Unity</h4>
-              <p>
-                <strong>The entire paragraph should concern itself with a single focus.</strong>
-                <em>
-                  If it begins with one focus or major point of discussion, it should not end with another or wander
-                  within different
-                  ideas.
-                </em>
-              </p>
-              <h4>Coherence</h4>
-              <p>
-                <strong>Coherence is the trait that makes the paragraph easily understandable to a reader.</strong>
-                <em>You can help create coherence in your paragraphs by creating logical bridges and verbal
-                  bridges.</em>
-              </p>
-              <div class="examplebox" style="border: 2px solid #e0162b; padding: 0 5px 0 15px">
-                <h4
-                  style="color: inherit; margin: -10px 0 5px; line-height: 16px; display: table; padding: 0 20px; background: #fff">
-                  Logical bridges
-                </h4>
-                <ul>
-                  <li>The same idea of a topic is carried over from sentence to sentence</li>
-                  <li>Successive sentences can be constructed in parallel form</li>
-                </ul>
-              </div>
-              <div class="examplebox" style="border: 2px solid #e0162b; padding: 0 5px 0 15px">
-                <h4
-                  style="color: inherit; margin: -10px 0 5px; line-height: 16px; display: table; padding: 0 20px; background: #fff">
-                  Verbal bridges
-                </h4>
-                <ul>
-                  <li>Key words can be repeated in several sentences</li>
-                  <li>Synonymous words can be repeated in several sentences</li>
-                  <li>Pronouns can refer to nouns in previous sentences</li>
-                  <li>Transition words can be used to link ideas from different sentences</li>
-                </ul>
-              </div>
-              <h4>A topic sentence</h4>
-              <p>
-                <strong>
-                  A topic sentence is a sentence that indicates in a general way what idea or thesis the paragraph is
-                  going to deal with
-                </strong>
-                . Although not all paragraphs have clear-cut topic sentences, and despite the fact that topic sentences
-                can occur anywhere
-                in the paragraph (as the first sentence, the last sentence, or somewhere in the middle), an easy way to
-                make sure your
-                reader understands the topic of the paragraph is to put your topic sentence near the beginning of the
-                paragraph. (This is
-                a good general rule for less experienced writers, although it is not the only way to do it). Regardless
-                of whether you
-                include an explicit topic sentence or not, you should be able to easily summarize what the paragraph is
-                about.
-              </p>
-              <h4>Adequate development</h4>
-              <p>
-                <strong>The topic (which is introduced by the topic sentence) should be discussed fully and
-                  adequately</strong>
-                . Again, this varies from paragraph to paragraph, depending on the author's purpose, but writers should
-                be wary of
-                paragraphs that only have two or three sentences. It's a pretty good bet that the paragraph is not fully
-                developed if it
-                is that short.
-              </p>
-              <p>Some methods to make sure your paragraph is well-developed:</p>
-              <div class="examplebox" style="border: 2px solid #e0162b; padding: 0 5px 0 15px">
-                <h4
-                  style="color: inherit; margin: -10px 0 5px; line-height: 16px; display: table; padding: 0 20px; background: #fff">
-                  Development Tips
-                </h4>
-                <ul>
-                  <li>Use examples and illustrations</li>
-                  <li>Cite data (facts, statistics, evidence, details, and others)</li>
-                  <li>Examine testimony (what other people say such as quotes and paraphrases)</li>
-                  <li>Use an anecdote or story</li>
-                  <li>Define terms in the paragraph</li>
-                  <li>Compare and contrast</li>
-                  <li>Evaluate causes and reasons</li>
-                  <li>Examine effects and consequences</li>
-                  <li>Analyze the topic</li>
-                  <li>Describe the topic</li>
-                  <li>Offer a chronology of an event (time segments)</li>
-                </ul>
-              </div>
-              <h3>How do I know when to start a new paragraph?</h3>
-              <p>You should start a new paragraph when:</p>
-              <div class="examplebox" style="border: 2px solid #e0162b; padding: 0 5px 0 15px">
-                <h4
-                  style="color: inherit; margin: -10px 0 5px; line-height: 16px; display: table; padding: 0 20px; background: #fff">
-                  Start a new paragraph...
-                </h4>
-                <ul>
-                  <li>
-                    <strong>when you begin a new idea or point</strong>
-                    . New ideas should always start in new paragraphs. If you have an extended idea that spans multiple
-                    paragraphs, each
-                    new point within that idea should have its own paragraph.
-                  </li>
-                  <li>
-                    <strong>to contrast information or ideas</strong>
-                    . Separate paragraphs can serve to contrast sides in a debate, different points in an argument, or
-                    any other
-                    difference.
-                  </li>
-                  <li>
-                    <strong>when your readers need a pause</strong>
-                    . Breaks between paragraphs function as a short "break" for your readers—adding these in will help
-                    your writing be
-                    more readable. You would create a break if the paragraph becomes too long or the material is
-                    complex.
-                  </li>
-                  <li>
-                    <strong>when you are ending your introduction or starting your conclusion</strong>
-                    . Your introductory and concluding material should always be in a new paragraph. Many introductions
-                    and conclusions
-                    have multiple paragraphs depending on their content, length, and the writer's purpose.
-                  </li>
-                </ul>
-              </div>
-              <h3>Transitions and signposts</h3>
-              <p>
-                Two very important elements of paragraphing are signposts and transitions. Signposts are internal aids
-                to assist readers;
-                they usually consist of several sentences or a paragraph outlining what the article has covered and
-                where the article will
-                be going.
-              </p>
-              <p>
-                Transitions are usually one or several sentences that "transition" from one idea to the next.
-                Transitions can be used at
-                the end of most paragraphs to help the paragraphs flow one into the next.
-              </p>
-              <h2>Paragraphing (Length Consistency)</h2>
-              <p>
-                Paragraphs are units of thought with one adequately developed idea. Listed here are some rules of thumb
-                to use when
-                paragraphing. As your writing improves, you'll be able to break these "rules" to meet your own needs.
-                Until then, these
-                suggestions can be helpful.
-              </p>
-              <div class="examplebox" style="border: 2px solid #e0162b; padding: 0 5px 0 15px">
-                <h4
-                  style="color: inherit; margin: -10px 0 5px; line-height: 16px; display: table; padding: 0 20px; background: #fff">
-                  <strong>Length</strong>
-                </h4>
-                <ul>
-                  <li>Put only one main idea per paragraph.</li>
-                  <li>Aim for three to five or more sentences per paragraph.</li>
-                  <li>Include on each page about two handwritten or three typed paragraphs.</li>
-                  <li>
-                    Make your paragraphs proportional to your paper. Since paragraphs do less work in short papers, have
-                    short paragraphs
-                    for short papers and longer paragraphs for longer papers.
-                  </li>
-                  <li>
-                    If you have a few very short paragraphs, think about whether they are really parts of a larger
-                    paragraph—and can be
-                    combined—or whether you can add details to support each point and thus make each into a more fully
-                    developed
-                    paragraph.
-                  </li>
-                </ul>
-              </div>
-              <p>You can check on whether your paragraphs are balanced by looking at your paper.</p>
-              <h4>Some balanced pages:</h4>
-              <div style="text-align: center">
-                <img src="../images/20071217012452_606.jpg" alt="">
-              </div>
-              <p><em>Paragraph Balance</em></p>
-              <h4>Unbalanced pages with ideas not equally developed:</h4>
-              <div style="text-align: center">
-                <img src="../images/20071217013008_606.jpg" alt="">
-              </div>
-              <div>
-                <p><em>Unbalanced Paragraphs</em></p>
-              </div>
-              <p>
-                Use the following graphics as a tool to organize your paper with one main idea in each box. Use as many
-                pages and boxes as
-                needed.
-              </p>
-              <div style="text-align: center">
-                <img src="../images/20071217012655_606.jpg" alt="">
-              </div>
-              <p>
-                <em>Graphics to Help with Balance and Organization</em>
-              </p>
-              <ul class="pager pagenav">
-                <li class="previous">
-                  <a href="10-writing-paragraph.html" rel="prev" aria-label="Previous">
-                   <svg
-                        version="1.1"
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 18 48"
-                        fill="currentColor">
-                        <title>angle-left</title>
-                        <path
-                          d="M16.795 14.571c0 0.214-0.107 0.455-0.268 0.616l-10.527 10.527 10.527 10.527c0.161 0.161 0.268 0.402 0.268 0.616s-0.107 0.455-0.268 0.616l-1.339 1.339c-0.161 0.161-0.402 0.268-0.616 0.268s-0.455-0.107-0.616-0.268l-12.482-12.482c-0.161-0.161-0.268-0.402-0.268-0.616s0.107-0.455 0.268-0.616l12.482-12.482c0.161-0.161 0.402-0.268 0.616-0.268s0.455 0.107 0.616 0.268l1.339 1.339c0.161 0.161 0.268 0.375 0.268 0.616z">
-                        </path>
-                      </svg>
-                    &nbsp;10.1 Writing Paragraphs: introduction
-                  </a>
-                </li>
-                <li class="next">
-                  <a href="10-writing-paragraph-sentence-connecters.html" rel="next" aria-label="Next">
-                    10.3 Paragraphs: sentence connecters&nbsp;
-                    <svg
-                        version="1.1"
-                        xmlns="http://www.w3.org/2000/svg"
-                        height="24px"
-                        viewBox="0 0 18 48"
-                        fill="currentColor">
-                        <title>angle-right</title>
-                        <path
-                          d="M15.938 25.714c0 0.214-0.107 0.455-0.268 0.616l-12.482 12.482c-0.161 0.161-0.402 0.268-0.616 0.268s-0.455-0.107-0.616-0.268l-1.339-1.339c-0.161-0.161-0.268-0.375-0.268-0.616 0-0.214 0.107-0.455 0.268-0.616l10.527-10.527-10.527-10.527c-0.161-0.161-0.268-0.402-0.268-0.616s0.107-0.455 0.268-0.616l1.339-1.339c0.161-0.161 0.402-0.268 0.616-0.268s0.455 0.107 0.616 0.268l12.482 12.482c0.161 0.161 0.268 0.402 0.268 0.616z"></path>
-                      </svg>
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div class="clearfix"></div>
-          <ul itemscope itemtype="https://schema.org/BreadcrumbList" class="breadcrumb">
-            <li class="active"></li>
-            <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-              <a itemprop="item" href="../index-2.html" class="pathway" aria-label="Home">
-                <span itemprop="name">Home</span>
-              </a>
-              <span class="divider">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8 13.02" width="11" height="11"><polygon points="8 6.51 0 13.02 0 0 8 6.51" fill="#e0162b"></svg>
-              </span>
-              <meta itemprop="position" content="1">
-            </li>
+      #aside .r-flyout__header {
+        align-items: center;
+        border: 1px solid transparent;
+        border-radius: var(--radius, 3px);
+        color: var(--menu-text, #616978);
+        display: flex;
+        font-family: var(--font-header, "Open Sans", Arial, sans-serif);
+        font-size: 0.85em;
+        font-weight: 500;
+        gap: var(--menu-icon-gap, 8px);
+        line-height: 1.3;
+        min-height: 32px;
+        padding: 4px 6px;
+        transition:
+          background-color 160ms cubic-bezier(0.4, 0, 0.2, 1),
+          border-color 160ms cubic-bezier(0.4, 0, 0.2, 1),
+          box-shadow 160ms cubic-bezier(0.4, 0, 0.2, 1),
+          color 160ms cubic-bezier(0.4, 0, 0.2, 1);
+      }
 
-            <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-              <a itemprop="item" href="../writing.html" class="pathway" aria-label="Menu Link">
-                <span itemprop="name">Writing</span>
-              </a>
-              <span class="divider">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8 13.02" width="11" height="11"><polygon points="8 6.51 0 13.02 0 0 8 6.51" fill="#e0162b"></svg>
-              </span>
-              <meta itemprop="position" content="4">
-            </li>
-            <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem" class="active">
-              <span itemprop="name">10.2 Writing Academic Paragraphs</span>
-              <meta itemprop="position" content="5">
-            </li>
-          </ul>
-          <!-- End Content -->
-        </main>
-        <script>
-          jQuery( document ).ready( function ( $ ) {
-            var acMenu = $( "#flyout_menu_95" )
-            acMenu.find( "a" ).click( function () {
-              if ( $( this ).attr( "target" ) == "_blank" )
-              {
-                window.open( $( this ).attr( "href" ) )
-              } else
-              {
-                location = $( this ).attr( "href" )
-              }
-              return false
-            } )
+      #aside .r-flyout-menu > [data-r-flyout-item].current > .r-flyout__header {
+        background: var(--surface-warm, #fff);
+        color: var(--primary-color, #e0162b);
+      }
 
-            acMenu
-              .find( "li" )
-              .mouseleave( function () {
-                $( this ).removeClass( "opened" )
-                $( this ).children( ".item-wrapper" ).children( ".menu-button" ).children( "img" ).attr( "src", "../web-asset/icons/svg/plus3.svg" )
-                $( this ).children( ".ul-wrapper" ).hide( 300 )
-              } )
-              .mouseenter( function () {
-                $( this )
-                  .children( ".item-wrapper" )
-                  .children( ".menu-button" )
-                  .children( "img" )
-                  .attr( "src", "../web-asset/icons/svg/minus5.svg" )
-                $( this ).addClass( "opened" )
-                $( this ).children( ".ul-wrapper" ).show( 300 )
-              } )
-          } )
-        </script>
-        <div id="aside" class="span2">
-          <!-- Begin Right Sidebar -->
-          <div class="well hidden-phone">
-            <ul class="flyout-menu vertical flyout-left text-left button-right" id="flyout_menu_93">
-              <li class="current first">
-                <div class="item-wrapper">
-                  <div class="menu-button">
-                    <img class="menuicon" alt="" src="../web-asset/icons/svg/plus3.svg">
-                  </div>
-                  <div class="menu-link">
-                    <a href="../writing.html" aria-label="Writing">
-                      Writing Sentences
-                    </a>
-                  </div>
-                </div>
-                <div class="ul-wrapper">
-                  <ul>
+      #aside .r-flyout__link {
+        color: currentColor;
+        text-decoration: none;
+      }
+
+      #aside .r-flyout__sublist li.current > .item-wrapper {
+        background: var(--surface-warm, #fff);
+      }
+
+      #aside .r-flyout__sublist li.current > .item-wrapper a {
+        color: var(--primary-color, #e0162b);
+        text-decoration: none;
+      }
+
+      #aside .r-flyout__sublist a:hover,
+      #aside .r-flyout__sublist a:focus,
+      #aside .r-flyout__sublist li.current > .item-wrapper a,
+      #aside .r-flyout__sublist li.active > .item-wrapper a {
+        font-weight: 400;
+      }
+
+      #aside .r-flyout__link:hover,
+      #aside .r-flyout__link:focus {
+        color: var(--primary-color);
+        text-decoration: none;
+      }
+
+      #aside .r-flyout__link-wrap {
+        flex: 1 1 auto;
+        min-width: 0;
+      }
+
+      #aside .r-flyout__toggle {
+        align-items: center;
+        appearance: none;
+        background: none;
+        border: 0;
+        border-radius: 0;
+        color: inherit;
+        cursor: pointer;
+        display: grid;
+        flex: 0 0 var(--flyout-toggle-size);
+        height: var(--flyout-toggle-size);
+        inline-size: var(--flyout-toggle-size);
+        justify-content: center;
+        margin: 0;
+        min-block-size: var(--flyout-toggle-size);
+        min-height: var(--flyout-toggle-size);
+        padding: 0;
+        position: relative;
+        transition: color 160ms cubic-bezier(0.4, 0, 0.2, 1);
+        width: var(--flyout-toggle-size);
+      }
+
+      #aside .r-flyout__icon {
+        display: block;
+        grid-area: 1 / 1;
+        height: var(--flyout-toggle-size);
+        inline-size: var(--flyout-toggle-size);
+        pointer-events: none;
+        transition: opacity 160ms cubic-bezier(0.4, 0, 0.2, 1);
+        width: var(--flyout-toggle-size);
+      }
+
+      #aside .r-flyout__icon use {
+        transform-box: fill-box;
+        transform-origin: center;
+      }
+
+      .r-flyout__icon--minus {
+        color: inherit;
+        opacity: 0;
+      }
+
+      .r-flyout__icon--minus use {
+        transform: scaleX(var(--flyout-minus-scale, 1.95));
+      }
+
+      [data-r-flyout-item] > .r-flyout__header {
+        border-radius: var(--radius, 3px);
+      }
+
+      [data-r-flyout-item].is-open > .r-flyout__header,
+      [data-r-flyout-item]:hover > .r-flyout__header,
+      [data-r-flyout-item]:focus-within > .r-flyout__header {
+        background: var(--r-flyout-bg, var(--surface-color, #fff));
+        border-color: var(--primary-color, #e0162b);
+        box-shadow: none;
+        color: var(--primary-color, #e0162b);
+      }
+
+      #aside .r-flyout__header:is(:hover, :focus-within),
+      #aside .r-flyout__header:has(.r-flyout__toggle:hover) {
+        background: var(--white);
+        border-color: var(--primary-color, #e0162b);
+        color: var(--primary-color, #e0162b);
+      }
+
+      #aside .r-flyout__header:is(:hover, :focus-within) .r-flyout__toggle,
+      #aside .r-flyout__header:has(.r-flyout__toggle:hover) .r-flyout__toggle,
+      #aside .r-flyout__header:is(:hover, :focus-within) .r-flyout__link,
+      #aside .r-flyout__header:has(.r-flyout__toggle:hover) .r-flyout__link {
+        color: currentColor;
+      }
+
+      [data-r-flyout-item].is-open > .r-flyout__header .r-flyout__link,
+      [data-r-flyout-item]:hover > .r-flyout__header .r-flyout__link,
+      [data-r-flyout-item]:focus-within > .r-flyout__header .r-flyout__link {
+        color: inherit;
+      }
+
+      [data-r-flyout-item].is-open > .r-flyout__header .r-flyout__toggle,
+      [data-r-flyout-item]:hover > .r-flyout__header .r-flyout__toggle,
+      [data-r-flyout-item]:focus-within > .r-flyout__header .r-flyout__toggle {
+        color: var(--primary-color, #e0162b);
+      }
+
+      [data-r-flyout-item].is-open > .r-flyout__header .r-flyout__icon--plus {
+        opacity: 0;
+      }
+
+      [data-r-flyout-item].is-open > .r-flyout__header .r-flyout__icon--minus {
+        opacity: 1;
+        visibility: visible;
+      }
+
+      [data-r-flyout-item]:hover > .r-flyout__header .r-flyout__icon--plus,
+      [data-r-flyout-item]:focus-within > .r-flyout__header .r-flyout__icon--plus {
+        opacity: 0;
+      }
+
+      [data-r-flyout-item]:hover > .r-flyout__header .r-flyout__icon--minus,
+      [data-r-flyout-item]:focus-within > .r-flyout__header .r-flyout__icon--minus {
+        opacity: 1;
+        visibility: visible;
+      }
+
+      [data-r-flyout-item]:hover > .r-flyout__header .r-flyout__icon--plus,
+      [data-r-flyout-item]:focus-within > .r-flyout__header .r-flyout__icon--plus {
+        opacity: 0;
+      }
+
+      [data-r-flyout-item]:hover > .r-flyout__header .r-flyout__icon--minus,
+      [data-r-flyout-item]:focus-within > .r-flyout__header .r-flyout__icon--minus {
+        opacity: 1;
+      }
+
+      #aside .r-flyout__panel {
+        background: var(--menu-link-bg);
+        border: 1px solid var(--border-color);
+        border-radius: var(--radius, 3px);
+        box-shadow: var(--flyout-shadow-panel, 0 18px 32px rgb(24 39 75 / 12%));
+        inset-inline-end: calc(100% - 1px);
+        min-width: min(var(--flyout-width-desktop, 250px), 90vw);
+        overflow: hidden;
+        padding: 4px 0;
+        position: absolute;
+        top: -1px;
+        z-index: 6010;
+      }
+
+      #aside .r-flyout__panel[hidden] {
+        display: none;
+      }
+
+      #aside .r-flyout-menu[data-flyout-origin="left"] .r-flyout__panel {
+        inset-inline: calc(100% - 1px) auto;
+      }
+
+      .visually-hidden {
+        border: 0;
+        clip: rect(0 0 0 0);
+        height: 1px;
+        margin: -1px;
+        overflow: hidden;
+        padding: 0;
+        position: absolute;
+        width: 1px;
+        white-space: nowrap;
+      }
+
+      /* Preload footer height to prevent footer jump */
+      .footer {
+        min-height: 80px;
+      }
+
+      /* Stabilize sidebar width on desktop to prevent reflow */
+      @media (min-width: 768px) {
+        #sidebar {
+          min-height: 300px;
+        }
+
+        #aside {
+          min-height: 300px;
+        }
+      }
+
+      @media (width <= 900px) {
+        /* Reduce visual clutter on narrow viewports */
+        #aside {
+          display: none;
+        }
+
+        .row-fluid > #content {
+          flex: 1 1 0%;
+          max-width: 100%;
+        }
+      }
+
+      @media (width <= 1000px) {
+        ul.accordion-menu .menu-link > a > svg,
+        ul.accordion-menu .menu-link > p > svg {
+          display: none;
+        }
+      }
+
+      .blkquot {
+        color: var(--text-color);
+        font-style: italic;
+        margin: 1.4rem;
+        padding: 5px;
+      }
+
+      .bm1 {
+        display: inline-block;
+        margin-bottom: 1.5em;
+      }
+    </style>
+
+    <!-- Icon font not used on Codex variant; removed icomoon.css includes -->
+
+    <!-- Use system default fonts (no webfont preloads) -->
+
+    <!-- Flyout + menu layout styles (blocking for CLS stability) -->
+    <link rel="preload" href="../web-asset/css/right-rail-flyout.css" as="style">
+    <link rel="stylesheet" href="../web-asset/css/right-rail-flyout.css">
+    <noscript>
+      <link rel="stylesheet" href="../web-asset/css/right-rail-flyout.css">
+    </noscript>
+    <!-- Left-menu.css blocking; critical inline reserves layout -->
+    <link rel="preload" href="../web-asset/css/left-menu.css" as="style">
+    <link rel="stylesheet" href="../web-asset/css/left-menu.css">
+    <noscript>
+      <link rel="stylesheet" href="../web-asset/css/left-menu.css">
+    </noscript>
+    <link rel="preload" href="../web-asset/css/page-classes.css" as="style">
+    <link rel="stylesheet" href="../web-asset/css/page-classes.css">
+    <noscript>
+      <link rel="stylesheet" href="../web-asset/css/page-classes.css">
+    </noscript>
+    <!-- Removed jQuery/Bootstrap/nn_sliders/template scripts on codex variant to keep console clean -->
+    <!-- Mobile navigation styles provided globally by base CSS -->
+    <!-- No inline @font-face; system stacks are used (see base.css variables) -->
+    <!-- Bundled JavaScript: Modern module + legacy fallback (4 requests → 1) -->
+    <link rel="modulepreload" href="../web-asset/js/main.bundle.js">
+    <script type="module" src="../web-asset/js/main.bundle.js"></script>
+    <script nomodule src="../web-asset/js/main.legacy.js" defer></script>
+
+    <script src="../web-asset/js/right-rail-flyout.js" defer></script>
+  </head>
+
+  <body class="base lesson">
+    <script data-mobile-nav-bootstrap>
+      document.body.classList.add("mobile-nav-enabled")
+    </script>
+    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" class="icon-sprite">
+      <defs>
+        <symbol id="icon-plus" viewBox="0 0 24 24">
+          <path fill="currentColor" d="M12 5a1 1 0 0 0-1 1v5H6a1 1 0 1 0 0 2h5v5a1 1 0 1 0 2 0v-5h5a1 1 0 1 0 0-2h-5V6a1 1 0 0 0-1-1z"></path>
+        </symbol>
+        <symbol id="icon-minus" viewBox="0 0 24 24">
+          <rect x="9" y="11" width="6" height="2" rx="1" fill="currentColor"></rect>
+        </symbol>
+      </defs>
+    </svg>
+    <!-- Body -->
+    <div class="body grid-modern" id="top">
+      <div class="container">
+        <!-- Header -->
+        <div class="row-fluid padme1">
+          <!-- Begin Sidebar -->
+          <div id="sidebar" class="span2">
+            <div class="sidebar-nav">
+              <div class="moduletable lowmargin">
+                <!-- jQuery-driven left-menu behavior removed on Codex variant to avoid load-time CLS.Vanilla handlers in web-asset/js/left-menu.js cover hover interactions. -->
+                <template id="sidebar-menu-template">
+                  <ul class="accordion-menu text-left button-right" id="accordion_menu_90">
                     <li class="first">
                       <div class="item-wrapper">
+                        <div class="menu-button"></div>
                         <div class="menu-link">
-                          <a href="1-what-is-a-sentence.html" aria-label="Menu Link">
-                            1. What is a Sentence?
+                          <a href="../index-2.html">
+                            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 48 48" fill="currentColor">
+                              <title>office</title>
+                              <path d="M0 48h24v-48h-24v48zM15 6h6v6h-6v-6zM15 18h6v6h-6v-6zM15 30h6v6h-6v-6zM3 6h6v6h-6v-6zM3 18h6v6h-6v-6zM3 30h6v6h-6v-6zM27 15h21v3h-21zM27 48h6v-12h9v12h6v-27h-21z"></path>
+                            </svg>
+                            Home
                           </a>
                         </div>
                       </div>
                     </li>
                     <li>
                       <div class="item-wrapper">
+                        <div class="menu-button"></div>
                         <div class="menu-link">
-                          <a href="2-subject-and-predicate.html" aria-label="Menu Link">
-                            2. Subject and Predicate
+                          <a href="../grammar-lessons.html">
+                            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 48 48" fill="currentColor">
+                              <title>display</title>
+                              <path d="M0 3v30h48v-30h-48zM45 30h-42v-24h42v24zM31.5 36h-15l-1.5 6-3 3h24l-3-3z"></path>
+                            </svg>
+                            Lessons
                           </a>
                         </div>
                       </div>
                     </li>
                     <li>
                       <div class="item-wrapper">
+                        <div class="menu-button"></div>
                         <div class="menu-link">
-                          <a href="3-subject-complement.html" aria-label="Menu Link">
-                            3. Subject Complement
+                          <a href="../grammar-exercises.html">
+                            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 48 48" fill="currentColor">
+                              <path
+                                d="M33.094 22.031l-7.125-7.125 2.813-2.813 4.313 4.219 8.438-8.438 2.813 2.813zM22.031 13.969h-18v4.031h18v-4.031zM42 26.813l-2.813-2.813-5.156 5.156-5.25-5.156-2.813 2.813 5.25 5.156-5.25 5.25 2.813 2.813 5.25-5.25 5.156 5.25 2.813-2.813-5.156-5.25zM22.031 30h-18v4.031h18v-4.031z"></path>
+                            </svg>
+                            Exercises
                           </a>
                         </div>
                       </div>
                     </li>
                     <li>
                       <div class="item-wrapper">
+                        <div class="menu-button"></div>
                         <div class="menu-link">
-                          <a href="4-sentence-structures.html" aria-label="Menu Link">
-                            4. Sentence Structures
-                          </a>
-                        </div>
-                      </div>
-                    </li>
-                    <li>
-                      <div class="item-wrapper">
-                        <div class="menu-link">
-                          <a href="5-sentence-functions.html" aria-label="Menu Link">
-                            5. Sentence Functions
-                          </a>
-                        </div>
-                      </div>
-                    </li>
-                    <li>
-                      <div class="item-wrapper">
-                        <div class="menu-link">
-                          <a href="6-agreement-within-a-sentence.html" aria-label="Menu Link">
-                            6. Agreement within a sentence
-                          </a>
-                        </div>
-                      </div>
-                    </li>
-                    <li>
-                      <div class="item-wrapper">
-                        <div class="menu-link">
-                          <a href="7-sentence-errors.html" aria-label="Menu Link">
-                            7. Sentence Errors
-                          </a>
-                        </div>
-                      </div>
-                    </li>
-                    <li>
-                      <div class="item-wrapper">
-                        <div class="menu-link">
-                          <a href="8-parallelism.html" aria-label="Menu Link">
-                            8. Parallelism
-                          </a>
-                        </div>
-                      </div>
-                    </li>
-                    <li class="last">
-                      <div class="item-wrapper">
-                        <div class="menu-link">
-                          <a href="9-summary-proper-sentence-construction.html" aria-label="Menu Link">
-                            9. Summary: Proper sentence construction
-                          </a>
-                        </div>
-                      </div>
-                    </li>
-                  </ul>
-                </div>
-              </li>
-              <li class="current">
-                <div class="item-wrapper">
-                  <div class="menu-button">
-                    <img class="menuicon" alt="" src="../web-asset/icons/svg/plus3.svg">
-                  </div>
-                  <div class="menu-link">
-                    <a href="10-writing-paragraph.html" aria-label="Menu Link">
-                      Writing Paragraphs
-                    </a>
-                  </div>
-                </div>
-                <div class="ul-wrapper">
-                  <ul>
-                    <li class="first">
-                      <div class="item-wrapper">
-                        <div class="menu-link">
-                          <a href="10-writing-paragraph.html" aria-label="Menu Link">
-                            1. Paragraphs Introduction
+                          <a href="../introduction-to-tenses.html">
+                            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 48 48" fill="currentColor">
+                              <path
+                                d="M0 24.5c0 12.98 10.52 23.5 23.5 23.5s23.5-10.52 23.5-23.5-10.52-23.5-23.5-23.5c-12.98 0-23.5 10.52-23.5 23.5zM21 8.5c0-1.38 1.12-2.5 2.5-2.5s2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5-2.5-1.12-2.5-2.5zM5 24.5c0-1.38 1.12-2.5 2.5-2.5s2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5-2.5-1.12-2.5-2.5zM37 24.5c0-1.38 1.12-2.5 2.5-2.5s2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5-2.5-1.12-2.5-2.5zM21 40.5c0-1.38 1.12-2.5 2.5-2.5s2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5-2.5-1.12-2.5-2.5zM19.83 25.689c-0.53-0.52-7.26-7.369-7.26-7.369-0.76-0.76-0.76-1.99 0-2.75s1.99-0.76 2.75 0l6.6 6.619c0.59 0.58 1.56 0.58 2.141 0l9.619-9.619c0.76-0.76 1.99-0.76 2.75 0s0.76 1.99 0 2.75c0 0-9.76 9.88-10.279 10.4-0.811 0.79-1.93 1.28-3.151 1.28-1.24 0-2.36-0.5-3.17-1.311z"></path>
+                            </svg>
+                            Tenses
                           </a>
                         </div>
                       </div>
                     </li>
                     <li class="current">
                       <div class="item-wrapper">
+                        <div class="menu-button"></div>
                         <div class="menu-link">
-                          <a href="10-writing-paragraph2.html" aria-label="Menu Link">
-                            2. Academic Paragraphs
+                          <a href="../writing.html">
+                            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 48 48" fill="currentColor">
+                              <title>pencil</title>
+                              <path
+                                d="M40.5 0c4.142 0 7.5 3.358 7.5 7.5 0 1.688-0.558 3.246-1.5 4.5l-3 3-10.5-10.5 3-3c1.254-0.942 2.811-1.5 4.5-1.5zM3 34.5l-3 13.5 13.5-3 27.75-27.75-10.5-10.5-27.75 27.75zM33.543 17.043l-21 21-2.585-2.585 21-21 2.585 2.585z"></path>
+                            </svg>
+                            Writing
                           </a>
                         </div>
                       </div>
                     </li>
                     <li>
                       <div class="item-wrapper">
+                        <div class="menu-button"></div>
                         <div class="menu-link">
-                          <a href="10-writing-paragraph-sentence-connecters.html" aria-label="Menu Link">
-                            3. Sentence Connectors
+                          <a href="../vocabulary.html">
+                            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                              <title>file</title>
+                              <path
+                                d="M8.25 11.25h0.75v-0.75h-0.75v0.75zM8.25 13.5h0.75v-0.75h-0.75v0.75zM8.25 9h0.75v-0.75h-0.75v0.75zM8.25 15.75h0.75v-0.75h-0.75v0.75zM8.25 18h0.75v-0.75h-0.75v0.75zM9.75 13.5h6v-0.75h-6v0.75zM9.75 9h6v-0.75h-6v0.75zM15.703 3h-10.454v18h13.5v-15l-3.047-3zM17.25 19.453h-10.5v-14.953h7.5v2.204h3v12.75zM9.75 15.75h6v-0.75h-6v0.75zM9.75 11.25h6v-0.75h-6v0.75zM9.75 18h6v-0.75h-6v0.75z"></path>
+                            </svg>
+                            Vocabulary
                           </a>
                         </div>
                       </div>
                     </li>
-                    <!-- <li>
-                    <div class="item-wrapper">
-                      <div class="menu-link"><a href="4-sentence-structures.html" aria-label="Menu Link">4. Sentence Structures</a></div>
-                    </div>
-                  </li>
-                  <li>
-                    <div class="item-wrapper">
-                      <div class="menu-link"><a href="5-sentence-functions.html" aria-label="Menu Link">5. Sentence Functions</a></div>
-                    </div>
-                  </li>
-                  <li>
-                    <div class="item-wrapper">
-                      <div class="menu-link"><a href="6-agreement-within-a-sentence.html" aria-label="Menu Link">6. Agreement within a sentence</a></div>
-                    </div>
-                  </li>
-                  <li>
-                    <div class="item-wrapper">
-                      <div class="menu-link"><a href="7-sentence-errors.html" aria-label="Menu Link">7. Sentence Errors </a></div>
-                    </div>
-                  </li>
-                  <li>
-                    <div class="item-wrapper">
-                      <div class="menu-link"><a href="8-parallelism.html" aria-label="Menu Link">8. Parallelism</a></div>
-                    </div>
-                  </li>
-                  <li class="last">
-                    <div class="item-wrapper">
-                      <div class="menu-link"><a href="9-summary-proper-sentence-construction.html" aria-label="Menu Link">9. Summary: Proper sentence construction</a></div>
-                    </div>
-                  </li>-->
+                    <li class="last">
+                      <div class="item-wrapper">
+                        <div class="menu-button"></div>
+                        <div class="menu-link">
+                          <a href="../glossary.html">
+                            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 54 48" fill="currentColor">
+                              <title>Books</title>
+                              <path d="M10.5 6h-9c-0.825 0-1.5 0.675-1.5 1.5v33c0 0.825 0.675 1.5 1.5 1.5h9c0.825 0 1.5-0.675 1.5-1.5v-33c0-0.825-0.675-1.5-1.5-1.5zM9 15h-6v-3h6v3z"></path>
+                              <path d="M25.5 6h-9c-0.825 0-1.5 0.675-1.5 1.5v33c0 0.825 0.675 1.5 1.5 1.5h9c0.825 0 1.5-0.675 1.5-1.5v-33c0-0.825-0.675-1.5-1.5-1.5zM24 15h-6v-3h6v3z"></path>
+                              <path
+                                d="M35.864 8.319l-8.037 4.050c-0.737 0.371-1.036 1.278-0.665 2.014l13.499 26.791c0.371 0.737 1.278 1.036 2.014 0.665l8.037-4.050c0.737-0.371 1.036-1.278 0.665-2.014l-13.499-26.791c-0.371-0.737-1.278-1.036-2.014-0.665z"></path>
+                            </svg>
+                            Glossary
+                          </a>
+                        </div>
+                      </div>
+                    </li>
+                    <li id="lists-menu-item">
+                      <div class="item-wrapper">
+                        <div class="menu-link">
+                          <a href="../lists.html">
+                            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                              <title>list-ol</title>
+                              <path
+                                d="M5.103 21.696c0 1.473-1.152 2.304-2.545 2.304-0.844 0-1.701-0.281-2.304-0.884l0.763-1.179c0.362 0.335 0.911 0.603 1.42 0.603 0.469 0 0.964-0.228 0.964-0.763 0-0.75-0.857-0.79-1.406-0.75l-0.348-0.75c0.482-0.616 0.924-1.299 1.5-1.821v-0.013c-0.429 0-0.871 0.027-1.299 0.027v0.71h-1.42v-2.036h4.46v1.179l-1.272 1.54c0.897 0.214 1.487 0.911 1.487 1.835zM5.129 13.299v2.129h-4.848c-0.040-0.241-0.080-0.482-0.080-0.723 0-2.478 3.027-2.853 3.027-3.978 0-0.455-0.281-0.696-0.723-0.696-0.469 0-0.857 0.402-1.085 0.777l-1.138-0.79c0.442-0.924 1.353-1.446 2.371-1.446 1.246 0 2.317 0.737 2.317 2.063 0 1.982-2.906 2.424-2.946 3.469h1.701v-0.804h1.406zM24 17.571v2.571c0 0.228-0.201 0.429-0.429 0.429h-16.286c-0.241 0-0.429-0.201-0.429-0.429v-2.571c0-0.241 0.188-0.429 0.429-0.429h16.286c0.228 0 0.429 0.188 0.429 0.429zM5.143 5.531v1.326h-4.487v-1.326h1.433c0-1.085 0.013-2.17 0.013-3.254v-0.161h-0.027c-0.147 0.295-0.415 0.496-0.67 0.723l-0.951-1.018 1.821-1.701h1.42v5.411h1.446zM24 10.714v2.571c0 0.228-0.201 0.429-0.429 0.429h-16.286c-0.241 0-0.429-0.201-0.429-0.429v-2.571c0-0.241 0.188-0.429 0.429-0.429h16.286c0.228 0 0.429 0.188 0.429 0.429zM24 3.857v2.571c0 0.228-0.201 0.429-0.429 0.429h-16.286c-0.241 0-0.429-0.201-0.429-0.429v-2.571c0-0.228 0.188-0.429 0.429-0.429h16.286c0.228 0 0.429 0.201 0.429 0.429z"></path>
+                            </svg>
+                            Lists
+                          </a>
+                        </div>
+                      </div>
+                      <div class="ul-wrapper">
+                        <ul>
+                          <li class="first">
+                            <div class="item-wrapper">
+                              <div class="menu-button"></div>
+                              <div class="menu-link">
+                                <a href="../lists.html">Lists</a>
+                              </div>
+                            </div>
+                          </li>
+                          <li>
+                            <div class="item-wrapper">
+                              <div class="menu-button"></div>
+                              <div class="menu-link">
+                                <a href="../prepositions.html">Prepositions</a>
+                              </div>
+                            </div>
+                          </li>
+                          <li class="last">
+                            <div class="item-wrapper">
+                              <div class="menu-button"></div>
+                              <div class="menu-link">
+                                <a href="../lists2/words-from-a-z.html">Sentences</a>
+                              </div>
+                            </div>
+                          </li>
+                        </ul>
+                      </div>
+                    </li>
                   </ul>
-                </div>
-              </li>
-              <li class="first">
-                <div class="item-wrapper">
-                  <div class="menu-button">
-                    <!--<img class="menuicon" alt=""  src="../web-asset/icons/svg/plus3.svg">-->
-                  </div>
-                  <div class="menu-link">
-                    <a href="11-a-five-paragraph-2.html" aria-label="Menu Link">
-                      Writing Essays
-                    </a>
-                  </div>
-                </div>
-                <div class="ul-wrapper">
-                  <ul>
-                    <li class="first">
-                      <div class="item-wrapper">
-                        <div class="menu-link">
-                          <a href="11-a-five-paragraph-2.html" aria-label="Menu Link">
-                            Writing 101: a Five-paragraph Essay
-                          </a>
-                        </div>
-                      </div>
-                    </li>
-                    <!--  <li>
-                    <div class="item-wrapper">
-                      <div class="menu-link"><a href="2-subject-and-predicate.html" aria-label="Menu Link">2. Subject and Predicate</a></div>
-                    </div>
-                  </li>
-                  <li>
-                    <div class="item-wrapper">
-                      <div class="menu-link"><a href="3-subject-complement.html" aria-label="Menu Link">3. Subject Complement</a></div>
-                    </div>
-                  </li>
-                  <li>
-                    <div class="item-wrapper">
-                      <div class="menu-link"><a href="4-sentence-structures.html" aria-label="Menu Link">4. Sentence Structures</a></div>
-                    </div>
-                  </li>
-                  <li>
-                    <div class="item-wrapper">
-                      <div class="menu-link"><a href="5-sentence-functions.html" aria-label="Menu Link">5. Sentence Functions</a></div>
-                    </div>
-                  </li>
-                  <li>
-                    <div class="item-wrapper">
-                      <div class="menu-link"><a href="6-agreement-within-a-sentence.html" aria-label="Menu Link">6. Agreement within a sentence</a></div>
-                    </div>
-                  </li>
-                  <li>
-                    <div class="item-wrapper">
-                      <div class="menu-link"><a href="7-sentence-errors.html" aria-label="Menu Link">7. Sentence Errors </a></div>
-                    </div>
-                  </li>
-                  <li>
-                    <div class="item-wrapper">
-                      <div class="menu-link"><a href="8-parallelism.html" aria-label="Menu Link">8. Parallelism</a></div>
-                    </div>
-                  </li>
-                  <li class="last">
-                    <div class="item-wrapper">
-                      <div class="menu-link"><a href="9-summary-proper-sentence-construction.html" aria-label="Menu Link">9. Summary: Proper sentence construction</a></div>
-                    </div>
-                  </li> -->
-                  </ul>
-                </div>
-              </li>
-              <li class="last">
-                <div class="item-wrapper">
-                  <div class="menu-button">
-                    <img class="menuicon" alt="" src="../web-asset/icons/svg/plus3.svg">
-                  </div>
-                  <div class="menu-link">
-                    <a href="12-14-writing-resouces.html" aria-label="Menu Link">
-                      Writing Resources
-                    </a>
-                  </div>
-                </div>
-                <div class="ul-wrapper">
-                  <ul>
-                    <li class="first current">
-                      <div class="item-wrapper">
-                        <div class="menu-link">
-                          <a href="writing-resources/12-common-usage-mistakes-1.html" aria-label="Menu Link">
-                            Common Usage Mistakes
-                          </a>
-                        </div>
-                      </div>
-                    </li>
-                    <li>
-                      <div class="item-wrapper">
-                        <div class="menu-link">
-                          <a href="writing-resources/13-abreviations-vs-acronyms.html" aria-label="Menu Link">
-                            Abbreviations &amp; Acronyms
-                          </a>
-                        </div>
-                      </div>
-                    </li>
-                    <li>
-                      <div class="item-wrapper">
-                        <div class="menu-link">
-                          <a href="writing-resources/14-figuative-language-1.html" aria-label="Menu Link">
-                            Figurative Language
-                          </a>
-                        </div>
-                      </div>
-                    </li>
-                    <!-- <li>
-		<div class="item-wrapper">
-			<div class="menu-link"><a href="writing/2-subject-and-predicate.html" aria-label="Menu Link">2. Subject and Predicate</a></div>
-		</div>
-	</li>
-	<li>
-		<div class="item-wrapper">
-			<div class="menu-link"><a href="writing/3-subject-complement.html" aria-label="Menu Link">3. Subject Complement</a></div>
-		</div>
-	</li>
-	<li>
-		<div class="item-wrapper">
-			<div class="menu-link"><a href="writing/4-sentence-structures.html" aria-label="Menu Link">4. Sentence Structures</a></div>
-		</div>
-	</li>
-	<li>
-		<div class="item-wrapper">
-			<div class="menu-link"><a href="writing/5-sentence-functions.html" aria-label="Menu Link">5. Sentence Functions</a></div>
-		</div>
-	</li>
-	<li>
-		<div class="item-wrapper">
-			<div class="menu-link"><a href="writing/6-agreement-within-a-sentence.html" aria-label="Menu Link">6. Agreement within a sentence</a></div>
-		</div>
-	</li>
-	<li>
-		<div class="item-wrapper">
-			<div class="menu-link"><a href="writing/7-sentence-errors.html" aria-label="Menu Link">7. Sentence Errors </a></div>
-		</div>
-	</li>
-	<li>
-		<div class="item-wrapper">
-			<div class="menu-link"><a href="writing/8-parallelism.html" aria-label="Menu Link">8. Parallelism</a></div>
-		</div>
-	</li>
-	<li class="last">
-		<div class="item-wrapper">
-			<div class="menu-link"><a href="writing/9-summary-proper-sentence-construction.html" aria-label="Menu Link">9. Summary: Proper sentence construction</a></div>
-		</div>
-	</li> -->
-                  </ul>
-                </div>
-              </li>
-            </ul>
+                </template>
+                <div id="sidebar-menu-mount" aria-hidden="true"></div>
+              </div>
+              <div class="moduletable"></div>
+            </div>
           </div>
-          <!-- End Right Sidebar -->
+          <!-- End Sidebar -->
+          <main id="content" class="span8">
+            <!-- Begin Content -->
+            <div id="system-message-container"></div>
+            <div class="item-page" itemscope="" itemtype="https://schema.org/Article">
+              <meta itemprop="inLanguage" content="en-GB">
+              <div class="page-header">
+                <h2 itemprop="headline">10.2 Writing Academic Paragraphs</h2>
+              </div>
+              <nav class="breadcrumb-wrap" aria-label="breadcrumbs-top">
+                <ul itemscope="" itemtype="https://schema.org/BreadcrumbList" class="breadcrumb">
+                                              <li class="active"></li>
+                                              <li itemprop="itemListElement" itemscope="" itemtype="https://schema.org/ListItem">
+                                                <a itemprop="item" href="../index-2.html" class="pathway" aria-label="Home">
+                                                  <span itemprop="name">Home</span>
+                                                </a>
+                                                <span class="divider">
+                                                  &nbsp;
+                                                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8 13.02" width="11" height="11">
+                                                    <polygon points="8 6.51 0 13.02 0 0 8 6.51" fill="#e0162b"></polygon>
+                                                  </svg>
+                                                </span>
+                                                <meta itemprop="position" content="1">
+                                              </li>
+                                              <li itemprop="itemListElement" itemscope="" itemtype="https://schema.org/ListItem">
+                                                <a itemprop="item" href="../writing.html" class="pathway" aria-label="Menu Link">
+                                                  <span itemprop="name">Writing Sentences</span>
+                                                </a>
+                                                <span class="divider">
+                                                  &nbsp;
+                                                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8 13.02" width="11" height="11">
+                                                    <polygon points="8 6.51 0 13.02 0 0 8 6.51" fill="#e0162b"></polygon>
+                                                  </svg>
+                                                </span>
+                                                <meta itemprop="position" content="2">
+                                              </li>
+                                              <li itemprop="itemListElement" itemscope="" itemtype="https://schema.org/ListItem" class="active">
+                                                <span itemprop="name">10.2 Writing Academic Paragraphs</span>
+                                                <meta itemprop="position" content="3">
+                                              </li>
+                                            </ul>
+              </nav>
+              <div itemprop="articleBody">
+                <ul class="pager pagenav">
+                  <li class="previous">
+                    <a href="10-writing-paragraph.html" rel="prev" aria-label="Previous">
+                      <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 48" fill="currentColor">
+                        <title>angle-left</title>
+                        <path
+                          d="M16.795 14.571c0 0.214-0.107 0.455-0.268 0.616l-10.527 10.527 10.527 10.527c0.161 0.161 0.268 0.402 0.268 0.616s-0.107 0.455-0.268 0.616l-1.339 1.339c-0.161 0.161-0.402 0.268-0.616 0.268s-0.455-0.107-0.616-0.268l-12.482-12.482c-0.161-0.161-0.268-0.402-0.268-0.616s0.107-0.455 0.268-0.616l12.482-12.482c0.161-0.161 0.402-0.268 0.616-0.268s0.455 0.107 0.616 0.268l1.339 1.339c0.161 0.161 0.268 0.375 0.268 0.616z"></path>
+                      </svg>
+                      <span class="pager-label">10.1 Writing Paragraphs: introduction</span>
+                    </a>
+                  </li>
+                  <li class="next">
+                    <a href="10-writing-paragraph-sentence-connecters.html" rel="next" aria-label="Next">
+                      <span class="pager-label">10.3 Paragraphs: sentence connecters</span>
+                      <svg version="1.1" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 18 48" fill="currentColor">
+                        <title>angle-right</title>
+                        <path
+                          d="M15.938 25.714c0 0.214-0.107 0.455-0.268 0.616l-12.482 12.482c-0.161 0.161-0.402 0.268-0.616 0.268s-0.455-0.107-0.616-0.268l-1.339-1.339c-0.161-0.161-0.268-0.375-0.268-0.616 0-0.214 0.107-0.455 0.268-0.616l10.527-10.527-10.527-10.527c-0.161-0.161-0.268-0.402-0.268-0.616s0.107-0.455 0.268-0.616l1.339-1.339c0.161-0.161 0.402-0.268 0.616-0.268s0.455 0.107 0.616 0.268l12.482 12.482c0.161 0.161 0.268 0.402 0.268 0.616z"></path>
+                      </svg>
+                    </a>
+                  </li>
+                </ul>
+                <h3>What is a paragraph?</h3>
+
+                <p>
+                  <strong>A paragraph is a collection of related sentences dealing with a single topic.</strong>
+                  Learning to write paragraphs well will help you, as a writer, stay on track during your drafting and revision stages.
+                  <em>Good paragraphing also greatly assists your readers in following a piece of writing</em>
+                  . You can have fantastic ideas, but if those ideas aren't presented in an organized fashion, you will lose your readers (and fail to achieve your goals in writing).
+                </p>
+
+                <h3>
+                  The Basic Rule:
+                  <span>Keep one idea to one paragraph</span>
+                </h3>
+
+                <p>
+                  <strong>The basic rule of thumb with paragraphing is to keep one idea to one paragraph.</strong>
+
+                  <em>If you begin to transition into a new idea, it belongs in a new paragraph.</em>
+                  There are some simple ways to tell if you are on the same topic or a new one. You can have one idea and several bits of supporting evidence within a single paragraph. You can also have several points in a single paragraph as long as
+                  they relate to the overall topic of the paragraph. If the single points start to get long, then perhaps elaborating on each of them and placing them in their own paragraphs is the route to go.
+                </p>
+
+                <h3>Elements of a paragraph</h3>
+
+                <p>
+                  To be as effective as possible,
+                  <strong>a paragraph should contain each of the following:</strong>
+
+                  <em>Unity, Coherence, A Topic Sentence, and Adequate Development</em>
+                  . As you will see, all of these traits overlap. Using and adapting them to your individual purposes will help you construct effective paragraphs.
+                </p>
+
+                <h4>Unity</h4>
+
+                <p>
+                  <strong>The entire paragraph should concern itself with a single focus.</strong>
+
+                  <em>If it begins with one focus or major point of discussion, it should not end with another or wander within different ideas.</em>
+                </p>
+
+                <h4>Coherence</h4>
+
+                <p>
+                  <strong>Coherence is the trait that makes the paragraph easily understandable to a reader.</strong>
+
+                  <em>You can help create coherence in your paragraphs by creating logical bridges and verbal bridges.</em>
+                </p>
+
+                <div class="examplebox xborder2 padx-t0r5b0l15">
+                  <h4 class="box-head4">Logical bridges</h4>
+
+                  <ul>
+                    <li>The same idea of a topic is carried over from sentence to sentence</li>
+
+                    <li>Successive sentences can be constructed in parallel form</li>
+                  </ul>
+                </div>
+
+                <div class="examplebox xborder2 padx-t0r5b0l15">
+                  <h4 class="box-head4">Verbal bridges</h4>
+
+                  <ul>
+                    <li>Key words can be repeated in several sentences</li>
+
+                    <li>Synonymous words can be repeated in several sentences</li>
+
+                    <li>Pronouns can refer to nouns in previous sentences</li>
+
+                    <li>Transition words can be used to link ideas from different sentences</li>
+                  </ul>
+                </div>
+
+                <h4>A topic sentence</h4>
+
+                <p>
+                  <strong>A topic sentence is a sentence that indicates in a general way what idea or thesis the paragraph is going to deal with</strong>
+                  . Although not all paragraphs have clear-cut topic sentences, and despite the fact that topic sentences can occur anywhere in the paragraph (as the first sentence, the last sentence, or somewhere in the middle), an easy way to make
+                  sure your reader understands the topic of the paragraph is to put your topic sentence near the beginning of the paragraph. (This is a good general rule for less experienced writers, although it is not the only way to do it).
+                  Regardless of whether you include an explicit topic sentence or not, you should be able to easily summarize what the paragraph is about.
+                </p>
+
+                <h4>Adequate development</h4>
+
+                <p>
+                  <strong>The topic (which is introduced by the topic sentence) should be discussed fully and adequately</strong>
+                  . Again, this varies from paragraph to paragraph, depending on the author's purpose, but writers should be wary of paragraphs that only have two or three sentences. It's a pretty good bet that the paragraph is not fully developed if
+                  it is that short.
+                </p>
+
+                <p>Some methods to make sure your paragraph is well-developed:</p>
+
+                <div class="examplebox xborder2 padx-t0r5b0l15">
+                  <h4 class="box-head4">Development Tips</h4>
+
+                  <ul>
+                    <li>Use examples and illustrations</li>
+
+                    <li>Cite data (facts, statistics, evidence, details, and others)</li>
+
+                    <li>Examine testimony (what other people say such as quotes and paraphrases)</li>
+
+                    <li>Use an anecdote or story</li>
+
+                    <li>Define terms in the paragraph</li>
+
+                    <li>Compare and contrast</li>
+
+                    <li>Evaluate causes and reasons</li>
+
+                    <li>Examine effects and consequences</li>
+
+                    <li>Analyze the topic</li>
+
+                    <li>Describe the topic</li>
+
+                    <li>Offer a chronology of an event (time segments)</li>
+                  </ul>
+                </div>
+
+                <h3>How do I know when to start a new paragraph?</h3>
+
+                <p>You should start a new paragraph when:</p>
+
+                <div class="examplebox xborder2 padx-t0r5b0l15">
+                  <h4 class="box-head4">Start a new paragraph...</h4>
+
+                  <ul>
+                    <li>
+                      <strong>when you begin a new idea or point</strong>
+                      . New ideas should always start in new paragraphs. If you have an extended idea that spans multiple paragraphs, each new point within that idea should have its own paragraph.
+                    </li>
+
+                    <li>
+                      <strong>to contrast information or ideas</strong>
+                      . Separate paragraphs can serve to contrast sides in a debate, different points in an argument, or any other difference.
+                    </li>
+
+                    <li>
+                      <strong>when your readers need a pause</strong>
+                      . Breaks between paragraphs function as a short "break" for your readers—adding these in will help your writing be more readable. You would create a break if the paragraph becomes too long or the material is complex.
+                    </li>
+
+                    <li>
+                      <strong>when you are ending your introduction or starting your conclusion</strong>
+                      . Your introductory and concluding material should always be in a new paragraph. Many introductions and conclusions have multiple paragraphs depending on their content, length, and the writer's purpose.
+                    </li>
+                  </ul>
+                </div>
+
+                <h3>Transitions and signposts</h3>
+
+                <p>
+                  Two very important elements of paragraphing are signposts and transitions. Signposts are internal aids to assist readers; they usually consist of several sentences or a paragraph outlining what the article has covered and where the
+                  article will be going.
+                </p>
+
+                <p>Transitions are usually one or several sentences that "transition" from one idea to the next. Transitions can be used at the end of most paragraphs to help the paragraphs flow one into the next.</p>
+
+                <h2>Paragraphing (Length Consistency)</h2>
+
+                <p>
+                  Paragraphs are units of thought with one adequately developed idea. Listed here are some rules of thumb to use when paragraphing. As your writing improves, you'll be able to break these "rules" to meet your own needs. Until then,
+                  these suggestions can be helpful.
+                </p>
+
+                <div class="examplebox xborder2 padx-t0r5b0l15">
+                  <h4 class="box-head4">
+                    <strong>Length</strong>
+                  </h4>
+
+                  <ul>
+                    <li>Put only one main idea per paragraph.</li>
+
+                    <li>Aim for three to five or more sentences per paragraph.</li>
+
+                    <li>Include on each page about two handwritten or three typed paragraphs.</li>
+
+                    <li>Make your paragraphs proportional to your paper. Since paragraphs do less work in short papers, have short paragraphs for short papers and longer paragraphs for longer papers.</li>
+
+                    <li>
+                      If you have a few very short paragraphs, think about whether they are really parts of a larger paragraph—and can be combined—or whether you can add details to support each point and thus make each into a more fully developed
+                      paragraph.
+                    </li>
+                  </ul>
+                </div>
+
+                <p>You can check on whether your paragraphs are balanced by looking at your paper.</p>
+
+                <h4>Some balanced pages:</h4>
+
+                <div>
+                  <img src="../images/20071217012452_606.jpg" alt="">
+                </div>
+
+                <p><em>Paragraph Balance</em></p>
+
+                <h4>Unbalanced pages with ideas not equally developed:</h4>
+
+                <div>
+                  <img src="../images/20071217013008_606.jpg" alt="">
+                </div>
+
+                <div>
+                  <p><em>Unbalanced Paragraphs</em></p>
+                </div>
+
+                <p>Use the following graphics as a tool to organize your paper with one main idea in each box. Use as many pages and boxes as needed.</p>
+
+                <div>
+                  <img src="../images/20071217012655_606.jpg" alt="">
+                </div>
+
+                <p>
+                  <em>Graphics to Help with Balance and Organization</em>
+                </p>
+
+                <ul class="pager pagenav">
+                  <li class="previous">
+                    <a href="10-writing-paragraph.html" rel="prev" aria-label="Previous">
+                      <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 48" fill="currentColor">
+                        <title>angle-left</title>
+                        <path
+                          d="M16.795 14.571c0 0.214-0.107 0.455-0.268 0.616l-10.527 10.527 10.527 10.527c0.161 0.161 0.268 0.402 0.268 0.616s-0.107 0.455-0.268 0.616l-1.339 1.339c-0.161 0.161-0.402 0.268-0.616 0.268s-0.455-0.107-0.616-0.268l-12.482-12.482c-0.161-0.161-0.268-0.402-0.268-0.616s0.107-0.455 0.268-0.616l12.482-12.482c0.161-0.161 0.402-0.268 0.616-0.268s0.455 0.107 0.616 0.268l1.339 1.339c0.161 0.161 0.268 0.375 0.268 0.616z"></path>
+                      </svg>
+                      <span class="pager-label">10.1 Writing Paragraphs: introduction</span>
+                    </a>
+                  </li>
+                  <li class="next">
+                    <a href="10-writing-paragraph-sentence-connecters.html" rel="next" aria-label="Next">
+                      <span class="pager-label">10.3 Paragraphs: sentence connecters</span>
+                      <svg version="1.1" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 18 48" fill="currentColor">
+                        <title>angle-right</title>
+                        <path
+                          d="M15.938 25.714c0 0.214-0.107 0.455-0.268 0.616l-12.482 12.482c-0.161 0.161-0.402 0.268-0.616 0.268s-0.455-0.107-0.616-0.268l-1.339-1.339c-0.161-0.161-0.268-0.375-0.268-0.616 0-0.214 0.107-0.455 0.268-0.616l10.527-10.527-10.527-10.527c-0.161-0.161-0.268-0.402-0.268-0.616s0.107-0.455 0.268-0.616l1.339-1.339c0.161-0.161 0.402-0.268 0.616-0.268s0.455 0.107 0.616 0.268l12.482 12.482c0.161 0.161 0.268 0.402 0.268 0.616z"></path>
+                      </svg>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+                        <nav class="breadcrumb-wrap" aria-label="breadcrumbs-bottom">
+                          <ul itemscope="" itemtype="https://schema.org/BreadcrumbList" class="breadcrumb">
+                                                        <li class="active"></li>
+                                                        <li itemprop="itemListElement" itemscope="" itemtype="https://schema.org/ListItem">
+                                                          <a itemprop="item" href="../index-2.html" class="pathway" aria-label="Home">
+                                                            <span itemprop="name">Home</span>
+                                                          </a>
+                                                          <span class="divider">
+                                                            &nbsp;
+                                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8 13.02" width="11" height="11">
+                                                              <polygon points="8 6.51 0 13.02 0 0 8 6.51" fill="#e0162b"></polygon>
+                                                            </svg>
+                                                          </span>
+                                                          <meta itemprop="position" content="1">
+                                                        </li>
+                                                        <li itemprop="itemListElement" itemscope="" itemtype="https://schema.org/ListItem">
+                                                          <a itemprop="item" href="../writing.html" class="pathway" aria-label="Menu Link">
+                                                            <span itemprop="name">Writing Sentences</span>
+                                                          </a>
+                                                          <span class="divider">
+                                                            &nbsp;
+                                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8 13.02" width="11" height="11">
+                                                              <polygon points="8 6.51 0 13.02 0 0 8 6.51" fill="#e0162b"></polygon>
+                                                            </svg>
+                                                          </span>
+                                                          <meta itemprop="position" content="2">
+                                                        </li>
+                                                        <li itemprop="itemListElement" itemscope="" itemtype="https://schema.org/ListItem" class="active">
+                                                          <span itemprop="name">10.2 Writing Academic Paragraphs</span>
+                                                          <meta itemprop="position" content="3">
+                                                        </li>
+                                                      </ul>
+                        </nav>
+            <!-- End Content -->
+          </main>
+          <aside id="aside">
+            <!-- Begin Right Sidebar -->
+                        <nav class="r-flyout-nav" aria-label="Writing">
+              <ul class="r-flyout-menu" id="flyout_menu_93" data-r-flyout data-flyout-origin="right">
+                <li data-r-flyout-item class="first">
+                  <div class="item-wrapper r-flyout__header">
+                    <button
+                      class="r-flyout__toggle"
+                      type="button"
+                      aria-haspopup="menu"
+                      aria-expanded="false"
+                      aria-controls="r-flyout-panel-writing-sentences-1"
+                      aria-label="Toggle submenu for Writing Sentences"
+                    >
+                      <svg class="r-flyout__icon r-flyout__icon--plus" aria-hidden="true" focusable="false">
+                        <use href="#icon-plus"></use></svg
+                      ><svg class="r-flyout__icon r-flyout__icon--minus" aria-hidden="true" focusable="false">
+                        <use href="#icon-minus"></use>
+                      </svg>
+                    </button>
+                    <div class="menu-link r-flyout__link-wrap">
+                      <a class="r-flyout__link" href="../writing.html" aria-label="Writing">Writing Sentences</a>
+                    </div>
+                  </div>
+                  <div class="ul-wrapper r-flyout__panel" id="r-flyout-panel-writing-sentences-1" aria-hidden="true" hidden>
+                    <ul class="r-flyout__sublist">
+                      <li class="first">
+                        <div class="item-wrapper">
+                          <div class="menu-link">
+                            <a href="1-what-is-a-sentence.html" aria-label="Menu Link">1. What is a Sentence?</a>
+                          </div>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="item-wrapper">
+                          <div class="menu-link">
+                            <a href="2-subject-and-predicate.html" aria-label="Menu Link">2. Subject and Predicate</a>
+                          </div>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="item-wrapper">
+                          <div class="menu-link">
+                            <a href="3-subject-complement.html" aria-label="Menu Link">3. Subject Complement</a>
+                          </div>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="item-wrapper">
+                          <div class="menu-link">
+                            <a href="4-sentence-structures.html" aria-label="Menu Link">4. Sentence Structures</a>
+                          </div>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="item-wrapper">
+                          <div class="menu-link">
+                            <a href="5-sentence-functions.html" aria-label="Menu Link">5. Sentence Functions</a>
+                          </div>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="item-wrapper">
+                          <div class="menu-link">
+                            <a href="6-agreement-within-a-sentence.html" aria-label="Menu Link">6. Agreement within a sentence</a>
+                          </div>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="item-wrapper">
+                          <div class="menu-link">
+                            <a href="7-sentence-errors.html" aria-label="Menu Link">7. Sentence Errors</a>
+                          </div>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="item-wrapper">
+                          <div class="menu-link"><a href="8-parallelism.html" aria-label="Menu Link">8. Parallelism</a></div>
+                        </div>
+                      </li>
+                      <li class="last">
+                        <div class="item-wrapper">
+                          <div class="menu-link">
+                            <a href="9-summary-proper-sentence-construction.html" aria-label="Menu Link"
+                              >9. Summary: Proper sentence construction</a
+                            >
+                          </div>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                </li>
+                <li data-r-flyout-item class="current">
+                  <div class="item-wrapper r-flyout__header">
+                    <button
+                      class="r-flyout__toggle"
+                      type="button"
+                      aria-haspopup="menu"
+                      aria-expanded="false"
+                      aria-controls="r-flyout-panel-writing-paragraphs-2"
+                      aria-label="Toggle submenu for Writing Paragraphs"
+                    >
+                      <svg class="r-flyout__icon r-flyout__icon--plus" aria-hidden="true" focusable="false">
+                        <use href="#icon-plus"></use></svg
+                      ><svg class="r-flyout__icon r-flyout__icon--minus" aria-hidden="true" focusable="false">
+                        <use href="#icon-minus"></use>
+                      </svg>
+                    </button>
+                    <div class="menu-link r-flyout__link-wrap">
+                      <a class="r-flyout__link" href="../writing-paragraph.html" aria-label="Menu Link">Writing Paragraphs</a>
+                    </div>
+                  </div>
+                  <div class="ul-wrapper r-flyout__panel" id="r-flyout-panel-writing-paragraphs-2" aria-hidden="true" hidden>
+                    <ul class="r-flyout__sublist">
+                      <li class="first">
+                        <div class="item-wrapper">
+                          <div class="menu-link">
+                            <a href="10-writing-paragraph.html" aria-label="Menu Link">1. Paragraphs Introduction</a>
+                          </div>
+                        </div>
+                      </li>
+                      <li class="current active">
+                        <div class="item-wrapper">
+                          <div class="menu-link">
+                            <a href="10-writing-paragraph2.html" aria-label="Menu Link">2. Academic Paragraphs</a>
+                          </div>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="item-wrapper">
+                          <div class="menu-link">
+                            <a href="10-writing-paragraph-sentence-connecters.html" aria-label="Menu Link"
+                              >3. Sentence Connectors</a
+                            >
+                          </div>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                </li>
+                <li data-r-flyout-item class="first">
+                  <div class="item-wrapper r-flyout__header">
+                    <button
+                      class="r-flyout__toggle"
+                      type="button"
+                      aria-haspopup="menu"
+                      aria-expanded="false"
+                      aria-controls="r-flyout-panel-writing-essays-3"
+                      aria-label="Toggle submenu for Writing Essays"
+                    >
+                      <svg class="r-flyout__icon r-flyout__icon--plus" aria-hidden="true" focusable="false">
+                        <use href="#icon-plus"></use></svg
+                      ><svg class="r-flyout__icon r-flyout__icon--minus" aria-hidden="true" focusable="false">
+                        <use href="#icon-minus"></use>
+                      </svg>
+                    </button>
+                    <div class="menu-link r-flyout__link-wrap">
+                      <a class="r-flyout__link" href="11-a-five-paragraph-2.html" aria-label="Menu Link">Writing Essays</a>
+                    </div>
+                  </div>
+                  <div class="ul-wrapper r-flyout__panel" id="r-flyout-panel-writing-essays-3" aria-hidden="true" hidden>
+                    <ul class="r-flyout__sublist">
+                      <li class="first">
+                        <div class="item-wrapper">
+                          <div class="menu-link">
+                            <a href="11-a-five-paragraph-2.html" aria-label="Menu Link">Writing 101: a Five-paragraph Essay</a>
+                          </div>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                </li>
+                <li data-r-flyout-item class="last">
+                  <div class="item-wrapper r-flyout__header">
+                    <button
+                      class="r-flyout__toggle"
+                      type="button"
+                      aria-haspopup="menu"
+                      aria-expanded="false"
+                      aria-controls="r-flyout-panel-writing-resources-4"
+                      aria-label="Toggle submenu for Writing Resources"
+                    >
+                      <svg class="r-flyout__icon r-flyout__icon--plus" aria-hidden="true" focusable="false">
+                        <use href="#icon-plus"></use></svg
+                      ><svg class="r-flyout__icon r-flyout__icon--minus" aria-hidden="true" focusable="false">
+                        <use href="#icon-minus"></use>
+                      </svg>
+                    </button>
+                    <div class="menu-link r-flyout__link-wrap">
+                      <a class="r-flyout__link" href="../writing-resources.html" aria-label="Menu Link">Writing Resources</a>
+                    </div>
+                  </div>
+                  <div class="ul-wrapper r-flyout__panel" id="r-flyout-panel-writing-resources-4" aria-hidden="true" hidden>
+                    <ul class="r-flyout__sublist">
+                      <li class="first">
+                        <div class="item-wrapper">
+                          <div class="menu-link">
+                            <a href="writing-resources/12-common-usage-mistakes-1.html" aria-label="Menu Link"
+                              >Common Usage Mistakes</a
+                            >
+                          </div>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="item-wrapper">
+                          <div class="menu-link">
+                            <a href="writing-resources/13-abreviations-vs-acronyms.html" aria-label="Menu Link"
+                              >Abbreviations &amp; Acronyms</a
+                            >
+                          </div>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="item-wrapper">
+                          <div class="menu-link">
+                            <a href="writing-resources/14-figuative-language-1.html" aria-label="Menu Link">Figurative Language</a>
+                          </div>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                </li>
+              </ul>
+            </nav>
+            <!-- End Right Sidebar -->
+          </aside>
         </div>
       </div>
     </div>
-  </div>
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="container">
-      <hr>
-      <p class="pull-right">
-        <a href="#top" id="back-top" aria-label="Back to Top">
-          Back to Top
-        </a>
-      </p>
-      <p>&copy; 2021.</p>
-    </div>
-  </footer>
-</body>
+    <!-- Footer -->
+    <footer class="footer mar10">
+      <div class="container2 inner-footer">
+        <br>
+        <p class="pull-right">
+          <a href="#top" id="back-top">Back to Top</a>
+        </p>
+        <p>
+          ©
+          <span data-copyright-year></span>
+          All rights reserved.
+        </p>
+      </div>
+    </footer>
 
-<!-- /writing/10-writing-paragraph.html, updated:  January 2026 13:13:36 GMT -->
-
+    <script>
+      ;(() => {
+        "use strict"
+        const year = new Date().getFullYear()
+        document.querySelectorAll("[data-copyright-year]").forEach((el) => {
+          const start = parseInt(el.getAttribute("data-start"), 10)
+          el.textContent = Number.isFinite(start) && start < year ? `${start}-${year}` : String(year)
+        })
+      })()
+    </script>
+  </body>
+  <!-- /writing/10-writing-paragraph2.html, updated: January 2026 12:34:42 GMT -->
 </html>

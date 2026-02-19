@@ -841,6 +841,7 @@ body.mobile-nav-enabled #sidebar.mobile-nav-open {
 .tablesty1 th {
   background-color: var(--primary-color) !important;
   color: white !important;
+  font-weight: 700 !important;
   padding-bottom: 12px !important;
   padding-top: 12px !important;
   text-align: center !important;
@@ -850,13 +851,34 @@ body.mobile-nav-enabled #sidebar.mobile-nav-open {
   background-color: var(--primary-color) !important;
   box-sizing: border-box;
   color: white !important;
-  font-weight: bold !important;
+  font-weight: 700 !important;
   line-height: 1.9em;
   padding-bottom: 12px !important;
   padding-top: 12px !important;
   text-align: center !important;
 }
 
+
+.tabstytit2 {
+    background-color:var(--color-muted) !important;
+    color: var(--text-color) !important;
+    font-size: calc(15px + (24 - 18) * ((100vw - 300px) / (1600 - 300)));
+    font-weight: 600;
+    line-height: 2em;
+    padding-bottom: 12px;
+    padding-top: 12px;
+    text-align: center;
+}
+
+.tablesty3sub th {
+    background-color: rgb(255 245 214 / 65%);
+    border: 1px solid var(--border-subtle);
+    color: var(--text-color) !important;
+    font-size: calc(11px + (24 - 18) * ((100vw - 300px) / (1600 - 300)));
+    font-weight: 500;
+    padding: 7px 7px 7px 0.5em;
+    text-align: center;
+}
 
 /* Responsive table-wrap system extracted to web-asset/css/tablewrap.css and loaded conditionally by main bundles. */
 

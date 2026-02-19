@@ -106,6 +106,16 @@ Interpretation:
 - Lesson/List/Static profile: second command should return no matches.
 - Third command should return no matches on modernized pages.
 
+## Optional Automation
+
+For section-wide parity upgrades (prototype shell transplant + breadcrumb normalization + right-flyout reflow), use:
+
+```bash
+node tools/upgrade-section-parity.mjs --prototype <prototype-file> --targets-file <targets-file> --write
+```
+
+See `docs/section-parity-runbook.md` for target-list generation, dry-run/apply commands, and verification flow.
+
 ## Verification and Rollback
 
 1. Save backup and undo patch before edits (`.BAK-<timestamp>` + `/tmp/codex-undo-<timestamp>.patch`).
