@@ -1183,3 +1183,47 @@ main#content .star-solid::before {
 .border-neutral {
   border: 1px solid rgb(0 0 0 / 14%);
 }
+
+table.formula-block {
+  border-collapse: collapse;
+  table-layout: fixed;
+  width: 100%;
+}
+
+table.formula-block td {
+  text-align: center;
+  vertical-align: middle;
+}
+
+table.formula-block td p {
+  margin: 0;
+  text-align: center;
+}
+
+@media (width <= 580px) {
+  table.formula-block td,
+  table.formula-block td p {
+    font-size: clamp(0.75rem, calc(0.7rem + 0.25vw), 0.8125rem);
+    line-height: 1.25;
+  }
+}
+
+@media (width <= 480px) {
+  table.formula-block,
+  table.formula-block tbody,
+  table.formula-block tr {
+    display: block;
+    width: 100%;
+  }
+
+  table.formula-block td {
+    box-sizing: border-box;
+    display: block;
+    width: 100%;
+  }
+
+  table.formula-block td[data-stack-label]::before,
+  table.formula-block th[data-stack-label]::before {
+    content: none !important;
+  }
+}

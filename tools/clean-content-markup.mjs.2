@@ -1,0 +1,492 @@
+#!/usr/bin/env node
+/**
+ * Bulk finder/cleaner for lesson/list/writing content markup noise.
+ *
+ * Directives enforced in scope:
+ * - Remove unclassed/unattributed <span> wrappers.
+ * - Remove empty unclassed spans.
+ * - Flatten classless <p> directly inside <li> into inline content separated by <br>.
+ * - Normalize bold tags to one style (<strong> by default).
+ *
+ * Defaults to dry-run. Use --write to apply.
+ *
+ * Examples:
+ *   node tools/clean-content-markup.mjs --target writing/3-subject-complement.html
+ *   node tools/clean-content-markup.mjs --target writing/3-subject-complement.html --section "Indirect object" --write
+ *   node tools/clean-content-markup.mjs --target writing --write
+ */
+import fs from "node:fs"
+import path from "node:path"
+import process from "node:process"
+import { fileURLToPath } from "node:url"
+import { load } from "cheerio"
+import { render } from "dom-serializer"
+
+const scriptDir = path.dirname(fileURLToPath(import.meta.url))
+const repoRoot = path.resolve(scriptDir, "..")
+const HEADING_SELECTOR = "h1, h2, h3, h4, h5, h6"
+const IGNORED_DIRS = new Set([
+  ".git",
+  ".github",
+  "node_modules",
+  "tmp",
+  "output",
+  "reports",
+  "coverage",
+  "dist",
+  "build",
+  "hts-cache",
+  .codacy
+.codex
+.continue
+.devcontainer
+.gemini
+.githooks
+.github
+.history-memo
+.playwright
+.sto
+.vscode.
+.zencoder
+dev
+docs
+images
+js
+media
+node-modules
+output
+persistence
+reports
+schemas
+server
+test
+tmp
+tools
+])
+const DISALLOWED_LI_CHILD_BLOCKS = new Set([
+  "div",
+  "ul",
+  "ol",
+  "table",
+  "blockquote",
+  "pre",
+  "section",
+  "article",
+  "aside",
+  "h1",
+  "h2",
+  "h3",
+  "h4",
+  "h5",
+  "h6",
+])
+
+function fail(message) {
+  console.error(`clean-content-markup: ${message}`)
+  process.exit(1)
+}
+
+function printUsage() {
+  console.log(`Usage:
+  node tools/clean-content-markup.mjs --target <file-or-dir> [options]
+
+Options:
+  --target, -f <path>    File or directory to process (required)
+  --all-pages            Scan all repo HTML pages with content roots
+  --section <heading>    Limit to one heading section per file (exact text match)
+  --bold-tag <strong|b>  Choose normalized bold tag (default: strong)
+  --write, --apply       Write changes in place (default: dry-run)
+  --dry-run              Force dry-run mode
+  -h, --help             Show help
+`)
+}
+
+function parseArgs(argv) {
+  const args = {
+    target: "",
+    allPages: false,
+    section: "",
+    boldTag: "strong",
+    write: false,
+  }
+
+  for (let index = 2; index < argv.length; index += 1) {
+    const arg = argv[index]
+    if (arg === "--help" || arg === "-h") {
+      printUsage()
+      process.exit(0)
+    }
+    if (arg === "--target" || arg === "-f") {
+      args.target = argv[++index] || ""
+      continue
+    }
+    if (arg === "--all-pages") {
+      args.allPages = true
+      continue
+    }
+    if (arg === "--section") {
+      args.section = argv[++index] || ""
+      continue
+    }
+    if (arg === "--bold-tag") {
+      args.boldTag = (argv[++index] || "").toLowerCase()
+      continue
+    }
+    if (arg === "--write" || arg === "--apply") {
+      args.write = true
+      continue
+    }
+    if (arg === "--dry-run") {
+      args.write = false
+      continue
+    }
+    if (!arg.startsWith("-") && !args.target) {
+      args.target = arg
+      continue
+    }
+    fail(`Unknown argument: ${arg}`)
+  }
+
+  if (args.allPages) {
+    args.target = "."
+  }
+  if (!args.target) fail("Missing target path. Use --target <file-or-dir> or --all-pages.")
+  if (args.boldTag !== "strong" && args.boldTag !== "b") {
+    fail("--bold-tag must be one of: strong, b")
+  }
+  return args
+}
+
+function normalizeText(value) {
+  return String(value || "").replace(/\s+/g, " ").trim().toLowerCase()
+}
+
+function normalizePath(value) {
+  return String(value || "").replace(/\\/g, "/")
+}
+
+function isHtmlFile(filePath) {
+  return /\.html?$/i.test(filePath) && !/\.bak-\d{8}-\d{6}$/i.test(filePath)
+}
+
+function collectHtmlFiles(dirPath, results) {
+  const entries = fs.readdirSync(dirPath, { withFileTypes: true })
+  for (const entry of entries) {
+    if (entry.isDirectory() && IGNORED_DIRS.has(entry.name)) continue
+    const fullPath = path.join(dirPath, entry.name)
+    if (entry.isDirectory()) {
+      collectHtmlFiles(fullPath, results)
+      continue
+    }
+    if (!entry.isFile()) continue
+    if (!isHtmlFile(entry.name)) continue
+    results.push(fullPath)
+  }
+}
+
+function resolveTargets(targetInput) {
+  const absolute = path.isAbsolute(targetInput)
+    ? targetInput
+    : path.resolve(repoRoot, targetInput)
+  if (!fs.existsSync(absolute)) fail(`Target path does not exist: ${absolute}`)
+
+  const stat = fs.statSync(absolute)
+  if (stat.isFile()) {
+    if (!isHtmlFile(absolute)) fail(`Target file is not an HTML file: ${absolute}`)
+    return [absolute]
+  }
+  if (!stat.isDirectory()) fail(`Target is neither file nor directory: ${absolute}`)
+
+  const results = []
+  collectHtmlFiles(absolute, results)
+  return results.sort((a, b) => a.localeCompare(b))
+}
+
+function isWhitespaceTextNode(node) {
+  return node && node.type === "text" && !String(node.data || "").trim()
+}
+
+function hasAnyAttributes(node) {
+  if (!node || !node.attribs) return false
+  return Object.keys(node.attribs).length > 0
+}
+
+function resolveContentRoot($) {
+  const articleBody = $("div[itemprop='articleBody']").first()
+  if (articleBody.length) return articleBody
+  const itemPage = $(".item-page").first()
+  if (itemPage.length) return itemPage
+  return $("body").first()
+}
+
+function buildScopedRoot($, root, section) {
+  if (!section) return { scope: root, wrapped: false }
+  const normalizedSection = normalizeText(section)
+  const heading = root
+    .find(HEADING_SELECTOR)
+    .filter((_, node) => normalizeText($(node).text()) === normalizedSection)
+    .first()
+
+  if (!heading.length) return null
+
+  const start = heading.get(0)
+  const startTag = String(start.name || "").toLowerCase()
+  const startLevel = /^h[1-6]$/.test(startTag) ? Number(startTag.slice(1)) : 6
+
+  const nodes = [start]
+  let cursor = heading.next()
+  while (cursor.length) {
+    const current = cursor.get(0)
+    const currentTag = String(current && current.name ? current.name : "").toLowerCase()
+    if (/^h[1-6]$/.test(currentTag)) {
+      const level = Number(currentTag.slice(1))
+      if (level <= startLevel) break
+    }
+    nodes.push(current)
+    cursor = cursor.next()
+  }
+
+  const wrapper = $("<div data-content-clean-scope=\"1\"></div>")
+  heading.before(wrapper)
+  nodes.forEach((node) => wrapper.append(node))
+  return { scope: wrapper, wrapped: true }
+}
+
+function unwrapScopedRoot(scopeInfo) {
+  if (!scopeInfo || !scopeInfo.wrapped) return
+  const wrapper = scopeInfo.scope
+  wrapper.before(wrapper.contents())
+  wrapper.remove()
+}
+
+function normalizeBoldTags($, scope, boldTag, stats) {
+  const fromTag = boldTag === "strong" ? "b" : "strong"
+  const toTag = boldTag === "strong" ? "strong" : "b"
+
+  scope.find(fromTag).each((_, node) => {
+    if ($(node).closest("script, style, svg").length) return
+    const replacement = $(`<${toTag}></${toTag}>`)
+    Object.entries(node.attribs || {}).forEach(([name, value]) => replacement.attr(name, value))
+    replacement.append($(node).contents())
+    $(node).replaceWith(replacement)
+    stats.boldTagNormalized += 1
+  })
+}
+
+function flattenListItemParagraphs($, scope, stats) {
+  scope.find("li").each((_, li) => {
+    const directChildren = $(li).contents().toArray()
+    const paragraphChildren = directChildren.filter(
+      (node) => node.type === "tag" && String(node.name || "").toLowerCase() === "p"
+    )
+    if (!paragraphChildren.length) return
+
+    const hasAttributedParagraph = paragraphChildren.some((node) => hasAnyAttributes(node))
+    if (hasAttributedParagraph) {
+      stats.skippedAttributedLiParagraphs += 1
+      return
+    }
+
+    const unsafeStructure = directChildren.some((node) => {
+      if (node.type !== "tag") return false
+      const tag = String(node.name || "").toLowerCase()
+      if (tag === "p" || tag === "br") return false
+      return DISALLOWED_LI_CHILD_BLOCKS.has(tag)
+    })
+    if (unsafeStructure) {
+      stats.skippedComplexLi += 1
+      return
+    }
+
+    const meaningfulChildren = directChildren.filter(
+      (node) => !isWhitespaceTextNode(node) && node.type !== "comment"
+    )
+    const hasMeaningfulTrailingContentAfterParagraph = meaningfulChildren.some((node, index) => {
+      const tag = node.type === "tag" ? String(node.name || "").toLowerCase() : ""
+      if (tag !== "p") return false
+      const trailingNodes = meaningfulChildren.slice(index + 1)
+      return trailingNodes.some((trailingNode) => {
+        if (trailingNode.type === "text") return Boolean(String(trailingNode.data || "").trim())
+        if (trailingNode.type !== "tag") return false
+        const trailingTag = String(trailingNode.name || "").toLowerCase()
+        if (trailingTag === "br") return false
+        return Boolean($(trailingNode).text().trim())
+      })
+    })
+
+    if (!hasMeaningfulTrailingContentAfterParagraph) {
+      stats.skippedNoTrailingContentAfterParagraph += 1
+      return
+    }
+
+    const segments = []
+    let current = []
+
+    const pushCurrent = () => {
+      if (!current.length) return
+      const html = current.join("").trim()
+      if (html) segments.push(html)
+      current = []
+    }
+
+    directChildren.forEach((node) => {
+      if (isWhitespaceTextNode(node) || node.type === "comment") return
+      if (node.type === "tag") {
+        const tag = String(node.name || "").toLowerCase()
+        if (tag === "br") {
+          pushCurrent()
+          return
+        }
+        if (tag === "p") {
+          pushCurrent()
+          const inner = ($(node).html() || "").trim()
+          if (inner) segments.push(inner)
+          return
+        }
+      }
+      current.push(render(node, { decodeEntities: false }))
+    })
+    pushCurrent()
+
+    const nextHtml = segments.join("\n<br>\n")
+    const currentHtml = ($(li).html() || "").trim()
+    if (nextHtml === currentHtml) return
+    $(li).html(nextHtml)
+    stats.liParagraphsFlattened += 1
+  })
+}
+
+function cleanupUnclassedSpans($, scope, stats) {
+  let changed = true
+  while (changed) {
+    changed = false
+    const spans = scope.find("span").toArray().reverse()
+    for (const span of spans) {
+      if (hasAnyAttributes(span)) continue
+      const $span = $(span)
+      if ($span.closest("script, style, svg").length) continue
+
+      const contents = $span.contents().toArray().filter((node) => node.type !== "comment")
+      const meaningful = contents.some((node) => !isWhitespaceTextNode(node))
+      if (!meaningful) {
+        $span.remove()
+        stats.emptySpansRemoved += 1
+        changed = true
+        continue
+      }
+
+      $span.replaceWith($span.contents())
+      stats.unclassedSpansUnwrapped += 1
+      changed = true
+    }
+  }
+}
+
+function processFile(filePath, options) {
+  const input = fs.readFileSync(filePath, "utf8")
+  const $ = load(input, { decodeEntities: false })
+  const root = resolveContentRoot($)
+  if (!root.length) {
+    return { filePath, changed: false, skipped: true, reason: "no-content-root" }
+  }
+
+  const scopeInfo = buildScopedRoot($, root, options.section)
+  if (!scopeInfo) {
+    return { filePath, changed: false, skipped: true, reason: "section-not-found" }
+  }
+
+  const stats = {
+    liParagraphsFlattened: 0,
+    skippedComplexLi: 0,
+    skippedAttributedLiParagraphs: 0,
+    skippedNoTrailingContentAfterParagraph: 0,
+    boldTagNormalized: 0,
+    unclassedSpansUnwrapped: 0,
+    emptySpansRemoved: 0,
+  }
+
+  flattenListItemParagraphs($, scopeInfo.scope, stats)
+  normalizeBoldTags($, scopeInfo.scope, options.boldTag, stats)
+  cleanupUnclassedSpans($, scopeInfo.scope, stats)
+  unwrapScopedRoot(scopeInfo)
+
+  const editCount =
+    stats.liParagraphsFlattened +
+    stats.boldTagNormalized +
+    stats.unclassedSpansUnwrapped +
+    stats.emptySpansRemoved
+  const changed = editCount > 0
+  const output = changed ? $.html() : input
+
+  if (changed && options.write) {
+    fs.writeFileSync(filePath, output)
+  }
+
+  return {
+    filePath,
+    changed,
+    written: changed && options.write,
+    skipped: false,
+    reason: "",
+    stats,
+  }
+}
+
+function formatStats(stats) {
+  return [
+    `li<p>:${stats.liParagraphsFlattened}`,
+    `li-skipped-complex:${stats.skippedComplexLi}`,
+    `li-skipped-attrib-p:${stats.skippedAttributedLiParagraphs}`,
+    `li-skipped-no-trailing-text:${stats.skippedNoTrailingContentAfterParagraph}`,
+    `bold:${stats.boldTagNormalized}`,
+    `span-unwrapped:${stats.unclassedSpansUnwrapped}`,
+    `span-empty-removed:${stats.emptySpansRemoved}`,
+  ].join(", ")
+}
+
+function main() {
+  const options = parseArgs(process.argv)
+  const targets = resolveTargets(options.target)
+  if (!targets.length) {
+    console.log("No HTML files found for target.")
+    return
+  }
+
+  let changedCount = 0
+  let writtenCount = 0
+  let skippedCount = 0
+
+  targets.forEach((absolutePath) => {
+    const result = processFile(absolutePath, options)
+    const relativePath = normalizePath(path.relative(repoRoot, absolutePath))
+
+    if (result.skipped) {
+      skippedCount += 1
+      if (result.reason === "section-not-found") {
+        console.log(`[skip] ${relativePath}: section "${options.section}" not found`)
+      } else {
+        console.log(`[skip] ${relativePath}: ${result.reason}`)
+      }
+      return
+    }
+
+    if (result.changed) {
+      changedCount += 1
+      if (result.written) writtenCount += 1
+      const mode = result.written ? "write" : "dry-run"
+      console.log(`[${mode}] ${relativePath}: ${formatStats(result.stats)}`)
+      return
+    }
+
+    if (targets.length === 1) {
+      console.log(`[ok] ${relativePath}: no changes needed`)
+    }
+  })
+
+  const modeText = options.write ? "applied" : "would change"
+  console.log(
+    `\nSummary: scanned ${targets.length} file(s), ${changedCount} ${modeText}, ${writtenCount} written, ${skippedCount} skipped.`
+  )
+}
+
+main()
