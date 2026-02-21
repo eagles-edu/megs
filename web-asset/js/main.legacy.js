@@ -454,6 +454,9 @@
         if (page.path && page.label) pathLabels[page.path] = page.label
       })
     })
+    if (!pathLabels["/grammar-exercises.html"]) pathLabels["/grammar-exercises.html"] = "Grammar Exercises"
+    if (!pathLabels["/grammar-lessons.html"]) pathLabels["/grammar-lessons.html"] = "Grammar Lessons"
+    if (!pathLabels["/lists.html"]) pathLabels["/lists.html"] = "Lists"
 
     var match = null
     var prefixFallback = null
@@ -491,8 +494,20 @@
     if (match.isRoot) {
       var prevGroup = match.groupIndex > 0 ? groups[match.groupIndex - 1] : null
       var nextGroup = match.groupIndex + 1 < groups.length ? groups[match.groupIndex + 1] : null
+      var sectionHomePath =
+        match.group.sectionType === "exercise"
+          ? "/grammar-exercises.html"
+          : match.group.sectionType === "lesson"
+            ? "/grammar-lessons.html"
+            : match.group.sectionType === "list"
+              ? "/lists.html"
+              : null
       if (prevGroup && prevGroup.rootPath) prevPath = prevGroup.rootPath
+      else if (sectionHomePath) prevPath = sectionHomePath
       if (nextGroup && nextGroup.rootPath) nextPath = nextGroup.rootPath
+      else if (sectionHomePath) nextPath = sectionHomePath
+      forcePrevLabel = Boolean(prevPath)
+      forceNextLabel = Boolean(nextPath)
     } else if (match.byPrefixOnly) {
       var prevLink = document.querySelector('.pager a[rel="prev"]')
       var nextLink = document.querySelector('.pager a[rel="next"]')

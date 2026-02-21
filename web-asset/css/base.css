@@ -598,9 +598,12 @@ pre {
   color: var(--color-muted);
   display: flex;
   gap: 8px;
+  justify-content: flex-start;
   list-style: none;
   margin: 1rem 0 1.42rem;
+  min-width: 0;
   padding: 0;
+  width: 100%;
 }
 
 /* 10b) Icon utilities for inline SVG */
@@ -641,6 +644,58 @@ pre {
 
 .breadcrumb > li {
   display: inline;
+}
+
+.breadcrumb-wrap {
+  text-align: left;
+}
+
+/* Fallback truncation for templates that still render class="breadcrumb" */
+.breadcrumb:not(.breadcrumb-truncate) {
+  flex-wrap: nowrap;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.breadcrumb:not(.breadcrumb-truncate) > li[itemprop="itemListElement"] {
+  align-items: center;
+  display: inline-flex;
+  flex: 0 0 auto;
+  min-width: 0;
+  white-space: nowrap;
+}
+
+.breadcrumb:not(.breadcrumb-truncate) > li[itemprop="itemListElement"]:not(:last-child) {
+  flex: 0 1 clamp(8rem, 23vw, 15rem);
+  max-width: clamp(8rem, 23vw, 15rem);
+  overflow: hidden;
+}
+
+.breadcrumb:not(.breadcrumb-truncate) > li[itemprop="itemListElement"]:last-child {
+  flex: 0 1 clamp(9rem, 28vw, 20rem);
+  max-width: clamp(9rem, 28vw, 20rem);
+  overflow: hidden;
+}
+
+.breadcrumb:not(.breadcrumb-truncate) > li[itemprop="itemListElement"] > .pathway {
+  display: inline-flex;
+  max-width: 100%;
+  min-width: 0;
+}
+
+.breadcrumb:not(.breadcrumb-truncate) > li[itemprop="itemListElement"] > .divider {
+  flex: 0 0 auto;
+  margin-inline: 0.35rem 0;
+}
+
+.breadcrumb:not(.breadcrumb-truncate) > li[itemprop="itemListElement"] [itemprop="name"] {
+  display: block;
+  max-width: 100%;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  vertical-align: bottom;
+  white-space: nowrap;
 }
 
 .breadcrumb.breadcrumb-truncate {
@@ -692,6 +747,14 @@ pre {
 }
 
 @media (width <= 767px) {
+  .breadcrumb:not(.breadcrumb-truncate) > li[itemprop="itemListElement"]:not(:last-child) {
+    max-width: clamp(6.5rem, 34vw, 9.5rem);
+  }
+
+  .breadcrumb:not(.breadcrumb-truncate) > li[itemprop="itemListElement"]:last-child {
+    max-width: clamp(7rem, 40vw, 11rem);
+  }
+
   .breadcrumb.breadcrumb-truncate > li.breadcrumb-segment-truncate {
     max-width: clamp(6.5rem, 34vw, 9.5rem);
   }

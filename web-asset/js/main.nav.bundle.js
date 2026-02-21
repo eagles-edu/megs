@@ -353,6 +353,13 @@ const normalizeSectionPagerNavigation = () => {
       if (page.path && page.label) pathLabelMap.set(page.path, page.label)
     })
   })
+  ;[
+    ["/grammar-exercises.html", "Grammar Exercises"],
+    ["/grammar-lessons.html", "Grammar Lessons"],
+    ["/lists.html", "Lists"],
+  ].forEach(([path, label]) => {
+    if (!pathLabelMap.has(path)) pathLabelMap.set(path, label)
+  })
 
   let match = null
   let prefixFallback = null
@@ -384,8 +391,20 @@ const normalizeSectionPagerNavigation = () => {
   if (match.isRoot) {
     const prevGroup = match.groupIndex > 0 ? groups[match.groupIndex - 1] : null
     const nextGroup = match.groupIndex + 1 < groups.length ? groups[match.groupIndex + 1] : null
+    const sectionHomePath =
+      match.group.sectionType === "exercise"
+        ? "/grammar-exercises.html"
+        : match.group.sectionType === "lesson"
+          ? "/grammar-lessons.html"
+          : match.group.sectionType === "list"
+            ? "/lists.html"
+            : null
     if (prevGroup && prevGroup.rootPath) prevPath = prevGroup.rootPath
+    else if (sectionHomePath) prevPath = sectionHomePath
     if (nextGroup && nextGroup.rootPath) nextPath = nextGroup.rootPath
+    else if (sectionHomePath) nextPath = sectionHomePath
+    forcePrevLabel = Boolean(prevPath)
+    forceNextLabel = Boolean(nextPath)
   } else if (match.byPrefixOnly) {
     const prevLink = document.querySelector('.pager a[rel="prev"]')
     const nextLink = document.querySelector('.pager a[rel="next"]')
