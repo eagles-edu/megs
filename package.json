@@ -12,8 +12,13 @@
     "node": "20.19.4"
   },
   "scripts": {
-    "fmt:html": "prettier --parser html --write \"**/*.{html,htm}\"",
+    "lint": "npm run lint:js && npm run lint:css && npm run lint:html",
     "fix:void-selfclosing": "node js/fix-void-selfclosing.js",
+    "fix:trailing-ws:htmlcss": "node tools/trim-trailing-whitespace.mjs",
+    "fix:svg-close-tags": "node tools/normalize-svg-close-tags.mjs",
+    "fmt:html": "prettier --parser html --write \"**/*.{html,htm}\"",
+    "fix:trailing-ws:htmlcss:dry": "node tools/trim-trailing-whitespace.mjs --dry-run",
+    "fix:svg-close-tags:dry": "node tools/normalize-svg-close-tags.mjs --dry-run",
     "fmt:htmldiff": "prettier --parser html --cache --write \"**/*.{html,htm}\"",
     "start": "bash js/startup-new.sh",
     "diagnose": "node js/diagnose.js",
@@ -24,7 +29,6 @@
     "migrate:legacy:dry": "node js/migrate-legacy-to-persistence.js",
     "format": "prettier . --write && npm run lint:css:fix",
     "fmt:html:fix-void": "npm run fmt:html && npm run fix:void-selfclosing",
-    "lint": "npm run lint:js && npm run lint:css && npm run lint:html",
     "lint:html": "html-validate \"**/*.{html,htm}\"",
     "lint:html-stylish": "html-validate --formatter stylish \"**/*.{html,htm}\"",
     "lint:html:fix": "html-validate \"**/*.{html,htm}\" --fix",

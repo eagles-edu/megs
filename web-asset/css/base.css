@@ -16,7 +16,7 @@
     system-ui, -apple-system, blinkmacsystemfont, "Segoe UI Variable", "Segoe UI", roboto, "Noto Sans", ubuntu, cantarell, "Liberation Sans", "DejaVu Sans", "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", sans-serif;
 
   /* Brand core */
-  --primary-color: #e0162b; /* locked */
+  --primary-color: #B50010; /* locked */
   --secondary-color: #f9faff; /* white */
   --tertiary-color: #002786; /* locked */
   --text-color: #212121; /* locked */
@@ -34,10 +34,11 @@
   --surface-warm: #fff; /* hover menu warm neutral alt */
   --surface-1: #fffffa; /* medium light surface */
   --surface-2: #fffaf0; /* very light gray surface */
+  --link-aaa: #B50010;
 
   /* Links */
-  --link-color: #00f; /* derived from brand blue */
-  --link-hover: var(--primary-color);
+  --link-color: var(--link-aaa); /* derived from brand blue */
+  --link-hover: var(--tertiary-color);
   --link-visited: #630094;
   --link-active: var(--primary-color) /* Semantic states */;
   --pager-text-color: var(--text-color);
