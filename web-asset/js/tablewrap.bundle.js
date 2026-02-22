@@ -42,6 +42,11 @@ const TABLE_WRAP_VARIANT_MAP = Object.freeze({
   }),
 })
 
+const STACK_BREAKPOINT_CLASS_PATTERN = /^table-stack-break-(\d+)$/
+const stackBreakpointBindings = []
+let stackBreakpointRefreshQueued = false
+let stackBreakpointResizeBound = false
+
 const isResponsiveListCandidate = (table) => {
   if (!table) return false
   if (table.querySelector("input, select, textarea, button")) return false
@@ -550,6 +555,85 @@ const applyStackLabels = (table, labels) => {
   }
 }
 
+const resolveExplicitStackBreakpoint = (table) => {
+  if (!table || !table.classList) return 0
+
+  let resolved = 0
+  const dataBreakpoint = parseInt(table.getAttribute("data-stack-break") || "", 10)
+  if (Number.isFinite(dataBreakpoint) && dataBreakpoint > 0) resolved = dataBreakpoint
+
+  for (let i = 0; i < table.classList.length; i++) {
+    const className = String(table.classList[i] || "")
+    const match = className.match(STACK_BREAKPOINT_CLASS_PATTERN)
+    if (!match) continue
+    const parsed = parseInt(match[1], 10)
+    if (Number.isFinite(parsed) && parsed > resolved) resolved = parsed
+  }
+
+  return resolved
+}
+
+const registerStackBreakpointTable = (table) => {
+  if (!table || table.getAttribute("data-stack-breakpoint-registered") === "true") return
+
+  const breakpoint = resolveExplicitStackBreakpoint(table)
+  if (!breakpoint) return
+
+  table.setAttribute("data-stack-breakpoint", String(breakpoint))
+  table.setAttribute("data-stack-breakpoint-registered", "true")
+  stackBreakpointBindings.push({ table, breakpoint })
+}
+
+const applyStackBreakpointState = (binding) => {
+  if (!binding || !binding.table || !binding.breakpoint) return
+  const shouldActivate = window.innerWidth <= binding.breakpoint
+  binding.table.classList.toggle("table-stack-break-active", shouldActivate)
+}
+
+const refreshStackBreakpointStates = () => {
+  if (!stackBreakpointBindings.length) return
+
+  const activeBindings = []
+  for (let i = 0; i < stackBreakpointBindings.length; i++) {
+    const binding = stackBreakpointBindings[i]
+    if (!binding || !binding.table || binding.table.isConnected === false) continue
+    applyStackBreakpointState(binding)
+    activeBindings.push(binding)
+  }
+
+  stackBreakpointBindings.length = 0
+  for (let i = 0; i < activeBindings.length; i++) {
+    stackBreakpointBindings.push(activeBindings[i])
+  }
+}
+
+const scheduleStackBreakpointRefresh = () => {
+  if (stackBreakpointRefreshQueued) return
+  stackBreakpointRefreshQueued = true
+
+  const raf =
+    typeof window.requestAnimationFrame === "function"
+      ? window.requestAnimationFrame.bind(window)
+      : (cb) => window.setTimeout(cb, 16)
+
+  raf(() => {
+    stackBreakpointRefreshQueued = false
+    refreshStackBreakpointStates()
+  })
+}
+
+const initStackBreakpointObservers = () => {
+  if (!stackBreakpointBindings.length) return
+
+  refreshStackBreakpointStates()
+  if (stackBreakpointResizeBound) return
+
+  stackBreakpointResizeBound = true
+  const refresh = () => scheduleStackBreakpointRefresh()
+  window.addEventListener("resize", refresh, { passive: true })
+  window.addEventListener("orientationchange", refresh, { passive: true })
+}
+
 const initListTableStack = () => {
   const scope = document.querySelector("main#content, #content") || document
   const tableNodes = scope.querySelectorAll("table")
@@ -568,6 +652,7 @@ const initListTableStack = () => {
 
   for (let i = 0; i < tables.length; i++) {
     const table = tables[i]
+    registerStackBreakpointTable(table)
     if (!table || table.dataset.stackReady === "true") continue
     const mode = normalizeLabelText(table.getAttribute("data-stack")).toLowerCase()
     if (mode === "off") continue
@@ -678,6 +763,8 @@ const initListTableStack = () => {
     })
     table.dataset.stackReady = "true"
   }
+
+  initStackBreakpointObservers()
 }
 const runTableWrap = () => {
   if (window.__tableWrapInitialized) return

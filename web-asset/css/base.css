@@ -666,13 +666,13 @@ pre {
 }
 
 .breadcrumb:not(.breadcrumb-truncate) > li[itemprop="itemListElement"]:not(:last-child) {
-  flex: 0 1 clamp(8rem, 23vw, 15rem);
+  flex: 0 1 auto;
   max-width: clamp(8rem, 23vw, 15rem);
   overflow: hidden;
 }
 
 .breadcrumb:not(.breadcrumb-truncate) > li[itemprop="itemListElement"]:last-child {
-  flex: 0 1 clamp(9rem, 28vw, 20rem);
+  flex: 0 1 auto;
   max-width: clamp(9rem, 28vw, 20rem);
   overflow: hidden;
 }
@@ -713,13 +713,13 @@ pre {
 }
 
 .breadcrumb.breadcrumb-truncate > li.breadcrumb-segment-truncate {
-  flex: 0 1 clamp(8rem, 23vw, 15rem);
+  flex: 0 1 auto;
   max-width: clamp(8rem, 23vw, 15rem);
   overflow: hidden;
 }
 
 .breadcrumb.breadcrumb-truncate > li.breadcrumb-segment-current {
-  flex: 0 1 clamp(9rem, 28vw, 20rem);
+  flex: 0 1 auto;
   max-width: clamp(9rem, 28vw, 20rem);
   overflow: hidden;
 }

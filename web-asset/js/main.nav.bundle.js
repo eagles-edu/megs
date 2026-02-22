@@ -403,8 +403,8 @@ const normalizeSectionPagerNavigation = () => {
     else if (sectionHomePath) prevPath = sectionHomePath
     if (nextGroup && nextGroup.rootPath) nextPath = nextGroup.rootPath
     else if (sectionHomePath) nextPath = sectionHomePath
-    forcePrevLabel = Boolean(prevPath)
-    forceNextLabel = Boolean(nextPath)
+    forcePrevLabel = false
+    forceNextLabel = false
   } else if (match.byPrefixOnly) {
     const prevLink = document.querySelector('.pager a[rel="prev"]')
     const nextLink = document.querySelector('.pager a[rel="next"]')

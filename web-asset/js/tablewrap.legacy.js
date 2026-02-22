@@ -62,6 +62,11 @@
     },
   }
 
+  var STACK_BREAKPOINT_CLASS_PATTERN = /^table-stack-break-(\d+)$/
+  var stackBreakpointBindings = []
+  var stackBreakpointRefreshQueued = false
+  var stackBreakpointResizeBound = false
+
   function isResponsiveListCandidate(table) {
     if (!table) return false
     if (table.querySelector && table.querySelector("input, select, textarea, button")) return false
@@ -620,6 +625,83 @@
     }
   }
 
+  function resolveExplicitStackBreakpoint(table) {
+    if (!table || !table.classList) return 0
+
+    var resolved = 0
+    var dataBreakpoint = parseInt(table.getAttribute("data-stack-break") || "", 10)
+    if (dataBreakpoint && dataBreakpoint > 0) resolved = dataBreakpoint
+
+    for (var i = 0; i < table.classList.length; i++) {
+      var className = String(table.classList[i] || "")
+      var match = className.match(STACK_BREAKPOINT_CLASS_PATTERN)
+      if (!match) continue
+      var parsed = parseInt(match[1], 10)
+      if (parsed && parsed > resolved) resolved = parsed
+    }
+
+    return resolved
+  }
+
+  function registerStackBreakpointTable(table) {
+    if (!table || table.getAttribute("data-stack-breakpoint-registered") === "true") return
+
+    var breakpoint = resolveExplicitStackBreakpoint(table)
+    if (!breakpoint) return
+
+    table.setAttribute("data-stack-breakpoint", String(breakpoint))
+    table.setAttribute("data-stack-breakpoint-registered", "true")
+    stackBreakpointBindings.push({ table: table, breakpoint: breakpoint })
+  }
+
+  function applyStackBreakpointState(binding) {
+    if (!binding || !binding.table || !binding.breakpoint) return
+    var shouldActivate = window.innerWidth <= binding.breakpoint
+    if (shouldActivate) binding.table.classList.add("table-stack-break-active")
+    else binding.table.classList.remove("table-stack-break-active")
+  }
+
+  function refreshStackBreakpointStates() {
+    if (!stackBreakpointBindings.length) return
+
+    var activeBindings = []
+    for (var i = 0; i < stackBreakpointBindings.length; i++) {
+      var binding = stackBreakpointBindings[i]
+      if (!binding || !binding.table || binding.table.isConnected === false) continue
+      applyStackBreakpointState(binding)
+      activeBindings.push(binding)
+    }
+    stackBreakpointBindings = activeBindings
+  }
+
+  function scheduleStackBreakpointRefresh() {
+    if (stackBreakpointRefreshQueued) return
+    stackBreakpointRefreshQueued = true
+
+    var raf =
+      typeof window.requestAnimationFrame === "function"
+        ? window.requestAnimationFrame
+        : function (cb) {
+            return window.setTimeout(cb, 16)
+          }
+
+    raf(function () {
+      stackBreakpointRefreshQueued = false
+      refreshStackBreakpointStates()
+    })
+  }
+
+  function initStackBreakpointObservers() {
+    if (!stackBreakpointBindings.length) return
+
+    refreshStackBreakpointStates()
+    if (stackBreakpointResizeBound) return
+
+    stackBreakpointResizeBound = true
+    window.addEventListener("resize", scheduleStackBreakpointRefresh)
+    window.addEventListener("orientationchange", scheduleStackBreakpointRefresh)
+  }
+
   function initListTableStack() {
     var scope = document.querySelector("main#content, #content") || document
     var tableNodes = scope.querySelectorAll("table")
@@ -637,6 +719,7 @@
     }
 
     forEachNodeList(tables, function (table) {
+      registerStackBreakpointTable(table)
       if (!table || table.getAttribute("data-stack-ready") === "true") return
       var mode = normalizeLabelText(table.getAttribute("data-stack")).toLowerCase()
       if (mode === "off") return
@@ -761,6 +844,8 @@
       })
       table.setAttribute("data-stack-ready", "true")
     })
+
+    initStackBreakpointObservers()
   }
   function runTableWrap() {
     if (window.__tableWrapInitialized) return

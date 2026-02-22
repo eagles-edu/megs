@@ -8,7 +8,14 @@
     "gptonce.codepilot-vscode",
     "ibm.wca-core",
     "dhananjaysenday.mcp--inspector",
-    "nakadehitsujiko.paste-and-apply-patch"
+    "nakadehitsujiko.paste-and-apply-patch",
+    "motivesoft.vscode-tab-menu-extras",
+    "denjay.toggle-quotes-plus",
+    "shardulm94.trailing-spaces",
+    "kconway.vscode-undo-buttons",
+    "jorgecortesdev.web-development-essentials-extension-pack",
+    "konstantin.wrapselection",
+    "redhat.vscode-yaml"
   ],
   "unwantedRecommendations": ["octref.vetur"]
 }

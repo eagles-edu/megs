@@ -506,8 +506,8 @@
       else if (sectionHomePath) prevPath = sectionHomePath
       if (nextGroup && nextGroup.rootPath) nextPath = nextGroup.rootPath
       else if (sectionHomePath) nextPath = sectionHomePath
-      forcePrevLabel = Boolean(prevPath)
-      forceNextLabel = Boolean(nextPath)
+      forcePrevLabel = false
+      forceNextLabel = false
     } else if (match.byPrefixOnly) {
       var prevLink = document.querySelector('.pager a[rel="prev"]')
       var nextLink = document.querySelector('.pager a[rel="next"]')
