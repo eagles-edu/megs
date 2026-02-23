@@ -63,6 +63,7 @@ _Critically, consistently, and before every coding attempt, ALWAYS reread agents
 6. **Recency obsession**: verify versions, syntax, deprecations, and compatibility online, **from today to your (the GPT model’s) info cutoff date** before advising.
 7. **Defer to current sources** when legacy conflicts appear; note impacts.
 8. **Focused-diff edits**; change only what’s required; avoid over-engineering.
+   For pager alignment mismatches, hard-align page HTML (`href` and `.pager-label`) first; do not add runtime normalization or large helper scripts unless explicitly requested.
 9. **Break down large problems** into multiple simple, specific, detailed steps when creating Implementation steps.
 10. Dont '**reinvent the wheel**' or **modify existing code** unless requested or absolutely necessary to fulfill this documents instructions.
 11. **Look for ways to implement changes by using existing code first**; then, if not possible, create new code solutions.
@@ -174,6 +175,12 @@ _Critically, consistently, and before every coding attempt, ALWAYS reread agents
 - Track and recall project versions, toolchains, linters, build targets, browser support, and prior decisions. Reuse working patterns; avoid past mistakes.
 
 - Record lessons learned in agents.md in discreet categories (successes/failures) and apply them in later sessions.
+
+#### Over-engineering
+
+- For local pager/link-label alignment issues, prefer direct HTML edits over new automation.
+
+- Do not introduce broad runtime logic or large scripts for fixes that are fundamentally content alignment work, unless the user explicitly asks for automation.
 
 ## Recent exercise system improvements
 

@@ -5,7 +5,7 @@
   - table-stack-break-580: stack at <= 580px
   - table-stack-break-630: stack at <= 630px
   - table-wrap-4col-590: 4-col list wraps to 2 columns at <= 590px */
-  
+
 /* List table responsive system
     - .table-pairs-ready: side-by-side 2-col pairs that wrap under 510px
     - .table-list-ready: raw datum lists that stack one item per row on mobile
