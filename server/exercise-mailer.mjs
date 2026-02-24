@@ -3,6 +3,7 @@ import { createRequire } from "node:module"
 import http from "node:http"
 import path from "node:path"
 import { URL, fileURLToPath } from "node:url"
+import { isExerciseStoreRequired, persistExerciseSubmission } from "./exercise-store.mjs"
 
 const require = createRequire(import.meta.url)
 const isDebugEnabled = () =>
@@ -66,6 +67,8 @@ const STATUS = {
   startedAt: new Date().toISOString(),
   lastVerifyOk: null,
   lastVerifyAt: null,
+  lastStoreOk: null,
+  lastStoreAt: null,
   lastSendOk: null,
   lastSendAt: null,
   lastError: null,
@@ -432,6 +435,8 @@ async function handleRequest(request, response, transporter) {
       uptimeSeconds: Math.floor((Date.now() - Date.parse(STATUS.startedAt)) / 1000),
       lastVerifyOk: STATUS.lastVerifyOk,
       lastVerifyAt: STATUS.lastVerifyAt,
+      lastStoreOk: STATUS.lastStoreOk,
+      lastStoreAt: STATUS.lastStoreAt,
       lastSendOk: STATUS.lastSendOk,
       lastSendAt: STATUS.lastSendAt,
       lastError: STATUS.lastError,
@@ -464,6 +469,27 @@ async function handleRequest(request, response, transporter) {
   try {
     const payload = await parseBody(request)
     const validated = validatePayload(payload)
+
+    try {
+      const storeResult = await persistExerciseSubmission(validated)
+      if (storeResult?.saved) {
+        STATUS.lastStoreOk = true
+        STATUS.lastStoreAt = new Date().toISOString()
+        if (MAILER_DEBUG) {
+          console.log("Saved exercise submission:", {
+            submissionId: storeResult.submissionId,
+            scorePercent: storeResult?.summary?.scorePercent,
+          })
+        }
+      }
+    } catch (storeError) {
+      STATUS.lastStoreOk = false
+      STATUS.lastStoreAt = new Date().toISOString()
+      STATUS.lastError = String(storeError?.message || storeError)
+      if (isExerciseStoreRequired()) throw storeError
+      console.warn("⚠️ Submission persisted to email only (database write failed):", STATUS.lastError)
+    }
+
     const emailData = createEmail(validated)
     const teacherTo = emailData.teacherEmail.to.length
       ? emailData.teacherEmail.to

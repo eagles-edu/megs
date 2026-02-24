@@ -22,9 +22,14 @@
     "fmt:htmldiff": "prettier --parser html --cache --write \"**/*.{html,htm}\"",
     "start": "bash js/startup-new.sh",
     "diagnose": "node js/diagnose.js",
+    "db:generate": "prisma generate",
+    "db:migrate:dev": "prisma migrate dev",
+    "db:migrate:deploy": "prisma migrate deploy",
+    "db:studio": "prisma studio",
     "verify:prototype": "node js/verify-prototype.mjs",
     "verify:live": "node js/verify-live.js",
     "smoke:pages": "node js/smoke-pages.js",
+    "redis:smoke": "bash js/redis-smoke-all.sh",
     "migrate:legacy": "node js/migrate-legacy-to-persistence.js --apply",
     "migrate:legacy:dry": "node js/migrate-legacy-to-persistence.js",
     "format": "prettier . --write && npm run lint:css:fix",
@@ -91,10 +96,12 @@
     "lighthouse": "^12.8.1",
     "postcss-html": "^1.8.0",
     "prettier": "^3.7.4",
+    "prisma": "^7.4.1",
     "stylelint": "^16.24.0",
     "stylelint-config-standard": "^36.0.0"
   },
   "dependencies": {
+    "@prisma/client": "^7.4.1",
     "archiver": "^7.0.1",
     "argparse": "^2.0.1",
     "cheerio": "^1.1.2",
@@ -105,6 +112,7 @@
     "glob": ">=11.1.0",
     "js-yaml": "^4.1.1",
     "nodemailer": "^7.0.10",
-    "postcss": "^8.5.6"
+    "postcss": "^8.5.6",
+    "redis": "^5.11.0"
   }
 }

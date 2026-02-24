@@ -5,6 +5,8 @@ import assert from "node:assert/strict"
 process.env.NODE_ENV = "test"
 // allow any origin during test, then override in a CORS test
 process.env.EXERCISE_MAILER_ORIGIN = "*"
+process.env.EXERCISE_STORE_ENABLED = "false"
+process.env.EXERCISE_STORE_REQUIRED = "false"
 // Keep logs quiet for tests
 process.env.MAILER_DEBUG = "false"
 
