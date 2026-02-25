@@ -4,6 +4,8 @@ import http from "node:http"
 import path from "node:path"
 import { URL, fileURLToPath } from "node:url"
 import { isExerciseStoreRequired, persistExerciseSubmission } from "./exercise-store.mjs"
+import { persistStudentIntakeSubmission } from "./student-intake-store.mjs"
+import { handleStudentAdminRequest } from "./student-admin-routes.mjs"
 
 const require = createRequire(import.meta.url)
 const isDebugEnabled = () =>
@@ -40,6 +42,8 @@ try {
 
 const DEFAULT_PORT = Number(process.env.EXERCISE_MAILER_PORT || 8787)
 const DEFAULT_PATH = process.env.EXERCISE_MAILER_PATH || "/api/exercise-submission"
+const DEFAULT_INTAKE_PATH =
+  process.env.EXERCISE_MAILER_INTAKE_PATH || "/api/student-intake-submission"
 const DEFAULT_HOST = process.env.EXERCISE_MAILER_HOST || "0.0.0.0"
 
 // Multiple origins supported: comma separated string, exact match with scheme+host[:port]
@@ -69,6 +73,8 @@ const STATUS = {
   lastVerifyAt: null,
   lastStoreOk: null,
   lastStoreAt: null,
+  lastIntakeStoreOk: null,
+  lastIntakeStoreAt: null,
   lastSendOk: null,
   lastSendAt: null,
   lastError: null,
@@ -337,6 +343,68 @@ function validatePayload(payload) {
   }
 }
 
+function hasIntakeFields(payload) {
+  const skippedRootKeys = new Set([
+    "sourceFormId",
+    "sourceUrl",
+    "sourcePageUrl",
+    "submittedAt",
+    "completedAt",
+    "formId",
+    "wrapperId",
+  ])
+  const mapHasData = (map) => {
+    const entries = Object.entries(map)
+    for (let i = 0; i < entries.length; i += 1) {
+      const [key, value] = entries[i]
+      if (skippedRootKeys.has(key)) continue
+      if (Array.isArray(value) && value.length > 0) return true
+      if (value && typeof value === "object") {
+        if (Object.keys(value).length > 0) return true
+        continue
+      }
+      if (value !== undefined && value !== null && String(value).trim() !== "") return true
+    }
+    return false
+  }
+
+  const maps = []
+  if (payload && typeof payload === "object") maps.push(payload)
+  if (payload?.fields && typeof payload.fields === "object") maps.push(payload.fields)
+  if (payload?.cf && typeof payload.cf === "object") maps.push(payload.cf)
+  if (payload?.form && typeof payload.form === "object") maps.push(payload.form)
+  if (payload?.data && typeof payload.data === "object") maps.push(payload.data)
+  for (let i = 0; i < maps.length; i += 1) {
+    if (mapHasData(maps[i])) return true
+  }
+  return false
+}
+
+function validateIntakePayload(payload) {
+  if (!payload || typeof payload !== "object") throw new Error("Invalid intake payload")
+  if (!hasIntakeFields(payload)) throw new Error("Missing intake form fields")
+
+  const sourceFormId =
+    typeof payload.sourceFormId === "string" && payload.sourceFormId.trim()
+      ? payload.sourceFormId.trim()
+      : "cf3"
+  const sourceUrl =
+    typeof payload.sourceUrl === "string" && payload.sourceUrl.trim() ? payload.sourceUrl.trim() : ""
+  const completedAt =
+    typeof payload.submittedAt === "string" && payload.submittedAt.trim()
+      ? payload.submittedAt
+      : typeof payload.completedAt === "string" && payload.completedAt.trim()
+        ? payload.completedAt
+        : new Date().toISOString()
+
+  return {
+    ...payload,
+    sourceFormId,
+    sourceUrl,
+    submittedAt: completedAt,
+  }
+}
+
 /* =========================
     CORS
    ========================= */
@@ -354,7 +422,7 @@ function allowCors(request, response) {
 
   response.setHeader("Vary", "Origin")
   response.setHeader("Access-Control-Allow-Origin", allowOrigin)
-  response.setHeader("Access-Control-Allow-Methods", "POST, OPTIONS")
+  response.setHeader("Access-Control-Allow-Methods", "POST, OPTIONS, GET")
   response.setHeader("Access-Control-Allow-Headers", "Content-Type")
   // If you ever use cookies/credentials, uncomment and DO NOT use "*"
   // response.setHeader("Access-Control-Allow-Credentials", "true");
@@ -427,6 +495,9 @@ async function handleRequest(request, response, transporter) {
   const { method } = request
   const url = new URL(request.url || "", `http://${request.headers.host || "localhost"}`)
 
+  const adminHandled = await handleStudentAdminRequest(request, response)
+  if (adminHandled) return
+
   // Health endpoint (no CORS needed, but harmless if included)
   if (method === "GET" && url.pathname === "/healthz") {
     const body = {
@@ -437,11 +508,14 @@ async function handleRequest(request, response, transporter) {
       lastVerifyAt: STATUS.lastVerifyAt,
       lastStoreOk: STATUS.lastStoreOk,
       lastStoreAt: STATUS.lastStoreAt,
+      lastIntakeStoreOk: STATUS.lastIntakeStoreOk,
+      lastIntakeStoreAt: STATUS.lastIntakeStoreAt,
       lastSendOk: STATUS.lastSendOk,
       lastSendAt: STATUS.lastSendAt,
       lastError: STATUS.lastError,
       node: process.version,
       endpoint: DEFAULT_PATH,
+      intakeEndpoint: DEFAULT_INTAKE_PATH,
     }
     response.writeHead(200, { "Content-Type": "application/json" })
     response.end(JSON.stringify(body))
@@ -450,7 +524,7 @@ async function handleRequest(request, response, transporter) {
 
   // Preflight
   if (method === "OPTIONS") {
-    if (url.pathname === DEFAULT_PATH) {
+    if (url.pathname === DEFAULT_PATH || url.pathname === DEFAULT_INTAKE_PATH) {
       allowCors(request, response)
       response.writeHead(204)
       response.end()
@@ -458,8 +532,11 @@ async function handleRequest(request, response, transporter) {
     }
   }
 
-  // Only POST on the API path
-  if (method !== "POST" || url.pathname !== DEFAULT_PATH) {
+  // Only POST on supported API paths
+  if (
+    method !== "POST" ||
+    (url.pathname !== DEFAULT_PATH && url.pathname !== DEFAULT_INTAKE_PATH)
+  ) {
     allowCors(request, response)
     response.writeHead(404, { "Content-Type": "application/json" })
     response.end(JSON.stringify({ error: "Not Found" }))
@@ -468,6 +545,29 @@ async function handleRequest(request, response, transporter) {
 
   try {
     const payload = await parseBody(request)
+
+    if (url.pathname === DEFAULT_INTAKE_PATH) {
+      const validated = validateIntakePayload(payload)
+      const storeResult = await persistStudentIntakeSubmission(validated)
+      STATUS.lastIntakeStoreOk = Boolean(storeResult?.saved)
+      STATUS.lastIntakeStoreAt = new Date().toISOString()
+
+      if (MAILER_DEBUG) {
+        console.log("Processed student intake submission:", {
+          saved: Boolean(storeResult?.saved),
+          reason: storeResult?.reason || "",
+          studentId: storeResult?.studentId || "",
+          intakeSubmissionId: storeResult?.intakeSubmissionId || "",
+          requiredValidationOk: storeResult?.requiredValidationOk,
+        })
+      }
+
+      allowCors(request, response)
+      response.writeHead(204)
+      response.end()
+      return
+    }
+
     const validated = validatePayload(payload)
 
     try {
@@ -544,7 +644,12 @@ async function handleRequest(request, response, transporter) {
     STATUS.lastSendOk = false
     STATUS.lastSendAt = new Date().toISOString()
     STATUS.lastError = String(error?.message || error)
-    const status = error.message === "Missing answers" ? 400 : 500
+    const status =
+      error.message === "Missing answers" ||
+      error.message === "Missing intake form fields" ||
+      error.message === "Invalid intake payload"
+        ? 400
+        : 500
     if (MAILER_DEBUG) console.error("❌ Send failed:", STATUS.lastError)
 
     // CORS + JSON error
@@ -586,7 +691,7 @@ export function startExerciseMailer(options = {}) {
         : port
     const extra = MAILER_DEBUG ? " (MAILER_DEBUG=true)" : ""
     console.log(
-      `exercise-mailer listening on ${boundHost}:${boundPort} at ${DEFAULT_PATH} (health: /healthz)${extra}`
+      `exercise-mailer listening on ${boundHost}:${boundPort} at ${DEFAULT_PATH} and ${DEFAULT_INTAKE_PATH} (health: /healthz)${extra}`
     )
   })
 

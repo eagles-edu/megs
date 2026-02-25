@@ -7,6 +7,7 @@ process.env.NODE_ENV = "test"
 process.env.EXERCISE_MAILER_ORIGIN = "*"
 process.env.EXERCISE_STORE_ENABLED = "false"
 process.env.EXERCISE_STORE_REQUIRED = "false"
+process.env.STUDENT_INTAKE_STORE_ENABLED = "false"
 // Keep logs quiet for tests
 process.env.MAILER_DEBUG = "false"
 
@@ -61,6 +62,7 @@ test("GET /healthz returns ok + endpoint", async () => {
   const body = await res.json()
   assert.equal(body.status, "ok")
   assert.equal(body.endpoint, "/api/exercise-submission")
+  assert.equal(body.intakeEndpoint, "/api/student-intake-submission")
 })
 
 test("POST /api/exercise-submission succeeds (204) and dispatches notifications", async () => {
@@ -139,6 +141,43 @@ test("POST /api/exercise-submission with missing answers returns 400", async () 
   assert.equal(res.status, 400)
   const b = await res.json()
   assert.match(b.error, /Missing answers/i)
+})
+
+test("POST /api/student-intake-submission accepts intake payload and does not send email", async () => {
+  const beforeSendCount = transport.calls.sendMail
+  const payload = {
+    sourceFormId: "cf3",
+    sourceUrl:
+      "https://eagles.edu.vn/cac-khoa-hoc/trang-chu-tu-cach-thanh-vien/tham-gia-hinh-thuc-thanh-vien",
+    fields: {
+      "Full-Name-student": "Jane Student",
+      DOB: "2014-10-01",
+      "student-email": "parent@example.com",
+      Signature: "Parent Name",
+      "Mothers-phone": "0900000000",
+      "Fathers-phone": "0911000000",
+    },
+  }
+
+  const res = await fetchLocal(basePort, "/api/student-intake-submission", {
+    method: "POST",
+    headers: { "content-type": "application/json" },
+    body: JSON.stringify(payload),
+  })
+
+  assert.equal(res.status, 204)
+  assert.equal(transport.calls.sendMail, beforeSendCount)
+})
+
+test("POST /api/student-intake-submission with missing fields returns 400", async () => {
+  const res = await fetchLocal(basePort, "/api/student-intake-submission", {
+    method: "POST",
+    headers: { "content-type": "application/json" },
+    body: JSON.stringify({ sourceFormId: "cf3" }),
+  })
+  assert.equal(res.status, 400)
+  const body = await res.json()
+  assert.match(body.error, /Missing intake form fields/i)
 })
 
 test("CORS echoes back allowed origin when specific origin is configured", async () => {

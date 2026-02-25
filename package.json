@@ -26,6 +26,11 @@
     "db:migrate:dev": "prisma migrate dev",
     "db:migrate:deploy": "prisma migrate deploy",
     "db:studio": "prisma studio",
+    "db:backup": "node tools/db-backup-failsafe.mjs",
+    "db:backup:dry": "node tools/db-backup-failsafe.mjs --dry-run",
+    "db:backup:no-prune": "node tools/db-backup-failsafe.mjs --no-prune",
+    "db:restore": "node tools/db-restore-failsafe.mjs",
+    "db:restore:verify": "node tools/db-restore-failsafe.mjs --verify-only",
     "verify:prototype": "node js/verify-prototype.mjs",
     "verify:live": "node js/verify-live.js",
     "smoke:pages": "node js/smoke-pages.js",
@@ -62,12 +67,14 @@
     "report:pagers": "node tools/report-pager-alignment.mjs",
     "report:navigation": "node tools/analyze-navigation-compliance.mjs",
     "check:internal-links": "node tools/check-internal-links.mjs",
+    "extract:member-form-schema": "node tools/extract-member-form-schema.mjs --input https://eagles.edu.vn/cac-khoa-hoc/trang-chu-tu-cach-thanh-vien/tham-gia-hinh-thuc-thanh-vien --output schemas/member-intake-cf3.schema.json",
+    "seed:member-intake-fields": "node tools/seed-member-intake-field-definitions.mjs --input schemas/member-intake-cf3.schema.json --form-id cf3",
     "hooks:install": "bash -lc 'git rev-parse --is-inside-work-tree >/dev/null 2>&1 && git config core.hooksPath .githooks || true'",
     "prepare": "npm run hooks:install",
     "verify:prototype:strict": "VERIFY_STRICT=1 node js/verify-prototype.mjs",
     "verify:prototype:quiet": "VERIFY_QUIET=1 node js/verify-prototype.mjs",
-    "test": "node --test test/exercise-mailer.spec.mjs",
-    "test:watch": "node --test --watch test/exercise-mailer.spec.mjs"
+    "test": "node --test test/*.spec.mjs",
+    "test:watch": "node --test --watch test/*.spec.mjs"
   },
   "repository": {
     "type": "git",
@@ -112,7 +119,9 @@
     "glob": ">=11.1.0",
     "js-yaml": "^4.1.1",
     "nodemailer": "^7.0.10",
+    "pdfkit": "^0.17.2",
     "postcss": "^8.5.6",
-    "redis": "^5.11.0"
+    "redis": "^5.11.0",
+    "xlsx": "^0.18.5"
   }
 }
