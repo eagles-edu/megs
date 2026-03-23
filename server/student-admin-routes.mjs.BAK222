@@ -909,7 +909,7 @@ async function getNodemailer() {
     const mod = await import("nodemailer")
     nodemailerModule = mod?.default || mod
     return nodemailerModule
-  } catch (error) {
+  } catch {
     const wrapped = new Error("nodemailer is not available in runtime")
     wrapped.statusCode = 503
     throw wrapped
