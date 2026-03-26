@@ -4085,7 +4085,18 @@
           return results.filter((q) => q.answers.some(Boolean))
         }
 
-        // ---------- progress ----------
+        
+        function summarizeScores(theForm) {
+          const blocks = $("[data-exercise-question]", theForm)
+          const totalQuestions = blocks.length
+          const correctCount = $$(".exercise-response-row--correct", theForm).length
+          const pendingCount = $$(".exercise-response-row--pending", theForm).length
+          const incorrectCount = Math.max(totalQuestions - correctCount - pendingCount, 0)
+          const scorePercent = totalQuestions > 0 ? Number(((correctCount / totalQuestions) * 100).toFixed(2)) : 0
+          return { totalQuestions, correctCount, pendingCount, incorrectCount, scorePercent }
+        }
+
+// ---------- progress ----------
         function updateProgress(theForm) {
           const blocks = $$("[data-exercise-question]", theForm)
           const total = blocks.length
@@ -4273,6 +4284,7 @@
               const email = (emailInput?.value || "").trim()
               const studentId = (studentIdInput?.value || "").trim()
               const answers = collectAnswers(form)
+              const { totalQuestions, correctCount, pendingCount, incorrectCount, scorePercent } = summarizeScores(form)
 
               if (!answers.length) {
                 showStatus("err", "No answers detected. Please fill one or more response per question.")
@@ -4287,6 +4299,17 @@
                 completedAt: new Date().toISOString(),
                 recipients, // server falls back to env if empty
                 answers,
+answers,
+                answers,
+totalQuestions,
+                answers,
+correctCount,
+                answers,
+pendingCount,
+                answers,
+incorrectCount,
+                answers,
+scorePercent,
               }
 
               const res = await postJSON(submitUrl, payload)

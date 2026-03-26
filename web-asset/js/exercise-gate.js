@@ -1174,6 +1174,35 @@
       updateSubmitState()
     }
 
+    function summarizeScoresFromAnswers(list) {
+      var totalQuestions = Array.isArray(list) ? list.length : 0
+      var correctCount = 0
+      var pendingCount = 0
+      for (var i = 0; i < totalQuestions; i++) {
+        var status = list[i] && list[i].status
+        if (typeof status === "string") {
+          var normalized = status.toLowerCase()
+          if (normalized === "correct") {
+            correctCount += 1
+            continue
+          }
+          if (normalized === "pending") {
+            pendingCount += 1
+            continue
+          }
+        }
+      }
+      var incorrectCount = Math.max(totalQuestions - correctCount - pendingCount, 0)
+      var scorePercent = totalQuestions > 0 ? Number(((correctCount / totalQuestions) * 100).toFixed(2)) : 0
+      return {
+        totalQuestions: totalQuestions,
+        correctCount: correctCount,
+        pendingCount: pendingCount,
+        incorrectCount: incorrectCount,
+        scorePercent: scorePercent,
+      }
+    }
+
     function collectPayload() {
       var answersPayload = []
       for (var i = 0; i < questions.length; i++) {
@@ -1189,6 +1218,7 @@
           needsReview: !!question.pendingReview,
         })
       }
+      var summary = summarizeScoresFromAnswers(answersPayload)
       return {
         email: emailInput ? (emailInput.value || "").trim() : "",
         studentId: studentIdInput ? (studentIdInput.value || "").trim() : "",
@@ -1196,6 +1226,11 @@
         completedAt: new Date().toISOString(),
         recipients: config.recipients.slice(),
         answers: answersPayload,
+        totalQuestions: summary.totalQuestions,
+        correctCount: summary.correctCount,
+        pendingCount: summary.pendingCount,
+        incorrectCount: summary.incorrectCount,
+        scorePercent: summary.scorePercent,
       }
     }
 

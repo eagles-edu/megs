@@ -4,12 +4,6 @@ import fs from "node:fs"
 import http from "node:http"
 import path from "node:path"
 import { URL, fileURLToPath } from "node:url"
-import { isExerciseStoreRequired, persistExerciseSubmission } from "./exercise-store.mjs"
-import { persistStudentIntakeSubmission } from "./student-intake-store.mjs"
-import {
-  getStudentAdminRuntimeStatus,
-  handleStudentAdminRequest,
-} from "./student-admin-routes.mjs"
 
 const require = createRequire(import.meta.url)
 const isDebugEnabled = () =>
@@ -17,14 +11,59 @@ const isDebugEnabled = () =>
     .trim()
     .toLowerCase() === "true"
 
-try {
-  require("dotenv/config")
-} catch (error) {
-  if (error && error.code !== "MODULE_NOT_FOUND") throw error
-  if (isDebugEnabled()) {
-    console.warn("ℹ️  Optional dependency 'dotenv' not found; continuing without loading .env file")
-  }
+function normalizeEnvText(value) {
+  if (value === undefined || value === null) return ""
+  return String(value).trim()
 }
+
+function resolveDefaultEnvFilePath() {
+  const explicitPath = normalizeEnvText(process.env.SIS_ENV_FILE)
+  if (explicitPath) return path.resolve(process.cwd(), explicitPath)
+  const nodeEnv = normalizeEnvText(process.env.NODE_ENV).toLowerCase()
+  if (nodeEnv === "development") return path.resolve(process.cwd(), ".env.dev")
+  if (nodeEnv === "test") return path.resolve(process.cwd(), ".env.test")
+  return path.resolve(process.cwd(), ".env")
+}
+
+function loadEnvironmentFile() {
+  let dotenv
+  try {
+    const mod = require("dotenv")
+    dotenv = mod?.default || mod
+  } catch (error) {
+    if (error && error.code !== "MODULE_NOT_FOUND") throw error
+    if (isDebugEnabled()) {
+      console.warn("ℹ️  Optional dependency 'dotenv' not found; continuing without loading env file")
+    }
+    return ""
+  }
+
+  const envFilePath = resolveDefaultEnvFilePath()
+  if (!fs.existsSync(envFilePath)) {
+    if (isDebugEnabled()) {
+      console.warn(`ℹ️  Env file not found at ${envFilePath}; continuing with process environment`)
+    }
+    return ""
+  }
+
+  const result = dotenv.config({ path: envFilePath })
+  if (result?.error && result.error.code !== "ENOENT") {
+    throw result.error
+  }
+  return envFilePath
+}
+
+loadEnvironmentFile()
+
+// Load SIS route/store modules after env hydration so their module-level config reads
+// the intended env file values instead of shell defaults.
+const { isExerciseStoreRequired, persistExerciseSubmission } = await import("./exercise-store.mjs")
+const { persistStudentIntakeSubmission } = await import("./student-intake-store.mjs")
+const {
+  getStudentAdminRuntimeStatus,
+  handleStudentAdminRequest,
+  setStudentAdminRuntimeHealthProvider,
+} = await import("./student-admin-routes.mjs")
 
 let nodemailer = null
 
@@ -44,11 +83,37 @@ try {
   Configuration & Defaults
    ========================= */
 
-const DEFAULT_PORT = Number(process.env.EXERCISE_MAILER_PORT || 8787)
+const DEV_RUNTIME_PORT = 8788
+const LIVE_RUNTIME_PORT = 8787
 const DEFAULT_PATH = process.env.EXERCISE_MAILER_PATH || "/api/exercise-submission"
 const DEFAULT_INTAKE_PATH =
   process.env.EXERCISE_MAILER_INTAKE_PATH || "/api/student-intake-submission"
 const DEFAULT_HOST = process.env.EXERCISE_MAILER_HOST || "0.0.0.0"
+const DOCS_URL_PREFIX = "/docs"
+const DOCS_PUBLIC_ROOT = path.resolve(process.cwd(), "docs")
+const WEB_ASSET_URL_PREFIX = "/web-asset"
+const WEB_ASSET_PUBLIC_ROOT = path.resolve(process.cwd(), "web-asset")
+const STATIC_MIME_TYPES = Object.freeze({
+  ".css": "text/css; charset=utf-8",
+  ".dsl": "text/plain; charset=utf-8",
+  ".gif": "image/gif",
+  ".html": "text/html; charset=utf-8",
+  ".ico": "image/x-icon",
+  ".jpeg": "image/jpeg",
+  ".jpg": "image/jpeg",
+  ".js": "text/javascript; charset=utf-8",
+  ".json": "application/json; charset=utf-8",
+  ".md": "text/markdown; charset=utf-8",
+  ".mjs": "text/javascript; charset=utf-8",
+  ".mmd": "text/plain; charset=utf-8",
+  ".pdf": "application/pdf",
+  ".png": "image/png",
+  ".svg": "image/svg+xml",
+  ".txt": "text/plain; charset=utf-8",
+  ".webp": "image/webp",
+  ".yaml": "application/yaml; charset=utf-8",
+  ".yml": "application/yaml; charset=utf-8",
+})
 
 // Multiple origins supported: comma separated string, exact match with scheme+host[:port]
 function getOriginList() {
@@ -71,6 +136,29 @@ function isLoopbackOrigin(origin) {
     void error
     return false
   }
+}
+
+function isEaglesEduVnOrigin(origin) {
+  const text = String(origin || "").trim()
+  if (!text) return false
+  try {
+    const parsed = new URL(text)
+    const protocol = String(parsed.protocol || "").trim().toLowerCase()
+    if (protocol !== "http:" && protocol !== "https:") return false
+    const hostname = String(parsed.hostname || "").trim().toLowerCase()
+    return /^([a-z0-9-]+\.)*eagles\.edu\.vn$/.test(hostname)
+  } catch (error) {
+    void error
+    return false
+  }
+}
+
+function configuredOriginIncludesEaglesDomain(origins = []) {
+  if (!Array.isArray(origins) || !origins.length) return false
+  for (let i = 0; i < origins.length; i += 1) {
+    if (isEaglesEduVnOrigin(origins[i])) return true
+  }
+  return false
 }
 
 // Toggle verbose logs
@@ -114,6 +202,9 @@ const SELF_HEAL_STATUS = {
   lastResult: "disabled",
   lastError: "",
 }
+const SUBMISSION_LOCKS = new Map()
+const RECENT_SUBMISSION_NOTIFICATIONS = new Map()
+const SUBMISSION_NOTIFICATION_DEDUP_WINDOW_MS = 30 * 1000
 
 /* =========================
     Helpers
@@ -137,19 +228,304 @@ function normalizeString(value) {
   return String(value).trim()
 }
 
+function isPathWithinRoot(candidatePath, rootPath) {
+  const candidate = path.resolve(candidatePath)
+  const root = path.resolve(rootPath)
+  const relative = path.relative(root, candidate)
+  return relative === "" || (!relative.startsWith("..") && !path.isAbsolute(relative))
+}
+
+function resolveStaticContentType(filePath) {
+  const ext = String(path.extname(filePath || "") || "").toLowerCase()
+  return STATIC_MIME_TYPES[ext] || "application/octet-stream"
+}
+
+function resolveScopedStaticFilePath(pathname, urlPrefix, publicRoot) {
+  const normalizedPathname = normalizeString(pathname)
+  if (!normalizedPathname.startsWith(urlPrefix)) return ""
+
+  let relativePath = normalizedPathname.slice(urlPrefix.length)
+  if (relativePath.startsWith("/")) relativePath = relativePath.slice(1)
+
+  let decodedPath
+  try {
+    decodedPath = decodeURIComponent(relativePath)
+  } catch (error) {
+    void error
+    return ""
+  }
+
+  const targetPath = path.resolve(publicRoot, decodedPath)
+  if (!isPathWithinRoot(targetPath, publicRoot)) return ""
+  return targetPath
+}
+
+function resolveDocsFilePath(pathname) {
+  return resolveScopedStaticFilePath(pathname, DOCS_URL_PREFIX, DOCS_PUBLIC_ROOT)
+}
+
+function resolveWebAssetFilePath(pathname) {
+  return resolveScopedStaticFilePath(pathname, WEB_ASSET_URL_PREFIX, WEB_ASSET_PUBLIC_ROOT)
+}
+
+function trySendStaticFile(request, response, filePath) {
+  if (!filePath || !fs.existsSync(filePath)) return false
+
+  let targetPath = filePath
+  let stat
+  try {
+    stat = fs.statSync(targetPath)
+  } catch (error) {
+    void error
+    return false
+  }
+
+  if (stat.isDirectory()) {
+    targetPath = path.join(targetPath, "index.html")
+    if (!fs.existsSync(targetPath)) return false
+    try {
+      stat = fs.statSync(targetPath)
+    } catch (error) {
+      void error
+      return false
+    }
+  }
+
+  if (!stat.isFile()) return false
+
+  response.writeHead(200, {
+    "Cache-Control": "no-store",
+    "Content-Length": String(stat.size),
+    "Content-Type": resolveStaticContentType(targetPath),
+  })
+
+  if (normalizeString(request.method).toUpperCase() === "HEAD") {
+    response.end()
+    return true
+  }
+
+  const stream = fs.createReadStream(targetPath)
+  stream.on("error", () => {
+    if (!response.headersSent) {
+      response.writeHead(500, { "Content-Type": "text/plain; charset=utf-8" })
+    }
+    response.end("Unable to read file")
+  })
+  stream.pipe(response)
+  return true
+}
+
+function handleDocsStaticRequest(request, response, pathname) {
+  const method = normalizeString(request.method).toUpperCase()
+  if (method !== "GET" && method !== "HEAD") return false
+
+  const normalizedPathname = normalizeString(pathname)
+  if (normalizedPathname === DOCS_URL_PREFIX) {
+    response.writeHead(302, { Location: `${DOCS_URL_PREFIX}/` })
+    response.end()
+    return true
+  }
+
+  if (!normalizedPathname.startsWith(`${DOCS_URL_PREFIX}/`)) return false
+
+  const filePath = resolveDocsFilePath(normalizedPathname)
+  if (!filePath) {
+    response.writeHead(400, { "Content-Type": "text/plain; charset=utf-8" })
+    response.end("Invalid docs path")
+    return true
+  }
+
+  if (trySendStaticFile(request, response, filePath)) return true
+
+  response.writeHead(404, { "Content-Type": "text/plain; charset=utf-8" })
+  response.end("Not Found")
+  return true
+}
+
+function handleWebAssetStaticRequest(request, response, pathname) {
+  const method = normalizeString(request.method).toUpperCase()
+  if (method !== "GET" && method !== "HEAD") return false
+
+  const normalizedPathname = normalizeString(pathname)
+  if (!normalizedPathname.startsWith(`${WEB_ASSET_URL_PREFIX}/`)) return false
+
+  const filePath = resolveWebAssetFilePath(normalizedPathname)
+  if (!filePath) {
+    response.writeHead(400, { "Content-Type": "text/plain; charset=utf-8" })
+    response.end("Invalid web asset path")
+    return true
+  }
+
+  if (trySendStaticFile(request, response, filePath)) return true
+
+  response.writeHead(404, { "Content-Type": "text/plain; charset=utf-8" })
+  response.end("Not Found")
+  return true
+}
+
+function resolveLiveRuntimeRoots() {
+  const configuredRoots = [
+    normalizeString(process.env.SIS_LIVE_ROOTS),
+    normalizeString(process.env.SIS_LIVE_ROOT) || "/home/admin.eagles.edu.vn/sis",
+  ]
+    .filter(Boolean)
+    .flatMap((entry) =>
+      String(entry)
+        .split(",")
+        .map((item) => normalizeString(item))
+        .filter(Boolean)
+    )
+  return Array.from(new Set(configuredRoots.map((entry) => path.resolve(entry))))
+}
+
+function resolveDevRuntimeRoots() {
+  const configuredRoots = [
+    normalizeString(process.env.SIS_DEV_ROOTS),
+    normalizeString(process.env.SIS_DEV_ROOT) || "/home/eagles/dockerz/sis",
+  ]
+    .filter(Boolean)
+    .flatMap((entry) =>
+      String(entry)
+        .split(",")
+        .map((item) => normalizeString(item))
+        .filter(Boolean)
+    )
+  return Array.from(new Set(configuredRoots.map((entry) => path.resolve(entry))))
+}
+
+function isPathWithinAnyRoot(candidatePath, roots = []) {
+  for (let i = 0; i < roots.length; i += 1) {
+    if (isPathWithinRoot(candidatePath, roots[i])) return true
+  }
+  return false
+}
+
+function assertRuntimeEnvironmentSeparation() {
+  const nodeEnv = normalizeString(process.env.NODE_ENV).toLowerCase()
+  const cwd = path.resolve(process.cwd())
+  if (nodeEnv === "development") {
+    if (resolveBoolean(process.env.SIS_ALLOW_DEV_ON_LIVE_ROOT, false)) return
+    const liveRoots = resolveLiveRuntimeRoots()
+    for (let i = 0; i < liveRoots.length; i += 1) {
+      if (isPathWithinRoot(cwd, liveRoots[i])) {
+        throw new Error(
+          `Refusing to start development runtime inside live root (${liveRoots[i]}). ` +
+            "Use SIS_ALLOW_DEV_ON_LIVE_ROOT=true to override."
+        )
+      }
+    }
+    return
+  }
+  if (nodeEnv === "test") return
+  if (resolveBoolean(process.env.SIS_ALLOW_LIVE_ON_DEV_ROOT, false)) return
+  const devRoots = resolveDevRuntimeRoots()
+  for (let i = 0; i < devRoots.length; i += 1) {
+    if (isPathWithinRoot(cwd, devRoots[i])) {
+      throw new Error(
+        `Refusing to start live runtime inside dev root (${devRoots[i]}). ` +
+          "Use NODE_ENV=development or set SIS_ALLOW_LIVE_ON_DEV_ROOT=true to override."
+      )
+    }
+  }
+}
+
+function resolveExpectedMailerPort() {
+  const nodeEnv = normalizeString(process.env.NODE_ENV).toLowerCase()
+  return nodeEnv === "development" ? DEV_RUNTIME_PORT : LIVE_RUNTIME_PORT
+}
+
+function parseConfiguredMailerPort() {
+  const raw = normalizeEnvText(process.env.EXERCISE_MAILER_PORT)
+  if (!raw) return null
+  const parsed = Number(raw)
+  if (!Number.isInteger(parsed) || parsed <= 0 || parsed > 65535) {
+    throw new Error(`Invalid EXERCISE_MAILER_PORT value: ${raw}`)
+  }
+  return parsed
+}
+
+function resolveRuntimeMailerPort() {
+  const nodeEnv = normalizeString(process.env.NODE_ENV).toLowerCase()
+  const configuredPort = parseConfiguredMailerPort()
+  if (nodeEnv === "test") return configuredPort === null ? LIVE_RUNTIME_PORT : configuredPort
+  const expectedPort = resolveExpectedMailerPort()
+  if (configuredPort === null) return expectedPort
+  if (configuredPort !== expectedPort) {
+    const runtimeLabel = nodeEnv || "production"
+    throw new Error(
+      `Refusing to start ${runtimeLabel} runtime on EXERCISE_MAILER_PORT=${configuredPort}; expected ${expectedPort}.`
+    )
+  }
+  return configuredPort
+}
+
+function buildSubmissionActorKey(payload) {
+  const studentId = normalizeString(payload?.studentId || "(not provided)").toLowerCase()
+  const email = normalizeString(payload?.email).toLowerCase() || "-"
+  const pageTitle = normalizeString(payload?.pageTitle || "Untitled exercise").toLowerCase()
+  return `${studentId}|${email}|${pageTitle}`
+}
+
+function buildSubmissionNotificationKey(payload) {
+  const actorKey = buildSubmissionActorKey(payload)
+  const completedAtMs = Date.parse(normalizeString(payload?.completedAt))
+  const completedAtBucket = Number.isFinite(completedAtMs)
+    ? Math.round(completedAtMs / 1000)
+    : "unknown-time"
+  return `${actorKey}|${completedAtBucket}`
+}
+
+function pruneExpiredSubmissionNotificationKeys(now = Date.now()) {
+  const entries = Array.from(RECENT_SUBMISSION_NOTIFICATIONS.entries())
+  for (let i = 0; i < entries.length; i += 1) {
+    const [key, expiresAt] = entries[i]
+    if (!Number.isFinite(expiresAt) || expiresAt <= now) {
+      RECENT_SUBMISSION_NOTIFICATIONS.delete(key)
+    }
+  }
+}
+
+function hasRecentSubmissionNotification(notificationKey, now = Date.now()) {
+  pruneExpiredSubmissionNotificationKeys(now)
+  const key = normalizeString(notificationKey)
+  if (!key) return false
+  const expiresAt = RECENT_SUBMISSION_NOTIFICATIONS.get(key)
+  return Number.isFinite(expiresAt) && expiresAt > now
+}
+
+function markSubmissionNotificationSent(notificationKey, now = Date.now()) {
+  const key = normalizeString(notificationKey)
+  if (!key) return
+  pruneExpiredSubmissionNotificationKeys(now)
+  RECENT_SUBMISSION_NOTIFICATIONS.set(key, now + SUBMISSION_NOTIFICATION_DEDUP_WINDOW_MS)
+}
+
+async function withSubmissionLock(lockKey, task) {
+  const key = normalizeString(lockKey) || "submission-lock"
+  const prior = SUBMISSION_LOCKS.get(key) || Promise.resolve()
+  let releaseCurrent
+  const current = new Promise((resolve) => {
+    releaseCurrent = resolve
+  })
+  SUBMISSION_LOCKS.set(key, current)
+
+  await prior
+  try {
+    return await task()
+  } finally {
+    releaseCurrent()
+    if (SUBMISSION_LOCKS.get(key) === current) SUBMISSION_LOCKS.delete(key)
+  }
+}
+
 function resolveRuntimeSelfHealConfig() {
-  const enabled = resolveBoolean(process.env.SIS_RUNTIME_SELF_HEAL_ENABLED, true)
+  // Opt-in only: avoid implicit cross-runtime coupling unless explicitly configured.
+  const enabled = resolveBoolean(process.env.SIS_RUNTIME_SELF_HEAL_ENABLED, false)
   const runtimeRoot = path.resolve(
     normalizeString(process.env.SIS_RUNTIME_SELF_HEAL_RUNTIME_ROOT) || process.cwd()
   )
 
-  let sourceRoot = normalizeString(process.env.SIS_RUNTIME_SELF_HEAL_SOURCE_ROOT)
-  if (!sourceRoot) {
-    const cwd = process.cwd()
-    if (path.basename(cwd).toLowerCase() === "megs") {
-      sourceRoot = path.resolve(cwd, "..", "sis")
-    }
-  }
+  const sourceRoot = normalizeString(process.env.SIS_RUNTIME_SELF_HEAL_SOURCE_ROOT)
 
   if (!enabled) {
     return { enabled: false, reason: "disabled-by-env", sourceRoot, runtimeRoot }
@@ -160,6 +536,22 @@ function resolveRuntimeSelfHealConfig() {
   }
 
   const resolvedSourceRoot = path.resolve(sourceRoot)
+  const nodeEnv = normalizeString(process.env.NODE_ENV).toLowerCase()
+  const allowDevSelfHealLiveRoot = resolveBoolean(process.env.SIS_ALLOW_DEV_SELF_HEAL_LIVE_ROOT, false)
+  if (nodeEnv === "development" && !allowDevSelfHealLiveRoot) {
+    const liveRoots = resolveLiveRuntimeRoots()
+    const touchesLiveRoot =
+      isPathWithinAnyRoot(resolvedSourceRoot, liveRoots) || isPathWithinAnyRoot(runtimeRoot, liveRoots)
+    if (touchesLiveRoot) {
+      return {
+        enabled: false,
+        reason: "blocked-live-root-in-dev",
+        sourceRoot: resolvedSourceRoot,
+        runtimeRoot,
+      }
+    }
+  }
+
   const sourceHtmlPath = path.join(resolvedSourceRoot, SELF_HEAL_RELATIVE_ADMIN_HTML)
   const runtimeHtmlPath = path.join(runtimeRoot, SELF_HEAL_RELATIVE_ADMIN_HTML)
 
@@ -167,17 +559,6 @@ function resolveRuntimeSelfHealConfig() {
     return {
       enabled: false,
       reason: "missing-source-html",
-      sourceRoot: resolvedSourceRoot,
-      runtimeRoot,
-      sourceHtmlPath,
-      runtimeHtmlPath,
-    }
-  }
-
-  if (path.resolve(sourceHtmlPath) === path.resolve(runtimeHtmlPath)) {
-    return {
-      enabled: false,
-      reason: "same-source-runtime",
       sourceRoot: resolvedSourceRoot,
       runtimeRoot,
       sourceHtmlPath,
@@ -296,6 +677,31 @@ function getRuntimeSelfHealStatus() {
   }
 }
 
+function buildRuntimeHealthPayload() {
+  const studentAdminRuntime = getStudentAdminRuntimeStatus()
+  const maintenance = studentAdminRuntime?.maintenance || null
+  return {
+    status: "ok",
+    startedAt: STATUS.startedAt,
+    uptimeSeconds: Math.floor((Date.now() - Date.parse(STATUS.startedAt)) / 1000),
+    lastVerifyOk: STATUS.lastVerifyOk,
+    lastVerifyAt: STATUS.lastVerifyAt,
+    lastStoreOk: STATUS.lastStoreOk,
+    lastStoreAt: STATUS.lastStoreAt,
+    lastIntakeStoreOk: STATUS.lastIntakeStoreOk,
+    lastIntakeStoreAt: STATUS.lastIntakeStoreAt,
+    lastSendOk: STATUS.lastSendOk,
+    lastSendAt: STATUS.lastSendAt,
+    lastError: STATUS.lastError,
+    node: process.version,
+    endpoint: DEFAULT_PATH,
+    intakeEndpoint: DEFAULT_INTAKE_PATH,
+    studentAdminRuntime,
+    maintenance,
+    runtimeSelfHeal: getRuntimeSelfHealStatus(),
+  }
+}
+
 function coerceArray(value) {
   if (!value) return []
   if (Array.isArray(value)) return value.filter(Boolean)
@@ -318,7 +724,7 @@ function fromCodePointSafe(code) {
 
 function decodeCodePoints(value) {
   if (value === undefined || value === null) return ""
-  let list = []
+  let list
   if (Array.isArray(value)) list = value.slice()
   else if (typeof value === "string") list = value.split(/[^0-9]+/g)
   else list = [value]
@@ -531,6 +937,11 @@ function validatePayload(payload) {
   const studentId = typeof payload.studentId === "string" ? payload.studentId.trim() : ""
   const answers = Array.isArray(payload.answers) ? payload.answers : []
   if (!answers.length) throw new Error("Missing answers")
+  const totalQuestions = Number.parseInt(String(payload.totalQuestions ?? 0), 10) || 0
+  const correctCount = Number.parseInt(String(payload.correctCount ?? 0), 10) || 0
+  const pendingCount = Number.parseInt(String(payload.pendingCount ?? 0), 10) || 0
+  const incorrectCount = Number.parseInt(String(payload.incorrectCount ?? 0), 10) || 0
+  const scorePercent = Number(payload.scorePercent ?? 0) || 0
   return {
     email,
     studentId,
@@ -539,6 +950,11 @@ function validatePayload(payload) {
       typeof payload.completedAt === "string" ? payload.completedAt : new Date().toISOString(),
     recipients: decodeRecipients(Array.isArray(payload.recipients) ? payload.recipients : []),
     answers,
+    totalQuestions,
+    correctCount,
+    pendingCount,
+    incorrectCount,
+    scorePercent,
   }
 }
 
@@ -611,11 +1027,17 @@ function validateIntakePayload(payload) {
 function allowCors(request, response) {
   const reqOrigin = String(request.headers.origin || "").trim()
   const origins = getOriginList()
+  const allowEaglesSubdomains = configuredOriginIncludesEaglesDomain(origins)
   let allowOrigin = "null"
 
   if (origins.includes("*")) {
     allowOrigin = "*"
-  } else if (reqOrigin && (origins.includes(reqOrigin) || isLoopbackOrigin(reqOrigin))) {
+  } else if (
+    reqOrigin &&
+    (origins.includes(reqOrigin) ||
+      isLoopbackOrigin(reqOrigin) ||
+      (allowEaglesSubdomains && isEaglesEduVnOrigin(reqOrigin)))
+  ) {
     allowOrigin = reqOrigin // echo back allowed origin
   }
 
@@ -631,6 +1053,32 @@ function allowCors(request, response) {
     SMTP Transport
    ========================= */
 
+function resolveSmtpAuthMode(value) {
+  const mode = normalizeEnvText(value).toLowerCase()
+  if (!mode) return ""
+  if (
+    mode === "none" ||
+    mode === "off" ||
+    mode === "disabled" ||
+    mode === "false" ||
+    mode === "no" ||
+    mode === "relay"
+  ) {
+    return "none"
+  }
+  if (
+    mode === "auth" ||
+    mode === "on" ||
+    mode === "enabled" ||
+    mode === "true" ||
+    mode === "yes" ||
+    mode === "login"
+  ) {
+    return "auth"
+  }
+  return ""
+}
+
 function createTransport() {
   if (!nodemailer) {
     throw new Error(
@@ -640,12 +1088,17 @@ function createTransport() {
   const host = process.env.SMTP_HOST || "smtp.gmail.com"
   const port = Number(process.env.SMTP_PORT || 465)
   const secure = resolveBoolean(process.env.SMTP_SECURE, port === 465)
-  const user = process.env.SMTP_USER
-  const pass = process.env.SMTP_PASS
+  const user = normalizeEnvText(process.env.SMTP_USER)
+  const pass = normalizeEnvText(process.env.SMTP_PASS)
+  const configuredAuthMode = resolveSmtpAuthMode(process.env.SMTP_AUTH_MODE || process.env.SMTP_AUTH)
+  const useAuth = configuredAuthMode
+    ? configuredAuthMode === "auth"
+    : Boolean(user || pass)
 
-  // Fail fast: creds must exist for Gmail/App Password flow
-  if (!user || !pass) {
-    console.error("❌ Missing SMTP credentials. Set SMTP_USER and SMTP_PASS in environment.")
+  if (useAuth && (!user || !pass)) {
+    console.error(
+      "❌ Missing SMTP credentials. Set SMTP_USER and SMTP_PASS, or disable auth with SMTP_AUTH_MODE=none."
+    )
     process.exit(1)
   }
 
@@ -656,17 +1109,22 @@ function createTransport() {
       secure,
       user,
       passLen: pass ? pass.length : 0,
+      authMode: configuredAuthMode || (useAuth ? "auth" : "none"),
     })
   }
 
-  const transporter = nodemailer.createTransport({
+  const transportOptions = {
     host,
     port,
     secure,
-    auth: { user, pass },
     logger: MAILER_DEBUG,
     debug: MAILER_DEBUG,
-  })
+  }
+  if (useAuth) {
+    transportOptions.auth = { user, pass }
+  }
+
+  const transporter = nodemailer.createTransport(transportOptions)
 
   // Verify once at startup (non-fatal if it fails; server can still start)
   transporter
@@ -694,31 +1152,18 @@ async function handleRequest(request, response, transporter) {
   const { method } = request
   const url = new URL(request.url || "", `http://${request.headers.host || "localhost"}`)
 
+  const webAssetHandled = handleWebAssetStaticRequest(request, response, url.pathname)
+  if (webAssetHandled) return
+
   const adminHandled = await handleStudentAdminRequest(request, response)
   if (adminHandled) return
 
+  const docsHandled = handleDocsStaticRequest(request, response, url.pathname)
+  if (docsHandled) return
+
   // Health endpoint (no CORS needed, but harmless if included)
   if (method === "GET" && url.pathname === "/healthz") {
-    const studentAdminRuntime = getStudentAdminRuntimeStatus()
-    const body = {
-      status: "ok",
-      startedAt: STATUS.startedAt,
-      uptimeSeconds: Math.floor((Date.now() - Date.parse(STATUS.startedAt)) / 1000),
-      lastVerifyOk: STATUS.lastVerifyOk,
-      lastVerifyAt: STATUS.lastVerifyAt,
-      lastStoreOk: STATUS.lastStoreOk,
-      lastStoreAt: STATUS.lastStoreAt,
-      lastIntakeStoreOk: STATUS.lastIntakeStoreOk,
-      lastIntakeStoreAt: STATUS.lastIntakeStoreAt,
-      lastSendOk: STATUS.lastSendOk,
-      lastSendAt: STATUS.lastSendAt,
-      lastError: STATUS.lastError,
-      node: process.version,
-      endpoint: DEFAULT_PATH,
-      intakeEndpoint: DEFAULT_INTAKE_PATH,
-      studentAdminRuntime,
-      runtimeSelfHeal: getRuntimeSelfHealStatus(),
-    }
+    const body = buildRuntimeHealthPayload()
     allowCors(request, response)
     response.writeHead(200, { "Content-Type": "application/json" })
     response.end(JSON.stringify(body))
@@ -772,72 +1217,107 @@ async function handleRequest(request, response, transporter) {
     }
 
     const validated = validatePayload(payload)
+    const submissionActorKey = buildSubmissionActorKey(validated)
 
-    try {
-      const storeResult = await persistExerciseSubmission(validated)
-      if (storeResult?.saved) {
-        STATUS.lastStoreOk = true
+    await withSubmissionLock(submissionActorKey, async () => {
+      let storeResult = null
+      let shouldNotify = true
+
+      try {
+        storeResult = await persistExerciseSubmission(validated)
+        if (storeResult?.saved) {
+          STATUS.lastStoreOk = true
+          STATUS.lastStoreAt = new Date().toISOString()
+          if (storeResult?.shouldNotify === false) shouldNotify = false
+          if (MAILER_DEBUG) {
+            console.log("Saved exercise submission:", {
+              submissionId: storeResult.submissionId,
+              incomingResultId: storeResult.incomingResultId,
+              deduplicated: Boolean(storeResult.deduplicated),
+              scorePercent: storeResult?.summary?.scorePercent,
+            })
+          }
+        }
+      } catch (storeError) {
+        STATUS.lastStoreOk = false
         STATUS.lastStoreAt = new Date().toISOString()
+        STATUS.lastError = String(storeError?.message || storeError)
+        if (isExerciseStoreRequired()) throw storeError
+        console.warn("⚠️ Submission persisted to email only (database write failed):", STATUS.lastError)
+      }
+
+      if (!shouldNotify) {
+        STATUS.lastSendOk = true
+        STATUS.lastSendAt = new Date().toISOString()
         if (MAILER_DEBUG) {
-          console.log("Saved exercise submission:", {
-            submissionId: storeResult.submissionId,
-            scorePercent: storeResult?.summary?.scorePercent,
+          console.log("Suppressed duplicate exercise notification:", {
+            incomingResultId: storeResult?.incomingResultId || "",
+            deduplicated: Boolean(storeResult?.deduplicated),
           })
         }
+        return
       }
-    } catch (storeError) {
-      STATUS.lastStoreOk = false
-      STATUS.lastStoreAt = new Date().toISOString()
-      STATUS.lastError = String(storeError?.message || storeError)
-      if (isExerciseStoreRequired()) throw storeError
-      console.warn("⚠️ Submission persisted to email only (database write failed):", STATUS.lastError)
-    }
 
-    const emailData = createEmail(validated)
-    const teacherTo = emailData.teacherEmail.to.length
-      ? emailData.teacherEmail.to
-      : DEFAULT_RECIPIENTS
+      const notificationKey = buildSubmissionNotificationKey(validated)
+      if (hasRecentSubmissionNotification(notificationKey)) {
+        STATUS.lastSendOk = true
+        STATUS.lastSendAt = new Date().toISOString()
+        if (MAILER_DEBUG) {
+          console.log("Suppressed duplicate exercise notification:", {
+            reason: "already-notified",
+            notificationKey,
+          })
+        }
+        return
+      }
 
-    if (!teacherTo.length) {
-      throw new Error("No recipients configured")
-    }
-    const from = process.env.SMTP_FROM || process.env.SMTP_USER || "no-reply@eaglesvn.online"
+      const emailData = createEmail(validated)
+      const teacherTo = emailData.teacherEmail.to.length
+        ? emailData.teacherEmail.to
+        : DEFAULT_RECIPIENTS
 
-    if (MAILER_DEBUG) {
-      console.log("Sending message →", {
-        from,
-        to: teacherTo,
-        subject: emailData.teacherEmail.subject,
-      })
-    }
+      if (!teacherTo.length) {
+        throw new Error("No recipients configured")
+      }
+      const from = process.env.SMTP_FROM || process.env.SMTP_USER || "no-reply@eaglesvn.online"
 
-    await transporter.sendMail({
-      from,
-      to: teacherTo,
-      subject: emailData.teacherEmail.subject,
-      text: emailData.teacherEmail.text,
-      html: emailData.teacherEmail.html,
-      replyTo: validated.email || undefined,
-    })
+      if (MAILER_DEBUG) {
+        console.log("Sending message →", {
+          from,
+          to: teacherTo,
+          subject: emailData.teacherEmail.subject,
+        })
+      }
 
-    if (emailData.learnerEmail) {
       await transporter.sendMail({
         from,
-        to: emailData.learnerEmail.to,
-        subject: emailData.learnerEmail.subject,
-        text: emailData.learnerEmail.text,
-        html: emailData.learnerEmail.html,
-      })
-    }
-
-    STATUS.lastSendOk = true
-    STATUS.lastSendAt = new Date().toISOString()
-    if (MAILER_DEBUG)
-      console.log("✉️  Mail sent:", {
         to: teacherTo,
         subject: emailData.teacherEmail.subject,
-        learnerNotified: Boolean(emailData.learnerEmail),
+        text: emailData.teacherEmail.text,
+        html: emailData.teacherEmail.html,
+        replyTo: validated.email || undefined,
       })
+
+      if (emailData.learnerEmail) {
+        await transporter.sendMail({
+          from,
+          to: emailData.learnerEmail.to,
+          subject: emailData.learnerEmail.subject,
+          text: emailData.learnerEmail.text,
+          html: emailData.learnerEmail.html,
+        })
+      }
+
+      markSubmissionNotificationSent(notificationKey)
+      STATUS.lastSendOk = true
+      STATUS.lastSendAt = new Date().toISOString()
+      if (MAILER_DEBUG)
+        console.log("✉️  Mail sent:", {
+          to: teacherTo,
+          subject: emailData.teacherEmail.subject,
+          learnerNotified: Boolean(emailData.learnerEmail),
+        })
+    })
 
     // CORS + 204 success
     allowCors(request, response)
@@ -867,12 +1347,14 @@ async function handleRequest(request, response, transporter) {
    ========================= */
 
 export function startExerciseMailer(options = {}) {
+  assertRuntimeEnvironmentSeparation()
   const transporter = options.transporter || createTransport()
-  const port =
-    options.port === undefined || options.port === null ? DEFAULT_PORT : Number(options.port)
+  const hasExplicitPort = options.port !== undefined && options.port !== null
+  const port = hasExplicitPort ? Number(options.port) : resolveRuntimeMailerPort()
   const host =
     options.host === undefined || options.host === null ? DEFAULT_HOST : String(options.host)
   const selfHealLoop = startRuntimeSelfHealLoop()
+  setStudentAdminRuntimeHealthProvider(() => buildRuntimeHealthPayload())
 
   const server = http.createServer((request, response) => {
     handleRequest(request, response, transporter).catch((error) => {

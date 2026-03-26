@@ -4,6 +4,8 @@ import fs from "node:fs"
 import path from "node:path"
 import PDFDocument from "pdfkit"
 
+const FIXED_TIME_ZONE_OFFSET_MS = 7 * 60 * 60 * 1000
+
 function normalizeText(value) {
   if (value === undefined || value === null) return ""
   return String(value).trim()
@@ -11,6 +13,13 @@ function normalizeText(value) {
 
 function normalizeLower(value) {
   return normalizeText(value).toLowerCase()
+}
+
+function normalizePositiveInteger(value) {
+  if (value === undefined || value === null || value === "") return null
+  const parsed = Number.parseInt(String(value), 10)
+  if (!Number.isFinite(parsed) || parsed < 1) return null
+  return parsed
 }
 
 function sameText(value, expected) {
@@ -34,9 +43,10 @@ function formatDate(value) {
   if (!value) return ""
   const date = value instanceof Date ? value : new Date(value)
   if (Number.isNaN(date.valueOf())) return ""
-  const yyyy = date.getFullYear()
-  const mm = String(date.getMonth() + 1).padStart(2, "0")
-  const dd = String(date.getDate()).padStart(2, "0")
+  const shifted = new Date(date.getTime() + FIXED_TIME_ZONE_OFFSET_MS)
+  const yyyy = shifted.getUTCFullYear()
+  const mm = String(shifted.getUTCMonth() + 1).padStart(2, "0")
+  const dd = String(shifted.getUTCDate()).padStart(2, "0")
   return `${yyyy}-${mm}-${dd}`
 }
 
@@ -181,8 +191,24 @@ function toDisplay(value) {
   return String(value)
 }
 
+function assertStudentIdentity(student, context = "student") {
+  const eaglesId = normalizeText(student?.eaglesId)
+  if (!eaglesId) {
+    throw new Error(`Data integrity error: eaglesId is required (${context})`)
+  }
+  const studentNumber = normalizePositiveInteger(student?.studentNumber)
+  if (!studentNumber) {
+    throw new Error(`Data integrity error: studentNumber is required (${context})`)
+  }
+  return {
+    eaglesId,
+    studentNumber,
+  }
+}
+
 export function buildReportCardFilename(student, filters = {}) {
-  const studentPart = sanitizeFilePart(student?.studentId || student?.profile?.fullName, "student")
+  const identity = assertStudentIdentity(student, "report-card filename")
+  const studentPart = sanitizeFilePart(`${identity.eaglesId}-${identity.studentNumber}`, "student")
   const classPart = sanitizeFilePart(filters.className, "all-classes")
   const yearPart = sanitizeFilePart(filters.schoolYear, "all-years")
   const quarterPart = sanitizeFilePart(filters.quarter, "all-quarters")
@@ -190,6 +216,7 @@ export function buildReportCardFilename(student, filters = {}) {
 }
 
 export async function generateStudentReportCardPdf(student, filters = {}) {
+  const identity = assertStudentIdentity(student, "report-card PDF")
   const profile = student?.profile || {}
   const selected = selectRecords(student, filters)
   const attendanceSummary = summarizeAttendance(selected.attendanceRecords)
@@ -230,7 +257,8 @@ export async function generateStudentReportCardPdf(student, filters = {}) {
   }
 
   drawSectionTitle(doc, "Student Information")
-  printKeyValue(doc, "Student ID", toDisplay(student.studentId))
+  printKeyValue(doc, "Eagles ID", toDisplay(identity.eaglesId))
+  printKeyValue(doc, "Student Number", toDisplay(identity.studentNumber))
   printKeyValue(doc, "Full Name", toDisplay(profile.fullName))
   printKeyValue(doc, "English Name", toDisplay(profile.englishName))
   printKeyValue(doc, "Date of Birth", toDisplay(profile.dobText))
