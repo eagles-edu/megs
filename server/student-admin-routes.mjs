@@ -14,40 +14,85 @@ import {
   listIncomingExerciseResults,
   resolveIncomingExerciseResultToStudent,
   setIncomingExerciseResultStatus,
-} from "./exercise-store.mjs"
+} from "../src/modules/exercises/exercise-store.mjs"
 import {
-  approveParentClassReport,
-  encodeParentReportCommentBundle,
-  createStudentPointsAdjustment,
-  decodeParentReportCommentBundle,
-  deleteAttendanceRecord,
-  deleteGradeRecord,
-  deleteParentClassReport,
-  deleteStudent,
-  findFamilyByEmergencyPhone,
-  generateParentClassReportFromGrades,
-  getAdminDashboardSummary,
-  getNextStudentNumber,
-  getSchoolPointsYtdSummary,
-  getStudentAdminFilterCacheStatus,
-  getStudentById,
-  importStudentsFromRows,
   isStudentAdminStoreEnabled,
   listStudentNewsCalendar,
-  listStudentNewsReportsForReview,
-  listStudentPointsLedger,
-  listStudentPointsSnapshots,
+  saveStudentNewsReport,
+} from "./student-admin-store.mjs"
+import {
+  deleteStudent,
+  importStudentsFromRows,
+  saveStudent,
+} from "../src/modules/admin/student-write-import.mjs"
+import {
+  ASYNC_SIDE_EFFECT_JOB_TYPE_ANNOUNCEMENT_EMAIL,
+  enqueueAsyncSideEffectJob,
+} from "../src/modules/async/side-effect-jobs.mjs"
+import {
+  getEmailBatchQueueRuntimeStatus,
+  getEmailBatchQueueStatus,
+  listQueuedAnnouncements,
+  nowIso,
+  nextWeekendBatchDispatchAt,
+  parseIsoDateTime,
+  normalizeDeliveryMode,
+  normalizeQueueType,
+  shiftFromFixedTimeZone,
+  shiftToFixedTimeZone,
+  createQueueId,
+  NOTIFICATION_QUEUE_STATUS_HOLD,
+  NOTIFICATION_QUEUE_STATUS_QUEUED,
+  NOTIFICATION_QUEUE_STATUS_SENT,
+  NOTIFICATION_QUEUE_TYPE_ANNOUNCEMENT,
+  NOTIFICATION_QUEUE_TYPE_PARENT_REPORT,
+  queueAnnouncementEmail,
+  sendAllQueuedAnnouncements,
+  updateQueuedAnnouncement,
+} from "../src/modules/admin/notification-queue.mjs"
+import {
+  getNextStudentNumber,
+  getStudentById,
+  listStudents,
+} from "../src/modules/admin/student-roster.mjs"
+import {
+  backfillEnrollmentPeriodLinks,
+  changeStudentEnrollment,
+  ENROLLMENT_LEVEL_FILTER_UNENROLLED_ONLY,
+  getStudentEnrollmentDetail,
+  listEnrollmentRoster,
+  STUDENT_UNENROLLMENT_REASONS,
+} from "../src/modules/admin/enrollment-periods.mjs"
+import {
+  getStudentAdminFilterCacheStatus,
+  closeStudentAdminFilterCache,
   listExerciseTitles,
   listLevelAndSchoolFilters,
-  listStudents,
-  reviewStudentNewsReport,
-  saveAttendanceRecord,
-  saveGradeRecord,
+} from "../src/modules/admin/student-admin-queries.mjs"
+import {
+  getAdminDashboardSummary,
+} from "../src/modules/admin/dashboard-summary.mjs"
+import {
+  approveParentClassReport,
+  decodeParentReportCommentBundle,
+  deleteParentClassReport,
+  generateParentClassReportFromGrades,
+  encodeParentReportCommentBundle,
   saveParentClassReport,
-  saveStudentNewsReport,
-  setStudentPointsTotal,
-  saveStudent,
-} from "./student-admin-store.mjs"
+} from "../src/modules/admin/parent-reports.mjs"
+import {
+  deleteAssignmentTemplateById,
+  importAssignmentTemplates,
+  getAssignmentTemplateById,
+  listAssignmentTemplates,
+  saveAssignmentTemplate,
+  buildAssignmentTemplateBundle,
+  validateAssignmentTemplateBundle,
+} from "../src/modules/admin/assignment-templates.mjs"
+import {
+  listStudentNewsReportsForReview,
+  reviewStudentNewsReport,
+} from "../src/modules/admin/student-news-review.mjs"
 import {
   createAdminUser,
   deleteAdminUserById,
@@ -55,25 +100,47 @@ import {
   hasAdminUsersConfigured,
   listAdminUsers,
   updateAdminUserById,
-} from "./student-admin-user-store.mjs"
+} from "../src/modules/admin/users.mjs"
+import {
+  createStudentPointsAdjustment,
+  getSchoolPointsYtdSummary,
+  listStudentPointsLedger,
+  listStudentPointsSnapshots,
+  setStudentPointsTotal,
+} from "../src/modules/admin/points.mjs"
+import {
+  deleteAttendanceRecord,
+  deleteGradeRecord,
+  findFamilyByEmergencyPhone,
+  saveAttendanceRecord,
+  saveGradeRecord,
+} from "../src/modules/admin/student-records.mjs"
 import {
   buildReportCardFilename,
   generateStudentReportCardPdf,
 } from "./student-report-card-pdf.mjs"
-import { createStudentAdminSessionStore } from "./student-admin-session-store.mjs"
-import { getSharedPrismaClient } from "./prisma-client-factory.mjs"
+import { createStudentAdminSessionStore } from "../src/modules/admin/session-store.mjs"
+import { getSharedPrismaClient } from "../src/infra/db/prisma-client.mjs"
 
-const ADMIN_PAGE_PATH = normalizePathPrefix(process.env.STUDENT_ADMIN_PAGE_PATH, "/admin/students")
+const ADMIN_PAGE_PATH = normalizePathPrefix(process.env.STUDENT_ADMIN_PAGE_PATH, "/admin")
 const ADMIN_POINTS_PAGE_PATH = normalizePathPrefix(
   process.env.STUDENT_POINTS_PAGE_PATH,
-  "/admin/students/points-management"
+  "/admin/points-management"
 )
-const PARENT_PORTAL_PAGE_PATH = normalizePathPrefix(process.env.STUDENT_PARENT_PORTAL_PAGE_PATH, "/parent/portal")
-const STUDENT_PORTAL_PAGE_PATH = normalizePathPrefix(process.env.STUDENT_STUDENT_PORTAL_PAGE_PATH, "/student/portal")
+const ADMIN_ENROLLMENT_PAGE_PATH = normalizePathPrefix(
+  process.env.STUDENT_ENROLLMENT_PAGE_PATH,
+  "/admin/enrollment"
+)
+const PARENT_PORTAL_PAGE_PATH = normalizePathPrefix(process.env.STUDENT_PARENT_PORTAL_PAGE_PATH, "/parent")
+const STUDENT_PORTAL_PAGE_PATH = normalizePathPrefix(process.env.STUDENT_STUDENT_PORTAL_PAGE_PATH, "/student")
+const LEGACY_ADMIN_PAGE_PATH = "/admin/students"
+const LEGACY_PARENT_PORTAL_PAGE_PATH = "/parent/portal"
+const LEGACY_STUDENT_PORTAL_PAGE_PATH = "/student/portal"
 const ADMIN_PAGE_DEFAULT_SLUG = "overview"
 const ADMIN_PAGE_SECTIONS = [
   "overview",
   "queue-hub",
+  "enrollment",
   "student-admin",
   "profile",
   "attendance",
@@ -88,6 +155,7 @@ const ADMIN_PAGE_SECTIONS = [
   "reports",
   "family",
   "users",
+  "school-setup",
   "permissions",
   "settings",
 ]
@@ -97,6 +165,7 @@ const ADMIN_API_PREFIX = normalizePathPrefix(process.env.STUDENT_ADMIN_API_PREFI
 const ADMIN_AUTH_PREFIX = `${ADMIN_API_PREFIX}/auth`
 const ADMIN_USERS_PREFIX = `${ADMIN_API_PREFIX}/users`
 const ADMIN_STUDENTS_PREFIX = `${ADMIN_API_PREFIX}/students`
+const ADMIN_ENROLLMENT_PREFIX = `${ADMIN_API_PREFIX}/enrollment`
 const ADMIN_NEXT_STUDENT_NUMBER_PATH = `${ADMIN_STUDENTS_PREFIX}/next-student-number`
 const ADMIN_PERMISSIONS_PATH = `${ADMIN_API_PREFIX}/permissions`
 const ADMIN_UI_SETTINGS_PATH = `${ADMIN_API_PREFIX}/settings/ui`
@@ -115,6 +184,8 @@ const ADMIN_POINTS_SUMMARY_PATH = `${ADMIN_API_PREFIX}/points/summary`
 const ADMIN_POINTS_STUDENTS_PATH = `${ADMIN_API_PREFIX}/points/students`
 const ADMIN_POINTS_LEDGER_PATH = `${ADMIN_API_PREFIX}/points/ledger`
 const ADMIN_POINTS_ADJUSTMENTS_PATH = `${ADMIN_API_PREFIX}/points/adjustments`
+const ADMIN_ASSIGNMENT_TEMPLATES_PATH = `${ADMIN_API_PREFIX}/assignment-templates`
+const ADMIN_ASSIGNMENT_TEMPLATES_IMPORT_PATH = `${ADMIN_ASSIGNMENT_TEMPLATES_PATH}/import`
 const ADMIN_ASSIGNMENT_ANNOUNCEMENT_PREVIEW_CREATE_PATH =
   `${ADMIN_API_PREFIX}/assignment-announcements/volatile`
 const PARENT_API_PREFIX = normalizePathPrefix(process.env.STUDENT_PARENT_API_PREFIX, "/api/parent")
@@ -152,8 +223,13 @@ const ADMIN_REPORTS_DELETE_PATH_RE = new RegExp(
 )
 const ADMIN_PROFILE_SUBMISSION_PATH_RE = new RegExp(`^${escapeRegex(ADMIN_PROFILE_SUBMISSIONS_PATH)}/([^/]+)$`)
 const ADMIN_NEWS_REPORT_PATH_RE = new RegExp(`^${escapeRegex(ADMIN_NEWS_REPORTS_PATH)}/([^/]+)$`)
+const ADMIN_ASSIGNMENT_TEMPLATE_PATH_RE = new RegExp(
+  `^${escapeRegex(ADMIN_ASSIGNMENT_TEMPLATES_PATH)}/([^/]+)$`
+)
 const ADMIN_HTML_PATH = path.resolve(process.cwd(), "web-asset/admin/student-admin.html")
+const ADMIN_HUB_HTML_PATH = path.resolve(process.cwd(), "web-asset/admin/portal-hub.html")
 const ADMIN_POINTS_HTML_PATH = path.resolve(process.cwd(), "web-asset/admin/student-points.html")
+const ADMIN_ENROLLMENT_HTML_PATH = path.resolve(process.cwd(), "web-asset/admin/student-enrollment.html")
 const PARENT_PORTAL_HTML_PATH = path.resolve(process.cwd(), "web-asset/parent/parent-portal.html")
 const STUDENT_PORTAL_HTML_PATH = path.resolve(process.cwd(), "web-asset/student/student-portal.html")
 const ADMIN_IMPORT_TEMPLATE_PATH = path.resolve(process.cwd(), "schemas/student-import-template.xlsx")
@@ -171,12 +247,17 @@ const MAINTENANCE_DB_HEALTH_STATUS_PATH = path.resolve(
 )
 const DB_BACKUP_LATEST_FILE_PATH = path.resolve(
   process.cwd(),
-  normalizeText(process.env.DB_BACKUP_LATEST_FILE) || "backups/postgres/latest.json"
+  normalizeText(process.env.DB_BACKUP_LATEST_FILE) || "/home/eagles/dockerz/backups/postgres/latest.json"
 )
 const ADMIN_UI_SETTINGS_MAX_BYTES = Math.max(
   1024,
   Number.parseInt(String(process.env.STUDENT_ADMIN_UI_SETTINGS_MAX_BYTES || 1024 * 1024), 10) || 1024 * 1024
 )
+const PORTAL_NO_CACHE_HEADERS = Object.freeze({
+  "Cache-Control": "no-cache, no-store, must-revalidate",
+  Pragma: "no-cache",
+  Expires: "0",
+})
 const ADMIN_PAGE_SECTION_PATH_RE = new RegExp(`^${escapeRegex(ADMIN_PAGE_PATH)}/([a-z0-9-]+)$`)
 const ASSIGNMENT_ANNOUNCEMENT_PREVIEW_PATH_RE = new RegExp(
   `^${escapeRegex(ASSIGNMENT_ANNOUNCEMENT_PREVIEW_PATH)}/([a-f0-9]{24})$`
@@ -185,6 +266,9 @@ const ADMIN_POINTS_STUDENT_PATH_RE = new RegExp(`^${escapeRegex(ADMIN_POINTS_STU
 const PARENT_CHILD_PROFILE_PATH_RE = new RegExp(`^${escapeRegex(PARENT_CHILDREN_PATH)}/([^/]+)/profile$`)
 const PARENT_CHILD_PROFILE_DRAFT_PATH_RE = new RegExp(`^${escapeRegex(PARENT_CHILDREN_PATH)}/([^/]+)/profile-draft$`)
 const PARENT_CHILD_PROFILE_SUBMIT_PATH_RE = new RegExp(`^${escapeRegex(PARENT_CHILDREN_PATH)}/([^/]+)/profile-submit$`)
+const PARENT_CHILD_NEWS_CALENDAR_PATH_RE = new RegExp(
+  `^${escapeRegex(PARENT_CHILDREN_PATH)}/([^/]+)/news-reports/calendar$`
+)
 
 const SESSION_TTL_SECONDS = Math.max(
   60,
@@ -231,12 +315,52 @@ const EXERCISE_MAILER_SERVICE_NAME =
   normalizeText(process.env.EXERCISE_MAILER_SYSTEMD_SERVICE) || "exercise-mailer.service"
 const SERVICE_CONTROL_STATUS_TIMEOUT_MS = 5000
 const SERVICE_CONTROL_RESTART_TIMEOUT_MS = 12000
+const SELF_HEAL_SYNC_PATHS = [
+  "server",
+  "src",
+  "web-asset/admin",
+  "web-asset/shared",
+  "web-asset/parent",
+  "web-asset/student",
+  "web-asset/images",
+]
+const SELF_HEAL_SOURCE_ROOT = normalizeText(process.env.SIS_RUNTIME_SELF_HEAL_SOURCE_ROOT)
+const SELF_HEAL_RUNTIME_ROOT = path.resolve(
+  normalizeText(process.env.SIS_RUNTIME_SELF_HEAL_RUNTIME_ROOT) || process.cwd()
+)
+const SELF_HEAL_ALLOW_DEV_LIVE_ROOT = resolveBoolean(
+  process.env.SIS_ALLOW_DEV_SELF_HEAL_LIVE_ROOT,
+  false
+)
 const ASSIGNMENT_ANNOUNCEMENT_PREVIEW_TTL_MINUTES = Math.max(
   1,
   Number.parseInt(String(process.env.STUDENT_ADMIN_ASSIGNMENT_ANNOUNCEMENT_PREVIEW_TTL_MINUTES || "480"), 10) || 480
 )
 const ASSIGNMENT_ANNOUNCEMENT_PREVIEW_TTL_MS = ASSIGNMENT_ANNOUNCEMENT_PREVIEW_TTL_MINUTES * 60 * 1000
 const ASSIGNMENT_ANNOUNCEMENT_PREVIEW_STORE = new Map()
+/**
+ * @typedef {{
+ *   role: "admin" | "teacher" | "student" | "parent",
+ *   canRead: boolean,
+ *   canWrite: boolean,
+ *   canManageUsers: boolean,
+ *   canManagePermissions: boolean,
+ *   startPage: string,
+ *   allowedPages: Array<string>,
+ * }} RolePermission
+ *
+ * @typedef {{
+ *   admin: RolePermission,
+ *   teacher: RolePermission,
+ *   student: RolePermission,
+ *   parent: RolePermission,
+ * }} RolePermissionsMap
+ *
+ * @typedef {(() => unknown | Promise<unknown>) | null} RuntimeHealthProvider
+ *
+ * @typedef {{ createTransport: Function }} NodemailerModule
+ */
+/** @type {RolePermissionsMap | null} */
 let ROLE_PERMISSIONS = null
 const SESSION_STORE = createStudentAdminSessionStore({
   ttlSeconds: SESSION_TTL_SECONDS,
@@ -257,6 +381,169 @@ const PARENT_PROFILE_QUEUE_ALLOWED_STATUSES = new Set([
   PARENT_PROFILE_QUEUE_STATUS_APPROVED,
   PARENT_PROFILE_QUEUE_STATUS_REJECTED,
 ])
+const STUDENT_NEWS_SOURCE_DEFAULT_DOMAINS = Object.freeze({
+  cnn: "cnn.com",
+  bbc: "bbc.com",
+})
+const STUDENT_NEWS_SOURCE_MAX_CUSTOM = 8
+const STUDENT_NEWS_VALIDATION_THRESHOLDS = Object.freeze({
+  articleTitle: 0.7,
+  byline: 0.7,
+  articleDateline: 0.7,
+  leadSynopsis: 0.5,
+})
+const NEWS_AWAITING_RE_REVIEW_MARKER = "[[SIS-AWAITING-RE-REVIEW]]"
+
+function resolveNewsStatusColor(status) {
+  const normalized = normalizeLower(status)
+  if (
+    normalized === "green"
+    || normalized === "amber"
+    || normalized === "red"
+    || normalized === "purple"
+    || normalized === "blue"
+    || normalized === "turquoise"
+  ) {
+    return normalized
+  }
+  if (normalized === "approved") return "green"
+  if (normalized === "waiting") return "purple"
+  if (normalized === "checked") return "turquoise"
+  if (normalized === "revise" || normalized === "revision-requested") return "purple"
+  if (normalized === "submitted") return "amber"
+  if (normalized === "open") return "blue"
+  if (normalized === "none-submitted" || normalized === "none submitted") return "red"
+  return "amber"
+}
+
+function toNonNegativeInt(value) {
+  return Math.max(0, Number.parseInt(String(value || 0), 10) || 0)
+}
+
+function resolveNewsSetUnapprovedCount({
+  submittedCount = 0,
+  revisionRequestedCount = 0,
+} = {}) {
+  const submitted = toNonNegativeInt(submittedCount)
+  const revisionRequested = toNonNegativeInt(revisionRequestedCount)
+  return Math.max(0, submitted + revisionRequested)
+}
+
+function resolveNewsSetStatus({
+  reportCount = 0,
+  approvedCount = 0,
+  submittedCount = 0,
+  revisionRequestedCount = 0,
+  awaitingReReviewCount = 0,
+} = {}) {
+  const totalReports = toNonNegativeInt(reportCount)
+  const approved = toNonNegativeInt(approvedCount)
+  const submitted = toNonNegativeInt(submittedCount)
+  const revisionRequested = toNonNegativeInt(revisionRequestedCount)
+  const awaitingReReview = Math.min(submitted, toNonNegativeInt(awaitingReReviewCount))
+  const uncheckedInitial = Math.max(0, submitted - awaitingReReview)
+  if (totalReports >= 7 && approved >= 7) return "approved"
+  if (awaitingReReview > 0 && revisionRequested === 0 && uncheckedInitial === 0) return "waiting"
+  if (submitted === 0 && revisionRequested === 0) return "checked"
+  if (revisionRequested > 0) return "revise"
+  if (submitted > 0) return "submitted"
+  return "none-submitted"
+}
+
+function resolveAdminNewsSetStatus(set = {}) {
+  const normalized = normalizeLower(set?.setStatus || resolveNewsSetStatus(set))
+  if (normalized === "approved") return "approved"
+  if (normalized === "checked") return "checked"
+  return "waiting"
+}
+
+function resolveNewsSetAction({
+  reportCount = 0,
+  approvedCount = 0,
+  submittedCount = 0,
+  revisionRequestedCount = 0,
+} = {}) {
+  const totalReports = toNonNegativeInt(reportCount)
+  const approved = toNonNegativeInt(approvedCount)
+  const unapproved = resolveNewsSetUnapprovedCount({ submittedCount, revisionRequestedCount })
+  if (totalReports >= 7 && approved >= 7) return "completed"
+  if (unapproved === 0) return "incomplete"
+  return `unapproved-${unapproved}`
+}
+
+function resolveNewsSetActionColor(action = "") {
+  const normalized = normalizeLower(action)
+  if (normalized === "completed") return "green"
+  if (normalized === "incomplete") return "amber"
+  if (normalized.startsWith("unapproved-")) return "turquoise"
+  return "amber"
+}
+
+function resolveNewsAwaitingReReviewFlag(report = {}) {
+  const normalizedStatus = normalizeNewsReviewStatus(report?.reviewStatus)
+  if (normalizedStatus !== "submitted") return false
+  if (report?.awaitingReReview === true) return true
+  return normalizeText(report?.reviewNote).includes(NEWS_AWAITING_RE_REVIEW_MARKER)
+}
+
+function normalizeNewsReviewStatus(value) {
+  const token = normalizeLower(value)
+  if (token === "approved") return "approved"
+  if (token === "revision-requested" || token === "revision" || token === "request-revision") return "revision-requested"
+  return "submitted"
+}
+
+function normalizeNewsSourceDomain(value) {
+  const token = normalizeLower(value)
+    .replace(/^https?:\/\//, "")
+    .replace(/\/.*$/, "")
+    .replace(/[#?].*$/, "")
+    .replace(/^www\./, "")
+    .trim()
+  if (!token) return ""
+  if (!token.includes(".")) return ""
+  if (!/^[a-z0-9.-]+$/.test(token)) return ""
+  return token
+}
+
+function resolveStudentNewsValidationConfigFromSettings() {
+  const persisted = readPersistedUiSettings()
+  const uiSettings = persisted?.uiSettings && typeof persisted.uiSettings === "object"
+    ? persisted.uiSettings
+    : {}
+  const rawValidation = uiSettings?.newsReportValidation && typeof uiSettings.newsReportValidation === "object"
+    ? uiSettings.newsReportValidation
+    : {}
+  const defaultSources = rawValidation?.defaultSources && typeof rawValidation.defaultSources === "object"
+    ? rawValidation.defaultSources
+    : {}
+  const allowedDomains = []
+  if (defaultSources.cnn !== false) allowedDomains.push(STUDENT_NEWS_SOURCE_DEFAULT_DOMAINS.cnn)
+  if (defaultSources.bbc !== false) allowedDomains.push(STUDENT_NEWS_SOURCE_DEFAULT_DOMAINS.bbc)
+  const customSources = Array.isArray(rawValidation?.customSources) ? rawValidation.customSources : []
+  customSources.slice(0, STUDENT_NEWS_SOURCE_MAX_CUSTOM).forEach((entry) => {
+    if (!entry || typeof entry !== "object") return
+    if (entry.enabled !== true) return
+    const domain = normalizeNewsSourceDomain(entry.domain)
+    if (!domain) return
+    allowedDomains.push(domain)
+  })
+  const uniqueDomains = Array.from(new Set(allowedDomains.map((entry) => normalizeNewsSourceDomain(entry)).filter(Boolean)))
+  const envValidationDisabled = ["1", "true", "yes", "on"].includes(
+    normalizeLower(process.env.STUDENT_NEWS_VALIDATION_DISABLED)
+  )
+  const settingsValidationDisabled = rawValidation?.enabled === false
+  return {
+    enabled: !(envValidationDisabled || settingsValidationDisabled),
+    allowedDomains: uniqueDomains.length
+      ? uniqueDomains
+      : [
+          STUDENT_NEWS_SOURCE_DEFAULT_DOMAINS.cnn,
+          STUDENT_NEWS_SOURCE_DEFAULT_DOMAINS.bbc,
+        ],
+    thresholds: { ...STUDENT_NEWS_VALIDATION_THRESHOLDS },
+  }
+}
 const PARENT_PROFILE_IMMUTABLE_FIELDS = new Set(["eaglesId", "studentNumber"])
 const PARENT_PROFILE_ARRAY_FIELDS = new Set([
   "genderSelections",
@@ -356,6 +643,7 @@ let PARENT_PORTAL_DB_DISABLED = false
 let PARENT_PORTAL_DB_WARNED = false
 let STUDENT_PORTAL_DB_DISABLED = false
 let STUDENT_PORTAL_DB_WARNED = false
+/** @type {RuntimeHealthProvider} */
 let runtimeHealthProvider = null
 
 function normalizeText(value) {
@@ -413,6 +701,29 @@ function normalizePathPrefix(value, fallback) {
   if (!normalized.startsWith("/")) normalized = `/${normalized}`
   if (normalized.length > 1) normalized = normalized.replace(/\/+$/, "")
   return normalized
+}
+
+function resolveCanonicalPagePathname(pathname) {
+  const rawPathname = normalizeText(pathname)
+  if (!rawPathname || rawPathname === "/") return ""
+
+  let canonicalPathname = rawPathname
+  if (canonicalPathname === LEGACY_ADMIN_PAGE_PATH || canonicalPathname.startsWith(`${LEGACY_ADMIN_PAGE_PATH}/`)) {
+    canonicalPathname = `${ADMIN_PAGE_PATH}${canonicalPathname.slice(LEGACY_ADMIN_PAGE_PATH.length)}`
+  } else if (
+    canonicalPathname === LEGACY_PARENT_PORTAL_PAGE_PATH ||
+    canonicalPathname.startsWith(`${LEGACY_PARENT_PORTAL_PAGE_PATH}/`)
+  ) {
+    canonicalPathname = `${PARENT_PORTAL_PAGE_PATH}${canonicalPathname.slice(LEGACY_PARENT_PORTAL_PAGE_PATH.length)}`
+  } else if (
+    canonicalPathname === LEGACY_STUDENT_PORTAL_PAGE_PATH ||
+    canonicalPathname.startsWith(`${LEGACY_STUDENT_PORTAL_PAGE_PATH}/`)
+  ) {
+    canonicalPathname = `${STUDENT_PORTAL_PAGE_PATH}${canonicalPathname.slice(LEGACY_STUDENT_PORTAL_PAGE_PATH.length)}`
+  }
+
+  if (canonicalPathname.length > 1) canonicalPathname = canonicalPathname.replace(/\/+$/, "")
+  return canonicalPathname === rawPathname ? "" : canonicalPathname
 }
 
 function escapeRegex(value) {
@@ -737,39 +1048,165 @@ function sendJson(response, statusCode, payload) {
   response.end(`${JSON.stringify(payload)}\n`)
 }
 
-function sendHtml(response, statusCode, html) {
+function sendHtml(response, statusCode, html, headers = {}) {
   response.writeHead(statusCode, {
     "Content-Type": "text/html; charset=utf-8",
+    ...headers,
   })
   response.end(html)
 }
 
-function injectAdminRuntimeConfig(html, pageSlug) {
-  const runtimeConfig = `<script>window.__SIS_ADMIN_API_PREFIX=${JSON.stringify(ADMIN_API_PREFIX)};window.__SIS_ADMIN_PAGE_PATH=${JSON.stringify(ADMIN_PAGE_PATH)};window.__SIS_ADMIN_PAGE_SLUG=${JSON.stringify(pageSlug || ADMIN_PAGE_DEFAULT_SLUG)};window.__SIS_ADMIN_PAGE_SECTIONS=${JSON.stringify(ADMIN_PAGE_SECTIONS)};window.__SIS_ADMIN_PERMISSION_ROLES=${JSON.stringify(ADMIN_PERMISSION_ROLES)};window.__SIS_ADMIN_PERMISSIONS_PATH=${JSON.stringify(ADMIN_PERMISSIONS_PATH)};window.__SIS_ADMIN_UI_SETTINGS_PATH=${JSON.stringify(ADMIN_UI_SETTINGS_PATH)};window.__SIS_ADMIN_DASHBOARD_PATH=${JSON.stringify(ADMIN_DASHBOARD_PATH)};window.__SIS_ADMIN_QUEUE_HUB_PATH=${JSON.stringify(ADMIN_QUEUE_HUB_PATH)};window.__SIS_ADMIN_NEWS_REPORTS_PATH=${JSON.stringify(ADMIN_NEWS_REPORTS_PATH)};window.__SIS_ADMIN_EXERCISE_TITLES_PATH=${JSON.stringify(ADMIN_EXERCISE_TITLES_PATH)};window.__SIS_ADMIN_NOTIFY_EMAIL_PATH=${JSON.stringify(ADMIN_NOTIFY_EMAIL_PATH)};window.__SIS_ADMIN_NOTIFY_BATCH_STATUS_PATH=${JSON.stringify(ADMIN_NOTIFY_BATCH_STATUS_PATH)};window.__SIS_ADMIN_INCOMING_EXERCISE_RESULTS_PATH=${JSON.stringify(ADMIN_INCOMING_EXERCISE_RESULTS_PATH)};window.__SIS_ADMIN_PROFILE_SUBMISSIONS_PATH=${JSON.stringify(ADMIN_PROFILE_SUBMISSIONS_PATH)};window.__SIS_ADMIN_RUNTIME_HEALTH_PATH=${JSON.stringify(ADMIN_RUNTIME_HEALTH_PATH)};window.__SIS_ADMIN_SERVICE_CONTROL_PATH=${JSON.stringify(ADMIN_SERVICE_CONTROL_PATH)};window.__SIS_ADMIN_ASSIGNMENT_ANNOUNCEMENT_PREVIEW_CREATE_PATH=${JSON.stringify(ADMIN_ASSIGNMENT_ANNOUNCEMENT_PREVIEW_CREATE_PATH)};window.__SIS_ADMIN_ASSIGNMENT_ANNOUNCEMENT_PREVIEW_PATH=${JSON.stringify(ASSIGNMENT_ANNOUNCEMENT_PREVIEW_PATH)};window.__SIS_ADMIN_ASSIGNMENT_ANNOUNCEMENT_PREVIEW_TTL_MINUTES=${JSON.stringify(ASSIGNMENT_ANNOUNCEMENT_PREVIEW_TTL_MINUTES)};</script>`
+function sendRedirect(response, statusCode, location) {
+  response.writeHead(statusCode, {
+    Location: location,
+  })
+  response.end()
+}
+
+function setHtmlAttribute(html, name, value) {
+  const attributeName = normalizeText(name)
+  const attributeValue = escapeHtml(value)
+  if (!attributeName) return html
+  const attributePattern = new RegExp(`\\s${escapeRegex(attributeName)}="[^"]*"`, "i")
+  const openingTagPattern = /<html\b([^>]*)>/i
+  if (attributePattern.test(html)) {
+    return html.replace(attributePattern, ` ${attributeName}="${attributeValue}"`)
+  }
+  return html.replace(openingTagPattern, `<html$1 ${attributeName}="${attributeValue}">`)
+}
+
+function buildAdminInitialAuthState(session = null) {
+  if (!session || !normalizeText(session.username)) {
+    return { authenticated: false }
+  }
+  const role = normalizeRoleName(session.role)
+  return {
+    authenticated: true,
+    user: {
+      username: session.username,
+      role,
+    },
+    rolePolicy: getRolePolicy(role),
+  }
+}
+
+async function peekAdminSession(request) {
+  const sessionId = readSessionIdFromRequest(request)
+  if (!sessionId) return null
+  try {
+    return await SESSION_STORE.getSession(sessionId)
+  } catch (error) {
+    void error
+    return null
+  }
+}
+
+function buildParentInitialAuthState(session = null) {
+  if (!session || !normalizeText(session.username)) {
+    return { authenticated: false }
+  }
+  return {
+    authenticated: true,
+    user: {
+      parentsId: normalizeText(session.parentsId || session.username),
+      role: "parent",
+    },
+  }
+}
+
+async function peekParentSession(request) {
+  const sessionId = readParentSessionIdFromRequest(request)
+  if (!sessionId) return null
+  try {
+    return await PARENT_SESSION_STORE.getSession(sessionId)
+  } catch (error) {
+    void error
+    return null
+  }
+}
+
+function buildStudentInitialAuthState(session = null) {
+  if (!session || !normalizeText(session.username)) {
+    return { authenticated: false }
+  }
+  return {
+    authenticated: true,
+    user: {
+      eaglesId: normalizeText(session.eaglesId || session.username),
+      role: "student",
+    },
+  }
+}
+
+async function peekStudentSession(request) {
+  const sessionId = readStudentSessionIdFromRequest(request)
+  if (!sessionId) return null
+  try {
+    return await STUDENT_SESSION_STORE.getSession(sessionId)
+  } catch (error) {
+    void error
+    return null
+  }
+}
+
+function injectAdminRuntimeConfig(html, pageSlug, origin, initialAuthState = { authenticated: false }) {
+  const normalizedAuthState =
+    initialAuthState && typeof initialAuthState === "object" ? initialAuthState : { authenticated: false }
+  const authStateName = normalizedAuthState.authenticated ? "authenticated" : "unauthenticated"
+  const runtimeConfig = `<script>window.__SIS_RUNTIME_ENV=${JSON.stringify(process.env.NODE_ENV || "development")};window.__SIS_ADMIN_API_ORIGIN=${JSON.stringify(origin || "")};window.__SIS_ADMIN_API_PREFIX=${JSON.stringify(ADMIN_API_PREFIX)};window.__SIS_ADMIN_PAGE_PATH=${JSON.stringify(ADMIN_PAGE_PATH)};window.__SIS_ADMIN_PAGE_SLUG=${JSON.stringify(pageSlug || ADMIN_PAGE_DEFAULT_SLUG)};window.__SIS_ADMIN_PAGE_SECTIONS=${JSON.stringify(ADMIN_PAGE_SECTIONS)};window.__SIS_ADMIN_PERMISSION_ROLES=${JSON.stringify(ADMIN_PERMISSION_ROLES)};window.__SIS_ADMIN_PERMISSIONS_PATH=${JSON.stringify(ADMIN_PERMISSIONS_PATH)};window.__SIS_ADMIN_UI_SETTINGS_PATH=${JSON.stringify(ADMIN_UI_SETTINGS_PATH)};window.__SIS_ADMIN_DASHBOARD_PATH=${JSON.stringify(ADMIN_DASHBOARD_PATH)};window.__SIS_ADMIN_QUEUE_HUB_PATH=${JSON.stringify(ADMIN_QUEUE_HUB_PATH)};window.__SIS_ADMIN_NEWS_REPORTS_PATH=${JSON.stringify(ADMIN_NEWS_REPORTS_PATH)};window.__SIS_ADMIN_EXERCISE_TITLES_PATH=${JSON.stringify(ADMIN_EXERCISE_TITLES_PATH)};window.__SIS_ADMIN_NOTIFY_EMAIL_PATH=${JSON.stringify(ADMIN_NOTIFY_EMAIL_PATH)};window.__SIS_ADMIN_NOTIFY_BATCH_STATUS_PATH=${JSON.stringify(ADMIN_NOTIFY_BATCH_STATUS_PATH)};window.__SIS_ADMIN_INCOMING_EXERCISE_RESULTS_PATH=${JSON.stringify(ADMIN_INCOMING_EXERCISE_RESULTS_PATH)};window.__SIS_ADMIN_PROFILE_SUBMISSIONS_PATH=${JSON.stringify(ADMIN_PROFILE_SUBMISSIONS_PATH)};window.__SIS_ADMIN_RUNTIME_HEALTH_PATH=${JSON.stringify(ADMIN_RUNTIME_HEALTH_PATH)};window.__SIS_ADMIN_SERVICE_CONTROL_PATH=${JSON.stringify(ADMIN_SERVICE_CONTROL_PATH)};window.__SIS_ADMIN_ASSIGNMENT_ANNOUNCEMENT_PREVIEW_CREATE_PATH=${JSON.stringify(ADMIN_ASSIGNMENT_ANNOUNCEMENT_PREVIEW_CREATE_PATH)};window.__SIS_ADMIN_ASSIGNMENT_ANNOUNCEMENT_PREVIEW_PATH=${JSON.stringify(ASSIGNMENT_ANNOUNCEMENT_PREVIEW_PATH)};window.__SIS_ADMIN_ASSIGNMENT_ANNOUNCEMENT_PREVIEW_TTL_MINUTES=${JSON.stringify(ASSIGNMENT_ANNOUNCEMENT_PREVIEW_TTL_MINUTES)};window.__SIS_ADMIN_INITIAL_AUTH__=${JSON.stringify(normalizedAuthState)};</script>`
+  const htmlWithAuthState = setHtmlAttribute(html, "data-admin-auth-state", authStateName)
+  if (html.includes("</head>")) {
+    return htmlWithAuthState.replace("</head>", `  ${runtimeConfig}\n</head>`)
+  }
+  return `${runtimeConfig}\n${htmlWithAuthState}`
+}
+
+function injectParentRuntimeConfig(html, origin, initialAuthState = { authenticated: false }) {
+  const normalizedAuthState =
+    initialAuthState && typeof initialAuthState === "object" ? initialAuthState : { authenticated: false }
+  const authStateName = normalizedAuthState.authenticated ? "authenticated" : "unauthenticated"
+  const runtimeConfig = `<script>window.__SIS_RUNTIME_ENV=${JSON.stringify(process.env.NODE_ENV || "development")};window.__SIS_PARENT_API_ORIGIN=${JSON.stringify(origin || "")};window.__SIS_PARENT_API_PREFIX=${JSON.stringify(PARENT_API_PREFIX)};window.__SIS_PARENT_AUTH_PREFIX=${JSON.stringify(PARENT_AUTH_PREFIX)};window.__SIS_PARENT_CHILDREN_PATH=${JSON.stringify(PARENT_CHILDREN_PATH)};window.__SIS_PARENT_DASHBOARD_PATH=${JSON.stringify(PARENT_DASHBOARD_PATH)};window.__SIS_PARENT_INITIAL_AUTH__=${JSON.stringify(normalizedAuthState)};</script>`
+  const htmlWithAuthState = setHtmlAttribute(html, "data-parent-auth-state", authStateName)
+  if (html.includes("</head>")) {
+    return htmlWithAuthState.replace("</head>", `  ${runtimeConfig}\n</head>`)
+  }
+  return `${runtimeConfig}\n${htmlWithAuthState}`
+}
+
+function injectAdminPointsRuntimeConfig(html, origin) {
+  const runtimeConfig = `<script>window.__SIS_RUNTIME_ENV=${JSON.stringify(process.env.NODE_ENV || "development")};window.__SIS_ADMIN_API_ORIGIN=${JSON.stringify(origin || "")};window.__SIS_ADMIN_API_PREFIX=${JSON.stringify(ADMIN_API_PREFIX)};window.__SIS_ADMIN_AUTH_PREFIX=${JSON.stringify(ADMIN_AUTH_PREFIX)};window.__SIS_ADMIN_POINTS_SUMMARY_PATH=${JSON.stringify(ADMIN_POINTS_SUMMARY_PATH)};window.__SIS_ADMIN_POINTS_STUDENTS_PATH=${JSON.stringify(ADMIN_POINTS_STUDENTS_PATH)};window.__SIS_ADMIN_POINTS_LEDGER_PATH=${JSON.stringify(ADMIN_POINTS_LEDGER_PATH)};window.__SIS_ADMIN_POINTS_ADJUSTMENTS_PATH=${JSON.stringify(ADMIN_POINTS_ADJUSTMENTS_PATH)};</script>`
   if (html.includes("</head>")) {
     return html.replace("</head>", `  ${runtimeConfig}\n</head>`)
   }
   return `${runtimeConfig}\n${html}`
 }
 
-function injectParentRuntimeConfig(html) {
-  const runtimeConfig = `<script>window.__SIS_PARENT_API_PREFIX=${JSON.stringify(PARENT_API_PREFIX)};window.__SIS_PARENT_AUTH_PREFIX=${JSON.stringify(PARENT_AUTH_PREFIX)};window.__SIS_PARENT_CHILDREN_PATH=${JSON.stringify(PARENT_CHILDREN_PATH)};window.__SIS_PARENT_DASHBOARD_PATH=${JSON.stringify(PARENT_DASHBOARD_PATH)};</script>`
+function injectEnrollmentRuntimeConfig(html, origin, initialAuthState = { authenticated: false }) {
+  const normalizedAuthState =
+    initialAuthState && typeof initialAuthState === "object" ? initialAuthState : { authenticated: false }
+  const authStateName = normalizedAuthState.authenticated ? "authenticated" : "unauthenticated"
+  const runtimeConfig = `<script>window.__SIS_RUNTIME_ENV=${JSON.stringify(process.env.NODE_ENV || "development")};window.__SIS_ADMIN_API_ORIGIN=${JSON.stringify(origin || "")};window.__SIS_ADMIN_API_PREFIX=${JSON.stringify(ADMIN_API_PREFIX)};window.__SIS_ADMIN_AUTH_PREFIX=${JSON.stringify(ADMIN_AUTH_PREFIX)};window.__SIS_ADMIN_UI_SETTINGS_PATH=${JSON.stringify(ADMIN_UI_SETTINGS_PATH)};window.__SIS_ADMIN_PAGE_PATH=${JSON.stringify(ADMIN_PAGE_PATH)};window.__SIS_ADMIN_ENROLLMENT_PAGE_PATH=${JSON.stringify(ADMIN_ENROLLMENT_PAGE_PATH)};window.__SIS_ADMIN_ENROLLMENT_STUDENTS_PATH=${JSON.stringify(`${ADMIN_ENROLLMENT_PREFIX}/students`)};window.__SIS_ADMIN_ENROLLMENT_REASONS=${JSON.stringify(STUDENT_UNENROLLMENT_REASONS)};window.__SIS_ADMIN_ENROLLMENT_UNENROLLED_ONLY=${JSON.stringify(ENROLLMENT_LEVEL_FILTER_UNENROLLED_ONLY)};window.__SIS_ADMIN_INITIAL_AUTH__=${JSON.stringify(normalizedAuthState)};</script>`
+  const htmlWithAuthState = setHtmlAttribute(html, "data-admin-auth-state", authStateName)
   if (html.includes("</head>")) {
-    return html.replace("</head>", `  ${runtimeConfig}\n</head>`)
+    return htmlWithAuthState.replace("</head>", `  ${runtimeConfig}\n</head>`)
   }
-  return `${runtimeConfig}\n${html}`
+  return `${runtimeConfig}\n${htmlWithAuthState}`
 }
 
-function injectAdminPointsRuntimeConfig(html) {
-  const runtimeConfig = `<script>window.__SIS_ADMIN_API_PREFIX=${JSON.stringify(ADMIN_API_PREFIX)};window.__SIS_ADMIN_AUTH_PREFIX=${JSON.stringify(ADMIN_AUTH_PREFIX)};window.__SIS_ADMIN_POINTS_SUMMARY_PATH=${JSON.stringify(ADMIN_POINTS_SUMMARY_PATH)};window.__SIS_ADMIN_POINTS_STUDENTS_PATH=${JSON.stringify(ADMIN_POINTS_STUDENTS_PATH)};window.__SIS_ADMIN_POINTS_LEDGER_PATH=${JSON.stringify(ADMIN_POINTS_LEDGER_PATH)};window.__SIS_ADMIN_POINTS_ADJUSTMENTS_PATH=${JSON.stringify(ADMIN_POINTS_ADJUSTMENTS_PATH)};</script>`
+function injectStudentPortalRuntimeConfig(html, origin, initialAuthState = { authenticated: false }) {
+  const normalizedAuthState =
+    initialAuthState && typeof initialAuthState === "object" ? initialAuthState : { authenticated: false }
+  const authStateName = normalizedAuthState.authenticated ? "authenticated" : "unauthenticated"
+  const runtimeConfig = `<script>window.__SIS_RUNTIME_ENV=${JSON.stringify(process.env.NODE_ENV || "development")};window.__SIS_STUDENT_API_ORIGIN=${JSON.stringify(origin || "")};window.__SIS_STUDENT_API_PREFIX=${JSON.stringify(STUDENT_API_PREFIX)};window.__SIS_STUDENT_AUTH_PREFIX=${JSON.stringify(STUDENT_AUTH_PREFIX)};window.__SIS_STUDENT_DASHBOARD_PATH=${JSON.stringify(STUDENT_DASHBOARD_PATH)};window.__SIS_STUDENT_NEWS_REPORTS_PATH=${JSON.stringify(STUDENT_NEWS_REPORTS_PATH)};window.__SIS_STUDENT_NEWS_CALENDAR_PATH=${JSON.stringify(STUDENT_NEWS_CALENDAR_PATH)};window.__SIS_STUDENT_INITIAL_AUTH__=${JSON.stringify(normalizedAuthState)};</script>`
+  const htmlWithAuthState = setHtmlAttribute(html, "data-student-auth-state", authStateName)
   if (html.includes("</head>")) {
-    return html.replace("</head>", `  ${runtimeConfig}\n</head>`)
+    return htmlWithAuthState.replace("</head>", `  ${runtimeConfig}\n</head>`)
   }
-  return `${runtimeConfig}\n${html}`
+  return `${runtimeConfig}\n${htmlWithAuthState}`
 }
 
-function injectStudentPortalRuntimeConfig(html) {
-  const runtimeConfig = `<script>window.__SIS_STUDENT_API_PREFIX=${JSON.stringify(STUDENT_API_PREFIX)};window.__SIS_STUDENT_AUTH_PREFIX=${JSON.stringify(STUDENT_AUTH_PREFIX)};window.__SIS_STUDENT_DASHBOARD_PATH=${JSON.stringify(STUDENT_DASHBOARD_PATH)};window.__SIS_STUDENT_NEWS_REPORTS_PATH=${JSON.stringify(STUDENT_NEWS_REPORTS_PATH)};window.__SIS_STUDENT_NEWS_CALENDAR_PATH=${JSON.stringify(STUDENT_NEWS_CALENDAR_PATH)};</script>`
+function injectPortalHubRuntimeConfig(html) {
+  const runtimeConfig = `<script>window.__SIS_RUNTIME_ENV=${JSON.stringify(process.env.NODE_ENV || "development")};window.__SIS_ADMIN_PAGE_PATH=${JSON.stringify(ADMIN_PAGE_PATH)};window.__SIS_PARENT_PORTAL_PAGE_PATH=${JSON.stringify(PARENT_PORTAL_PAGE_PATH)};window.__SIS_STUDENT_PORTAL_PAGE_PATH=${JSON.stringify(STUDENT_PORTAL_PAGE_PATH)};</script>`
   if (html.includes("</head>")) {
     return html.replace("</head>", `  ${runtimeConfig}\n</head>`)
   }
@@ -783,6 +1220,14 @@ function resolveAdminPageSlug(pathname) {
   const slug = normalizeLower(match[1])
   if (!ADMIN_PAGE_SECTION_SET.has(slug)) return ""
   return slug
+}
+
+function resolveAdminPageSlugFromQuery(searchParams) {
+  if (!(searchParams instanceof URLSearchParams)) return ""
+  const querySlug = normalizeLower(searchParams.get("page") || searchParams.get("pageSlug"))
+  if (!querySlug) return ""
+  if (!ADMIN_PAGE_SECTION_SET.has(querySlug)) return ""
+  return querySlug
 }
 
 export function getStudentAdminRuntimeStatus() {
@@ -808,6 +1253,8 @@ export function getStudentAdminRuntimeStatus() {
     assignmentAnnouncementPreviewPath: ASSIGNMENT_ANNOUNCEMENT_PREVIEW_PATH,
     assignmentAnnouncementPreviewTtlMinutes: ASSIGNMENT_ANNOUNCEMENT_PREVIEW_TTL_MINUTES,
     pointsPagePath: ADMIN_POINTS_PAGE_PATH,
+    enrollmentPagePath: ADMIN_ENROLLMENT_PAGE_PATH,
+    enrollmentStudentsPath: `${ADMIN_ENROLLMENT_PREFIX}/students`,
     pointsSummaryPath: ADMIN_POINTS_SUMMARY_PATH,
     pointsStudentsPath: ADMIN_POINTS_STUDENTS_PATH,
     pointsLedgerPath: ADMIN_POINTS_LEDGER_PATH,
@@ -839,6 +1286,21 @@ export function getStudentAdminRuntimeStatus() {
 
 export function setStudentAdminRuntimeHealthProvider(provider) {
   runtimeHealthProvider = typeof provider === "function" ? provider : null
+}
+
+/**
+ * Release runtime-backed admin resources used by the mailer/server test harness.
+ *
+ * @returns {Promise<void>}
+ */
+export async function closeStudentAdminRuntimeResources() {
+  runtimeHealthProvider = null
+  await Promise.allSettled([
+    SESSION_STORE.close(),
+    PARENT_SESSION_STORE.close(),
+    STUDENT_SESSION_STORE.close(),
+    closeStudentAdminFilterCache(),
+  ])
 }
 
 async function resolveAdminRuntimeHealthPayload() {
@@ -1690,10 +2152,32 @@ function normalizeUiSettingsPayload(payload = {}) {
   const candidate = Object.prototype.hasOwnProperty.call(source, "uiSettings") ? source.uiSettings : source
   if (!candidate || typeof candidate !== "object" || Array.isArray(candidate)) return {}
   try {
-    return JSON.parse(JSON.stringify(candidate))
+    const normalized = JSON.parse(JSON.stringify(candidate))
+    const schoolSetup = normalized?.schoolSetup
+    if (schoolSetup && typeof schoolSetup === "object" && !Array.isArray(schoolSetup)) {
+      normalized.schoolSetup = normalizeSchoolSetupSnapshot(schoolSetup)
+    }
+    return normalized
   } catch (error) {
     void error
     return {}
+  }
+}
+
+function uiSettingsMetaFromPayload(payload = {}) {
+  const source = payload && typeof payload === "object" ? payload : {}
+  const candidate = Object.prototype.hasOwnProperty.call(source, "uiSettings") ? source.uiSettings : source
+  const schoolSetup = candidate && typeof candidate === "object" && !Array.isArray(candidate) ?
+    candidate.schoolSetup :
+    null
+  const quarters = Array.isArray(schoolSetup?.quarters) ? schoolSetup.quarters : []
+  const validation = validateSchoolSetupSnapshot(schoolSetup)
+  return {
+    schoolSetupStoredQuarterCount: quarters.length,
+    schoolSetupStoredQuartersPresent: quarters.length > 0,
+    schoolSetupStoredQuartersMissing: quarters.length < 4,
+    schoolSetupState: validation.schoolSetupState,
+    schoolSetupHasIssues: validation.schoolSetupState !== "ok",
   }
 }
 
@@ -1704,6 +2188,7 @@ function readPersistedUiSettings() {
       updatedAt: "",
       updatedBy: "",
       filePath: ADMIN_UI_SETTINGS_FILE_PATH,
+      meta: uiSettingsMetaFromPayload({}),
     }
   }
 
@@ -1715,6 +2200,7 @@ function readPersistedUiSettings() {
         updatedAt: "",
         updatedBy: "",
         filePath: ADMIN_UI_SETTINGS_FILE_PATH,
+        meta: uiSettingsMetaFromPayload({}),
       }
     }
 
@@ -1723,12 +2209,14 @@ function readPersistedUiSettings() {
       parsed && typeof parsed === "object" && !Array.isArray(parsed) && Object.prototype.hasOwnProperty.call(parsed, "uiSettings")
     const uiSettings = wrapped ? normalizeUiSettingsPayload({ uiSettings: parsed.uiSettings }) : normalizeUiSettingsPayload(parsed)
     const normalizedUpdatedBy = normalizeText(parsed?.updatedBy)
+    const meta = uiSettingsMetaFromPayload(wrapped ? { uiSettings: parsed.uiSettings } : parsed)
 
     return {
       uiSettings,
       updatedAt: normalizeText(parsed?.updatedAt),
       updatedBy: normalizedUpdatedBy || "",
       filePath: ADMIN_UI_SETTINGS_FILE_PATH,
+      meta,
     }
   } catch (error) {
     const wrapped = new Error("Unable to read persisted admin UI settings")
@@ -1739,8 +2227,17 @@ function readPersistedUiSettings() {
 
 function writePersistedUiSettings(payload = {}, updatedByUsername = "") {
   const uiSettings = normalizeUiSettingsPayload(payload)
+  if (Object.prototype.hasOwnProperty.call(uiSettings, "schoolSetup")) {
+    const schoolSetupState = normalizeText(uiSettings?.schoolSetup?.schoolSetupState)
+    if (schoolSetupState && schoolSetupState !== "ok") {
+      const error = new Error("School setup must include four explicit quarters before saving.")
+      error.statusCode = 422
+      throw error
+    }
+  }
   const updatedAt = nowIso()
   const updatedBy = normalizeText(updatedByUsername) || null
+  const meta = uiSettingsMetaFromPayload({ uiSettings })
   const persisted = {
     uiSettings,
     updatedAt,
@@ -1764,6 +2261,7 @@ function writePersistedUiSettings(payload = {}, updatedByUsername = "") {
     updatedAt,
     updatedBy: updatedBy || "",
     filePath: ADMIN_UI_SETTINGS_FILE_PATH,
+    meta,
   }
 }
 
@@ -1843,6 +2341,158 @@ function runCommand(command, args = [], timeoutMs = 5000) {
   })
 }
 
+function resolveRuntimeSelfHealConfig() {
+  const sourceRoot = normalizeText(SELF_HEAL_SOURCE_ROOT)
+  const runtimeRoot = SELF_HEAL_RUNTIME_ROOT
+  if (!sourceRoot) {
+    return {
+      enabled: false,
+      reason: "missing-source-root",
+      sourceRoot,
+      runtimeRoot,
+      syncPaths: [...SELF_HEAL_SYNC_PATHS],
+    }
+  }
+
+  const resolvedSourceRoot = path.resolve(sourceRoot)
+  const nodeEnv = normalizeText(process.env.NODE_ENV).toLowerCase()
+  if (nodeEnv === "development" && !SELF_HEAL_ALLOW_DEV_LIVE_ROOT) {
+    const liveRoot = path.resolve("/home/admin.eagles.edu.vn/sis")
+    const sourceInLiveRoot = isPathWithinRoot(resolvedSourceRoot, liveRoot)
+    const runtimeInLiveRoot = isPathWithinRoot(runtimeRoot, liveRoot)
+    if (sourceInLiveRoot || runtimeInLiveRoot) {
+      return {
+        enabled: false,
+        reason: "blocked-live-root-in-dev",
+        sourceRoot: resolvedSourceRoot,
+        runtimeRoot,
+        syncPaths: [...SELF_HEAL_SYNC_PATHS],
+      }
+    }
+  }
+
+  return {
+    enabled: true,
+    reason: "",
+    sourceRoot: resolvedSourceRoot,
+    runtimeRoot,
+    syncPaths: [...SELF_HEAL_SYNC_PATHS],
+  }
+}
+
+async function syncRuntimeSelfHealPaths() {
+  const config = resolveRuntimeSelfHealConfig()
+  if (!config.enabled) {
+    return {
+      ok: false,
+      action: "sync-and-restart",
+      enabled: false,
+      sourceRoot: config.sourceRoot,
+      runtimeRoot: config.runtimeRoot,
+      syncedPaths: [],
+      alreadyLatest: false,
+      detail:
+        config.reason === "missing-source-root" ?
+          "Self-heal source root is not configured." :
+          "Self-heal is blocked in this environment.",
+    }
+  }
+
+  if (config.sourceRoot === config.runtimeRoot) {
+    return {
+      ok: true,
+      action: "sync-and-restart",
+      enabled: true,
+      sourceRoot: config.sourceRoot,
+      runtimeRoot: config.runtimeRoot,
+      syncedPaths: [],
+      alreadyLatest: true,
+      detail: "Runtime source and runtime roots match; already latest.",
+    }
+  }
+
+  const syncedPaths = []
+  const alreadyLatestPaths = []
+  for (let i = 0; i < config.syncPaths.length; i += 1) {
+    const relativePath = config.syncPaths[i]
+    const sourcePath = path.resolve(config.sourceRoot, relativePath)
+    const runtimePath = path.resolve(config.runtimeRoot, relativePath)
+
+    if (!fs.existsSync(sourcePath)) {
+      return {
+        ok: false,
+        action: "sync-and-restart",
+        enabled: true,
+        sourceRoot: config.sourceRoot,
+        runtimeRoot: config.runtimeRoot,
+        syncedPaths,
+        alreadyLatest: false,
+        detail: `Missing source path: ${relativePath}`,
+      }
+    }
+
+    fs.mkdirSync(runtimePath, { recursive: true })
+    const diffResult = await runCommand(
+      "rsync",
+      ["-nrc", "--delete", "--itemize-changes", `${sourcePath}/`, `${runtimePath}/`],
+      8000
+    )
+    if (!diffResult.ok && diffResult.errorCode !== "ENOENT") {
+      return {
+        ok: false,
+        action: "sync-and-restart",
+        enabled: true,
+        sourceRoot: config.sourceRoot,
+        runtimeRoot: config.runtimeRoot,
+        syncedPaths,
+        alreadyLatest: false,
+        detail: diffResult.stderr || diffResult.stdout || `Unable to diff ${relativePath}`,
+      }
+    }
+
+    const diffText = firstOutputLine(diffResult.stdout, diffResult.stderr)
+    if (!diffText) {
+      alreadyLatestPaths.push(relativePath)
+      continue
+    }
+
+    const syncResult = await runCommand(
+      "rsync",
+      ["-a", "--delete", `${sourcePath}/`, `${runtimePath}/`],
+      12000
+    )
+    if (!syncResult.ok) {
+      return {
+        ok: false,
+        action: "sync-and-restart",
+        enabled: true,
+        sourceRoot: config.sourceRoot,
+        runtimeRoot: config.runtimeRoot,
+        syncedPaths,
+        alreadyLatest: false,
+        detail: syncResult.stderr || syncResult.stdout || `Unable to sync ${relativePath}`,
+      }
+    }
+
+    syncedPaths.push(relativePath)
+  }
+
+  const alreadyLatest = syncedPaths.length === 0
+  return {
+    ok: true,
+    action: "sync-and-restart",
+    enabled: true,
+    sourceRoot: config.sourceRoot,
+    runtimeRoot: config.runtimeRoot,
+    syncedPaths,
+    alreadyLatest,
+    alreadyLatestPaths,
+    detail: alreadyLatest ?
+      "Runtime already matched the latest source tree." :
+      `Synced ${syncedPaths.length} runtime path(s) from source.`,
+  }
+}
+
 function normalizeHttpUrl(value) {
   const text = normalizeText(value)
   if (!text) return ""
@@ -1855,6 +2505,13 @@ function normalizeHttpUrl(value) {
     void error
     return ""
   }
+}
+
+function isPathWithinRoot(candidatePath, rootPath) {
+  const candidate = path.resolve(candidatePath)
+  const root = path.resolve(rootPath)
+  const relative = path.relative(root, candidate)
+  return relative === "" || (!relative.startsWith("..") && !path.isAbsolute(relative))
 }
 
 function normalizeAssignmentAnnouncementPreviewItems(value) {
@@ -2142,11 +2799,86 @@ async function restartExerciseMailerServiceControl() {
   }
 }
 
+async function syncAndRestartExerciseMailerServiceControl() {
+  const syncResult = await syncRuntimeSelfHealPaths()
+  if (!syncResult.ok) {
+    return syncResult
+  }
+
+  if (!SERVICE_CONTROL_ENABLED) {
+    const status = await getExerciseMailerServiceControlStatus()
+    return {
+      ok: false,
+      action: "sync-and-restart",
+      ...status,
+      selfHeal: syncResult,
+      detail: "Service control disabled by env.",
+    }
+  }
+
+  const restartResult = await runCommand(
+    "sudo",
+    ["-n", "systemctl", "restart", EXERCISE_MAILER_SERVICE_NAME],
+    SERVICE_CONTROL_RESTART_TIMEOUT_MS
+  )
+
+  const status = await getExerciseMailerServiceControlStatus()
+  const restartLine = firstOutputLine(restartResult.stderr, restartResult.stdout)
+  const restartOk = restartResult.ok && status.status === "active"
+  const detail = restartOk
+    ? syncResult.alreadyLatest ?
+      `Runtime already latest; restarted ${EXERCISE_MAILER_SERVICE_NAME}; status=${status.status}.`
+      : `Synced latest runtime files and restarted ${EXERCISE_MAILER_SERVICE_NAME}; status=${status.status}.`
+    : restartLine ||
+      status.detail ||
+      `Failed to restart ${EXERCISE_MAILER_SERVICE_NAME}.`
+
+  return {
+    ok: restartOk,
+    action: "sync-and-restart",
+    ...status,
+    selfHeal: syncResult,
+    detail,
+    restart: {
+      exitCode: restartResult.exitCode,
+      timedOut: restartResult.timedOut,
+      stdout: restartResult.stdout,
+      stderr: restartResult.stderr,
+      errorCode: restartResult.errorCode,
+    },
+  }
+}
+
 function withError(response, request, error) {
-  const statusCode = Number.isInteger(error?.statusCode) ? error.statusCode : 500
-  const message = normalizeText(error?.message) || "Request failed"
+  let statusCode = Number.isInteger(error?.statusCode) ? error.statusCode : 500
+  let message = normalizeText(error?.message) || "Request failed"
+  const code = normalizeText(error?.code).toUpperCase()
+  const errorText = normalizeLower(error?.message || error)
+  const schemaDriftDetected =
+    code === "P2022"
+    || errorText.includes("column `(not available)` does not exist in the current database")
+    || (
+      errorText.includes("column")
+      && errorText.includes("does not exist")
+      && (
+        errorText.includes("incomingexerciseresult")
+        || errorText.includes("submittedeaglesid")
+        || errorText.includes("studentnewsreport")
+        || errorText.includes("reviewstatus")
+        || errorText.includes("validationissuesjson")
+      )
+    )
+  if (schemaDriftDetected) {
+    statusCode = 503
+    message = "Database schema mismatch detected. Run Prisma migration and regenerate Prisma client for this runtime."
+  }
+  const payload =
+    error && typeof error.payload === "object" && !Array.isArray(error.payload)
+      ? error.payload
+      : null
+  const responseBody = payload ? { error: message, ...payload } : { error: message }
   allowCors(request, response)
-  sendJson(response, statusCode, { error: message })
+  sendJson(response, statusCode, responseBody)
 }
 
 async function handleLogin(request, response) {
@@ -2270,8 +3002,12 @@ function normalizeRecipientList(value) {
   )
 }
 
+/** @type {Promise<NodemailerModule> | NodemailerModule | null} */
 let nodemailerModule = null
 
+/**
+ * @returns {Promise<NodemailerModule>}
+ */
 async function getNodemailer() {
   if (nodemailerModule) return nodemailerModule
   try {
@@ -2333,6 +3069,7 @@ function resolveSmtpAuthMode(value) {
   return ""
 }
 
+{
 const WEEKEND_BATCH_WINDOWS = Object.freeze([
   { day: 6, hour: 12, minute: 0, label: "Sat 12:00" },
   { day: 6, hour: 15, minute: 30, label: "Sat 15:30" },
@@ -2394,605 +3131,7 @@ function weekendBatchScheduleLabel() {
 
 const FIXED_TIME_ZONE_OFFSET_MINUTES = 7 * 60
 const FIXED_TIME_ZONE_OFFSET_MS = FIXED_TIME_ZONE_OFFSET_MINUTES * 60 * 1000
-const PORTAL_FIXED_TIME_ZONE = "Asia/Ho_Chi_Minh"
-
-function shiftToFixedTimeZone(value) {
-  return new Date(value.getTime() + FIXED_TIME_ZONE_OFFSET_MS)
 }
-
-function shiftFromFixedTimeZone(value) {
-  return new Date(value.getTime() - FIXED_TIME_ZONE_OFFSET_MS)
-}
-
-function parseIsoDateTime(value) {
-  const text = normalizeText(value)
-  if (!text) return null
-  const parsed = new Date(text)
-  if (Number.isNaN(parsed.valueOf())) return null
-  return parsed
-}
-
-function nextWeekendBatchDispatchAt(value = new Date()) {
-  const now = value instanceof Date ? new Date(value.getTime()) : new Date(value)
-  if (Number.isNaN(now.valueOf())) return null
-  const shiftedNow = shiftToFixedTimeZone(now)
-
-  for (let offset = 0; offset < 14; offset += 1) {
-    const dayStart = new Date(
-      Date.UTC(
-        shiftedNow.getUTCFullYear(),
-        shiftedNow.getUTCMonth(),
-        shiftedNow.getUTCDate() + offset,
-        0,
-        0,
-        0,
-        0
-      )
-    )
-    const dayOfWeek = dayStart.getUTCDay()
-    if (dayOfWeek !== 0 && dayOfWeek !== 6) continue
-
-    for (let i = 0; i < WEEKEND_BATCH_WINDOWS.length; i += 1) {
-      const slot = WEEKEND_BATCH_WINDOWS[i]
-      if (slot.day !== dayOfWeek) continue
-      const candidateShifted = new Date(
-        Date.UTC(
-          dayStart.getUTCFullYear(),
-          dayStart.getUTCMonth(),
-          dayStart.getUTCDate(),
-          slot.hour,
-          slot.minute,
-          0,
-          0
-        )
-      )
-      const candidate = shiftFromFixedTimeZone(candidateShifted)
-      if (candidate > now) return candidate
-    }
-  }
-
-  return null
-}
-
-function normalizeDeliveryMode(value) {
-  const mode = normalizeLower(value)
-  if (mode === "weekend-batch" || mode === "batch") return "weekend-batch"
-  return "immediate"
-}
-
-function normalizeAnnouncementPayload(payload = {}, options = {}) {
-  const allowEmptyRecipients = Boolean(options.allowEmptyRecipients)
-  const recipients = normalizeRecipientList(payload.recipients)
-  if (!recipients.length && !allowEmptyRecipients) {
-    const error = new Error("At least one valid recipient email is required")
-    error.statusCode = 400
-    throw error
-  }
-
-  return {
-    recipients,
-    assignmentTitle: normalizeText(payload.assignmentTitle) || "Assignment update",
-    exerciseTitle: normalizeText(payload.exerciseTitle),
-    dueAt: normalizeText(payload.dueAt),
-    level: normalizeText(payload.level),
-    message: normalizeText(payload.message),
-    senderName: normalizeText(payload.senderName) || "Eagles Student Admin",
-  }
-}
-
-function mapQueueRecord(record = {}) {
-  return {
-    id: normalizeText(record.id),
-    queueType: normalizeQueueType(record.queueType),
-    status: normalizeQueueStatus(record.status),
-    deliveryMode: normalizeDeliveryMode(record.deliveryMode),
-    recipients: normalizeRecipientList(record.recipients),
-    assignmentTitle: normalizeText(record.assignmentTitle) || "Assignment update",
-    exerciseTitle: normalizeText(record.exerciseTitle),
-    dueAt: normalizeText(record.dueAt),
-    level: normalizeText(record.level),
-    message: normalizeText(record.message),
-    senderName: normalizeText(record.senderName) || "Eagles Student Admin",
-    queuedByUsername: normalizeText(record.queuedByUsername),
-    reviewedByUsername: normalizeText(record.reviewedByUsername),
-    queuedAt: normalizeText(record.queuedAt || record.createdAt),
-    scheduledFor: normalizeText(record.scheduledFor),
-    sentAt: normalizeText(record.sentAt),
-    attempts: Number.parseInt(String(record.attempts || 0), 10) || 0,
-    lastError: normalizeText(record.lastError),
-    payloadJson: record.payloadJson || null,
-  }
-}
-
-function queueStatusFilter(statuses = []) {
-  const normalized = Array.from(
-    new Set((Array.isArray(statuses) ? statuses : []).map((entry) => normalizeQueueStatus(entry)))
-  )
-  return normalized
-}
-
-async function getNotificationQueuePrismaClient() {
-  if (EMAIL_QUEUE_DB_DISABLED) return null
-  try {
-    const prisma = await getSharedPrismaClient()
-    if (!prisma || !prisma.adminNotificationQueue) {
-      EMAIL_QUEUE_DB_DISABLED = true
-      if (!EMAIL_QUEUE_DB_WARNED) {
-        EMAIL_QUEUE_DB_WARNED = true
-        console.warn("admin notification queue falling back to memory: prisma model unavailable")
-      }
-      return null
-    }
-    return prisma
-  } catch (error) {
-    EMAIL_QUEUE_DB_DISABLED = true
-    if (!EMAIL_QUEUE_DB_WARNED) {
-      EMAIL_QUEUE_DB_WARNED = true
-      console.warn(`admin notification queue falling back to memory: ${error.message}`)
-    }
-    return null
-  }
-}
-
-function isQueueTableMissingError(error) {
-  const code = normalizeUpper(error?.code)
-  if (code === "P2021") return true
-  const message = normalizeLower(error?.message || error)
-  return message.includes("adminnotificationqueue")
-}
-
-function markQueueDatabaseFallback(error) {
-  EMAIL_QUEUE_DB_DISABLED = true
-  EMAIL_BATCH_LAST_ERROR = normalizeText(error?.message || error)
-  if (!EMAIL_QUEUE_DB_WARNED) {
-    EMAIL_QUEUE_DB_WARNED = true
-    console.warn(`admin notification queue falling back to memory: ${EMAIL_BATCH_LAST_ERROR}`)
-  }
-}
-
-async function runQueueDbOperation(handler, fallbackHandler) {
-  const prisma = await getNotificationQueuePrismaClient()
-  if (!prisma) return fallbackHandler()
-  try {
-    return await handler(prisma)
-  } catch (error) {
-    if (isQueueTableMissingError(error)) {
-      markQueueDatabaseFallback(error)
-      return fallbackHandler()
-    }
-    throw error
-  }
-}
-
-function buildQueuedAnnouncementEntry(payload = {}, options = {}) {
-  const queueType = normalizeQueueType(payload.queueType)
-  const normalizedPayload = normalizeAnnouncementPayload(payload, {
-    allowEmptyRecipients: queueType === NOTIFICATION_QUEUE_TYPE_PARENT_REPORT,
-  })
-  const now = new Date()
-  const scheduledAt = nextWeekendBatchDispatchAt(now)
-  if (!scheduledAt) {
-    const error = new Error("Unable to compute next weekend batch time")
-    error.statusCode = 503
-    throw error
-  }
-  return {
-    id: createQueueId("notify"),
-    queueType,
-    status: NOTIFICATION_QUEUE_STATUS_QUEUED,
-    deliveryMode: normalizeDeliveryMode(payload.deliveryMode),
-    recipients: normalizedPayload.recipients,
-    assignmentTitle: normalizedPayload.assignmentTitle,
-    exerciseTitle: normalizedPayload.exerciseTitle,
-    level: normalizedPayload.level,
-    dueAt: normalizedPayload.dueAt,
-    message: normalizedPayload.message,
-    senderName: normalizedPayload.senderName,
-    queuedByUsername: normalizeText(options.queuedByUsername || payload.queuedByUsername),
-    reviewedByUsername: "",
-    queuedAt: now.toISOString(),
-    scheduledFor: scheduledAt.toISOString(),
-    sentAt: "",
-    attempts: 0,
-    lastError: "",
-    payloadJson: payload && typeof payload === "object" ? payload : {},
-  }
-}
-
-function memoryQueueFilteredItems({ queueType = "", includeSent = false, statuses = [] } = {}) {
-  const normalizedQueueType = normalizeQueueType(queueType)
-  const statusFilter = queueStatusFilter(statuses)
-  return EMAIL_BATCH_QUEUE.filter((entry) => {
-    if (queueType && normalizeQueueType(entry.queueType) !== normalizedQueueType) return false
-    const status = normalizeQueueStatus(entry.status)
-    if (statusFilter.length) return statusFilter.includes(status)
-    if (!includeSent && status === NOTIFICATION_QUEUE_STATUS_SENT) return false
-    return true
-  })
-}
-
-async function countQueuedAnnouncements({ queueType = "", includeSent = false, statuses = [] } = {}) {
-  return runQueueDbOperation(
-    async (prisma) => {
-      const where = {}
-      if (queueType) where.queueType = normalizeQueueType(queueType)
-      const statusFilter = queueStatusFilter(statuses)
-      if (statusFilter.length) where.status = { in: statusFilter }
-      else if (!includeSent) where.status = { not: NOTIFICATION_QUEUE_STATUS_SENT }
-      return prisma.adminNotificationQueue.count({ where })
-    },
-    async () => memoryQueueFilteredItems({ queueType, includeSent, statuses }).length
-  )
-}
-
-async function listQueuedAnnouncements({ queueType = "", take = 10, includeSent = false, statuses = [] } = {}) {
-  const limit = Math.max(1, Math.min(Number.parseInt(String(take || 10), 10) || 10, 1000))
-  const total = await countQueuedAnnouncements({ queueType, includeSent, statuses })
-  const items = await runQueueDbOperation(
-    async (prisma) => {
-      const where = {}
-      if (queueType) where.queueType = normalizeQueueType(queueType)
-      const statusFilter = queueStatusFilter(statuses)
-      if (statusFilter.length) where.status = { in: statusFilter }
-      else if (!includeSent) where.status = { not: NOTIFICATION_QUEUE_STATUS_SENT }
-      const rows = await prisma.adminNotificationQueue.findMany({
-        where,
-        orderBy: { createdAt: "desc" },
-        take: limit,
-      })
-      return rows.map((row) =>
-        mapQueueRecord({
-          ...row,
-          queuedAt: row.createdAt?.toISOString?.() || "",
-          scheduledFor: row.scheduledFor?.toISOString?.() || "",
-          sentAt: row.sentAt?.toISOString?.() || "",
-        })
-      )
-    },
-    async () =>
-      memoryQueueFilteredItems({ queueType, includeSent, statuses })
-        .slice()
-        .sort((left, right) => normalizeText(right.queuedAt).localeCompare(normalizeText(left.queuedAt)))
-        .slice(0, limit)
-        .map((entry) => mapQueueRecord(entry))
-  )
-
-  EMAIL_BATCH_LAST_KNOWN_SIZE = total
-  return {
-    total,
-    items,
-    hasMore: total > items.length,
-  }
-}
-
-function buildAnnouncementEmailContent(payload = {}) {
-  const assignmentTitle = normalizeText(payload.assignmentTitle) || "Assignment update"
-  const exerciseTitle = normalizeText(payload.exerciseTitle)
-  const dueAt = normalizeText(payload.dueAt)
-  const level = normalizeText(payload.level)
-  const customMessage = normalizeText(payload.message)
-  const sender = normalizeText(payload.senderName) || "Eagles Student Admin"
-
-  const subjectParts = [assignmentTitle]
-  if (exerciseTitle) subjectParts.push(`(${exerciseTitle})`)
-  const subject = subjectParts.join(" ").trim()
-
-  const lines = [
-    `${sender} announcement`,
-    "",
-    `Assignment: ${assignmentTitle}`,
-    exerciseTitle ? `Exercise: ${exerciseTitle}` : "",
-    level ? `Level/Class: ${level}` : "",
-    dueAt ? `Due: ${dueAt}` : "",
-    "",
-    customMessage || "Please review and complete this assignment.",
-  ].filter(Boolean)
-
-  const htmlLines = lines
-    .map((line) => line.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;"))
-    .join("<br>")
-
-  return {
-    subject,
-    lines,
-    htmlLines,
-  }
-}
-
-async function sendAnnouncementEmail(payload = {}) {
-  const normalizedPayload = normalizeAnnouncementPayload(payload)
-  const emailContent = buildAnnouncementEmailContent(normalizedPayload)
-
-  const nodemailer = await getNodemailer()
-  const smtp = smtpConfigFromEnv()
-  const transportOptions = {
-    host: smtp.host,
-    port: smtp.port,
-    secure: smtp.secure,
-  }
-  if (smtp.useAuth) {
-    transportOptions.auth = {
-      user: smtp.user,
-      pass: smtp.pass,
-    }
-  }
-  const transporter = nodemailer.createTransport(transportOptions)
-
-  await transporter.sendMail({
-    from: smtp.from,
-    to: smtp.from,
-    bcc: normalizedPayload.recipients,
-    subject: emailContent.subject,
-    text: emailContent.lines.join("\n"),
-    html: `<p>${emailContent.htmlLines}</p>`,
-  })
-
-  return {
-    ok: true,
-    sent: normalizedPayload.recipients.length,
-    subject: emailContent.subject,
-    deliveryMode: "immediate",
-  }
-}
-
-async function queueAnnouncementEmail(payload = {}, options = {}) {
-  const totalUnsent = await countQueuedAnnouncements()
-  if (totalUnsent >= EMAIL_BATCH_QUEUE_LIMIT) {
-    const error = new Error("Weekend email batch queue is full")
-    error.statusCode = 503
-    throw error
-  }
-
-  const entry = buildQueuedAnnouncementEntry(payload, options)
-  const saved = await runQueueDbOperation(
-    async (prisma) => {
-      const created = await prisma.adminNotificationQueue.create({
-        data: {
-          id: entry.id,
-          queueType: entry.queueType,
-          status: entry.status,
-          deliveryMode: entry.deliveryMode,
-          recipients: entry.recipients,
-          assignmentTitle: entry.assignmentTitle,
-          exerciseTitle: entry.exerciseTitle || null,
-          level: entry.level || null,
-          dueAt: entry.dueAt || null,
-          message: entry.message || null,
-          senderName: entry.senderName || null,
-          queuedByUsername: entry.queuedByUsername || null,
-          reviewedByUsername: null,
-          scheduledFor: parseIsoDateTime(entry.scheduledFor),
-          sentAt: null,
-          attempts: 0,
-          lastError: null,
-          payloadJson: entry.payloadJson || null,
-        },
-      })
-      return mapQueueRecord({
-        ...created,
-        queuedAt: created.createdAt?.toISOString?.() || entry.queuedAt,
-        scheduledFor: created.scheduledFor?.toISOString?.() || entry.scheduledFor,
-      })
-    },
-    async () => {
-      EMAIL_BATCH_QUEUE.push(entry)
-      return mapQueueRecord(entry)
-    }
-  )
-  EMAIL_BATCH_LAST_KNOWN_SIZE = totalUnsent + 1
-
-  return {
-    ok: true,
-    queued: true,
-    deliveryMode: "weekend-batch",
-    queueId: saved.id,
-    queuedAt: saved.queuedAt,
-    scheduledFor: saved.scheduledFor,
-    queueSize: EMAIL_BATCH_LAST_KNOWN_SIZE,
-    schedule: weekendBatchScheduleLabel(),
-  }
-}
-
-async function getEmailBatchQueueStatus(queueType = "") {
-  const listed = await listQueuedAnnouncements({
-    queueType,
-    take: 500,
-    includeSent: false,
-  })
-  const nextScheduledFor = listed.items.reduce((earliest, entry) => {
-    const candidate = parseIsoDateTime(entry.scheduledFor)
-    if (!candidate) return earliest
-    if (!earliest || candidate < earliest) return candidate
-    return earliest
-  }, null)
-
-  return {
-    queueSize: listed.total,
-    nextScheduledFor: nextScheduledFor ? nextScheduledFor.toISOString() : "",
-    schedule: weekendBatchScheduleLabel(),
-    backend: EMAIL_QUEUE_DB_DISABLED ? "memory" : EMAIL_QUEUE_BACKEND_MODE,
-    lastRunAt: EMAIL_BATCH_LAST_RUN_AT,
-    lastResult: EMAIL_BATCH_LAST_RESULT,
-    lastError: EMAIL_BATCH_LAST_ERROR,
-    processing: false,
-  }
-}
-
-function getEmailBatchQueueRuntimeStatus() {
-  return {
-    queueSize: EMAIL_BATCH_LAST_KNOWN_SIZE,
-    nextScheduledFor: "",
-    schedule: weekendBatchScheduleLabel(),
-    backend: EMAIL_QUEUE_DB_DISABLED ? "memory" : EMAIL_QUEUE_BACKEND_MODE,
-    lastRunAt: EMAIL_BATCH_LAST_RUN_AT,
-    lastResult: EMAIL_BATCH_LAST_RESULT,
-    lastError: EMAIL_BATCH_LAST_ERROR,
-    processing: false,
-  }
-}
-
-async function updateQueuedAnnouncement(queueId, updates = {}, options = {}) {
-  const id = normalizeText(queueId)
-  if (!id) {
-    const error = new Error("queueId is required")
-    error.statusCode = 400
-    throw error
-  }
-  const normalized = {
-    status: updates.status !== undefined ? normalizeQueueStatus(updates.status) : undefined,
-    assignmentTitle:
-      updates.assignmentTitle !== undefined
-        ? normalizeText(updates.assignmentTitle) || "Assignment update"
-        : undefined,
-    exerciseTitle: updates.exerciseTitle !== undefined ? normalizeText(updates.exerciseTitle) : undefined,
-    level: updates.level !== undefined ? normalizeText(updates.level) : undefined,
-    dueAt: updates.dueAt !== undefined ? normalizeText(updates.dueAt) : undefined,
-    message: updates.message !== undefined ? normalizeText(updates.message) : undefined,
-    recipients: updates.recipients !== undefined ? normalizeRecipientList(updates.recipients) : undefined,
-    reviewedByUsername:
-      updates.reviewedByUsername !== undefined
-        ? normalizeText(updates.reviewedByUsername)
-        : normalizeText(options.reviewedByUsername),
-    scheduledFor: updates.scheduledFor !== undefined ? parseIsoDateTime(updates.scheduledFor) : undefined,
-    lastError: updates.lastError !== undefined ? normalizeText(updates.lastError) : undefined,
-    sentAt: updates.sentAt !== undefined ? parseIsoDateTime(updates.sentAt) : undefined,
-    attempts:
-      updates.attempts !== undefined ? Number.parseInt(String(updates.attempts), 10) || 0 : undefined,
-  }
-
-  return runQueueDbOperation(
-    async (prisma) => {
-      const patch = {}
-      if (normalized.status !== undefined) patch.status = normalized.status
-      if (normalized.assignmentTitle !== undefined) patch.assignmentTitle = normalized.assignmentTitle
-      if (normalized.exerciseTitle !== undefined) patch.exerciseTitle = normalized.exerciseTitle || null
-      if (normalized.level !== undefined) patch.level = normalized.level || null
-      if (normalized.dueAt !== undefined) patch.dueAt = normalized.dueAt || null
-      if (normalized.message !== undefined) patch.message = normalized.message || null
-      if (normalized.recipients !== undefined) patch.recipients = normalized.recipients
-      if (normalized.reviewedByUsername !== undefined) patch.reviewedByUsername = normalized.reviewedByUsername || null
-      if (normalized.scheduledFor !== undefined) patch.scheduledFor = normalized.scheduledFor
-      if (normalized.lastError !== undefined) patch.lastError = normalized.lastError || null
-      if (normalized.sentAt !== undefined) patch.sentAt = normalized.sentAt
-      if (normalized.attempts !== undefined) patch.attempts = normalized.attempts
-      const updated = await prisma.adminNotificationQueue.update({
-        where: { id },
-        data: patch,
-      })
-      return mapQueueRecord({
-        ...updated,
-        queuedAt: updated.createdAt?.toISOString?.() || "",
-        scheduledFor: updated.scheduledFor?.toISOString?.() || "",
-        sentAt: updated.sentAt?.toISOString?.() || "",
-      })
-    },
-    async () => {
-      const index = EMAIL_BATCH_QUEUE.findIndex((entry) => normalizeText(entry.id) === id)
-      if (index < 0) {
-        const error = new Error("Queue item not found")
-        error.statusCode = 404
-        throw error
-      }
-      const current = mapQueueRecord(EMAIL_BATCH_QUEUE[index])
-      const updated = {
-        ...current,
-        ...(normalized.status !== undefined ? { status: normalized.status } : {}),
-        ...(normalized.assignmentTitle !== undefined ? { assignmentTitle: normalized.assignmentTitle } : {}),
-        ...(normalized.exerciseTitle !== undefined ? { exerciseTitle: normalized.exerciseTitle } : {}),
-        ...(normalized.level !== undefined ? { level: normalized.level } : {}),
-        ...(normalized.dueAt !== undefined ? { dueAt: normalized.dueAt } : {}),
-        ...(normalized.message !== undefined ? { message: normalized.message } : {}),
-        ...(normalized.recipients !== undefined ? { recipients: normalized.recipients } : {}),
-        ...(normalized.reviewedByUsername !== undefined ? { reviewedByUsername: normalized.reviewedByUsername } : {}),
-        ...(normalized.scheduledFor !== undefined
-          ? { scheduledFor: normalized.scheduledFor ? normalized.scheduledFor.toISOString() : "" }
-          : {}),
-        ...(normalized.lastError !== undefined ? { lastError: normalized.lastError } : {}),
-        ...(normalized.sentAt !== undefined
-          ? { sentAt: normalized.sentAt ? normalized.sentAt.toISOString() : "" }
-          : {}),
-        ...(normalized.attempts !== undefined ? { attempts: normalized.attempts } : {}),
-      }
-      EMAIL_BATCH_QUEUE[index] = updated
-      return mapQueueRecord(updated)
-    }
-  )
-}
-
-async function approveQueuedParentReportIfPresent(item = {}, reviewedByUsername = "") {
-  const payload = item?.payloadJson && typeof item.payloadJson === "object" ? item.payloadJson : {}
-  const reportId = normalizeText(payload?.reportId || item?.reportId)
-  if (!reportId) return null
-  return approveParentClassReport(reportId, {
-    approvedByUsername: normalizeText(reviewedByUsername),
-    participationPointsAward: payload?.participationPointsAward,
-  })
-}
-
-async function sendAllQueuedAnnouncements({ queueType = "", reviewedByUsername = "" } = {}) {
-  const source = await listQueuedAnnouncements({
-    queueType: queueType || NOTIFICATION_QUEUE_TYPE_PARENT_REPORT,
-    includeSent: false,
-    statuses: [NOTIFICATION_QUEUE_STATUS_QUEUED],
-    take: 1000,
-  })
-
-  let sent = 0
-  let failed = 0
-
-  for (let i = 0; i < source.items.length; i += 1) {
-    const item = source.items[i]
-    try {
-      await sendAnnouncementEmail({
-        recipients: item.recipients,
-        assignmentTitle: item.assignmentTitle,
-        exerciseTitle: item.exerciseTitle,
-        dueAt: item.dueAt,
-        level: item.level,
-        message: item.message,
-        senderName: item.senderName,
-      })
-      if (normalizeQueueType(item.queueType) === NOTIFICATION_QUEUE_TYPE_PARENT_REPORT) {
-        await approveQueuedParentReportIfPresent(item, reviewedByUsername)
-      }
-      await updateQueuedAnnouncement(
-        item.id,
-        {
-          status: NOTIFICATION_QUEUE_STATUS_SENT,
-          sentAt: nowIso(),
-          lastError: "",
-          attempts: (Number.parseInt(String(item.attempts || 0), 10) || 0) + 1,
-        },
-        { reviewedByUsername }
-      )
-      sent += 1
-    } catch (error) {
-      await updateQueuedAnnouncement(
-        item.id,
-        {
-          status: NOTIFICATION_QUEUE_STATUS_QUEUED,
-          lastError: normalizeText(error?.message || error),
-          attempts: (Number.parseInt(String(item.attempts || 0), 10) || 0) + 1,
-        },
-        { reviewedByUsername }
-      )
-      failed += 1
-    }
-  }
-
-  EMAIL_BATCH_LAST_RUN_AT = nowIso()
-  EMAIL_BATCH_LAST_RESULT = `manual-send sent=${sent} failed=${failed}`
-  EMAIL_BATCH_LAST_ERROR = failed ? "Some queued parent reports failed to send." : ""
-
-  return {
-    ok: true,
-    queueType: queueType || NOTIFICATION_QUEUE_TYPE_PARENT_REPORT,
-    processed: source.items.length,
-    sent,
-    failed,
-  }
-}
-
 function buildEaglesRefId(studentRefId = "") {
   const normalized = normalizeText(studentRefId)
   if (!normalized) return ""
@@ -3040,7 +3179,7 @@ function markParentPortalDbFallback(error) {
 }
 
 async function getParentPortalPrismaClient() {
-  if (PARENT_PORTAL_DB_DISABLED) return null
+  if (PARENT_PORTAL_DB_DISABLED || !isStudentAdminStoreEnabled()) return null
   try {
     const prisma = await getSharedPrismaClient()
     if (
@@ -3152,38 +3291,39 @@ async function verifyParentPortalCredentials(parentsId, password) {
   const inputPassword = normalizeText(password)
   if (!requestedParentsId || !inputPassword) return null
 
-  const dbResult = await runParentPortalDbOperation(
-    async (prisma) => {
-      const account = await prisma.parentPortalAccount.findUnique({
-        where: { parentsId: requestedParentsId },
-      })
-      if (!account) return null
-      if (normalizeLower(account.status) !== "active") return null
-      if (!verifyPassword("", account.passwordHash, inputPassword)) return null
-      return {
-        accountId: account.id,
-        parentsId: account.parentsId,
-        source: "database",
-      }
-    },
-    async () => {
-      const accounts = configuredParentPortalAccounts()
-      for (let i = 0; i < accounts.length; i += 1) {
-        const account = accounts[i]
-        if (!timingSafeEqualText(requestedParentsId, account.parentsId)) continue
+  if (isStudentAdminStoreEnabled()) {
+    const dbResult = await runParentPortalDbOperation(
+      async (prisma) => {
+        const account = await prisma.parentPortalAccount.findUnique({
+          where: { parentsId: requestedParentsId },
+        })
+        if (!account) return null
         if (normalizeLower(account.status) !== "active") return null
-        if (!verifyPassword(account.password, account.passwordHash, inputPassword)) return null
+        if (!verifyPassword("", account.passwordHash, inputPassword)) return null
         return {
-          accountId: `env:${account.parentsId}`,
+          accountId: account.id,
           parentsId: account.parentsId,
-          source: "env",
+          source: "database",
         }
-      }
-      return null
-    }
-  )
+      },
+      async () => null
+    )
+    if (dbResult) return dbResult
+  }
 
-  return dbResult
+  const accounts = configuredParentPortalAccounts()
+  for (let i = 0; i < accounts.length; i += 1) {
+    const account = accounts[i]
+    if (!timingSafeEqualText(requestedParentsId, account.parentsId)) continue
+    if (normalizeLower(account.status) !== "active") return null
+    if (!verifyPassword(account.password, account.passwordHash, inputPassword)) return null
+    return {
+      accountId: `env:${account.parentsId}`,
+      parentsId: account.parentsId,
+      source: "env",
+    }
+  }
+  return null
 }
 
 function parseStudentPortalAccountsJson(value) {
@@ -3230,54 +3370,55 @@ async function verifyStudentPortalCredentials(eaglesId, password) {
   const inputPassword = normalizeText(password)
   if (!requestedEaglesId || !inputPassword) return null
 
-  const dbResult = await runStudentPortalDbOperation(
-    async (prisma) => {
-      const account = await prisma.studentPortalAccount.findUnique({
-        where: { eaglesId: requestedEaglesId },
-      })
-      if (!account) return null
-      if (normalizeLower(account.status) !== "active") return null
-      if (!verifyPassword("", account.passwordHash, inputPassword)) return null
-
-      let mappedStudent = null
-      if (!normalizeText(account.studentRefId) && isStudentAdminStoreEnabled()) {
-        mappedStudent = await findStudentByEaglesIdForParent(requestedEaglesId)
-      }
-      const studentRefId = normalizeText(account.studentRefId || mappedStudent?.studentRefId)
-      if (!studentRefId && isStudentAdminStoreEnabled()) return null
-      return {
-        eaglesId: requestedEaglesId,
-        studentRefId,
-        accountId: account.id,
-        source: "database",
-      }
-    },
-    async () => {
-      const accounts = configuredStudentPortalAccounts()
-      for (let i = 0; i < accounts.length; i += 1) {
-        const account = accounts[i]
-        if (!timingSafeEqualText(requestedEaglesId, account.eaglesId)) continue
+  if (isStudentAdminStoreEnabled()) {
+    const dbResult = await runStudentPortalDbOperation(
+      async (prisma) => {
+        const account = await prisma.studentPortalAccount.findUnique({
+          where: { eaglesId: requestedEaglesId },
+        })
+        if (!account) return null
         if (normalizeLower(account.status) !== "active") return null
-        if (!verifyPassword(account.password, account.passwordHash, inputPassword)) return null
+        if (!verifyPassword("", account.passwordHash, inputPassword)) return null
 
         let mappedStudent = null
-        if (!normalizeText(account.studentRefId) && isStudentAdminStoreEnabled()) {
+        if (!normalizeText(account.studentRefId)) {
           mappedStudent = await findStudentByEaglesIdForParent(requestedEaglesId)
         }
         const studentRefId = normalizeText(account.studentRefId || mappedStudent?.studentRefId)
-        if (!studentRefId && isStudentAdminStoreEnabled()) return null
+        if (!studentRefId) return null
         return {
           eaglesId: requestedEaglesId,
           studentRefId,
-          accountId: `env:${account.eaglesId}`,
-          source: "env",
+          accountId: account.id,
+          source: "database",
         }
-      }
-      return null
-    }
-  )
+      },
+      async () => null
+    )
+    if (dbResult) return dbResult
+  }
 
-  return dbResult
+  const accounts = configuredStudentPortalAccounts()
+  for (let i = 0; i < accounts.length; i += 1) {
+    const account = accounts[i]
+    if (!timingSafeEqualText(requestedEaglesId, account.eaglesId)) continue
+    if (normalizeLower(account.status) !== "active") return null
+    if (!verifyPassword(account.password, account.passwordHash, inputPassword)) return null
+
+    let mappedStudent = null
+    if (!normalizeText(account.studentRefId) && isStudentAdminStoreEnabled()) {
+      mappedStudent = await findStudentByEaglesIdForParent(requestedEaglesId)
+    }
+    const studentRefId = normalizeText(account.studentRefId || mappedStudent?.studentRefId)
+    if (!studentRefId && isStudentAdminStoreEnabled()) return null
+    return {
+      eaglesId: requestedEaglesId,
+      studentRefId,
+      accountId: `env:${account.eaglesId}`,
+      source: "env",
+    }
+  }
+  return null
 }
 
 async function resolveStudentPortalSessionStudentRefId(session = {}) {
@@ -3787,20 +3928,28 @@ async function findStudentByEaglesIdForParent(eaglesId) {
   }
 }
 
-function buildChildDashboardSnapshot({
+export function buildChildDashboardSnapshot({
   child = {},
   attendanceRows = [],
   gradeRows = [],
   reportRows = [],
+  assignmentTemplates = [],
 } = {}) {
+  const schoolSetup = normalizeSchoolSetupSnapshot(readPersistedUiSettings()?.uiSettings?.schoolSetup)
   const details = buildChildDashboardDetails({
+    child,
     attendanceRows,
     gradeRows,
     reportRows,
+    assignmentTemplates,
+    schoolSetup,
   })
   const attendance = {
     total: attendanceRows.length,
-    present: attendanceRows.filter((row) => normalizeLower(row?.status) === "present").length,
+    present: attendanceRows.filter((row) => {
+      const status = normalizeLower(row?.status)
+      return status === "present" || status === "late"
+    }).length,
     absent: attendanceRows.filter((row) => normalizeLower(row?.status) === "absent").length,
     late: attendanceRows.filter((row) => normalizeLower(row?.status) === "late").length,
     excused: attendanceRows.filter((row) => normalizeLower(row?.status) === "excused").length,
@@ -3849,6 +3998,8 @@ function buildChildDashboardSnapshot({
       averageScorePercent: averageScore,
     },
     performance,
+    schoolSetup,
+    schoolSetupState: normalizeText(schoolSetup?.schoolSetupState) || "maintenance",
     details,
   }
 }
@@ -3878,6 +4029,212 @@ function toPortalDateKey(value) {
   const month = String(shifted.getUTCMonth() + 1).padStart(2, "0")
   const day = String(shifted.getUTCDate()).padStart(2, "0")
   return `${year}-${month}-${day}`
+}
+
+function compareIsoDateText(left = "", right = "") {
+  return normalizeText(left).slice(0, 10).localeCompare(normalizeText(right).slice(0, 10))
+}
+
+function parseIsoDateLocal(value = "") {
+  const dateKey = normalizeText(value).slice(0, 10)
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(dateKey)) return null
+  return parseIsoDateTime(`${dateKey}T00:00:00+07:00`)
+}
+
+function schoolSetupQuarterForIsoDate(value = "", setup = null) {
+  const isoDate = toPortalDateKey(value)
+  if (!isoDate) return null
+  const quarters = Array.isArray(setup?.quarters) ? setup.quarters : []
+  for (let index = 0; index < quarters.length; index += 1) {
+    const entry = quarters[index]
+    const startDate = normalizeText(entry?.startDate).slice(0, 10)
+    const endDate = normalizeText(entry?.endDate).slice(0, 10)
+    if (!startDate || !endDate) continue
+    if (startDate <= isoDate && isoDate <= endDate) return entry
+  }
+  return null
+}
+
+function resolveQuarterInfo(value = "", schoolSetup = null) {
+  const configured = schoolSetupQuarterForIsoDate(value, schoolSetup)
+  if (!configured) return null
+  const key = normalizeText(configured.quarter) || normalizeText(configured.key) || ""
+  const quarterLabel = key ? key.toUpperCase() : ""
+  const displayLabel = quarterLabel ?
+    `${quarterLabel} ${normalizeText(configured.startDate).slice(0, 10)}-${normalizeText(configured.endDate).slice(0, 10)}`
+    : `${normalizeText(configured.startDate).slice(0, 10)}-${normalizeText(configured.endDate).slice(0, 10)}`
+  return {
+    key: `${normalizeText(schoolSetup?.schoolYear) || normalizeText(schoolSetup?.startDate).slice(0, 10) || "school"}|${key || normalizeText(configured.startDate).slice(0, 10)}`,
+    schoolYearLabel: normalizeText(schoolSetup?.schoolYear) || "",
+    quarterLabel: quarterLabel || key.toUpperCase() || "Q",
+    displayLabel,
+    sequence: Number.parseInt((key || "q0").replace(/\D/g, ""), 10) || 0,
+    quarter: Number.parseInt((key || "").replace(/\D/g, ""), 10) || 0,
+    startDate: normalizeText(configured.startDate).slice(0, 10),
+    endDate: normalizeText(configured.endDate).slice(0, 10),
+  }
+}
+
+function isoDateOffset(value = "", days = 0) {
+  const source = parseIsoDateLocal(value)
+  if (!source) return ""
+  const shifted = shiftToFixedTimeZone(source)
+  shifted.setUTCDate(shifted.getUTCDate() + (Number.isFinite(days) ? Math.trunc(days) : 0))
+  return toPortalDateKey(shiftFromFixedTimeZone(shifted))
+}
+
+function splitSchoolYearIntoQuarters(startDate = "", endDate = "") {
+  const startIso = normalizeText(startDate).slice(0, 10)
+  const endIso = normalizeText(endDate).slice(0, 10)
+  if (!parseIsoDateLocal(startIso) || !parseIsoDateLocal(endIso) || compareIsoDateText(startIso, endIso) > 0) {
+    return []
+  }
+
+  const ranges = []
+  let cursor = startIso
+  let remainingDays = Math.max(0, Math.round((parseIsoDateLocal(endIso).getTime() - parseIsoDateLocal(startIso).getTime()) / (24 * 60 * 60 * 1000))) + 1
+
+  for (let index = 0; index < 4; index += 1) {
+    const quartersLeft = 4 - index
+    const quarterKey = `q${index + 1}`
+    const start = cursor
+    if (!parseIsoDateLocal(start)) break
+
+    let end
+    if (index === 3) {
+      end = endIso
+    } else {
+      const minimumDaysAfter = quartersLeft - 1
+      const maxLength = Math.max(1, remainingDays - minimumDaysAfter)
+      const suggestedLength = Math.max(1, Math.floor(remainingDays / quartersLeft))
+      const pickedLength = Math.min(maxLength, suggestedLength)
+      const latestAllowed = isoDateOffset(endIso, -minimumDaysAfter)
+      end = isoDateOffset(start, pickedLength - 1)
+      if (parseIsoDateLocal(latestAllowed) && compareIsoDateText(end, latestAllowed) > 0) {
+        end = latestAllowed
+      }
+    }
+
+    const validEnd = parseIsoDateLocal(end) && compareIsoDateText(end, start) >= 0 ? end : start
+    ranges.push({ quarter: quarterKey, startDate: start, endDate: validEnd })
+    cursor = isoDateOffset(end, 1)
+    if (!parseIsoDateLocal(cursor) || compareIsoDateText(cursor, endIso) > 0) cursor = endIso
+    remainingDays = Math.max(0, Math.round((parseIsoDateLocal(endIso).getTime() - parseIsoDateLocal(cursor).getTime()) / (24 * 60 * 60 * 1000))) + 1
+  }
+
+  return ranges
+}
+
+function normalizeSchoolSetupQuarterEntry(entry = {}) {
+  if (!entry || typeof entry !== "object" || Array.isArray(entry)) return null
+  const quarter = normalizeText(entry?.quarter || entry?.key).toLowerCase()
+  const startDate = normalizeText(entry?.startDate).slice(0, 10)
+  const endDate = normalizeText(entry?.endDate).slice(0, 10)
+  if (!/^q[1-4]$/i.test(quarter)) return null
+  if (!parseIsoDateLocal(startDate) || !parseIsoDateLocal(endDate) || compareIsoDateText(startDate, endDate) > 0) {
+    return null
+  }
+  return {
+    quarter,
+    startDate,
+    endDate,
+  }
+}
+
+function inferSchoolYearFromQuarters(quarters = []) {
+  const firstQuarter = Array.isArray(quarters) ? quarters[0] : null
+  const lastQuarter = Array.isArray(quarters) ? quarters[quarters.length - 1] : null
+  const startYear = parseIsoDateLocal(firstQuarter?.startDate)?.getUTCFullYear?.()
+  const endYear = parseIsoDateLocal(lastQuarter?.endDate)?.getUTCFullYear?.()
+  if (!Number.isFinite(startYear) || !Number.isFinite(endYear)) return ""
+  return `${startYear}-${endYear}`
+}
+
+function defaultSchoolLetterGradeRanges() {
+  return [
+    { letter: "A", minPercent: 92, maxPercent: 100 },
+    { letter: "B", minPercent: 84, maxPercent: 91.99 },
+    { letter: "C", minPercent: 76, maxPercent: 83.99 },
+    { letter: "D", minPercent: 60, maxPercent: 75.99 },
+    { letter: "F", minPercent: 0, maxPercent: 59.99 },
+  ]
+}
+
+function normalizeSchoolPercentValue(value) {
+  const parsed = Number.parseFloat(String(value))
+  if (!Number.isFinite(parsed)) return null
+  if (parsed < 0) return 0
+  if (parsed > 100) return 100
+  return parsed
+}
+
+function normalizeSchoolLetterGradeRanges(values = []) {
+  const source = Array.isArray(values) ? values : []
+  const mapped = source
+    .map((entry) => {
+      if (!entry || typeof entry !== "object" || Array.isArray(entry)) return null
+      const letter = normalizeText(entry?.letter).toUpperCase()
+      const minPercent = normalizeSchoolPercentValue(entry?.minPercent)
+      const maxPercent = normalizeSchoolPercentValue(entry?.maxPercent)
+      if (!letter) return null
+      if (!Number.isFinite(minPercent) || !Number.isFinite(maxPercent)) return null
+      return {
+        letter,
+        minPercent: Math.min(minPercent, maxPercent),
+        maxPercent: Math.max(minPercent, maxPercent),
+      }
+    })
+    .filter((entry) => entry && typeof entry === "object")
+    .sort((left, right) => right.minPercent - left.minPercent)
+  if (!mapped.length) return defaultSchoolLetterGradeRanges()
+  return mapped
+}
+
+function validateSchoolSetupSnapshot(source = {}) {
+  const normalizedSource = source && typeof source === "object" ? source : {}
+  const startDate = normalizeText(normalizedSource?.startDate).slice(0, 10)
+  const endDate = normalizeText(normalizedSource?.endDate).slice(0, 10)
+  const schoolYear = normalizeText(normalizedSource?.schoolYear)
+  const quarters = (Array.isArray(normalizedSource?.quarters) ? normalizedSource.quarters : [])
+    .map((entry) => normalizeSchoolSetupQuarterEntry(entry))
+    .filter(Boolean)
+    .sort((left, right) => compareIsoDateText(left.startDate, right.startDate) || compareIsoDateText(left.endDate, right.endDate))
+  const letterGradeRanges = normalizeSchoolLetterGradeRanges(normalizedSource?.letterGradeRanges)
+  const validStart = parseIsoDateLocal(startDate)
+  const validEnd = parseIsoDateLocal(endDate)
+  const hasValidRange = Boolean(validStart && validEnd && compareIsoDateText(startDate, endDate) <= 0)
+  const derivedSchoolYear = hasValidRange ? `${validStart.getUTCFullYear()}-${validEnd.getUTCFullYear()}` : ""
+  const hasValidSchoolYear = Boolean(/^(\d{4})-(\d{4})$/.test(schoolYear) && schoolYear === derivedSchoolYear)
+  const hasSequentialQuarters = quarters.length === 4 && quarters.every((quarter, index) => {
+    const expectedQuarter = `q${index + 1}`
+    if (!quarter || normalizeText(quarter.quarter).toLowerCase() !== expectedQuarter) return false
+    if (!parseIsoDateLocal(quarter.startDate) || !parseIsoDateLocal(quarter.endDate)) return false
+    if (compareIsoDateText(quarter.startDate, quarter.endDate) > 0) return false
+    if (index === 0) {
+      if (quarter.startDate !== startDate) return false
+    } else {
+      const previousQuarter = quarters[index - 1]
+      if (isoDateOffset(previousQuarter.endDate, 1) !== quarter.startDate) return false
+    }
+    if (index === quarters.length - 1 && quarter.endDate !== endDate) return false
+    return true
+  })
+  const schoolSetupState = hasValidRange && hasValidSchoolYear && hasSequentialQuarters ? "ok" : "maintenance"
+  return {
+    startDate,
+    endDate,
+    schoolYear,
+    quarters,
+    letterGradeRanges,
+    schoolSetupState,
+  }
+}
+
+function normalizeSchoolSetupSnapshot(source = {}) {
+  const normalized = validateSchoolSetupSnapshot(source)
+  return {
+    ...normalized,
+  }
 }
 
 function toIsoOrEmpty(value) {
@@ -3914,9 +4271,20 @@ function weekdayLabelFromDateKey(value = "") {
   if (!/^\d{4}-\d{2}-\d{2}$/.test(dateKey)) return ""
   const date = parseIsoDateTime(`${dateKey}T00:00:00+07:00`)
   if (!date) return ""
-  return new Intl.DateTimeFormat("en-US", {
+  return new Intl.DateTimeFormat("vi-VN", {
     weekday: "long",
-    timeZone: PORTAL_FIXED_TIME_ZONE,
+    timeZone: "Asia/Ho_Chi_Minh",
+  }).format(date)
+}
+
+function formatPortalDate(value = "") {
+  const date = parseIsoDateTime(value) || (value instanceof Date ? value : null)
+  if (!date) return "Date unavailable"
+  return new Intl.DateTimeFormat("vi-VN", {
+    day: "2-digit",
+    month: "2-digit",
+    year: "2-digit",
+    timeZone: "Asia/Ho_Chi_Minh",
   }).format(date)
 }
 
@@ -4067,16 +4435,20 @@ async function backfillLegacyParentReportMetadataForStudentRefs(prisma = null, s
   })
 }
 
-async function getStudentByIdWithReportBackfill(studentRefId = "") {
+async function getStudentByIdWithReportBackfill(studentRefId = "", { enrollmentPeriodId = "" } = {}) {
   const studentId = normalizeText(studentRefId)
-  if (!studentId) return getStudentById(studentRefId)
+  if (!studentId) return getStudentById(studentRefId, { enrollmentPeriodId })
   try {
     const prisma = await getSharedPrismaClient()
     await backfillLegacyParentReportMetadataForStudentRefs(prisma, [studentId])
+    await backfillEnrollmentPeriodLinks({
+      prisma,
+      updatedByUsername: "system",
+    })
   } catch (error) {
     void error
   }
-  return getStudentById(studentRefId)
+  return getStudentById(studentRefId, { enrollmentPeriodId })
 }
 
 function serializeAttendanceRows(rows = []) {
@@ -4119,6 +4491,14 @@ function serializeGradeRows(rows = [], now = new Date()) {
         participationScore: toFiniteNumberOrNull(row?.participationScore, 0),
         inClassScore: toFiniteNumberOrNull(row?.inClassScore, 0),
         comments: normalizeText(row?.comments),
+        sourceSystem: normalizeText(row?.sourceSystem),
+        sourceAttemptId: normalizeText(row?.sourceAttemptId),
+        sourceOriginLabel: normalizeText(row?.sourceOriginLabel),
+        sourceOriginHost: normalizeText(row?.sourceOriginHost),
+        assignmentBundleJson:
+          row?.assignmentBundleJson && typeof row.assignmentBundleJson === "object" ?
+            row.assignmentBundleJson
+            : null,
         status: resolveGradeRecordStatus(row, now),
       }
     })
@@ -4185,13 +4565,203 @@ function serializeReportRows(rows = []) {
     .filter((row) => row.generatedDate)
 }
 
+function normalizeAssignmentBundleRecord(value = {}) {
+  const source = value && typeof value === "object" ? value : {}
+  const bundle = {
+    assignmentTemplateId: normalizeText(source.assignmentTemplateId),
+    eaglesId: normalizeText(source.eaglesId),
+    level: normalizeText(source.level),
+    assignmentTitle: normalizeText(source.assignmentTitle),
+    assignedAt: normalizeText(source.assignedAt),
+    dueAt: normalizeText(source.dueAt),
+    items: Array.isArray(source.items)
+      ? source.items
+          .map((item, index) => ({
+            assignmentTemplateItemId: normalizeText(item?.assignmentTemplateItemId || item?.id) || `assignment-item-${index + 1}`,
+            title: normalizeText(item?.title),
+            url: normalizeText(item?.url),
+          }))
+          .filter((item) => Boolean(item.assignmentTemplateItemId && item.title && item.url))
+      : [],
+    itemTitles: Array.isArray(source.itemTitles)
+      ? source.itemTitles.map((entry) => normalizeText(entry)).filter(Boolean)
+      : [],
+    exerciseUrls: Array.isArray(source.exerciseUrls)
+      ? source.exerciseUrls.map((entry) => normalizeText(entry)).filter(Boolean)
+      : [],
+  }
+  const validation = validateAssignmentTemplateBundle(bundle)
+  return validation.valid ? validation.bundle : null
+}
+
+function buildAssignmentBundleKey(bundle = {}) {
+  const normalized = normalizeAssignmentBundleRecord(bundle)
+  if (!normalized) return ""
+  return JSON.stringify({
+    assignmentTemplateId: normalized.assignmentTemplateId,
+    eaglesId: normalized.eaglesId,
+    level: normalized.level,
+    assignmentTitle: normalized.assignmentTitle,
+    assignedAt: normalized.assignedAt,
+    dueAt: normalized.dueAt,
+    items: normalized.items.map((item) => ({
+      assignmentTemplateItemId: item.assignmentTemplateItemId,
+      title: item.title,
+      url: item.url,
+    })),
+  })
+}
+
+function buildStudentAssignmentDetailRows({
+  child = {},
+  assignmentTemplates = [],
+  gradeRows = [],
+  schoolSetup = null,
+  now = new Date(),
+} = {}) {
+  const studentEaglesId = normalizeText(child?.eaglesId)
+  const schoolSetupState = normalizeText(schoolSetup?.schoolSetupState) || "maintenance"
+  const currentQuarterInfo = resolveQuarterInfo(now, schoolSetup)
+  const currentQuarterCode = currentQuarterInfo?.quarter ? `q${currentQuarterInfo.quarter}` : ""
+  const currentQuarterDeadline = normalizeText(currentQuarterInfo?.endDate)
+  let hasQuarterClassificationIssues = false
+  const templateBundles = (Array.isArray(assignmentTemplates) ? assignmentTemplates : [])
+    .map((template) => {
+      const rawBundle =
+        template?.assignmentBundleJson && typeof template.assignmentBundleJson === "object" ?
+          template.assignmentBundleJson
+          : buildAssignmentTemplateBundle(template)
+      const bundle = normalizeAssignmentBundleRecord(rawBundle)
+      if (!bundle) return null
+      if (studentEaglesId && normalizeText(bundle.eaglesId) && normalizeText(bundle.eaglesId) !== studentEaglesId) {
+        return null
+      }
+      return bundle
+    })
+    .filter(Boolean)
+
+  const gradeBundleByKey = new Map()
+  for (const row of Array.isArray(gradeRows) ? gradeRows : []) {
+    const bundle = normalizeAssignmentBundleRecord(row?.assignmentBundleJson)
+    if (!bundle) continue
+    const key = buildAssignmentBundleKey(bundle)
+    if (!key || gradeBundleByKey.has(key)) continue
+    gradeBundleByKey.set(key, row)
+  }
+
+  const currentQuarterRows = []
+  const pastQuarterRows = []
+
+  templateBundles.forEach((bundle) => {
+    const key = buildAssignmentBundleKey(bundle)
+    const matchedGradeRow = key ? gradeBundleByKey.get(key) || null : null
+    const dueAt = parseIsoDateTime(bundle.dueAt)
+    if (!dueAt) return
+    const explicitQuarter = normalizeLower(matchedGradeRow?.quarter || matchedGradeRow?.quarterCode || matchedGradeRow?.quarterLabel)
+    const quarterInfo = /^q[1-4]$/.test(explicitQuarter) ? {
+      quarter: Number.parseInt(explicitQuarter.slice(1), 10) || 0,
+      key: explicitQuarter,
+      quarterLabel: explicitQuarter.toUpperCase(),
+      displayLabel: explicitQuarter.toUpperCase(),
+      startDate: "",
+      endDate: "",
+    } : resolveQuarterInfo(dueAt, schoolSetup)
+    const quarterCode = quarterInfo?.quarter ? `q${quarterInfo.quarter}` : ""
+    if (!quarterCode) {
+      hasQuarterClassificationIssues = true
+      return
+    }
+    const quarterDeadline = normalizeText(quarterInfo?.endDate || bundle.dueAt)
+    const completed = Boolean(matchedGradeRow?.homeworkCompleted === true || matchedGradeRow?.submittedAt)
+    const submittedAt = parseIsoDateTime(matchedGradeRow?.submittedAt)
+    const lateCompleted = Boolean(completed && submittedAt && submittedAt > dueAt)
+    const itemLinks = bundle.items.map((item, index) => ({
+      id: `${bundle.assignmentTemplateId}:${item.assignmentTemplateItemId}`,
+      title: item.title || bundle.assignmentTitle || `Exercise ${index + 1}`,
+      url: item.url,
+    }))
+    const baseRow = {
+      id: key || `${bundle.assignmentTemplateId}:${bundle.assignmentTitle}`,
+      assignmentTemplateId: bundle.assignmentTemplateId,
+      assignmentTemplateItemId: bundle.items.map((item) => item.assignmentTemplateItemId),
+      assignmentTitle: bundle.assignmentTitle,
+      itemTitles: bundle.itemTitles,
+      itemLinks,
+      href: itemLinks[0]?.url || "",
+      title: bundle.assignmentTitle || itemLinks[0]?.title || "Assignment",
+      meta: `Assigned ${formatPortalDate(bundle.assignedAt)} | Due ${formatPortalDate(bundle.dueAt)} | Deadline ${formatPortalDate(quarterDeadline)}`,
+      note: bundle.items.length > 1 ?
+        "Open the exercise links below to finish this assignment." :
+        "Open the exercise link below to finish this assignment.",
+      quarterDeadline,
+      quarterCode,
+      assignedAt: bundle.assignedAt,
+      dueAt: bundle.dueAt,
+      completed,
+      lateCompleted,
+      status: completed ? "completed" : "open",
+      gradeDisposition: quarterCode === currentQuarterCode ? (completed ? "current-completed" : "current-open") : (completed ? "past-completed" : "past-open"),
+      countsTowardQuarter: quarterCode === currentQuarterCode && !completed,
+      tone: completed ? "good" : "warn",
+    }
+
+    if (quarterCode === currentQuarterCode) {
+      if (!completed) currentQuarterRows.push(baseRow)
+      return
+    }
+    pastQuarterRows.push({
+      ...baseRow,
+      note: completed ?
+        "Completed for progress tracking only." :
+        "You can still finish this for practice and progress, but it will not change quarter grades.",
+      tone: completed ? "good" : "warn",
+      countsTowardQuarter: false,
+    })
+  })
+
+  currentQuarterRows.sort((left, right) => {
+    const leftDue = parseIsoDateTime(left.dueAt)?.valueOf() || 0
+    const rightDue = parseIsoDateTime(right.dueAt)?.valueOf() || 0
+    if (leftDue !== rightDue) return leftDue - rightDue
+    return normalizeText(left.title).localeCompare(normalizeText(right.title))
+  })
+  pastQuarterRows.sort((left, right) => {
+    const leftQuarter = normalizeText(left.quarterCode)
+    const rightQuarter = normalizeText(right.quarterCode)
+    if (leftQuarter !== rightQuarter) return leftQuarter.localeCompare(rightQuarter)
+    const leftDue = parseIsoDateTime(left.dueAt)?.valueOf() || 0
+    const rightDue = parseIsoDateTime(right.dueAt)?.valueOf() || 0
+    if (leftDue !== rightDue) return leftDue - rightDue
+    if (left.completed !== right.completed) return left.completed ? 1 : -1
+    return normalizeText(left.title).localeCompare(normalizeText(right.title))
+  })
+
+  return {
+    currentQuarterDeadline,
+    currentQuarterRows,
+    pastQuarterRows,
+    currentQuarterCode,
+    quarterBoardState: schoolSetupState !== "ok" || hasQuarterClassificationIssues ? "maintenance" : "ok",
+  }
+}
+
 function buildChildDashboardDetails({
+  child = {},
   attendanceRows = [],
   gradeRows = [],
   reportRows = [],
+  assignmentTemplates = [],
+  schoolSetup = null,
 } = {}) {
   const assignmentHistory = serializeGradeRows(gradeRows, new Date())
   const gradeHistory = assignmentHistory.filter((row) => row.status === "completed" || row.scorePercent !== null)
+  const assignmentFocus = buildStudentAssignmentDetailRows({
+    child,
+    assignmentTemplates,
+    gradeRows,
+    schoolSetup,
+    now: new Date(),
+  })
   return {
     attendanceHistory: serializeAttendanceRows(attendanceRows).slice(0, 90),
     assignmentHistory: assignmentHistory.slice(0, 48),
@@ -4199,6 +4769,10 @@ function buildChildDashboardDetails({
     overdueHomework: assignmentHistory.filter((row) => row.status === "overdue").slice(0, 24),
     gradeHistory: gradeHistory.slice(0, 36),
     reportArchive: serializeReportRows(reportRows).slice(0, 24),
+    currentQuarterDeadline: assignmentFocus.currentQuarterDeadline,
+    unfinishedCurrentQuarterAssignments: assignmentFocus.currentQuarterRows.slice(0, 24),
+    pastQuartersUnfinishedAssignments: assignmentFocus.pastQuarterRows.slice(0, 24),
+    quarterBoardState: assignmentFocus.quarterBoardState,
   }
 }
 
@@ -4273,7 +4847,7 @@ async function buildParentDashboardPayload(session = {}) {
 
   try {
     const prisma = await getSharedPrismaClient()
-    const [attendanceRows, gradeRows, reportRows] = await Promise.all([
+    const [attendanceRows, gradeRows, reportRows, assignmentTemplates] = await Promise.all([
       prisma.studentAttendance.findMany({
         where: { studentRefId: { in: childIds } },
         orderBy: { attendanceDate: "desc" },
@@ -4286,6 +4860,7 @@ async function buildParentDashboardPayload(session = {}) {
         where: { studentRefId: { in: childIds } },
         orderBy: { generatedAt: "desc" },
       }),
+      listAssignmentTemplates({ take: 1000 }),
     ])
     const backfilledReportRows = await backfillLegacyParentReportMetadataRows({
       prisma,
@@ -4311,18 +4886,58 @@ async function buildParentDashboardPayload(session = {}) {
       if (!groupedReports.has(id)) groupedReports.set(id, [])
       groupedReports.get(id).push(row)
     })
+  const newsSummaries = new Map()
+  const newsSnapshots = new Map()
+  await Promise.all(
+    linkedChildren.map(async (child) => {
+      try {
+        const summary = await listStudentNewsCalendar(child.studentRefId, { now: new Date(), days: 60 })
+        const statusSummary = summary?.statusSummary || { submitted: 0, approved: 0, revisionRequested: 0 }
+        newsSummaries.set(child.studentRefId, statusSummary)
+        newsSnapshots.set(child.studentRefId, summary || null)
+      } catch (error) {
+        void error
+        newsSummaries.set(child.studentRefId, { submitted: 0, approved: 0, revisionRequested: 0 })
+        newsSnapshots.set(child.studentRefId, null)
+      }
+    })
+  )
 
     return {
       ok: true,
       generatedAt: nowIso(),
-      children: linkedChildren.map((child) =>
-        buildChildDashboardSnapshot({
+      children: linkedChildren.map((child) => {
+        const newsSummary = newsSummaries.get(child.studentRefId) || { submitted: 0, approved: 0, revisionRequested: 0 }
+        const newsSnapshot = newsSnapshots.get(child.studentRefId)
+        const latestSubmittedAt = Array.isArray(newsSnapshot?.items)
+          ? normalizeText(
+              newsSnapshot.items
+                .map((entry) => entry?.submittedAt)
+                .filter(Boolean)
+                .sort()
+                .reverse()[0]
+            )
+          : ""
+        const snapshot = buildChildDashboardSnapshot({
           child,
           attendanceRows: groupedAttendance.get(child.studentRefId) || [],
           gradeRows: groupedGrades.get(child.studentRefId) || [],
           reportRows: groupedReports.get(child.studentRefId) || [],
+          assignmentTemplates,
         })
-      ),
+        return {
+          ...snapshot,
+          newsReports: {
+            submittedCount: newsSummary.submitted + newsSummary.approved + newsSummary.revisionRequested,
+            statusSummary: newsSummary,
+            latestSubmittedAt,
+            window: newsSnapshot?.window || null,
+            openReport: newsSnapshot?.openReport || null,
+            items: Array.isArray(newsSnapshot?.items) ? newsSnapshot.items : [],
+            calendar: Array.isArray(newsSnapshot?.calendar) ? newsSnapshot.calendar : [],
+          },
+        }
+      }),
     }
   } catch (error) {
     const wrapped = new Error("Unable to load parent dashboard")
@@ -4341,18 +4956,7 @@ async function buildStudentDashboardPayload({ studentRefId = "", eaglesId = "" }
 
   try {
     const prisma = await getSharedPrismaClient()
-    const newsAggregatePromise =
-      prisma?.studentNewsReport && typeof prisma.studentNewsReport.aggregate === "function"
-        ? prisma.studentNewsReport.aggregate({
-            where: { studentRefId: id },
-            _count: { _all: true },
-            _max: { submittedAt: true },
-          })
-        : Promise.resolve({
-            _count: { _all: 0 },
-            _max: { submittedAt: null },
-          })
-    const [student, attendanceRows, gradeRows, reportRows, pointsLedger, newsAggregate] = await Promise.all([
+    const [student, attendanceRows, gradeRows, reportRows, pointsLedger, assignmentTemplates] = await Promise.all([
       prisma.student.findUnique({
         where: { id },
         select: {
@@ -4375,8 +4979,9 @@ async function buildStudentDashboardPayload({ studentRefId = "", eaglesId = "" }
         orderBy: { generatedAt: "desc" },
       }),
       listStudentPointsLedger(id, { take: 1 }),
-      newsAggregatePromise,
+      listAssignmentTemplates({ take: 1000 }),
     ])
+    const newsCalendar = await listStudentNewsCalendar(id, { now: new Date(), days: 60 })
     const backfilledReportRows = await backfillLegacyParentReportMetadataRows({
       prisma,
       reportRows,
@@ -4393,12 +4998,25 @@ async function buildStudentDashboardPayload({ studentRefId = "", eaglesId = "" }
       attendanceRows,
       gradeRows,
       reportRows: backfilledReportRows,
+      assignmentTemplates,
     })
     const pointsSummary = pointsLedger?.summary && typeof pointsLedger.summary === "object"
       ? pointsLedger.summary
       : {}
-    const submittedCount = Number.parseInt(String(newsAggregate?._count?._all || 0), 10) || 0
-    const latestSubmittedAt = newsAggregate?._max?.submittedAt?.toISOString?.() || ""
+    const statusSummary = newsCalendar?.statusSummary || { submitted: 0, approved: 0, revisionRequested: 0 }
+    const submittedCount = Number.parseInt(
+      String(statusSummary.submitted + statusSummary.approved + statusSummary.revisionRequested || 0),
+      10
+    ) || 0
+    const latestSubmittedAt = Array.isArray(newsCalendar?.items)
+      ? normalizeText(
+          newsCalendar.items
+            .map((entry) => entry?.submittedAt)
+            .filter(Boolean)
+            .sort()
+            .reverse()[0]
+        )
+      : ""
     const calendarTracks = buildStudentPortalCalendarTracks({
       gradeRows,
       reportRows: backfilledReportRows,
@@ -4426,6 +5044,7 @@ async function buildStudentDashboardPayload({ studentRefId = "", eaglesId = "" }
       newsReports: {
         submittedCount,
         latestSubmittedAt,
+        statusSummary,
       },
     }
   } catch (error) {
@@ -4475,6 +5094,7 @@ async function buildQueueHubPayload() {
             reportDate: true,
             submittedAt: true,
             reviewStatus: true,
+            reviewNote: true,
             articleTitle: true,
             sourceLink: true,
             student: {
@@ -4536,6 +5156,7 @@ async function buildQueueHubPayload() {
             submittedCount: 0,
             approvedCount: 0,
             revisionRequestedCount: 0,
+            awaitingReReviewCount: 0,
             latestReportId: "",
             latestReportDate: "",
             latestSubmittedAt: "",
@@ -4543,14 +5164,19 @@ async function buildQueueHubPayload() {
             latestArticleTitle: "",
             latestSourceLink: "",
             setStatus: "submitted",
+            setAction: "incomplete",
             _reportDates: new Set(),
           }
           const reportDateKey = toPortalDateKey(row?.reportDate)
           if (reportDateKey) existing._reportDates.add(reportDateKey)
           const status = normalizeLower(row?.reviewStatus)
+          const awaitingReReview = resolveNewsAwaitingReReviewFlag(row)
           if (status === "approved") existing.approvedCount += 1
           else if (status === "revision-requested") existing.revisionRequestedCount += 1
-          else existing.submittedCount += 1
+          else {
+            existing.submittedCount += 1
+            if (awaitingReReview) existing.awaitingReReviewCount += 1
+          }
 
           const submittedAtIso = row?.submittedAt?.toISOString?.() || ""
           const latestSubmittedAtIso = normalizeText(existing.latestSubmittedAt)
@@ -4569,19 +5195,27 @@ async function buildQueueHubPayload() {
           .map((entry) => {
             const reportDates = entry?._reportDates instanceof Set ? entry._reportDates : new Set()
             const reportCount = Math.max(0, reportDates.size)
-            const setStatus = reportCount < 7
-              ? "incomplete"
-              : entry?.revisionRequestedCount > 0
-              ? "revision-requested"
-              : reportCount >= 7 && entry?.approvedCount >= reportCount
-                ? "approved"
-                : "submitted"
+            const setStatus = resolveAdminNewsSetStatus({
+              reportCount,
+              approvedCount: entry?.approvedCount,
+              submittedCount: entry?.submittedCount,
+              revisionRequestedCount: entry?.revisionRequestedCount,
+              awaitingReReviewCount: entry?.awaitingReReviewCount,
+            })
+            const setAction = resolveNewsSetAction({
+              reportCount,
+              approvedCount: entry?.approvedCount,
+              submittedCount: entry?.submittedCount,
+              revisionRequestedCount: entry?.revisionRequestedCount,
+            })
             const { _reportDates, ...safeEntry } = entry || {}
             void _reportDates
             return {
               ...safeEntry,
               reportCount,
               setStatus,
+              setAction,
+              setActionColor: resolveNewsSetActionColor(setAction),
             }
           })
         const sortedItems = weekSets
@@ -4591,15 +5225,33 @@ async function buildQueueHubPayload() {
             return normalizeText(right?.latestSubmittedAt).localeCompare(normalizeText(left?.latestSubmittedAt))
           })
         const items = sortedItems.slice(0, 200)
+        const statusSummary = sortedItems.reduce(
+          (acc, entry) => {
+            const status = normalizeNewsReviewStatus(entry?.latestReviewStatus)
+            if (status === "approved") acc.approved += 1
+            else if (status === "revision-requested") acc.revisionRequested += 1
+            else acc.submitted += 1
+            return acc
+          },
+          { submitted: 0, approved: 0, revisionRequested: 0 }
+        )
 
         return {
           total: sortedItems.length,
-          items,
+          statusSummary,
+          items: items.map((entry) => ({
+            ...entry,
+            statusColor: resolveNewsStatusColor(entry.setStatus),
+            setStatus: resolveAdminNewsSetStatus(entry),
+            setAction: normalizeText(entry?.setAction) || resolveNewsSetAction(entry),
+            setActionColor: normalizeText(entry?.setActionColor) || resolveNewsSetActionColor(entry?.setAction),
+          })),
         }
       } catch (error) {
         void error
         return {
           total: 0,
+          statusSummary: { submitted: 0, approved: 0, revisionRequested: 0 },
           items: [],
         }
       }
@@ -4693,8 +5345,9 @@ async function buildQueueHubPayload() {
       },
       {
         id: "news-report-review",
-        title: "News Report Week Sets",
+        title: "News Week Sets",
         total: Number.parseInt(String(newsReviewQueue?.total || 0), 10) || 0,
+        statusSummary: newsReviewQueue?.statusSummary || { submitted: 0, approved: 0, revisionRequested: 0 },
         items: Array.isArray(newsReviewQueue?.items) ? newsReviewQueue.items : [],
       },
       {
@@ -4786,12 +5439,20 @@ async function handleApiRequest(request, response, pathname, url) {
     if (method === "POST") {
       const payload = await parseBody(request)
       const action = normalizeLower(payload?.action || "restart")
-      if (action !== "restart" && action !== "restart-exercise-mailer") {
+      if (
+        action !== "restart" &&
+        action !== "restart-exercise-mailer" &&
+        action !== "sync-and-restart" &&
+        action !== "self-heal"
+      ) {
         const error = new Error("Unsupported service-control action")
         error.statusCode = 400
         throw error
       }
-      const result = await restartExerciseMailerServiceControl()
+      const result =
+        action === "sync-and-restart" || action === "self-heal" ?
+          await syncAndRestartExerciseMailerServiceControl()
+        : await restartExerciseMailerServiceControl()
       sendJson(response, 200, result)
       return true
     }
@@ -4831,6 +5492,98 @@ async function handleApiRequest(request, response, pathname, url) {
     }
     sendJson(response, 200, data)
     return true
+  }
+
+  if (pathname === ADMIN_ASSIGNMENT_TEMPLATES_PATH) {
+    assertStoreEnabled()
+
+    if (method === "GET") {
+      const items = await listAssignmentTemplates({
+        query: url.searchParams.get("q") || "",
+        level: url.searchParams.get("level") || "",
+        take: url.searchParams.get("take") || "250",
+        currentWeek: resolveBoolean(url.searchParams.get("currentWeek"), false),
+      })
+      sendJson(response, 200, {
+        ok: true,
+        total: items.length,
+        items,
+      })
+      return true
+    }
+
+    if (method === "POST") {
+      const payload = await parseBody(request)
+      const result = await saveAssignmentTemplate(payload, {
+        updatedByUsername: normalizeText(session?.username),
+      })
+      sendJson(response, 200, {
+        ok: true,
+        ...result,
+      })
+      return true
+    }
+  }
+
+  if (method === "POST" && pathname === ADMIN_ASSIGNMENT_TEMPLATES_IMPORT_PATH) {
+    assertStoreEnabled()
+    const payload = await parseBody(request)
+    const result = await importAssignmentTemplates(payload, {
+      updatedByUsername: normalizeText(session?.username),
+    })
+    sendJson(response, 200, {
+      ok: true,
+      ...result,
+    })
+    return true
+  }
+
+  const assignmentTemplateMatch = pathname.match(ADMIN_ASSIGNMENT_TEMPLATE_PATH_RE)
+  if (assignmentTemplateMatch) {
+    assertStoreEnabled()
+    const templateId = decodeURIComponent(assignmentTemplateMatch[1])
+
+    if (method === "GET") {
+      const item = await getAssignmentTemplateById(templateId)
+      if (!item) {
+        const error = new Error("Assignment template not found")
+        error.statusCode = 404
+        throw error
+      }
+      sendJson(response, 200, {
+        ok: true,
+        item,
+      })
+      return true
+    }
+
+    if (method === "PUT") {
+      const payload = await parseBody(request)
+      const result = await saveAssignmentTemplate(
+        {
+          ...payload,
+          id: templateId,
+        },
+        {
+          templateId,
+          updatedByUsername: normalizeText(session?.username),
+        }
+      )
+      sendJson(response, 200, {
+        ok: true,
+        ...result,
+      })
+      return true
+    }
+
+    if (method === "DELETE") {
+      const result = await deleteAssignmentTemplateById(templateId)
+      sendJson(response, 200, {
+        ok: true,
+        ...result,
+      })
+      return true
+    }
   }
 
   if (method === "GET" && pathname === ADMIN_POINTS_SUMMARY_PATH) {
@@ -5045,7 +5798,7 @@ async function handleApiRequest(request, response, pathname, url) {
 
     if (action === "create-account") {
       const incoming = await getIncomingExerciseResultById(incomingResultId)
-      const fallbackEaglesId = normalizeText(incoming?.submittedStudentId)
+      const fallbackEaglesId = normalizeText(incoming?.submittedEaglesId)
       const requestedEaglesId = normalizeText(payload?.eaglesId || fallbackEaglesId)
       const eaglesId = requestedEaglesId && requestedEaglesId !== "(not provided)" ? requestedEaglesId : ""
       if (!eaglesId) {
@@ -5379,7 +6132,22 @@ async function handleApiRequest(request, response, pathname, url) {
     const result =
       deliveryMode === "weekend-batch"
         ? await queueAnnouncementEmail(payload, { queuedByUsername: normalizeText(session?.username) })
-        : await sendAnnouncementEmail(payload)
+        : await enqueueAsyncSideEffectJob(
+            ASYNC_SIDE_EFFECT_JOB_TYPE_ANNOUNCEMENT_EMAIL,
+            {
+              queueType,
+              reviewedByUsername: normalizeText(session?.username),
+              announcementPayload: payload,
+            },
+            { dedupeKey: "" }
+          ).then((job) => ({
+            ok: true,
+            queued: true,
+            deliveryMode: "immediate",
+            queueId: job.id,
+            scheduledFor: job.availableAt,
+            queueSize: 1,
+          }))
     sendJson(response, 200, result)
     return true
   }
@@ -5416,6 +6184,23 @@ async function handleApiRequest(request, response, pathname, url) {
     return true
   }
 
+  if (method === "GET" && pathname === `${ADMIN_ENROLLMENT_PREFIX}/students`) {
+    assertStoreEnabled()
+    const data = await listEnrollmentRoster({
+      query: url.searchParams.get("q") || "",
+      level: url.searchParams.get("level") || "",
+      includeUnenrolled: resolveBoolean(url.searchParams.get("includeUnenrolled"), false),
+      take: url.searchParams.get("take") || "500",
+    })
+    sendJson(response, 200, {
+      ok: true,
+      ...data,
+      reasons: [...STUDENT_UNENROLLMENT_REASONS],
+      unenrolledOnlyValue: ENROLLMENT_LEVEL_FILTER_UNENROLLED_ONLY,
+    })
+    return true
+  }
+
   if (method === "GET" && pathname === ADMIN_STUDENTS_PREFIX) {
     assertStoreEnabled()
     const data = await listStudents({
@@ -5423,6 +6208,7 @@ async function handleApiRequest(request, response, pathname, url) {
       level: url.searchParams.get("level") || "",
       school: url.searchParams.get("school") || "",
       take: url.searchParams.get("take") || "250",
+      includeUnenrolled: resolveBoolean(url.searchParams.get("includeUnenrolled"), false),
     })
     sendJson(response, 200, data)
     return true
@@ -5525,7 +6311,9 @@ async function handleApiRequest(request, response, pathname, url) {
     const studentRefId = decodeURIComponent(studentPathMatch[1])
 
     if (method === "GET") {
-      const student = await getStudentByIdWithReportBackfill(studentRefId)
+      const student = await getStudentByIdWithReportBackfill(studentRefId, {
+        enrollmentPeriodId: url.searchParams.get("enrollmentPeriodId") || "",
+      })
       sendJson(response, 200, student)
       return true
     }
@@ -5540,6 +6328,39 @@ async function handleApiRequest(request, response, pathname, url) {
     if (method === "DELETE") {
       const result = await deleteStudent(studentRefId)
       sendJson(response, 200, result)
+      return true
+    }
+  }
+
+  const studentEnrollmentMatch = pathname.match(
+    new RegExp(`^${escapeRegex(ADMIN_STUDENTS_PREFIX)}/([^/]+)/enrollment$`)
+  )
+  if (studentEnrollmentMatch) {
+    assertStoreEnabled()
+    const studentRefId = decodeURIComponent(studentEnrollmentMatch[1])
+
+    if (method === "GET") {
+      const result = await getStudentEnrollmentDetail(studentRefId)
+      sendJson(response, 200, {
+        ok: true,
+        ...result,
+        reasons: [...STUDENT_UNENROLLMENT_REASONS],
+        unenrolledOnlyValue: ENROLLMENT_LEVEL_FILTER_UNENROLLED_ONLY,
+      })
+      return true
+    }
+
+    if (method === "POST") {
+      const payload = await parseBody(request)
+      const result = await changeStudentEnrollment(studentRefId, payload, {
+        updatedByUsername: normalizeText(session?.username),
+      })
+      const student = await getStudentByIdWithReportBackfill(studentRefId)
+      sendJson(response, 200, {
+        ok: true,
+        ...result,
+        student,
+      })
       return true
     }
   }
@@ -5712,6 +6533,26 @@ async function handleParentApiRequest(request, response, pathname, url) {
     const payload = await buildParentDashboardPayload({
       parentsId: parentContext.parentsId,
       accountId: parentContext.parentAccountId,
+    })
+    sendJson(response, 200, payload)
+    return true
+  }
+
+  const childNewsCalendarPathMatch = pathname.match(PARENT_CHILD_NEWS_CALENDAR_PATH_RE)
+  if (childNewsCalendarPathMatch && method === "GET") {
+    const requestedEaglesId = normalizeText(decodeURIComponent(childNewsCalendarPathMatch[1]))
+    const children = await listParentLinkedStudents({
+      parentsId: parentContext.parentsId,
+      parentAccountId: parentContext.parentAccountId,
+    })
+    const child = children.find((entry) => normalizeLower(entry?.eaglesId) === normalizeLower(requestedEaglesId))
+    if (!child) {
+      const error = new Error("Child is not linked to this parent account")
+      error.statusCode = 403
+      throw error
+    }
+    const payload = await listStudentNewsCalendar(child.studentRefId, {
+      days: url.searchParams.get("days") || "60",
     })
     sendJson(response, 200, payload)
     return true
@@ -5926,7 +6767,10 @@ async function handleStudentApiRequest(request, response, pathname, url) {
 
   if (method === "POST" && pathname === STUDENT_NEWS_REPORTS_PATH) {
     const payload = await parseBody(request)
-    const result = await saveStudentNewsReport(studentRefId, payload)
+    const validationConfig = resolveStudentNewsValidationConfigFromSettings()
+    const result = await saveStudentNewsReport(studentRefId, payload, {
+      validationConfig,
+    })
     sendJson(response, 200, result)
     return true
   }
@@ -5939,6 +6783,7 @@ export async function handleStudentAdminRequest(request, response) {
   const host = normalizeText(request.headers.host) || "localhost"
   const url = new URL(request.url || "/", `http://${host}`)
   const pathname = url.pathname
+  const requestOrigin = resolveRequestOrigin(request)
 
   const previewMatch = pathname.match(ASSIGNMENT_ANNOUNCEMENT_PREVIEW_PATH_RE)
   if (method === "GET" && previewMatch) {
@@ -5951,10 +6796,54 @@ export async function handleStudentAdminRequest(request, response) {
     return true
   }
 
-  const pageSlug = resolveAdminPageSlug(pathname)
-  if (method === "GET" && pageSlug) {
-    const html = injectAdminRuntimeConfig(fs.readFileSync(ADMIN_HTML_PATH, "utf8"), pageSlug)
-    sendHtml(response, 200, html)
+  if (method === "GET") {
+    const redirectLocation = resolveCanonicalPagePathname(pathname)
+    if (redirectLocation) {
+      sendRedirect(response, 308, `${redirectLocation}${url.search}`)
+      return true
+    }
+  }
+
+  if (method === "GET" && pathname === "/") {
+    if (!fs.existsSync(ADMIN_HUB_HTML_PATH)) {
+      sendJson(response, 404, { error: "Public portal hub not found" })
+      return true
+    }
+    const html = injectPortalHubRuntimeConfig(fs.readFileSync(ADMIN_HUB_HTML_PATH, "utf8"))
+    sendHtml(response, 200, html, {
+      "Cache-Control": "no-cache, must-revalidate",
+    })
+    return true
+  }
+
+  if (method === "GET" && pathname === ADMIN_ENROLLMENT_PAGE_PATH) {
+    if (!fs.existsSync(ADMIN_ENROLLMENT_HTML_PATH)) {
+      sendJson(response, 404, { error: "Student enrollment page not found" })
+      return true
+    }
+    const initialAuthState = buildAdminInitialAuthState(await peekAdminSession(request))
+    const html = injectEnrollmentRuntimeConfig(
+      fs.readFileSync(ADMIN_ENROLLMENT_HTML_PATH, "utf8"),
+      requestOrigin,
+      initialAuthState,
+    )
+    sendHtml(response, 200, html, PORTAL_NO_CACHE_HEADERS)
+    return true
+  }
+
+  const pageSlugFromPath = resolveAdminPageSlug(pathname)
+  const pageSlugFromQuery =
+    pathname === ADMIN_PAGE_PATH ? resolveAdminPageSlugFromQuery(url.searchParams) : ""
+  const pageSlug = pageSlugFromQuery || pageSlugFromPath
+  if (method === "GET" && pageSlugFromPath) {
+    if (!fs.existsSync(ADMIN_HTML_PATH)) {
+      sendJson(response, 404, { error: "Student admin page not found" })
+      return true
+    }
+    const htmlSource = fs.readFileSync(ADMIN_HTML_PATH, "utf8")
+    const initialAuthState = buildAdminInitialAuthState(await peekAdminSession(request))
+    const html = injectAdminRuntimeConfig(htmlSource, pageSlug, requestOrigin, initialAuthState)
+    sendHtml(response, 200, html, PORTAL_NO_CACHE_HEADERS)
     return true
   }
 
@@ -5963,8 +6852,8 @@ export async function handleStudentAdminRequest(request, response) {
       sendJson(response, 404, { error: "Student points page not found" })
       return true
     }
-    const html = injectAdminPointsRuntimeConfig(fs.readFileSync(ADMIN_POINTS_HTML_PATH, "utf8"))
-    sendHtml(response, 200, html)
+    const html = injectAdminPointsRuntimeConfig(fs.readFileSync(ADMIN_POINTS_HTML_PATH, "utf8"), requestOrigin)
+    sendHtml(response, 200, html, PORTAL_NO_CACHE_HEADERS)
     return true
   }
 
@@ -5973,8 +6862,13 @@ export async function handleStudentAdminRequest(request, response) {
       sendJson(response, 404, { error: "Parent portal page not found" })
       return true
     }
-    const html = injectParentRuntimeConfig(fs.readFileSync(PARENT_PORTAL_HTML_PATH, "utf8"))
-    sendHtml(response, 200, html)
+    const initialAuthState = buildParentInitialAuthState(await peekParentSession(request))
+    const html = injectParentRuntimeConfig(
+      fs.readFileSync(PARENT_PORTAL_HTML_PATH, "utf8"),
+      requestOrigin,
+      initialAuthState,
+    )
+    sendHtml(response, 200, html, PORTAL_NO_CACHE_HEADERS)
     return true
   }
 
@@ -5983,8 +6877,13 @@ export async function handleStudentAdminRequest(request, response) {
       sendJson(response, 404, { error: "Student portal page not found" })
       return true
     }
-    const html = injectStudentPortalRuntimeConfig(fs.readFileSync(STUDENT_PORTAL_HTML_PATH, "utf8"))
-    sendHtml(response, 200, html)
+    const initialAuthState = buildStudentInitialAuthState(await peekStudentSession(request))
+    const html = injectStudentPortalRuntimeConfig(
+      fs.readFileSync(STUDENT_PORTAL_HTML_PATH, "utf8"),
+      requestOrigin,
+      initialAuthState,
+    )
+    sendHtml(response, 200, html, PORTAL_NO_CACHE_HEADERS)
     return true
   }
 

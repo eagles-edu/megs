@@ -18,6 +18,38 @@
   </script>
   <link rel="stylesheet" href="/web-asset/shared/portal-theme.min.css">
   <style>
+    :root {
+      --bg: var(--portal-page-bg);
+      --bg-accent: var(--portal-page-bg-wash);
+      --card: var(--portal-surface-card);
+      --ink: var(--portal-text);
+      --muted: var(--portal-text-soft);
+      --line: var(--portal-border);
+      --primary: #0d66c2;
+      --primary-strong: #08488b;
+      --ok: var(--portal-status-good-text);
+      --warn: var(--portal-status-warn-text);
+      --bad: var(--portal-status-bad-text);
+      --shadow: 0 10px 28px rgba(24, 49, 79, 0.1);
+      color-scheme: light;
+    }
+
+    html[data-theme="dark"] {
+      --bg: var(--portal-dark-page-bg);
+      --bg-accent: var(--portal-dark-page-bg-wash);
+      --card: var(--portal-dark-surface-card);
+      --ink: var(--portal-dark-text);
+      --muted: var(--portal-dark-text-soft);
+      --line: var(--portal-dark-border);
+      --primary: #6aa4ff;
+      --primary-strong: #2f75bc;
+      --ok: var(--portal-status-good-text);
+      --warn: var(--portal-status-warn-text);
+      --bad: var(--portal-status-bad-text);
+      --shadow: 0 10px 28px rgba(0, 0, 0, 0.35);
+      color-scheme: dark;
+    }
+
     * {
       box-sizing: border-box;
     }
@@ -25,12 +57,15 @@
     body {
       margin: 0;
       min-height: 100vh;
-      font-family:  var(--font-base, system-ui, -apple-system, sans-serif);
+      font-family: "Segoe UI", "Trebuchet MS", sans-serif;
+      color: var(--ink);
+      background: var(--bg);
       padding: 20px;
     }
 
     .app {
-      --portal-center-column-max: 1280px;
+      max-width: 1280px;
+      margin: 0 auto;
       display: grid;
       gap: 16px;
     }
@@ -40,7 +75,10 @@
     }
 
     .card {
-      border-radius: var(--radius-3);
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      box-shadow: var(--shadow);
       padding: 16px;
     }
 
@@ -69,6 +107,30 @@
       margin-top: 10px;
     }
 
+    #loginPanel .login-link {
+      color: var(--primary-strong);
+      font-size: 0.92rem;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    #loginPanel .login-link:hover,
+    #loginPanel .login-link:focus-visible {
+      text-decoration: underline;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(1.4rem, 2.5vw, 1.9rem);
+      letter-spacing: 0.02em;
+    }
+
+    .sub {
+      margin: 4px 0 0;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
     .row {
       display: grid;
       gap: 12px;
@@ -78,6 +140,11 @@
     .field {
       display: grid;
       gap: 6px;
+    }
+
+    .field label {
+      font-size: 0.8rem;
+      color: var(--muted);
     }
 
     .c2 {
@@ -100,23 +167,68 @@
       grid-column: span 12;
     }
 
-    input, select, button { font: inherit; padding: 10px 12px; }
+    input,
+    select,
+    button {
+      font: inherit;
+      border-radius: 10px;
+      border: 1px solid #b8cce4;
+      padding: 10px 12px;
+      background: #fff;
+      color: var(--ink);
+    }
 
     button {
       cursor: pointer;
+      background: #f5f9ff;
       transition: transform 120ms ease, border-color 120ms ease;
     }
 
     button:hover {
       transform: translateY(-1px);
+      border-color: #7fa4d4;
+    }
+
+    html[data-theme="dark"] input,
+    html[data-theme="dark"] select {
+      background: var(--portal-dark-field-bg);
+      border-color: var(--portal-dark-field-border);
+      color: var(--portal-dark-field-text);
+    }
+
+    .primary {
+      background: linear-gradient(160deg, var(--primary), var(--primary-strong));
+      color: #fff;
+      border-color: transparent;
+    }
+
+    .status {
+      margin: 0;
+      font-size: 0.9rem;
+      color: var(--muted);
+      min-height: 1.4em;
+    }
+
+    .status.bad {
+      color: var(--bad);
+    }
+
+    .status.ok {
+      color: var(--ok);
     }
 
     .chart-wrap {
       width: 100%;
       height: 280px;
-      border-radius: var(--radius-2);
+      border: 1px solid var(--line);
+      border-radius: 12px;
       padding: 8px;
       box-sizing: border-box;
+      background: var(--card);
+    }
+
+    html[data-theme="dark"] .chart-wrap {
+      background: var(--card);
     }
 
     table {
@@ -124,11 +236,47 @@
       border-collapse: collapse;
     }
 
-    th, td { text-align: left; padding: 9px 8px; }
+    th,
+    td {
+      text-align: left;
+      border-bottom: 1px solid var(--line);
+      padding: 9px 8px;
+      font-size: 0.92rem;
+    }
+
+    html[data-theme="dark"] th,
+    html[data-theme="dark"] td {
+      border-bottom-color: rgba(255, 255, 255, 0.14);
+    }
+
+    th button {
+      border: 0;
+      background: transparent;
+      padding: 0;
+      color: inherit;
+      font-weight: 700;
+    }
 
     .table-wrap {
       overflow: auto;
-      border-radius: var(--radius-2);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+    }
+
+    .pill {
+      display: inline-block;
+      border-radius: 999px;
+      padding: 2px 9px;
+      background: #eff6ff;
+      border: 1px solid #cde0fb;
+      font-size: 0.78rem;
+      color: #184372;
+    }
+
+    .mini {
+      color: var(--muted);
+      font-size: 0.82rem;
+      margin-top: 8px;
     }
 
     .hidden {
@@ -147,15 +295,15 @@
   </style>
 </head>
 
-<body class="student-points-page">
-  <div class="app content portal-center-column">
-    <section class="card portal-theme-card">
-      <h1 class="section-title">Points Management</h1>
-      <p class="section-note">School YTD trend + student point ledger controls.</p>
-      <p id="globalStatus" class="small status">Checking admin session...</p>
+<body>
+  <div class="app">
+    <section class="card">
+      <h1>Points Management</h1>
+      <p class="sub">School YTD trend + student point ledger controls.</p>
+      <p id="globalStatus" class="status">Checking admin session...</p>
     </section>
 
-    <section id="loginPanel" class="card portal-theme-card hidden" aria-label="Admin login">
+    <section id="loginPanel" class="card hidden" aria-label="Admin login">
       <div class="row">
         <div class="field c4">
           <label for="loginUsername">Username</label>
@@ -167,7 +315,7 @@
         </div>
         <div class="field c4">
           <label for="loginBtn">&nbsp;</label>
-          <button id="loginBtn" class="portal-button portal-button-primary" type="button" title="Sign in to load student points" aria-label="Sign in to load student points">Sign In</button>
+          <button id="loginBtn" class="primary" type="button">Sign In</button>
         </div>
       </div>
       <div class="login-links">
@@ -177,7 +325,7 @@
     </section>
 
     <section id="appPanel" class="hidden">
-      <div class="card portal-theme-card">
+      <div class="card">
         <div class="row">
           <div class="field c3">
             <label for="startDate">Start Date</label>
@@ -189,20 +337,20 @@
           </div>
           <div class="field c3">
             <label>
-            <button id="refreshChartBtn" type="button" class="portal-button portal-button-teal-refresh" title="Reload the points chart from current records" aria-label="Reload the points chart from current records">Refresh Chart</button>&nbsp;</label>
+            <button id="refreshChartBtn" type="button" class="btn-refresh">Refresh Chart</button>&nbsp;</label>
           </div>
           <div class="field c3">
             <label>
-            <button id="logoutBtn" type="button" class="portal-button portal-button-danger" title="Sign out of the student points admin" aria-label="Sign out of the student points admin">Logout</button>&nbsp;</label>
+            <button id="logoutBtn" type="button" class="danger">Logout</button>&nbsp;</label>
           </div>
         </div>
-        <div class="chart-wrap panel">
+        <div class="chart-wrap">
           <svg id="ytdChart" viewBox="0 0 900 260" width="100%" height="100%" aria-hidden="true"></svg>
         </div>
-        <p id="chartSummary" class="section-note">No data loaded.</p>
+        <p id="chartSummary" class="mini">No data loaded.</p>
       </div>
 
-      <div class="card portal-theme-card">
+      <div class="card">
         <div class="row">
           <div class="field c4">
             <label for="studentSearch">Student Search</label>
@@ -234,16 +382,16 @@
           </div>
         </div>
 
-        <div class="table-wrap panel">
+        <div class="table-wrap">
           <table>
             <thead>
               <tr>
-                <th scope="col"><button type="button" class="portal-button portal-button-info" data-sort="studentNumber" title="Sort the table by student number" aria-label="Sort the table by student number">#</button></th>
-                <th scope="col"><button type="button" class="portal-button portal-button-info" data-sort="eaglesId" title="Sort the table by Eagles ID" aria-label="Sort the table by Eagles ID">Eagles ID</button></th>
-                <th scope="col"><button type="button" class="portal-button portal-button-info" data-sort="fullName" title="Sort the table by student name" aria-label="Sort the table by student name">Name</button></th>
-                <th scope="col"><button type="button" class="portal-button portal-button-info" data-sort="level" title="Sort the table by class level" aria-label="Sort the table by class level">Level</button></th>
-                <th scope="col"><button type="button" class="portal-button portal-button-info" data-sort="totalPoints" title="Sort the table by total points" aria-label="Sort the table by total points">Points</button></th>
-                <th scope="col"><button type="button" class="portal-button portal-button-info" data-sort="lastActivityAt" title="Sort the table by most recent activity" aria-label="Sort the table by most recent activity">Last Activity</button></th>
+                <th scope="col"><button type="button" class="alt" data-sort="studentNumber">#</button></th>
+                <th scope="col"><button type="button" class="alt" data-sort="eaglesId">Eagles ID</button></th>
+                <th scope="col"><button type="button" class="alt" data-sort="fullName">Name</button></th>
+                <th scope="col"><button type="button" class="alt" data-sort="level">Level</button></th>
+                <th scope="col"><button type="button" class="alt" data-sort="totalPoints">Points</button></th>
+                <th scope="col"><button type="button" class="alt" data-sort="lastActivityAt">Last Activity</button></th>
                 <th scope="col">Action</th>
               </tr>
             </thead>
@@ -254,13 +402,13 @@
             </tbody>
           </table>
         </div>
-        <p id="studentSummary" class="section-note">No data loaded.</p>
+        <p id="studentSummary" class="mini">No data loaded.</p>
       </div>
 
-      <div class="card portal-theme-card">
-        <h2 class="section-title">Selected Student Ledger</h2>
-        <p id="ledgerSummary" class="section-note">Select a student to view recent points events.</p>
-        <div class="table-wrap panel">
+      <div class="card">
+        <h2 style="margin:0 0 8px; font-size:1.1rem;">Selected Student Ledger</h2>
+        <p id="ledgerSummary" class="mini">Select a student to view recent points events.</p>
+        <div class="table-wrap">
           <table>
             <thead>
               <tr>
@@ -404,8 +552,8 @@
             <td>${Number(row.totalPoints || 0)}</td>
             <td>${t(row.lastActivityAt).slice(0, 10) || "-"}</td>
             <td>
-              <button type="button" class="portal-button portal-button-info" title="Open the selected student's points ledger" aria-label="Open the selected student's points ledger" data-open-ledger="${t(row.studentRefId)}">Ledger</button>
-              <button type="button" class="portal-button portal-button-affirm" title="Set the selected student's points total" aria-label="Set the selected student's points total" data-edit-total="${t(row.studentRefId)}">Set Total</button>
+              <button type="button" class="alt" data-open-ledger="${t(row.studentRefId)}">Ledger</button>
+              <button type="button" class="primary" data-edit-total="${t(row.studentRefId)}">Set Total</button>
             </td>
           `;
           tr.querySelector(`[data-open-ledger="${row.studentRefId}"]`)?.addEventListener("click", () => {

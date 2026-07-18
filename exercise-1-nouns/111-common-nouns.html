@@ -4413,11 +4413,10 @@
 
               const payload = {
                 email,
-                studentId,
+                eaglesId: studentId,
                 pageTitle: document.title || "",
                 completedAt: new Date().toISOString(),
                 recipients, // server falls back to env if empty
-                answers,
                 totalQuestions,
                 correctCount,
                 pendingCount,

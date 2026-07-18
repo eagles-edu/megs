@@ -1221,11 +1221,10 @@
       var summary = summarizeScoresFromAnswers(answersPayload)
       return {
         email: emailInput ? (emailInput.value || "").trim() : "",
-        studentId: studentIdInput ? (studentIdInput.value || "").trim() : "",
+        eaglesId: studentIdInput ? (studentIdInput.value || "").trim() : "",
         pageTitle: document.title,
         completedAt: new Date().toISOString(),
         recipients: config.recipients.slice(),
-        answers: answersPayload,
         totalQuestions: summary.totalQuestions,
         correctCount: summary.correctCount,
         pendingCount: summary.pendingCount,
@@ -1244,7 +1243,19 @@
             body: JSON.stringify(payload),
           })
           .then(function (response) {
-            if (!response.ok) throw new Error("Submission failed")
+            if (!response.ok) {
+              return response
+                .json()
+                .then(
+                  function (data) {
+                    var message = data && data.error ? String(data.error) : "Submission failed (" + response.status + ")"
+                    throw new Error(message)
+                  },
+                  function () {
+                    throw new Error("Submission failed (" + response.status + ")")
+                  }
+                )
+            }
             return response
           })
       }
@@ -1256,7 +1267,7 @@
           xhr.onreadystatechange = function () {
             if (xhr.readyState !== 4) return
             if (xhr.status >= 200 && xhr.status < 300) resolve(xhr.responseText)
-            else reject(new Error("Submission failed"))
+            else reject(new Error("Submission failed (" + xhr.status + ")"))
           }
           xhr.onerror = function () {
             reject(new Error("Submission failed"))
@@ -1283,16 +1294,16 @@
           var stored = {
             timestamp: Date.now(),
             email: payload.email,
-            studentId: payload.studentId,
-            answers: payload.answers,
+            studentId: payload.eaglesId,
+            answers: answersPayloadForStorage(),
           }
           writeStoredAttempt(storageKey, stored)
           emailHistory = addContactHistory(emailHistory, payload.email, 10)
-          studentHistory = addContactHistory(studentHistory, payload.studentId, 10)
+          studentHistory = addContactHistory(studentHistory, payload.eaglesId, 10)
           writeStoredList(emailHistoryKey, emailHistory)
           writeStoredList(studentHistoryKey, studentHistory)
           rememberContactValue(emailInput, payload.email, emailListId)
-          rememberContactValue(studentIdInput, payload.studentId, studentListId)
+          rememberContactValue(studentIdInput, payload.eaglesId, studentListId)
           renderLastAttempt(stored)
           resetExercise()
           setFeedback(
@@ -1304,11 +1315,30 @@ Answers have been cleared for your next attempt.`,
           updateSubmitState()
           return true
         })
-        .catch(function () {
-          setFeedback("We could not submit your answers. Please try again.", "error")
+        .catch(function (err) {
+          var message = err && err.message ? String(err.message) : "We could not submit your answers. Please try again."
+          setFeedback(message, "error")
           updateSubmitState()
           return false
         })
+    }
+
+    function answersPayloadForStorage() {
+      var answersPayload = []
+      for (var i = 0; i < questions.length; i++) {
+        var question = questions[i]
+        var values = []
+        for (var j = 0; j < question.inputs.length; j++) {
+          values.push(question.inputs[j].value || "")
+        }
+        answersPayload.push({
+          id: question.id,
+          answers: values,
+          status: question.status,
+          needsReview: !!question.pendingReview,
+        })
+      }
+      return answersPayload
     }
 
     var storedAttempt = readStoredAttempt(storageKey)

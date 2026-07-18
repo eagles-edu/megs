@@ -20,6 +20,8 @@ tmp/
 scripts/
 
 # files / globs
+**/*.BAK-*
+**/*.BAK-*/**
 **/*.min.html
 **/*.snapshot.html
 docs/legacy/**

@@ -1,4 +1,3 @@
-// eslint.config.mjs — ESLint 9 flat config (root)
 import js from "@eslint/js"
 import globals from "globals"
 
@@ -16,22 +15,23 @@ const ignores = [
   ".sto/",
   "versioning/",
   "persistence/",
-  // legacy dirs you said are not source
   "modules/",
   "media/",
   "templates/",
   "scripts/",
-  // generated/vendor JS we should not lint
+  "**/*.min.js",
+  "**/*.BAK-*",
+  "**/*.BAK-*/**",
   "web-asset/js/*legacy*.js",
   "web-asset/js/*.min.js",
   "web-asset/js/vendor/**",
+  "web-asset/vendor/**",
+  "web-asset/vendor.BAK-*/**",
   "web-asset/js/template*.js",
   "web-asset/icons/svg/.sto",
-  // demo junk
   "web-asset/icons/demo-files/*",
   "**/demo.html",
   "**/demo2.html",
-  // common build dirs
   "node_modules/",
   "dist/",
   "build/",
