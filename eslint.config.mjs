@@ -29,6 +29,8 @@ const ignores = [
   "web-asset/vendor.BAK-*/**",
   "web-asset/js/template*.js",
   "web-asset/icons/svg/.sto",
+  "server/student-admin-routes.mjs",
+  "web-asset/admin/student-admin.js",
   "web-asset/icons/demo-files/*",
   "**/demo.html",
   "**/demo2.html",

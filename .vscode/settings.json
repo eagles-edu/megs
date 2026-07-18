@@ -73,6 +73,7 @@
   },
   // ESLint shouldn't format (Prettier handles formatting)
   "eslint.format.enable": false,
+  "eslint.onIgnoredFiles": "off",
   // Stylelint: lint these languages (no auto-fix unless you run it manually)
   "stylelint.enable": true,
   "stylelint.validate": ["css", "scss", "less"],
@@ -96,27 +97,25 @@
       "selfClosingStyle": "html"
     }
   },
-{
   // show the NPM Scripts view and scan for scripts
   "npm.enableScriptExplorer": true,
   "npm.autoDetect": "on",
 
   // don't hide any package.json with exclude rules
   "npm.exclude": [],
-},
   // Help HTML/CSS validators/extensions resolve class definitions across workspace
   // Helpzs VS Code extension know where to put workspace words
-"cSpell.customDictionaries": {
+  "cSpell.customDictionaries": {
     "workspace-words-megs": {
-    "name": "workspace-words-megs",
-    "description": "Megs workspace word list",
-    "path": "${workspaceFolder}/.vscode/cspell/workspace-words-megs.txt",
-    "addWords": true,
-    "scope": "workspace"
-  }
-},
-// Keep this so the extension reads repo rules:
-"cSpell.configFile": "${workspaceFolder}/cspell.json",
+      "name": "workspace-words-megs",
+      "description": "Megs workspace word list",
+      "path": "${workspaceFolder}/.vscode/cspell/workspace-words-megs.txt",
+      "addWords": true,
+      "scope": "workspace"
+    }
+  },
+  // Keep this so the extension reads repo rules:
+  "cSpell.configFile": "${workspaceFolder}/cspell.json",
   "html-css-class-completion.includeGlobPattern": "**/*.{css,scss,less}",
   "checkpoints.showActiveFileOnly": true,
   "checkpoints.addCheckpointOnSave": true,
@@ -157,7 +156,7 @@
   },
   "npm.enableScriptExplorer": true,
   "npm.autoDetect": "on",
-  "npm.exclude": []  "npm.enableScriptExplorer": true,
+  "npm.exclude": [],
   "highlight.decorations": { "rangeBehavior": 3 },
   "highlight.regexFlags": "gim",
   "highlight.maxMatches": 1000,

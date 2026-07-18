@@ -1,5 +1,4 @@
 #!/usr/bin/env node
-/* eslint-env node */
 /* eslint no-console:0 */
 /* prettier-ignore-start */
 

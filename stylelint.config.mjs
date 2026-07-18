@@ -11,6 +11,9 @@ export default {
     "**/*.html",
     "**/*.htm",
     "**/*.min.css",
+    "web-asset/admin/student-admin.css",
+    "web-asset/admin/student-admin.critical.css",
+    "web-asset/admin/student-admin.min.css",
     "web-asset/legacy/template592f.css",
   ],
   rules: {

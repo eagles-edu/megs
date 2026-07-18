@@ -1,4 +1,3 @@
-// server/student-admin-routes.mjs
 
 import crypto from "node:crypto"
 import { spawn } from "node:child_process"
