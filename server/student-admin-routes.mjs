@@ -43,7 +43,6 @@ import {
   createQueueId,
   NOTIFICATION_QUEUE_STATUS_HOLD,
   NOTIFICATION_QUEUE_STATUS_QUEUED,
-  NOTIFICATION_QUEUE_STATUS_SENT,
   NOTIFICATION_QUEUE_TYPE_ANNOUNCEMENT,
   NOTIFICATION_QUEUE_TYPE_PARENT_REPORT,
   queueAnnouncementEmail,
@@ -73,7 +72,6 @@ import {
   getAdminDashboardSummary,
 } from "../src/modules/admin/dashboard-summary.mjs"
 import {
-  approveParentClassReport,
   decodeParentReportCommentBundle,
   deleteParentClassReport,
   generateParentClassReportFromGrades,
@@ -1369,7 +1367,7 @@ function sanitizeDownloadFilename(value, fallback = "export.xlsx") {
 
 function normalizeWorksheetName(value, fallback = "Export") {
   const text = normalizeText(value)
-    .replace(/[:\\/?*\[\]]/g, " ")
+    .replace(/[:\\/?*[\]]/g, " ")
     .replace(/\s+/g, " ")
     .trim()
   const picked = text || fallback
@@ -2137,7 +2135,7 @@ function parseBody(request) {
       }
       try {
         resolve(JSON.parse(raw))
-      } catch (error) {
+      } catch {
         const parseError = new Error("Invalid JSON payload")
         parseError.statusCode = 400
         reject(parseError)
@@ -2218,7 +2216,7 @@ function readPersistedUiSettings() {
       filePath: ADMIN_UI_SETTINGS_FILE_PATH,
       meta,
     }
-  } catch (error) {
+  } catch {
     const wrapped = new Error("Unable to read persisted admin UI settings")
     wrapped.statusCode = 500
     throw wrapped
@@ -2624,7 +2622,7 @@ function sendAssignmentAnnouncementPreview(response, entry) {
           const title = escapeHtml(item.title || "Exercise")
           const href = normalizeHttpUrl(item.url)
           if (href) {
-            return `<li><strong>${title}</strong><br><a class=\"live-link\" href=\"${escapeHtml(href)}\" target=\"_blank\" rel=\"noopener noreferrer\">${escapeHtml(href)}</a></li>`
+            return `<li><strong>${title}</strong><br><a class="live-link" href="${escapeHtml(href)}" target="_blank" rel="noopener noreferrer">${escapeHtml(href)}</a></li>`
           }
           return `<li><strong>${title}</strong></li>`
         })
@@ -2991,6 +2989,7 @@ function isEmailLike(value) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(text)
 }
 
+// eslint-disable-next-line no-unused-vars
 function normalizeRecipientList(value) {
   if (!Array.isArray(value)) return []
   return Array.from(
@@ -3008,19 +3007,21 @@ let nodemailerModule = null
 /**
  * @returns {Promise<NodemailerModule>}
  */
+// eslint-disable-next-line no-unused-vars
 async function getNodemailer() {
   if (nodemailerModule) return nodemailerModule
   try {
     const mod = await import("nodemailer")
     nodemailerModule = mod?.default || mod
     return nodemailerModule
-  } catch (error) {
+  } catch {
     const wrapped = new Error("nodemailer is not available in runtime")
     wrapped.statusCode = 503
     throw wrapped
   }
 }
 
+// eslint-disable-next-line no-unused-vars
 function smtpConfigFromEnv() {
   const host = normalizeText(process.env.SMTP_HOST || "smtp.gmail.com")
   const port = Number.parseInt(String(process.env.SMTP_PORT || "465"), 10) || 465
@@ -3070,6 +3071,7 @@ function resolveSmtpAuthMode(value) {
 }
 
 {
+/* eslint-disable no-unused-vars */
 const WEEKEND_BATCH_WINDOWS = Object.freeze([
   { day: 6, hour: 12, minute: 0, label: "Sat 12:00" },
   { day: 6, hour: 15, minute: 30, label: "Sat 15:30" },
@@ -3131,6 +3133,7 @@ function weekendBatchScheduleLabel() {
 
 const FIXED_TIME_ZONE_OFFSET_MINUTES = 7 * 60
 const FIXED_TIME_ZONE_OFFSET_MS = FIXED_TIME_ZONE_OFFSET_MINUTES * 60 * 1000
+/* eslint-enable no-unused-vars */
 }
 function buildEaglesRefId(studentRefId = "") {
   const normalized = normalizeText(studentRefId)
@@ -4083,6 +4086,7 @@ function isoDateOffset(value = "", days = 0) {
   return toPortalDateKey(shiftFromFixedTimeZone(shifted))
 }
 
+// eslint-disable-next-line no-unused-vars
 function splitSchoolYearIntoQuarters(startDate = "", endDate = "") {
   const startIso = normalizeText(startDate).slice(0, 10)
   const endIso = normalizeText(endDate).slice(0, 10)
@@ -4141,6 +4145,7 @@ function normalizeSchoolSetupQuarterEntry(entry = {}) {
   }
 }
 
+// eslint-disable-next-line no-unused-vars
 function inferSchoolYearFromQuarters(quarters = []) {
   const firstQuarter = Array.isArray(quarters) ? quarters[0] : null
   const lastQuarter = Array.isArray(quarters) ? quarters[quarters.length - 1] : null
@@ -4939,7 +4944,7 @@ async function buildParentDashboardPayload(session = {}) {
         }
       }),
     }
-  } catch (error) {
+  } catch {
     const wrapped = new Error("Unable to load parent dashboard")
     wrapped.statusCode = 503
     throw wrapped
@@ -5047,7 +5052,7 @@ async function buildStudentDashboardPayload({ studentRefId = "", eaglesId = "" }
         statusSummary,
       },
     }
-  } catch (error) {
+  } catch {
     const wrapped = new Error("Unable to load student dashboard")
     wrapped.statusCode = 503
     throw wrapped

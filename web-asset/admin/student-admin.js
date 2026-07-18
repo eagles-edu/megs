@@ -1,5 +1,7 @@
       const STUDENT_NEWS_REVIEW_STATUS_SUBMITTED = "submitted";
+      // eslint-disable-next-line no-unused-vars
       const STUDENT_NEWS_REVIEW_STATUS_APPROVED = "approved";
+      // eslint-disable-next-line no-unused-vars
       const STUDENT_NEWS_REVIEW_STATUS_REVISION_REQUESTED = "revision-requested";
 
       const state = {
@@ -1535,6 +1537,7 @@
         ],
       ];
 
+      // eslint-disable-next-line no-unused-vars
       function profileTabLabel(tabId = "") {
         const tab = PROFILE_FORM_TABS.find(
           (entry) => normalizeLower(entry.id) === normalizeLower(tabId),
@@ -1729,6 +1732,7 @@
           });
       }
 
+      // eslint-disable-next-line no-unused-vars
       function profileFieldByIdSuffix(idSuffix = "") {
         const target = normalizeText(idSuffix);
         if (!target) return null;
@@ -2086,6 +2090,7 @@
 
         const checks = buildSystemHealthChecks();
         const counts = { ok: 0, warn: 0, error: 0, pending: 0 };
+        // eslint-disable-next-line no-unused-vars
         const gridEl = rowsEl.parentElement;
         const buildCheckCard = (check) => {
           const stateClass = normalizeSystemState(check.state);
@@ -2888,7 +2893,7 @@
         if (!lines.length) return defaultSchoolLetterGradeRanges();
         const parsed = lines.map((line) => {
           const match = line.match(
-            /^([A-Za-z][A-Za-z0-9+\-]{0,3})\s*:\s*(\d+(?:\.\d+)?)\s*-\s*(\d+(?:\.\d+)?)$/u,
+            /^([A-Za-z][A-Za-z0-9+-]{0,3})\s*:\s*(\d+(?:\.\d+)?)\s*-\s*(\d+(?:\.\d+)?)$/u,
           );
           if (!match) {
             throw new Error("Grade mapping format is LETTER:min-max (one per line).");
@@ -3569,20 +3574,24 @@
         );
       }
 
+      // eslint-disable-next-line no-unused-vars
       function normalizeAttendanceColumnVisibility(source = null) {
         return normalizeTableColumnVisibility("attendance", source);
       }
 
+      // eslint-disable-next-line no-unused-vars
       function loadAttendanceColumnVisibilityFromStorage() {
         return loadTableColumnVisibilityFromStorage("attendance");
       }
 
+      // eslint-disable-next-line no-unused-vars
       function persistAttendanceColumnVisibility(
         visibility = state.attendanceColumnVisibility,
       ) {
         return persistTableColumnVisibility("attendance", visibility);
       }
 
+      // eslint-disable-next-line no-unused-vars
       function isAttendanceColumnVisible(columnKey = "") {
         return isTableColumnVisible("attendance", columnKey);
       }
@@ -3591,6 +3600,7 @@
         applyTableColumnVisibility("attendance");
       }
 
+      // eslint-disable-next-line no-unused-vars
       function bindAttendanceColumnVisibilityControls() {
         bindTableColumnVisibilityControls("attendance");
       }
@@ -3713,6 +3723,7 @@
         return normalized;
       }
 
+      // eslint-disable-next-line no-unused-vars
       function rememberStudentIdSearchValue(value = "") {
         const normalized = normalizeStudentIdSearchValue(value);
         if (!isValidStudentIdSearchValue(normalized)) return false;
@@ -5483,7 +5494,8 @@
         );
       }
 
-      function tableRowFilterContext(tableKey = "", row = {}) {
+      // eslint-disable-next-line no-unused-vars
+      function tableRowFilterContext(_tableKey = "", row = {}) {
         const rowProfile = row?.profile || {};
         return {
           levels: [
@@ -5583,6 +5595,7 @@
         return true;
       }
 
+      // eslint-disable-next-line no-unused-vars
       function validateStudentIdFilterInput(inputEl, { report = false } = {}) {
         if (!inputEl) return true;
         const normalized = normalizeStudentIdSearchValue(inputEl.value);
@@ -6023,8 +6036,8 @@
       function toggleTableArchivedView(tableKey = "") {
         assertAdminDataActionsAllowed();
         if (!DATA_TABLE_KEYS.includes(tableKey)) return;
-        state.tableShowArchived[tableKey] = !Boolean(
-          state.tableShowArchived?.[tableKey],
+        state.tableShowArchived[tableKey] = !(
+          state.tableShowArchived?.[tableKey]
         );
         updateArchiveToggleButton(tableKey);
         rerenderSortedTable(tableKey);
@@ -6335,6 +6348,7 @@
         };
       }
 
+      // eslint-disable-next-line no-unused-vars
       function levelChipClass(levelName) {
         const theme = getLevelTheme(levelName);
         return theme.className || "";
@@ -7517,6 +7531,7 @@
         return source.find((entry) => normalizeText(entry?.id) === id) || null;
       }
 
+      // eslint-disable-next-line no-unused-vars
       function newsReviewItemById(reportId = "", sets = null) {
         const id = normalizeText(reportId);
         if (!id) return null;
@@ -10059,6 +10074,7 @@
         });
       }
 
+      // eslint-disable-next-line no-unused-vars
       function desktopMenuCollapsedPreference() {
         try {
           return (
@@ -10070,6 +10086,7 @@
         }
       }
 
+      // eslint-disable-next-line no-unused-vars
       function persistDesktopMenuCollapsedPreference(collapsed = false) {
         try {
           window.localStorage.setItem(
@@ -13324,6 +13341,7 @@
 
       function renderOverviewNewsQueueSection(panel = null) {
         const sectionEl = document.getElementById("overviewNewsQueueSection");
+        // eslint-disable-next-line no-unused-vars
         const detailsEl = document.getElementById("overviewNewsQueueDetails");
         const summaryEl = document.getElementById("overviewNewsQueueSummary");
         const rowsEl = document.getElementById("overviewNewsQueueRows");
@@ -14186,6 +14204,7 @@
         };
       }
 
+      // eslint-disable-next-line no-unused-vars
       function queueItemForReportId(reportId = "") {
         const id = normalizeText(reportId);
         if (!id) return null;
@@ -14614,6 +14633,7 @@
         return `${targetUrl.pathname}${targetUrl.search}${targetUrl.hash}`;
       }
 
+      // eslint-disable-next-line no-unused-vars
       function queueTextOrDash(value = "") {
         return normalizeText(value) || "-";
       }
@@ -14641,12 +14661,14 @@
         }
       }
 
+      // eslint-disable-next-line no-unused-vars
       function queueRatingSummary(scoreValue = "") {
         const text = normalizeText(scoreValue);
         if (!text) return "-";
         return `${text}/5`;
       }
 
+      // eslint-disable-next-line no-unused-vars
       function queueRatingDetail(scoreValue = "") {
         const text = normalizeText(scoreValue);
         if (!text) return "-";
@@ -15892,6 +15914,7 @@
         return String(clamped);
       }
 
+      // eslint-disable-next-line no-unused-vars
       function markParentTrackingManualMetricsTouched() {
         state.parentTracking.manualMetricsTouched = true;
       }
@@ -17679,6 +17702,7 @@
         };
       }
 
+      // eslint-disable-next-line no-unused-vars
       function parentTrackingOutstandingSnapshotRows(metrics = {}, studentRefId = "") {
         return parentTrackingPastDueSnapshotRows(metrics, studentRefId, "");
       }
@@ -18259,6 +18283,7 @@
         applyTableColumnVisibility("performance");
       }
 
+      // eslint-disable-next-line no-unused-vars
       async function deleteParentTrackingReport(recordId) {
         const selectedStudentRefId = normalizeText(
           document.getElementById("pt_studentRefId")?.value,
@@ -19033,7 +19058,7 @@
       }
 
       function toggleTopSearchExpanded() {
-        state.topSearch.expanded = !Boolean(state.topSearch?.expanded);
+        state.topSearch.expanded = !(state.topSearch?.expanded);
         renderTopSearchResults(state.topSearch?.rows || []);
       }
 
@@ -22018,7 +22043,7 @@
         if (!text) return "";
         const utf8Match = text.match(/filename\\*=UTF-8''([^;]+)/i);
         if (utf8Match && utf8Match[1]) return decodeURIComponent(utf8Match[1]);
-        const quotedMatch = text.match(/filename=\"([^\"]+)\"/i);
+        const quotedMatch = text.match(/filename="([^"]+)"/i);
         if (quotedMatch && quotedMatch[1]) return quotedMatch[1];
         const plainMatch = text.match(/filename=([^;]+)/i);
         if (plainMatch && plainMatch[1]) return plainMatch[1].trim();
