@@ -1,0 +1,85 @@
+# Production sync whitelist (SSOT: repository -> /home/ielts.eagles.edu.vn/public_html)
+#
+# Use these as FreeFileSync include-filter patterns. Apply the exclusions below
+# after the includes so backups and development material never enter production.
+# This file is a scope manifest; it does not execute a sync by itself.
+
+[INCLUDE]
+/*.html
+/*.css
+/*.gif
+/*.ico
+/*.png
+/*.jpg
+/*.jpeg
+/*.webp
+/exercise-*/**
+/lesson-*/**
+/list-*/**
+/lists2/**
+/vocabulary/**
+/writing/**
+/images/**
+/media/**
+/web-asset/**
+/dev/**
+/js/**
+/server/**
+/scripts/**
+/prisma/**
+/output/**
+/package.json
+/package-lock.json
+/prisma.config.ts
+/.htmlvalidate.json
+/.htmlvalidateignore
+/.prettierignore
+/.prettierrc
+/.stylelintignore
+/eslint.config.mjs
+/stylelint.config.mjs
+
+[EXCLUDE]
+/**/*.BAK-*
+/**/*.bak-*
+/**/*.BAK
+/**/*.bak
+/**/*.log
+/**/*.zip
+/**/*.7z
+/**/*.tmp
+/**/.git/**
+/**/.codex/**
+/**/.continue/**
+/**/.gemini/**
+/**/.history-memo/**
+/**/.playwright-cli/**
+/**/.sto/**
+/**/.zencoder/**
+/**/node_modules/**
+/**/reports/**
+/**/test/**
+/**/tests/**
+/**/docs/**
+/**/tools/**
+/**/templates/**
+/**/tmp/**
+/**/persistence/**
+/**/schemas/**
+/**/versioning/**
+/**/.env
+/**/.env.*
+/**/.npmrc
+/**/.gitignore
+/**/AGENTS.md
+/**/key
+/**/*.copy.*
+
+# Live-generated branding assets are intentionally preserved on the server;
+# they are not part of the repository SSOT payload.
+/web-asset/admin/*icon*.png
+/web-asset/admin/*tile*.png
+
+# Deliberately not included: versioning/ (live-only release artifacts),
+# configuration secrets, local editor files, generated branding assets, and
+# repository metadata.
