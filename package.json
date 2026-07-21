@@ -110,7 +110,7 @@
   "dependencies": {
     "@prisma/client": "^7.4.1",
     "archiver": "^7.0.1",
-    "argparse": "^2.0.1",
+    "argparse": "^3.0.0",
     "cheerio": "^1.1.2",
     "css-declaration-sorter": "^7.2.0",
     "cssnano": "^7.1.1",
