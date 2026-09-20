@@ -66,7 +66,7 @@
 
 - **Why**: Keep visible answers hidden from learners while preserving formatting inside `<p>` blocks (bold, `<br>`, etc.). Only encode text nodes; HTML tags must remain intact.
 
-- **Tool**: `tools/encode-p-text.mjs` (Node 20, cheerio + dom-serializer). It converts raw text in `<p>` tags to decimal HTML entities and skips already-encoded runs and whitespace-only nodes.
+- **Tool**: `tools/encode-p-text.mjs` (Node 24.21.0, cheerio + dom-serializer). It converts raw text in `<p>` tags to decimal HTML entities and skips already-encoded runs and whitespace-only nodes.
 
 - **Dry-run preview**:
 

@@ -1,6 +1,6 @@
 # Stylelint VS Code crash & migration guide
 
-This repo uses Stylelint 16 (`package.json` and `.nvmrc` pin Node 20). The log at `docs/extension-output-stylelint.vs.txt` shows two issues:
+This repo uses Stylelint 16 (`package.json` and `.nvmrc` pin Node 24.21.0). The log at `docs/extension-output-stylelint.vs.txt` shows two issues:
 
 - Deprecation warnings `[stylelint:002]` and `[stylelint:003]` when using the legacy CommonJS API and the deprecated `output` option (lines 17–21).
 - The Stylelint language server repeatedly crashes because it tries to spawn `/usr/share/code/code` and the binary is missing, causing `ENOENT` and `write EPIPE` loops (lines 26–110 and repeats).
@@ -18,9 +18,9 @@ Follow the steps below to stop the crash loop and clear the warnings.
 
 ## 2) Stay on the supported Node version
 
-- This project pins Node `20.19.4` via `.nvmrc` and `engines.node`. The log shows Node 22 was used, which is outside Stylelint’s tested range.
+- This project pins Node `24.21.0` via `.nvmrc` and `engines.node`. The log shows Node 22 was used before the current runtime baseline was adopted.
 - Use `nvm use` (or let the “auto-nvm” extension switch for you) before launching VS Code/Stylelint.
-- If the extension host ignores `nvm`, start VS Code from a terminal that already ran `nvm use 20.19.4` so `process.execPath` and `PATH` point at Node 20.
+- If the extension host ignores `nvm`, start VS Code from a terminal that already ran `nvm use 24.21.0` so `process.execPath` and `PATH` point at Node 24.
 
 ## 3) Migrate Stylelint config to the v16 ESM API
 
@@ -74,7 +74,7 @@ export default {
 ## 4) Validate
 
 - Ensure the binary path is fixed: `ls -l /usr/share/code/code` and `code --version`.
-- Ensure the right Node is active: `node -v` should print `v20.19.4`.
+- Ensure the right Node is active: `node -v` should print `v24.21.0`.
 - Run the workspace lint to confirm Stylelint works without crashes: `npm run lint:css`.
 
 Expected outcome: the Stylelint language server starts cleanly (no crash loop), and the deprecation warnings disappear once the config uses the ESM API and no `output` option is passed.
