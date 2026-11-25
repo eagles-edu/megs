@@ -21,7 +21,7 @@
   3. If all required fields match, panel opens and question locks as correct.
   4. If incorrect, panel stays closed and status shows a warning; for manual-review items, panels stay closed and answers are included in the submission email for teacher grading.
   5. Textareas auto-size; text inputs stay single-line, while the textarea variant expands as the text wraps.
-- **Forms**: `data-storage-key` persists attempts locally; submission posts JSON payload with answers, email, and studentId when enabled.
+- **Forms**: `data-storage-key` persists attempts locally. Current IELTS forms use the shared `web-asset/js/exercise-gate.js` sender and the temporary SIS test endpoint `https://test.eagles.edu.vn/api/exercise-submission`. A submission includes `sourceSystem`, stable per-attempt `sourceAttemptId`, `startedAt`, `completedAt`, canonical EaglesID, email, quiz title, correct/pending/incorrect/total question counts, and score. Retries reuse the same attempt ID, and each form has one submission owner.
 
 ## Conversion Pipeline (`js/convert-legacy-gated.mjs`)
 
@@ -134,6 +134,8 @@ The gate checks each token in the combo; all must succeed for that combo to pass
 - **Inner** [ ]: the tokens **required together** for that combo.
 
 ## Daily Updates
+
+- 2026-11-26: Documented and verified the shared IELTS-to-SIS test-mirror submission contract, including per-attempt retry idempotency and full question/time/identity fields.
 
 - 2026-02-06: Recorded system-doc maintenance requirement and scope exemption alignment with AGENTS.md.
 - 2026-02-06: Routine documentation maintenance (lesson conversion spacing normalization documented in docs/asscon.md).

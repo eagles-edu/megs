@@ -194,6 +194,8 @@ _Critically, consistently, and before every coding attempt, ALWAYS reread agents
 
 - Accordion gating no longer depends on visual underlines. Clone the scaffold from `exercise-1-nouns/111-common-nouns.html` for new exercises and wire it to the JSON answer key.
 
+- Current IELTS exercise submissions use the shared `web-asset/js/exercise-gate.js` sender and the temporary SIS test endpoint `https://test.eagles.edu.vn/api/exercise-submission`. Keep one submission owner per form and send `sourceSystem`, a stable per-attempt `sourceAttemptId`, `startedAt`, `completedAt`, canonical EaglesID, email, quiz title, correct/pending/incorrect/total question counts, and score. Reuse an attempt ID on retry; do not fall back to the production SIS endpoint.
+
 ### Front-end navigation notes
 
 - The left sidebar menu scales via the responsive `--left-menu-font-size` clamp with a paired icon clamp; adjust those tokens instead of hard-coding pixel values.
@@ -228,6 +230,7 @@ _Critically, consistently, and before every coding attempt, ALWAYS reread agents
 - 2026-02-07: Consolidated prototype head shell to lean critical-inline CSS/JS, moved structural layout rules to shared CSS, and removed deferred speculation/pager inline bloat.
 - 2026-02-07: Aligned `lesson-6-prepositions/1-4` to prototype CLS baseline by removing per-page speculation rules and ensuring early mobile-nav bootstrap on lesson bodies.
 - 2026-02-13: Added `docs/page-parity-checklist.md` and linked it in startup/front-end SOP so page upgrades follow a single profile-driven parity checklist (exercise vs lesson/list/static) without re-specifying requirements.
+- 2026-11-26: Routed current IELTS exercise forms through the shared sender to the SIS test mirror, with complete attempt identity, question counts, start/submission times, and retry idempotency; browser replay produced one test SIS grade.
 
 ## Edit Instruction Standards
 

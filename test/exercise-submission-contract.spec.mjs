@@ -15,6 +15,9 @@ const expectedFields = new Set([
   "pendingCount",
   "recipients",
   "scorePercent",
+  "sourceAttemptId",
+  "sourceSystem",
+  "startedAt",
   "totalQuestions",
 ])
 
@@ -29,26 +32,61 @@ function findHtmlFiles(directory) {
   return files
 }
 
-test("IELTS submission pages emit the SIS payload contract", () => {
+test("IELTS exercise pages use the shared SIS test-mirror sender", () => {
   const pages = findHtmlFiles(root)
   const submissionPages = pages.filter((file) => fs.readFileSync(file, "utf8").includes("postJSON(submitUrl, payload)"))
+  const helper = fs.readFileSync(path.join(root, "web-asset/js/exercise-gate.js"), "utf8")
+  const helperTemplate = fs.readFileSync(path.join(root, "templates/exercise-gate-template.html"), "utf8")
 
   assert.equal(submissionPages.length, 120)
+  assert.match(helper, /form\.getAttribute\("data-exercise-submit-owner"\) === "shared"/)
+  assert.match(helper, /event\.stopImmediatePropagation\(\)/)
+  assert.match(helper, /function createExerciseAttemptId\(\)/)
+  assert.match(helper, /window\.sessionStorage\.setItem\(attemptStorageKey/)
+  assert.match(helper, /attemptState\.completed = true/)
+
+  const payloadStart = helper.indexOf("function collectPayload()")
+  const payloadEnd = helper.indexOf("\n    function sendSubmission", payloadStart)
+  assert.notEqual(payloadStart, -1)
+  assert.notEqual(payloadEnd, -1)
+  const payloadBody = helper.slice(payloadStart, payloadEnd)
+  const returnedPayloadStart = payloadBody.indexOf("return {")
+  assert.notEqual(returnedPayloadStart, -1)
+  const returnedPayload = payloadBody.slice(returnedPayloadStart)
+  const payloadFields = new Set([...returnedPayload.matchAll(/^\s*([A-Za-z]\w*):/gm)].map((match) => match[1]))
+  assert.deepEqual([...payloadFields].sort(), [...expectedFields].sort())
+  assert.match(returnedPayload, /sourceSystem:\s*"ielts"/)
+  assert.match(returnedPayload, /sourceAttemptId:\s*attempt\.sourceAttemptId/)
+  assert.match(returnedPayload, /startedAt:\s*attempt\.startedAt/)
+
+  assert.match(helperTemplate, /data-exercise-submit-owner="shared"/)
+  assert.match(helperTemplate, /https:\/\/test\.eagles\.edu\.vn\/api\/exercise-submission/)
 
   for (const file of submissionPages) {
     const relative = path.relative(root, file)
     const source = fs.readFileSync(file, "utf8")
-    const matches = [
-      ...source.matchAll(/const payload = \{\n([\s\S]*?)\n[ \t]*\}\n\s*const res = await postJSON\(submitUrl, payload\)/g),
-    ]
+    const formTags = [...source.matchAll(/<form\b[^>]*>/g)].map((match) => match[0]).filter((tag) => /\bdata-exercise-form(?:=|\s|>)/.test(tag))
 
-    assert.equal(matches.length, 1, `${relative}: expected one network payload block`)
+    assert.equal(formTags.length, 1, `${relative}: expected one exercise form`)
+    assert.match(formTags[0], /data-exercise-submit-owner="shared"/, `${relative}: shared sender must own delivery`)
+    const gateScripts = [...source.matchAll(/<script\b[^>]*src=["']([^"']*exercise-gate\.js)["'][^>]*>/g)]
+    assert.equal(gateScripts.length, 1, `${relative}: expected one shared exercise gate script`)
+    assert.equal(
+      path.resolve(path.dirname(file), gateScripts[0][1]),
+      path.join(root, "web-asset/js/exercise-gate.js"),
+      `${relative}: exercise gate script path must resolve to the shared sender`
+    )
+    assert.match(source, /https:\/\/test\.eagles\.edu\.vn\/api\/exercise-submission/, `${relative}: test SIS endpoint missing`)
+    assert.doesNotMatch(source, /https:\/\/ielts\.eagles\.edu\.vn\/api\/exercise-submission/, `${relative}: production SIS endpoint remains`)
+    assert.doesNotMatch(source, /http:\/\/127\.0\.0\.1:8787\/api\/exercise-submission/, `${relative}: local SIS endpoint remains`)
 
-    const body = matches[0][1]
-    const fields = new Set([...body.matchAll(/^\s*([A-Za-z]\w*)\s*(?::|,)/gm)].map((match) => match[1]))
-
-    assert.deepEqual([...fields].sort(), [...expectedFields].sort(), `${relative}: unexpected SIS payload fields`)
-    assert.match(body, /eaglesId:\s*studentId/, `${relative}: student ID must map to eaglesId`)
-    assert.doesNotMatch(body, /^\s*(?:studentId|answers)\s*,/m, `${relative}: local-only fields leaked into the SIS payload`)
+    const scoreStart = source.indexOf("function summarizeScores")
+    const scoreEnd = source.indexOf("function updateProgress", scoreStart)
+    assert.notEqual(scoreStart, -1, `${relative}: score helper missing`)
+    assert.match(
+      source.slice(scoreStart, scoreEnd),
+      /const blocks = \$\$\("\[data-exercise-question\]", theForm\)/,
+      `${relative}: score helper must count every question block`
+    )
   }
 })

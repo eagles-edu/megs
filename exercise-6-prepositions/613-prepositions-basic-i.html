@@ -1387,7 +1387,7 @@
                   <!-- prettier-ignore -->
                   <p>Check out your answers by clicking the sentences.</p>
                 </div>
-                <form class="exercise-form exercise-gate" data-exercise-form data-storage-key="exercise-613-prepositions-basic-i" novalidate>
+                <form class="exercise-form exercise-gate" data-exercise-form data-storage-key="exercise-613-prepositions-basic-i" novalidate data-exercise-submit-owner="shared">
                   <fieldset class="exercise-form__intro">
                     <legend class="visually-hidden">Exercise setup</legend>
                     <div class="exercise-form__intro-layout">
@@ -2685,9 +2685,9 @@
                     if (!cfg.submitUrl) {
                       const host = location.host
                       if (host === "127.0.0.1:5500" || host === "localhost:5500") {
-                        cfg.submitUrl = "http://127.0.0.1:8787/api/exercise-submission" // dev: Node directly
+                        cfg.submitUrl = "https://test.eagles.edu.vn/api/exercise-submission" // dev: Node directly
                       } else {
-                        cfg.submitUrl = "https://ielts.eagles.edu.vn/api/exercise-submission" // prod: via nginx
+                        cfg.submitUrl = "https://test.eagles.edu.vn/api/exercise-submission" // prod: via nginx
                       }
                       cfgEl.textContent = JSON.stringify(cfg)
                     }
@@ -4138,9 +4138,9 @@
           if (!submitUrl) {
             const h = location.host
             if (h === "127.0.0.1:5500" || h === "localhost:5500") {
-              submitUrl = "http://127.0.0.1:8787/api/exercise-submission"
+              submitUrl = "https://test.eagles.edu.vn/api/exercise-submission"
             } else {
-              submitUrl = "https://ielts.eagles.edu.vn/api/exercise-submission"
+              submitUrl = "https://test.eagles.edu.vn/api/exercise-submission"
             }
           }
 
@@ -4192,7 +4192,7 @@
 
         
         function summarizeScores(theForm) {
-          const blocks = $("[data-exercise-question]", theForm)
+          const blocks = $$("[data-exercise-question]", theForm)
           const totalQuestions = blocks.length
           const correctCount = $$(".exercise-response-row--correct", theForm).length
           const pendingCount = $$(".exercise-response-row--pending", theForm).length

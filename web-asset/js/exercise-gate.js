@@ -79,6 +79,24 @@
     return hashFnv1a64(value)
   }
 
+  function createExerciseAttemptId() {
+    var cryptoApi = window.crypto
+    if (cryptoApi && typeof cryptoApi.randomUUID === "function") {
+      return "ielts-" + cryptoApi.randomUUID()
+    }
+    if (cryptoApi && typeof cryptoApi.getRandomValues === "function") {
+      var bytes = new Uint8Array(16)
+      cryptoApi.getRandomValues(bytes)
+      var hex = ""
+      for (var i = 0; i < bytes.length; i++) {
+        var part = bytes[i].toString(16)
+        hex += part.length === 1 ? "0" + part : part
+      }
+      return "ielts-" + hex
+    }
+    return "ielts-" + Date.now().toString(36) + "-" + Math.random().toString(36).slice(2) + Math.random().toString(36).slice(2)
+  }
+
   function coerceBoolean(value, defaultValue) {
     if (typeof value === "boolean") return value
     if (typeof value === "string") {
@@ -578,6 +596,58 @@
     var studentListId = storageKey + ":student"
     var emailHistoryKey = storageKey + ":email-history"
     var studentHistoryKey = storageKey + ":student-history"
+    var attemptStorageKey = storageKey + ":sis-exercise-attempt"
+    var attemptState = null
+    try {
+      var storedExerciseAttempt = window.sessionStorage.getItem(attemptStorageKey)
+      if (storedExerciseAttempt) {
+        var parsedExerciseAttempt = JSON.parse(storedExerciseAttempt)
+        if (
+          parsedExerciseAttempt &&
+          typeof parsedExerciseAttempt.sourceAttemptId === "string" &&
+          parsedExerciseAttempt.sourceAttemptId &&
+          typeof parsedExerciseAttempt.startedAt === "string" &&
+          !Number.isNaN(Date.parse(parsedExerciseAttempt.startedAt))
+        ) {
+          attemptState = parsedExerciseAttempt
+        }
+      }
+    } catch (err) {
+      void err
+    }
+
+    function persistExerciseAttempt() {
+      if (!attemptState) return
+      try {
+        window.sessionStorage.setItem(attemptStorageKey, JSON.stringify(attemptState))
+      } catch (err) {
+        void err
+      }
+    }
+
+    function ensureExerciseAttempt() {
+      if (!attemptState) {
+        attemptState = {
+          sourceAttemptId: createExerciseAttemptId(),
+          startedAt: new Date().toISOString(),
+          completed: false,
+        }
+        persistExerciseAttempt()
+      }
+      return attemptState
+    }
+
+    function trackExerciseAttemptInput(event) {
+      var target = event && event.target
+      if (!target || typeof target.matches !== "function") return
+      if (!target.matches(".exercise-response-input, [data-item][data-field]")) return
+      if (attemptState && attemptState.completed) attemptState = null
+      ensureExerciseAttempt()
+      persistExerciseAttempt()
+    }
+
+    form.addEventListener("input", trackExerciseAttemptInput, true)
+    form.addEventListener("change", trackExerciseAttemptInput, true)
     if (emailInput) emailInput.setAttribute("autocomplete", "off")
     if (studentIdInput) studentIdInput.setAttribute("autocomplete", "off")
     var config = parseConfig(document.querySelector("[data-exercise-config]"))
@@ -1219,7 +1289,11 @@
         })
       }
       var summary = summarizeScoresFromAnswers(answersPayload)
+      var attempt = ensureExerciseAttempt()
       return {
+        sourceSystem: "ielts",
+        sourceAttemptId: attempt.sourceAttemptId,
+        startedAt: attempt.startedAt,
         email: emailInput ? (emailInput.value || "").trim() : "",
         eaglesId: studentIdInput ? (studentIdInput.value || "").trim() : "",
         pageTitle: document.title,
@@ -1297,6 +1371,9 @@
             studentId: payload.eaglesId,
             answers: answersPayloadForStorage(),
           }
+          attemptState = ensureExerciseAttempt()
+          attemptState.completed = true
+          persistExerciseAttempt()
           writeStoredAttempt(storageKey, stored)
           emailHistory = addContactHistory(emailHistory, payload.email, 10)
           studentHistory = addContactHistory(studentHistory, payload.eaglesId, 10)
@@ -1306,12 +1383,7 @@
           rememberContactValue(studentIdInput, payload.eaglesId, studentListId)
           renderLastAttempt(stored)
           resetExercise()
-          setFeedback(
-            `Submitted! Check your inbox.
-All answers submitted successfully.
-Answers have been cleared for your next attempt.`,
-            "success"
-          )
+          setFeedback("Submitted successfully. SIS received your exercise score.", "success")
           updateSubmitState()
           return true
         })
@@ -1370,8 +1442,20 @@ Answers have been cleared for your next attempt.`,
       })
     }
 
-    form.addEventListener("submit", function (event) {
-      handleSubmit(event)
-    })
+    if (form.getAttribute("data-exercise-submit-owner") === "shared") {
+      form.addEventListener(
+        "submit",
+        function (event) {
+          event.preventDefault()
+          event.stopImmediatePropagation()
+          handleSubmit(event)
+        },
+        true
+      )
+    } else {
+      form.addEventListener("submit", function (event) {
+        handleSubmit(event)
+      })
+    }
   })
 })()

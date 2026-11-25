@@ -279,6 +279,8 @@ _user input_:
 
 ## Daily Updates
 
+- 2026-11-26: Require current exercise conversions to use one shared submission owner, a resolvable exercise-gate helper, the SIS test endpoint, stable attempt IDs across retry, and full student/exercise/time/question-count fields; verified the shared sender blocks a duplicate inline submit.
+
 - 2026-02-06: Recorded system-doc maintenance requirement and scope exemption alignment with AGENTS.md.
 - 2026-02-07: Documented lean prototype head-shell baseline (critical-inline only, early mobile-nav bootstrap, and externalized layout/menu rules).
 - 2026-02-07: Rolled the prototype head-shell baseline to `lesson-6-prepositions/1-4` to remove speculation-driven 404 noise and reduce CLS drift.

@@ -164,7 +164,7 @@
                 </div>
                 <div itemprop="articleBody">
                   {{PAGER_HTML}} {{INTRO_HTML}}
-                  <form class="exercise-form exercise-gate" data-exercise-form data-storage-key="{{STORAGE_KEY}}" novalidate>
+                  <form class="exercise-form exercise-gate" data-exercise-form data-exercise-submit-owner="shared" data-storage-key="{{STORAGE_KEY}}" novalidate>
                     <fieldset class="exercise-form__intro">
                       <legend class="visually-hidden">Exercise setup</legend>
                       <div class="exercise-form__intro-layout">
@@ -213,11 +213,7 @@
                       const cfg = JSON.parse(cfgEl.textContent || "{}")
                       if (!cfg.submitUrl) {
                         const host = location.host
-                        if (host === "127.0.0.1:5500" || host === "localhost:5500") {
-                          cfg.submitUrl = "http://127.0.0.1:8787/api/exercise-submission"
-                        } else {
-                          cfg.submitUrl = location.origin + "/api/exercise-submission"
-                        }
+                        cfg.submitUrl = "https://test.eagles.edu.vn/api/exercise-submission"
                         cfgEl.textContent = JSON.stringify(cfg)
                       }
                     })()

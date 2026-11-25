@@ -1388,7 +1388,7 @@
                 <p>
                   &#80;&#108;&#97;&#99;&#101;&#32;&#116;&#104;&#101;&#32;&#97;&#100;&#118;&#101;&#114;&#98;&#32;&#40;&#32;&#112;&#104;&#114;&#97;&#115;&#101;&#41;&#32;&#105;&#110;&#32;&#98;&#114;&#97;&#99;&#107;&#101;&#116;&#115;&#32;&#105;&#110;&#32;&#116;&#104;&#101;&#32;&#99;&#111;&#114;&#114;&#101;&#99;&#116;&#32;&#112;&#111;&#115;&#105;&#116;&#105;&#111;&#110;&#32;&#105;&#110;&#32;&#116;&#104;&#101;&#32;&#115;&#101;&#110;&#116;&#101;&#110;&#99;&#101;&#46;&#32;&#67;&#108;&#105;&#99;&#107;&#32;&#116;&#111;&#32;&#99;&#104;&#101;&#99;&#107;&#32;&#121;&#111;&#117;&#114;&#32;&#97;&#110;&#115;&#119;&#101;&#114;&#115;&#46;
                 </p>
-                <form class="exercise-form exercise-gate" data-exercise-form data-storage-key="exercise-421-positioning-adverbs-part-1" novalidate>
+                <form class="exercise-form exercise-gate" data-exercise-form data-storage-key="exercise-421-positioning-adverbs-part-1" novalidate data-exercise-submit-owner="shared">
                   <fieldset class="exercise-form__intro">
                     <legend class="visually-hidden">Exercise setup</legend>
                     <div class="exercise-form__intro-layout">
@@ -2524,9 +2524,9 @@
                     if (!cfg.submitUrl) {
                       const host = location.host
                       if (host === "127.0.0.1:5500" || host === "localhost:5500") {
-                        cfg.submitUrl = "http://127.0.0.1:8787/api/exercise-submission" // dev: Node directly
+                        cfg.submitUrl = "https://test.eagles.edu.vn/api/exercise-submission" // dev: Node directly
                       } else {
-                        cfg.submitUrl = "https://ielts.eagles.edu.vn/api/exercise-submission" // prod: via nginx
+                        cfg.submitUrl = "https://test.eagles.edu.vn/api/exercise-submission" // prod: via nginx
                       }
                       cfgEl.textContent = JSON.stringify(cfg)
                     }
@@ -3979,9 +3979,9 @@
           if (!submitUrl) {
             const h = location.host
             if (h === "127.0.0.1:5500" || h === "localhost:5500") {
-              submitUrl = "http://127.0.0.1:8787/api/exercise-submission"
+              submitUrl = "https://test.eagles.edu.vn/api/exercise-submission"
             } else {
-              submitUrl = "https://ielts.eagles.edu.vn/api/exercise-submission"
+              submitUrl = "https://test.eagles.edu.vn/api/exercise-submission"
             }
           }
 
@@ -4033,7 +4033,7 @@
 
         
         function summarizeScores(theForm) {
-          const blocks = $("[data-exercise-question]", theForm)
+          const blocks = $$("[data-exercise-question]", theForm)
           const totalQuestions = blocks.length
           const correctCount = $$(".exercise-response-row--correct", theForm).length
           const pendingCount = $$(".exercise-response-row--pending", theForm).length
